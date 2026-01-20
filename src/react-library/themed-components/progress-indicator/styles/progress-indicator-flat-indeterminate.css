@@ -1,0 +1,53 @@
+@keyframes react-library-themed-components-progress-indicator-flat-indeterminate-active {
+	0% {
+		flex-grow: 0;
+	}
+
+	35% {
+		flex-grow: 30;
+	}
+
+	65% {
+		flex-grow: 30;
+	}
+
+	100% {
+		flex-grow: 0;
+	}
+}
+
+@keyframes react-library-themed-components-progress-indicator-flat-indeterminate-inactive-start {
+	0% {
+		flex-grow: 0;
+	}
+
+	35% {
+		flex-grow: 0;
+	}
+
+	65% {
+		flex-grow: 70;
+	}
+
+	100% {
+		flex-grow: 100;
+	}
+}
+
+@keyframes react-library-themed-components-progress-indicator-flat-indeterminate-inactive-end {
+	0% {
+		flex-grow: 100;
+	}
+
+	35% {
+		flex-grow: 70;
+	}
+
+	65% {
+		flex-grow: 0;
+	}
+
+	100% {
+		flex-grow: 0;
+	}
+}
