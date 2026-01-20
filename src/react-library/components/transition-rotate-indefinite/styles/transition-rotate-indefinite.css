@@ -1,0 +1,9 @@
+@keyframes react-library-components-transition-rotate-indefinite {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
