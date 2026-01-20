@@ -1,0 +1,388 @@
+import { useCallback, useState } from "react";
+
+import { Orientation } from "@react-library/common";
+import { MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
+import {
+	ButtonContent,
+	ButtonGroup,
+	ButtonGroupAction,
+	ButtonGroupAlignItems,
+	ButtonIconWidth,
+	ButtonSize,
+	ButtonStyle
+} from "@react-library/themed-components";
+
+import { DemoSection } from "@react-library-demo/shared";
+
+import { ButtonGroupDemoButtonId } from "./button-group-demo-button-id.type";
+
+export function ReactLibraryThemedComponentsButtonGroupDemo() {
+
+	const [buttonIdSingle, setButtonIdSingle] = useState<ButtonGroupDemoButtonId>(ButtonGroupDemoButtonId.First);
+	const [buttonIdMulti, setButtonIdMulti] = useState<Array<ButtonGroupDemoButtonId>>([ButtonGroupDemoButtonId.First]);
+
+	const setButtonIdMultiToggle = useCallback(
+		(id: ButtonGroupDemoButtonId) => setButtonIdMulti((prev) => {
+			const isDelete: boolean = !!prev.find(x => x === id);
+			return isDelete ? [...prev].filter(x => x !== id) : [...prev, id]
+		}),
+		[]
+	);
+
+	return (
+		<>
+			<DemoSection
+				key="button-group-click"
+				title="Button Group - Click"
+			>
+				<ButtonGroup
+					action={ButtonGroupAction.Click}
+					orientation={Orientation.Horizontal}
+					size={ButtonSize.Medium}
+					style={ButtonStyle.Elevated}
+				>
+					{{
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Narrow,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.First,
+						onClick: () => { }
+					}}
+					{{
+						content: ButtonContent.IconLabel,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Second,
+						label: "Label",
+						onClick: () => { }
+					}}
+					{{
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Default,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Third,
+						onClick: () => { }
+					}}
+					{{
+						content: ButtonContent.Label,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Fourth,
+						label: "Label",
+						onClick: () => { }
+					}}
+					{{
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Wide,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Fifth,
+						onClick: () => { }
+					}}
+				</ButtonGroup>
+			</DemoSection>
+			<DemoSection
+				key="button-group-split"
+				title="Button Group - Split"
+			>
+				<ButtonGroup
+					action={ButtonGroupAction.Split}
+					orientation={Orientation.Horizontal}
+					size={ButtonSize.Medium}
+					style={ButtonStyle.Elevated}
+				>
+					{{
+						content: ButtonContent.IconLabel,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.First,
+						label: "Label",
+						menuElement: ButtonSplitMenuElement,
+						onClick: () => { }
+					}}
+					{{
+						content: ButtonContent.IconLabel,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Second,
+						label: "Label",
+						menuElement: ButtonSplitMenuElement,
+						onClick: () => { }
+					}}
+					{{
+						content: ButtonContent.IconLabel,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Third,
+						label: "Label",
+						menuElement: ButtonSplitMenuElement,
+						onClick: () => { }
+					}}
+				</ButtonGroup>
+			</DemoSection>
+			<DemoSection
+				key="button-group-click-or-split"
+				title="Button Group - Click Or Split"
+			>
+				<ButtonGroup
+					action={ButtonGroupAction.ClickOrSplit}
+					orientation={Orientation.Horizontal}
+					size={ButtonSize.Medium}
+					style={ButtonStyle.Elevated}
+				>
+					{{
+						action: ButtonGroupAction.Click,
+						content: ButtonContent.IconLabel,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.First,
+						label: "Label",
+						onClick: () => { },
+					}}
+					{{
+						action: ButtonGroupAction.Split,
+						content: ButtonContent.IconLabel,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Second,
+						label: "Label",
+						menuElement: ButtonSplitMenuElement,
+						onClick: () => { }
+					}}
+					{{
+						action: ButtonGroupAction.Click,
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Default,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Third,
+						onClick: () => { }
+					}}
+					{{
+						action: ButtonGroupAction.Click,
+						content: ButtonContent.Label,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Fourth,
+						label: "Label",
+						onClick: () => { }
+					}}
+					{{
+						action: ButtonGroupAction.Split,
+						content: ButtonContent.IconLabel,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Fifth,
+						label: "Label",
+						menuElement: ButtonSplitMenuElement,
+						onClick: () => { }
+					}}
+				</ButtonGroup>
+			</DemoSection>
+			<DemoSection
+				key="button-group-selection-single"
+				title="Button Group - Selection - Single"
+			>
+				<ButtonGroup
+					action={ButtonGroupAction.Selection}
+					orientation={Orientation.Horizontal}
+					size={ButtonSize.Medium}
+					style={ButtonStyle.Elevated}
+				>
+					{{
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Narrow,
+						isDisabled: false,
+						isSelected: buttonIdSingle === ButtonGroupDemoButtonId.First,
+						key: ButtonGroupDemoButtonId.First,
+						onClick: () => setButtonIdSingle(ButtonGroupDemoButtonId.First)
+					}}
+					{{
+						content: ButtonContent.IconLabel,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						isDisabled: false,
+						isSelected: buttonIdSingle === ButtonGroupDemoButtonId.Second,
+						key: ButtonGroupDemoButtonId.Second,
+						label: "Label",
+						onClick: () => setButtonIdSingle(ButtonGroupDemoButtonId.Second)
+					}}
+					{{
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Default,
+						isDisabled: false,
+						isSelected: buttonIdSingle === ButtonGroupDemoButtonId.Third,
+						key: ButtonGroupDemoButtonId.Third,
+						onClick: () => setButtonIdSingle(ButtonGroupDemoButtonId.Third)
+					}}
+					{{
+						content: ButtonContent.Label,
+						isDisabled: false,
+						isSelected: buttonIdSingle === ButtonGroupDemoButtonId.Fourth,
+						key: ButtonGroupDemoButtonId.Fourth,
+						label: "Label",
+						onClick: () => setButtonIdSingle(ButtonGroupDemoButtonId.Fourth)
+					}}
+					{{
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Wide,
+						isDisabled: false,
+						isSelected: buttonIdSingle === ButtonGroupDemoButtonId.Fifth,
+						key: ButtonGroupDemoButtonId.Fifth,
+						onClick: () => setButtonIdSingle(ButtonGroupDemoButtonId.Fifth)
+					}}
+				</ButtonGroup>
+			</DemoSection>
+			<DemoSection
+				key="button-group-selection-multi"
+				title="Button Group - Selection - Multi"
+			>
+				<ButtonGroup
+					action={ButtonGroupAction.Selection}
+					orientation={Orientation.Horizontal}
+					size={ButtonSize.Medium}
+					style={ButtonStyle.Elevated}
+				>
+					{{
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Narrow,
+						isDisabled: false,
+						isSelected: !!buttonIdMulti.find(x => x === ButtonGroupDemoButtonId.First),
+						key: ButtonGroupDemoButtonId.First,
+						onClick: () => setButtonIdMultiToggle(ButtonGroupDemoButtonId.First)
+					}}
+					{{
+						content: ButtonContent.IconLabel,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						isDisabled: false,
+						isSelected: !!buttonIdMulti.find(x => x === ButtonGroupDemoButtonId.Second),
+						key: ButtonGroupDemoButtonId.Second,
+						label: "Label",
+						onClick: () => setButtonIdMultiToggle(ButtonGroupDemoButtonId.Second)
+					}}
+					{{
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Default,
+						isDisabled: false,
+						isSelected: !!buttonIdMulti.find(x => x === ButtonGroupDemoButtonId.Third),
+						key: ButtonGroupDemoButtonId.Third,
+						onClick: () => setButtonIdMultiToggle(ButtonGroupDemoButtonId.Third)
+					}}
+					{{
+						content: ButtonContent.Label,
+						isDisabled: false,
+						isSelected: !!buttonIdMulti.find(x => x === ButtonGroupDemoButtonId.Fourth),
+						key: ButtonGroupDemoButtonId.Fourth,
+						label: "Label",
+						onClick: () => setButtonIdMultiToggle(ButtonGroupDemoButtonId.Fourth)
+					}}
+					{{
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Wide,
+						isDisabled: false,
+						isSelected: !!buttonIdMulti.find(x => x === ButtonGroupDemoButtonId.Fifth),
+						key: ButtonGroupDemoButtonId.Fifth,
+						onClick: () => setButtonIdMultiToggle(ButtonGroupDemoButtonId.Fifth)
+					}}
+				</ButtonGroup>
+			</DemoSection>
+			<DemoSection
+				key="button-group-click-vertical-end"
+				title="Button Group - Click - Vertical End"
+			>
+				<ButtonGroup
+					align={ButtonGroupAlignItems.End}
+					action={ButtonGroupAction.Click}
+					orientation={Orientation.Vertical}
+					size={ButtonSize.Medium}
+					style={ButtonStyle.Elevated}
+				>
+					{{
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Narrow,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.First,
+						onClick: () => { }
+					}}
+					{{
+						content: ButtonContent.IconLabel,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Second,
+						label: "Label",
+						onClick: () => { }
+					}}
+					{{
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Default,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Third,
+						onClick: () => { }
+					}}
+					{{
+						content: ButtonContent.Label,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Fourth,
+						label: "Label",
+						onClick: () => { }
+					}}
+					{{
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Wide,
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Fifth,
+						onClick: () => { }
+					}}
+				</ButtonGroup>
+			</DemoSection>
+		</>
+	);
+}
+
+function ButtonSplitMenuElement() {
+	return (
+		<div
+			style={{
+				alignItems: "center",
+				backgroundColor: "black",
+				display: "flex",
+				height: 200,
+				justifyContent: "center",
+				width: 200
+			}}
+		>
+			Button split menu content
+		</div>
+	)
+}
