@@ -1,0 +1,28 @@
+import { ColourSchemeStyle } from "../enums/colour-scheme-style.type";
+import type { IColourSchemeStyleColour } from "../interfaces/colour-scheme-style-colour.interface";
+import type { IColourScheme } from "../interfaces/colour-scheme.interface";
+
+/**
+ * Resolve colour scheme style colour based on {@link ColourSchemeStyle}
+ * @param colourScheme
+ * @param colourSchemeStyle
+ */
+export function resolveColourSchemeStyleColour(
+	colourScheme: IColourScheme,
+	colourSchemeStyle: ColourSchemeStyle
+): IColourSchemeStyleColour {
+	switch (colourSchemeStyle) {
+		case ColourSchemeStyle.Primary:
+			return colourScheme.primary.default;
+		case ColourSchemeStyle.PrimaryContainer:
+			return colourScheme.primary.container;
+		case ColourSchemeStyle.Secondary:
+			return colourScheme.secondary.default;
+		case ColourSchemeStyle.SecondaryContainer:
+			return colourScheme.secondary.container;
+		case ColourSchemeStyle.Tertiary:
+			return colourScheme.tertiary.default;
+		case ColourSchemeStyle.TertiaryContainer:
+			return colourScheme.tertiary.container;
+	}
+};
