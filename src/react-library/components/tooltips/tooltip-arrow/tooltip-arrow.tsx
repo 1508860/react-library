@@ -15,18 +15,9 @@ export function TooltipArrow<TContent extends ReactElement>(props: TooltipArrowP
 	const [tooltipArrowPosition] = useTooltipArrowPositionState(props.tooltipPositionStrategy);
 
 	return (
-		<div
-			id="tooltip-arrow-full-container"
-			style={tooltipArrowFullContainerStyle(tooltipArrowPosition)}
-		>
-			<div
-				id="tooltip-arrow-container"
-				style={tooltipArrowPositionStyle(tooltipArrowPosition)}
-			>
-				<div
-					id="tooltip-arrow-container"
-					style={TOOLTIP_ARROW_CONTAINER_STYLE}
-				>
+		<div style={tooltipArrowFullContainerStyle(tooltipArrowPosition)}>
+			<div style={tooltipArrowPositionStyle(tooltipArrowPosition)}>
+				<div style={TOOLTIP_ARROW_CONTAINER_STYLE}>
 					{props.content}
 				</div>
 			</div>

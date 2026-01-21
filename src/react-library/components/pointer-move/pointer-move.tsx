@@ -155,7 +155,6 @@ export function PointerMove(props: PointerMoveProps) {
 		<>
 
 			<div
-				id="pointe-move"
 				onMouseDown={props.isDisabled ? undefined : handleMouseStart}
 				onTouchStart={props.isDisabled ? undefined : handleTouchStart}
 				onTouchMove={handleTouchMove}
@@ -168,7 +167,7 @@ export function PointerMove(props: PointerMoveProps) {
 			{
 				startState?.interactionType !== PointerMoveInteraction.Mouse ? <></> :
 					createPortal(
-						<div id="pointe-move-portal"
+						<div
 							onMouseMove={handleMouseMove}
 							onMouseUp={handleMouseEnd}
 							onMouseLeave={handleMouseEnd}

@@ -19,7 +19,10 @@ export function TooltipBackdrop(props: TooltipBackdropProps) {
 					{props.children}
 				</>
 				:
-				<div id="tooltip-backdrop" onClick={clickCallback} style={tooltipBackdropStyle()}>
+				<div
+					onClick={clickCallback}
+					style={tooltipBackdropStyle()}
+				>
 					{props.children}
 				</div>
 		}

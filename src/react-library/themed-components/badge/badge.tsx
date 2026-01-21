@@ -16,11 +16,7 @@ import type { BadgeProps } from "./types/badge-props.type";
  */
 export function Badge(props: BadgeProps) {
 	return (
-		<div
-			id="badge-container"
-			key="badge-container"
-			style={BADGE_CONTAINER_STYLE}
-		>
+		<div style={BADGE_CONTAINER_STYLE}>
 			{props.children}
 			{
 				props.show ? (
@@ -38,11 +34,7 @@ function BadgeSmall() {
 	const colourScheme = useColourSchemeContext();
 
 	return (
-		<div
-			id="badge-small"
-			key="badge-small"
-			style={badgeSmallStyle(colourScheme)}
-		/>
+		<div style={badgeSmallStyle(colourScheme)} />
 	);
 }
 
@@ -60,15 +52,8 @@ function BadgeLarge(props: BadgeProps) {
 	);
 
 	return (
-		<div
-			id="badge-label-container"
-			key="badge-label-container"
-			style={BADGE_LABEL_CONTAINER_STYLE}
-		>
-			<div
-				id="badge-label"
-				key="badge-label"
-				style={badgeLabelStyle(colourScheme, font)}>
+		<div style={BADGE_LABEL_CONTAINER_STYLE}>
+			<div style={badgeLabelStyle(colourScheme, font)}>
 				{displayLabel}
 			</div>
 		</div>

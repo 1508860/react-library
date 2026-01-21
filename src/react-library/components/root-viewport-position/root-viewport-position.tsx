@@ -28,8 +28,6 @@ export function RootViewportPosition(props: PropsWithChildren) {
 
 	return (
 		<div
-			id="root-viewport-position"
-			key="root-viewport-position"
 			ref={setViewportElementCallback}
 			style={ROOT_VIEWPORT_POSITION_STYLE}
 		>

@@ -67,7 +67,6 @@ export function VirtualScrollViewBase<TElement extends VirtualScrollRowComparabl
 			<div style={virtualScrollElementContainerStyle(props.orientation, renderResult.childrenSize, renderResult.paddingStart, renderResult.paddingEnd)}>
 				{renderResult.children.map((child) =>
 					<div
-						id={`vs-rendered-element-${child.id}`}
 						key={`vs-rendered-element-${child.id}`}
 						style={virtualScrollElementStyle(props.orientation, child.elementSize)}
 					>

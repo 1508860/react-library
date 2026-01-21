@@ -26,17 +26,10 @@ export function LoadingIndicator(props: LoadingIndicatorProps) {
 	);
 
 	return (
-		<div
-			key="loading-indicator-container"
-			style={loadingIndicatorContainerStyle(props)}
-		>
-			<div
-				key="loading-indicator-background"
-				style={loadingIndicatorBackgroundStyle(props, colourScheme)}
-			>
+		<div style={loadingIndicatorContainerStyle(props)}>
+			<div style={loadingIndicatorBackgroundStyle(props, colourScheme)}>
 				{LOADING_INDICATOR_SHAPE_ALL.map(shape =>
 					<div
-						id={`loading-indicator-shape-${shape}`}
 						key={`loading-indicator-shape-${shape}`}
 						style={loadingIndicatorStyle(props, colourScheme, LoadingIndicatorShapeMap[shape], shapeState === shape, shapeIncrementCount)}
 					/>

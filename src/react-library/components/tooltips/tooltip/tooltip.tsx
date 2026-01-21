@@ -89,7 +89,7 @@ export function Tooltip<
 				createPortal(
 					(
 						<TooltipBackdrop onDismiss={onDismiss} tooltipInteractionType={props.tooltipInteractionType}>
-							<div id="tooltip-container" style={tooltipContainerStyle(tooltipPosition)}>
+							<div style={tooltipContainerStyle(tooltipPosition)}>
 								{
 									!props.tooltipArrowContent ? <></> :
 										<TooltipArrow
