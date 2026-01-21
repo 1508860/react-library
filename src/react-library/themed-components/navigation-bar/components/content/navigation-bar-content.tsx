@@ -17,12 +17,12 @@ export function NavigationBarContent<TItemId extends NavigationBarItemId>(props:
 
 	useEffect(
 		() => {
-			const activeChild: NavigationBarItem<TItemId> | undefined = props.children.find(child => child.id === props.activeItemId);
+			const activeChild: NavigationBarItem<TItemId> | undefined = props.children.find(child => child.itemId === props.activeItemId);
 
 			// Terminate if no change in id
-			if (activeChildId.current === activeChild?.id) return;
+			if (activeChildId.current === activeChild?.itemId) return;
 
-			activeChildId.current = activeChild?.id;
+			activeChildId.current = activeChild?.itemId;
 			setActiveChildElement(activeChild?.element);
 		},
 		[props.children, props.activeItemId]

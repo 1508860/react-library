@@ -9,5 +9,6 @@ export * from "./types/router-element-with-children-props.type";
 export * from "./types/router-element-with-children.type";
 export * from "./types/router-element.type";
 export * from "./types/router-props.type";
+export * from "./types/router-segment-id-props.type";
 export * from "./types/router-segment-id.type";
 export * from "./types/router-segment-path.type";

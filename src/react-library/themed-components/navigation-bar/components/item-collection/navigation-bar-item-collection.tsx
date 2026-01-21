@@ -22,8 +22,8 @@ export function NavigationBarItemCollection<TItemId extends NavigationBarItemId>
 					badgeLabel={child.badgeLabel}
 					element={child.element}
 					iconName={child.iconName}
-					id={child.id}
-					key={child.id}
+					itemId={child.itemId}
+					key={child.itemId}
 					label={child.label}
 					onChange={props.itemOnChange}
 					showBadge={child.showBadge}

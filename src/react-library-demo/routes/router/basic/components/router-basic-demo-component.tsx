@@ -22,7 +22,7 @@ export function ReactLibraryRouterBasicDemoComponent(props: RouterElementProps):
 				width: "100%"
 			}}
 		>
-			<span>Segment: {props.id}</span>
+			<span>Segment: {props.segmentId}</span>
 		</div>
 	);
 }

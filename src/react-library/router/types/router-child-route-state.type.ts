@@ -1,9 +1,9 @@
-import type { IId, IRoute, PrefixKeys } from "@react-library/common";
+import type { IRoute } from "@react-library/common";
 
 import type { RouteAll } from "./route.type";
-import type { RouterSegmentId } from "./router-segment-id.type";
+import type { RouterSegmentIdProps } from "./router-segment-id-props.type";
 
 export type RouterChildRouteState = (
-	PrefixKeys<IId<RouterSegmentId>, "segment"> &
-	IRoute<RouteAll>
+	IRoute<RouteAll> &
+	RouterSegmentIdProps
 );

@@ -72,7 +72,7 @@ function resolveNavigationBarDemoItem(
 			</div>
 		),
 		iconName: iconName,
-		id: itemId,
+		itemId: itemId,
 		label: `Item ${itemId}`,
 		showBadge: showBadge,
 		badgeLabel: badgeLabel

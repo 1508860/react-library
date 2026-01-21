@@ -54,8 +54,8 @@ export function RouterProvider(props: RouterProps) {
 			<ROUTER_SUBJECT_CONTEXT.Provider value={routerSubject}>
 				<ROUTER_NOTIFIER_CONTEXT.Provider value={routerNotifier}>
 					<props.routes.element
-						id={props.routes.segmentId}
 						key={`child-${props.routes.type}-${props.routes.segmentId}`}
+						segmentId={props.routes.segmentId}
 					>
 						<RouterChildOutlet segmentId={props.routes.segmentId} />
 					</ props.routes.element>

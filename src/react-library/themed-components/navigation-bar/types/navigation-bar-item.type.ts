@@ -3,7 +3,7 @@ import type { ReactElement } from "react";
 import type {
 	IElement,
 	IIconName,
-	IId,
+	IItemId,
 	ILabel,
 	IShow,
 	PrefixKeys,
@@ -21,7 +21,7 @@ import type { NavigationBarItemId } from "./navigation-bar-item-id.type";
 export type NavigationBarItem<TItemId extends NavigationBarItemId> = (
 	IElement<() => ReactElement> &
 	IIconName<MaterialIconName> &
-	IId<TItemId> &
+	IItemId<TItemId> &
 	ILabel<string> &
 	Partial<PrefixKeys<ILabel<BadgeLabel>, "badge">> &
 	SuffixKeys<IShow, "Badge">

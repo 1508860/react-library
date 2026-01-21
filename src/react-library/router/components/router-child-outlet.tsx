@@ -14,12 +14,12 @@ export function RouterChildOutlet(props: RouterChildOutletProps): ReactElement {
 			(
 				state.route.type === RouterSegment.Child ?
 					<state.route.element
-						id={state.segmentId}
 						key={`child-${state.route.type}-${state.segmentId}`}
+						segmentId={state.segmentId}
 					/> :
 					<state.route.element
-						id={state.segmentId}
 						key={`child-${state.route.type}-${state.segmentId}`}
+						segmentId={state.segmentId}
 					>
 						<RouterChildOutlet segmentId={state.segmentId} />
 					</ state.route.element>

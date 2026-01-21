@@ -23,7 +23,7 @@ export function ReactLibraryRouterBasicDemoComponentWithChildren(props: RouterEl
 					width: "100%"
 				}}
 			>
-				<span>Segment: {props.id}</span>
+				<span>Segment: {props.segmentId}</span>
 			</div>
 			<div
 				key="children"
@@ -33,7 +33,7 @@ export function ReactLibraryRouterBasicDemoComponentWithChildren(props: RouterEl
 					width: "100%"
 				}}
 			>
-				<RouterChildOutlet segmentId={props.id} />
+				<RouterChildOutlet segmentId={props.segmentId} />
 			</div>
 		</>
 	);

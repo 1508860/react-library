@@ -1,10 +1,10 @@
 import type { ReactElement } from "react";
 
-import type { IChild, IId } from "@react-library/common";
+import type { IChild } from "@react-library/common";
 
-import type { RouterSegmentId } from "./router-segment-id.type";
+import type { RouterSegmentIdProps } from "./router-segment-id-props.type";
 
 export type RouterElementWithChildrenProps = (
 	IChild<ReactElement> &
-	IId<RouterSegmentId>
+	RouterSegmentIdProps
 );

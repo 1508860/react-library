@@ -22,8 +22,8 @@ export function NavigationBarItemContainer<TItemId extends NavigationBarItemId>(
 
 	// Handle active state
 	const [isActive, setIsActive] = useState<boolean>(() => false);
-	useEffect(() => setIsActive(props.activeItemId === props.id), [props.activeItemId, props.id]);
-	const handleClick = useCallback(() => props.onChange(props.id), [props]);
+	useEffect(() => setIsActive(props.activeItemId === props.itemId), [props.activeItemId, props.itemId]);
+	const handleClick = useCallback(() => props.onChange(props.itemId), [props]);
 
 	// Pointer event handlers (for cosmetics etc)
 	const [isPressed, setIsPressed] = useState<boolean>(() => false);

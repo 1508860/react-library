@@ -39,7 +39,7 @@ export function ReactLibraryRouterBasicDemoComponentRoot(props: RouterElementPro
 				key="route-components"
 				weight={10}
 			>
-				<RouterChildOutlet segmentId={props.id} />
+				<RouterChildOutlet segmentId={props.segmentId} />
 			</DemoColumn>
 		</>
 	);
