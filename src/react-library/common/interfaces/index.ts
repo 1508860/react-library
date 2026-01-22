@@ -17,7 +17,6 @@ export * from "./box-shadow.interface";
 export * from "./button.interface";
 export * from "./center.interface";
 export * from "./child.interface";
-export * from "./children-collection.interface";
 export * from "./children.interface";
 export * from "./clip-path.interface";
 export * from "./collapsed.interface";
