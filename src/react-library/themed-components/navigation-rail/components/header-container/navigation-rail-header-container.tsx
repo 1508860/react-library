@@ -14,7 +14,7 @@ export function NavigationRailHeaderContainer(props: NavigationRailHeaderContain
 				key="menu-icon-header-container"
 				style={NAVIGATION_RAIL_HEADER_CONTAINER_MENU_STYLE}
 			>
-				{props.children()}
+				<props.children />
 			</div> :
 			<Fragment key="no-menu-icon-header-container" />
 	);

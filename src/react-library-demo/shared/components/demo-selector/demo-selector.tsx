@@ -63,7 +63,7 @@ export function DemoSelector<TSubItemId>(props: IDemoSelectorProps<TSubItemId>) 
 				key="content"
 				style={demoSelectorContentStyle()}
 			>
-				{currentSubItem.element()}
+				<currentSubItem.element />
 			</div>
 		</div>
 	);
