@@ -9,7 +9,6 @@ import type { RouterElementProps } from "@react-library/router";
 export function ReactLibraryRouterBasicDemoComponent(props: RouterElementProps): ReactElement {
 	return (
 		<div
-			key="text"
 			style={{
 				alignItems: "start",
 				backgroundColor: "coral",

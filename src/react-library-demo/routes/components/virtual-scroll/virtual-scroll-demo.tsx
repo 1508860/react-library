@@ -77,9 +77,10 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 						<div key="id">Id = {child.id}</div>
 						<Tooltip<TooltipInteraction, HTMLDivElement, ReactNode>
 							content={() => <div style={{ backgroundColor: "lightcyan", maxWidth: 100 }}>Hello there - tooltip - {child.text}</div>}
-							tooltipArrowContent={<div style={{ backgroundColor: "black", height: 20, width: 20 }}></div>}
+							key="tooltip"
 							overlayPortalMargin={20}
 							positionStrategy={tooltipPositionStrategies}
+							tooltipArrowContent={<div style={{ backgroundColor: "black", height: 20, width: 20 }}></div>}
 							tooltipInteractionType={TooltipInteraction.Click}
 						>
 							{(tooltipChildProps) => {

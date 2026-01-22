@@ -32,7 +32,6 @@ export function NavigationRailMenuIcon(props: NavigationRailMenuIconProps) {
 		>
 			<MaterialIconSvg
 				colour={props.isExpanded ? colourScheme.secondary.container.onColour : colourScheme.surface.variant.onColour}
-				key="menu-icon"
 				name={props.isExpanded ? MaterialIconName.MenuOpen : MaterialIconName.Menu}
 				size={NAVIGATION_RAIL_PROPERTY_MAP.menuIconSize}
 				style={MaterialIconStyle.Default}

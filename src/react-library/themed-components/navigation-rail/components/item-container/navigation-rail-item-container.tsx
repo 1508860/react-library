@@ -65,7 +65,6 @@ export function NavigationRailItemContainer<TItemId extends NavigationRailItemId
 				>
 					<MaterialIconSvg
 						colour={isActive ? colourScheme.secondary.container.onColour : colourScheme.surface.variant.onColour}
-						key="icon"
 						name={props.iconName}
 						size={NAVIGATION_RAIL_PROPERTY_MAP.itemIconSize}
 						style={isActive ? MaterialIconStyle.Thick : MaterialIconStyle.Default}

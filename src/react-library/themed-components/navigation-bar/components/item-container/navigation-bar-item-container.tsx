@@ -82,7 +82,7 @@ export function NavigationBarItemContainer<TItemId extends NavigationBarItemId>(
 								isPressed ? colourScheme.pressed.opacity : colourScheme.hovered.opacity
 							)}
 						/> :
-						<Fragment key="target-background" />
+						<Fragment key="no-target-background" />
 				}
 			</div>
 			{props.orientation === Orientation.Vertical ? <span key="label">{props.label}</span> : <Fragment key="no-label" />}

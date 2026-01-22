@@ -13,10 +13,12 @@ export function ReactLibraryMaterialIconsDefaultDemo() {
 	return (
 		<DemoSection title="Material Icons - Style - Default">
 			{iconNames.map(iconName => (
-				<DemoItem label={iconName}>
+				<DemoItem
+					key={`icon-svg-${iconName}`}
+					label={iconName}
+				>
 					<MaterialIconSvg
 						colour={colour}
-						key={`icon-svg-${iconName}`}
 						name={iconName}
 						size={100}
 						style={MaterialIconStyle.Default}

@@ -48,7 +48,6 @@ export function OverlayPortal(props: PropsWithChildren) {
 
 	return (
 		<div
-			key="overlay-portal"
 			ref={setOverlayPortalContainerElementCallback}
 			style={OVERLAY_PORTAL_STYLE}
 		>

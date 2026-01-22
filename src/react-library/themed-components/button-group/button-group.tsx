@@ -23,10 +23,7 @@ import type { ButtonGroupProps } from "./types/button-group-props.type";
  */
 export function ButtonGroup(props: ButtonGroupProps) {
 	return (
-		<div
-			key="button-group-container"
-			style={buttonGroupContainerStyle(props)}
-		>
+		<div style={buttonGroupContainerStyle(props)}>
 			{ButtonList(props)}
 		</div>
 	);
@@ -98,7 +95,6 @@ function _ButtonClick(props: {
 			iconStyle={props.button.iconStyle}
 			iconWidth={props.button.iconWidth}
 			isDisabled={props.button.isDisabled}
-			key={props.button.key}
 			onClick={props.button.onClick}
 			shape={ButtonShape.Round}
 			size={props.buttonGroupProps.size}
@@ -110,7 +106,6 @@ function _ButtonClick(props: {
 			iconName={props.button.iconName}
 			iconStyle={props.button.iconStyle}
 			isDisabled={props.button.isDisabled}
-			key={props.button.key}
 			label={props.button.label}
 			onClick={props.button.onClick}
 			shape={ButtonShape.Round}
@@ -121,7 +116,6 @@ function _ButtonClick(props: {
 	return <ButtonClick
 		content={props.button.content}
 		isDisabled={props.button.isDisabled}
-		key={props.button.key}
 		label={props.button.label}
 		onClick={props.button.onClick}
 		shape={ButtonShape.Round}
@@ -142,7 +136,6 @@ function _ButtonSelection(props: {
 			iconWidth={props.button.iconWidth}
 			isDisabled={props.button.isDisabled}
 			isSelected={props.button.isSelected}
-			key={props.button.key}
 			onClick={props.button.onClick}
 			size={props.buttonGroupProps.size}
 			style={props.buttonGroupProps.style}
@@ -154,7 +147,6 @@ function _ButtonSelection(props: {
 			iconStyle={props.button.iconStyle}
 			isDisabled={props.button.isDisabled}
 			isSelected={props.button.isSelected}
-			key={props.button.key}
 			label={props.button.label}
 			onClick={props.button.onClick}
 			size={props.buttonGroupProps.size}
@@ -165,7 +157,6 @@ function _ButtonSelection(props: {
 		content={props.button.content}
 		isDisabled={props.button.isDisabled}
 		isSelected={props.button.isSelected}
-		key={props.button.key}
 		label={props.button.label}
 		onClick={props.button.onClick}
 		size={props.buttonGroupProps.size}
@@ -183,7 +174,6 @@ function _ButtonSplit(props: {
 			iconName={props.button.iconName}
 			iconStyle={props.button.iconStyle}
 			isDisabled={props.button.isDisabled}
-			key={props.button.key}
 			menuElement={props.button.menuElement}
 			onClick={props.button.onClick}
 			size={props.buttonGroupProps.size}
@@ -195,7 +185,6 @@ function _ButtonSplit(props: {
 			iconName={props.button.iconName}
 			iconStyle={props.button.iconStyle}
 			isDisabled={props.button.isDisabled}
-			key={props.button.key}
 			label={props.button.label}
 			menuElement={props.button.menuElement}
 			onClick={props.button.onClick}
@@ -206,7 +195,6 @@ function _ButtonSplit(props: {
 	return <ButtonSplit
 		content={props.button.content}
 		isDisabled={props.button.isDisabled}
-		key={props.button.key}
 		label={props.button.label}
 		menuElement={props.button.menuElement}
 		onClick={props.button.onClick}

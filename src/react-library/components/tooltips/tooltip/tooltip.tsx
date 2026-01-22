@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, type ReactNode, type RefCallback } from "react";
+import { Fragment, useCallback, useEffect, useState, type ReactNode, type RefCallback } from "react";
 import { createPortal } from "react-dom";
 
 import {
@@ -91,7 +91,7 @@ export function Tooltip<
 						<TooltipBackdrop onDismiss={onDismiss} tooltipInteractionType={props.tooltipInteractionType}>
 							<div style={tooltipContainerStyle(tooltipPosition)}>
 								{
-									!props.tooltipArrowContent ? <></> :
+									!props.tooltipArrowContent ? <Fragment key="no-tooltip-arrow" /> :
 										<TooltipArrow
 											content={props.tooltipArrowContent}
 											key="tooltip-arrow"

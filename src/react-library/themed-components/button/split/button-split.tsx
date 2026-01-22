@@ -100,7 +100,6 @@ function ButtonMenu(props: ButtonSplitProps): ReactElement {
 		>
 			{(tooltipChildProps) => <ButtonMenuChild
 				isExpanded={isExpanded}
-				key="button-menu-child"
 				buttonSplitProps={props}
 				tooltipChildProps={tooltipChildProps}
 			/>}

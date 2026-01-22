@@ -1,4 +1,5 @@
 import {
+	Fragment,
 	useCallback,
 	useRef,
 	useState,
@@ -105,7 +106,7 @@ export function ButtonBase(
 						size={iconSize}
 						style={content.iconStyle}
 					/> :
-					<></>
+					<Fragment key="no-button-icon" />
 			}
 			{
 				(content.content === ButtonContent.IconLabel || content.content === ButtonContent.Label) ?
@@ -115,7 +116,7 @@ export function ButtonBase(
 					>
 						{content.label}
 					</span> :
-					<></>
+					<Fragment key="no-button-label" />
 			}
 			{
 				isDisabled ?
@@ -123,7 +124,7 @@ export function ButtonBase(
 						key="button-disabled-layer"
 						style={buttonBaseLayerStyle(buttonColourState.onColour, buttonColourState.disabledOpacity, false)}
 					/> :
-					<></>
+					<Fragment key="no-button-disabled-layer" />
 			}
 			{
 				clickedInset ?
@@ -136,7 +137,7 @@ export function ButtonBase(
 						opacity={buttonColourState.pulseOpacity}
 						transitionId={clickedInset.transitionId}
 					/> :
-					<></>
+					<Fragment key="no-button-clicked-inset-layer" />
 			}
 			{
 				(!isDisabled && isHovered) ?
@@ -144,7 +145,7 @@ export function ButtonBase(
 						key="button-hovered-layer"
 						style={buttonBaseLayerStyle(buttonColourState.onColour, buttonColourState.hoverOpacity, isHovered)}
 					/> :
-					<></>
+					<Fragment key="no-button-hovered-layer" />
 			}
 		</div>
 	);

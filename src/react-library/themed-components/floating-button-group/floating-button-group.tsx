@@ -44,10 +44,7 @@ export function FloatingButtonGroup(props: FloatingButtonGroupProps) {
 	)
 
 	return (
-		<div
-			key="floating-button-group-container"
-			style={FLOATING_BUTTON_GROUP_CONTAINER_STYLE}
-		>
+		<div style={FLOATING_BUTTON_GROUP_CONTAINER_STYLE}>
 			{props.button.type === FloatingButtonGroupButton.Default ?
 				<ButtonDefault
 					button={props.button}
@@ -76,10 +73,7 @@ function ButtonDefault(props: {
 	size: ButtonSizeFloating;
 }): ReactElement {
 	return (
-		<div
-			key="floating-button-group-button"
-			style={floatingButtonGroupButtonStyle(props.position)}
-		>
+		<div style={floatingButtonGroupButtonStyle(props.position)}>
 			{
 				props.button.content === ButtonContent.Icon ?
 					<ButtonFloating
@@ -88,7 +82,6 @@ function ButtonDefault(props: {
 						iconName={props.button.iconName}
 						iconStyle={props.button.iconStyle}
 						isDisabled={props.button.isDisabled}
-						key={props.button.key}
 						onClick={props.button.onClick}
 						shape={ButtonShape.Soft}
 						size={props.size}
@@ -101,7 +94,6 @@ function ButtonDefault(props: {
 								iconName={props.button.iconName}
 								iconStyle={props.button.iconStyle}
 								isDisabled={props.button.isDisabled}
-								key={props.button.key}
 								label={props.button.label}
 								onClick={props.button.onClick}
 								shape={ButtonShape.Soft}
@@ -111,7 +103,6 @@ function ButtonDefault(props: {
 								colourSchemeStyle={props.colourScheme}
 								content={props.button.content}
 								isDisabled={props.button.isDisabled}
-								key={props.button.key}
 								label={props.button.label}
 								onClick={props.button.onClick}
 								shape={ButtonShape.Soft}
@@ -168,7 +159,6 @@ function ButtonMenu(props: {
 						iconName={showChildren ? FLOATING_BUTTON_GROUP_MENU_ICON_CLOSE : props.button.iconName}
 						iconStyle={props.button.iconStyle}
 						isDisabled={props.button.isDisabled}
-						key={props.button.key}
 						onClick={toggleShowChildren}
 						shape={ButtonShape.Round}
 						size={props.size}
@@ -178,10 +168,7 @@ function ButtonMenu(props: {
 					key="floating-button-group-menu-scroll"
 					style={floatingButtonGroupMenuScrollStyle(props.position)}
 				>
-					<div
-						key="floating-button-group-menu-children"
-						style={floatingButtonGroupMenuChildrenStyle(props.position, props.positionStrategy, props.size, props.button.orientation)}
-					>
+					<div style={floatingButtonGroupMenuChildrenStyle(props.position, props.positionStrategy, props.size, props.button.orientation)}>
 						{(showChildren ? (props.button.children.map(child =>
 							<div
 								key={child.key}
@@ -214,7 +201,6 @@ function ButtonMenuChild(props: {
 			iconName={props.button.iconName}
 			iconStyle={props.button.iconStyle}
 			isDisabled={props.button.isDisabled}
-			key={props.button.key}
 			label={props.button.label}
 			onClick={props.button.onClick}
 			shape={ButtonShape.Round}
@@ -225,7 +211,6 @@ function ButtonMenuChild(props: {
 		colourSchemeStyle={props.colourScheme}
 		content={props.button.content}
 		isDisabled={props.button.isDisabled}
-		key={props.button.key}
 		label={props.button.label}
 		onClick={props.button.onClick}
 		shape={ButtonShape.Round}

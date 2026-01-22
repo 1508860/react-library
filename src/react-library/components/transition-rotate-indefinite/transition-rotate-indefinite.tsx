@@ -9,10 +9,7 @@ import type { TransitionRotateIndefiniteProps } from "./types/transition-rotate-
 export function TransitionRotateIndefinite(props: TransitionRotateIndefiniteProps) {
 
 	return (
-		<div
-			key="transition-rotate-indefinite-container"
-			style={transitionRotateIndefiniteContainerStyle(props)}
-		>
+		<div style={transitionRotateIndefiniteContainerStyle(props)}>
 			{props.children}
 		</div>
 	);

@@ -12,10 +12,7 @@ export function ReactLibraryThemedComponentsBadgeDemo() {
 	const [badgeLargeMax] = useState<number>(1234);
 
 	return (
-		<DemoSection
-			key="badge"
-			title="Badge"
-		>
+		<DemoSection title="Badge">
 			<DemoItem
 				key="small"
 				label="Small"

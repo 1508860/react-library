@@ -6,10 +6,7 @@ import { ROUTER_BASIC_DEMO_ROUTER } from "./constants/router-basic-demo-router.c
 
 export function ReactLibraryRouterBasicDemo() {
 	return (
-		<DemoSection
-			key="router-basic"
-			title="Router - Basic"
-		>
+		<DemoSection title="Router - Basic">
 			<RouterProvider routes={ROUTER_BASIC_DEMO_ROUTER} />
 		</DemoSection>
 	);

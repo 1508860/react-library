@@ -101,10 +101,7 @@ function ProgressIndicatorCircleDeterminate(props: ProgressIndicatorBehaviourDet
 	);
 
 	return (
-		<div
-			key="progress-indicator-circle-determinate-container"
-			style={PROGRESS_INDICATOR_CIRCLE_CONTAINER_STYLE}
-		>
+		<div style={PROGRESS_INDICATOR_CIRCLE_CONTAINER_STYLE}>
 			<div
 				key="progress-indicator-circle-determinate-inactive"
 				style={progressIndicatorCircleStyle(
@@ -138,10 +135,7 @@ function ProgressIndicatorCircleIndeterminate(): ReactElement {
 
 	return (
 		<TransitionRotateIndefinite fullRotationDurationMs={PROGRESS_INDICATOR_INDETERMINATE_CYCLE_DURATION_MS}>
-			<div
-				key="progress-indicator-circle-indeterminate-container"
-				style={PROGRESS_INDICATOR_CIRCLE_CONTAINER_STYLE}
-			>
+			<div style={PROGRESS_INDICATOR_CIRCLE_CONTAINER_STYLE}>
 				<div
 					key="progress-indicator-circle-indeterminate-inactive"
 					style={progressIndicatorCircleStyle(
@@ -180,10 +174,7 @@ function ProgressIndicatorFlatDeterminate(props: ProgressIndicatorBehaviourDeter
 	);
 
 	return (
-		<div
-			key="progress-indicator-flat-determinate-container"
-			style={progressIndicatorFlatContainerStyle(props.position)}
-		>
+		<div style={progressIndicatorFlatContainerStyle(props.position)}>
 			<div
 				key="progress-indicator-flat-determinate-active"
 				style={progressIndicatorFlatDeterminateStyle(scalePercentState, colourScheme.primary.default.colour)}
@@ -200,10 +191,7 @@ function ProgressIndicatorFlatIndeterminate(props: ProgressIndicatorBehaviourInd
 
 	const colourScheme = useColourSchemeContext();
 	return (
-		<div
-			key="progress-indicator-flat-determinate-container"
-			style={progressIndicatorFlatContainerStyle(props.position)}
-		>
+		<div style={progressIndicatorFlatContainerStyle(props.position)}>
 			<div
 				key="progress-indicator-flat-determinate-inactive-start"
 				style={progressIndicatorFlatIndeterminateStyle(ProgressIndicatorFlatIndeterminateAnimation.InactiveStart, colourScheme.secondary.container.colour)}
