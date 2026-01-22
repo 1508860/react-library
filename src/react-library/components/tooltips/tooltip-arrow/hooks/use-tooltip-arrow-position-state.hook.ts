@@ -21,10 +21,9 @@ export function useTooltipArrowPositionState(tooltipPositionStrategy: PositionSt
 
 	const setValidatedState = useCallback(
 		(newState: TooltipArrowPosition | null) => {
-			if (!isTooltipArrowPositionEqual(stateRef.current, newState)) {
-				stateRef.current = newState;
-				setState(newState);
-			}
+			if (isTooltipArrowPositionEqual(stateRef.current, newState)) return;
+			stateRef.current = newState;
+			setState(newState);
 		},
 		[]
 	);

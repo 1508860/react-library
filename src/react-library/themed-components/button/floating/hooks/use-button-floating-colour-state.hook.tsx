@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
 	ColourSchemeStyle,
@@ -7,6 +7,7 @@ import {
 	type IColourScheme
 } from "@react-library/common";
 
+import { isButtonColourStateEqual } from "../../shared/functions/is-button-colour-state-equal.function";
 import type { ButtonColourState } from "../../shared/types/button-colour-state.type";
 import type { ButtonFloatingProps } from "../types/button-floating-props.type";
 
@@ -17,9 +18,21 @@ import type { ButtonFloatingProps } from "../types/button-floating-props.type";
  * @param isPressed
  */
 export function useButtonFloatingColourState(props: ButtonFloatingProps, isHovered: boolean, isPressed: boolean): [ButtonColourState] {
+
 	const colourScheme = useColourSchemeContext();
 	const [state, setState] = useState<ButtonColourState>(() => resolveButtonColourState(props, isHovered, isPressed, colourScheme));
-	useEffect(() => setState(resolveButtonColourState(props, isHovered, isPressed, colourScheme)), [props, isHovered, isPressed, colourScheme]);
+	const stateRef = useRef<ButtonColourState>(state);
+
+	useEffect(
+		() => {
+			const newState = resolveButtonColourState(props, isHovered, isPressed, colourScheme);
+			if (isButtonColourStateEqual(stateRef.current, newState)) return;
+			stateRef.current = newState;
+			setState(newState);
+		},
+		[props, isHovered, isPressed, colourScheme]
+	);
+
 	return [state];
 }
 

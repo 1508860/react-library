@@ -108,10 +108,9 @@ export function useFloatingButtonGroupPositionState(
 
 	const setValidatedState = useCallback(
 		(newState: IFloatingButtonGroupPosition) => {
-			if (!isFloatingButtonGroupPositionEqual(stateRef.current, newState)) {
-				stateRef.current = newState;
-				setState(newState);
-			}
+			if (isFloatingButtonGroupPositionEqual(stateRef.current, newState)) return;
+			stateRef.current = newState;
+			setState(newState);
 		},
 		[]
 	);

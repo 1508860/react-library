@@ -15,9 +15,7 @@ export function useCurrencyRoundedState(value: Currency | null | undefined): [Cu
 
 	useEffect(
 		() => {
-			if (!currencyFormatterState) return;
-
-			if (value === undefined || value === null || typeof value !== "number" || isNaN(value)) {
+			if (!currencyFormatterState || value === undefined || value === null || typeof value !== "number" || isNaN(value)) {
 				setState(undefined);
 				return;
 			}

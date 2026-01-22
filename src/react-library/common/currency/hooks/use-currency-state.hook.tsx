@@ -15,9 +15,7 @@ export function useCurrencyState(value: Currency | null | undefined): [Currency 
 
 	useEffect(
 		() => {
-			if (!currencyFormatterState) return;
-
-			if (value === undefined || value === null || typeof value !== "number" || isNaN(value)) {
+			if (!currencyFormatterState || value === undefined || value === null || typeof value !== "number" || isNaN(value)) {
 				setState(undefined);
 				return;
 			}

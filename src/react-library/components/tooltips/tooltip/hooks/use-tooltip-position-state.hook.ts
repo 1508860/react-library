@@ -46,10 +46,9 @@ export function useTooltipPositionState(
 
 	const setValidatedState = useCallback(
 		(newState: TooltipPosition | null) => {
-			if (!isTooltipPositionEqual(stateRef.current, newState)) {
-				stateRef.current = newState;
-				setState(newState);
-			}
+			if (isTooltipPositionEqual(stateRef.current, newState)) return;
+			stateRef.current = newState;
+			setState(newState);
 		},
 		[]
 	);

@@ -16,9 +16,7 @@ export function useCurrencyRoundedDisplayState(value: Currency | null | undefine
 
 	useEffect(
 		() => {
-			if (!currencyDisplayFormatterState) return;
-
-			if (value === undefined || value === null || typeof value !== "number" || isNaN(value)) {
+			if (!currencyDisplayFormatterState || value === undefined || value === null || typeof value !== "number" || isNaN(value)) {
 				setState(undefined);
 				return;
 			}

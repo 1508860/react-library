@@ -66,6 +66,7 @@ export function RouterProvider(props: RouterProps) {
  * TODO
  * - Add default child to root and with children routes (automatically root to these if no child is selected in the router outlet component?)
  * - Add guard array to run sequentially (async or not async)
+ * - Query / Route parameters?
  * 
  * - Remove segment id from root
  * 
