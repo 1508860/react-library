@@ -6,9 +6,9 @@ import { RouterChildOutlet } from "../components/router-child-outlet";
 import { ROUTER_CONTEXT } from "../constants/router-context.const";
 import { ROUTER_NOTIFIER_CONTEXT } from "../constants/router-notifier-context.const";
 import { ROUTER_SUBJECT_CONTEXT } from "../constants/router-subject-context.const";
-import { resolveRouterSegmentIdsFromUrl } from "../functions/resolve-router-segment-ids-from-url.function";
+import { resolveRouterActiveRoutesFromUrl } from "../functions/resolve-router-active-routes-from-url.function";
 import { resolveRouterUrlToChild } from "../functions/resolve-router-url-to-child.function";
-import type { RouterActiveSegmentIds } from "../types/router-active-segment-ids.type";
+import type { RouterActiveRoutes } from "../types/router-active-routes.type";
 import type { RouterNotifier } from "../types/router-notifier.type";
 import type { RouterProps } from "../types/router-props.type";
 import type { RouterSegmentId } from "../types/router-segment-id.type";
@@ -22,21 +22,21 @@ import type { RouterSubject } from "../types/router-subject.type";
 export function RouterProvider(props: RouterProps) {
 
 	// Handle notifications and observers to communicate changes to routing
-	const activeSegmentIdsRef = useRef<RouterActiveSegmentIds>(
-		resolveRouterSegmentIdsFromUrl(props.routes, new URL(window.location.href))
+	const activeRoutesRef = useRef<RouterActiveRoutes>(
+		resolveRouterActiveRoutesFromUrl(props.routes, new URL(window.location.href))
 	);
 
-	const [routerSubject] = useState<RouterSubject>(() => new Subject<RouterActiveSegmentIds>({
-		onSubscribe: (observer: IObserver<RouterActiveSegmentIds>) => observer.update(activeSegmentIdsRef.current),
+	const [routerSubject] = useState<RouterSubject>(() => new Subject<RouterActiveRoutes>({
+		onSubscribe: (observer: IObserver<RouterActiveRoutes>) => observer.update(activeRoutesRef.current),
 	}));
 
 	const handleRouterChange = useCallback(
-		(toChildRoute: RouterSegmentId) => {
-			const newUrl = resolveRouterUrlToChild(props.routes, toChildRoute);
+		(toRoute: RouterSegmentId) => {
+			const newUrl = resolveRouterUrlToChild(props.routes, toRoute);
 			urlReplaceState(newUrl);
-			const activeSegmentIds = resolveRouterSegmentIdsFromUrl(props.routes, newUrl);
-			activeSegmentIdsRef.current = activeSegmentIds;
-			routerSubject.notify(activeSegmentIds);
+			const activeRoutes = resolveRouterActiveRoutesFromUrl(props.routes, newUrl);
+			activeRoutesRef.current = activeRoutes;
+			routerSubject.notify(activeRoutes);
 		},
 		[props.routes, routerSubject]
 	);
@@ -45,8 +45,12 @@ export function RouterProvider(props: RouterProps) {
 
 	// Handle set up of initial route and monitor prop changes
 	useEffect(
-		() => handleRouterChange(activeSegmentIdsRef.current[activeSegmentIdsRef.current.length - 1]),
-		[handleRouterChange]
+		() => handleRouterChange(
+			activeRoutesRef.current.length > 0 ?
+				activeRoutesRef.current[activeRoutesRef.current.length - 1].segmentId :
+				props.routes.segmentId
+		),
+		[handleRouterChange, props.routes.segmentId]
 	);
 
 	return (

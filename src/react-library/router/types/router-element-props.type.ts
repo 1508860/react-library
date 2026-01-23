@@ -1,3 +1,5 @@
-import type { RouterSegmentIdProps } from "./router-segment-id-props.type";
+import type { ISegmentId } from "@react-library/common";
 
-export type RouterElementProps = RouterSegmentIdProps;
+import type { RouterSegmentId } from "./router-segment-id.type";
+
+export type RouterElementProps = ISegmentId<RouterSegmentId>;

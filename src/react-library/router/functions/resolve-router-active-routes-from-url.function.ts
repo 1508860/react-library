@@ -2,18 +2,18 @@ import { urlPathNameToArray } from "@react-library/common";
 
 import { InvalidRouteError } from "../classes/invalid-route.error";
 import { RouterSegment } from "../enums/router-segment.type";
-import type { RouterActiveSegmentIds } from "../types/router-active-segment-ids.type";
 import type { RouteAllSegment, RouteRoot, RouterSegmentRecord } from "../types/route.type";
 import type { RouterSegmentId } from "../types/router-segment-id.type";
+import type { RouterActiveRoutes } from "../types/router-active-routes.type";
 
 /**
- * Returns ordered collection of {@link RouterSegmentId} constrained to {@link RouterActiveSegmentIds} to define current active route from a URL
+ * Returns ordered collection of {@link RouterActiveRoutes} constrained to {@link RouterActiveRoutes} to define current active route from a URL
  * @param router
  * @param url
  */
-export function resolveRouterSegmentIdsFromUrl(router: RouteRoot, url: URL): RouterActiveSegmentIds {
+export function resolveRouterActiveRoutesFromUrl(router: RouteRoot, url: URL): RouterActiveRoutes {
 
-	const childSegmentIds: Array<RouterSegmentId> = [];
+	const childSegmentIds: RouterActiveRoutes = [];
 	const urlSegments: Array<string> = urlPathNameToArray(url);
 	const lastUrlSegmentIndex: number = urlSegments.length - 1;
 
@@ -43,13 +43,13 @@ export function resolveRouterSegmentIdsFromUrl(router: RouteRoot, url: URL): Rou
 			// Catch if path doesn't map to child route
 			if (activeChildSegmentId === undefined || !activeChild) throw new InvalidRouteError();
 
-			childSegmentIds.push(activeChildSegmentId);
+			childSegmentIds.push({
+				route: activeChild,
+				segmentId: activeChildSegmentId
+			});
 			currentRouteSegmentChildren = activeChild.type === RouterSegment.WithChildren ? activeChild.children : {};
 		});
 	}
 
-	return [
-		router.segmentId,
-		...childSegmentIds
-	];
+	return childSegmentIds;
 }

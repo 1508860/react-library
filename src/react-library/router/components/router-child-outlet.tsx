@@ -1,12 +1,12 @@
 import { Fragment, type ReactElement } from "react";
 
 import { RouterSegment } from "../enums/router-segment.type";
-import { useRouterChildRouteState } from "../hooks/use-router-child-route-state.hook";
+import { useRouterActiveRouteState } from "../hooks/use-router-active-route-state.hook";
 import type { RouterChildOutletProps } from "../types/router-child-outlet-props.type";
 
 export function RouterChildOutlet(props: RouterChildOutletProps): ReactElement {
 
-	const [state] = useRouterChildRouteState(props.segmentId);
+	const [state] = useRouterActiveRouteState(props.segmentId);
 
 	return (
 		!state ?
