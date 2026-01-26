@@ -21,6 +21,7 @@ type RouteBase<TType extends RouterSegment> = (
 
 export type RouteChild = (
 	IElement<RouterElement> &
+	Partial<IGuards<RouterGuards>> &
 	RouteBase<typeof RouterSegment.Child> &
 	ISegment<RouterSegmentPath>
 );
@@ -29,7 +30,6 @@ export type RouteRoot = (
 	IChild<RouterSegmentRecord> &
 	Partial<IDefaultChildSegmentId<RouterSegmentId>> &
 	IElement<RouterElementWithChildren> &
-	Partial<IGuards<RouterGuards>> &
 	RouteBase<typeof RouterSegment.Root> &
 	ISegmentId<RouterSegmentId>
 );
