@@ -36,6 +36,7 @@ export * from "./expanded.interface";
 export * from "./fill-container.interface";
 export * from "./font-size.interface";
 export * from "./gap.interface";
+export * from "./guard.interface";
 export * from "./guards.interface";
 export * from "./height.interface";
 export * from "./icon-name.interface";
