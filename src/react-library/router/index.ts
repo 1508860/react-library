@@ -1,5 +1,4 @@
 export * from "./classes/invalid-route.error";
-export * from "./components/router-child-outlet";
 export * from "./enums/router-segment.type";
 export * from "./hooks/router-notifier-context.hook";
 export * from "./providers/router-provider";

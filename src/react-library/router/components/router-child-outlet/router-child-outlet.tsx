@@ -1,8 +1,9 @@
 import { Fragment, type ReactElement } from "react";
 
-import { RouterSegment } from "../enums/router-segment.type";
-import { useRouterActiveRouteState } from "../hooks/use-router-active-route-state.hook";
-import type { RouterChildOutletProps } from "../types/router-child-outlet-props.type";
+import { RouterSegment } from "../../enums/router-segment.type";
+
+import { useRouterActiveRouteState } from "./hooks/use-router-active-route-state.hook";
+import type { RouterChildOutletProps } from "./types/router-child-outlet-props.type";
 
 export function RouterChildOutlet(props: RouterChildOutletProps): ReactElement {
 

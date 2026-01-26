@@ -2,14 +2,14 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import { generateGuid, type IObserver } from "@react-library/common";
 
-import { RouterSegment } from "../enums/router-segment.type";
-import type { RouterActiveRouteState } from "../types/router-active-route-state.type";
-import type { RouterActiveRoutes } from "../types/router-active-routes.type";
-import type { RouterSegmentId } from "../types/router-segment-id.type";
+import { RouterSegment } from "../../../enums/router-segment.type";
+import { useRouterContext } from "../../../hooks/router-context.hook";
+import { useRouterSubjectContext } from "../../../hooks/router-subject-context.hook";
+import type { RouterSegmentRecord } from "../../../types/route.type";
+import type { RouterActiveRouteState } from "../../../types/router-active-route-state.type";
+import type { RouterActiveRoutes } from "../../../types/router-active-routes.type";
+import type { RouterSegmentId } from "../../../types/router-segment-id.type";
 
-import { useRouterContext } from "./router-context.hook";
-import { useRouterSubjectContext } from "./router-subject-context.hook";
-import type { RouterSegmentRecord } from "../types/route.type";
 
 export function useRouterActiveRouteState(segmentId: RouterSegmentId): [RouterActiveRouteState | null] {
 
