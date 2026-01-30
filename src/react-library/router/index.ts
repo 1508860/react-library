@@ -1,4 +1,5 @@
 export * from "./classes/invalid-route.error";
+export * from "./components/router-child-outlet";
 export * from "./enums/router-segment.type";
 export * from "./hooks/router-notifier-context.hook";
 export * from "./providers/router-provider";
@@ -7,7 +8,10 @@ export * from "./types/router-element-props.type";
 export * from "./types/router-element-with-children-props.type";
 export * from "./types/router-element-with-children.type";
 export * from "./types/router-element.type";
-export * from "./types/router-guards.type";
+export * from "./types/router-guard-element-props.type";
+export * from "./types/router-guard-element.type";
+export * from "./types/router-guard-props.type";
+export * from "./types/router-guard.type";
 export * from "./types/router-notifier.type";
 export * from "./types/router-props.type";
 export * from "./types/router-segment-id.type";

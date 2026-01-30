@@ -10,7 +10,7 @@ import { RouterBasicDemoSegmentId } from "../enums/router-basic-demo-segment-id.
  * Example router segment component root
  * @param props
  */
-export function ReactLibraryRouterBasicDemoComponentRoot(props: RouterElementProps): ReactElement {
+export function ReactLibraryRouterBasicDemoElementRoot(props: RouterElementProps): ReactElement {
 	const routerNotifier = useRouterNotifierContext();
 	return (
 		<>
@@ -36,7 +36,7 @@ export function ReactLibraryRouterBasicDemoComponentRoot(props: RouterElementPro
 				</div>
 			</DemoColumn>
 			<DemoColumn
-				key="route-components"
+				key="route-elements"
 				weight={10}
 			>
 				<RouterChildOutlet segmentId={props.segmentId} />

@@ -6,7 +6,7 @@ import { RouterChildOutlet, type RouterElementProps } from "@react-library/route
  * Example router segment component that can have children
  * @param props
  */
-export function ReactLibraryRouterBasicDemoComponentWithChildren(props: RouterElementProps): ReactElement {
+export function ReactLibraryRouterBasicDemoElementWithChildren(props: RouterElementProps): ReactElement {
 	return (
 		<>
 			<div

@@ -16,7 +16,7 @@ export function useRouterActiveRouteState(segmentId: RouterSegmentId): [RouterAc
 	const [state, setState] = useState<RouterActiveRouteState | null>(null);
 	const currentChildIdRef = useRef<RouterSegmentId | null>(null);
 
-	const router = useRouterContext()
+	const router = useRouterContext();
 	const routerSubject = useRouterSubjectContext();
 
 	const setValidState = useCallback(
@@ -46,16 +46,16 @@ export function useRouterActiveRouteState(segmentId: RouterSegmentId): [RouterAc
 
 			// Handle immediate children of the root
 			if (segmentId === router.segmentId) {
-				setValidState(router.children, activeRoutes[0]);
+				setValidState(router.children, activeRoutes.length > 0 ? activeRoutes[0] : undefined);
 				return;
 			}
 
 			const index: number = activeRoutes.findIndex(x => x.segmentId === segmentId);
 			const lastIndex: number = activeRoutes.length - 1;
-			const activeRouteState: RouterActiveRouteState = activeRoutes[index];
+			const activeRouteState: RouterActiveRouteState | undefined = ((activeRoutes.length - 1) >= index) ? activeRoutes[index] : undefined;
 
 			// Terminate if no active child of this segment exists
-			if (index < 0 || lastIndex < 0 || index >= lastIndex || activeRouteState.route.type !== RouterSegment.WithChildren) {
+			if (index < 0 || lastIndex < 0 || index >= lastIndex || !activeRouteState || activeRouteState.route.type !== RouterSegment.WithChildren) {
 				currentChildIdRef.current = null;
 				setState(null);
 				return;
