@@ -17,12 +17,13 @@ export function RouterChildOutlet(props: RouterChildOutletProps): ReactElement {
 		!state ?
 			<Fragment key="no-child" /> :
 			(
-				state.route.guards ?
+				state.route.guard ?
 					<RouterGuardOutlet
-						guardElement={state.route.guardElement ?? router.defaultGuardElement}
-						guardIndex={0}
-						guards={state.route.guards}
+						element={state.route.guard.element ?? router.defaultGuardElement}
+						hookIndex={0}
+						hooks={state.route.guard.hooks}
 						key={`router-guard-${state.segmentId}-${0}`}
+						loadingElement={state.route.guard.loadingElement ?? router.defaultGuardLoadingElement}
 						segmentId={state.segmentId}
 					>
 						{

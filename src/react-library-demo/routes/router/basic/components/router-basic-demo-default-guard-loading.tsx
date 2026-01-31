@@ -3,10 +3,10 @@ import type { ReactElement } from "react";
 import type { RouterGuardElementProps } from "@react-library/router";
 
 /**
- * Example router default guard component
+ * Example router default guard loading component
  * @param props
  */
-export function ReactLibraryRouterBasicDemoDefaultGuard(props: RouterGuardElementProps): ReactElement {
+export function ReactLibraryRouterBasicDemoDefaultGuardLoading(props: RouterGuardElementProps): ReactElement {
 	return (
 		<div
 			style={{
@@ -21,7 +21,7 @@ export function ReactLibraryRouterBasicDemoDefaultGuard(props: RouterGuardElemen
 				width: "100%"
 			}}
 		>
-			<span>Default Guard: failed to route to - {props.segmentId}</span>
+			<span>Default Guard Loading - {props.segmentId}</span>
 		</div>
 	);
 }

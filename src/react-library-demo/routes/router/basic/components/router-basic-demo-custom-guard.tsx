@@ -6,7 +6,7 @@ import type { RouterGuardElementProps } from "@react-library/router";
  * Example router custom guard component
  * @param props
  */
-export function ReactLibraryRouterBasicDemoCustomGuardElement(props: RouterGuardElementProps): ReactElement {
+export function ReactLibraryRouterBasicDemoCustomGuard(props: RouterGuardElementProps): ReactElement {
 	return (
 		<div
 			style={{

@@ -1,7 +1,10 @@
-import type { ArrayMinLength1 } from "@react-library/common";
+import type { IElement, ILoadingElement, IHooks } from "@react-library/common";
 
-import type { RouterGuardProps } from "./router-guard-props.type";
+import type { RouterGuardElement } from "./router-guard-element.type";
+import type { RouterGuardHooks } from "./router-guard-hook.type";
 
-export type RouterGuard = (props: RouterGuardProps) => boolean;
-
-export type RouterGuards = ArrayMinLength1<RouterGuard>;
+export type RouterGuard = (
+	Partial<IElement<RouterGuardElement>> &
+	Partial<ILoadingElement<RouterGuardElement>> &
+	IHooks<RouterGuardHooks>
+);

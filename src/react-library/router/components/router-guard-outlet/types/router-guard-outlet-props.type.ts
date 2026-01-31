@@ -2,20 +2,22 @@ import type { ReactElement } from "react";
 
 import type {
 	IChild,
-	IGuardElement,
-	IGuardIndex,
-	IGuards,
+	IElement,
+	IHookIndex,
+	IHooks,
+	ILoadingElement,
 	ISegmentId
 } from "@react-library/common"
 
 import type { RouterGuardElement } from "../../../types/router-guard-element.type";
-import type { RouterGuards } from "../../../types/router-guard.type";
+import type { RouterGuardHooks } from "../../../types/router-guard-hook.type";
 import type { RouterSegmentId } from "../../../types/router-segment-id.type";
 
 export type RouterGuardOutletProps = (
-	IGuardElement<RouterGuardElement> &
-	IGuards<RouterGuards> &
-	IGuardIndex &
 	IChild<ReactElement> &
+	IElement<RouterGuardElement> &
+	IHooks<RouterGuardHooks> &
+	IHookIndex &
+	ILoadingElement<RouterGuardElement> &
 	ISegmentId<RouterSegmentId>
 );

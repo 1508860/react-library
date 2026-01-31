@@ -1,12 +1,14 @@
 import { useState } from "react";
 
+import { RouterGuardState } from "@react-library/router";
+
 /**
  * Example router guard that always fails
  * @param props
  */
-export function ReactLibraryRouterBasicDemoGuardFailure(): boolean {
+export function ReactLibraryRouterBasicDemoGuardFailure(): RouterGuardState {
 
-	const [state] = useState(() => false);
+	const [state] = useState<RouterGuardState>(() => RouterGuardState.Failure);
 
 	return state;
 }
