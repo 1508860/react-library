@@ -5,6 +5,7 @@ import type {
 	IDefaultGuardLoadingElement,
 	IElement,
 	IGuard,
+	IRedirectTo,
 	ISegment,
 	ISegmentId,
 	IType
@@ -35,6 +36,7 @@ export type RouteRoot = (
 	IDefaultGuardElement<RouterGuardElement> &
 	IDefaultGuardLoadingElement<RouterGuardElement> &
 	IElement<RouterElementWithChildren> &
+	Partial<IRedirectTo<RouterSegmentId>> &
 	RouteBase<typeof RouterSegment.Root> &
 	ISegmentId<RouterSegmentId>
 );
@@ -44,6 +46,7 @@ export type RouteWithChildren = (
 	Partial<IDefaultChildSegmentId<RouterSegmentId>> &
 	IElement<RouterElementWithChildren> &
 	Partial<IGuard<RouterGuard>> &
+	Partial<IRedirectTo<RouterSegmentId>> &
 	RouteBase<typeof RouterSegment.WithChildren> &
 	ISegment<RouterSegmentPath>
 );

@@ -1,28 +1,32 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { generateGuid, type IObserver } from "@react-library/common";
+import { useObserverRef } from "@react-library/common";
 
 import { RouterSegment } from "../../../enums/router-segment.type";
 import { useRouterContext } from "../../../hooks/router-context.hook";
+import { useRouterNotifierContext } from "../../../hooks/router-notifier-context.hook";
 import { useRouterSubjectContext } from "../../../hooks/router-subject-context.hook";
 import type { RouterSegmentRecord } from "../../../types/route.type";
 import type { RouterActiveRouteState } from "../../../types/router-active-route-state.type";
-import type { RouterActiveRoutes } from "../../../types/router-active-routes.type";
 import type { RouterSegmentId } from "../../../types/router-segment-id.type";
+import type { RouterSubjectNotify } from "react-library/router/types/router-subject-notify.type";
 
 
 export function useRouterActiveRouteState(segmentId: RouterSegmentId): [RouterActiveRouteState | null] {
+
+	const routerNotificationCount = useRef<number>(0);
 
 	const [state, setState] = useState<RouterActiveRouteState | null>(null);
 	const currentChildIdRef = useRef<RouterSegmentId | null>(null);
 
 	const router = useRouterContext();
+	const routerNotifier = useRouterNotifierContext();
 	const routerSubject = useRouterSubjectContext();
 
 	const setValidState = useCallback(
-		(children: RouterSegmentRecord, activeChildRouteState?: RouterActiveRouteState) => {
+		(children?: RouterSegmentRecord, activeChildRouteState?: RouterActiveRouteState) => {
 
-			const childSegmentIds: Array<RouterSegmentId> = Object.keys(children);
+			const childSegmentIds: Array<RouterSegmentId> = children ? Object.keys(children) : [];
 
 			// Terminate if active child doesn't exist as part of the parent route's children
 			if (!activeChildRouteState || !childSegmentIds.includes(activeChildRouteState.segmentId)) {
@@ -42,11 +46,22 @@ export function useRouterActiveRouteState(segmentId: RouterSegmentId): [RouterAc
 	);
 
 	const handleChildElement = useCallback(
-		(activeRoutes: RouterActiveRoutes) => {
+		(notification: RouterSubjectNotify) => {
+
+			// Ensure we areonly processing router notifications after what we currently know
+			if (notification.routerNotificationCount <= routerNotificationCount.current) return;
+
+			routerNotificationCount.current = notification.routerNotificationCount;
+			const activeRoutes = notification.routes;
 
 			// Handle immediate children of the root
 			if (segmentId === router.segmentId) {
-				setValidState(router.children, activeRoutes.length > 0 ? activeRoutes[0] : undefined);
+				if (activeRoutes.length > 0) setValidState(router.children, activeRoutes[0]);
+				else {
+					// Handle redirect if exists
+					if (router.redirectTo !== undefined) routerNotifier.notify(router.redirectTo);
+					else setValidState(undefined, undefined);
+				}
 				return;
 			}
 
@@ -55,9 +70,15 @@ export function useRouterActiveRouteState(segmentId: RouterSegmentId): [RouterAc
 			const activeRouteState: RouterActiveRouteState | undefined = ((activeRoutes.length - 1) >= index) ? activeRoutes[index] : undefined;
 
 			// Terminate if no active child of this segment exists
-			if (index < 0 || lastIndex < 0 || index >= lastIndex || !activeRouteState || activeRouteState.route.type !== RouterSegment.WithChildren) {
-				currentChildIdRef.current = null;
-				setState(null);
+			if (!activeRouteState || activeRouteState.route.type !== RouterSegment.WithChildren) {
+				setValidState(undefined, undefined);
+				return;
+			}
+
+			// Handle redirect if this route segment is the last active route segment in array
+			if (index >= lastIndex) {
+				if (activeRouteState.route.redirectTo !== undefined) routerNotifier.notify(activeRouteState.route.redirectTo);
+				else setValidState(undefined, undefined);
 				return;
 			}
 
@@ -65,18 +86,16 @@ export function useRouterActiveRouteState(segmentId: RouterSegmentId): [RouterAc
 
 			setValidState(activeRouteState.route.children, activeChildRouteState);
 		},
-		[segmentId, router.children, router.segmentId, setValidState]
+		[segmentId, router, routerNotifier, setValidState]
 	)
 
-	const [observer] = useState<IObserver<RouterActiveRoutes>>(() => ({
-		id: generateGuid(),
-		update: handleChildElement
-	}));
+	const observer = useObserverRef<RouterSubjectNotify>(handleChildElement);
 
 	useEffect(
 		() => {
-			routerSubject.subscribe(observer);
-			return () => routerSubject.unsubscribe(observer);
+			const currentObserver = observer.current;
+			routerSubject.subscribe(currentObserver);
+			return () => routerSubject.unsubscribe(currentObserver);
 		},
 		[routerSubject, observer]
 	);

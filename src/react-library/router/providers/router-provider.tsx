@@ -12,6 +12,7 @@ import type { RouterActiveRoutes } from "../types/router-active-routes.type";
 import type { RouterNotifier } from "../types/router-notifier.type";
 import type { RouterProps } from "../types/router-props.type";
 import type { RouterSegmentId } from "../types/router-segment-id.type";
+import type { RouterSubjectNotify } from "../types/router-subject-notify.type";
 import type { RouterSubject } from "../types/router-subject.type";
 
 /**
@@ -21,13 +22,26 @@ import type { RouterSubject } from "../types/router-subject.type";
  */
 export function RouterProvider(props: RouterProps) {
 
+	const routerNotificationCount = useRef<number>(0);
+
+	const resolveRouterSubjectNotify = useCallback<(activeRoutes: RouterActiveRoutes) => RouterSubjectNotify>(
+		(activeRoutes: RouterActiveRoutes) => {
+			routerNotificationCount.current += 1;
+			return {
+				routerNotificationCount: routerNotificationCount.current,
+				routes: activeRoutes
+			}
+		},
+		[]
+	)
+
 	// Handle notifications and observers to communicate changes to routing
-	const activeRoutesRef = useRef<RouterActiveRoutes>(
-		resolveRouterActiveRoutesFromUrl(props.routes, new URL(window.location.href))
+	const routerSubjectNotifyRef = useRef<RouterSubjectNotify>(
+		resolveRouterSubjectNotify(resolveRouterActiveRoutesFromUrl(props.routes, new URL(window.location.href)))
 	);
 
-	const [routerSubject] = useState<RouterSubject>(() => new Subject<RouterActiveRoutes>({
-		onSubscribe: (observer: IObserver<RouterActiveRoutes>) => observer.update(activeRoutesRef.current),
+	const [routerSubject] = useState<RouterSubject>(() => new Subject<RouterSubjectNotify>({
+		onSubscribe: (observer: IObserver<RouterSubjectNotify>) => observer.update(routerSubjectNotifyRef.current),
 	}));
 
 	const handleRouterChange = useCallback(
@@ -35,10 +49,10 @@ export function RouterProvider(props: RouterProps) {
 			const newUrl = resolveRouterUrlToChild(props.routes, toRoute);
 			urlReplaceState(newUrl);
 			const activeRoutes = resolveRouterActiveRoutesFromUrl(props.routes, newUrl);
-			activeRoutesRef.current = activeRoutes;
-			routerSubject.notify(activeRoutes);
+			routerSubjectNotifyRef.current = resolveRouterSubjectNotify(activeRoutes);
+			routerSubject.notify(routerSubjectNotifyRef.current);
 		},
-		[props.routes, routerSubject]
+		[props.routes, resolveRouterSubjectNotify, routerSubject]
 	);
 
 	const [routerNotifier] = useState<RouterNotifier>(() => new Notifier<RouterSegmentId>(handleRouterChange));
@@ -46,8 +60,8 @@ export function RouterProvider(props: RouterProps) {
 	// Handle set up of initial route and monitor prop changes
 	useEffect(
 		() => handleRouterChange(
-			activeRoutesRef.current.length > 0 ?
-				activeRoutesRef.current[activeRoutesRef.current.length - 1].segmentId :
+			routerSubjectNotifyRef.current.routes.length > 0 ?
+				routerSubjectNotifyRef.current.routes[routerSubjectNotifyRef.current.routes.length - 1].segmentId :
 				props.routes.segmentId
 		),
 		[handleRouterChange, props.routes.segmentId]

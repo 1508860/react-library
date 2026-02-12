@@ -12,7 +12,6 @@ export function RouterChildOutlet(props: RouterChildOutletProps): ReactElement {
 	const router = useRouterContext();
 	const [state] = useRouterActiveRouteState(props.segmentId);
 
-
 	return (
 		!state ?
 			<Fragment key="no-child" /> :

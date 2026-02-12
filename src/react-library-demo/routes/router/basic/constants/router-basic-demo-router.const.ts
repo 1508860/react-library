@@ -60,16 +60,19 @@ export const ROUTER_BASIC_DEMO_ROUTER: RouteRoot = {
 			type: RouterSegment.WithChildren,
 			segment: RouterBasicDemoSegmentId.Segment_2,
 			element: ReactLibraryRouterBasicDemoElementWithChildren,
+			redirectTo: RouterBasicDemoSegmentId.Segment_2_1,
 			children: {
 				[RouterBasicDemoSegmentId.Segment_2_1]: {
 					type: RouterSegment.WithChildren,
 					segment: RouterBasicDemoSegmentId.Segment_2_1,
 					element: ReactLibraryRouterBasicDemoElementWithChildren,
+					redirectTo: RouterBasicDemoSegmentId.Segment_2_1_1,
 					children: {
 						[RouterBasicDemoSegmentId.Segment_2_1_1]: {
 							type: RouterSegment.WithChildren,
 							segment: RouterBasicDemoSegmentId.Segment_2_1_1,
 							element: ReactLibraryRouterBasicDemoElementWithChildren,
+							redirectTo: RouterBasicDemoSegmentId.Segment_2_1_1_1,
 							children: {
 								[RouterBasicDemoSegmentId.Segment_2_1_1_1]: {
 									type: RouterSegment.Child,

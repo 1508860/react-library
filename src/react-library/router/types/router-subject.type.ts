@@ -1,5 +1,5 @@
 import type { Subject } from "@react-library/common";
 
-import type { RouterActiveRoutes } from "./router-active-routes.type";
+import type { RouterSubjectNotify } from "./router-subject-notify.type";
 
-export type RouterSubject = Subject<RouterActiveRoutes>;
+export type RouterSubject = Subject<RouterSubjectNotify>;
