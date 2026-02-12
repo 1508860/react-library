@@ -1,12 +1,12 @@
 import type { ReactElement } from "react";
 
-import { RouterChildOutlet, type RouterElementProps } from "@react-library/router";
+import type { RouterElementWithChildrenProps } from "@react-library/router";
 
 /**
  * Example router segment component that can have children
  * @param props
  */
-export function ReactLibraryRouterBasicDemoElementWithChildren(props: RouterElementProps): ReactElement {
+export function ReactLibraryRouterBasicDemoElementWithChildren(props: RouterElementWithChildrenProps): ReactElement {
 	return (
 		<>
 			<div
@@ -33,7 +33,7 @@ export function ReactLibraryRouterBasicDemoElementWithChildren(props: RouterElem
 					width: "100%"
 				}}
 			>
-				<RouterChildOutlet segmentId={props.segmentId} />
+				{props.children}
 			</div>
 		</>
 	);

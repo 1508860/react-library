@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 
-import { RouterChildOutlet, useRouterNotifierContext, type RouterElementProps } from "@react-library/router";
+import { useRouterNotifierContext, type RouterElementWithChildrenProps } from "@react-library/router";
 
 import { DemoColumn } from "@react-library-demo/shared";
 
@@ -10,7 +10,7 @@ import { RouterBasicDemoSegmentId } from "../enums/router-basic-demo-segment-id.
  * Example router segment component root
  * @param props
  */
-export function ReactLibraryRouterBasicDemoElementRoot(props: RouterElementProps): ReactElement {
+export function ReactLibraryRouterBasicDemoElementRoot(props: RouterElementWithChildrenProps): ReactElement {
 	const routerNotifier = useRouterNotifierContext();
 	return (
 		<>
@@ -39,7 +39,7 @@ export function ReactLibraryRouterBasicDemoElementRoot(props: RouterElementProps
 				key="route-elements"
 				weight={10}
 			>
-				<RouterChildOutlet segmentId={props.segmentId} />
+				{props.children}
 			</DemoColumn>
 		</>
 	);
