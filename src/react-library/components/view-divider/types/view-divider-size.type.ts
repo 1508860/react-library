@@ -1,7 +1,7 @@
 import type { IRatio, ISize, IType, PrefixKeys, SizePx } from "@react-library/common";
 
 import type { ViewDividerSizeStrategy } from "../enums/view-divider-size-strategy.type";
-import type { IViewDividerStaticView } from "../interfaces/view-divider-static-view.interface";
+import type { ViewDividerStaticView } from "../types/view-divider-static-view.type";
 
 /**
  * Describes base type for view divider size
@@ -25,7 +25,7 @@ export type ViewDividerSizeStatic = (
 	PrefixKeys<ISize<SizePx>, "endView"> &
 	PrefixKeys<ISize<SizePx>, "startView"> &
 	ViewDividerSizeBase<typeof ViewDividerSizeStrategy.Static> &
-	IViewDividerStaticView
+	ViewDividerStaticView
 );
 
 export type ViewDividerSize = (

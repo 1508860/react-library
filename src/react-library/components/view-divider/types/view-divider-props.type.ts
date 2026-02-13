@@ -14,7 +14,7 @@ import type {
 	Size
 } from "@react-library/common";
 
-import type { IViewDividerStaticView } from "../interfaces/view-divider-static-view.interface";
+import type { ViewDividerStaticView } from "../types/view-divider-static-view.type";
 
 /**
  * Props for view divider
@@ -27,5 +27,5 @@ export type ViewDividerProps = (
 	Partial<PrefixKeys<IMinSize<Size>, "start">> &
 	IOrientation<Orientation> &
 	PrefixKeys<ISize<Size>, "separator"> &
-	Partial<IViewDividerStaticView>
+	Partial<ViewDividerStaticView>
 );
