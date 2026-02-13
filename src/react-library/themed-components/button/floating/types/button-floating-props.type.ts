@@ -7,13 +7,13 @@ import type {
 import type { MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
 
 import type { ButtonSizeFloating } from "../../shared/enums/button-size.type";
-import type { IButtonShape } from "../../shared/interfaces/button-shape.interface";
-import type { IButtonSize } from "../../shared/interfaces/button-size.interface";
 import type {
 	ButtonContentIcon,
 	ButtonContentIconLabel,
 	ButtonContentLabel
 } from "../../shared/types/button-content.type";
+import type { ButtonShapeProps } from "../../shared/types/button-shape-props.type";
+import type { ButtonSizeProps } from "../../shared/types/button-size-props.type";
 
 /**
  * Props for button floating
@@ -24,9 +24,9 @@ export type ButtonFloatingProps = (
 		ButtonContentIconLabel<MaterialIconName, MaterialIconStyle> |
 		ButtonContentLabel
 	) &
-	Partial<IIsDisabled> &
-	IOnClick<HTMLDivElement> &
+	ButtonShapeProps &
+	ButtonSizeProps<ButtonSizeFloating> &
 	IColourSchemeStyle<ColourSchemeStyle> &
-	IButtonShape &
-	IButtonSize<ButtonSizeFloating>
+	Partial<IIsDisabled> &
+	IOnClick<HTMLDivElement>
 );

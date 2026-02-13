@@ -1,5 +1,5 @@
 /**
- * For a component that can have a icon style
+ * For a component that can have an icon style
  */
 export interface IIconStyle<TIconStyle> {
 	iconStyle: TIconStyle;

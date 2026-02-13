@@ -8,7 +8,7 @@ import type { MaterialIconName, MaterialIconStyle } from "@react-library/materia
 
 import type { ButtonSize } from "../../shared/enums/button-size.type";
 import type { ButtonStyle } from "../../shared/enums/button-style.type";
-import type { IButtonSize } from "../../shared/interfaces/button-size.interface";
+import type { ButtonSizeProps } from "../../shared/types/button-size-props.type";
 import type {
 	ButtonContentIconLabel,
 	ButtonContentIconWithWidth,
@@ -19,12 +19,12 @@ import type {
  * Props for button selection
  */
 export type ButtonSelectionProps = (
-	IButtonSize<ButtonSize> &
 	(
 		ButtonContentIconWithWidth<MaterialIconName, MaterialIconStyle> |
 		ButtonContentIconLabel<MaterialIconName, MaterialIconStyle> |
 		ButtonContentLabel
 	) &
+	ButtonSizeProps<ButtonSize> &
 	Partial<IIsDisabled> &
 	IIsSelected &
 	IOnClick<HTMLDivElement> &

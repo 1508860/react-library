@@ -1,7 +1,7 @@
 
 import type { IStyle } from "@react-library/common";
 
-import type { ButtonSize, ButtonStyle, IButtonSize } from "../../button";
+import type { ButtonSize, ButtonStyle, ButtonSizeProps } from "../../button";
 
 import type { ButtonGroupActionAll } from "./button-group-action.type";
 import type { ButtonGroupOrientationAll } from "./button-group-orientation.type";
@@ -12,6 +12,6 @@ import type { ButtonGroupOrientationAll } from "./button-group-orientation.type"
 export type ButtonGroupProps = (
 	ButtonGroupActionAll &
 	ButtonGroupOrientationAll &
-	IButtonSize<ButtonSize> &
+	ButtonSizeProps<ButtonSize> &
 	IStyle<ButtonStyle>
 );

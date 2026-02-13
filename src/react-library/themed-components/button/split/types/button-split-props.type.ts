@@ -3,12 +3,12 @@ import type { MaterialIconName, MaterialIconStyle } from "@react-library/materia
 
 import type { ButtonSize } from "../../shared/enums/button-size.type";
 import type { ButtonStyle } from "../../shared/enums/button-style.type";
-import type { IButtonSize } from "../../shared/interfaces/button-size.interface";
 import type {
 	ButtonContentIcon,
 	ButtonContentIconLabel,
 	ButtonContentLabel
 } from "../../shared/types/button-content.type";
+import type { ButtonSizeProps } from "../../shared/types/button-size-props.type";
 import type { ButtonSplitMenuElement } from "./button-split-menu-element.type";
 
 /**
@@ -20,7 +20,7 @@ export type ButtonSplitProps = (
 		ButtonContentIconLabel<MaterialIconName, MaterialIconStyle> |
 		ButtonContentLabel
 	) &
-	IButtonSize<ButtonSize> &
+	ButtonSizeProps<ButtonSize> &
 	ButtonSplitMenuElement &
 	Partial<IIsDisabled> &
 	IOnClick<HTMLDivElement> &

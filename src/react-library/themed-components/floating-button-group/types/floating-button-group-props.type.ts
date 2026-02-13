@@ -7,7 +7,7 @@ import type {
 	PositionStrategyInternalCorner
 } from "@react-library/common";
 
-import type { ButtonSizeFloating, IButtonSize } from "../../button";
+import type { ButtonSizeFloating, ButtonSizeProps } from "../../button";
 
 import type { FloatingButtonGroupButtonDefault, FloatingButtonGroupButtonMenu } from "./floating-button-group-button.type";
 
@@ -15,7 +15,7 @@ import type { FloatingButtonGroupButtonDefault, FloatingButtonGroupButtonMenu } 
  * Props for floating button group
  */
 export type FloatingButtonGroupProps = (
-	IButtonSize<ButtonSizeFloating> &
+	ButtonSizeProps<ButtonSizeFloating> &
 	IButton<FloatingButtonGroupButtonDefault | FloatingButtonGroupButtonMenu> &
 	IChildren<ReactNode> &
 	IPositionStrategy<PositionStrategyInternalCorner>

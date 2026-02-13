@@ -2,7 +2,7 @@ import type { IContent, IIconName, IIconStyle, ILabel } from "@react-library/com
 import type { MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
 
 import type { ButtonContent } from "../enums/button-content.type";
-import type { IButtonIconWidth } from "../interfaces/button-icon-width.interface";
+import type { ButtonIconWidthProps } from "../types/button-icon-width-props.type";
 
 /**
  * Describes base type for button content
@@ -25,7 +25,7 @@ export type ButtonContentIcon<TMaterialIconName extends MaterialIconName, TMater
  */
 export type ButtonContentIconWithWidth<TMaterialIconName extends MaterialIconName, TMaterialIconStyle extends MaterialIconStyle> = (
 	ButtonContentIcon<TMaterialIconName, TMaterialIconStyle> &
-	IButtonIconWidth
+	ButtonIconWidthProps
 );
 
 /**
