@@ -1,18 +1,18 @@
 import type { Guid } from "../../guid";
 import type { INotify, IOnSubscribable, ISubscribable, ISubscribedCount } from "../../interfaces";
-import type { IObserver } from "../interfaces/observer.interface";
+import type { Observer } from "../types/observer.type";
 
-export class Subject<T> implements INotify<T>, ISubscribable<IObserver<T>>, ISubscribedCount {
+export class Subject<T> implements INotify<T>, ISubscribable<Observer<T>>, ISubscribedCount {
 
-	private _onSubscribe: ((observer: IObserver<T>) => void) | undefined;
-	private _onUnsubscribe: ((observer: IObserver<T>) => void) | undefined;
+	private _onSubscribe: ((observer: Observer<T>) => void) | undefined;
+	private _onUnsubscribe: ((observer: Observer<T>) => void) | undefined;
 
-	private readonly _observers: Map<Guid, IObserver<T>>;
+	private readonly _observers: Map<Guid, Observer<T>>;
 
 	constructor(
-		options: Partial<IOnSubscribable<IObserver<T>>>
+		options: Partial<IOnSubscribable<Observer<T>>>
 	) {
-		this._observers = new Map<Guid, IObserver<T>>();
+		this._observers = new Map<Guid, Observer<T>>();
 		this._onSubscribe = options.onSubscribe;
 		this._onUnsubscribe = options.onUnsubscribe;
 	}
@@ -21,12 +21,12 @@ export class Subject<T> implements INotify<T>, ISubscribable<IObserver<T>>, ISub
 		this._observers.forEach(x => x.update(state));
 	}
 
-	public subscribe(observer: IObserver<T>): void {
+	public subscribe(observer: Observer<T>): void {
 		this._observers.set(observer.id, observer);
 		if (this._onSubscribe) this._onSubscribe(observer);
 	}
 
-	public unsubscribe(observer: IObserver<T>): void {
+	public unsubscribe(observer: Observer<T>): void {
 		if (this._onUnsubscribe) this._onUnsubscribe(observer);
 		this._observers.delete(observer.id);
 	}

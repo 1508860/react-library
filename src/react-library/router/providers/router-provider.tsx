@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { Notifier, Subject, urlReplaceState, type IObserver } from "@react-library/common";
+import { Notifier, Subject, urlReplaceState, type Observer } from "@react-library/common";
 
 import { RouterChildOutlet } from "../components/router-child-outlet";
 import { ROUTER_CONTEXT } from "../constants/router-context.const";
@@ -41,7 +41,7 @@ export function RouterProvider(props: RouterProps) {
 	);
 
 	const [routerSubject] = useState<RouterSubject>(() => new Subject<RouterSubjectNotify>({
-		onSubscribe: (observer: IObserver<RouterSubjectNotify>) => observer.update(routerSubjectNotifyRef.current),
+		onSubscribe: (observer: Observer<RouterSubjectNotify>) => observer.update(routerSubjectNotifyRef.current),
 	}));
 
 	const handleRouterChange = useCallback(
