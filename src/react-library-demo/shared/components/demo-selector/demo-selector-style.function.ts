@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import type { IFont } from "@react-library/common";
+import type { Font } from "@react-library/common";
 
 export function demoSelctorStyle(): CSSProperties {
 	return {
@@ -29,7 +29,7 @@ export function demoSelectorItemListStyle(): CSSProperties {
 	};
 }
 
-export function demoSelectorItemStyle(font: IFont): CSSProperties {
+export function demoSelectorItemStyle(font: Font): CSSProperties {
 	return {
 		alignContent: "center",
 		boxSizing: "border-box",
@@ -44,7 +44,7 @@ export function demoSelectorItemStyle(font: IFont): CSSProperties {
 	};
 }
 
-export function demoSelectorSubItemStyle(font: IFont, isCurrent: boolean): CSSProperties {
+export function demoSelectorSubItemStyle(font: Font, isCurrent: boolean): CSSProperties {
 	return {
 		alignContent: "center",
 		backgroundColor: isCurrent ? "#E4E4E4" : undefined,

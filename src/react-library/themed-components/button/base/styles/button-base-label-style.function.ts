@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import type { IFont } from "@react-library/common";
+import type { Font } from "@react-library/common";
 
 import type { ButtonColourState } from "../../shared/types/button-colour-state.type";
 
@@ -9,7 +9,7 @@ import type { ButtonColourState } from "../../shared/types/button-colour-state.t
  * @param buttonColourState
  * @param font
  */
-export function buttonBaseLabelStyle(buttonColourState: ButtonColourState, font: IFont): CSSProperties {
+export function buttonBaseLabelStyle(buttonColourState: ButtonColourState, font: Font): CSSProperties {
 	return {
 		color: buttonColourState.onColour?.toColourString(),
 		fontFamily: font.fontFamily,

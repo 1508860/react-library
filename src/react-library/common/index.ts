@@ -2,7 +2,6 @@ export * from "./alphabet";
 export * from "./colours";
 export * from "./currency";
 export * from "./data-format";
-export * from "./data-structures";
 export * from "./dimensions";
 export * from "./errors";
 export * from "./events";

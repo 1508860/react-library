@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { NullContextError } from "@react-library/common";
+import { NullContextError } from "../../errors";
 
 import { CURRENCY_CODE_CONTEXT } from "./currency-code-context.const";
 import type { CurrencyCode } from "./currency-code.type";

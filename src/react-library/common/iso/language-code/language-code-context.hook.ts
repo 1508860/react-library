@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { NullContextError } from "@react-library/common";
+import { NullContextError } from "../../errors";
 
 import { LANGUAGE_CODE_CONTEXT } from "./language-code-context.const";
 import type { LanguageCode } from "./language-code.type";

@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import type { IFont } from "@react-library/common";
+import type { Font } from "@react-library/common";
 
 export function demoItemStyle(): CSSProperties {
 	return {
@@ -10,7 +10,7 @@ export function demoItemStyle(): CSSProperties {
 	};
 }
 
-export function demoItemLabel(font: IFont): CSSProperties {
+export function demoItemLabel(font: Font): CSSProperties {
 	return {
 		fontFamily: font.fontFamily,
 		fontSize: 16,

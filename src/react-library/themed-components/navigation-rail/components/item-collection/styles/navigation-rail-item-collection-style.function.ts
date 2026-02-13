@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import type { IFont } from "@react-library/common";
+import type { Font } from "@react-library/common";
 
 import { NAVIGATION_RAIL_PROPERTY_MAP } from "../../../constants/navigation-rail-property-map.const";
 
@@ -9,7 +9,7 @@ import { NAVIGATION_RAIL_PROPERTY_MAP } from "../../../constants/navigation-rail
  * @param orientation
  * @param font
  */
-export function navigationRailItemCollectionStyle(centerItems: boolean, font: IFont): CSSProperties {
+export function navigationRailItemCollectionStyle(centerItems: boolean, font: Font): CSSProperties {
 	return {
 		alignItems: "start",
 		boxSizing: "border-box",

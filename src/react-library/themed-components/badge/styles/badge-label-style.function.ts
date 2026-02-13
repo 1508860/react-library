@@ -1,13 +1,13 @@
 import type { CSSProperties } from "react";
 
-import type { IColourScheme, IFont, SizePx } from "@react-library/common";
+import type { Font, IColourScheme, SizePx } from "@react-library/common";
 
 /**
  * Resolve badge label style based on parameters
  * @param colourScheme
  * @param font
  */
-export function badgeLabelStyle(colourScheme: IColourScheme, font: IFont): CSSProperties {
+export function badgeLabelStyle(colourScheme: IColourScheme, font: Font): CSSProperties {
 
 	const height: SizePx = 16;
 	const paddingSide: SizePx = 4;

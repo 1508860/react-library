@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import type { IFont } from "@react-library/common";
+import type { Font } from "@react-library/common";
 
 import type { DemoSectionProps } from "./demo-section-props.type";
 
@@ -12,7 +12,7 @@ export function demoSectionStyle(): CSSProperties {
 	};
 }
 
-export function demoSectionTitle(font: IFont): CSSProperties {
+export function demoSectionTitle(font: Font): CSSProperties {
 	return {
 		borderBottomColor: "#000000",
 		borderBottomStyle: "solid",

@@ -1,5 +1,5 @@
-import type { IFont } from "@react-library/common";
+import type { Font } from "@react-library/common";
 
-export const DEMO_FONT: IFont = {
+export const DEMO_FONT: Font = {
 	fontFamily: "sans-serif"
 };
