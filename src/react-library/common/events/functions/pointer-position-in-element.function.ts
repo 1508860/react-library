@@ -1,4 +1,4 @@
-import type { IInset } from "../../interfaces";
+import type { IInsetAll } from "../../interfaces";
 import type { SizePx } from "../../units";
 
 /**
@@ -6,7 +6,7 @@ import type { SizePx } from "../../units";
  * @param element
  * @param event
  */
-export function pointerPositionInElement(element: Element, event: React.MouseEvent): IInset<SizePx> {
+export function pointerPositionInElement(element: Element, event: React.MouseEvent): IInsetAll<SizePx> {
 	const elementDomRect = element.getBoundingClientRect();
 	return {
 		bottom: elementDomRect.bottom - event.clientY,

@@ -7,11 +7,9 @@ import {
 	type SizePx
 } from "@react-library/common";
 
-import type { IFloatingButtonGroupPosition } from "../interfaces/floating-button-group-position.interface";
-import type {
-	FloatingButtonGroupPositionAlignItems,
-	FloatingButtonGroupPositionFlexDirection
-} from "../types/floating-button-group-position.type";
+import type { FloatingButtonGroupPositionAlignItems } from "../types/floating-button-group-position-align-items.type";
+import type { FloatingButtonGroupPositionFlexDirection } from "../types/floating-button-group-position-flex-direction.type";
+import type { FloatingButtonGroupPosition } from "../types/floating-button-group-position.type";
 
 /**
  * Describes use state hook result for the floating button group position
@@ -21,9 +19,9 @@ import type {
 export function useFloatingButtonGroupPositionState(
 	positionStrategy: PositionStrategyInternalCorner,
 	orientation: Orientation
-): [IFloatingButtonGroupPosition] {
+): [FloatingButtonGroupPosition] {
 
-	const resolvePosition = useCallback<() => IFloatingButtonGroupPosition>(
+	const resolvePosition = useCallback<() => FloatingButtonGroupPosition>(
 		() => {
 			let alignItems: FloatingButtonGroupPositionAlignItems = undefined;
 			let bottom: SizePx | undefined = undefined;
@@ -86,7 +84,7 @@ export function useFloatingButtonGroupPositionState(
 					}
 					break;
 			}
-			const result: IFloatingButtonGroupPosition = {
+			const result: FloatingButtonGroupPosition = {
 				alignItems: alignItems,
 				flexDirection: flexDirection,
 				gap: 4,
@@ -103,11 +101,11 @@ export function useFloatingButtonGroupPositionState(
 		[positionStrategy, orientation]
 	);
 
-	const [state, setState] = useState<IFloatingButtonGroupPosition>(resolvePosition());
-	const stateRef = useRef<IFloatingButtonGroupPosition>(state);
+	const [state, setState] = useState<FloatingButtonGroupPosition>(resolvePosition());
+	const stateRef = useRef<FloatingButtonGroupPosition>(state);
 
 	const setValidatedState = useCallback(
-		(newState: IFloatingButtonGroupPosition) => {
+		(newState: FloatingButtonGroupPosition) => {
 			if (isFloatingButtonGroupPositionEqual(stateRef.current, newState)) return;
 			stateRef.current = newState;
 			setState(newState);
@@ -123,7 +121,7 @@ export function useFloatingButtonGroupPositionState(
 	return [state];
 }
 
-function isFloatingButtonGroupPositionEqual(state1: IFloatingButtonGroupPosition, state2: IFloatingButtonGroupPosition): boolean {
+function isFloatingButtonGroupPositionEqual(state1: FloatingButtonGroupPosition, state2: FloatingButtonGroupPosition): boolean {
 	return (
 		state1 &&
 		state2 &&

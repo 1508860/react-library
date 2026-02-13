@@ -72,7 +72,7 @@ export function ButtonBase(
 		(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
 			if (isDisabled) return;
 			if (buttonContainerElementRef.current) setClickedInset({
-				insetData: pointerPositionInElement(buttonContainerElementRef.current, event),
+				inset: pointerPositionInElement(buttonContainerElementRef.current, event),
 				transitionId: generateGuid()
 			});
 			onClick(event);
@@ -131,7 +131,7 @@ export function ButtonBase(
 					<TransitionPulse
 						colour={buttonColourState.onColour}
 						durationMs={BUTTON_BASE_TIME_TRANSITION_PULSE_MS}
-						insetData={clickedInset.insetData}
+						inset={clickedInset.inset}
 						key="button-clicked-inset-layer"
 						onDismiss={() => setClickedInset(undefined)}
 						opacity={buttonColourState.pulseOpacity}

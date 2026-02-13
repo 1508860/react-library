@@ -19,7 +19,7 @@ import {
 import { FLOATING_BUTTON_GROUP_MENU_ICON_CLOSE } from "./constants/floating-button-group-menu-icon.const";
 import { FloatingButtonGroupButton } from "./enums/floating-button-group-button.type";
 import { useFloatingButtonGroupPositionState } from "./hooks/use-floating-button-group-position-state.hook";
-import type { IFloatingButtonGroupPosition } from "./interfaces/floating-button-group-position.interface";
+import type { FloatingButtonGroupPosition } from "./types/floating-button-group-position.type";
 import { floatingButtonGroupButtonStyle } from "./styles/floating-button-group-button-style.function";
 import { FLOATING_BUTTON_GROUP_CONTAINER_STYLE } from "./styles/floating-button-group-container-style.const";
 import { FLOATING_BUTTON_GROUP_MENU_CHILD_STYLE } from "./styles/floating-button-group-menu-child-style.const";
@@ -69,7 +69,7 @@ export function FloatingButtonGroup(props: FloatingButtonGroupProps) {
 function ButtonDefault(props: {
 	button: FloatingButtonGroupButtonDefault;
 	colourScheme: ColourSchemeStyle;
-	position: IFloatingButtonGroupPosition;
+	position: FloatingButtonGroupPosition;
 	size: ButtonSizeFloating;
 }): ReactElement {
 	return (
@@ -117,7 +117,7 @@ function ButtonDefault(props: {
 function ButtonMenu(props: {
 	button: FloatingButtonGroupButtonMenu;
 	colourScheme: ColourSchemeStyleStandard;
-	position: IFloatingButtonGroupPosition;
+	position: FloatingButtonGroupPosition;
 	positionStrategy: PositionStrategyInternalCorner;
 	size: ButtonSizeFloating;
 }): ReactElement {

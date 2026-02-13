@@ -1,12 +1,12 @@
 import type { CSSProperties } from "react";
+import type { FloatingButtonGroupPosition } from "../types/floating-button-group-position.type";
 
-import type { IFloatingButtonGroupPosition } from "../interfaces/floating-button-group-position.interface";
 
 /**
  * Resolve floating button group menu scroll style based on parameters
  * @param position
  */
-export function floatingButtonGroupMenuScrollStyle(position: IFloatingButtonGroupPosition): CSSProperties {
+export function floatingButtonGroupMenuScrollStyle(position: FloatingButtonGroupPosition): CSSProperties {
 	return {
 		bottom: position.inset.bottom,
 		left: position.inset.left,

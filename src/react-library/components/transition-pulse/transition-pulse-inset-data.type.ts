@@ -1,8 +1,8 @@
 import type {
 	Guid,
-	IData,
 	IId,
 	IInset,
+	IInsetAll,
 	PrefixKeys,
 	SizePx
 } from "@react-library/common";
@@ -11,6 +11,6 @@ import type {
  * Props for transition pulse component
  */
 export type TransitionPulseInsetData = (
-	PrefixKeys<IData<IInset<SizePx>>, "inset"> &
+	IInset<IInsetAll<SizePx>> &
 	PrefixKeys<IId<Guid>, "transition">
 );

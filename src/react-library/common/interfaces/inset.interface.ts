@@ -1,9 +1,6 @@
 /**
- * For a component that can have a inset value
+ * For a component that can have a inset property
  */
 export interface IInset<TInset> {
-	bottom: TInset;
-	left: TInset;
-	right: TInset;
-	top: TInset;
+	inset: TInset;
 }

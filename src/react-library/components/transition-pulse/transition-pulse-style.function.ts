@@ -15,20 +15,20 @@ export function transitionPulseStyle(
 ): CSSProperties {
 
 	const layerSize: SizePx = (
-		(!props.insetData || !applyTransition) ? 0 :
-			Math.max((props.insetData.left + props.insetData.right), (props.insetData.bottom + props.insetData.top)) * 2
+		(!props.inset || !applyTransition) ? 0 :
+			Math.max((props.inset.left + props.inset.right), (props.inset.bottom + props.inset.top)) * 2
 	);
 
 	return {
 		backgroundColor: props.colour.toColourString(),
 		borderRadius: "50%",
 		height: layerSize,
-		left: props.insetData?.left,
+		left: props.inset?.left,
 		opacity: props.opacity,
 		position: "absolute",
-		top: props.insetData?.top,
+		top: props.inset?.top,
 		transformOrigin: "center",
-		transitionDuration: (!props.insetData || !applyTransition) ? undefined : `${props.durationMs}ms`,
+		transitionDuration: (!props.inset || !applyTransition) ? undefined : `${props.durationMs}ms`,
 		transitionProperty: "height, width",
 		translate: "-50% -50%",
 		width: layerSize

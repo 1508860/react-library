@@ -13,7 +13,7 @@ import {
 	type ButtonSizeFloating
 } from "../../button";
 
-import type { IFloatingButtonGroupPosition } from "../interfaces/floating-button-group-position.interface";
+import type { FloatingButtonGroupPosition } from "../types/floating-button-group-position.type";
 
 /**
  * Resolve floating button group menu children style based on parameters
@@ -23,7 +23,7 @@ import type { IFloatingButtonGroupPosition } from "../interfaces/floating-button
  * @param orientation
  */
 export function floatingButtonGroupMenuChildrenStyle(
-	position: IFloatingButtonGroupPosition,
+	position: FloatingButtonGroupPosition,
 	positionStrategy: PositionStrategyInternalCorner,
 	buttonSize: ButtonSizeFloating,
 	orientation: Orientation

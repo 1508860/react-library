@@ -1,13 +1,15 @@
-import type { Property } from "csstype";
+import type { IAlignItems, IFlexDirection, IGap, IInset, IInsetAll, IPadding, SizePx } from "@react-library/common";
 
-import type { Extends } from "@react-library/common";
-
-/**
- * Describes floating button group position align items
- */
-export type FloatingButtonGroupPositionAlignItems = (Extends<Property.AlignItems, ("start" | "end")> | undefined);
+import type { FloatingButtonGroupPositionAlignItems } from "./floating-button-group-position-align-items.type";
+import type { FloatingButtonGroupPositionFlexDirection } from "./floating-button-group-position-flex-direction.type";
 
 /**
- * Describes floating button group position flex direction
+ * Describes use state hook result for the floating button group position
  */
-export type FloatingButtonGroupPositionFlexDirection = (Extends<Property.FlexDirection, ("column" | "row")> | undefined);
+export type FloatingButtonGroupPosition = (
+	IAlignItems<FloatingButtonGroupPositionAlignItems> &
+	IFlexDirection<FloatingButtonGroupPositionFlexDirection> &
+	IGap<SizePx> &
+	IInset<Partial<IInsetAll<SizePx>>> &
+	IPadding<SizePx>
+);
