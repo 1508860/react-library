@@ -1,6 +1,6 @@
 import type { AlphabetLowercase } from "./lowercase.type";
 
 /**
- * Type for lowercase alphabet
+ * Type for uppercase alphabet
  */
 export type AlphabetUppercase = Uppercase<AlphabetLowercase>;
