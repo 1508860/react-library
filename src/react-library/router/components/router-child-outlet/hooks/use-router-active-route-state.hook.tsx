@@ -36,13 +36,19 @@ export function useRouterActiveRouteState(segmentId: RouterSegmentId): [RouterAc
 				return;
 			}
 
+			// Handle redirect if active child route segment is the final segment of the tree
+			if (activeChildRouteState.route.type === RouterSegment.Child && activeChildRouteState.route.redirectTo !== undefined) {
+				routerNotifier.notify(activeChildRouteState.route.redirectTo);
+				return;
+			}
+
 			// Terminate if we've already set this child element
 			if (currentChildIdRef.current === activeChildRouteState.segmentId) return;
 
 			currentChildIdRef.current = activeChildRouteState.segmentId;
 			setState(activeChildRouteState);
 		},
-		[]
+		[routerNotifier]
 	);
 
 	const handleChildElement = useCallback(
