@@ -14,6 +14,7 @@ export * from "./interfaces";
 export * from "./iso";
 export * from "./key-remapping";
 export * from "./notifier";
+export * from "./number";
 export * from "./observer";
 export * from "./orientation";
 export * from "./position-strategy-external";
