@@ -1,3 +1,4 @@
+export * from "./alphabet";
 export * from "./colours";
 export * from "./currency";
 export * from "./data-format";
