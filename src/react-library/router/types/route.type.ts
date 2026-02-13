@@ -19,15 +19,15 @@ import type { RouterGuard } from "./router-guard.type";
 import type { RouterSegmentId } from "./router-segment-id.type";
 import type { RouterSegmentPath } from "./router-segment-path.type";
 
-type RouteBase<TType extends RouterSegment> = (
+type RouteBase<TType extends RouterSegment, TElement> = (
+	IElement<TElement> &
+	Partial<IRedirectTo<RouterSegmentId>> &
 	IType<TType>
 );
 
 export type RouteChild = (
-	IElement<RouterElement> &
 	Partial<IGuard<RouterGuard>> &
-	Partial<IRedirectTo<RouterSegmentId>> &
-	RouteBase<typeof RouterSegment.Child> &
+	RouteBase<typeof RouterSegment.Child, RouterElement> &
 	ISegment<RouterSegmentPath>
 );
 
@@ -36,19 +36,15 @@ export type RouteRoot = (
 	Partial<IDefaultChildSegmentId<RouterSegmentId>> &
 	IDefaultGuardElement<RouterGuardElement> &
 	IDefaultGuardLoadingElement<RouterGuardElement> &
-	IElement<RouterElementWithChildren> &
-	Partial<IRedirectTo<RouterSegmentId>> &
-	RouteBase<typeof RouterSegment.Root> &
+	RouteBase<typeof RouterSegment.Root, RouterElementWithChildren> &
 	ISegmentId<RouterSegmentId>
 );
 
 export type RouteWithChildren = (
 	IChild<RouterSegmentRecord> &
 	Partial<IDefaultChildSegmentId<RouterSegmentId>> &
-	IElement<RouterElementWithChildren> &
 	Partial<IGuard<RouterGuard>> &
-	Partial<IRedirectTo<RouterSegmentId>> &
-	RouteBase<typeof RouterSegment.WithChildren> &
+	RouteBase<typeof RouterSegment.WithChildren, RouterElementWithChildren> &
 	ISegment<RouterSegmentPath>
 );
 
