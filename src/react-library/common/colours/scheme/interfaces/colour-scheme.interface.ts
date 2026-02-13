@@ -1,6 +1,6 @@
 import type { StyleOpacity } from "../../../style";
 import type { Colour } from "../../types/colour.type";
-import type { IColourSchemeStyleColour } from "./colour-scheme-style-colour.interface";
+import type { ColourSchemeStyleColour } from "../types/colour-scheme-style-colour.type";
 
 /**
  * Describes colour scheme for an application.
@@ -8,32 +8,32 @@ import type { IColourSchemeStyleColour } from "./colour-scheme-style-colour.inte
  */
 export interface IColourScheme {
 	primary: {
-		default: IColourSchemeStyleColour;
-		container: IColourSchemeStyleColour;
+		default: ColourSchemeStyleColour;
+		container: ColourSchemeStyleColour;
 	};
 	secondary: {
-		default: IColourSchemeStyleColour;
-		container: IColourSchemeStyleColour;
+		default: ColourSchemeStyleColour;
+		container: ColourSchemeStyleColour;
 	};
 	tertiary: {
-		default: IColourSchemeStyleColour;
-		container: IColourSchemeStyleColour;
+		default: ColourSchemeStyleColour;
+		container: ColourSchemeStyleColour;
 	};
 	success: {
-		default: IColourSchemeStyleColour;
-		container: IColourSchemeStyleColour;
+		default: ColourSchemeStyleColour;
+		container: ColourSchemeStyleColour;
 	};
 	warning: {
-		default: IColourSchemeStyleColour;
-		container: IColourSchemeStyleColour;
+		default: ColourSchemeStyleColour;
+		container: ColourSchemeStyleColour;
 	};
 	error: {
-		default: IColourSchemeStyleColour;
-		container: IColourSchemeStyleColour;
+		default: ColourSchemeStyleColour;
+		container: ColourSchemeStyleColour;
 	};
 	surface: {
-		default: IColourSchemeStyleColour;
-		variant: IColourSchemeStyleColour;
+		default: ColourSchemeStyleColour;
+		variant: ColourSchemeStyleColour;
 		container: {
 			lowest: Colour;
 			low: Colour;
@@ -41,7 +41,7 @@ export interface IColourScheme {
 			high: Colour;
 			highest: Colour;
 		}
-		inverse: IColourSchemeStyleColour;
+		inverse: ColourSchemeStyleColour;
 	};
 	outline: {
 		outline: Colour;

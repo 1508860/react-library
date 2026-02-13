@@ -1,6 +1,6 @@
 import { ColourSchemeStyle } from "../enums/colour-scheme-style.type";
-import type { IColourSchemeStyleColour } from "../interfaces/colour-scheme-style-colour.interface";
 import type { IColourScheme } from "../interfaces/colour-scheme.interface";
+import type { ColourSchemeStyleColour } from "../types/colour-scheme-style-colour.type";
 
 /**
  * Resolve colour scheme style colour based on {@link ColourSchemeStyle}
@@ -10,7 +10,7 @@ import type { IColourScheme } from "../interfaces/colour-scheme.interface";
 export function resolveColourSchemeStyleColour(
 	colourScheme: IColourScheme,
 	colourSchemeStyle: ColourSchemeStyle
-): IColourSchemeStyleColour {
+): ColourSchemeStyleColour {
 	switch (colourSchemeStyle) {
 		case ColourSchemeStyle.Primary:
 			return colourScheme.primary.default;
