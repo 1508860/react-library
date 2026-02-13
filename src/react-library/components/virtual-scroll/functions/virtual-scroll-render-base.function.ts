@@ -1,7 +1,7 @@
-import type { IVirtualScrollConfig } from "../interfaces/virtual-scroll-config.interface";
-import type { IVirtualScrollRenderResult } from "../interfaces/virtual-scroll-render-result.interface";
+import type { VirtualScrollConfig } from "../types/virtual-scroll-config.type";
 import type { VirtualScrollContainerState } from "../types/virtual-scroll-container-state.type";
 import type { VirtualScrollRenderElementData } from "../types/virtual-scroll-render-element-data.type";
+import type { VirtualScrollRenderResult } from "../types/virtual-scroll-render-result.type";
 import type { VirtualScrollRowStandard } from "../types/virtual-scroll-row.type";
 import { virtualScrollRenderData } from "./virtual-scroll-render.function";
 
@@ -13,10 +13,10 @@ import { virtualScrollRenderData } from "./virtual-scroll-render.function";
  * @param elements source elements that will be filtered down to actual render elements
  */
 export function virtualScrollRenderBase<TElement extends VirtualScrollRowStandard>(
-	virtualScrollConfig: IVirtualScrollConfig,
+	virtualScrollConfig: VirtualScrollConfig,
 	virtualScrollContainerState: VirtualScrollContainerState,
 	elements: TElement | Array<TElement>
-): IVirtualScrollRenderResult<TElement> {
+): VirtualScrollRenderResult<TElement> {
 
 	return virtualScrollRenderData(
 		virtualScrollConfig,

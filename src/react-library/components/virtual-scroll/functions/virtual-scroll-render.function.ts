@@ -2,11 +2,11 @@ import type { SizePx } from "@react-library/common";
 
 import { VirtualScrollRenderElement } from "../enums/virtual-scroll-render-element.type";
 import type { VirtualScrollRow } from "../enums/virtual-scroll-row.type";
-import type { IVirtualScrollConfig } from "../interfaces/virtual-scroll-config.interface";
-import type { IVirtualScrollRenderResult } from "../interfaces/virtual-scroll-render-result.interface";
+import type { VirtualScrollConfig } from "../types/virtual-scroll-config.type";
 import type { VirtualScrollContainerState } from "../types/virtual-scroll-container-state.type";
 import type { VirtualScrollRenderElementData } from "../types/virtual-scroll-render-element-data.type";
 import type { VirtualScrollRenderElementResult } from "../types/virtual-scroll-render-element-result.type";
+import type { VirtualScrollRenderResult } from "../types/virtual-scroll-render-result.type";
 import type { VirtualScrollRowComparable } from "../types/virtual-scroll-row.type";
 
 /**
@@ -17,10 +17,10 @@ import type { VirtualScrollRowComparable } from "../types/virtual-scroll-row.typ
  * @param elements source elements that will be filtered down to actual render elements
  */
 export function virtualScrollRenderData<TElement extends VirtualScrollRowComparable<VirtualScrollRow>>(
-	virtualScrollConfig: IVirtualScrollConfig,
+	virtualScrollConfig: VirtualScrollConfig,
 	virtualScrollContainerState: VirtualScrollContainerState,
 	elements: Array<VirtualScrollRenderElementData<TElement>>
-): IVirtualScrollRenderResult<TElement> {
+): VirtualScrollRenderResult<TElement> {
 
 	// Validate parameters
 
@@ -96,7 +96,7 @@ export function virtualScrollRenderData<TElement extends VirtualScrollRowCompara
 		childrenSize += currentElementSize;
 	}
 
-	const result: IVirtualScrollRenderResult<TElement> = {
+	const result: VirtualScrollRenderResult<TElement> = {
 		children: [...elementsInStartBuffer, ...elementsInViewport, ...elementsInEndBuffer],
 		childrenSize: childrenSize,
 		paddingStart: paddingStart,

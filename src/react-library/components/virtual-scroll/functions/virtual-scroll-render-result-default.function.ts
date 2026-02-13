@@ -1,9 +1,9 @@
-import type { IVirtualScrollRenderResult } from "../interfaces/virtual-scroll-render-result.interface";
+import type { VirtualScrollRenderResult } from "../types/virtual-scroll-render-result.type";
 
 /**
  * Default values for {@link IResizeObserverState} for vertical orientation
  */
-export function virtualScrollRenderResultDefault<TElement>(): IVirtualScrollRenderResult<TElement> {
+export function virtualScrollRenderResultDefault<TElement>(): VirtualScrollRenderResult<TElement> {
 	return {
 		children: [],
 		childrenSize: 0,

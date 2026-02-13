@@ -12,9 +12,9 @@ import {
 
 import { virtualScrollRenderResultDefault } from "../../functions/virtual-scroll-render-result-default.function";
 import type { VirtualScrollRow } from "../../enums/virtual-scroll-row.type";
-import type { IVirtualScrollConfig } from "../../interfaces/virtual-scroll-config.interface";
-import type { IVirtualScrollRenderResult } from "../../interfaces/virtual-scroll-render-result.interface";
+import type { VirtualScrollConfig } from "../../types/virtual-scroll-config.type";
 import type { VirtualScrollContainerState } from "../../types/virtual-scroll-container-state.type";
+import type { VirtualScrollRenderResult } from "../../types/virtual-scroll-render-result.type";
 import type { VirtualScrollRowComparable } from "../../types/virtual-scroll-row.type";
 import type { VirtualScrollViewProps } from "../../types/virtual-scroll-view-props.type";
 import { virtualScrollContainerStyle } from "./styles/virtual-scroll-container-style.function";
@@ -30,10 +30,10 @@ import { virtualScrollElementStyle } from "./styles/virtual-scroll-element-style
 export function VirtualScrollViewBase<TElement extends VirtualScrollRowComparable<VirtualScrollRow>, TRenderElement>(
 	props: VirtualScrollViewProps<TElement, TRenderElement>,
 	getRenderResult: (
-		virtualScrollConfig: IVirtualScrollConfig,
+		virtualScrollConfig: VirtualScrollConfig,
 		virtualScrollContainerState: VirtualScrollContainerState,
 		elements: TElement | Array<TElement>
-	) => IVirtualScrollRenderResult<TRenderElement>
+	) => VirtualScrollRenderResult<TRenderElement>
 ) {
 	// Elements
 	const [vsContainerElement, setVsContainerElement] = useState<HTMLDivElement | null>(null);
@@ -46,7 +46,7 @@ export function VirtualScrollViewBase<TElement extends VirtualScrollRowComparabl
 	const [scrollState, setScrollState] = useState<ScrollObserverState>(SCROLL_OBSERVER_STATE_DEFAULT);
 
 	// Virtual scroll render state
-	const [renderResult, setRenderResult] = useState<IVirtualScrollRenderResult<TRenderElement>>(virtualScrollRenderResultDefault());
+	const [renderResult, setRenderResult] = useState<VirtualScrollRenderResult<TRenderElement>>(virtualScrollRenderResultDefault());
 	useEffect(
 		() => setRenderResult(getRenderResult(
 			{ elementBufferCount: props.elementBufferCount, elementSize: props.elementSize },

@@ -1,7 +1,7 @@
-import type { IVirtualScrollConfig } from "../interfaces/virtual-scroll-config.interface";
-import type { IVirtualScrollRenderResult } from "../interfaces/virtual-scroll-render-result.interface";
+import type { VirtualScrollConfig } from "../types/virtual-scroll-config.type";
 import type { VirtualScrollContainerState } from "../types/virtual-scroll-container-state.type";
 import type { VirtualScrollRenderElementData } from "../types/virtual-scroll-render-element-data.type";
+import type { VirtualScrollRenderResult } from "../types/virtual-scroll-render-result.type";
 import type { VirtualScrollRowParent, VirtualScrollRowStandard } from "../types/virtual-scroll-row.type";
 import { resolveVirtualScrollIdPrefix } from "./resolve-virtual-scroll-id-prefix.function";
 import { virtualScrollRenderData } from "./virtual-scroll-render.function";
@@ -18,10 +18,10 @@ export function virtualScrollRenderAccordionParent<
 	TElement extends VirtualScrollRowStandard,
 	TParentElement extends VirtualScrollRowParent<TElement>
 >(
-	virtualScrollConfig: IVirtualScrollConfig,
+	virtualScrollConfig: VirtualScrollConfig,
 	virtualScrollContainerState: VirtualScrollContainerState,
 	parentElements: TParentElement | Array<TParentElement>
-): IVirtualScrollRenderResult<TParentElement | TElement> {
+): VirtualScrollRenderResult<TParentElement | TElement> {
 
 	const virtualScrollRows: Array<VirtualScrollRenderElementData<TParentElement | TElement>> = [];
 

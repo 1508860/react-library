@@ -1,5 +1,5 @@
 import { virtualScrollRenderBase } from "../functions/virtual-scroll-render-base.function";
-import type { IVirtualScrollConfig } from "../interfaces/virtual-scroll-config.interface";
+import type { VirtualScrollConfig } from "../types/virtual-scroll-config.type";
 import type { VirtualScrollContainerState } from "../types/virtual-scroll-container-state.type";
 import type { VirtualScrollRowStandard } from "../types/virtual-scroll-row.type";
 import type { VirtualScrollViewProps } from "../types/virtual-scroll-view-props.type";
@@ -13,7 +13,7 @@ export function VirtualScrollView<TElement extends VirtualScrollRowStandard>(pro
 	return VirtualScrollViewBase<TElement, TElement>(
 		props,
 		(
-			virtualScrollConfig: IVirtualScrollConfig,
+			virtualScrollConfig: VirtualScrollConfig,
 			virtualScrollContainerState: VirtualScrollContainerState,
 			elements: TElement | Array<TElement>
 		) => virtualScrollRenderBase<TElement>(virtualScrollConfig, virtualScrollContainerState, elements)
