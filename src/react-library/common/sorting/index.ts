@@ -1,4 +1,4 @@
-export * from "./sort-on-key-option.interface";
+export * from "./sort-on-key-option.type";
 export * from "./sort-on-key-options.function";
 export * from "./sort-on-key.function";
 export * from "./sort-on-keys.function";

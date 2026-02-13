@@ -1,5 +1,5 @@
 import { applySortOrder } from "./sort-order.function";
-import type { ISortOnKeyOption } from "./sort-on-key-option.interface";
+import type { SortOnKeyOption } from "./sort-on-key-option.type";
 import { SortOrder } from "./sort-order.type";
 
 /**
@@ -7,7 +7,7 @@ import { SortOrder } from "./sort-order.type";
  * @param array to sort
  * @param sortOptions array of options to sort array on in the order provided
  */
-export function sortOnKeyOptions<T>(array: T[], sortOptions: ISortOnKeyOption<T>[]): T[] {
+export function sortOnKeyOptions<T>(array: T[], sortOptions: SortOnKeyOption<T>[]): T[] {
 
 	// Validate parameters
 	if (!array || array.length === 0 || !sortOptions || sortOptions.length === 0) return array;

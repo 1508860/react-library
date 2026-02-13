@@ -1,4 +1,4 @@
-import type { ISortOnKeyOption } from "./sort-on-key-option.interface";
+import type { SortOnKeyOption } from "./sort-on-key-option.type";
 import { sortOnKeyOptions } from "./sort-on-key-options.function";
 import { SortOrder } from "./sort-order.type";
 
@@ -10,7 +10,7 @@ import { SortOrder } from "./sort-order.type";
  */
 export function sortOnKeys<T>(array: T[], keys: Array<keyof T>, sortOrder: SortOrder): T[] {
 
-	const sortOptions: ISortOnKeyOption<T>[] = keys.map(key => ({
+	const sortOptions: SortOnKeyOption<T>[] = keys.map(key => ({
 		key: key,
 		sortOrder: sortOrder
 	}));
