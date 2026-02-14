@@ -41,21 +41,13 @@ export function ButtonClick(props: ButtonClickProps) {
 			height: BUTTON_CLICK_PROPERTY_MAP.size[props.size].height,
 			justifyContent: "center",
 			overflow: "hidden",
-			paddingLeft: (
-				(props.content !== ButtonContent.Icon) ?
-				BUTTON_CLICK_PROPERTY_MAP.size[props.size].content[props.content].paddingSide :
-				undefined
-			),
-			paddingRight: (
-				(props.content !== ButtonContent.Icon) ?
-				BUTTON_CLICK_PROPERTY_MAP.size[props.size].content[props.content].paddingSide :
-				undefined
-			),
+			paddingLeft: BUTTON_CLICK_PROPERTY_MAP.size[props.size].content[props.content].paddingHorizontal,
+			paddingRight: BUTTON_CLICK_PROPERTY_MAP.size[props.size].content[props.content].paddingHorizontal,
 			position: "relative",
 			width: (
 				(props.content === ButtonContent.Icon) ?
-				BUTTON_CLICK_PROPERTY_MAP.size[props.size].content[props.content][props.iconWidth].width :
-				undefined
+					BUTTON_CLICK_PROPERTY_MAP.size[props.size].content[props.content].iconWidth[props.iconWidth] :
+					undefined
 			)
 		},
 		props.isDisabled
