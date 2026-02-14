@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import { ButtonBase } from "../base";
-import { ButtonContent } from "../shared/enums/button-content.type";
 import { BUTTON_FLOATING_PROPERTY_MAP } from "./constants/button-floating-property-map.const";
 import { useButtonFloatingColourState } from "./hooks/use-button-floating-colour-state.hook";
 import type { ButtonFloatingProps } from "./types/button-floating-props.type";
@@ -39,22 +38,10 @@ export function ButtonFloating(props: ButtonFloatingProps) {
 			height: BUTTON_FLOATING_PROPERTY_MAP.size[props.size].height,
 			justifyContent: "center",
 			overflow: "hidden",
-			paddingLeft: (
-				(props.content !== ButtonContent.Icon) ?
-					BUTTON_FLOATING_PROPERTY_MAP.size[props.size].content[props.content].paddingSide :
-					undefined
-			),
-			paddingRight: (
-				(props.content !== ButtonContent.Icon) ?
-					BUTTON_FLOATING_PROPERTY_MAP.size[props.size].content[props.content].paddingSide :
-					undefined
-			),
+			paddingLeft: BUTTON_FLOATING_PROPERTY_MAP.size[props.size].content[props.content].paddingHorizontal,
+			paddingRight: BUTTON_FLOATING_PROPERTY_MAP.size[props.size].content[props.content].paddingHorizontal,
 			position: "relative",
-			width: (
-				(props.content === ButtonContent.Icon) ?
-					BUTTON_FLOATING_PROPERTY_MAP.size[props.size].content[props.content].width :
-					undefined
-			)
+			width: BUTTON_FLOATING_PROPERTY_MAP.size[props.size].content[props.content].iconWidth
 		},
 		props.isDisabled
 	);

@@ -37,7 +37,7 @@ export function floatingButtonGroupMenuChildrenStyle(
 	switch (orientation) {
 		case Orientation.Horizontal:
 			{
-				const buttonPaddingSize: SizePx = BUTTON_FLOATING_PROPERTY_MAP.size[buttonSize].content[ButtonContent.Icon].width;
+				const buttonPaddingSize: SizePx = BUTTON_FLOATING_PROPERTY_MAP.size[buttonSize].content[ButtonContent.Icon].iconWidth ?? 0;
 				switch (positionStrategy) {
 					case PositionStrategyInternal.BottomLeft:
 					case PositionStrategyInternal.TopLeft:

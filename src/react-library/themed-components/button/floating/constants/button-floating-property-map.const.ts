@@ -1,23 +1,23 @@
 import { ButtonContent } from "../../shared/enums/button-content.type";
 import { ButtonShape } from "../../shared/enums/button-shape.type";
 import { ButtonSize } from "../../shared/enums/button-size.type";
-import type { IButtonFloatingPropertyMap } from "../interfaces/button-floating-property-map.interface";
+import type { ButtonFloatingPropertyMap } from "../types/button-floating-property-map.type";
 
 /**
  * Constant values for button floating style sizes
  */
-export const BUTTON_FLOATING_PROPERTY_MAP: IButtonFloatingPropertyMap = {
+export const BUTTON_FLOATING_PROPERTY_MAP: ButtonFloatingPropertyMap = {
 	size: {
 		[ButtonSize.Small]: {
 			content: {
 				[ButtonContent.Icon]: {
-					width: 56
+					iconWidth: 56
 				},
 				[ButtonContent.IconLabel]: {
-					paddingSide: 16
+					paddingHorizontal: 16
 				},
 				[ButtonContent.Label]: {
-					paddingSide: 16
+					paddingHorizontal: 16
 				}
 			},
 			fontSize: 14,
@@ -36,13 +36,13 @@ export const BUTTON_FLOATING_PROPERTY_MAP: IButtonFloatingPropertyMap = {
 		[ButtonSize.Medium]: {
 			content: {
 				[ButtonContent.Icon]: {
-					width: 80
+					iconWidth: 80
 				},
 				[ButtonContent.IconLabel]: {
-					paddingSide: 26
+					paddingHorizontal: 26
 				},
 				[ButtonContent.Label]: {
-					paddingSide: 26
+					paddingHorizontal: 26
 				}
 			},
 			fontSize: 16,
@@ -61,13 +61,13 @@ export const BUTTON_FLOATING_PROPERTY_MAP: IButtonFloatingPropertyMap = {
 		[ButtonSize.Large]: {
 			content: {
 				[ButtonContent.Icon]: {
-					width: 96
+					iconWidth: 96
 				},
 				[ButtonContent.IconLabel]: {
-					paddingSide: 28
+					paddingHorizontal: 28
 				},
 				[ButtonContent.Label]: {
-					paddingSide: 28
+					paddingHorizontal: 28
 				}
 			},
 			fontSize: 24,
