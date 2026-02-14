@@ -3,31 +3,29 @@ import { ButtonIconWidth } from "../../shared/enums/button-icon-width.type";
 import { ButtonShape } from "../../shared/enums/button-shape.type";
 import { ButtonSize } from "../../shared/enums/button-size.type";
 import { ButtonStyle } from "../../shared/enums/button-style.type";
-import type { IButtonSelectionPropertyMap } from "../interfaces/button-selection-property-map.interface";
+import type { ButtonSelectionPropertyMap } from "../types/button-selection-property-map.type";
 
 /**
  * Constant values for button selection style sizes
  */
-export const BUTTON_SELECTION_PROPERTY_MAP: IButtonSelectionPropertyMap = {
+export const BUTTON_SELECTION_PROPERTY_MAP: ButtonSelectionPropertyMap = {
 	size: {
 		[ButtonSize.ExtraSmall]: {
 			content: {
 				[ButtonContent.Icon]: {
-					[ButtonIconWidth.Default]: {
-						width: 32
-					},
-					[ButtonIconWidth.Narrow]: {
-						width: 28
-					},
-					[ButtonIconWidth.Wide]: {
-						width: 40
+					iconWidth: {
+						[ButtonIconWidth.Default]: 32,
+						[ButtonIconWidth.Narrow]: 28,
+						[ButtonIconWidth.Wide]: 40
 					}
 				},
 				[ButtonContent.IconLabel]: {
-					paddingSide: 12
+					iconWidth: {},
+					paddingHorizontal: 12
 				},
 				[ButtonContent.Label]: {
-					paddingSide: 12
+					iconWidth: {},
+					paddingHorizontal: 12
 				}
 			},
 			fontSize: 14,
@@ -46,21 +44,19 @@ export const BUTTON_SELECTION_PROPERTY_MAP: IButtonSelectionPropertyMap = {
 		[ButtonSize.Small]: {
 			content: {
 				[ButtonContent.Icon]: {
-					[ButtonIconWidth.Default]: {
-						width: 40
-					},
-					[ButtonIconWidth.Narrow]: {
-						width: 32
-					},
-					[ButtonIconWidth.Wide]: {
-						width: 52
+					iconWidth: {
+						[ButtonIconWidth.Default]: 40,
+						[ButtonIconWidth.Narrow]: 32,
+						[ButtonIconWidth.Wide]: 52
 					}
 				},
 				[ButtonContent.IconLabel]: {
-					paddingSide: 16
+					iconWidth: {},
+					paddingHorizontal: 16
 				},
 				[ButtonContent.Label]: {
-					paddingSide: 16
+					iconWidth: {},
+					paddingHorizontal: 16
 				}
 			},
 			fontSize: 14,
@@ -79,21 +75,19 @@ export const BUTTON_SELECTION_PROPERTY_MAP: IButtonSelectionPropertyMap = {
 		[ButtonSize.Medium]: {
 			content: {
 				[ButtonContent.Icon]: {
-					[ButtonIconWidth.Default]: {
-						width: 56
-					},
-					[ButtonIconWidth.Narrow]: {
-						width: 48
-					},
-					[ButtonIconWidth.Wide]: {
-						width: 72
+					iconWidth: {
+						[ButtonIconWidth.Default]: 56,
+						[ButtonIconWidth.Narrow]: 48,
+						[ButtonIconWidth.Wide]: 72
 					}
 				},
 				[ButtonContent.IconLabel]: {
-					paddingSide: 24
+					iconWidth: {},
+					paddingHorizontal: 24
 				},
 				[ButtonContent.Label]: {
-					paddingSide: 24
+					iconWidth: {},
+					paddingHorizontal: 24
 				}
 			},
 			fontSize: 16,
@@ -112,21 +106,19 @@ export const BUTTON_SELECTION_PROPERTY_MAP: IButtonSelectionPropertyMap = {
 		[ButtonSize.Large]: {
 			content: {
 				[ButtonContent.Icon]: {
-					[ButtonIconWidth.Default]: {
-						width: 96
-					},
-					[ButtonIconWidth.Narrow]: {
-						width: 64
-					},
-					[ButtonIconWidth.Wide]: {
-						width: 128
+					iconWidth: {
+						[ButtonIconWidth.Default]: 96,
+						[ButtonIconWidth.Narrow]: 64,
+						[ButtonIconWidth.Wide]: 128
 					}
 				},
 				[ButtonContent.IconLabel]: {
-					paddingSide: 48
+					iconWidth: {},
+					paddingHorizontal: 48
 				},
 				[ButtonContent.Label]: {
-					paddingSide: 48
+					iconWidth: {},
+					paddingHorizontal: 48
 				}
 			},
 			fontSize: 24,
@@ -145,21 +137,19 @@ export const BUTTON_SELECTION_PROPERTY_MAP: IButtonSelectionPropertyMap = {
 		[ButtonSize.ExtraLarge]: {
 			content: {
 				[ButtonContent.Icon]: {
-					[ButtonIconWidth.Default]: {
-						width: 136
-					},
-					[ButtonIconWidth.Narrow]: {
-						width: 104
-					},
-					[ButtonIconWidth.Wide]: {
-						width: 184
+					iconWidth: {
+						[ButtonIconWidth.Default]: 136,
+						[ButtonIconWidth.Narrow]: 104,
+						[ButtonIconWidth.Wide]: 184
 					}
 				},
 				[ButtonContent.IconLabel]: {
-					paddingSide: 64
+					iconWidth: {},
+					paddingHorizontal: 64
 				},
 				[ButtonContent.Label]: {
-					paddingSide: 64
+					iconWidth: {},
+					paddingHorizontal: 64
 				}
 			},
 			fontSize: 32,

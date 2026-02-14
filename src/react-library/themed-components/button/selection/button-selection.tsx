@@ -42,22 +42,14 @@ export function ButtonSelection(props: ButtonSelectionProps) {
 			height: BUTTON_SELECTION_PROPERTY_MAP.size[props.size].height,
 			justifyContent: "center",
 			overflow: "hidden",
-			paddingLeft: (
-				(props.content !== ButtonContent.Icon) ?
-					BUTTON_SELECTION_PROPERTY_MAP.size[props.size].content[props.content].paddingSide :
-					undefined
-			),
-			paddingRight: (
-				(props.content !== ButtonContent.Icon) ?
-					BUTTON_SELECTION_PROPERTY_MAP.size[props.size].content[props.content].paddingSide :
-					undefined
-			),
+			paddingLeft: BUTTON_SELECTION_PROPERTY_MAP.size[props.size].content[props.content].paddingHorizontal,
+			paddingRight: BUTTON_SELECTION_PROPERTY_MAP.size[props.size].content[props.content].paddingHorizontal,
 			position: "relative",
 			transitionDuration: `${BUTTON_SELECTION_PROPERTY_MAP.transition.borderRadius.durationMs}ms`,
 			transitionProperty: "border-radius",
 			width: (
 				(props.content === ButtonContent.Icon) ?
-					BUTTON_SELECTION_PROPERTY_MAP.size[props.size].content[props.content][props.iconWidth].width :
+					BUTTON_SELECTION_PROPERTY_MAP.size[props.size].content[props.content].iconWidth[props.iconWidth] :
 					undefined
 			)
 		},
