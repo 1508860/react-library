@@ -79,13 +79,3 @@ export function RouterProvider(props: RouterProps) {
 		</ROUTER_CONTEXT.Provider>
 	);
 }
-
-/**
- * TODO
- * - Add default child to root and with children routes (automatically root to these if no child is selected in the router outlet component?)
- * - Query / Route parameters?
- * 
- * - Remove segment id from root
- * 
- * - Tidy up router package and comment everything
- */
