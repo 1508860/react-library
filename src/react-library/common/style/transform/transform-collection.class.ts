@@ -1,5 +1,5 @@
-import type { ArrayMinLength1 } from "react-library/common/types";
 import type { IIsEqual, IToStyleTransformCollectionString } from "../../interfaces";
+import type { ArrayMinLength1 } from "../../types";
 
 import type { StyleTransform } from "./transform.type";
 
