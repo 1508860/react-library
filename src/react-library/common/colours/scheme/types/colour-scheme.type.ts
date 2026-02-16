@@ -27,7 +27,7 @@ import type { StyleOpacity } from "../../../style";
 import type { Colour } from "../../types/colour.type";
 import type { ColourSchemeContainerLevel } from "../enums/colour-scheme-container-level.type";
 import type { ColourSchemeElevationLevel } from "../enums/colour-scheme-elevation-level.type";
-import type { ColourSchemeStyleColour } from "../types/colour-scheme-style-colour.type";
+import type { ColourSchemeStyleColour } from "./colour-scheme-style-colour.type";
 
 /**
  * Describes colour scheme for an application.
