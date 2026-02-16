@@ -1,7 +1,7 @@
 import type {
 	IChild,
 	IDefaultChildSegmentId,
-	IDefaultGuardElement,
+	IDefaultGuardFailureElement,
 	IDefaultGuardLoadingElement,
 	IElement,
 	IGuard,
@@ -14,7 +14,8 @@ import type {
 import type { RouterSegment } from "../enums/router-segment.type";
 import type { RouterElementWithChildren } from "./router-element-with-children.type";
 import type { RouterElement } from "./router-element.type";
-import type { RouterGuardElement } from "./router-guard-element.type";
+import type { RouterGuardFailure } from "./router-guard-failure.type";
+import type { RouterGuardLoading } from "./router-guard-loading.type";
 import type { RouterGuard } from "./router-guard.type";
 import type { RouterSegmentId } from "./router-segment-id.type";
 import type { RouterSegmentPath } from "./router-segment-path.type";
@@ -34,8 +35,8 @@ export type RouteChild = (
 export type RouteRoot = (
 	IChild<RouterSegmentRecord> &
 	Partial<IDefaultChildSegmentId<RouterSegmentId>> &
-	IDefaultGuardElement<RouterGuardElement> &
-	IDefaultGuardLoadingElement<RouterGuardElement> &
+	IDefaultGuardFailureElement<RouterGuardFailure> &
+	IDefaultGuardLoadingElement<RouterGuardLoading> &
 	RouteBase<typeof RouterSegment.Root, RouterElementWithChildren> &
 	ISegmentId<RouterSegmentId>
 );

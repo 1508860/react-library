@@ -1,12 +1,13 @@
 import { RouterSegment, type RouteRoot } from "@react-library/router";
 
-import { ReactLibraryRouterBasicDemoCustomGuardLoading } from "../components/router-basic-demo-custom-guard-loading";
-import { ReactLibraryRouterBasicDemoCustomGuard } from "../components/router-basic-demo-custom-guard";
+import { ReactLibraryRouterBasicDemoDefaultGuardFailure } from "../components/router-basic-demo-default-guard-failure";
 import { ReactLibraryRouterBasicDemoDefaultGuardLoading } from "../components/router-basic-demo-default-guard-loading";
-import { ReactLibraryRouterBasicDemoDefaultGuard } from "../components/router-basic-demo-default-guard";
 import { ReactLibraryRouterBasicDemoElementRoot } from "../components/router-basic-demo-element-root";
 import { ReactLibraryRouterBasicDemoElementWithChildren } from "../components/router-basic-demo-element-with-children";
 import { ReactLibraryRouterBasicDemoElement } from "../components/router-basic-demo-element";
+import { ReactLibraryRouterBasicDemoHookGuardFailure } from "../components/router-basic-demo-hook-guard-failure";
+import { ReactLibraryRouterBasicDemoSegmentGuardFailure } from "../components/router-basic-demo-segment-guard-failure";
+import { ReactLibraryRouterBasicDemoSegmentGuardLoading } from "../components/router-basic-demo-segment-guard-loading";
 import { RouterBasicDemoSegmentId } from "../enums/router-basic-demo-segment-id.type";
 import { ReactLibraryRouterBasicDemoGuardFailure } from "../hooks/router-basic-demo-guard-failure.hook";
 import { ReactLibraryRouterBasicDemoGuardOnInterval } from "../hooks/router-basic-demo-guard-on-interval.hook";
@@ -19,7 +20,7 @@ export const ROUTER_BASIC_DEMO_ROUTER: RouteRoot = {
 	type: RouterSegment.Root,
 	segmentId: RouterBasicDemoSegmentId.Segment_Root,
 	element: ReactLibraryRouterBasicDemoElementRoot,
-	defaultGuardElement: ReactLibraryRouterBasicDemoDefaultGuard,
+	defaultGuardFailureElement: ReactLibraryRouterBasicDemoDefaultGuardFailure,
 	defaultGuardLoadingElement: ReactLibraryRouterBasicDemoDefaultGuardLoading,
 	children: {
 		[RouterBasicDemoSegmentId.Segment_1]: {
@@ -96,7 +97,7 @@ export const ROUTER_BASIC_DEMO_ROUTER: RouteRoot = {
 					element: ReactLibraryRouterBasicDemoElement,
 					guard: {
 						hooks: [
-							ReactLibraryRouterBasicDemoGuardSuccess
+							{ hook: ReactLibraryRouterBasicDemoGuardSuccess }
 						]
 					}
 				},
@@ -106,8 +107,8 @@ export const ROUTER_BASIC_DEMO_ROUTER: RouteRoot = {
 					element: ReactLibraryRouterBasicDemoElement,
 					guard: {
 						hooks: [
-							ReactLibraryRouterBasicDemoGuardSuccess,
-							ReactLibraryRouterBasicDemoGuardFailure
+							{ hook: ReactLibraryRouterBasicDemoGuardSuccess },
+							{ hook: ReactLibraryRouterBasicDemoGuardFailure }
 						]
 					}
 				},
@@ -116,17 +117,30 @@ export const ROUTER_BASIC_DEMO_ROUTER: RouteRoot = {
 					segment: RouterBasicDemoSegmentId.Segment_3_3,
 					element: ReactLibraryRouterBasicDemoElementWithChildren,
 					guard: {
-						element: ReactLibraryRouterBasicDemoCustomGuard,
 						hooks: [
-							ReactLibraryRouterBasicDemoGuardOnInterval
+							{ hook: ReactLibraryRouterBasicDemoGuardOnInterval }
 						],
-						loadingElement: ReactLibraryRouterBasicDemoCustomGuardLoading
+						failureElement: ReactLibraryRouterBasicDemoSegmentGuardFailure,
+						loadingElement: ReactLibraryRouterBasicDemoSegmentGuardLoading
 					},
 					children: {
 						[RouterBasicDemoSegmentId.Segment_3_3_1]: {
 							type: RouterSegment.Child,
 							segment: RouterBasicDemoSegmentId.Segment_3_3_1,
 							element: ReactLibraryRouterBasicDemoElement
+						},
+						[RouterBasicDemoSegmentId.Segment_3_3_2]: {
+							type: RouterSegment.Child,
+							segment: RouterBasicDemoSegmentId.Segment_3_3_2,
+							element: ReactLibraryRouterBasicDemoElement,
+							guard: {
+								hooks: [
+									{
+										hook: ReactLibraryRouterBasicDemoGuardFailure,
+										failureElement: ReactLibraryRouterBasicDemoHookGuardFailure,
+									}
+								]
+							}
 						}
 					}
 				}

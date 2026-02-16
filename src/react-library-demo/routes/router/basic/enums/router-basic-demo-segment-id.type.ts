@@ -23,6 +23,7 @@ export const RouterBasicDemoSegmentId = {
 	Segment_3_2: "segment_3_2",
 	Segment_3_3: "segment_3_3",
 	Segment_3_3_1: "segment_3_3_1",
+	Segment_3_3_2: "segment_3_3_2"
 } as const satisfies Record<string, RouterSegmentId>;
 
 /**

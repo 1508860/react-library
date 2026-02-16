@@ -1,12 +1,12 @@
 import type { ReactElement } from "react";
 
-import type { RouterGuardElementProps } from "@react-library/router";
+import type { RouterGuardFailureProps } from "@react-library/router";
 
 /**
- * Example router custom guard loading component
+ * Example router guard default failure component
  * @param props
  */
-export function ReactLibraryRouterBasicDemoCustomGuardLoading(props: RouterGuardElementProps): ReactElement {
+export function ReactLibraryRouterBasicDemoDefaultGuardFailure(props: RouterGuardFailureProps): ReactElement {
 	return (
 		<div
 			style={{
@@ -21,7 +21,7 @@ export function ReactLibraryRouterBasicDemoCustomGuardLoading(props: RouterGuard
 				width: "100%"
 			}}
 		>
-			<span>Custom Guard Loading - {props.segmentId}</span>
+			<span>Default Guard: failed to route to - {props.segmentId}</span>
 		</div>
 	);
 }

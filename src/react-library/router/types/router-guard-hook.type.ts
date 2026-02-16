@@ -1,8 +1,13 @@
-import type { ArrayMinLength1 } from "@react-library/common";
+import type { ArrayMinLength1, IFailureElement, IHook, ILoadingElement } from "@react-library/common";
 
-import type { RouterGuardState } from "../enums/router-guard-state.type";
-import type { RouterGuardProps } from "./router-guard-props.type";
+import type { RouterGuardFailure } from "./router-guard-failure.type";
+import type { RouterGuardHookCallback } from "./router-guard-hook-callback.type";
+import type { RouterGuardLoading } from "./router-guard-loading.type";
 
-export type RouterGuardHook = (props: RouterGuardProps) => RouterGuardState;
+export type RouterGuardHook = (
+	Partial<IFailureElement<RouterGuardFailure>> &
+	IHook<RouterGuardHookCallback> &
+	Partial<ILoadingElement<RouterGuardLoading>>
+);
 
 export type RouterGuardHooks = ArrayMinLength1<RouterGuardHook>;

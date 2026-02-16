@@ -1,4 +1,4 @@
-import { Fragment, type ReactElement } from "react";
+import { Fragment, useState, type ReactElement } from "react";
 
 import { RouterSegment } from "../../enums/router-segment.type";
 import { useRouterContext } from "../../hooks/router-context.hook";
@@ -12,16 +12,18 @@ export function RouterChildOutlet(props: RouterChildOutletProps): ReactElement {
 	const router = useRouterContext();
 	const [state] = useRouterActiveRouteState(props.segmentId);
 
+	const [firstHookIndex] = useState<number>(() => 0);
+
 	return (
 		!state ?
 			<Fragment key="no-child" /> :
 			(
 				state.route.guard ?
 					<RouterGuardOutlet
-						element={state.route.guard.element ?? router.defaultGuardElement}
-						hookIndex={0}
+						failureElement={state.route.guard.failureElement ?? router.defaultGuardFailureElement}
+						hookIndex={firstHookIndex}
 						hooks={state.route.guard.hooks}
-						key={`router-guard-${state.segmentId}-${0}`}
+						key={`router-guard-${state.segmentId}-${firstHookIndex}`}
 						loadingElement={state.route.guard.loadingElement ?? router.defaultGuardLoadingElement}
 						segmentId={state.segmentId}
 					>
