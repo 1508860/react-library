@@ -17,20 +17,20 @@ import {
 	type TooltipPositionStrategiesExternal
 } from "@react-library/components";
 
-import type { IVirtualScrollTestParent, IVirtualScrollTestStandard } from "./interfaces";
+import type { VirtualScrollTestParent, VirtualScrollTestStandard } from "./types";
 import { resolveVirtualScrollDemoParentData } from "./functions";
 
 export function ReactLibraryComponentsVirtualScrollDemo() {
 
 	// virtual scroll
 	const defaultRowSize: number = 30;
-	const [vsData] = useState<Array<IVirtualScrollTestParent>>(resolveVirtualScrollDemoParentData(1000, 10, defaultRowSize));
+	const [vsData] = useState<Array<VirtualScrollTestParent>>(resolveVirtualScrollDemoParentData(1000, 10, defaultRowSize));
 
 	// Modal
-	const [showModal, setShowModal] = useState<IVirtualScrollTestStandard | false>(false);
+	const [showModal, setShowModal] = useState<VirtualScrollTestStandard | false>(false);
 	const dismissModal = () => setShowModal(false);
 
-	const handleSetShowModal = useCallback((event: React.MouseEvent, data: IVirtualScrollTestParent | IVirtualScrollTestStandard) => {
+	const handleSetShowModal = useCallback((event: React.MouseEvent, data: VirtualScrollTestParent | VirtualScrollTestStandard) => {
 		targetEvent(event, () => isVirtualSCrollRowStandard(data) ? setShowModal(data) : false)
 	}, []);
 
@@ -56,8 +56,8 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 
 	return (<>
 		<VirtualScrollAccordionParentView<
-			IVirtualScrollTestStandard,
-			IVirtualScrollTestParent
+			VirtualScrollTestStandard,
+			VirtualScrollTestParent
 		> data={vsData} elementBufferCount={20} elementSize={defaultRowSize} orientation={Orientation.Vertical}>
 			{
 				(child) =>
