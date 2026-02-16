@@ -1,6 +1,6 @@
 import { type Context, createContext } from "react";
 
-import type { ColourScheme } from "../interfaces/colour-scheme.interface";
+import type { ColourScheme } from "../types/colour-scheme.type";
 
 /**
  * Context to provide {@link CurrencyCode}

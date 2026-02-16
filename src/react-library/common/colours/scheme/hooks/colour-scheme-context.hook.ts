@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { NullContextError } from "../../../errors";
 
 import { COLOUR_SCHEME_CONTEXT } from "../constants/colour-scheme-context.const";
-import type { ColourScheme } from "../interfaces/colour-scheme.interface";
+import type { ColourScheme } from "../types/colour-scheme.type";
 
 /**
  * Returns context for {@link COLOUR_SCHEME_CONTEXT} and ensures a non-null value

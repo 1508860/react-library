@@ -1,6 +1,6 @@
 import { ColourSchemeStyle } from "../enums/colour-scheme-style.type";
-import type { ColourScheme } from "../interfaces/colour-scheme.interface";
 import type { ColourSchemeStyleColour } from "../types/colour-scheme-style-colour.type";
+import type { ColourScheme } from "../types/colour-scheme.type";
 
 /**
  * Resolve colour scheme style colour based on {@link ColourSchemeStyle}

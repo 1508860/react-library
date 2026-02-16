@@ -1,7 +1,7 @@
 import type { ProviderProps } from "react";
 
 import { COLOUR_SCHEME_CONTEXT } from "../constants/colour-scheme-context.const";
-import type { ColourScheme } from "../interfaces/colour-scheme.interface";
+import type { ColourScheme } from "../types/colour-scheme.type";
 
 /**
  * Component for providing a colour scheme
