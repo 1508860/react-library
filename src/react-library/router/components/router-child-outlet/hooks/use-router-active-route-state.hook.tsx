@@ -9,8 +9,7 @@ import { useRouterSubjectContext } from "../../../hooks/router-subject-context.h
 import type { RouterSegmentRecord } from "../../../types/route.type";
 import type { RouterActiveRouteState } from "../../../types/router-active-route-state.type";
 import type { RouterSegmentId } from "../../../types/router-segment-id.type";
-import type { RouterSubjectNotify } from "react-library/router/types/router-subject-notify.type";
-
+import type { RouterSubjectNotify } from "../../../types/router-subject-notify.type";
 
 export function useRouterActiveRouteState(segmentId: RouterSegmentId): [RouterActiveRouteState | null] {
 
