@@ -1,16 +1,16 @@
 # Generic
+- Get rid of prefix keys and make all interfaces required in the common package?
+	- Get rid of constraints on generics in common interfaces (Look for "import")
+	- Get rid of unused common interfaces?
 - Remove function calls to resolve components in all functional components
 - Move components with multi functions (child components) in to separate files?
 - Do I need arrow functions for lazy loaded components?
-- Get rid of id fields and look to see where keys are actually needed
-- Add parameter check to all hooks to stop rerun of useEffects if the parameters haven't changed
 - Convert typescript styles to CSS apart from conditional styling
 - Check for casts (" as ")
+	- resolveTooltipChildProps
 - Use Pascal case for enums or camel case?
 - Make folder names consistent. When to use plural or not?
-- Get rid of unused common interfaces?
-- Move all interfaces in to commin interfaces folder?
-- (Make events "onDismiss"?)
+- (Make events "on<Event>" e.g. "onDismiss"?)
 - Implement throttle / debounce methods?
 	- Create type for length of time (ms, ss, mm, hh) etc and add methods to convert between and use for throttle & debounce methods
 - Correct uses of null vs undefined
@@ -34,14 +34,16 @@
 # Demo
 - Create independent demo for tooltips & modals
 - Improve virtual scroll demo
+
+# Packgages
 	
-# Components
-- Overlay portal
-	- Keep some functions and types around it
-	- Check if resize event is causing app rerender?
+## Components
 - Modal
 	- Stop wrapping child components as changes to these props may make the modal rerender
 	- Make draggable?
+- Overlay portal
+	- Keep some functions and types around it
+	- Check if resize event is causing app rerender?
 - Tooltip
 	- Stop wrapping child components as changes to these props may make the modal rerender
 		- Backdrop
@@ -56,21 +58,29 @@
 	- Calculate best percentage of tooltip shown if none fit and show that one
 	- Allow tooltip itself to be hovered over as a configurable flag of the tooltip props
 	- Make use of CSS shape for tooltip arrow instead of providing a react element
+- View divider
+	- Try and prevent rerenders of children view 1 & view 2 elements
+- Virtual scroll
+	- Look at implementation to prevent rerenders for in viewport elements
 
-# Router
+## Router
 - Only modify path name and maintain query params etc?
+- Query parameters?
+- Route parameters?
+- Remove segment id from root
+- Tidy up router package and comment everything
 
-# Themed components
+## Themed components
 - Look at focused state for components
 - Components
-	- Icons
-		- Icon with count
 	- Buttons
 		- Transition for FAB menu
 	- Button group
 		- Selection
 			- Decouple base types used from buttons and implement own types to map to button
 			- Don't allow button style for this group and choose thick if selected, default if not
+	- Icons
+		- Icon with count
 	- Navigation bar
 		- Add way to memo elements to maintain state when navigating back?
 		- Add fallback horizontal scroll?
