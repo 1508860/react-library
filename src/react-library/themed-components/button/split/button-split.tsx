@@ -61,22 +61,10 @@ function ButtonLeft(props: ButtonSplitProps): ReactElement {
 				height: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].height,
 				justifyContent: "center",
 				overflow: "hidden",
-				paddingLeft: (
-					(props.content !== ButtonContent.Icon) ?
-						BUTTON_SPLIT_PROPERTY_MAP.size[props.size].button.content[props.content].paddingSide :
-						undefined
-				),
-				paddingRight: (
-					(props.content !== ButtonContent.Icon) ?
-						BUTTON_SPLIT_PROPERTY_MAP.size[props.size].button.content[props.content].paddingSide :
-						undefined
-				),
+				paddingLeft: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].button.content[props.content].paddingHorizontal,
+				paddingRight: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].button.content[props.content].paddingHorizontal,
 				position: "relative",
-				width: (
-					(props.content === ButtonContent.Icon) ?
-						BUTTON_SPLIT_PROPERTY_MAP.size[props.size].button.content[props.content].width :
-						undefined
-				)
+				width: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].button.content[props.content].width
 			},
 			props.isDisabled
 		)

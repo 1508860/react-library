@@ -1,12 +1,12 @@
 import { ButtonContent } from "../../shared/enums/button-content.type";
 import { ButtonSize } from "../../shared/enums/button-size.type";
 import { ButtonStyle } from "../../shared/enums/button-style.type";
-import type { IButtonSplitPropertyMap } from "../interfaces/button-split-property-map.interface";
+import type { ButtonSplitPropertyMap } from "../types/button-split-property-map.type";
 
 /**
  * Constant values for button split style sizes
  */
-export const BUTTON_SPLIT_PROPERTY_MAP: IButtonSplitPropertyMap = {
+export const BUTTON_SPLIT_PROPERTY_MAP: ButtonSplitPropertyMap = {
 	gap: 2,
 	size: {
 		[ButtonSize.ExtraSmall]: {
@@ -20,10 +20,10 @@ export const BUTTON_SPLIT_PROPERTY_MAP: IButtonSplitPropertyMap = {
 						width: 32
 					},
 					[ButtonContent.IconLabel]: {
-						paddingSide: 12
+						paddingHorizontal: 12
 					},
 					[ButtonContent.Label]: {
-						paddingSide: 12
+						paddingHorizontal: 12
 					}
 				},
 				gap: 4,
@@ -54,10 +54,10 @@ export const BUTTON_SPLIT_PROPERTY_MAP: IButtonSplitPropertyMap = {
 						width: 40
 					},
 					[ButtonContent.IconLabel]: {
-						paddingSide: 12
+						paddingHorizontal: 12
 					},
 					[ButtonContent.Label]: {
-						paddingSide: 12
+						paddingHorizontal: 12
 					}
 				},
 				gap: 8,
@@ -88,10 +88,10 @@ export const BUTTON_SPLIT_PROPERTY_MAP: IButtonSplitPropertyMap = {
 						width: 56
 					},
 					[ButtonContent.IconLabel]: {
-						paddingSide: 12
+						paddingHorizontal: 12
 					},
 					[ButtonContent.Label]: {
-						paddingSide: 12
+						paddingHorizontal: 12
 					}
 				},
 				gap: 4,
@@ -122,10 +122,10 @@ export const BUTTON_SPLIT_PROPERTY_MAP: IButtonSplitPropertyMap = {
 						width: 96
 					},
 					[ButtonContent.IconLabel]: {
-						paddingSide: 12
+						paddingHorizontal: 12
 					},
 					[ButtonContent.Label]: {
-						paddingSide: 12
+						paddingHorizontal: 12
 					}
 				},
 				gap: 4,
@@ -156,10 +156,10 @@ export const BUTTON_SPLIT_PROPERTY_MAP: IButtonSplitPropertyMap = {
 						width: 136
 					},
 					[ButtonContent.IconLabel]: {
-						paddingSide: 12
+						paddingHorizontal: 12
 					},
 					[ButtonContent.Label]: {
-						paddingSide: 12
+						paddingHorizontal: 12
 					}
 				},
 				gap: 4,
@@ -181,14 +181,8 @@ export const BUTTON_SPLIT_PROPERTY_MAP: IButtonSplitPropertyMap = {
 		}
 	},
 	style: {
-		[ButtonStyle.Elevated]: {
-			borderStyle: undefined,
-			borderWidth: undefined
-		},
-		[ButtonStyle.Filled]: {
-			borderStyle: undefined,
-			borderWidth: undefined
-		},
+		[ButtonStyle.Elevated]: {},
+		[ButtonStyle.Filled]: {},
 		[ButtonStyle.Outline]: {
 			borderStyle: "solid",
 			borderWidth: 1
