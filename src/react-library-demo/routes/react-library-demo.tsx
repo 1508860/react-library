@@ -33,7 +33,7 @@ export function ReactLibraryDemo() {
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaulSubItemId={ReactLibraryRouterDemo.Basic}
+										defaultSubItemId={ReactLibraryRouterDemo.Basic}
 									>
 										{{
 											id: 1,

@@ -3,9 +3,9 @@ import { Fragment, useState } from "react";
 import { useFontContext } from "@react-library/common";
 
 import type {
-	IDemoSelectorProps,
-	IDemoSelectorSubItem
-} from "./demo-selector-props.interface";
+	DemoSelectorProps,
+	DemoSelectorSubItem
+} from "./demo-selector-props.type";
 import {
 	demoSelctorStyle,
 	demoSelectorContentStyle,
@@ -14,14 +14,14 @@ import {
 	demoSelectorSubItemStyle
 } from "./demo-selector-style.function";
 
-export function DemoSelector<TSubItemId>(props: IDemoSelectorProps<TSubItemId>) {
+export function DemoSelector<TSubItemId extends (number | string)>(props: DemoSelectorProps<TSubItemId>) {
 
 	const font = useFontContext();
 
-	const [currentSubItem, setCurrentSubItem] = useState<IDemoSelectorSubItem<TSubItemId>>(() => {
-		if (props.defaulSubItemId !== undefined) {
+	const [currentSubItem, setCurrentSubItem] = useState<DemoSelectorSubItem<TSubItemId>>(() => {
+		if (props.defaultSubItemId !== undefined) {
 			for (let itemIndex = 0; itemIndex < props.children.length; itemIndex++) {
-				const defaultSubItem = props.children[itemIndex].subItems.find(subItem => subItem.id === props.defaulSubItemId);
+				const defaultSubItem = props.children[itemIndex].subItems.find(subItem => subItem.id === props.defaultSubItemId);
 				if (!defaultSubItem) continue
 				return defaultSubItem;
 			}

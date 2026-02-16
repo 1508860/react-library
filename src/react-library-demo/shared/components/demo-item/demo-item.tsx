@@ -1,6 +1,6 @@
 import { useFontContext } from "@react-library/common";
 
-import type { IDemoItemProps } from "./demo-item-props.interface";
+import type { DemoItemProps } from "./demo-item-props.type";
 import {
 	demoItemContent,
 	demoItemStyle,
@@ -8,7 +8,7 @@ import {
 } from "./demo-item-style.function";
 
 
-export function DemoItem(props: IDemoItemProps) {
+export function DemoItem(props: DemoItemProps) {
 
 	const font = useFontContext();
 
@@ -23,9 +23,9 @@ export function DemoItem(props: IDemoItemProps) {
 					<></>
 			}
 			{
-				(Array.isArray(props.configItems)) ?
+				(Array.isArray(props.config)) ?
 					<ul>
-						{props.configItems.map(configItem => <li>{configItem.key}: {configItem.value}</li>)}
+						{props.config.map(configItem => <li>{configItem.key}: {configItem.value}</li>)}
 					</ul> :
 					<></>
 			}
