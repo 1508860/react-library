@@ -6,7 +6,7 @@ import {
 	StyleShape,
 	StyleTransformCollection,
 	type Colour,
-	type IColourScheme,
+	type ColourScheme,
 	type SizePx,
 	type StyleTransformRotate
 } from "@react-library/common";
@@ -25,7 +25,7 @@ import type { LoadingIndicatorProps } from "../types/loading-indicator-props.typ
  */
 export function loadingIndicatorStyle(
 	props: LoadingIndicatorProps,
-	colourScheme: IColourScheme,
+	colourScheme: ColourScheme,
 	styleShape: StyleShape,
 	show: boolean,
 	shapeIncrementCount: number

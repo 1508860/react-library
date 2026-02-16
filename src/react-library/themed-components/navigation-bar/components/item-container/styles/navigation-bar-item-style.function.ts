@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import { Orientation, type Colour, type IColourScheme } from "@react-library/common";
+import { Orientation, type Colour, type ColourScheme } from "@react-library/common";
 
 import { NAVIGATION_BAR_PROPERTY_MAP } from "../../../constants/navigation-bar-property-map.const";
 
@@ -10,7 +10,7 @@ import { NAVIGATION_BAR_PROPERTY_MAP } from "../../../constants/navigation-bar-p
  * @param colourScheme
  * @param isActive
  */
-export function navigationBarItemStyle(orientation: Orientation, colourScheme: IColourScheme, isActive: boolean): CSSProperties {
+export function navigationBarItemStyle(orientation: Orientation, colourScheme: ColourScheme, isActive: boolean): CSSProperties {
 
 	const backgroundColour: Colour | undefined = isActive ? colourScheme.secondary.container.colour : undefined
 	const colour: Colour = isActive ? colourScheme.secondary.default.colour : colourScheme.surface.variant.onColour;

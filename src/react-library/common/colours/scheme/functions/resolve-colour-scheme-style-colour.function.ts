@@ -1,5 +1,5 @@
 import { ColourSchemeStyle } from "../enums/colour-scheme-style.type";
-import type { IColourScheme } from "../interfaces/colour-scheme.interface";
+import type { ColourScheme } from "../interfaces/colour-scheme.interface";
 import type { ColourSchemeStyleColour } from "../types/colour-scheme-style-colour.type";
 
 /**
@@ -8,7 +8,7 @@ import type { ColourSchemeStyleColour } from "../types/colour-scheme-style-colou
  * @param colourSchemeStyle
  */
 export function resolveColourSchemeStyleColour(
-	colourScheme: IColourScheme,
+	colourScheme: ColourScheme,
 	colourSchemeStyle: ColourSchemeStyle
 ): ColourSchemeStyleColour {
 	switch (colourSchemeStyle) {

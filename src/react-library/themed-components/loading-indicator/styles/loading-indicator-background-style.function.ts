@@ -4,7 +4,7 @@ import {
 	ColourSchemeStyleStandardToContainer,
 	resolveColourSchemeStyleColour,
 	type Colour,
-	type IColourScheme,
+	type ColourScheme,
 	type SizePx
 } from "@react-library/common";
 
@@ -18,7 +18,7 @@ import type { LoadingIndicatorProps } from "../types/loading-indicator-props.typ
  */
 export function loadingIndicatorBackgroundStyle(
 	props: LoadingIndicatorProps,
-	colourScheme: IColourScheme
+	colourScheme: ColourScheme
 ): CSSProperties {
 
 	const size: SizePx = 48;

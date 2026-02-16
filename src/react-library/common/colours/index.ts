@@ -1,4 +1,6 @@
 export * from "./scheme/constants/colour-scheme-context.const";
+export * from "./scheme/enums/colour-scheme-container-level.type";
+export * from "./scheme/enums/colour-scheme-elevation-level.type";
 export * from "./scheme/enums/colour-scheme-style-standard-to-container.type";
 export * from "./scheme/enums/colour-scheme-style.type";
 export * from "./scheme/functions/resolve-colour-scheme-style-colour.function";

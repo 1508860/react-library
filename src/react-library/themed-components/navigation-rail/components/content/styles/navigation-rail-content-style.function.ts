@@ -1,12 +1,12 @@
 import type { CSSProperties } from "react";
-import type { IColourScheme } from "@react-library/common";
+import { ColourSchemeContainerLevel, type ColourScheme } from "@react-library/common";
 
 /**
  * Resolve navigation rail contetnt style based on parameters
  */
-export function navigationRailContentStyle(colourScheme: IColourScheme): CSSProperties {
+export function navigationRailContentStyle(colourScheme: ColourScheme): CSSProperties {
 	return {
-		backgroundColor: colourScheme.surface.container.default.toColourString(),
+		backgroundColor: colourScheme.surface.container[ColourSchemeContainerLevel.Medium].toColourString(),
 		display: "block",
 		flexGrow: 1,
 		flexShrink: 0,

@@ -1,4 +1,4 @@
-import { HexRgb, type IColourScheme } from "@react-library/common";
+import { ColourSchemeContainerLevel, ColourSchemeElevationLevel, HexRgb, type ColourScheme } from "@react-library/common";
 
 /**
  * Defines the colour scheme for the demo application
@@ -9,7 +9,7 @@ import { HexRgb, type IColourScheme } from "@react-library/common";
  * - Warning = #FFDE3F
  * - Variant = Taken from material documentation as theme builder didn't provide these values
  */
-export const DEMO_COLOUR_SCHEME: IColourScheme = {
+export const DEMO_COLOUR_SCHEME: ColourScheme = {
 	primary: {
 		default: {
 			colour: new HexRgb("41", "5F", "91"),
@@ -80,11 +80,11 @@ export const DEMO_COLOUR_SCHEME: IColourScheme = {
 			onColour: new HexRgb("49", "45", "4F")
 		},
 		container: {
-			lowest: new HexRgb("FF", "FF", "FF"),
-			low: new HexRgb("F3", "F3", "FA"),
-			default: new HexRgb("ED", "ED", "F4"),
-			high: new HexRgb("E7", "E8", "EE"),
-			highest: new HexRgb("E2", "E2", "E9")
+			[ColourSchemeContainerLevel.Lowest]: new HexRgb("FF", "FF", "FF"),
+			[ColourSchemeContainerLevel.Low]: new HexRgb("F3", "F3", "FA"),
+			[ColourSchemeContainerLevel.Medium]: new HexRgb("ED", "ED", "F4"),
+			[ColourSchemeContainerLevel.High]: new HexRgb("E7", "E8", "EE"),
+			[ColourSchemeContainerLevel.Highest]: new HexRgb("E2", "E2", "E9")
 		},
 		inverse: {
 			colour: new HexRgb("2E", "30", "36"),
@@ -114,23 +114,13 @@ export const DEMO_COLOUR_SCHEME: IColourScheme = {
 		}
 	},
 	elevation: {
-		level0: {
-			boxShadow: undefined
-		},
-		level1: {
-			boxShadow: "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px"
-		},
-		level2: {
-			boxShadow: "rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px"
-		},
-		level3: {
-			boxShadow: "rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px"
-		},
-		level4: {
-			boxShadow: "rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px"
-		},
-		level5: {
-			boxShadow: "rgba(0, 0, 0, 0.2) 0px 7px 8px -4px, rgba(0, 0, 0, 0.14) 0px 12px 17px 2px, rgba(0, 0, 0, 0.12) 0px 5px 22px 4px"
+		boxShadow: {
+			[ColourSchemeElevationLevel.Level0]: undefined,
+			[ColourSchemeElevationLevel.Level1]: "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px",
+			[ColourSchemeElevationLevel.Level2]: "rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px",
+			[ColourSchemeElevationLevel.Level3]: "rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px",
+			[ColourSchemeElevationLevel.Level4]: "rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px",
+			[ColourSchemeElevationLevel.Level5]: "rgba(0, 0, 0, 0.2) 0px 7px 8px -4px, rgba(0, 0, 0, 0.14) 0px 12px 17px 2px, rgba(0, 0, 0, 0.12) 0px 5px 22px 4px"
 		}
 	}
 }

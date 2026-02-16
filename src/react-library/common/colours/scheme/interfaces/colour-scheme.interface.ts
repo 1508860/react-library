@@ -1,88 +1,94 @@
+import type {
+	IBackdrop,
+	IBoxShadow,
+	IColour,
+	IContainer,
+	IDefault,
+	IDisabled,
+	IElevation,
+	IError,
+	IHovered,
+	IInverse,
+	IOpacity,
+	IOutline,
+	IOutlineVariant,
+	IPressed,
+	IPrimary,
+	IPulse,
+	ISecondary,
+	ISuccess,
+	ISurface,
+	ITertiary,
+	ITransition,
+	IVariant,
+	IWarning
+} from "../../../interfaces";
 import type { StyleOpacity } from "../../../style";
 import type { Colour } from "../../types/colour.type";
+import type { ColourSchemeContainerLevel } from "../enums/colour-scheme-container-level.type";
+import type { ColourSchemeElevationLevel } from "../enums/colour-scheme-elevation-level.type";
 import type { ColourSchemeStyleColour } from "../types/colour-scheme-style-colour.type";
 
 /**
  * Describes colour scheme for an application.
  * Loosely based on material design 3 colour scheme
  */
-export interface IColourScheme {
-	primary: {
-		default: ColourSchemeStyleColour;
-		container: ColourSchemeStyleColour;
-	};
-	secondary: {
-		default: ColourSchemeStyleColour;
-		container: ColourSchemeStyleColour;
-	};
-	tertiary: {
-		default: ColourSchemeStyleColour;
-		container: ColourSchemeStyleColour;
-	};
-	success: {
-		default: ColourSchemeStyleColour;
-		container: ColourSchemeStyleColour;
-	};
-	warning: {
-		default: ColourSchemeStyleColour;
-		container: ColourSchemeStyleColour;
-	};
-	error: {
-		default: ColourSchemeStyleColour;
-		container: ColourSchemeStyleColour;
-	};
-	surface: {
-		default: ColourSchemeStyleColour;
-		variant: ColourSchemeStyleColour;
-		container: {
-			lowest: Colour;
-			low: Colour;
-			default: Colour; // Medium
-			high: Colour;
-			highest: Colour;
-		}
-		inverse: ColourSchemeStyleColour;
-	};
-	outline: {
-		outline: Colour;
-		outlineVariant: Colour;
-	};
-	backdrop: {
-		colour: Colour;
-		opacity: StyleOpacity;
-	},
-	disabled: {
-		opacity: StyleOpacity;
-	};
-	hovered: {
-		opacity: StyleOpacity;
-	};
-	pressed: {
-		opacity: StyleOpacity;
-	};
-	transition: {
-		pulse: {
-			opacity: StyleOpacity;
-		}
-	},
-	elevation: {
-		level0: {
-			boxShadow: string | undefined;
-		};
-		level1: {
-			boxShadow: string;
-		};
-		level2: {
-			boxShadow: string;
-		};
-		level3: {
-			boxShadow: string;
-		};
-		level4: {
-			boxShadow: string;
-		};
-		level5: {
-			boxShadow: string;
-		};
-	};
-}
+
+export type ColourScheme = (
+	IPrimary<ColourSchemeStandard> &
+	ISecondary<ColourSchemeStandard> &
+	ITertiary<ColourSchemeStandard> &
+	ISuccess<ColourSchemeStandard> &
+	IWarning<ColourSchemeStandard> &
+	IError<ColourSchemeStandard> &
+	ISurface<ColourSchemeSurface> &
+	IOutline<ColourSchemeOutline> &
+	IBackdrop<ColourSchemeBackdrop> &
+	IDisabled<ColourSchemeDisabled> &
+	IHovered<ColourSchemeHovered> &
+	IPressed<ColourSchemePressed> &
+	ITransition<ColourSchemeTransition> &
+	IElevation<ColourSchemeElevation>
+);
+
+type ColourSchemeStandard = (
+	IDefault<ColourSchemeStyleColour> &
+	IContainer<ColourSchemeStyleColour>
+);
+
+type ColourSchemeSurface = (
+	IDefault<ColourSchemeStyleColour> &
+	IVariant<ColourSchemeStyleColour> &
+	IContainer<Record<ColourSchemeContainerLevel, Colour>> &
+	IInverse<ColourSchemeStyleColour>
+);
+
+type ColourSchemeOutline = (
+	IOutline<Colour> &
+	IOutlineVariant<Colour>
+);
+
+type ColourSchemeBackdrop = (
+	IColour<Colour> &
+	IOpacity<StyleOpacity>
+);
+
+type ColourSchemeDisabled = (
+	IOpacity<StyleOpacity>
+);
+
+type ColourSchemeHovered = (
+	IOpacity<StyleOpacity>
+);
+
+type ColourSchemePressed = (
+	IOpacity<StyleOpacity>
+);
+
+type ColourSchemeTransition = (
+	IPulse<IOpacity<StyleOpacity>>
+);
+
+type ColourSchemeElevation = (
+	IBoxShadow<Record<ColourSchemeElevationLevel, (string | undefined)>>
+);

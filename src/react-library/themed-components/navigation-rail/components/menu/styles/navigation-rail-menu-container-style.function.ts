@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import type { IColourScheme, SizePx } from "@react-library/common";
+import { ColourSchemeContainerLevel, type ColourScheme, type SizePx } from "@react-library/common";
 
 import { NAVIGATION_RAIL_PROPERTY_MAP } from "../../../constants/navigation-rail-property-map.const";
 import { NavigationRailMenuStyle } from "../../../enums/navigation-rail-menu-style.type";
@@ -19,7 +19,7 @@ export function navigationRailMenuContainerStyle(
 	expandedMenuWidth: SizePx,
 	isExpanded: boolean,
 	navigationRailMenuStyle: NavigationRailMenuStyle,
-	colourScheme: IColourScheme
+	colourScheme: ColourScheme
 ): CSSProperties {
 
 	// Derive transition duration
@@ -27,7 +27,7 @@ export function navigationRailMenuContainerStyle(
 	const transitionDurationMs: number = resolveNavigationRailMenuContainerTransitionDuration(expandedMenuWidth, collapsedMenuWidth);
 
 	return {
-		backgroundColor: colourScheme.surface.container.default.toColourString(),
+		backgroundColor: colourScheme.surface.container[ColourSchemeContainerLevel.Medium].toColourString(),
 		borderBottomRightRadius: NAVIGATION_RAIL_PROPERTY_MAP.menuStyle[navigationRailMenuStyle].menuBorderBottomRightRadius,
 		borderTopRightRadius: NAVIGATION_RAIL_PROPERTY_MAP.menuStyle[navigationRailMenuStyle].menuBorderTopRightRadius,
 		boxSizing: "border-box",

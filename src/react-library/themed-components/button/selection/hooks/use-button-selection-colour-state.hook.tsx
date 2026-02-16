@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { useColourSchemeContext, type IColourScheme } from "@react-library/common";
+import { ColourSchemeContainerLevel, ColourSchemeElevationLevel, useColourSchemeContext, type ColourScheme } from "@react-library/common";
 
 import { ButtonStyle } from "../../shared/enums/button-style.type";
 import { isButtonColourStateEqual } from "../../shared/functions/is-button-colour-state-equal.function";
@@ -36,24 +36,39 @@ function resolveButtonColourState(
 	props: ButtonSelectionProps,
 	isHovered: boolean,
 	isPressed: boolean,
-	colourScheme: IColourScheme
+	colourScheme: ColourScheme
 ): ButtonColourState {
 	switch (props.style) {
-		case ButtonStyle.Elevated: return {
-			backgroundColour: props.isSelected ? colourScheme.primary.default.colour : colourScheme.surface.container.low,
-			boxShadow: colourScheme.elevation[`level${props.isDisabled ? 0 : ((!isPressed && isHovered) ? 2 : 1)}`].boxShadow,
-			disabledOpacity: colourScheme.disabled.opacity,
-			hoverOpacity: colourScheme.hovered.opacity,
-			onColour: props.isSelected ? colourScheme.primary.default.onColour : colourScheme.primary.default.colour,
-			pulseOpacity: colourScheme.transition.pulse.opacity
+		case ButtonStyle.Elevated: {
+
+			const boxShadowElevationLevel: ColourSchemeElevationLevel = (
+				props.isDisabled ? ColourSchemeElevationLevel.Level0 :
+					((!isPressed && isHovered) ? ColourSchemeElevationLevel.Level2 : ColourSchemeElevationLevel.Level1)
+			);
+
+			return {
+				backgroundColour: props.isSelected ? colourScheme.primary.default.colour : colourScheme.surface.container[ColourSchemeContainerLevel.Low],
+				boxShadow: colourScheme.elevation.boxShadow[boxShadowElevationLevel],
+				disabledOpacity: colourScheme.disabled.opacity,
+				hoverOpacity: colourScheme.hovered.opacity,
+				onColour: props.isSelected ? colourScheme.primary.default.onColour : colourScheme.primary.default.colour,
+				pulseOpacity: colourScheme.transition.pulse.opacity
+			};
 		};
-		case ButtonStyle.Filled: return {
-			backgroundColour: !props.isSelected ? colourScheme.surface.container.default : colourScheme.primary.default.colour,
-			boxShadow: colourScheme.elevation[`level${(!props.isDisabled && !isPressed && isHovered) ? 1 : 0}`].boxShadow,
-			disabledOpacity: colourScheme.disabled.opacity,
-			hoverOpacity: colourScheme.hovered.opacity,
-			onColour: !props.isSelected ? colourScheme.surface.variant.onColour : colourScheme.primary.default.onColour,
-			pulseOpacity: colourScheme.transition.pulse.opacity
+		case ButtonStyle.Filled: {
+
+			const boxShadowElevationLevel: ColourSchemeElevationLevel = (
+				(!props.isDisabled && !isPressed && isHovered) ? ColourSchemeElevationLevel.Level1 : ColourSchemeElevationLevel.Level0
+			);
+
+			return {
+				backgroundColour: !props.isSelected ? colourScheme.surface.container[ColourSchemeContainerLevel.Medium] : colourScheme.primary.default.colour,
+				boxShadow: colourScheme.elevation.boxShadow[boxShadowElevationLevel],
+				disabledOpacity: colourScheme.disabled.opacity,
+				hoverOpacity: colourScheme.hovered.opacity,
+				onColour: !props.isSelected ? colourScheme.surface.variant.onColour : colourScheme.primary.default.onColour,
+				pulseOpacity: colourScheme.transition.pulse.opacity
+			};
 		};
 		case ButtonStyle.Outline: return {
 			backgroundColour: props.isSelected ? colourScheme.surface.inverse.colour : undefined,

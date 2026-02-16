@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
 import {
+	ColourSchemeElevationLevel,
 	ColourSchemeStyle,
 	useColourSchemeContext,
 	type Colour,
-	type IColourScheme
+	type ColourScheme
 } from "@react-library/common";
 
 import { isButtonColourStateEqual } from "../../shared/functions/is-button-colour-state-equal.function";
@@ -40,8 +41,12 @@ function resolveButtonColourState(
 	props: ButtonFloatingProps,
 	isHovered: boolean,
 	isPressed: boolean,
-	colourScheme: IColourScheme
+	colourScheme: ColourScheme
 ): ButtonColourState {
+
+	const boxShadowElevationLevel: ColourSchemeElevationLevel = (
+		(!props.isDisabled && !isPressed && isHovered) ? ColourSchemeElevationLevel.Level4 : ColourSchemeElevationLevel.Level3
+	);
 	let backgroundColour: Colour | undefined = undefined;
 	let onColour: Colour | undefined = undefined;
 
@@ -74,7 +79,7 @@ function resolveButtonColourState(
 
 	return {
 		backgroundColour: backgroundColour,
-		boxShadow: colourScheme.elevation[`level${(!props.isDisabled && !isPressed && isHovered) ? 4 : 3}`].boxShadow,
+		boxShadow: colourScheme.elevation.boxShadow[boxShadowElevationLevel],
 		disabledOpacity: colourScheme.disabled.opacity,
 		hoverOpacity: colourScheme.hovered.opacity,
 		onColour: onColour,

@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import type { Font, IColourScheme } from "@react-library/common";
+import { ColourSchemeContainerLevel, ColourSchemeElevationLevel, type ColourScheme, type Font } from "@react-library/common";
 
 import { NAVIGATION_BAR_PROPERTY_MAP } from "../../../constants/navigation-bar-property-map.const";
 
@@ -9,11 +9,11 @@ import { NAVIGATION_BAR_PROPERTY_MAP } from "../../../constants/navigation-bar-p
  * @param colourScheme
  * @param font
  */
-export function navigationBarItemCollectionStyle(colourScheme: IColourScheme, font: Font): CSSProperties {
+export function navigationBarItemCollectionStyle(colourScheme: ColourScheme, font: Font): CSSProperties {
 	return {
 		alignItems: "center",
-		backgroundColor: colourScheme.surface.container.default.toColourString(),
-		boxShadow: colourScheme.elevation.level2.boxShadow,
+		backgroundColor: colourScheme.surface.container[ColourSchemeContainerLevel.Medium].toColourString(),
+		boxShadow: colourScheme.elevation.boxShadow[ColourSchemeElevationLevel.Level2],
 		display: "flex",
 		flexDirection: "row",
 		flexShrink: 0,

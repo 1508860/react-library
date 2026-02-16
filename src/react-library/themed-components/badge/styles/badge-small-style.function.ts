@@ -1,11 +1,11 @@
 import type { CSSProperties } from "react";
-import type { IColourScheme, SizePx } from "@react-library/common";
+import type { ColourScheme, SizePx } from "@react-library/common";
 
 /**
  * Resolve badge small style based on parameters
  * @param colourScheme
  */
-export function badgeSmallStyle(colourScheme: IColourScheme): CSSProperties {
+export function badgeSmallStyle(colourScheme: ColourScheme): CSSProperties {
 
 	const size: SizePx = 6;
 
