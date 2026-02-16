@@ -33,7 +33,6 @@ import type { ColourSchemeStyleColour } from "./colour-scheme-style-colour.type"
  * Describes colour scheme for an application.
  * Loosely based on material design 3 colour scheme
  */
-
 export type ColourScheme = (
 	IPrimary<ColourSchemeStandard> &
 	ISecondary<ColourSchemeStandard> &
