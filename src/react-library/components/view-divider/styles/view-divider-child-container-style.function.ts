@@ -10,18 +10,18 @@ import type { ViewDividerSize } from "../types/view-divider-size.type";
  * @param viewDividerView
  * @param orientation
  * @param size
- * @param MinSizeStart
+ * @param minSizeStart
  * @param minSizeEnd
  */
 export function viewDividerChildContainerStyle(
 	viewDividerView: ViewDividerView,
 	orientation: Orientation,
 	size: ViewDividerSize,
-	MinSizeStart: Size | undefined,
+	minSizeStart: Size | undefined,
 	minSizeEnd: Size | undefined
 ): CSSProperties {
 
-	const minSize: SizeWithUnits = toSizeWithUnits((viewDividerView === ViewDividerView.End ? minSizeEnd : MinSizeStart) ?? 0);
+	const minSize: SizeWithUnits = toSizeWithUnits((viewDividerView === ViewDividerView.End ? minSizeEnd : minSizeStart) ?? 0);
 	let flexGrow: number | undefined = undefined;
 	let staticViewSize: string | undefined = undefined;
 
@@ -29,7 +29,7 @@ export function viewDividerChildContainerStyle(
 		flexGrow = (viewDividerView === ViewDividerView.End ? (size.denominator - size.numerator) : size.numerator);
 	} else if (size.type === "static") {
 		if (size.staticView === viewDividerView) {
-			const otherMinSize: SizeWithUnits = toSizeWithUnits((viewDividerView === ViewDividerView.End ? MinSizeStart : minSizeEnd) ?? 0);
+			const otherMinSize: SizeWithUnits = toSizeWithUnits((viewDividerView === ViewDividerView.End ? minSizeStart : minSizeEnd) ?? 0);
 			const thisViewSize: SizeWithUnits = toSizeWithUnits(size.staticView === ViewDividerView.End ? size.endViewSize : size.startViewSize);
 			const totalViewSize: SizePx = (size.startViewSize + size.endViewSize);
 			staticViewSize = `clamp(${minSize ?? 0}, ${thisViewSize}, calc(${toSizeWithUnits(totalViewSize)} - ${otherMinSize ?? 0}))`;

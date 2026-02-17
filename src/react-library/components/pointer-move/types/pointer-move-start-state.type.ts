@@ -23,8 +23,8 @@ export type PointerMoveStartStateMouse = (
  * For touch state
  */
 export type PointerMoveStartStateTouch = (
-	ITouchId<number> &
-	PointerMoveStartStateBase<typeof PointerMoveInteraction.Touch>
+	PointerMoveStartStateBase<typeof PointerMoveInteraction.Touch> &
+	ITouchId<number>
 );
 
 /**

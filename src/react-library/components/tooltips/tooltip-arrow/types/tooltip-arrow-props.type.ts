@@ -12,8 +12,8 @@ import type {
  * Not to be exposed to the consumer
  */
 type TooltipArrowPropsPrivate<TContent extends ReactElement> = (
-	ITooltipPositionStrategy<PositionStrategyExternalAll<SizePx, SizePx> | undefined> &
-	IContent<TContent>
+	IContent<TContent> &
+	ITooltipPositionStrategy<PositionStrategyExternalAll<SizePx, SizePx> | undefined>
 );
 
 /**

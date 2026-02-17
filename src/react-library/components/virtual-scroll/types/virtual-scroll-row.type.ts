@@ -36,8 +36,8 @@ export type VirtualScrollRowComparable<TRowType extends VirtualScrollRow> = (
 );
 
 type VirtualScrollRowAccordionParentBase<TRowType extends VirtualScrollRow, TChild> = (
-	IVirtualScrollChildren<TChild> &
 	Partial<IVirtualScrollCanShowChildren> &
+	IVirtualScrollChildren<TChild> &
 	VirtualScrollRowBase &
 	VirtualScrollRowTypeBase<TRowType>
 );

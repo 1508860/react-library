@@ -16,10 +16,10 @@ import type { ModalChildren } from "../../shared/types/modal-children.type";
  * Props for the modal component
  */
 export type ModalProps = (
+	IBackdropProps<ModalBackdropPropsPublic> &
 	Partial<IBackgroundColour<Colour>> &
 	IHeight<Size> &
 	ModalChildren &
 	IPositionStrategy<PositionStrategyInternalAll<Size, Size>> &
-	IBackdropProps<ModalBackdropPropsPublic> &
 	IWidth<Size>
 );

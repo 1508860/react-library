@@ -5,6 +5,6 @@ import type { IElement, IId, Size, IElementSize } from "@react-library/common";
  */
 export type VirtualScrollRenderElementResult<TElement> = (
 	IElement<TElement> &
-	IId<string> &
-	IElementSize<Size>
+	IElementSize<Size> &
+	IId<string>
 );
