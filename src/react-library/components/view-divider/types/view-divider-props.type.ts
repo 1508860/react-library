@@ -5,16 +5,16 @@ import type {
 	IChild,
 	IInitialValue,
 	IIsDisabled,
-	IMinSize,
+	IMinSizeEnd,
+	IMinSizeStart,
 	IOrientation,
-	ISize,
 	Orientation,
-	PrefixKeys,
 	ScalePercent,
 	Size
 } from "@react-library/common";
 
 import type { ViewDividerStaticView } from "../types/view-divider-static-view.type";
+import type { ISeparatorSize } from "react-library/common/interfaces/separator-size.interface";
 
 /**
  * Props for view divider
@@ -23,9 +23,9 @@ export type ViewDividerProps = (
 	IChild<ArrayFixedLength3<ReactElement>> &
 	Partial<IInitialValue<ScalePercent>> &
 	Partial<IIsDisabled> &
-	Partial<PrefixKeys<IMinSize<Size>, "end">> &
-	Partial<PrefixKeys<IMinSize<Size>, "start">> &
+	Partial<IMinSizeEnd<Size>> &
+	Partial<IMinSizeStart<Size>> &
 	IOrientation<Orientation> &
-	PrefixKeys<ISize<Size>, "separator"> &
+	ISeparatorSize<Size> &
 	Partial<ViewDividerStaticView>
 );

@@ -3,13 +3,12 @@ import type { ReactElement, ReactNode } from "react";
 import type {
 	ChildCalback,
 	IChild,
-	IContent,
 	IIsDisabled,
-	IMargin,
 	IOnDismiss,
 	IOnShow,
+	IOverlayPortalMargin,
 	IPositionStrategy,
-	PrefixKeys,
+	ITooltipArrowContent,
 	SizePx
 } from "@react-library/common";
 
@@ -29,11 +28,11 @@ export type TooltipProps<
 > = (
 		IChild<ChildCalback<TooltipChildProps<TTooltipInteraction, TChildElement>, ReactElement>> &
 		Partial<IIsDisabled> &
-		Partial<PrefixKeys<IMargin<SizePx>, "overlayPortal">> &
 		Partial<IOnDismiss<void>> &
 		Partial<IOnShow<void>> &
+		Partial<IOverlayPortalMargin<SizePx>> &
 		IPositionStrategy<TooltipPositionStrategiesExternal> &
-		Partial<PrefixKeys<IContent<ReactElement>, "tooltipArrow">> &
+		Partial<ITooltipArrowContent<ReactElement>> &
 		TooltipContent<TContent> &
 		TooltipInteractionProps<TTooltipInteraction>
 	);

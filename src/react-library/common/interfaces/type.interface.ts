@@ -1,5 +1,5 @@
 /**
- * For a component that can have an type state
+ * For a component that can have a type state
  */
 export interface IType<TType> {
 	type: TType;

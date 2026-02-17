@@ -51,8 +51,8 @@ export function VirtualScrollViewBase<TElement extends VirtualScrollRowComparabl
 		() => setRenderResult(getRenderResult(
 			{ elementBufferCount: props.elementBufferCount, elementSize: props.elementSize },
 			props.orientation === Orientation.Horizontal ?
-				{ viewportSize: vsContainerDimensions.width, scrollStart: scrollState.horizontalScrollStart } :
-				{ viewportSize: vsContainerDimensions.height, scrollStart: scrollState.verticalScrollStart },
+				{ viewportSize: vsContainerDimensions.width, scrollStart: scrollState.scrollStartHorizontal } :
+				{ viewportSize: vsContainerDimensions.height, scrollStart: scrollState.scrollStartVertical },
 			props.data
 		)),
 		[getRenderResult, props.data, props.elementBufferCount, props.elementSize, props.orientation, vsContainerDimensions, scrollState]

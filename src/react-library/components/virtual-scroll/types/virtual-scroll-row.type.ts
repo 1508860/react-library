@@ -1,12 +1,11 @@
 import type {
-	PrefixKeys,
-	IId,
-	IType,
-	ISize,
 	SizePx,
-	IChildren,
-	IShowChildren,
-	IVirtualScrollRowIdPrefix
+	IVirtualScrollRowIdPrefix,
+	IVirtualScrollRowType,
+	IVirtualScrollRowId,
+	IVirtualScrollRowSize,
+	IVirtualScrollCanShowChildren,
+	IVirtualScrollChildren,
 } from "@react-library/common";
 
 import type { VirtualScrollRow } from "../enums/virtual-scroll-row.type";
@@ -18,11 +17,11 @@ import type { VirtualScrollRow } from "../enums/virtual-scroll-row.type";
  */
 export type VirtualScrollRowIdPrefix = IVirtualScrollRowIdPrefix<string>;
 
-type VirtualScrollRowTypeBase<TRowType extends VirtualScrollRow> = PrefixKeys<IType<TRowType>, "virtualScrollRow">;
+type VirtualScrollRowTypeBase<TRowType extends VirtualScrollRow> = IVirtualScrollRowType<TRowType>;
 
 type VirtualScrollRowBase = (
-	PrefixKeys<IId<(number | string)>, "virtualScrollRow"> &
-	Partial<PrefixKeys<ISize<SizePx>, "virtualScrollRow">>
+	IVirtualScrollRowId<(number | string)> &
+	Partial<IVirtualScrollRowSize<SizePx>>
 );
 
 /**
@@ -37,8 +36,8 @@ export type VirtualScrollRowComparable<TRowType extends VirtualScrollRow> = (
 );
 
 type VirtualScrollRowAccordionParentBase<TRowType extends VirtualScrollRow, TChild> = (
-	PrefixKeys<IChildren<TChild>, "virtualScroll"> &
-	Partial<PrefixKeys<IShowChildren, "virtualScroll">> &
+	IVirtualScrollChildren<TChild> &
+	Partial<IVirtualScrollCanShowChildren> &
 	VirtualScrollRowBase &
 	VirtualScrollRowTypeBase<TRowType>
 );

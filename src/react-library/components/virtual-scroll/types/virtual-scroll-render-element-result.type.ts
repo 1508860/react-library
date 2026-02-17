@@ -1,4 +1,4 @@
-import type { IElement, IId, PrefixKeys, ISize, Size } from "@react-library/common";
+import type { IElement, IId, Size, IElementSize } from "@react-library/common";
 
 /**
  * Describes render data for a specific element in a virtual scroll
@@ -6,5 +6,5 @@ import type { IElement, IId, PrefixKeys, ISize, Size } from "@react-library/comm
 export type VirtualScrollRenderElementResult<TElement> = (
 	IElement<TElement> &
 	IId<string> &
-	PrefixKeys<ISize<Size>, "element">
+	IElementSize<Size>
 );

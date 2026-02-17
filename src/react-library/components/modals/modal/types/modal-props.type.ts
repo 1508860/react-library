@@ -1,12 +1,11 @@
 import type {
 	Colour,
+	IBackdropProps,
 	IBackgroundColour,
 	IHeight,
 	IPositionStrategy,
-	IProps,
 	IWidth,
 	PositionStrategyInternalAll,
-	PrefixKeys,
 	Size
 } from "@react-library/common";
 
@@ -21,6 +20,6 @@ export type ModalProps = (
 	IHeight<Size> &
 	ModalChildren &
 	IPositionStrategy<PositionStrategyInternalAll<Size, Size>> &
-	PrefixKeys<IProps<ModalBackdropPropsPublic>, "backdrop"> &
+	IBackdropProps<ModalBackdropPropsPublic> &
 	IWidth<Size>
 );

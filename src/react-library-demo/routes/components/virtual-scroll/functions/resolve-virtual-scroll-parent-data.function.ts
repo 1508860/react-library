@@ -9,7 +9,7 @@ export function resolveVirtualScrollDemoParentData(parentLength: number, standar
 	const altRowSizeEvery: number = 2;
 
 	return Array.from({ length: parentLength }, (_, i) => i + 1)
-		.map(i => ({
+		.map<VirtualScrollTestParent>(i => ({
 			id: i,
 			text: `This is a parent description - ${i}`,
 			renderCount: 0,

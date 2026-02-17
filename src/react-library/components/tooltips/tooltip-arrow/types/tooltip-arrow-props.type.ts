@@ -2,9 +2,8 @@ import type { ReactElement } from "react";
 
 import type {
 	IContent,
-	IPositionStrategy,
+	ITooltipPositionStrategy,
 	PositionStrategyExternalAll,
-	PrefixKeys,
 	SizePx
 } from "@react-library/common";
 
@@ -13,7 +12,7 @@ import type {
  * Not to be exposed to the consumer
  */
 type TooltipArrowPropsPrivate<TContent extends ReactElement> = (
-	PrefixKeys<IPositionStrategy<PositionStrategyExternalAll<SizePx, SizePx> | undefined>, "tooltip"> &
+	ITooltipPositionStrategy<PositionStrategyExternalAll<SizePx, SizePx> | undefined> &
 	IContent<TContent>
 );
 

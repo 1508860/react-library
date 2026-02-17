@@ -6,25 +6,25 @@ import { Orientation, toSizeWithUnits, type Size } from "@react-library/common";
  * Resolve view divider container style based on parameters
  * @param orientation
  * @param separatorSize
- * @param startMinSize
- * @param endMinSize
+ * @param minSizeStart
+ * @param minSizeEnd
  */
 export function viewDividerContainerStyle(
 	orientation: Orientation,
 	separatorSize: Size,
-	startMinSize: Size | undefined,
-	endMinSize: Size | undefined
+	minSizeStart: Size | undefined,
+	minSizeEnd: Size | undefined
 ): CSSProperties {
 
 	let minSize: string | undefined = undefined;
 
-	if (!!startMinSize && !!endMinSize) {
-		minSize = `calc(${toSizeWithUnits(separatorSize)} + ${toSizeWithUnits(startMinSize)} + ${toSizeWithUnits(endMinSize)})`;
-	} else if (!!startMinSize && !endMinSize) {
-		minSize = `calc(${toSizeWithUnits(separatorSize)} + ${toSizeWithUnits(startMinSize)})`;
+	if (!!minSizeStart && !!minSizeEnd) {
+		minSize = `calc(${toSizeWithUnits(separatorSize)} + ${toSizeWithUnits(minSizeStart)} + ${toSizeWithUnits(minSizeEnd)})`;
+	} else if (!!minSizeStart && !minSizeEnd) {
+		minSize = `calc(${toSizeWithUnits(separatorSize)} + ${toSizeWithUnits(minSizeStart)})`;
 	}
-	else if (!startMinSize && !!endMinSize) {
-		minSize = `calc(${toSizeWithUnits(separatorSize)} + ${toSizeWithUnits(endMinSize)})`;
+	else if (!minSizeStart && !!minSizeEnd) {
+		minSize = `calc(${toSizeWithUnits(separatorSize)} + ${toSizeWithUnits(minSizeEnd)})`;
 	} else {
 		minSize = toSizeWithUnits(separatorSize);
 	}

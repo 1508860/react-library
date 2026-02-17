@@ -8,8 +8,8 @@ export function ReactLibraryComponentsViewDividerDemo() {
 			orientation={Orientation.Horizontal}
 			separatorSize={100}
 			staticView="start"
-			startMinSize={300}
-			endMinSize={200}
+			minSizeStart={300}
+			minSizeEnd={200}
 		>
 			<div
 				key="view-divider-view-1"

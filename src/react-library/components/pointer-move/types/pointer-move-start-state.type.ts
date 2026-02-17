@@ -1,12 +1,13 @@
-import type { IId, IPagePosition, IPosition, IType, PrefixKeys } from "@react-library/common";
+import type { IInteractionType, IPagePosition, IPosition, ITouchId } from "@react-library/common";
+
 import type { PointerMoveInteraction } from "../enums/pointer-move-iteraction.type";
 
 /**
  * Base start state for pointer move
  */
 type PointerMoveStartStateBase<TPointerMoveInteraction extends PointerMoveInteraction> = (
-	IPosition<IPagePosition> &
-	PrefixKeys<IType<TPointerMoveInteraction>, "interaction">
+	IInteractionType<TPointerMoveInteraction> &
+	IPosition<IPagePosition>
 );
 
 /**
@@ -22,7 +23,7 @@ export type PointerMoveStartStateMouse = (
  * For touch state
  */
 export type PointerMoveStartStateTouch = (
-	PrefixKeys<IId<number>, "touch"> &
+	ITouchId<number> &
 	PointerMoveStartStateBase<typeof PointerMoveInteraction.Touch>
 );
 

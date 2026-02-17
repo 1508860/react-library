@@ -37,8 +37,8 @@ export function PointerMove(props: PointerMoveProps) {
 			};
 			setStartState(newStartState);
 			props.onChangeStart({
-				currentPosition: newStartState.position,
-				initialPosition: newStartState.position
+				positionCurrent: newStartState.position,
+				positionInitial: newStartState.position
 			});
 		},
 		[props, setStartState]
@@ -51,11 +51,11 @@ export function PointerMove(props: PointerMoveProps) {
 				event,
 				(targetEvent) => {
 					props.onChange({
-						currentPosition: {
+						positionCurrent: {
 							pageX: targetEvent.pageX,
 							pageY: targetEvent.pageY
 						},
-						initialPosition: startState.position
+						positionInitial: startState.position
 					});
 				}
 			);
@@ -70,11 +70,11 @@ export function PointerMove(props: PointerMoveProps) {
 				event,
 				(targetEvent) => {
 					props.onChangeEnd({
-						currentPosition: {
+						positionCurrent: {
 							pageX: targetEvent.pageX,
 							pageY: targetEvent.pageY
 						},
-						initialPosition: startState.position
+						positionInitial: startState.position
 					});
 					setStartState(null);
 				}
@@ -112,8 +112,8 @@ export function PointerMove(props: PointerMoveProps) {
 			};
 			setStartState(newStartState);
 			props.onChangeStart({
-				currentPosition: newStartState.position,
-				initialPosition: newStartState.position
+				positionCurrent: newStartState.position,
+				positionInitial: newStartState.position
 			});
 		},
 		[props, setStartState]
@@ -124,11 +124,11 @@ export function PointerMove(props: PointerMoveProps) {
 			if (!startState || startState.interactionType !== PointerMoveInteraction.Touch) return;
 			const touch = getCurrentTouch(event.changedTouches, startState) ?? latestTouchPagePosition.current;
 			props.onChange({
-				currentPosition: {
+				positionCurrent: {
 					pageX: touch.pageX,
 					pageY: touch.pageY
 				},
-				initialPosition: startState.position
+				positionInitial: startState.position
 			});
 		},
 		[props, startState, getCurrentTouch]
@@ -139,11 +139,11 @@ export function PointerMove(props: PointerMoveProps) {
 			if (!startState || startState.interactionType !== PointerMoveInteraction.Touch) return;
 			const touch = getCurrentTouch(event.changedTouches, startState) ?? latestTouchPagePosition.current;
 			props.onChangeEnd({
-				currentPosition: {
+				positionCurrent: {
 					pageX: touch.pageX,
 					pageY: touch.pageY
 				},
-				initialPosition: startState.position
+				positionInitial: startState.position
 			});
 			latestTouchPagePosition.current = { pageX: 0, pageY: 0 };
 			setStartState(null);

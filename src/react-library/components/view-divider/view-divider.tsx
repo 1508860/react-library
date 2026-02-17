@@ -50,11 +50,11 @@ export function ViewDivider(props: ViewDividerProps) {
 
 	const handlePointerMoveChange = useCallback(
 		(pointerMoveOnChangeResult: PointerMoveOnChangeResult) => {
-			const initialPointerPosition = pointerMoveOnChangeResult.initialPosition;
-			const currentPointerPosition = pointerMoveOnChangeResult.currentPosition;
+			const pointerPositionInitial = pointerMoveOnChangeResult.positionInitial;
+			const pointerPositionCurrent = pointerMoveOnChangeResult.positionCurrent;
 
-			const intialValue = props.orientation === Orientation.Horizontal ? initialPointerPosition.pageX : initialPointerPosition.pageY;
-			const currentValue = props.orientation === Orientation.Horizontal ? currentPointerPosition.pageX : currentPointerPosition.pageY;
+			const intialValue = props.orientation === Orientation.Horizontal ? pointerPositionInitial.pageX : pointerPositionInitial.pageY;
+			const currentValue = props.orientation === Orientation.Horizontal ? pointerPositionCurrent.pageX : pointerPositionCurrent.pageY;
 
 			// Percentage ratio
 			if (props.staticView === undefined) {
@@ -120,7 +120,7 @@ export function ViewDivider(props: ViewDividerProps) {
 
 	return (
 		<div
-			style={viewDividerContainerStyle(props.orientation, props.separatorSize, props.startMinSize, props.endMinSize)}
+			style={viewDividerContainerStyle(props.orientation, props.separatorSize, props.minSizeStart, props.minSizeEnd)}
 		>
 
 			<div
@@ -130,8 +130,8 @@ export function ViewDivider(props: ViewDividerProps) {
 					ViewDividerView.Start,
 					props.orientation,
 					startViewRatio,
-					props.startMinSize,
-					props.endMinSize
+					props.minSizeStart,
+					props.minSizeEnd
 				)}
 			>
 				{props.children[0]}
@@ -158,8 +158,8 @@ export function ViewDivider(props: ViewDividerProps) {
 					ViewDividerView.End,
 					props.orientation,
 					startViewRatio,
-					props.startMinSize,
-					props.endMinSize
+					props.minSizeStart,
+					props.minSizeEnd
 				)}
 			>
 				{props.children[2]}

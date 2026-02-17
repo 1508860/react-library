@@ -11,7 +11,7 @@ export function resolveScrollObserverState(elementContainer: Element | null): Sc
 	if (!elementContainer) return SCROLL_OBSERVER_STATE_DEFAULT;
 
 	return {
-		horizontalScrollStart: elementContainer.scrollLeft,
-		verticalScrollStart: elementContainer?.scrollTop
+		scrollStartHorizontal: elementContainer.scrollLeft,
+		scrollStartVertical: elementContainer?.scrollTop
 	};
 }
