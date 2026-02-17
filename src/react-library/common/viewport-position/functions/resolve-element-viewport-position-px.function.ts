@@ -1,11 +1,11 @@
-import type { IViewportPosition } from "../../interfaces";
+import type { ViewportPositionPx } from "../types/viewport-position-px.type";
 
 /**
- * Return a {@link IViewportPosition} from {@link element}
+ * Return a {@link ViewportPositionPx} from {@link element}
  * @param element
  * @param relativeToElement parent element (in the node tree) to track the {@link element} position relative to
  */
-export function resolveElementViewportPosition(element: Element, relativeToElement: IViewportPosition): IViewportPosition {
+export function resolveElementViewportPositionPx(element: Element, relativeToElement: ViewportPositionPx): ViewportPositionPx {
 	const elementDomRect = element.getBoundingClientRect();
 	return {
 		height: elementDomRect.height,

@@ -3,7 +3,7 @@ export * from "./input-currency";
 export * from "./modals";
 export * from "./overlay-portal";
 export * from "./pointer-move";
-export * from "./root-viewport-position";
+export * from "./root-viewport-position-px";
 export * from "./tooltips";
 export * from "./transition-fade";
 export * from "./transition-pulse";

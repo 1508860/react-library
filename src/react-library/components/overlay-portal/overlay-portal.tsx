@@ -8,16 +8,16 @@ import {
 
 import {
 	ResizeObserverDebounce,
-	resolveElementViewportPosition,
+	resolveElementViewportPositionPx,
 	useResizeObserverState,
-	VIEWPORT_POSITION_DEFAULT,
-	type IViewportPosition
+	VIEWPORT_POSITION_PX_DEFAULT,
+	type ViewportPositionPx
 } from "@react-library/common";
 
-import { useRootViewportPositionContext } from "../root-viewport-position";
+import { useRootViewportPositionPxContext } from "../root-viewport-position-px";
 
 import { OverlayPortalProvider } from "./providers/overlay-portal-provider";
-import { OverlayPortalViewportPositionProvider } from "./providers/overlay-portal-viewport-position-provider";
+import { OverlayPortalViewportPositionPxProvider } from "./providers/overlay-portal-viewport-position-px-provider";
 import { OVERLAY_PORTAL_STYLE } from "./styles/overlay-portal-style.const";
 import type { OverlayPortalContext } from "./types/overlay-portal-context.type";
 
@@ -31,17 +31,17 @@ export function OverlayPortal(props: PropsWithChildren) {
 	const setOverlayPortalContainerElementCallback = useCallback<RefCallback<OverlayPortalContext | null>>((element) => setOverlayPortalContainerElement(element), []);
 
 	// Overlay portal container resize state
-	const rootViewportPosition = useRootViewportPositionContext();
+	const rootViewportPositionPx = useRootViewportPositionPxContext();
 	const [overlayPortalDimensions] = useResizeObserverState(true, true, overlayPortalContainerElement, "border-box", ResizeObserverDebounce["100Ms"]);
-	const [overlayPortalViewportPosition, setOverlayPortalViewportPosition] = useState<IViewportPosition>(VIEWPORT_POSITION_DEFAULT);
+	const [overlayPortalViewportPositionPx, setOverlayPortalViewportPositionPx] = useState<ViewportPositionPx>(VIEWPORT_POSITION_PX_DEFAULT);
 	useEffect(
 		() => {
-			if (!overlayPortalContainerElement) setOverlayPortalViewportPosition(VIEWPORT_POSITION_DEFAULT);
-			else setOverlayPortalViewportPosition(resolveElementViewportPosition(overlayPortalContainerElement, rootViewportPosition));
+			if (!overlayPortalContainerElement) setOverlayPortalViewportPositionPx(VIEWPORT_POSITION_PX_DEFAULT);
+			else setOverlayPortalViewportPositionPx(resolveElementViewportPositionPx(overlayPortalContainerElement, rootViewportPositionPx));
 		},
 		[
 			overlayPortalContainerElement,
-			rootViewportPosition,
+			rootViewportPositionPx,
 			overlayPortalDimensions
 		]
 	);
@@ -54,9 +54,9 @@ export function OverlayPortal(props: PropsWithChildren) {
 			{
 				!overlayPortalContainerElement ? <></> :
 					<OverlayPortalProvider value={overlayPortalContainerElement}>
-						<OverlayPortalViewportPositionProvider value={overlayPortalViewportPosition}>
+						<OverlayPortalViewportPositionPxProvider value={overlayPortalViewportPositionPx}>
 							{props.children}
-						</OverlayPortalViewportPositionProvider>
+						</OverlayPortalViewportPositionPxProvider>
 					</OverlayPortalProvider>
 			}
 		</div>

@@ -4,10 +4,10 @@ import {
 } from "react";
 
 import {
-	resolveElementViewportPosition,
+	resolveElementViewportPositionPx,
 	type DimensionsPx,
-	type IViewportPosition,
-	type SizePx
+	type SizePx,
+	type ViewportPositionPx
 } from "@react-library/common";
 
 import type { TooltipPosition } from "../../shared/types/position/tooltip-position.type";
@@ -27,7 +27,7 @@ import { resolveValidTooltipPositionTop } from "../functions/resolve-valid-toolt
  * Tries to apply position strategies in order provided
  * @param showTooltip
  * @param positionStrategies
- * @param overlayPortalViewportPosition
+ * @param overlayPortalViewportPositionPx
  * @param overlayPortalMargin
  * @param tooltipDimensions
  * @param childElement
@@ -35,7 +35,7 @@ import { resolveValidTooltipPositionTop } from "../functions/resolve-valid-toolt
 export function useTooltipPositionState(
 	showTooltip: boolean,
 	positionStrategies: TooltipPositionStrategiesExternal,
-	overlayPortalViewportPosition: IViewportPosition,
+	overlayPortalViewportPositionPx: ViewportPositionPx,
 	overlayPortalMargin: SizePx | undefined,
 	tooltipDimensions: DimensionsPx,
 	childElement: Element | null
@@ -71,39 +71,39 @@ export function useTooltipPositionState(
 				positionStrategy: positionStrategyArray[0]
 			};
 
-			const childViewportPosition = resolveElementViewportPosition(childElement, overlayPortalViewportPosition);
+			const childViewportPositionPx = resolveElementViewportPositionPx(childElement, overlayPortalViewportPositionPx);
 
 			for (let i = 0; i < positionStrategyArray.length; i++) {
 				const currentPositionStrategy = positionStrategyArray[i];
 
 				const validTooltipPositionBottom = resolveValidTooltipPositionBottom(
 					currentPositionStrategy,
-					childViewportPosition,
-					overlayPortalViewportPosition,
+					childViewportPositionPx,
+					overlayPortalViewportPositionPx,
 					overlayPortalMargin,
 					tooltipDimensions
 				);
 
 				const validTooltipPositionLeft = resolveValidTooltipPositionLeft(
 					currentPositionStrategy,
-					childViewportPosition,
-					overlayPortalViewportPosition,
+					childViewportPositionPx,
+					overlayPortalViewportPositionPx,
 					overlayPortalMargin,
 					tooltipDimensions
 				);
 
 				const validTooltipPositionRight = resolveValidTooltipPositionRight(
 					currentPositionStrategy,
-					childViewportPosition,
-					overlayPortalViewportPosition,
+					childViewportPositionPx,
+					overlayPortalViewportPositionPx,
 					overlayPortalMargin,
 					tooltipDimensions
 				);
 
 				const validTooltipPositionTop = resolveValidTooltipPositionTop(
 					currentPositionStrategy,
-					childViewportPosition,
-					overlayPortalViewportPosition,
+					childViewportPositionPx,
+					overlayPortalViewportPositionPx,
 					overlayPortalMargin,
 					tooltipDimensions
 				);
@@ -133,7 +133,7 @@ export function useTooltipPositionState(
 		[
 			showTooltip,
 			positionStrategies,
-			overlayPortalViewportPosition,
+			overlayPortalViewportPositionPx,
 			overlayPortalMargin,
 			tooltipDimensions,
 			childElement,

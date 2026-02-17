@@ -10,15 +10,15 @@ import {
 	useResizeObserverState
 } from "@react-library/common";
 
-import { RootViewportPositionProvider } from "./providers/root-viewport-position-provider";
-import { ROOT_VIEWPORT_POSITION_STYLE } from "./styles/root-viewport-position-style.const";
+import { RootViewportPositionPxProvider } from "./providers/root-viewport-position-px-provider";
+import { ROOT_VIEWPORT_POSITION_PX_STYLE } from "./styles/root-viewport-position-px-style.const";
 
 /**
- * Root viewport position element for measuring the size of the app's window
+ * Root viewport position px element for measuring the size of the app's window
  * Should be used once at the start of the application
  * @param props
  */
-export function RootViewportPosition(props: PropsWithChildren) {
+export function RootViewportPositionPx(props: PropsWithChildren) {
 
 	const [viewportElement, setViewportElement] = useState<HTMLDivElement | null>(null);
 	const setViewportElementCallback = useCallback<RefCallback<HTMLDivElement | null>>((element) => setViewportElement(element), []);
@@ -29,11 +29,11 @@ export function RootViewportPosition(props: PropsWithChildren) {
 	return (
 		<div
 			ref={setViewportElementCallback}
-			style={ROOT_VIEWPORT_POSITION_STYLE}
+			style={ROOT_VIEWPORT_POSITION_PX_STYLE}
 		>
 			{
 				!viewportElement ? <></> :
-					<RootViewportPositionProvider value={{
+					<RootViewportPositionPxProvider value={{
 						height: viewportDimensions.height,
 						marginBottom: 0,
 						marginLeft: 0,
@@ -42,7 +42,7 @@ export function RootViewportPosition(props: PropsWithChildren) {
 						width: viewportDimensions.width
 					}}					>
 						{props.children}
-					</RootViewportPositionProvider>
+					</RootViewportPositionPxProvider>
 			}
 		</div>
 	);

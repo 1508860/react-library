@@ -1,9 +1,9 @@
 import {
 	PositionStrategyExternal,
 	type DimensionsPx,
-	type IViewportPosition,
 	type PositionStrategyExternalAll,
-	type SizePx
+	type SizePx,
+	type ViewportPositionPx
 } from "@react-library/common";
 
 import type { TooltipPositionRight } from "../../../shared/types/position/tooltip-position-right.type";
@@ -12,15 +12,15 @@ import type { ValidTooltipPosition } from "../../types/valid-tooltip-position.ty
 /**
  * Resolve if a tooltip position is valid and the position of the tooltip right position
  * @param positionStrategy
- * @param childViewportPosition
- * @param overlayPortalViewportPosition
+ * @param childViewportPositionPx
+ * @param overlayPortalViewportPositionPx
  * @param overlayPortalMargin
  * @param tooltipDimensions
  */
 export function resolveValidTooltipPositionRight(
 	positionStrategy: PositionStrategyExternalAll<SizePx, SizePx>,
-	childViewportPosition: IViewportPosition,
-	overlayPortalViewportPosition: IViewportPosition,
+	childViewportPositionPx: ViewportPositionPx,
+	overlayPortalViewportPositionPx: ViewportPositionPx,
 	overlayPortalMargin: SizePx | undefined,
 	tooltipDimensions: DimensionsPx
 ): ValidTooltipPosition<TooltipPositionRight> {
@@ -31,7 +31,7 @@ export function resolveValidTooltipPositionRight(
 		positionStrategy.positionType === PositionStrategyExternal.BottomStart ||
 		positionStrategy.positionType === PositionStrategyExternal.TopStart
 	) tooltipPosition = {
-		marginLeft: childViewportPosition.marginLeft
+		marginLeft: childViewportPositionPx.marginLeft
 	};
 
 	if (
@@ -39,8 +39,8 @@ export function resolveValidTooltipPositionRight(
 		positionStrategy.positionType === PositionStrategyExternal.TopCenter
 	) tooltipPosition = {
 		marginLeft: (
-			childViewportPosition.marginLeft +
-			(childViewportPosition.width / 2) -
+			childViewportPositionPx.marginLeft +
+			(childViewportPositionPx.width / 2) -
 			(tooltipDimensions.width / 2)
 		)
 	};
@@ -53,8 +53,8 @@ export function resolveValidTooltipPositionRight(
 		positionStrategy.positionType === PositionStrategyExternal.TopRight
 	) tooltipPosition = {
 		marginLeft: (
-			childViewportPosition.marginLeft +
-			childViewportPosition.width
+			childViewportPositionPx.marginLeft +
+			childViewportPositionPx.width
 		),
 		paddingLeft: positionStrategy.marginLeft
 	};
@@ -74,7 +74,7 @@ export function resolveValidTooltipPositionRight(
 				(tooltipPosition.paddingLeft ?? 0) +
 				tooltipDimensions.width +
 				(overlayPortalMargin ?? 0)
-			) <= overlayPortalViewportPosition.width
+			) <= overlayPortalViewportPositionPx.width
 		),
 		position: tooltipPosition
 	};

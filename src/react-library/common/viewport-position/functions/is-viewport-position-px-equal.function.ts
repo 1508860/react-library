@@ -1,11 +1,11 @@
-import type { IViewportPosition } from "../../interfaces";
+import type { ViewportPositionPx } from "../types/viewport-position-px.type";
 
 /**
- * Compare two objects of type {@link IViewportPosition} and check if all values are equal
+ * Compare two objects of type {@link ViewportPositionPx} and check if all values are equal
  * @param value1
  * @param value2
  */
-export function areViewportPositionsEqual(value1: IViewportPosition, value2: IViewportPosition): boolean {
+export function isViewportPositionPxEqual(value1: ViewportPositionPx, value2: ViewportPositionPx): boolean {
 	return (
 		value1.height === value2.height &&
 		value1.marginBottom === value2.marginBottom &&

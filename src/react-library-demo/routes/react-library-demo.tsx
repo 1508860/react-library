@@ -8,7 +8,7 @@ import {
 	ColourSchemeProvider,
 	FontProvider
 } from "@react-library/common";
-import { OverlayPortal, RootViewportPosition } from "@react-library/components";
+import { OverlayPortal, RootViewportPositionPx } from "@react-library/components";
 
 import { DemoSelector } from "@react-library-demo/shared";
 
@@ -21,7 +21,7 @@ import { ReactLibraryThemedComponentsDemoList, ReactLibraryThemedComponentsDemo 
 export function ReactLibraryDemo() {
 	return (
 		<div style={{ height: "100vh", width: "100vw" }}>
-			<RootViewportPosition>
+			<RootViewportPositionPx>
 				<CurrencyCodeProvider value={CurrencyCode.Gbp}>
 					<LanguageCodeProvider value={LanguageCode.En_Gb}>
 						<ColourSchemeProvider value={DEMO_COLOUR_SCHEME}>
@@ -61,7 +61,7 @@ export function ReactLibraryDemo() {
 						</ColourSchemeProvider>
 					</LanguageCodeProvider>
 				</CurrencyCodeProvider>
-			</RootViewportPosition>
+			</RootViewportPositionPx>
 		</div>
 	);
 }

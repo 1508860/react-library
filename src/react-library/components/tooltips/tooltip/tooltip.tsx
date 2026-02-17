@@ -8,7 +8,7 @@ import {
 
 import {
 	useOverlayPortalContext,
-	useOverlayPortalViewportPositionContext
+	useOverlayPortalViewportPositionPxContext
 } from "../../overlay-portal";
 
 import { TooltipBackdrop } from "../backdrop/tooltip-backdrop";
@@ -35,7 +35,7 @@ export function Tooltip<
 
 	// Overlay portal
 	const overlayPortal = useOverlayPortalContext();
-	const overlayPortalViewportPosition = useOverlayPortalViewportPositionContext();
+	const overlayPortalViewportPositionPx = useOverlayPortalViewportPositionPxContext();
 
 	// Show tooltip
 	const [showTooltip, setShowTooltip] = useState<boolean>(false);
@@ -75,7 +75,7 @@ export function Tooltip<
 	const [tooltipPosition] = useTooltipPositionState(
 		showTooltip,
 		props.positionStrategy,
-		overlayPortalViewportPosition,
+		overlayPortalViewportPositionPx,
 		props.overlayPortalMargin,
 		tooltipDimensions,
 		childElement
