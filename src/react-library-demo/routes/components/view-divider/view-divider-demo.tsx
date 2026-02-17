@@ -5,11 +5,11 @@ export function ReactLibraryComponentsViewDividerDemo() {
 	return (
 		<ViewDivider
 			initialValue={40}
+			minSizeEnd={200}
+			minSizeStart={300}
 			orientation={Orientation.Horizontal}
 			separatorSize={100}
 			staticView="start"
-			minSizeStart={300}
-			minSizeEnd={200}
 		>
 			<div
 				key="view-divider-view-1"

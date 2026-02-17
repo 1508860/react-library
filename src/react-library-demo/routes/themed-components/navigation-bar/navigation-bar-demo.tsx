@@ -38,8 +38,8 @@ export function ReactLibraryThemedComponentsNavigationBarDemo() {
 			>
 				<NavigationBar<NavigationBarDemoItemId>
 					itemId={itemId}
-					onItemChange={setItemId}
 					itemOrientation={Orientation.Vertical}
+					onItemChange={setItemId}
 				>
 					{navigationBardemoItems}
 				</NavigationBar>
