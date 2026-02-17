@@ -27,7 +27,7 @@ export function ReactLibraryThemedComponentsNavigationBarDemo() {
 				<NavigationBar<NavigationBarDemoItemId>
 					itemId={itemId}
 					itemOrientation={Orientation.Horizontal}
-					itemOnChange={setItemId}
+					onItemChange={setItemId}
 				>
 					{navigationBardemoItems}
 				</NavigationBar>
@@ -38,7 +38,7 @@ export function ReactLibraryThemedComponentsNavigationBarDemo() {
 			>
 				<NavigationBar<NavigationBarDemoItemId>
 					itemId={itemId}
-					itemOnChange={setItemId}
+					onItemChange={setItemId}
 					itemOrientation={Orientation.Vertical}
 				>
 					{navigationBardemoItems}

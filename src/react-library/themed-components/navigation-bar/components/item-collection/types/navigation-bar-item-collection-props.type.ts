@@ -1,10 +1,9 @@
 import type {
+	IActiveItemId,
 	IChild,
-	IItemId,
-	IOnChange,
-	IOrientation,
-	Orientation,
-	PrefixKeys
+	IItemOrientation,
+	IOnItemChange,
+	Orientation
 } from "@react-library/common";
 
 import type { NavigationBarChildren } from "../../../types/navigation-bar-children.type";
@@ -14,8 +13,8 @@ import type { NavigationBarItemId } from "../../../types/navigation-bar-item-id.
  * Props for a navigation bar item collection
  */
 export type NavigationBarItemCollectionProps<TItemId extends NavigationBarItemId> = (
+	IActiveItemId<TItemId> &
 	IChild<NavigationBarChildren<TItemId>> &
-	PrefixKeys<IItemId<TItemId>, "active"> &
-	PrefixKeys<IOnChange<TItemId, void>, "item"> &
-	PrefixKeys<IOrientation<Orientation>, "item">
+	IItemOrientation<Orientation> &
+	IOnItemChange<TItemId, void>
 );

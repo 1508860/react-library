@@ -2,10 +2,13 @@ import type { Property } from "csstype";
 
 import type {
 	Colour,
+	IBackgroundColour,
+	IBorderColour,
 	IBoxShadow,
-	IColour,
-	IOpacity,
-	PrefixKeys,
+	IDisabledOpacity,
+	IHoverOpacity,
+	IOnColour,
+	IPulseOpacity,
 	StyleOpacity
 } from "@react-library/common";
 
@@ -13,11 +16,11 @@ import type {
  * Describes type for button colour state
  */
 export type ButtonColourState = (
+	Partial<IBackgroundColour<Colour>> &
+	Partial<IBorderColour<Colour>> &
 	Partial<IBoxShadow<Property.BoxShadow>> &
-	Partial<PrefixKeys<IColour<Colour>, "background">> &
-	Partial<PrefixKeys<IColour<Colour>, "border">> &
-	PrefixKeys<IColour<Colour>, "on"> &
-	PrefixKeys<IOpacity<StyleOpacity>, "disabled"> &
-	PrefixKeys<IOpacity<StyleOpacity>, "hover"> &
-	PrefixKeys<IOpacity<StyleOpacity>, "pulse">
+	IDisabledOpacity<StyleOpacity> &
+	IHoverOpacity<StyleOpacity> &
+	IOnColour<Colour> &
+	IPulseOpacity<StyleOpacity>
 );

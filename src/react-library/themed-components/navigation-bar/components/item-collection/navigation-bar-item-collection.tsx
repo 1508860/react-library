@@ -25,7 +25,7 @@ export function NavigationBarItemCollection<TItemId extends NavigationBarItemId>
 					itemId={child.itemId}
 					key={child.itemId}
 					label={child.label}
-					onChange={props.itemOnChange}
+					onChange={props.onItemChange}
 					showBadge={child.showBadge}
 					orientation={props.itemOrientation}
 				/>

@@ -19,7 +19,7 @@ export function NavigationBar<TItemId extends NavigationBarItemId>(props: Naviga
 			</NavigationBarContent>
 			<NavigationBarItemCollection
 				activeItemId={props.itemId}
-				itemOnChange={props.itemOnChange}
+				onItemChange={props.onItemChange}
 				itemOrientation={props.itemOrientation}
 				key="item-collection"
 			>
