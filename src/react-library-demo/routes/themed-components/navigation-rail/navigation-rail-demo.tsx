@@ -33,14 +33,14 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 				title="Navigation Rail - Standard"
 			>
 				<NavigationRail<NavigationRailDemoItemId>
+					activeItemId={activeItemId}
 					centerItems={true}
 					expandedMenuWidth={220}
-					expandedOnChange={setIsExpanded}
 					isExpanded={isExpanded}
-					activeItemId={activeItemId}
-					itemOnChange={setActiveItemId}
 					menuStyle={NavigationRailMenuStyle.Standard}
 					navigationHeaderChildren={HeaderContainer}
+					onExpandedChange={setIsExpanded}
+					onItemChange={setActiveItemId}
 				>
 					{navigationRaildemoItems}
 				</NavigationRail>
@@ -51,14 +51,14 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 				title="Navigation Rail - Immersive Standard"
 			>
 				<NavigationRail<NavigationRailDemoItemId>
+					activeItemId={activeItemId}
 					centerItems={true}
 					expandedMenuWidth={220}
-					expandedOnChange={setIsExpanded}
 					isExpanded={isExpanded}
-					activeItemId={activeItemId}
-					itemOnChange={setActiveItemId}
 					menuStyle={NavigationRailMenuStyle.ImmersiveStandard}
 					navigationHeaderChildren={HeaderContainer}
+					onExpandedChange={setIsExpanded}
+					onItemChange={setActiveItemId}
 				>
 					{navigationRaildemoItems}
 				</NavigationRail>
@@ -69,14 +69,14 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 				title="Navigation Rail - Immersive Modal"
 			>
 				<NavigationRail<NavigationRailDemoItemId>
+					activeItemId={activeItemId}
 					centerItems={true}
 					expandedMenuWidth={220}
-					expandedOnChange={setIsExpanded}
 					isExpanded={isExpanded}
-					activeItemId={activeItemId}
-					itemOnChange={setActiveItemId}
 					menuStyle={NavigationRailMenuStyle.ImmersiveModal}
 					navigationHeaderChildren={HeaderContainer}
+					onExpandedChange={setIsExpanded}
+					onItemChange={setActiveItemId}
 				>
 					{navigationRaildemoItems}
 				</NavigationRail>

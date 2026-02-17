@@ -1,4 +1,4 @@
-import type { PrefixKeys, IItemId, IOnChange, Orientation, IOrientation } from "@react-library/common";
+import type { IActiveItemId, IOnChange, IOrientation, Orientation } from "@react-library/common";
 
 import type { NavigationRailItemId } from "../../../types/navigation-rail-item-id.type";
 import type { NavigationRailItem } from "../../../types/navigation-rail-item.type";
@@ -7,7 +7,7 @@ import type { NavigationRailItem } from "../../../types/navigation-rail-item.typ
  * Props for a navigation rail item container
  */
 export type NavigationRailItemContainerProps<TItemId extends NavigationRailItemId> = (
-	PrefixKeys<IItemId<TItemId>, "active"> &
+	IActiveItemId<TItemId> &
 	NavigationRailItem<TItemId> &
 	IOnChange<TItemId, void> &
 	IOrientation<Orientation>

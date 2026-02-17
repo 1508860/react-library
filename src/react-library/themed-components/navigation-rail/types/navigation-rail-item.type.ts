@@ -1,12 +1,12 @@
 import type { ReactElement } from "react";
 
 import type {
+	IBadgeLabel,
 	IElement,
 	IIconName,
-	IId,
+	IItemId,
 	ILabel,
-	IShowBadge,
-	PrefixKeys
+	IShowBadge
 } from "@react-library/common";
 import type { MaterialIconName } from "@react-library/material-icons";
 
@@ -18,10 +18,10 @@ import type { NavigationRailItemId } from "./navigation-rail-item-id.type";
  * Type for a navigation rail item
  */
 export type NavigationRailItem<TItemId extends NavigationRailItemId> = (
+	Partial<IBadgeLabel<BadgeLabel>> &
 	IElement<() => ReactElement> &
 	IIconName<MaterialIconName> &
-	PrefixKeys<IId<TItemId>, "item"> &
+	IItemId<TItemId> &
 	ILabel<string> &
-	Partial<PrefixKeys<ILabel<BadgeLabel>, "badge">> &
 	IShowBadge
 );

@@ -37,9 +37,9 @@ export function NavigationRailItemCollection<TItemId extends NavigationRailItemI
 						itemId={child.itemId}
 						key={child.itemId}
 						label={child.label}
-						onChange={props.itemOnChange}
-						showBadge={child.showBadge}
+						onChange={props.onItemChange}
 						orientation={itemOrientation}
+						showBadge={child.showBadge}
 					/>
 				)}
 			</div>

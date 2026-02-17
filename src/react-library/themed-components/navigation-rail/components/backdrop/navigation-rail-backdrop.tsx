@@ -19,7 +19,7 @@ export function NavigationRailBackdrop(props: NavigationRailBackdropProps) {
 		() => {
 			// We only want to be able to close the menu
 			if (!props.isExpanded) return;
-			props.expandedOnChange(false);
+			props.onExpandedChange(false);
 		},
 		[props]
 	);

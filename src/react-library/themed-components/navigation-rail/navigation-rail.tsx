@@ -14,19 +14,19 @@ export function NavigationRail<TItemId extends NavigationRailItemId>(props: Navi
 		<div style={NAVIGATION_RAIL_CONTAINER_STYLE}>
 			<NavigationRailImmersiveMenu
 				expandedMenuWidth={props.expandedMenuWidth}
-				expandedOnChange={props.expandedOnChange}
 				isExpanded={props.isExpanded}
 				key="immersive-menu"
 				menuStyle={props.menuStyle}
 				navigationHeaderChildren={props.navigationHeaderChildren}
+				onExpandedChange={props.onExpandedChange}
 			/>
 			<NavigationRailMenu
 				activeItemId={props.activeItemId}
 				centerItems={props.centerItems}
 				expandedMenuWidth={props.expandedMenuWidth}
-				expandedOnChange={props.expandedOnChange}
 				isExpanded={props.isExpanded}
-				itemOnChange={props.itemOnChange}
+				onExpandedChange={props.onExpandedChange}
+				onItemChange={props.onItemChange}
 				key="menu"
 				menuStyle={props.menuStyle}
 				navigationHeaderChildren={props.navigationHeaderChildren}
@@ -35,10 +35,10 @@ export function NavigationRail<TItemId extends NavigationRailItemId>(props: Navi
 			</ NavigationRailMenu>
 			<NavigationRailContent
 				activeItemId={props.activeItemId}
-				expandedOnChange={props.expandedOnChange}
 				isExpanded={props.isExpanded}
 				key="content"
 				menuStyle={props.menuStyle}
+				onExpandedChange={props.onExpandedChange}
 			>
 				{props.children}
 			</NavigationRailContent>

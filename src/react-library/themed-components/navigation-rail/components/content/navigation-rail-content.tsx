@@ -36,10 +36,10 @@ export function NavigationRailContent<TItemId extends NavigationRailItemId>(prop
 	return (
 		<div style={navigationRailContentStyle(colourScheme)}>
 			<NavigationRailBackdrop
-				expandedOnChange={props.expandedOnChange}
 				isExpanded={props.isExpanded}
 				key="backdrop"
 				menuStyle={props.menuStyle}
+				onExpandedChange={props.onExpandedChange}
 			/>
 			{activeChildElement}
 		</div>

@@ -1,23 +1,27 @@
 import type {
-	IBorderBottomRightRadius,
 	IBorderRadius,
-	IBorderTopRightRadius,
-	IDurationMs,
 	IExpanded,
 	IFontSize,
-	IGap,
+	IHeaderContainerWidth,
 	IHeight,
+	IImmersiveMenuPaddingLeft,
+	IItemCollectionPaddingVertical,
+	IItemContentGap,
+	IItemIconSize,
+	IItemPaddingBottom,
+	IItemPaddingHorizontal,
+	IMenuBorderBottomRightRadius,
+	IMenuBorderTopRightRadius,
+	IMenuCollapsedWidth,
+	IMenuIconPaddingHorizontal,
+	IMenuIconPaddingVertical,
+	IMenuIconSize,
+	IMenuIconTransform,
+	IMenuPaddingHorizontal,
+	IMenuStyle,
+	IMenuTransitionPer100PxDurationMs,
 	IOrientation,
-	IPaddingBottom,
-	IPaddingHorizontal,
-	IPaddingLeft,
-	IPaddingVertical,
-	ISize,
-	IStyle,
-	ITransform,
-	IWidth,
 	Orientation,
-	PrefixKeys,
 	SizePx,
 	StyleTransformCollection,
 	StyleTransformRotate
@@ -29,33 +33,35 @@ import type { NavigationRailMenuStyle } from "../enums/navigation-rail-menu-styl
  * Describes values for navigation rail style sizes
  */
 export type NavigationRailPropertyMap = (
-	PrefixKeys<IDurationMs<number>, "menuTransitionPer100Px"> &
-	IExpanded<Record<`${boolean}`, PrefixKeys<ITransform<StyleTransformCollection<[StyleTransformRotate]>>, "menuIcon">>> &
+	IExpanded<Record<`${boolean}`, NavigationRailPropertyMenuIconExpandedMap>> &
 	IFontSize<SizePx> &
-	PrefixKeys<IGap<SizePx>, "itemContent"> &
-	IOrientation<Record<
-		Orientation,
-		(
-			IBorderRadius<SizePx> &
-			IHeight<SizePx> &
-			PrefixKeys<IPaddingBottom<SizePx>, "item">
-		)
-	>> &
-	PrefixKeys<IPaddingHorizontal<SizePx>, "item"> &
-	PrefixKeys<IPaddingHorizontal<SizePx>, "menu"> &
-	PrefixKeys<IPaddingHorizontal<SizePx>, "menuIcon"> &
-	PrefixKeys<IPaddingLeft<SizePx>, "immersiveMenu"> &
-	PrefixKeys<IPaddingVertical<SizePx>, "itemCollection"> &
-	PrefixKeys<IPaddingVertical<SizePx>, "menuIcon"> &
-	PrefixKeys<ISize<SizePx>, "itemIcon"> &
-	PrefixKeys<ISize<SizePx>, "menuIcon"> &
-	PrefixKeys<IStyle<Record<
-		NavigationRailMenuStyle,
-		(
-			PrefixKeys<IBorderBottomRightRadius<SizePx>, "menu"> &
-			PrefixKeys<IBorderTopRightRadius<SizePx>, "menu"> &
-			PrefixKeys<IWidth<SizePx>, "menuCollapsed">
-		)
-	>>, "menu"> &
-	PrefixKeys<IWidth<SizePx>, "headerContainer">
-)
+	IHeaderContainerWidth<SizePx> &
+	IImmersiveMenuPaddingLeft<SizePx> &
+	IItemCollectionPaddingVertical<SizePx> &
+	IItemContentGap<SizePx> &
+	IItemIconSize<SizePx> &
+	IItemPaddingHorizontal<SizePx> &
+	IMenuIconPaddingHorizontal<SizePx> &
+	IMenuIconPaddingVertical<SizePx> &
+	IMenuIconSize<SizePx> &
+	IMenuPaddingHorizontal<SizePx> &
+	IMenuStyle<Record<NavigationRailMenuStyle, NavigationRailPropertyMenuStyleMap>> &
+	IMenuTransitionPer100PxDurationMs<number> &
+	IOrientation<Record<Orientation, NavigationRailPropertyOrientationMap>>
+);
+
+type NavigationRailPropertyMenuIconExpandedMap = (
+	IMenuIconTransform<StyleTransformCollection<[StyleTransformRotate]>>
+);
+
+type NavigationRailPropertyOrientationMap = (
+	IBorderRadius<SizePx> &
+	IHeight<SizePx> &
+	IItemPaddingBottom<SizePx>
+);
+
+type NavigationRailPropertyMenuStyleMap = (
+	IMenuBorderBottomRightRadius<SizePx> &
+	IMenuBorderTopRightRadius<SizePx> &
+	IMenuCollapsedWidth<SizePx>
+);

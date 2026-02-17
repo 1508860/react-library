@@ -30,15 +30,15 @@ export function NavigationRailMenu<TItemId extends NavigationRailItemId>(props: 
 					isExpanded={props.isExpanded}
 					key="menu-icon"
 					menuStyle={props.menuStyle}
-					onChange={props.expandedOnChange}
+					onChange={props.onExpandedChange}
 				/>
 				<NavigationRailItemCollection
 					activeItemId={props.activeItemId}
 					centerItems={props.centerItems}
 					isExpanded={props.isExpanded}
-					itemOnChange={props.itemOnChange}
 					key="item-collection"
 					menuStyle={props.menuStyle}
+					onItemChange={props.onItemChange}
 				>
 					{props.children}
 				</NavigationRailItemCollection>

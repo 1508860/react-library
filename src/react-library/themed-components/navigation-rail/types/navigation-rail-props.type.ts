@@ -1,12 +1,13 @@
 import type {
+	IActiveItemId,
 	ICenterItems,
 	IChild,
+	IExpandedMenuWidth,
 	IIsExpanded,
-	IItemId,
-	IOnChange,
-	IStyle,
-	IWidth,
-	PrefixKeys
+	IMenuStyle,
+	INavigationHeaderChild,
+	IOnExpandedChange,
+	IOnItemChange
 } from "@react-library/common";
 
 import type { NavigationRailMenuStyle } from "../enums/navigation-rail-menu-style.type";
@@ -19,13 +20,13 @@ import type { NavigationRailMenuExpandedWidth } from "./navigation-rail-menu-exp
  * Props for a navigation rail
  */
 export type NavigationRailProps<TItemId extends NavigationRailItemId> = (
+	IActiveItemId<TItemId> &
 	ICenterItems<boolean> &
 	IChild<NavigationRailChildren<TItemId>> &
-	Partial<PrefixKeys<IChild<NavigationRailHeaderContainerChildren>, "navigationHeader">> &
+	IExpandedMenuWidth<NavigationRailMenuExpandedWidth> &
 	IIsExpanded &
-	PrefixKeys<IItemId<TItemId>, "active"> &
-	PrefixKeys<IOnChange<boolean, void>, "expanded"> &
-	PrefixKeys<IOnChange<TItemId, void>, "item"> &
-	PrefixKeys<IStyle<NavigationRailMenuStyle>, "menu"> &
-	PrefixKeys<IWidth<NavigationRailMenuExpandedWidth>, "expandedMenu">
+	IMenuStyle<NavigationRailMenuStyle> &
+	Partial<INavigationHeaderChild<NavigationRailHeaderContainerChildren>> &
+	IOnExpandedChange<boolean, void> &
+	IOnItemChange<TItemId, void>
 );

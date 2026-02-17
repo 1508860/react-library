@@ -26,8 +26,8 @@ export function navigationBarItemStyle(orientation: Orientation, colourScheme: C
 		gap: NAVIGATION_BAR_PROPERTY_MAP.gap,
 		height: NAVIGATION_BAR_PROPERTY_MAP.orientation[orientation].height,
 		justifyContent: "center",
-		paddingLeft: NAVIGATION_BAR_PROPERTY_MAP.itemSidePadding,
-		paddingRight: NAVIGATION_BAR_PROPERTY_MAP.itemSidePadding,
+		paddingLeft: NAVIGATION_BAR_PROPERTY_MAP.itemPaddingHorizontal,
+		paddingRight: NAVIGATION_BAR_PROPERTY_MAP.itemPaddingHorizontal,
 		position: "relative"
 	};
 }

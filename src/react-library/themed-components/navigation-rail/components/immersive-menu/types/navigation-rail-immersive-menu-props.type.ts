@@ -1,10 +1,9 @@
 import type {
-	IChild,
+	IExpandedMenuWidth,
 	IIsExpanded,
-	IOnChange,
-	IStyle,
-	IWidth,
-	PrefixKeys
+	IMenuStyle,
+	INavigationHeaderChild,
+	IOnExpandedChange
 } from "@react-library/common";
 
 import type { NavigationRailMenuStyle } from "../../../enums/navigation-rail-menu-style.type";
@@ -15,9 +14,9 @@ import type { NavigationRailMenuExpandedWidth } from "../../../types/navigation-
  * Props for a navigation rail immersive menu
  */
 export type NavigationRailImmersiveMenuProps = (
-	Partial<PrefixKeys<IChild<NavigationRailHeaderContainerChildren>, "navigationHeader">> &
+	IExpandedMenuWidth<NavigationRailMenuExpandedWidth> &
 	IIsExpanded &
-	PrefixKeys<IOnChange<boolean, void>, "expanded"> &
-	PrefixKeys<IStyle<NavigationRailMenuStyle>, "menu"> &
-	PrefixKeys<IWidth<NavigationRailMenuExpandedWidth>, "expandedMenu">
+	IMenuStyle<NavigationRailMenuStyle> &
+	Partial<INavigationHeaderChild<NavigationRailHeaderContainerChildren>> &
+	IOnExpandedChange<boolean, void>
 );

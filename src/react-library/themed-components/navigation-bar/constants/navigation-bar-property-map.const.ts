@@ -1,15 +1,15 @@
 import { Orientation } from "@react-library/common";
-import type { INavigationBarPropertyMap } from "../types/navigation-bar-property-map.type";
+import type { NavigationBarPropertyMap } from "../types/navigation-bar-property-map.type";
 
 /**
  * Constant values for navigation bar style sizes
  */
-export const NAVIGATION_BAR_PROPERTY_MAP: INavigationBarPropertyMap = {
-	barHeight: 64,
+export const NAVIGATION_BAR_PROPERTY_MAP: NavigationBarPropertyMap = {
 	fontSize: 12,
 	gap: 4,
+	height: 64,
 	iconSize: 24,
-	itemSidePadding: 16,
+	itemPaddingHorizontal: 16,
 	orientation: {
 		[Orientation.Horizontal]: {
 			borderRadius: 20,

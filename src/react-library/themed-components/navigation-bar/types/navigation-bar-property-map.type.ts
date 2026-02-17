@@ -3,28 +3,26 @@ import type {
 	IFontSize,
 	IGap,
 	IHeight,
+	IIconSize,
+	IItemPaddingHorizontal,
 	IOrientation,
-	IPadding,
-	ISize,
 	Orientation,
-	PrefixKeys,
 	SizePx
 } from "@react-library/common";
 
 /**
  * Describes values for navigation bar style sizes
  */
-export type INavigationBarPropertyMap = (
+export type NavigationBarPropertyMap = (
 	IFontSize<SizePx> &
 	IGap<SizePx> &
-	PrefixKeys<IHeight<SizePx>, "bar"> &
-	IOrientation<Record<
-		Orientation,
-		(
-			IBorderRadius<SizePx> &
-			IHeight<SizePx>
-		)
-	>> &
-	PrefixKeys<IPadding<SizePx>, "itemSide"> &
-	PrefixKeys<ISize<SizePx>, "icon">
-)
+	IHeight<SizePx> &
+	IIconSize<SizePx> &
+	IItemPaddingHorizontal<SizePx> &
+	IOrientation<Record<Orientation, NavigationBarPropertyOrientationMap>>
+);
+
+type NavigationBarPropertyOrientationMap = (
+	IBorderRadius<SizePx> &
+	IHeight<SizePx>
+);

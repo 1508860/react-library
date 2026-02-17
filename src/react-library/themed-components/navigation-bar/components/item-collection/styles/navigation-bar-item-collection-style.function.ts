@@ -19,7 +19,7 @@ export function navigationBarItemCollectionStyle(colourScheme: ColourScheme, fon
 		flexShrink: 0,
 		fontFamily: font.fontFamily,
 		fontSize: NAVIGATION_BAR_PROPERTY_MAP.fontSize,
-		height: NAVIGATION_BAR_PROPERTY_MAP.barHeight,
+		height: NAVIGATION_BAR_PROPERTY_MAP.height,
 		justifyContent: "center"
 	};
 }
