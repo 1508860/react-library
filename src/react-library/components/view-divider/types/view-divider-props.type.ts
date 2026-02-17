@@ -8,13 +8,13 @@ import type {
 	IMinSizeEnd,
 	IMinSizeStart,
 	IOrientation,
+	ISeparatorSize,
 	Orientation,
 	ScalePercent,
 	Size
 } from "@react-library/common";
 
 import type { ViewDividerStaticView } from "../types/view-divider-static-view.type";
-import type { ISeparatorSize } from "react-library/common/interfaces/separator-size.interface";
 
 /**
  * Props for view divider
