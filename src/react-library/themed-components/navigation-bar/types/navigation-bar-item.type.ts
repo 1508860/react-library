@@ -5,9 +5,8 @@ import type {
 	IIconName,
 	IItemId,
 	ILabel,
-	IShow,
-	PrefixKeys,
-	SuffixKeys
+	IShowBadge,
+	PrefixKeys
 } from "@react-library/common";
 import type { MaterialIconName } from "@react-library/material-icons";
 
@@ -24,5 +23,5 @@ export type NavigationBarItem<TItemId extends NavigationBarItemId> = (
 	IItemId<TItemId> &
 	ILabel<string> &
 	Partial<PrefixKeys<ILabel<BadgeLabel>, "badge">> &
-	SuffixKeys<IShow, "Badge">
+	IShowBadge
 );

@@ -1,12 +1,12 @@
 import type {
 	PrefixKeys,
-	SuffixKeys,
 	IId,
 	IType,
 	ISize,
 	SizePx,
 	IChildren,
-	IShowChildren
+	IShowChildren,
+	IVirtualScrollRowIdPrefix
 } from "@react-library/common";
 
 import type { VirtualScrollRow } from "../enums/virtual-scroll-row.type";
@@ -16,7 +16,7 @@ import type { VirtualScrollRow } from "../enums/virtual-scroll-row.type";
 /**
  * Type to describe the id prefix to add to an element that may exist in a parent-child hierarchy
  */
-export type VirtualScrollRowIdPrefix = PrefixKeys<SuffixKeys<IId<string>, "Prefix">, "virtualScrollRow">;
+export type VirtualScrollRowIdPrefix = IVirtualScrollRowIdPrefix<string>;
 
 type VirtualScrollRowTypeBase<TRowType extends VirtualScrollRow> = PrefixKeys<IType<TRowType>, "virtualScrollRow">;
 

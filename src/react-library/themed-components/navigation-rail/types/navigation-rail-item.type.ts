@@ -5,9 +5,8 @@ import type {
 	IIconName,
 	IId,
 	ILabel,
-	IShow,
-	PrefixKeys,
-	SuffixKeys
+	IShowBadge,
+	PrefixKeys
 } from "@react-library/common";
 import type { MaterialIconName } from "@react-library/material-icons";
 
@@ -24,5 +23,5 @@ export type NavigationRailItem<TItemId extends NavigationRailItemId> = (
 	PrefixKeys<IId<TItemId>, "item"> &
 	ILabel<string> &
 	Partial<PrefixKeys<ILabel<BadgeLabel>, "badge">> &
-	SuffixKeys<IShow, "Badge">
+	IShowBadge
 );

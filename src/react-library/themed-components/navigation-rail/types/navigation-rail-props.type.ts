@@ -1,13 +1,12 @@
 import type {
-	ICenter,
+	ICenterItems,
 	IChild,
 	IIsExpanded,
 	IItemId,
 	IOnChange,
 	IStyle,
 	IWidth,
-	PrefixKeys,
-	SuffixKeys
+	PrefixKeys
 } from "@react-library/common";
 
 import type { NavigationRailMenuStyle } from "../enums/navigation-rail-menu-style.type";
@@ -20,7 +19,7 @@ import type { NavigationRailMenuExpandedWidth } from "./navigation-rail-menu-exp
  * Props for a navigation rail
  */
 export type NavigationRailProps<TItemId extends NavigationRailItemId> = (
-	SuffixKeys<ICenter<boolean>, "Items"> &
+	ICenterItems<boolean> &
 	IChild<NavigationRailChildren<TItemId>> &
 	Partial<PrefixKeys<IChild<NavigationRailHeaderContainerChildren>, "navigationHeader">> &
 	IIsExpanded &
