@@ -1,6 +1,7 @@
 export * from "./badge";
 export * from "./button";
 export * from "./button-group";
+export * from "./divider";
 export * from "./floating-button-group";
 export * from "./loading-indicator";
 export * from "./navigation-bar";
