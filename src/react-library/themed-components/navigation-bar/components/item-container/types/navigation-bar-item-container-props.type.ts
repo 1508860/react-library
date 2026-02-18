@@ -1,4 +1,5 @@
 import type {
+	CallbackWithParameter,
 	IActiveItemId,
 	IOnChange,
 	IOrientation,
@@ -14,6 +15,6 @@ import type { NavigationBarItem } from "../../../types/navigation-bar-item.type"
 export type NavigationBarItemProps<TItemId extends NavigationBarItemId> = (
 	IActiveItemId<TItemId> &
 	NavigationBarItem<TItemId> &
-	IOnChange<TItemId, void> &
+	IOnChange<CallbackWithParameter<TItemId, void>> &
 	IOrientation<Orientation>
 );

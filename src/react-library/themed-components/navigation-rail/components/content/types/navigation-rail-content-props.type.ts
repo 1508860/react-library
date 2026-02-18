@@ -1,4 +1,5 @@
 import type {
+	CallbackWithParameter,
 	IActiveItemId,
 	IChild,
 	IIsExpanded,
@@ -18,5 +19,5 @@ export type NavigationRailContentProps<TItemId extends NavigationRailItemId> = (
 	IChild<NavigationRailChildren<TItemId>> &
 	IIsExpanded &
 	IMenuStyle<NavigationRailMenuStyle> &
-	IOnExpandedChange<boolean, void>
+	IOnExpandedChange<CallbackWithParameter<boolean, void>>
 );

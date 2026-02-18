@@ -1,4 +1,5 @@
 import type {
+	CallbackWithParameter,
 	IExpandedMenuWidth,
 	IIsExpanded,
 	IMenuStyle,
@@ -18,5 +19,5 @@ export type NavigationRailImmersiveMenuProps = (
 	IIsExpanded &
 	IMenuStyle<NavigationRailMenuStyle> &
 	Partial<INavigationHeaderChild<NavigationRailHeaderContainerChildren>> &
-	IOnExpandedChange<boolean, void>
+	IOnExpandedChange<CallbackWithParameter<boolean, void>>
 );

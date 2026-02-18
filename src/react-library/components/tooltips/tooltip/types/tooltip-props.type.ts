@@ -1,7 +1,7 @@
 import type { ReactElement, ReactNode } from "react";
 
 import type {
-	ChildCalback,
+	CallbackWithParameter,
 	IChild,
 	IIsDisabled,
 	IOnDismiss,
@@ -26,7 +26,7 @@ export type TooltipProps<
 	TChildElement extends Element,
 	TContent extends ReactNode
 > = (
-		IChild<ChildCalback<TooltipChildProps<TTooltipInteraction, TChildElement>, ReactElement>> &
+		IChild<CallbackWithParameter<TooltipChildProps<TTooltipInteraction, TChildElement>, ReactElement>> &
 		Partial<IIsDisabled> &
 		Partial<IOnDismiss<void>> &
 		Partial<IOnShow<void>> &

@@ -1,4 +1,4 @@
-import type { IIsExpanded, IMenuStyle, IOnExpandedChange } from "@react-library/common";
+import type { CallbackWithParameter, IIsExpanded, IMenuStyle, IOnExpandedChange } from "@react-library/common";
 
 import type { NavigationRailMenuStyle } from "../../../enums/navigation-rail-menu-style.type";
 
@@ -8,5 +8,5 @@ import type { NavigationRailMenuStyle } from "../../../enums/navigation-rail-men
 export type NavigationRailBackdropProps = (
 	IIsExpanded &
 	IMenuStyle<NavigationRailMenuStyle> &
-	IOnExpandedChange<boolean, void>
+	IOnExpandedChange<CallbackWithParameter<boolean, void>>
 );

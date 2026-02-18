@@ -1,6 +1,6 @@
 /**
- * For a component that has a change event for an expanded
+ * For a component that has an expanded change event
  */
-export interface IOnExpandedChange<TParam, TReturn> {
-	onExpandedChange: (param: TParam) => TReturn;
+export interface IOnExpandedChange<TOnExpandedChange> {
+	onExpandedChange: TOnExpandedChange;
 }

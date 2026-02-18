@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from "react";
 
-import type { IDirection, IDurationMs, IOnComplete } from "@react-library/common";
+import type { Callback, IDirection, IDurationMs, IOnComplete } from "@react-library/common";
 
 import type { TransitionFadeDirection } from "../enums/transition-fade-direction.type";
 
@@ -10,6 +10,6 @@ import type { TransitionFadeDirection } from "../enums/transition-fade-direction
 export type TransitionFadeProps = (
 	IDirection<TransitionFadeDirection> &
 	IDurationMs<number> &
-	Partial<IOnComplete<void, void>> &
+	Partial<IOnComplete<Callback<void>>> &
 	PropsWithChildren
 );

@@ -1,4 +1,4 @@
-import type { IBehaviour, IOnComplete, IPosition, IRatio, IShape } from "@react-library/common";
+import type { Callback, IBehaviour, IOnComplete, IPosition, IRatio, IShape } from "@react-library/common";
 
 import type { ProgressIndicatorBehaviour } from "../enums/progress-indicator-behaviour.type";
 import type { ProgressIndicatorPosition } from "../enums/progress-indicator-position.type";
@@ -17,7 +17,7 @@ type ProgressIndicatorBehaviourBase<TProgressIndicatorBehaviour extends Progress
  * Describes progress indicator behaviour of determinate
  */
 export type ProgressIndicatorBehaviourDeterminate = (
-	Partial<IOnComplete<void, void>> &
+	Partial<IOnComplete<Callback<void>>> &
 	ProgressIndicatorBehaviourBase<typeof ProgressIndicatorBehaviour.Determinate> &
 	IRatio
 );

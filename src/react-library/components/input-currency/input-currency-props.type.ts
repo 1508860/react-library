@@ -1,4 +1,5 @@
 import type {
+	CallbackWithParameter,
 	Currency,
 	IIsDisabled,
 	IOnValueChange,
@@ -13,7 +14,7 @@ import type { CSSProperties } from "react";
  */
 export type InputCurrencyProps = (
 	Partial<IIsDisabled> &
-	IOnValueChange<Currency | undefined> &
+	IOnValueChange<CallbackWithParameter<(Currency | undefined), void>> &
 	Partial<IPlaceholder<string>> &
 	Partial<IStyle<CSSProperties>> &
 	IValue<Currency | undefined>

@@ -1,4 +1,5 @@
 import type {
+	CallbackWithParameter,
 	IActiveItemId,
 	IChild,
 	IItemOrientation,
@@ -16,5 +17,5 @@ export type NavigationBarItemCollectionProps<TItemId extends NavigationBarItemId
 	IActiveItemId<TItemId> &
 	IChild<NavigationBarChildren<TItemId>> &
 	IItemOrientation<Orientation> &
-	IOnItemChange<TItemId, void>
+	IOnItemChange<CallbackWithParameter<TItemId, void>>
 );
