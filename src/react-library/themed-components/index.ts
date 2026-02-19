@@ -7,3 +7,4 @@ export * from "./loading-indicator";
 export * from "./navigation-bar";
 export * from "./navigation-rail";
 export * from "./progress-indicator";
+export * from "./side-sheet";
