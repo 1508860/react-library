@@ -1,10 +1,11 @@
 import type { IIsEqual, IToStyleCubicBezierString } from "../../../interfaces";
+import type { Callback, CallbackWithParameter } from "../../../types";
 import type { StyleCubicBezierFunc } from "../types/cubic-bezier-func.type";
 
 /**
  * Class to handle the cubic bezier style function
  */
-export class StyleCubicBezier implements IIsEqual<StyleCubicBezier>, IToStyleCubicBezierString {
+export class StyleCubicBezier implements IIsEqual<CallbackWithParameter<StyleCubicBezier, boolean>>, IToStyleCubicBezierString<Callback<string>> {
 
 	private readonly _x1: number;
 	private readonly _y1: number;

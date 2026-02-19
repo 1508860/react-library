@@ -1,11 +1,12 @@
 
 import type { IToColourString } from "../../../interfaces";
+import type { Callback } from "../../../types";
 import type { HexColour } from "./hex-colour.type";
 
 /**
  * Represents RGB & alpha values in hexadecimal notation
  */
-export class HexRgba implements IToColourString {
+export class HexRgba implements IToColourString<Callback<string>> {
 
 	public readonly red: HexColour;
 	public readonly green: HexColour;

@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from "react";
 
 import type {
+	Callback,
 	Colour,
 	IBackgroundColour,
 	IOnDismiss,
@@ -23,7 +24,7 @@ type ModalBackdropPropsPrivate = (
  */
 export type ModalBackdropPropsPublic = (
 	Partial<IBackgroundColour<Colour>> &
-	Partial<IOnDismiss<void>>
+	Partial<IOnDismiss<Callback<void>>>
 );
 
 /**

@@ -1,11 +1,12 @@
 import type { IIsEqual, IToStylePolygonString } from "../../interfaces";
+import type { Callback, CallbackWithParameter } from "../../types";
 import { StyleFillRule, type StyleFillRuleGlobal } from "../fill-rule";
 import type { StylePolygonSegmentCollection } from "./polygon-segment-collection.type";
 
 /**
  * Class to handle the polygon style function
  */
-export class StylePolygon implements IIsEqual<StylePolygon>, IToStylePolygonString {
+export class StylePolygon implements IIsEqual<CallbackWithParameter<StylePolygon, boolean>>, IToStylePolygonString<Callback<string>> {
 
 	private readonly _segments: StylePolygonSegmentCollection;
 	private readonly _fillRule: StyleFillRuleGlobal;

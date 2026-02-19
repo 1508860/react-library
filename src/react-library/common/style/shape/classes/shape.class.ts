@@ -1,11 +1,12 @@
 import type { IIsEqual, IToStyleShapeString } from "../../../interfaces";
+import type { Callback, CallbackWithParameter } from "../../../types";
 import { StyleFillRule, type StyleFillRuleGlobal } from "../../fill-rule";
 import type { StyleShapeSegmentCollection } from "../types/shape-segment-collection.type";
 
 /**
  * Class to handle the shape style function
  */
-export class StyleShape implements IIsEqual<StyleShape>, IToStyleShapeString {
+export class StyleShape implements IIsEqual<CallbackWithParameter<StyleShape, boolean>>, IToStyleShapeString<Callback<string>> {
 
 	private readonly _segments: StyleShapeSegmentCollection;
 	private readonly _fillRule: StyleFillRuleGlobal;

@@ -1,7 +1,7 @@
 /**
- * Describes a component that has subscribe to and unsubscribe callbacks
+ * Describes a component that has subscribe to and unsubscribe from events
  */
-export interface IOnSubscribable<TObserver> {
-	onSubscribe: (observer: TObserver) => void;
-	onUnsubscribe: (observer: TObserver) => void;
+export interface IOnSubscribable<TOnSubscribe, TOnUnsubscribe> {
+	onSubscribe: TOnSubscribe;
+	onUnsubscribe: TOnUnsubscribe;
 }

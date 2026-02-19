@@ -1,8 +1,13 @@
 import type { Guid } from "../../guid";
 import type { INotify, IOnSubscribable, ISubscribable, ISubscribedCount } from "../../interfaces";
+import type { Callback, CallbackWithParameter } from "../../types";
+
 import type { Observer } from "../types/observer.type";
 
-export class Subject<T> implements INotify<T>, ISubscribable<Observer<T>>, ISubscribedCount {
+export class Subject<T> implements
+	INotify<CallbackWithParameter<T, void>>,
+	ISubscribable<CallbackWithParameter<Observer<T>, void>, CallbackWithParameter<Observer<T>, void>>,
+	ISubscribedCount<Callback<number>> {
 
 	private _onSubscribe: ((observer: Observer<T>) => void) | undefined;
 	private _onUnsubscribe: ((observer: Observer<T>) => void) | undefined;
@@ -10,7 +15,7 @@ export class Subject<T> implements INotify<T>, ISubscribable<Observer<T>>, ISubs
 	private readonly _observers: Map<Guid, Observer<T>>;
 
 	constructor(
-		options: Partial<IOnSubscribable<Observer<T>>>
+		options: Partial<IOnSubscribable<CallbackWithParameter<Observer<T>, void>, CallbackWithParameter<Observer<T>, void>>>
 	) {
 		this._observers = new Map<Guid, Observer<T>>();
 		this._onSubscribe = options.onSubscribe;

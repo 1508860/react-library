@@ -1,6 +1,6 @@
 /**
  * Describes a component that has a subscribed count
  */
-export interface ISubscribedCount {
-	subscribedCount: () => number;
+export interface ISubscribedCount<TSubscribedCount> {
+	subscribedCount: TSubscribedCount;
 }

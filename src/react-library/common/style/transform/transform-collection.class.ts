@@ -1,13 +1,17 @@
 import type { IIsEqual, IToStyleTransformCollectionString } from "../../interfaces";
-import type { ArrayMinLength1 } from "../../types";
+import type { ArrayMinLength1, Callback, CallbackWithParameter } from "../../types";
 
 import type { StyleTransform } from "./transform.type";
 
 /**
  * Class for serialising a collection of {@link StyleTransform} values
  */
-export class StyleTransformCollection<TStyleTransformCollection extends ArrayMinLength1<StyleTransform>>
-	implements IIsEqual<StyleTransformCollection<TStyleTransformCollection>>, IToStyleTransformCollectionString {
+export class StyleTransformCollection<TStyleTransformCollection
+	extends
+	ArrayMinLength1<StyleTransform>>
+	implements
+	IIsEqual<CallbackWithParameter<StyleTransformCollection<TStyleTransformCollection>, boolean>>,
+	IToStyleTransformCollectionString<Callback<string>> {
 
 	private readonly _styleTransformCollection: TStyleTransformCollection;
 

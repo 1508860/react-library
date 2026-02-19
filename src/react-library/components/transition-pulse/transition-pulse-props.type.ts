@@ -1,4 +1,5 @@
 import type {
+	Callback,
 	Colour,
 	IColour,
 	IDurationMs,
@@ -15,7 +16,7 @@ import type { TransitionPulseInsetData } from "./transition-pulse-inset-data.typ
 export type TransitionPulseProps = (
 	IColour<Colour> &
 	IDurationMs<number> &
-	IOnDismiss<void> &
+	IOnDismiss<Callback<void>> &
 	IOpacity<StyleOpacity> &
 	TransitionPulseInsetData
 );

@@ -1,6 +1,7 @@
 import type { IToColourString } from "../../../interfaces";
+import type { Callback } from "../../../types";
 
-export class Rgba implements IToColourString {
+export class Rgba implements IToColourString<Callback<string>> {
 
 	public readonly red: number;
 	public readonly green: number;
