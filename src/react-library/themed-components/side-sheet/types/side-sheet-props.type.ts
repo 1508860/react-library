@@ -1,13 +1,18 @@
 import type { PropsWithChildren } from "react";
 
-import type { IShow, IStyle, IWidth, Size } from "@react-library/common";
+import type { IShow, IStyle } from "@react-library/common";
 
 import type { SideSheetStyle } from "../enums/side-sheet-style.type";
+import type { SideSheetBody } from "./side-sheet-body.type";
+import type { SideSheetDetach } from "./side-sheet-detach.type";
+import type { SideSheetFooter } from "./side-sheet-footer.type";
 import type { SideSheetIncludeDivider } from "./side-sheet-include-divider.type";
 import type { SideSheetOnBack } from "./side-sheet-on-back.type";
 import type { SideSheetOnClose } from "./side-sheet-on-close.type";
-import type { SideSheetPanelChild } from "./side-sheet-panel-child.type";
+import type { SideSheetShowFooterDivider } from "./side-sheet-show-footer-divider.type";
+import type { SideSheetShowHeaderDivider } from "./side-sheet-show-header-divider.type";
 import type { SideSheetTitle } from "./side-sheet-title.type";
+import type { SideSheetWidth } from "./side-sheet-width.type";
 
 /**
  * Base props for the side sheet component
@@ -16,18 +21,22 @@ export type SideSheetBaseProps<TStyle extends SideSheetStyle> = (
 	PropsWithChildren &
 	IShow &
 	IStyle<TStyle> &
+	SideSheetBody &
+	Partial<SideSheetFooter> &
 	Partial<SideSheetOnBack> &
 	SideSheetOnClose &
-	SideSheetPanelChild &
+	Partial<SideSheetShowFooterDivider> &
+	Partial<SideSheetShowHeaderDivider> &
 	Partial<SideSheetTitle> &
-	IWidth<Size>
+	SideSheetWidth
 );
 
 /**
  * Props for the side sheet modal component
  */
 export type SideSheetModalProps = (
-	SideSheetBaseProps<typeof SideSheetStyle.Modal>
+	SideSheetBaseProps<typeof SideSheetStyle.Modal> &
+	Partial<SideSheetDetach>
 );
 
 /**

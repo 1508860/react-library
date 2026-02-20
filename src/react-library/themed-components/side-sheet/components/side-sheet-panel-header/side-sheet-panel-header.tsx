@@ -3,7 +3,7 @@ import { Fragment } from "react"
 import { useColourSchemeContext, useFontContext } from "@react-library/common";
 import { MaterialIconName, MaterialIconStyle, MaterialIconSvg } from "@react-library/material-icons";
 
-import { SIDE_SHEET_PANEL_HEADER_STYLE } from "./styles/side-sheet-panel-header-style.const";
+import { sideSheetPanelHeaderStyle } from "./styles/side-sheet-panel-header-style.function";
 import type { SideSheetPanelHeaderProps } from "./types/side-sheet-panel-header-props.type";
 import { sideSheetPanelHeaderTitleStyle } from "./styles/side-sheet-panel-header-title-style.function";
 
@@ -15,14 +15,14 @@ export function SideSheetPanelHeader(props: SideSheetPanelHeaderProps) {
 	const colourScheme = useColourSchemeContext();
 	const font = useFontContext();
 
-	if (props.show) return (
-		<Fragment key={"no-side-sheet-panel-header"} />
+	if (!props.show) return (
+		<Fragment key="no-side-sheet-panel-header" />
 	);
 
 	return (
 		<div
 			key="side-sheet-panel-header"
-			style={SIDE_SHEET_PANEL_HEADER_STYLE}
+			style={sideSheetPanelHeaderStyle(props.width)}
 		>
 			{
 				props.onBack ?

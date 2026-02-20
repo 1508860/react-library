@@ -1,6 +1,6 @@
 import { Fragment } from "react"
 
-import { SIDE_SHEET_PANEL_BODY_STYLE } from "./styles/side-sheet-panel-body-style.const";
+import { sideSheetPanelBodyStyle } from "./styles/side-sheet-panel-body-style.function";
 import type { SideSheetPanelBodyProps } from "./types/side-sheet-panel-body-props.type";
 
 /**
@@ -8,16 +8,16 @@ import type { SideSheetPanelBodyProps } from "./types/side-sheet-panel-body-prop
  */
 export function SideSheetPanelBody(props: SideSheetPanelBodyProps) {
 
-	if (props.show) return (
-		<Fragment key={"no-side-sheet-panel-body"} />
+	if (!props.show) return (
+		<Fragment key="no-side-sheet-panel-body" />
 	);
 
 	return (
 		<div
 			key="side-sheet-panel-body"
-			style={SIDE_SHEET_PANEL_BODY_STYLE}
+			style={sideSheetPanelBodyStyle(props.width)}
 		>
-			<props.panelChild />
+			<props.body />
 		</div>
 	);
 }
