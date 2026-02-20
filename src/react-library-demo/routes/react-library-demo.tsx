@@ -33,7 +33,7 @@ export function ReactLibraryDemo() {
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaultSubItemId={ReactLibraryRouterDemo.Basic}
+										defaultSubItemId={ReactLibraryThemedComponentsDemo.SideSheet}
 									>
 										{{
 											id: 1,

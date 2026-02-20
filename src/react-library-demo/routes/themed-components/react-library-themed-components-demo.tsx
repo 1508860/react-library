@@ -9,6 +9,7 @@ import { ReactLibraryThemedComponentsLoadingIndicatorDemo } from "./loading-indi
 import { ReactLibraryThemedComponentsNavigationBarDemo } from "./navigation-bar";
 import { ReactLibraryThemedComponentsNavigationRailDemo } from "./navigation-rail";
 import { ReactLibraryThemedComponentsProgressIndicatorDemo } from "./progress-indicator";
+import { ReactLibraryThemedComponentsSideSheetDemo } from "./side-sheet";
 
 export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<ReactLibraryThemedComponentsDemo> {
 	return [
@@ -42,7 +43,7 @@ export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<Rea
 			id: ReactLibraryThemedComponentsDemo.NavigationBar,
 			title: "Navigation Bar"
 		},
-				{
+		{
 			element: () => <ReactLibraryThemedComponentsNavigationRailDemo />,
 			id: ReactLibraryThemedComponentsDemo.NavigationRail,
 			title: "Navigation Rail"
@@ -51,6 +52,11 @@ export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<Rea
 			element: () => <ReactLibraryThemedComponentsProgressIndicatorDemo />,
 			id: ReactLibraryThemedComponentsDemo.ProgressIndicator,
 			title: "Progress Indicator"
+		},
+		{
+			element: () => <ReactLibraryThemedComponentsSideSheetDemo />,
+			id: ReactLibraryThemedComponentsDemo.SideSheet,
+			title: "Side Sheet"
 		}
 	];
 }
