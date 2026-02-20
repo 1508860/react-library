@@ -9,7 +9,7 @@ import type { DividerProps } from "./types/divider-props.type";
  * Divider component
  */
 export function Divider(props: DividerProps) {
-	if (props.hide) return <Fragment key={"no-divider"} />
+	if (props.hide) return <Fragment key="no-divider" />
 
 	return (
 		<DividerLine
