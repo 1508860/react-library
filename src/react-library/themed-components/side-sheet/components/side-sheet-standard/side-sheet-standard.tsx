@@ -5,7 +5,7 @@ import { Divider } from "../../../divider";
 import { useSideSheetTransitionShowState } from "../../hooks/use-side-sheet-transition-show-state.hook";
 import { SideSheetPanel } from "../side-sheet-panel";
 import { SIDE_SHEET_STANDARD_CHILDREN_STYLE } from "./styles/side-sheet-standard-children-style.const";
-import { SIDE_SHEET_STANDARD_STYLE } from "./styles/side-sheet-standard-style.const";
+import { sideSheetStandardStyle } from "./styles/side-sheet-standard-style.function";
 import type { SideSheetStandardProps } from "./types/side-sheet-standard-props.type";
 
 /**
@@ -17,7 +17,7 @@ export function SideSheetStandard(props: SideSheetStandardProps) {
 	const [showContent] = useSideSheetTransitionShowState(props.show);
 
 	return (
-		<div style={SIDE_SHEET_STANDARD_STYLE}>
+		<div style={sideSheetStandardStyle(props.position)}>
 			<div
 				key="children"
 				style={SIDE_SHEET_STANDARD_CHILDREN_STYLE}

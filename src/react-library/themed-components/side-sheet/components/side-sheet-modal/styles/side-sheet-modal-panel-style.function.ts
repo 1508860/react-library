@@ -4,11 +4,15 @@ import { ColourSchemeElevationLevel, type ColourScheme } from "@react-library/co
 
 import { SIDE_SHEET_PANEL_BORDER_RADIUS_ROUND_PX } from "../../../constants/side-sheet-panel-border-radius-round-px.const";
 import { SIDE_SHEET_PANEL_DETACH_MARGIN_PX } from "../../../constants/side-sheet-panel-detatch-margin-px.const";
+import { SideSheetPosition } from "../../../enums/side-sheet-position.type";
 
 /**
- * Side sheet modal panel style
+ * Resolve side sheet modal panel style based on parameters
+ * @param detach
+ * @param position
+ * @param Colourscheme
  */
-export function sideSheetModalPanelStyle(detach: boolean, colourScheme: ColourScheme): CSSProperties {
+export function sideSheetModalPanelStyle(detach: boolean, position: SideSheetPosition, colourScheme: ColourScheme): CSSProperties {
 	return {
 		alignItems: "stretch",
 		borderBottomLeftRadius: SIDE_SHEET_PANEL_BORDER_RADIUS_ROUND_PX,
@@ -22,7 +26,8 @@ export function sideSheetModalPanelStyle(detach: boolean, colourScheme: ColourSc
 		flexShrink: 0,
 		overflow: "hidden",
 		position: "absolute",
-		right: detach ? SIDE_SHEET_PANEL_DETACH_MARGIN_PX : 0,
+		right: position === SideSheetPosition.End ? (detach ? SIDE_SHEET_PANEL_DETACH_MARGIN_PX : 0) : undefined,
+		left: position === SideSheetPosition.End ? undefined : (detach ? SIDE_SHEET_PANEL_DETACH_MARGIN_PX : 0),
 		top: detach ? SIDE_SHEET_PANEL_DETACH_MARGIN_PX : 0,
 		zIndex: 1
 	};

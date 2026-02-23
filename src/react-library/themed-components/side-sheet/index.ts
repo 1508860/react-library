@@ -1,3 +1,4 @@
+export * from "./enums/side-sheet-position.type";
 export * from "./enums/side-sheet-style.type";
 export * from "./types/side-sheet-body.type";
 export * from "./types/side-sheet-detach.type";
@@ -7,6 +8,7 @@ export * from "./types/side-sheet-include-body-padding-horizontal.type";
 export * from "./types/side-sheet-include-divider.type";
 export * from "./types/side-sheet-on-back.type";
 export * from "./types/side-sheet-on-close.type";
+export * from "./types/side-sheet-position-props.type";
 export * from "./types/side-sheet-props.type";
 export * from "./types/side-sheet-show-content.type";
 export * from "./types/side-sheet-show-footer-divider.type";

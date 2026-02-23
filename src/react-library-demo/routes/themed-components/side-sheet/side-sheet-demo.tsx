@@ -1,7 +1,7 @@
 import { useCallback, useState, type ReactElement } from "react";
 
 import { useCounterState, type Callback, type ICount, type IOnOpen } from "@react-library/common";
-import { SideSheet, SideSheetStyle } from "@react-library/themed-components";
+import { SideSheet, SideSheetPosition, SideSheetStyle } from "@react-library/themed-components";
 
 import { DemoSection } from "@react-library-demo/shared";
 
@@ -26,6 +26,7 @@ export function ReactLibraryThemedComponentsSideSheetDemo() {
 					includeDivider={true}
 					onBack={incrementBackCounter}
 					onClose={handleClose}
+					position={SideSheetPosition.End}
 					show={show}
 					title="Side Sheet Title"
 					width={400}
@@ -50,6 +51,7 @@ export function ReactLibraryThemedComponentsSideSheetDemo() {
 					includeBodyPaddingHorizontal={true}
 					onBack={incrementBackCounter}
 					onClose={handleClose}
+					position={SideSheetPosition.Start}
 					show={show}
 					showFooterDivider={true}
 					title="Side Sheet Title"
@@ -95,7 +97,7 @@ function SideSheetBody(): ReactElement {
 				backgroundColor: "coral",
 				display: "flex",
 				flexDirection: "column",
-				height: 500,
+				height: 400,
 				justifyContent: "center",
 				width: "100%"
 			}}

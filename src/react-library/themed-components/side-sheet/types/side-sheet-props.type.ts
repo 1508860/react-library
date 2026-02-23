@@ -11,6 +11,7 @@ import type { SideSheetIncludeBodyPaddingHorizontal } from "./side-sheet-include
 import type { SideSheetIncludeDivider } from "./side-sheet-include-divider.type";
 import type { SideSheetOnBack } from "./side-sheet-on-back.type";
 import type { SideSheetOnClose } from "./side-sheet-on-close.type";
+import type { SideSheetPositionProps } from "./side-sheet-position-props.type";
 import type { SideSheetShowFooterDivider } from "./side-sheet-show-footer-divider.type";
 import type { SideSheetTitle } from "./side-sheet-title.type";
 import type { SideSheetWidth } from "./side-sheet-width.type";
@@ -28,6 +29,7 @@ export type SideSheetBaseProps<TStyle extends SideSheetStyle> = (
 	Partial<SideSheetIncludeBodyPaddingHorizontal> &
 	Partial<SideSheetOnBack> &
 	SideSheetOnClose &
+	SideSheetPositionProps &
 	Partial<SideSheetShowFooterDivider> &
 	Partial<SideSheetTitle> &
 	SideSheetWidth

@@ -9,6 +9,7 @@ import type { SideSheetIncludeBodyPaddingBottom } from "../../../types/side-shee
 import type { SideSheetIncludeBodyPaddingHorizontal } from "../../../types/side-sheet-include-body-padding-horizontal.type";
 import type { SideSheetOnBack } from "../../../types/side-sheet-on-back.type";
 import type { SideSheetOnClose } from "../../../types/side-sheet-on-close.type";
+import type { SideSheetPositionProps } from "../../../types/side-sheet-position-props.type";
 import type { SideSheetShowFooterDivider } from "../../../types/side-sheet-show-footer-divider.type";
 import type { SideSheetTitle } from "../../../types/side-sheet-title.type";
 import type { SideSheetWidth } from "../../../types/side-sheet-width.type";
@@ -26,6 +27,7 @@ export type SideSheetModalProps = (
 	SideSheetIncludeBodyPaddingHorizontal &
 	Partial<SideSheetOnBack> &
 	SideSheetOnClose &
+	SideSheetPositionProps &
 	SideSheetShowFooterDivider &
 	Partial<SideSheetTitle> &
 	SideSheetWidth

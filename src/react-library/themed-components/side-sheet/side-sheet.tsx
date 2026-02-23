@@ -17,6 +17,7 @@ export function SideSheet(props: SideSheetProps) {
 			key="modal"
 			onBack={props.onBack}
 			onClose={props.onClose}
+			position={props.position}
 			show={props.show}
 			showFooterDivider={!!props.showFooterDivider}
 			title={props.title}
@@ -36,6 +37,7 @@ export function SideSheet(props: SideSheetProps) {
 			key="modal"
 			onBack={props.onBack}
 			onClose={props.onClose}
+			position={props.position}
 			show={props.show}
 			showFooterDivider={!!props.showFooterDivider}
 			title={props.title}

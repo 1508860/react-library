@@ -31,7 +31,7 @@ export function SideSheetModal(props: SideSheetModalProps) {
 				show={showContent}
 				key="backdrop"
 			/>
-			<div style={sideSheetModalPanelStyle(props.detach, colourScheme)}>
+			<div style={sideSheetModalPanelStyle(props.detach, props.position, colourScheme)}>
 				<SideSheetPanel
 					body={props.body}
 					footer={props.footer}
