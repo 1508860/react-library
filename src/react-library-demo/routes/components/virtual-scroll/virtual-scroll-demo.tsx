@@ -9,7 +9,7 @@ import {
 	targetEvent
 } from "@react-library/common";
 import {
-	isVirtualSCrollRowStandard,
+	isVirtualScrollRowStandard,
 	Modal,
 	Tooltip,
 	TooltipInteraction,
@@ -23,7 +23,7 @@ import { resolveVirtualScrollDemoParentData } from "./functions";
 export function ReactLibraryComponentsVirtualScrollDemo() {
 
 	// virtual scroll
-	const defaultRowSize: number = 30;
+	const [defaultRowSize] = useState<number>(() => 30);
 	const [vsData] = useState<Array<VirtualScrollTestParent>>(resolveVirtualScrollDemoParentData(1000, 10, defaultRowSize));
 
 	// Modal
@@ -31,11 +31,11 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 	const dismissModal = () => setShowModal(false);
 
 	const handleSetShowModal = useCallback((event: React.MouseEvent, data: VirtualScrollTestParent | VirtualScrollTestStandard) => {
-		targetEvent(event, () => isVirtualSCrollRowStandard(data) ? setShowModal(data) : false)
+		targetEvent(event, () => isVirtualScrollRowStandard(data) ? setShowModal(data) : false)
 	}, []);
 
 	// Tooltip
-	const [tooltipPositionStrategies] = useState<TooltipPositionStrategiesExternal>([
+	const [tooltipPositionStrategies] = useState<TooltipPositionStrategiesExternal>(() => [
 		{ positionType: PositionStrategyExternal.BottomCenter, marginTop: 10 },
 		{ positionType: PositionStrategyExternal.BottomEnd, marginTop: 10 },
 		{ positionType: PositionStrategyExternal.BottomLeft, marginRight: 10, marginTop: 10 },
@@ -64,14 +64,14 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 					<div
 						onClick={(event) => handleSetShowModal(event, child)}
 						style={{
-							backgroundColor: isVirtualSCrollRowStandard(child) ? "white" : "lightblue",
+							backgroundColor: isVirtualScrollRowStandard(child) ? "white" : "lightblue",
 							borderBottomWidth: 1,
 							borderBottomStyle: "solid",
 							boxSizing: "border-box",
 							display: "flex",
 							flexDirection: "row",
 							height: "100%",
-							paddingLeft: isVirtualSCrollRowStandard(child) ? 200 : 0
+							paddingLeft: isVirtualScrollRowStandard(child) ? 200 : 0
 						}}
 					>
 						<div key="id">Id = {child.id}</div>

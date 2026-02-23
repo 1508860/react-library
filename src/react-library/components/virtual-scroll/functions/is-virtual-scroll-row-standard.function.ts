@@ -4,6 +4,6 @@ import type { VirtualScrollRowComparable } from "../types/virtual-scroll-row.typ
 /**
  * Function to determine if virtual scroll row is standard
  */
-export function isVirtualSCrollRowStandard(row: VirtualScrollRowComparable<VirtualScrollRow>): boolean {
+export function isVirtualScrollRowStandard(row: VirtualScrollRowComparable<VirtualScrollRow>): boolean {
 	return row.virtualScrollRowType === undefined;
 }
