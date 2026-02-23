@@ -64,17 +64,14 @@ export function useTooltipPositionState(
 				setValidatedState(null);
 				return;
 			}
-
-			const positionStrategyArray = Array.isArray(positionStrategies) ? positionStrategies : [positionStrategies];
-
 			const defaultTooltipPosition: TooltipPosition = {
-				positionStrategy: positionStrategyArray[0]
+				positionStrategy: positionStrategies[0]
 			};
 
 			const childViewportPositionPx = resolveElementViewportPositionPx(childElement, overlayPortalViewportPositionPx);
 
-			for (let i = 0; i < positionStrategyArray.length; i++) {
-				const currentPositionStrategy = positionStrategyArray[i];
+			for (let i = 0; i < positionStrategies.length; i++) {
+				const currentPositionStrategy = positionStrategies[i];
 
 				const validTooltipPositionBottom = resolveValidTooltipPositionBottom(
 					currentPositionStrategy,
