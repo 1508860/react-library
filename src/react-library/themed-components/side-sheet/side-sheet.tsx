@@ -35,7 +35,7 @@ export function SideSheet(props: SideSheetProps) {
 			showFooterDivider={!!props.showFooterDivider}
 			title={props.title}
 			width={props.width}
-			includeDivider
+			includeDivider={props.includeDivider}
 		>
 			{props.children}
 		</SideSheetStandard>
