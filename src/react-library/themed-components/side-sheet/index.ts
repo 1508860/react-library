@@ -2,6 +2,8 @@ export * from "./enums/side-sheet-style.type";
 export * from "./types/side-sheet-body.type";
 export * from "./types/side-sheet-detach.type";
 export * from "./types/side-sheet-footer.type";
+export * from "./types/side-sheet-include-body-padding-bottom.type";
+export * from "./types/side-sheet-include-body-padding-horizontal.type";
 export * from "./types/side-sheet-include-divider.type";
 export * from "./types/side-sheet-on-back.type";
 export * from "./types/side-sheet-on-close.type";

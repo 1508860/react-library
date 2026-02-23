@@ -32,6 +32,8 @@ export function SideSheetStandard(props: SideSheetStandardProps) {
 			<SideSheetPanel
 				body={props.body}
 				footer={props.footer}
+				includeBodyPaddingBottom={props.includeBodyPaddingBottom}
+				includeBodyPaddingHorizontal={props.includeBodyPaddingHorizontal}
 				key="panel"
 				onBack={props.onBack}
 				onClose={props.onClose}

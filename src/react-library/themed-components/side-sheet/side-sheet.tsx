@@ -10,8 +10,10 @@ export function SideSheet(props: SideSheetProps) {
 	if (props.style === SideSheetStyle.Modal) return (
 		<SideSheetModal
 			body={props.body}
-			footer={props.footer}
 			detach={!!props.detach}
+			footer={props.footer}
+			includeBodyPaddingBottom={!!props.includeBodyPaddingBottom}
+			includeBodyPaddingHorizontal={!!props.includeBodyPaddingHorizontal}
 			key="modal"
 			onBack={props.onBack}
 			onClose={props.onClose}
@@ -28,6 +30,9 @@ export function SideSheet(props: SideSheetProps) {
 		<SideSheetStandard
 			body={props.body}
 			footer={props.footer}
+			includeBodyPaddingBottom={!!props.includeBodyPaddingBottom}
+			includeBodyPaddingHorizontal={!!props.includeBodyPaddingHorizontal}
+			includeDivider={!!props.includeDivider}
 			key="modal"
 			onBack={props.onBack}
 			onClose={props.onClose}
@@ -35,7 +40,6 @@ export function SideSheet(props: SideSheetProps) {
 			showFooterDivider={!!props.showFooterDivider}
 			title={props.title}
 			width={props.width}
-			includeDivider={props.includeDivider}
 		>
 			{props.children}
 		</SideSheetStandard>

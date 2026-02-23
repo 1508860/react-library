@@ -23,12 +23,10 @@ export function ReactLibraryThemedComponentsSideSheetDemo() {
 				<SideSheet
 					style={SideSheetStyle.Standard}
 					body={SideSheetBody}
-					footer={SideSheetFooter}
 					includeDivider={true}
 					onBack={incrementBackCounter}
 					onClose={handleClose}
 					show={show}
-					showFooterDivider={true}
 					title="Side Sheet Title"
 					width={400}
 				>
@@ -48,6 +46,8 @@ export function ReactLibraryThemedComponentsSideSheetDemo() {
 					body={SideSheetBody}
 					detach={true}
 					footer={SideSheetFooter}
+					includeBodyPaddingBottom={true}
+					includeBodyPaddingHorizontal={true}
 					onBack={incrementBackCounter}
 					onClose={handleClose}
 					show={show}
@@ -95,7 +95,7 @@ function SideSheetBody(): ReactElement {
 				backgroundColor: "coral",
 				display: "flex",
 				flexDirection: "column",
-				height: "100%",
+				height: 500,
 				justifyContent: "center",
 				width: "100%"
 			}}

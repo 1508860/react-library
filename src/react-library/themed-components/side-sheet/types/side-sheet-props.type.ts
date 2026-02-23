@@ -6,6 +6,8 @@ import type { SideSheetStyle } from "../enums/side-sheet-style.type";
 import type { SideSheetBody } from "./side-sheet-body.type";
 import type { SideSheetDetach } from "./side-sheet-detach.type";
 import type { SideSheetFooter } from "./side-sheet-footer.type";
+import type { SideSheetIncludeBodyPaddingBottom } from "./side-sheet-include-body-padding-bottom.type";
+import type { SideSheetIncludeBodyPaddingHorizontal } from "./side-sheet-include-body-padding-horizontal.type";
 import type { SideSheetIncludeDivider } from "./side-sheet-include-divider.type";
 import type { SideSheetOnBack } from "./side-sheet-on-back.type";
 import type { SideSheetOnClose } from "./side-sheet-on-close.type";
@@ -22,6 +24,8 @@ export type SideSheetBaseProps<TStyle extends SideSheetStyle> = (
 	IStyle<TStyle> &
 	SideSheetBody &
 	Partial<SideSheetFooter> &
+	Partial<SideSheetIncludeBodyPaddingBottom> &
+	Partial<SideSheetIncludeBodyPaddingHorizontal> &
 	Partial<SideSheetOnBack> &
 	SideSheetOnClose &
 	Partial<SideSheetShowFooterDivider> &

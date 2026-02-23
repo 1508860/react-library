@@ -25,8 +25,10 @@ export function SideSheetPanel(props: SideSheetPanelProps) {
 				width={props.width}
 			/>
 			<SideSheetPanelBody
-				key="body"
 				body={props.body}
+				includeBodyPaddingBottom={props.includeBodyPaddingBottom && props.showFooterDivider && !!props.footer}
+				includeBodyPaddingHorizontal={props.includeBodyPaddingHorizontal}
+				key="body"
 				show={props.showContent}
 				width={props.width}
 			/>

@@ -5,6 +5,8 @@ import type { IShow } from "@react-library/common";
 import type { SideSheetBody } from "../../../types/side-sheet-body.type";
 import type { SideSheetFooter } from "../../../types/side-sheet-footer.type";
 import type { SideSheetIncludeDivider } from "../../../types/side-sheet-include-divider.type";
+import type { SideSheetIncludeBodyPaddingBottom } from "../../../types/side-sheet-include-body-padding-bottom.type";
+import type { SideSheetIncludeBodyPaddingHorizontal } from "../../../types/side-sheet-include-body-padding-horizontal.type";
 import type { SideSheetOnBack } from "../../../types/side-sheet-on-back.type";
 import type { SideSheetOnClose } from "../../../types/side-sheet-on-close.type";
 import type { SideSheetShowFooterDivider } from "../../../types/side-sheet-show-footer-divider.type";
@@ -19,7 +21,9 @@ export type SideSheetStandardProps = (
 	IShow &
 	SideSheetBody &
 	Partial<SideSheetFooter> &
-	Partial<SideSheetIncludeDivider> &
+	SideSheetIncludeBodyPaddingBottom &
+	SideSheetIncludeBodyPaddingHorizontal &
+	SideSheetIncludeDivider &
 	Partial<SideSheetOnBack> &
 	SideSheetOnClose &
 	SideSheetShowFooterDivider &

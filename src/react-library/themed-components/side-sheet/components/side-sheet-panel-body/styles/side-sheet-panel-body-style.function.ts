@@ -6,8 +6,13 @@ import type { Size } from "@react-library/common";
  */
 export function sideSheetPanelBodyStyle(width: Size): CSSProperties {
 	return {
+		display: "flex",
+		flexDirection: "column",
 		flexGrow: 1,
 		flexShrink: 0,
+		height: 0,
+		overflowY: "auto",
+		scrollbarWidth: "none",
 		width: width
 	};
 }
