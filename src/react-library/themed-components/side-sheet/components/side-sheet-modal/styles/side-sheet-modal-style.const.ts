@@ -8,6 +8,7 @@ export const SIDE_SHEET_MODAL_STYLE: CSSProperties = {
 	display: "flex",
 	flexDirection: "row",
 	height: "100%",
+	overflow: "hidden",
 	position: "relative",
 	width: "100%"
 };
