@@ -10,7 +10,6 @@ import type { SideSheetIncludeDivider } from "./side-sheet-include-divider.type"
 import type { SideSheetOnBack } from "./side-sheet-on-back.type";
 import type { SideSheetOnClose } from "./side-sheet-on-close.type";
 import type { SideSheetShowFooterDivider } from "./side-sheet-show-footer-divider.type";
-import type { SideSheetShowHeaderDivider } from "./side-sheet-show-header-divider.type";
 import type { SideSheetTitle } from "./side-sheet-title.type";
 import type { SideSheetWidth } from "./side-sheet-width.type";
 
@@ -26,7 +25,6 @@ export type SideSheetBaseProps<TStyle extends SideSheetStyle> = (
 	Partial<SideSheetOnBack> &
 	SideSheetOnClose &
 	Partial<SideSheetShowFooterDivider> &
-	Partial<SideSheetShowHeaderDivider> &
 	Partial<SideSheetTitle> &
 	SideSheetWidth
 );

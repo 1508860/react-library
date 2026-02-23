@@ -17,7 +17,6 @@ export function SideSheet(props: SideSheetProps) {
 			onClose={props.onClose}
 			show={props.show}
 			showFooterDivider={!!props.showFooterDivider}
-			showHeaderDivider={!!props.showHeaderDivider}
 			title={props.title}
 			width={props.width}
 		>
@@ -34,7 +33,6 @@ export function SideSheet(props: SideSheetProps) {
 			onClose={props.onClose}
 			show={props.show}
 			showFooterDivider={!!props.showFooterDivider}
-			showHeaderDivider={!!props.showHeaderDivider}
 			title={props.title}
 			width={props.width}
 			includeDivider

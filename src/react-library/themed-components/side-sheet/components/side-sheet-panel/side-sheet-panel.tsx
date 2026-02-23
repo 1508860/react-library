@@ -24,11 +24,6 @@ export function SideSheetPanel(props: SideSheetPanelProps) {
 				title={props.title}
 				width={props.width}
 			/>
-			<Divider
-				hide={!props.showHeaderDivider}
-				key="header-divider"
-				orientation={Orientation.Horizontal}
-			/>
 			<SideSheetPanelBody
 				key="body"
 				body={props.body}

@@ -29,7 +29,6 @@ export function ReactLibraryThemedComponentsSideSheetDemo() {
 					onClose={handleClose}
 					show={show}
 					showFooterDivider={true}
-					showHeaderDivider={true}
 					title="Side Sheet Title"
 					width={400}
 				>
@@ -53,7 +52,6 @@ export function ReactLibraryThemedComponentsSideSheetDemo() {
 					onClose={handleClose}
 					show={show}
 					showFooterDivider={true}
-					showHeaderDivider={true}
 					title="Side Sheet Title"
 					width={400}
 				>

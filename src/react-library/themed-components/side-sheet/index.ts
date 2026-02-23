@@ -8,7 +8,6 @@ export * from "./types/side-sheet-on-close.type";
 export * from "./types/side-sheet-props.type";
 export * from "./types/side-sheet-show-content.type";
 export * from "./types/side-sheet-show-footer-divider.type";
-export * from "./types/side-sheet-show-header-divider.type";
 export * from "./types/side-sheet-title.type";
 export * from "./types/side-sheet-width.type";
 export * from "./side-sheet";

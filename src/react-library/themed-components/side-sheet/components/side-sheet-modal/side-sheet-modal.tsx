@@ -41,7 +41,6 @@ export function SideSheetModal(props: SideSheetModalProps) {
 					show={props.show}
 					showContent={showContent}
 					showFooterDivider={props.showFooterDivider}
-					showHeaderDivider={props.showHeaderDivider}
 					title={props.title}
 					width={props.width}
 				/>
