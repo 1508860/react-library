@@ -14,7 +14,7 @@ export function DemoItem(props: DemoItemProps) {
 
 	return (
 		<div style={demoItemStyle()}>
-			<div style={demoItemContent()}>
+			<div style={demoItemContent(props)}>
 				{props.children}
 			</div>
 			{
