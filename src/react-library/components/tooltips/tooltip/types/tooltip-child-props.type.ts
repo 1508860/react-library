@@ -6,8 +6,7 @@ import type { TooltipInteractionProps } from "../../shared/types/tooltip-interac
 /**
  * Define base props to be passed to the child element of the tooltip
  */
-type TooltipChildPropsBase<TTooltipInteraction extends TooltipInteraction, TProps> = (
-	IProps<TProps> &
+type TooltipChildPropsBase<TTooltipInteraction extends TooltipInteraction> = (
 	TooltipInteractionProps<TTooltipInteraction>
 );
 
@@ -15,27 +14,23 @@ type TooltipChildPropsBase<TTooltipInteraction extends TooltipInteraction, TProp
  * Define click based props to be passed to the child element of the tooltip
  */
 export type TooltipChildClickProps<TChildElement extends Element> = (
-	TooltipChildPropsBase<
-		"click",
-		(
-			IOnClick<TChildElement> &
-			IRefCallback<TChildElement | null>
-		)
-	>
+	IProps<(
+		IOnClick<TChildElement> &
+		IRefCallback<TChildElement | null>
+	)> &
+	TooltipChildPropsBase<typeof TooltipInteraction.Click>
 );
 
 /**
  * Define hover based props to be passed to the child element of the tooltip
  */
 export type TooltipChildHoverProps<TChildElement extends Element> = (
-	TooltipChildPropsBase<
-		"hover",
-		(
-			IOnMouseEnter<TChildElement> &
-			IOnMouseLeave<TChildElement> &
-			IRefCallback<TChildElement | null>
-		)
-	>
+	IProps<(
+		IOnMouseEnter<TChildElement> &
+		IOnMouseLeave<TChildElement> &
+		IRefCallback<TChildElement | null>
+	)> &
+	TooltipChildPropsBase<typeof TooltipInteraction.Hover>
 );
 
 /**
