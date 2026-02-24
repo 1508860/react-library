@@ -81,9 +81,14 @@ function SideSheetChild(props: (ICount<number> & IOnOpen<Callback<void>>)): Reac
 				width: "100%"
 			}}
 		>
-			Content - Back Count: {props.count}
-			<button onClick={props.onOpen}>
-				Open Side sheet
+			<span key="text">
+				Content - Back Count: {props.count}
+			</span>
+			<button
+				key="button"
+				onClick={props.onOpen}
+			>
+				Open side sheet
 			</button>
 		</div>
 	);
