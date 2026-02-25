@@ -6,4 +6,4 @@ import type { TooltipPositionStrategiesExternal } from "./tooltip-position-strat
 /**
  * Describes tooltip position strategies props
  */
-export type TooltipPositionStrategies = IPositionStrategies<TooltipPositionStrategiesExternal>;
+export type TooltipPositionStrategiesProps = IPositionStrategies<TooltipPositionStrategiesExternal>;

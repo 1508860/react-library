@@ -14,7 +14,7 @@ export function TooltipArrow(props: TooltipArrowProps) {
 
 	const [tooltipArrowPosition] = useTooltipArrowPositionState(props.positionStrategy);
 
-	if (!props.arrowContent || !tooltipArrowPosition) return (
+	if (!props.positionStrategy?.arrowContent || !tooltipArrowPosition) return (
 		<Fragment key="no-tooltip-arrow" />
 	);
 
@@ -25,7 +25,7 @@ export function TooltipArrow(props: TooltipArrowProps) {
 		>
 			<div style={tooltipArrowPositionStyle(tooltipArrowPosition)}>
 				<div style={TOOLTIP_ARROW_CONTAINER_STYLE}>
-					<props.arrowContent />
+					<props.positionStrategy.arrowContent />
 				</div>
 			</div>
 		</div>

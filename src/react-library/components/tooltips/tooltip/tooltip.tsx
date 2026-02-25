@@ -64,11 +64,10 @@ export function Tooltip(props: TooltipProps) {
 									tooltipInteractionType={props.tooltipInteractionType}
 								/>
 								<TooltipContainer
-									key="tooltip-backdrop"
+									key="tooltip-container"
 									position={tooltipPosition}
 								>
 									<TooltipArrow
-										arrowContent={props.arrowContent}
 										key="tooltip-arrow"
 										positionStrategy={tooltipPosition?.positionStrategy}
 									/>
