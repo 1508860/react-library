@@ -1,4 +1,4 @@
-import type { IOnClick, IOnMouseEnter, IOnMouseLeave, IProps, IRefCallback } from "@react-library/common";
+import type { IChildProps, IOnClick, IOnMouseEnter, IOnMouseLeave, IRefCallback } from "@react-library/common";
 
 import { TooltipInteraction } from "../../shared/enums/tooltip-interaction.type";
 import type { TooltipInteractionProps } from "../../shared/types/tooltip-interaction-props.type";
@@ -13,10 +13,10 @@ type TooltipChildPropsBase<TTooltipInteraction extends TooltipInteraction> = (
 /**
  * Define click based props to be passed to the child element of the tooltip
  */
-export type TooltipChildClickProps<TChildElement extends Element> = (
-	IProps<(
-		IOnClick<TChildElement> &
-		IRefCallback<TChildElement | null>
+export type TooltipChildClickProps = (
+	IChildProps<(
+		IOnClick<Element> &
+		IRefCallback<Element | null>
 	)> &
 	TooltipChildPropsBase<typeof TooltipInteraction.Click>
 );
@@ -24,11 +24,11 @@ export type TooltipChildClickProps<TChildElement extends Element> = (
 /**
  * Define hover based props to be passed to the child element of the tooltip
  */
-export type TooltipChildHoverProps<TChildElement extends Element> = (
-	IProps<(
-		IOnMouseEnter<TChildElement> &
-		IOnMouseLeave<TChildElement> &
-		IRefCallback<TChildElement | null>
+export type TooltipChildHoverProps = (
+	IChildProps<(
+		IOnMouseEnter<Element> &
+		IOnMouseLeave<Element> &
+		IRefCallback<Element | null>
 	)> &
 	TooltipChildPropsBase<typeof TooltipInteraction.Hover>
 );
@@ -36,8 +36,7 @@ export type TooltipChildHoverProps<TChildElement extends Element> = (
 /**
  * Define props to be passed to the child element of the tooltip
  */
-export type TooltipChildProps<TTooltipInteraction extends TooltipInteraction, TChildElement extends Element> = (
-	TTooltipInteraction extends typeof TooltipInteraction.Click ?
-	TooltipChildClickProps<TChildElement> :
-	TooltipChildHoverProps<TChildElement>
+export type TooltipChildProps = (
+	TooltipChildClickProps |
+	TooltipChildHoverProps
 );

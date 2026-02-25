@@ -6,7 +6,7 @@ import type { TooltipPosition } from "../../shared/types/position/tooltip-positi
  * Resolve tooltip container style based on parameters
  * @param tooltipPosition
  */
-export function tooltipContainerStyle(tooltipPosition: TooltipPosition | null): CSSProperties {
+export function tooltipContainerStyle(tooltipPosition?: TooltipPosition): CSSProperties {
 	return {
 		bottom: tooltipPosition?.marginBottom,
 		display: "inline-block",

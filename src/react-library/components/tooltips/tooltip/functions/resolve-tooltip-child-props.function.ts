@@ -1,42 +1,39 @@
 import type { RefCallback } from "react";
 
-import { TooltipInteraction } from "../../shared/enums/tooltip-interaction.type";
 import type {
-	TooltipChildClickProps,
+	TooltipChildProps,
 	TooltipChildHoverProps,
-	TooltipChildProps
-} from "../types/tooltip-child-props.type";
+	TooltipChildClickProps
+} from "../../shared/types/tooltip-child-props.type";
+import { TooltipInteraction } from "../../shared/enums/tooltip-interaction.type";
 
 /**
  * Function for resolving the props of the tooltip child element
  */
-export function resolveTooltipChildProps<
-	TTooltipInteraction extends TooltipInteraction,
-	TChildElement extends Element
->(
-	tooltipInteractionType: TTooltipInteraction,
-	refCallback: RefCallback<TChildElement>,
+export function resolveTooltipChildProps(
+	tooltipInteractionType: TooltipInteraction,
+	refCallback: RefCallback<Element>,
 	onShow: () => void,
 	onDismiss: () => void
-): TooltipChildProps<TTooltipInteraction, TChildElement> {
+): TooltipChildProps {
 	if (tooltipInteractionType === TooltipInteraction.Hover) {
-		const result: TooltipChildHoverProps<TChildElement> = {
-			props: {
+		const result: TooltipChildHoverProps = {
+			childProps: {
 				onMouseEnter: onShow,
 				onMouseLeave: onDismiss,
 				ref: refCallback
 			},
 			tooltipInteractionType: TooltipInteraction.Hover
 		};
-		return result as TooltipChildProps<TTooltipInteraction, TChildElement>;
+		return result;
 	}
 
-	const result: TooltipChildClickProps<TChildElement> = {
-		props: {
+	const result: TooltipChildClickProps = {
+		childProps: {
 			onClick: onShow,
 			ref: refCallback
 		},
 		tooltipInteractionType: TooltipInteraction.Click
 	};
-	return result as TooltipChildProps<TTooltipInteraction, TChildElement>;
+	return result;
 }

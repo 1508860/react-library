@@ -1,23 +1,11 @@
-import type { PropsWithChildren } from "react";
-
-import type { Callback, IOnDismiss } from "@react-library/common";
-
 import type { TooltipInteraction } from "../../shared/enums/tooltip-interaction.type";
 import type { TooltipInteractionProps } from "../../shared/types/tooltip-interaction-props.type";
+import type { TooltipOnDismiss } from "../../shared/types/tooltip-on-dismiss.type";
 
 /**
- * Tooltip backdrop props that are only used internally within the tooltip hierarchy
- * Not to be exposed to the consumer
- */
-type TooltipBackdropPropsPrivate = (
-	IOnDismiss<Callback<void>> &
-	PropsWithChildren &
-	TooltipInteractionProps<TooltipInteraction>
-);
-
-/**
- * Full Tooltip backdrop props from {@link TooltipBackdropPropsPrivate}
- */
+ * Tooltip backdrop props
+*/
 export type TooltipBackdropProps = (
-	TooltipBackdropPropsPrivate
+	TooltipInteractionProps<TooltipInteraction> &
+	TooltipOnDismiss
 );

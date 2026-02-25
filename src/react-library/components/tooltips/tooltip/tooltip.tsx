@@ -1,111 +1,88 @@
-import { Fragment, useCallback, useEffect, useState, type ReactNode, type RefCallback } from "react";
+import { useCallback, useEffect, useState, type RefCallback } from "react";
 import { createPortal } from "react-dom";
 
-import {
-	ResizeObserverDebounce,
-	useResizeObserverState
-} from "@react-library/common";
+import { useOverlayPortalContext } from "../../overlay-portal";
 
-import {
-	useOverlayPortalContext,
-	useOverlayPortalViewportPositionPxContext
-} from "../../overlay-portal";
-
-import { TooltipBackdrop } from "../backdrop/tooltip-backdrop";
-import type { TooltipInteraction } from "../shared/enums/tooltip-interaction.type";
-import { TooltipArrow } from "../tooltip-arrow/tooltip-arrow";
+import { TooltipBackdrop } from "../backdrop";
+import { TooltipContent } from "../content";
+import type { TooltipChildProps } from "../shared/types/tooltip-child-props.type";
+import { TooltipArrow } from "../tooltip-arrow";
+import { TooltipContainer } from "../tooltip-container";
 import { resolveTooltipChildProps } from "./functions/resolve-tooltip-child-props.function";
 import { useTooltipPositionState } from "./hooks/use-tooltip-position-state.hook";
-import { tooltipContainerStyle } from "./styles/tooltip-container-style.function";
-import { TOOLTIP_STYLE } from "./styles/tooltip-style.const";
-import type { TooltipChildProps } from "./types/tooltip-child-props.type";
 import type { TooltipProps } from "./types/tooltip-props.type";
 
 /**
  * Tooltip component that projects child elements in to a tooltip portal
  * @param props
  */
-export function Tooltip<
-	TTooltipInteraction extends TooltipInteraction,
-	TChildElement extends Element,
-	TContent extends ReactNode
->(
-	props: TooltipProps<TTooltipInteraction, TChildElement, TContent>
-) {
+export function Tooltip(props: TooltipProps) {
 
 	// Overlay portal
 	const overlayPortal = useOverlayPortalContext();
-	const overlayPortalViewportPositionPx = useOverlayPortalViewportPositionPxContext();
 
 	// Show tooltip
 	const [showTooltip, setShowTooltip] = useState<boolean>(false);
-	const onShow = useCallback(
-		() => {
-			if (props.onShow) props.onShow();
-			setShowTooltip(true);
-		},
-		[props]
-	);
-	const onDismiss = useCallback(
-		() => {
-			if (props.onDismiss) props.onDismiss();
-			setShowTooltip(false);
-		},
-		[props]
-	);
+	const onDismiss = useCallback(() => setShowTooltip(false), []);
+	const onShow = useCallback(() => setShowTooltip(true), []);
 
 	// Elements
-	const [childElement, setChildElement] = useState<TChildElement | null>(null);
-	const setChildElementCallback = useCallback<RefCallback<TChildElement | null>>((element) => setChildElement(element), []);
+	const [childElement, setChildElement] = useState<Element | null>(null);
+	const setChildElementCallback = useCallback<RefCallback<Element | null>>((element) => setChildElement(element), []);
 	const [tooltipElement, setTooltipElement] = useState<HTMLDivElement | null>(null);
 	const setTooltipElementCallback = useCallback<RefCallback<HTMLDivElement | null>>((element) => setTooltipElement(element), []);
 
 	// Child element props
-	const resolveChildProps = useCallback<() => TooltipChildProps<TTooltipInteraction, TChildElement>>(
-		() => resolveTooltipChildProps<TTooltipInteraction, TChildElement>(props.tooltipInteractionType, setChildElementCallback, onShow, onDismiss),
-		[props.tooltipInteractionType, onShow, onDismiss, setChildElementCallback]
+	const resolveChildProps = useCallback<() => TooltipChildProps>(
+		() => resolveTooltipChildProps(props.tooltipInteractionType, setChildElementCallback, onShow, onDismiss),
+		[props.tooltipInteractionType, onDismiss, onShow, setChildElementCallback]
 	);
-	const [childProps, setChildElementProps] = useState<TooltipChildProps<TTooltipInteraction, TChildElement>>(resolveChildProps());
+	const [childProps, setChildElementProps] = useState<TooltipChildProps>(resolveChildProps());
 	useEffect(() => setChildElementProps(resolveChildProps()), [resolveChildProps]);
-
-	// Tooltip resize
-	const [tooltipDimensions] = useResizeObserverState(showTooltip, true, tooltipElement, "border-box", ResizeObserverDebounce.None);
 
 	// Tooltip position
 	const [tooltipPosition] = useTooltipPositionState(
 		showTooltip,
-		props.positionStrategy,
-		overlayPortalViewportPositionPx,
+		props.positionStrategies,
 		props.overlayPortalMargin,
-		tooltipDimensions,
+		tooltipElement,
 		childElement
 	);
 
-	return (<>
-		{props.children(childProps)}
-		{
-			(props.isDisabled || !showTooltip) ?
-				<></> :
-				createPortal(
-					(
-						<TooltipBackdrop onDismiss={onDismiss} tooltipInteractionType={props.tooltipInteractionType}>
-							<div style={tooltipContainerStyle(tooltipPosition)}>
-								{
-									!props.tooltipArrowContent ? <Fragment key="no-tooltip-arrow" /> :
-										<TooltipArrow
-											content={props.tooltipArrowContent}
-											key="tooltip-arrow"
-											tooltipPositionStrategy={tooltipPosition?.positionStrategy}
-										/>
-								}
-								<div ref={setTooltipElementCallback} style={TOOLTIP_STYLE}>
-									{props.content()}
-								</div>
-							</div>
-						</TooltipBackdrop>
-					),
-					overlayPortal
-				)
-		}
-	</>);
+	return (
+		<>
+			<props.children {...childProps} />
+			{
+				(props.isDisabled || !showTooltip) ?
+					<></> :
+					createPortal(
+						(
+							<>
+								<TooltipBackdrop
+									key="tooltip-backdrop"
+									onDismiss={onDismiss}
+									tooltipInteractionType={props.tooltipInteractionType}
+								/>
+								<TooltipContainer
+									key="tooltip-backdrop"
+									position={tooltipPosition}
+								>
+									<TooltipArrow
+										arrowContent={props.arrowContent}
+										key="tooltip-arrow"
+										positionStrategy={tooltipPosition?.positionStrategy}
+									/>
+									<TooltipContent
+										content={props.content}
+										key="tooltip-content"
+										ref={setTooltipElementCallback}
+									/>
+								</TooltipContainer>
+							</>
+						),
+						overlayPortal
+					)
+			}
+		</>
+	);
 }

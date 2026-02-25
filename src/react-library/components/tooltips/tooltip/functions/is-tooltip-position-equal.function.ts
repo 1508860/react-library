@@ -7,7 +7,7 @@ import type { TooltipPosition } from "../../shared/types/position/tooltip-positi
  * @param value1
  * @param value2
  */
-export function isTooltipPositionEqual(value1: TooltipPosition | null, value2: TooltipPosition | null): boolean {
+export function isTooltipPositionEqual(value1?: TooltipPosition, value2?: TooltipPosition): boolean {
 	return (
 		(!value1 && !value2) ||
 		(

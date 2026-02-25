@@ -4,14 +4,16 @@ import {
 } from "react";
 
 import {
+	ResizeObserverDebounce,
 	resolveElementViewportPositionPx,
-	type DimensionsPx,
-	type SizePx,
-	type ViewportPositionPx
+	useResizeObserverState,
+	type SizePx
 } from "@react-library/common";
 
+import { useOverlayPortalViewportPositionPxContext } from "../../../overlay-portal";
+
+import type { TooltipPositionStrategiesExternal } from "../../shared/types/tooltip-position-strategies-external.type";
 import type { TooltipPosition } from "../../shared/types/position/tooltip-position.type";
-import type { TooltipPositionStrategiesExternal } from "../types/tooltip-position-strategies-external.type";
 import { isTooltipPositionEqual } from "../functions/is-tooltip-position-equal.function";
 import { mapFromTooltipPositionBottom } from "../functions/map-from-tooltip-position/map-from-tooltip-position-bottom.function";
 import { mapFromTooltipPositionLeft } from "../functions/map-from-tooltip-position/map-from-tooltip-position-left.function";
@@ -35,17 +37,22 @@ import { resolveValidTooltipPositionTop } from "../functions/resolve-valid-toolt
 export function useTooltipPositionState(
 	showTooltip: boolean,
 	positionStrategies: TooltipPositionStrategiesExternal,
-	overlayPortalViewportPositionPx: ViewportPositionPx,
 	overlayPortalMargin: SizePx | undefined,
-	tooltipDimensions: DimensionsPx,
+	tooltipElement: Element | null,
 	childElement: Element | null
-): [TooltipPosition | null] {
+): [TooltipPosition | undefined] {
 
-	const [state, setState] = useState<TooltipPosition | null>(null);
-	const stateRef = useRef<TooltipPosition | null>(state);
+	const [state, setState] = useState<TooltipPosition | undefined>(undefined);
+	const stateRef = useRef<TooltipPosition | undefined>(state);
+
+	// Overlay portal
+		const overlayPortalViewportPositionPx = useOverlayPortalViewportPositionPxContext();
+
+	// Tooltip resize
+	const [tooltipDimensions] = useResizeObserverState(showTooltip, true, tooltipElement, "border-box", ResizeObserverDebounce.None);
 
 	const setValidatedState = useCallback(
-		(newState: TooltipPosition | null) => {
+		(newState: TooltipPosition | undefined) => {
 			if (isTooltipPositionEqual(stateRef.current, newState)) return;
 			stateRef.current = newState;
 			setState(newState);
@@ -61,7 +68,7 @@ export function useTooltipPositionState(
 				!childElement ||
 				(tooltipDimensions.height === 0 && tooltipDimensions.width === 0)
 			) {
-				setValidatedState(null);
+				setValidatedState(undefined);
 				return;
 			}
 			const defaultTooltipPosition: TooltipPosition = {

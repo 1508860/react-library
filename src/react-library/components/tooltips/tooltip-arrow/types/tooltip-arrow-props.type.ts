@@ -1,24 +1,10 @@
-import type { ReactElement } from "react";
-
-import type {
-	IContent,
-	ITooltipPositionStrategy,
-	PositionStrategyExternalAll,
-	SizePx
-} from "@react-library/common";
+import type { TooltipArrowContent } from "../../shared/types/tooltip-arrow-content.type";
+import type { TooltipPositionStrategy } from "../../shared/types/tooltip-position-strategy-props.type";
 
 /**
- * Tooltip arrow props that are only used internally within the tooltip hierarchy
- * Not to be exposed to the consumer
+ * Tooltip arrow props
  */
-type TooltipArrowPropsPrivate<TContent extends ReactElement> = (
-	IContent<TContent> &
-	ITooltipPositionStrategy<PositionStrategyExternalAll<SizePx, SizePx> | undefined>
-);
-
-/**
- * Full Tooltip arrow props from {@link TooltipArrowPropsPrivate} and {@link TooltipArrowPropsPublic}
- */
-export type TooltipArrowProps<TContent extends ReactElement> = (
-	TooltipArrowPropsPrivate<TContent>
+export type TooltipArrowProps = (
+	Partial<TooltipArrowContent> &
+	Partial<TooltipPositionStrategy>
 );

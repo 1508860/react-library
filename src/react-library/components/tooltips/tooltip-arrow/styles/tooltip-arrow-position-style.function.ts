@@ -6,7 +6,7 @@ import type { TooltipArrowPosition } from "../types/tooltip-arrow-position.type"
  * Resolve tooltip arrow position style based on parameters
  * @param tooltipPositionStrategy
  */
-export function tooltipArrowPositionStyle(tooltipArrowPosition: TooltipArrowPosition | null): CSSProperties {
+export function tooltipArrowPositionStyle(tooltipArrowPosition: TooltipArrowPosition): CSSProperties {
 	return {
 		alignItems: "start",
 		display: "flex",
@@ -14,7 +14,7 @@ export function tooltipArrowPositionStyle(tooltipArrowPosition: TooltipArrowPosi
 		height: 0,
 		justifyContent: "center",
 		overflow: "visible",
-		transform: tooltipArrowPosition?.transform.toStyleTransformCollectionString(),
+		transform: tooltipArrowPosition.transform.toStyleTransformCollectionString(),
 		width: 0
 	};
 }

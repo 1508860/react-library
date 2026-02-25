@@ -1,9 +1,9 @@
 import type { CSSProperties } from "react";
 
 /**
- * Tooltip style
+ * Tooltip content style
  */
-export const TOOLTIP_STYLE: CSSProperties = {
+export const TOOLTIP_CONTENT_STYLE: CSSProperties = {
 	display: "block",
 	position: "relative"
 };

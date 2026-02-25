@@ -1,39 +1,21 @@
-import type { ReactElement, ReactNode } from "react";
-
-import type {
-	Callback,
-	CallbackWithParameter,
-	IChild,
-	IIsDisabled,
-	IOnDismiss,
-	IOnShow,
-	IOverlayPortalMargin,
-	IPositionStrategy,
-	ITooltipArrowContent,
-	SizePx
-} from "@react-library/common";
-
 import type { TooltipInteraction } from "../../shared/enums/tooltip-interaction.type";
+import type { TooltipArrowContent } from "../../shared/types/tooltip-arrow-content.type";
+import type { TooltipChildren } from "../../shared/types/tooltip-children.type";
+import type { TooltipContent } from "../../shared/types/tooltip-content.type";
 import type { TooltipInteractionProps } from "../../shared/types/tooltip-interaction-props.type";
-import type { TooltipChildProps } from "./tooltip-child-props.type";
-import type { TooltipContent } from "./tooltip-content.type";
-import type { TooltipPositionStrategiesExternal } from "./tooltip-position-strategies-external.type";
+import type { TooltipIsDisabled } from "../../shared/types/tooltip-is-disabled.type";
+import type { TooltipOverlayPortalMargin } from "../../shared/types/tooltip-overlay-portal-margin.type";
+import type { TooltipPositionStrategies } from "../../shared/types/tooltip-position-strategies-props.type";
 
 /**
  * Props for the tooltip component
  */
-export type TooltipProps<
-	TTooltipInteraction extends TooltipInteraction,
-	TChildElement extends Element,
-	TContent extends ReactNode
-> = (
-		IChild<CallbackWithParameter<TooltipChildProps<TTooltipInteraction, TChildElement>, ReactElement>> &
-		Partial<IIsDisabled> &
-		Partial<IOnDismiss<Callback<void>>> &
-		Partial<IOnShow<Callback<void>>> &
-		Partial<IOverlayPortalMargin<SizePx>> &
-		IPositionStrategy<TooltipPositionStrategiesExternal> &
-		Partial<ITooltipArrowContent<ReactElement>> &
-		TooltipContent<TContent> &
-		TooltipInteractionProps<TTooltipInteraction>
-	);
+export type TooltipProps = (
+	Partial<TooltipArrowContent> &
+	TooltipChildren &
+	TooltipContent &
+	TooltipInteractionProps<TooltipInteraction> &
+	Partial<TooltipIsDisabled> &
+	Partial<TooltipOverlayPortalMargin> &
+	TooltipPositionStrategies
+);

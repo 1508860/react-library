@@ -6,13 +6,13 @@ import type { TooltipArrowPosition } from "../types/tooltip-arrow-position.type"
  * Resolve tooltip arrow container style based on parameters
  * @param tooltipPositionStrategy
  */
-export function tooltipArrowFullContainerStyle(tooltipArrowPosition: TooltipArrowPosition | null): CSSProperties {
+export function tooltipArrowFullContainerStyle(tooltipArrowPosition: TooltipArrowPosition): CSSProperties {
 	return {
-		alignItems: tooltipArrowPosition?.align,
+		alignItems: tooltipArrowPosition.align,
 		display: "flex",
 		flexDirection: "row",
 		inset: 0,
-		justifyContent: tooltipArrowPosition?.justify,
+		justifyContent: tooltipArrowPosition.justify,
 		position: "absolute"
 	};
 };
