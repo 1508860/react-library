@@ -33,7 +33,7 @@ export function ReactLibraryDemo() {
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaultSubItemId={ReactLibraryThemedComponentsDemo.SideSheet}
+										defaultSubItemId={ReactLibraryComponentsDemo.Tooltips}
 									>
 										{{
 											id: 1,

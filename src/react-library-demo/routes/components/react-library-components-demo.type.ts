@@ -3,6 +3,7 @@
  */
 export const ReactLibraryComponentsDemo = {
 	"InputCurrency": "ReactLibraryComponentsDemo-InputCurrency",
+	"Tooltips": "ReactLibraryComponentsDemo-Tooltips",
 	"ViewDivider": "ReactLibraryComponentsDemo-ViewDivider",
 	"VirtualScroll": "ReactLibraryComponentsDemo-VirtualScroll"
 } as const satisfies Record<string, string>;
