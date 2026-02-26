@@ -1,6 +1,13 @@
 import { Orientation } from "@react-library/common";
 import { ViewDivider } from "@react-library/components";
 
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentColourScheme,
+	DemoContentJustify
+} from "@react-library-demo/shared";
+
 export function ReactLibraryComponentsViewDividerDemo() {
 	return (
 		<ViewDivider
@@ -11,41 +18,39 @@ export function ReactLibraryComponentsViewDividerDemo() {
 			separatorSize={100}
 			staticView="start"
 		>
-			<div
+			<DemoContent
+				childrenType={DemoContentChildren.Text}
+				colourScheme={DemoContentColourScheme.Primary}
+				height="100%"
+				includeRenderCounter={true}
+				justify={DemoContentJustify.Center}
 				key="view-divider-view-1"
-				style={{
-					alignItems: "center",
-					backgroundColor: "paleturquoise",
-					display: "flex",
-					height: "100%",
-					justifyContent: "center",
-					width: "100%"
-				}}
-			>
-				This is view 1
-			</div>
-			<div
+				orientation={Orientation.Vertical}
+				text={"This is view 1"}
+				width="100%"
+			/>
+			<DemoContent
+				childrenType={DemoContentChildren.Text}
+				colourScheme={DemoContentColourScheme.Tertiary}
+				height="100%"
+				includeRenderCounter={true}
+				justify={DemoContentJustify.Center}
 				key="view-divider-separator"
-				style={{
-					backgroundColor: "lightgrey",
-					height: "100%",
-					width: "100%"
-				}}
-			>
-			</div>
-			<div
+				orientation={Orientation.Vertical}
+				text={"Separator"}
+				width="100%"
+			/>
+			<DemoContent
+				childrenType={DemoContentChildren.Text}
+				colourScheme={DemoContentColourScheme.Secondary}
+				height="100%"
+				includeRenderCounter={true}
+				justify={DemoContentJustify.Center}
 				key="view-divider-view-2"
-				style={{
-					alignItems: "center",
-					backgroundColor: "goldenrod",
-					display: "flex",
-					height: "100%",
-					justifyContent: "center",
-					width: "100%"
-				}}
-			>
-				This is view 2
-			</div>
+				orientation={Orientation.Vertical}
+				text={"This is view 2"}
+				width="100%"
+			/>
 		</ViewDivider>
 	);
 }

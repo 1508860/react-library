@@ -1,6 +1,14 @@
 import type { ReactElement } from "react";
 
+import { Orientation } from "@react-library/common";
 import type { RouterGuardFailureProps } from "@react-library/router";
+
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentColourScheme,
+	DemoContentJustify
+} from "@react-library-demo/shared";
 
 /**
  * Example router guard default failure component
@@ -8,20 +16,15 @@ import type { RouterGuardFailureProps } from "@react-library/router";
  */
 export function ReactLibraryRouterBasicDemoDefaultGuardFailure(props: RouterGuardFailureProps): ReactElement {
 	return (
-		<div
-			style={{
-				alignItems: "start",
-				backgroundColor: "coral",
-				display: "flex",
-				flexDirection: "column",
-				justifyContent: "center",
-				minHeight: 20,
-				paddingLeft: 20,
-				paddingRight: 20,
-				width: "100%"
-			}}
-		>
-			<span>Default Guard: failed to route to - {props.segmentId}</span>
-		</div>
+		<DemoContent
+			childrenType={DemoContentChildren.Text}
+			colourScheme={DemoContentColourScheme.Primary}
+			height="100%"
+			includeRenderCounter={true}
+			justify={DemoContentJustify.Start}
+			orientation={Orientation.Horizontal}
+			text={`Default Guard: failed to route to - ${props.segmentId}`}
+			width="100%"
+		/>
 	);
 }

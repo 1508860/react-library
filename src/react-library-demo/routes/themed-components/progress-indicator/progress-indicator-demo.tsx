@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 
 import {
+	Orientation,
 	SCALE_PERCENT_MAX,
 	ScalePercent,
 	useArrayIncrementIntervalState,
@@ -13,7 +14,14 @@ import {
 	ProgressIndicatorShape
 } from "@react-library/themed-components";
 
-import { DemoItem, DemoSection } from "@react-library-demo/shared";
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentColourScheme,
+	DemoContentJustify,
+	DemoItem,
+	DemoSection
+} from "@react-library-demo/shared";
 
 export function ReactLibraryThemedComponentsProgressIndicatorDemo() {
 
@@ -37,12 +45,14 @@ export function ReactLibraryThemedComponentsProgressIndicatorDemo() {
 					key="circle"
 					label={`Circle - ${determinateCircleCompleted}`}
 				>
-					<div
-						style={{
-							backgroundColor: "coral",
-							height: 300,
-							width: 300
-						}}
+					<DemoContent
+						childrenType={DemoContentChildren.Any}
+						colourScheme={DemoContentColourScheme.Primary}
+						height={300}
+						includeRenderCounter={true}
+						justify={DemoContentJustify.Center}
+						orientation={Orientation.Vertical}
+						width={300}
 					>
 						<ProgressIndicator
 							behaviour={ProgressIndicatorBehaviour.Determinate}
@@ -52,18 +62,20 @@ export function ReactLibraryThemedComponentsProgressIndicatorDemo() {
 							position={ProgressIndicatorPosition.Fill}
 							shape={ProgressIndicatorShape.Circle}
 						/>
-					</div>
+					</DemoContent>
 				</DemoItem>
 				<DemoItem
 					key="flat"
 					label={`Flat - ${determinateFlatCompleted}`}
 				>
-					<div
-						style={{
-							backgroundColor: "coral",
-							height: 300,
-							width: 300
-						}}
+					<DemoContent
+						childrenType={DemoContentChildren.Any}
+						colourScheme={DemoContentColourScheme.Primary}
+						height={300}
+						includeRenderCounter={true}
+						justify={DemoContentJustify.Center}
+						orientation={Orientation.Vertical}
+						width={300}
 					>
 						<ProgressIndicator
 							behaviour={ProgressIndicatorBehaviour.Determinate}
@@ -73,7 +85,7 @@ export function ReactLibraryThemedComponentsProgressIndicatorDemo() {
 							position={ProgressIndicatorPosition.Fill}
 							shape={ProgressIndicatorShape.Flat}
 						/>
-					</div>
+					</DemoContent>
 				</DemoItem>
 			</DemoSection>
 			<DemoSection
@@ -84,37 +96,41 @@ export function ReactLibraryThemedComponentsProgressIndicatorDemo() {
 					key="circle"
 					label="Circle"
 				>
-					<div
-						style={{
-							backgroundColor: "coral",
-							height: 300,
-							width: 300
-						}}
+					<DemoContent
+						childrenType={DemoContentChildren.Any}
+						colourScheme={DemoContentColourScheme.Primary}
+						height={300}
+						includeRenderCounter={true}
+						justify={DemoContentJustify.Center}
+						orientation={Orientation.Vertical}
+						width={300}
 					>
 						<ProgressIndicator
 							behaviour={ProgressIndicatorBehaviour.Indeterminate}
 							position={ProgressIndicatorPosition.Fill}
 							shape={ProgressIndicatorShape.Circle}
 						/>
-					</div>
+					</DemoContent>
 				</DemoItem>
 				<DemoItem
 					key="flat"
 					label="Flat"
 				>
-					<div
-						style={{
-							backgroundColor: "coral",
-							height: 300,
-							width: 300
-						}}
+					<DemoContent
+						childrenType={DemoContentChildren.Any}
+						colourScheme={DemoContentColourScheme.Primary}
+						height={300}
+						includeRenderCounter={true}
+						justify={DemoContentJustify.Center}
+						orientation={Orientation.Vertical}
+						width={300}
 					>
 						<ProgressIndicator
 							behaviour={ProgressIndicatorBehaviour.Indeterminate}
 							position={ProgressIndicatorPosition.Fill}
 							shape={ProgressIndicatorShape.Flat}
 						/>
-					</div>
+					</DemoContent>
 				</DemoItem>
 			</DemoSection>
 		</>

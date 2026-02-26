@@ -1,9 +1,26 @@
 import { useCallback, useState, type ReactElement } from "react";
 
-import { useCounterState, type Callback, type ICount, type IOnOpen } from "@react-library/common";
-import { SideSheet, SideSheetPosition, SideSheetStyle } from "@react-library/themed-components";
+import {
+	Orientation,
+	useCounterState,
+	type Callback,
+	type ICount,
+	type IOnOpen
+} from "@react-library/common";
+import {
+	SideSheet,
+	SideSheetPosition,
+	SideSheetStyle
+} from "@react-library/themed-components";
 
-import { DemoSection } from "@react-library-demo/shared";
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentChildrenItem,
+	DemoContentColourScheme,
+	DemoContentJustify,
+	DemoSection
+} from "@react-library-demo/shared";
 
 export function ReactLibraryThemedComponentsSideSheetDemo() {
 
@@ -69,63 +86,48 @@ export function ReactLibraryThemedComponentsSideSheetDemo() {
 
 function SideSheetChild(props: (ICount<number> & IOnOpen<Callback<void>>)): ReactElement {
 	return (
-		<div
-			style={{
-				alignItems: "center",
-				backgroundColor: "coral",
-				display: "flex",
-				flexDirection: "column",
-				gap: 20,
-				height: "100%",
-				justifyContent: "center",
-				width: "100%"
-			}}
-		>
-			<span key="text">
-				Content - Back Count: {props.count}
-			</span>
-			<button
-				key="button"
-				onClick={props.onOpen}
-			>
-				Open side sheet
-			</button>
-		</div>
+		<DemoContent
+			childrenType={DemoContentChildren.Items}
+			colourScheme={DemoContentColourScheme.Primary}
+			height="100%"
+			includeRenderCounter={true}
+			items={[
+				{ id: 1, type: DemoContentChildrenItem.Text, text: `Content - Back Count: ${props.count}` },
+				{ id: 2, type: DemoContentChildrenItem.Button, action: props.onOpen, text: "Open side sheet" }
+			]}
+			justify={DemoContentJustify.Center}
+			orientation={Orientation.Vertical}
+			width="100%"
+		/>
 	);
 }
 
 function SideSheetBody(): ReactElement {
 	return (
-		<div
-			style={{
-				alignItems: "center",
-				backgroundColor: "coral",
-				display: "flex",
-				flexDirection: "column",
-				height: 400,
-				justifyContent: "center",
-				width: "100%"
-			}}
-		>
-			Panel content
-		</div>
+		<DemoContent
+			childrenType={DemoContentChildren.Text}
+			colourScheme={DemoContentColourScheme.Primary}
+			height={400}
+			includeRenderCounter={true}
+			justify={DemoContentJustify.Center}
+			orientation={Orientation.Vertical}
+			text="Panel content"
+			width="100%"
+		/>
 	);
 }
 
 function SideSheetFooter(): ReactElement {
 	return (
-		<div
-			style={{
-				alignItems: "center",
-				backgroundColor: "coral",
-				display: "flex",
-				flexDirection: "column",
-				height: 50,
-				justifyContent: "center",
-				width: "100%"
-			}}
-		>
-			Panel footer
-		</div>
+		<DemoContent
+			childrenType={DemoContentChildren.Text}
+			colourScheme={DemoContentColourScheme.Primary}
+			height={80}
+			includeRenderCounter={true}
+			justify={DemoContentJustify.Center}
+			orientation={Orientation.Vertical}
+			text="Panel footer"
+			width="100%"
+		/>
 	);
 }

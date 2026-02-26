@@ -9,7 +9,13 @@ import {
 	FloatingButtonGroupButton
 } from "@react-library/themed-components";
 
-import { DemoSection } from "@react-library-demo/shared";
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentColourScheme,
+	DemoContentJustify,
+	DemoSection
+} from "@react-library-demo/shared";
 
 export function ReactLibraryFloatingButtonGroupDemo() {
 	return (
@@ -115,14 +121,16 @@ export function ReactLibraryFloatingButtonGroupDemo() {
 }
 
 function FloatingButtonGroupChild(): ReactElement {
-	return <div style={{
-		display: "flex",
-		backgroundColor: "coral",
-		height: 500,
-		justifyContent: "center",
-		alignItems: "center",
-		width: 500
-	}}>
-		Button Group Content
-	</div>
+	return (
+		<DemoContent
+			childrenType={DemoContentChildren.Text}
+			colourScheme={DemoContentColourScheme.Primary}
+			height={500}
+			includeRenderCounter={true}
+			justify={DemoContentJustify.Center}
+			orientation={Orientation.Vertical}
+			text="Button group content"
+			width={500}
+		/>
+	)
 }

@@ -2,9 +2,10 @@ import type { ReactElement } from "react";
 
 import { useRouterNotifierContext, type RouterElementWithChildrenProps } from "@react-library/router";
 
-import { DemoColumn } from "@react-library-demo/shared";
+import { DemoColumn, DemoContent, DemoContentChildren, DemoContentChildrenItem, DemoContentColourScheme, DemoContentJustify } from "@react-library-demo/shared";
 
 import { RouterBasicDemoSegmentId } from "../enums/router-basic-demo-segment-id.type";
+import { Orientation } from "@react-library/common";
 
 /**
  * Example router segment component root
@@ -18,22 +19,22 @@ export function ReactLibraryRouterBasicDemoElementRoot(props: RouterElementWithC
 				key="route-list"
 				weight={1}
 			>
-				<div style={{
-					display: "inline-flex",
-					flexDirection: "column",
-					gap: 4
-				}}>
-					{
-						Object.values(RouterBasicDemoSegmentId).map(segmentId => (
-							<button
-								key={`button-${segmentId}`}
-								onClick={() => routerNotifier.notify(segmentId)}
-							>
-								Route To: {segmentId}
-							</button>
-						))
-					}
-				</div>
+				<DemoContent
+					childrenType={DemoContentChildren.Items}
+					colourScheme={DemoContentColourScheme.Primary}
+					height="auto"
+					includeRenderCounter={true}
+					items={Object.values(RouterBasicDemoSegmentId).map(segmentId => ({
+						id: segmentId,
+						type: DemoContentChildrenItem.Button,
+						action: () => routerNotifier.notify(segmentId),
+						text: `Route To: ${segmentId}`
+					}))}
+					justify={DemoContentJustify.Start}
+					key="children"
+					orientation={Orientation.Vertical}
+					width="100%"
+				/>
 			</DemoColumn>
 			<DemoColumn
 				key="route-elements"

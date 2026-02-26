@@ -1,10 +1,23 @@
 import { useState } from "react";
 
-import { Orientation, useRenderCounterRef } from "@react-library/common";
-import { isVirtualScrollRowStandard, VirtualScrollAccordionParentView } from "@react-library/components";
+import { Orientation } from "@react-library/common";
+import {
+	isVirtualScrollRowStandard,
+	VirtualScrollAccordionParentView
+} from "@react-library/components";
+
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentColourScheme,
+	DemoContentJustify
+} from "@react-library-demo/shared";
 
 import { resolveVirtualScrollDemoParentData } from "./functions";
-import type { VirtualScrollTestParent, VirtualScrollTestStandard } from "./types";
+import type {
+	VirtualScrollTestParent,
+	VirtualScrollTestStandard
+} from "./types";
 
 export function ReactLibraryComponentsVirtualScrollDemo() {
 
@@ -21,29 +34,18 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 		>
 			{
 				(child) =>
-					<div
-						style={{
-							backgroundColor: isVirtualScrollRowStandard(child) ? "white" : "lightblue",
-							borderBottomWidth: 1,
-							borderBottomStyle: "solid",
-							boxSizing: "border-box",
-							display: "flex",
-							flexDirection: "row",
-							height: "100%",
-							paddingLeft: isVirtualScrollRowStandard(child) ? 200 : 0
-						}}
-					>
-						<div key="id">Id = {child.id}</div>
-						<VirtualScrollDemoText {...child} key="text" />
-					</div>
+					<DemoContent
+						childrenType={DemoContentChildren.Text}
+						colourScheme={isVirtualScrollRowStandard(child) ? DemoContentColourScheme.Primary : DemoContentColourScheme.Secondary}
+						height="100%"
+						includeRenderCounter={true}
+						indentIndex={isVirtualScrollRowStandard(child) ? 2 : 1}
+						justify={DemoContentJustify.Start}
+						orientation={Orientation.Horizontal}
+						text={child.text}
+						width="100%"
+					/>
 			}
 		</VirtualScrollAccordionParentView>
 	</>);
-}
-
-function VirtualScrollDemoText(props: (VirtualScrollTestStandard | VirtualScrollTestParent)) {
-	
-	const renderCounter = useRenderCounterRef();
-
-	return <div key="text">Text = {props.text} - {renderCounter}</div>
 }

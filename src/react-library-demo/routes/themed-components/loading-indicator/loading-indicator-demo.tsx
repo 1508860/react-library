@@ -1,11 +1,17 @@
-import { ColourSchemeStyle } from "@react-library/common";
+import { ColourSchemeStyle, Orientation } from "@react-library/common";
 import {
 	LoadingIndicator,
 	LoadingIndicatorPosition,
 	LoadingIndicatorStyle
 } from "@react-library/themed-components";
 
-import { DemoSection } from "@react-library-demo/shared";
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentColourScheme,
+	DemoContentJustify,
+	DemoSection
+} from "@react-library-demo/shared";
 
 export function ReactLibraryThemedComponentsLoadingIndicatorDemo() {
 	return (
@@ -14,37 +20,41 @@ export function ReactLibraryThemedComponentsLoadingIndicatorDemo() {
 				key="default"
 				title="Loading Indicator - Default"
 			>
-				<div
-					style={{
-						backgroundColor: "coral",
-						height: 300,
-						width: 300
-					}}
+				<DemoContent
+					childrenType={DemoContentChildren.Any}
+					colourScheme={DemoContentColourScheme.Primary}
+					height={300}
+					includeRenderCounter={true}
+					justify={DemoContentJustify.Center}
+					orientation={Orientation.Vertical}
+					width={300}
 				>
 					<LoadingIndicator
 						colourSchemeStyle={ColourSchemeStyle.Primary}
 						position={LoadingIndicatorPosition.Fill}
 						style={LoadingIndicatorStyle.Default}
 					/>
-				</div>
+				</DemoContent>
 			</DemoSection>
 			<DemoSection
 				key="contained"
 				title="Loading Indicator - Contained"
 			>
-				<div
-					style={{
-						backgroundColor: "coral",
-						height: 300,
-						width: 300
-					}}
+				<DemoContent
+					childrenType={DemoContentChildren.Any}
+					colourScheme={DemoContentColourScheme.Primary}
+					height={300}
+					includeRenderCounter={true}
+					justify={DemoContentJustify.Center}
+					orientation={Orientation.Vertical}
+					width={300}
 				>
 					<LoadingIndicator
 						colourSchemeStyle={ColourSchemeStyle.Primary}
 						position={LoadingIndicatorPosition.Fill}
 						style={LoadingIndicatorStyle.Contained}
 					/>
-				</div>
+				</DemoContent>
 			</DemoSection>
 		</>
 	);

@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import {
+	Orientation,
 	PositionStrategyExternal,
-	useRenderCounterRef,
 	type ITooltipPositionStrategy
 } from "@react-library/common";
 import {
@@ -13,7 +13,14 @@ import {
 	type TooltipPositionStrategyExternal
 } from "@react-library/components";
 
-import { DemoContent, DemoContentColourScheme, DemoItem, DemoSection } from "@react-library-demo/shared";
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentColourScheme,
+	DemoContentJustify,
+	DemoItem,
+	DemoSection
+} from "@react-library-demo/shared";
 
 import { tooltipsDemoArrowContentStyle } from "./tooltips-demo-style.function";
 
@@ -46,8 +53,8 @@ export function ReactLibraryComponentsTooltipsDemo() {
 			>
 				{tooltipPositionStrategies.map(tooltipPositionStrategy => (
 					<DemoItem
-						key={tooltipPositionStrategy.positionType}
 						height={300}
+						key={tooltipPositionStrategy.positionType}
 						label={tooltipPositionStrategy.positionType}
 						width={300}
 					>
@@ -63,9 +70,13 @@ function TooltipDemoContainer(props: ITooltipPositionStrategy<TooltipPositionStr
 	return (
 		<Tooltip
 			content={() => <DemoContent
+				childrenType={DemoContentChildren.Text}
 				colourScheme={DemoContentColourScheme.Secondary}
 				height={80}
-				text={[{ id: 1, text: props.tooltipPositionStrategy.positionType }]}
+				includeRenderCounter={true}
+				justify={DemoContentJustify.Center}
+				orientation={Orientation.Vertical}
+				text={props.tooltipPositionStrategy.positionType}
 				width={80}
 			/>}
 			overlayPortalMargin={20}
@@ -78,15 +89,16 @@ function TooltipDemoContainer(props: ITooltipPositionStrategy<TooltipPositionStr
 }
 
 function TooltipDemoSubject(props: TooltipChildProps) {
-
-	const renderCounter = useRenderCounterRef();
-
 	return (
 		<div {...props.childProps}>
 			<DemoContent
+				childrenType={DemoContentChildren.Text}
 				colourScheme={DemoContentColourScheme.Primary}
 				height={100}
-				text={[{ id: 1, text: "Content" }, { id: 2, text: `Render Count: ${renderCounter}` }]}
+				includeRenderCounter={true}
+				justify={DemoContentJustify.Center}
+				orientation={Orientation.Vertical}
+				text="Content"
 				width={100}
 			/>
 		</div>

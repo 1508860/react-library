@@ -1,7 +1,7 @@
 import { HexRgb, type Colour } from "@react-library/common";
 
 /**
- * Colour scheme styles
+ * Demo content colour schemes
  */
 export const DemoContentColourScheme = {
 	Primary: "primary",

@@ -12,7 +12,13 @@ import {
 	ButtonStyle
 } from "@react-library/themed-components";
 
-import { DemoSection } from "@react-library-demo/shared";
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentColourScheme,
+	DemoContentJustify,
+	DemoSection
+} from "@react-library-demo/shared";
 
 import { ButtonGroupDemoButtonId } from "./button-group-demo-button-id.type";
 
@@ -372,17 +378,15 @@ export function ReactLibraryThemedComponentsButtonGroupDemo() {
 
 function ButtonSplitMenuElement() {
 	return (
-		<div
-			style={{
-				alignItems: "center",
-				backgroundColor: "black",
-				display: "flex",
-				height: 200,
-				justifyContent: "center",
-				width: 200
-			}}
-		>
-			Button split menu content
-		</div>
+		<DemoContent
+			childrenType={DemoContentChildren.Text}
+			colourScheme={DemoContentColourScheme.Primary}
+			height={200}
+			includeRenderCounter={true}
+			justify={DemoContentJustify.Center}
+			orientation={Orientation.Vertical}
+			text="Button split menu content"
+			width={200}
+		/>
 	)
 }

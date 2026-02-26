@@ -2,9 +2,19 @@ import { useState } from "react";
 
 import { Orientation } from "@react-library/common";
 import { MaterialIconName } from "@react-library/material-icons";
-import { NavigationBar, type NavigationBarChildren, type NavigationBarItem } from "@react-library/themed-components";
+import {
+	NavigationBar,
+	type NavigationBarChildren,
+	type NavigationBarItem
+} from "@react-library/themed-components";
 
-import { DemoSection } from "@react-library-demo/shared";
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentColourScheme,
+	DemoContentJustify,
+	DemoSection
+} from "@react-library-demo/shared";
 
 export function ReactLibraryThemedComponentsNavigationBarDemo() {
 
@@ -57,24 +67,22 @@ function resolveNavigationBarDemoItem(
 	badgeLabel?: number
 ): NavigationBarItem<NavigationBarDemoItemId> {
 	return {
+		badgeLabel: badgeLabel,
 		element: () => (
-			<div
-				style={{
-					alignItems: "center",
-					backgroundColor: "coral",
-					display: "flex",
-					height: 200,
-					justifyContent: "center",
-					width: "100%"
-				}}
-			>
-				Navigation Item - {itemId}
-			</div>
+			<DemoContent
+				childrenType={DemoContentChildren.Text}
+				colourScheme={DemoContentColourScheme.Primary}
+				height={200}
+				includeRenderCounter={true}
+				justify={DemoContentJustify.Center}
+				orientation={Orientation.Vertical}
+				text={`Navigation Item - ${itemId}`}
+				width="100%"
+			/>
 		),
 		iconName: iconName,
 		itemId: itemId,
 		label: `Item ${itemId}`,
-		showBadge: showBadge,
-		badgeLabel: badgeLabel
+		showBadge: showBadge
 	};
 }

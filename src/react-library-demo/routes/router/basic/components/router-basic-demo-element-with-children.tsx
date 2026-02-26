@@ -1,6 +1,14 @@
 import type { ReactElement } from "react";
 
+import { Orientation } from "@react-library/common";
 import type { RouterElementWithChildrenProps } from "@react-library/router";
+
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentColourScheme,
+	DemoContentJustify
+} from "@react-library-demo/shared";
 
 /**
  * Example router segment component that can have children
@@ -9,32 +17,28 @@ import type { RouterElementWithChildrenProps } from "@react-library/router";
 export function ReactLibraryRouterBasicDemoElementWithChildren(props: RouterElementWithChildrenProps): ReactElement {
 	return (
 		<>
-			<div
-				key="text"
-				style={{
-					alignItems: "start",
-					backgroundColor: "coral",
-					display: "flex",
-					flexDirection: "column",
-					justifyContent: "center",
-					minHeight: 20,
-					paddingLeft: 20,
-					paddingRight: 20,
-					width: "100%"
-				}}
-			>
-				<span>Segment: {props.segmentId}</span>
-			</div>
-			<div
+			<DemoContent
+				childrenType={DemoContentChildren.Text}
+				colourScheme={DemoContentColourScheme.Primary}
+				height={20}
+				includeRenderCounter={true}
+				justify={DemoContentJustify.Start}
+				key="element"
+				orientation={Orientation.Horizontal}
+				text={`Segment: ${props.segmentId}`}
+				width="100%"
+			/>
+			<DemoContent
+				childrenType={DemoContentChildren.Any}
+				colourScheme={DemoContentColourScheme.Primary}
+				height="auto"
+				justify={DemoContentJustify.Start}
 				key="children"
-				style={{
-					display: "block",
-					paddingRight: 20,
-					width: "100%"
-				}}
+				orientation={Orientation.Vertical}
+				width="100%"
 			>
 				{props.children}
-			</div>
+			</DemoContent>
 		</>
 	);
 }

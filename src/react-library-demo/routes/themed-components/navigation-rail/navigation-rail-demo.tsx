@@ -8,7 +8,14 @@ import {
 	type NavigationRailItem
 } from "@react-library/themed-components";
 
-import { DemoSection } from "@react-library-demo/shared";
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentColourScheme,
+	DemoContentJustify,
+	DemoSection
+} from "@react-library-demo/shared";
+import { Orientation } from "@react-library/common";
 
 export function ReactLibraryThemedComponentsNavigationRailDemo() {
 
@@ -28,7 +35,7 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 	return (
 		<>
 			<DemoSection
-				contentHeight={500}
+				contentHeight={600}
 				key="navigation-rail-standard"
 				title="Navigation Rail - Standard"
 			>
@@ -46,7 +53,7 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 				</NavigationRail>
 			</DemoSection>
 			<DemoSection
-				contentHeight={500}
+				contentHeight={600}
 				key="navigation-rail-immersive-standard"
 				title="Navigation Rail - Immersive Standard"
 			>
@@ -64,7 +71,7 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 				</NavigationRail>
 			</DemoSection>
 			<DemoSection
-				contentHeight={500}
+				contentHeight={600}
 				key="navigation-rail-immersive-modal"
 				title="Navigation Rail - Immersive Modal"
 			>
@@ -87,12 +94,14 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 
 function HeaderContainer(): ReactElement {
 	return (
-		<div
-			style={{
-				backgroundColor: "black",
-				height: 40,
-				width: "100%"
-			}}
+		<DemoContent
+			childrenType={DemoContentChildren.Any}
+			colourScheme={DemoContentColourScheme.Secondary}
+			height={80}
+			includeRenderCounter={true}
+			justify={DemoContentJustify.Center}
+			orientation={Orientation.Vertical}
+			width="100%"
 		/>
 	);
 }
@@ -106,24 +115,22 @@ function resolveNavigationRailDemoItem(
 	badgeLabel?: number
 ): NavigationRailItem<NavigationRailDemoItemId> {
 	return {
+		badgeLabel: badgeLabel,
 		element: () => (
-			<div
-				style={{
-					alignItems: "center",
-					backgroundColor: "coral",
-					display: "flex",
-					height: "100%",
-					justifyContent: "center",
-					width: "100%"
-				}}
-			>
-				Navigation Item - {itemId}
-			</div>
+			<DemoContent
+				childrenType={DemoContentChildren.Text}
+				colourScheme={DemoContentColourScheme.Primary}
+				height="100%"
+				includeRenderCounter={true}
+				justify={DemoContentJustify.Center}
+				orientation={Orientation.Vertical}
+				text={`Navigation Item - ${itemId}`}
+				width="100%"
+			/>
 		),
 		iconName: iconName,
 		itemId: itemId,
 		label: `Item ${itemId}`,
-		showBadge: showBadge,
-		badgeLabel: badgeLabel
+		showBadge: showBadge
 	};
 }

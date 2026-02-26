@@ -1,4 +1,4 @@
-import { ColourSchemeStyle } from "@react-library/common";
+import { ColourSchemeStyle, Orientation } from "@react-library/common";
 import { MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
 import {
 	ButtonClick,
@@ -12,7 +12,13 @@ import {
 	ButtonStyle
 } from "@react-library/themed-components";
 
-import { DemoSection } from "@react-library-demo/shared";
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentColourScheme,
+	DemoContentJustify,
+	DemoSection
+} from "@react-library-demo/shared";
 
 export function ReactLibraryThemedComponentsButtonDemo() {
 	return (
@@ -189,14 +195,15 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 
 function ButtonSplitMenuElement() {
 	return (
-		<div
-			style={{
-				backgroundColor: "black",
-				height: 200,
-				width: 200
-			}}
-		>
-
-		</div>
+		<DemoContent
+			childrenType={DemoContentChildren.Text}
+			colourScheme={DemoContentColourScheme.Primary}
+			height={200}
+			includeRenderCounter={true}
+			justify={DemoContentJustify.Center}
+			orientation={Orientation.Vertical}
+			text="Button split menu element"
+			width={200}
+		/>
 	)
 }
