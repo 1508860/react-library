@@ -13,7 +13,7 @@ import {
 	type TooltipPositionStrategyExternal
 } from "@react-library/components";
 
-import { DemoContent, DemoItem, DemoSection } from "@react-library-demo/shared";
+import { DemoContent, DemoContentColourScheme, DemoItem, DemoSection } from "@react-library-demo/shared";
 
 import { tooltipsDemoArrowContentStyle } from "./tooltips-demo-style.function";
 
@@ -62,7 +62,12 @@ export function ReactLibraryComponentsTooltipsDemo() {
 function TooltipDemoContainer(props: ITooltipPositionStrategy<TooltipPositionStrategyExternal>) {
 	return (
 		<Tooltip
-			content={() => <DemoContent height={80} text={[{ id: 1, text: props.tooltipPositionStrategy.positionType }]} width={80} />}
+			content={() => <DemoContent
+				colourScheme={DemoContentColourScheme.Secondary}
+				height={80}
+				text={[{ id: 1, text: props.tooltipPositionStrategy.positionType }]}
+				width={80}
+			/>}
 			overlayPortalMargin={20}
 			positionStrategies={[props.tooltipPositionStrategy]}
 			tooltipInteractionType={TooltipInteraction.Click}
@@ -79,6 +84,7 @@ function TooltipDemoSubject(props: TooltipChildProps) {
 	return (
 		<div {...props.childProps}>
 			<DemoContent
+				colourScheme={DemoContentColourScheme.Primary}
 				height={100}
 				text={[{ id: 1, text: "Content" }, { id: 2, text: `Render Count: ${renderCounter}` }]}
 				width={100}

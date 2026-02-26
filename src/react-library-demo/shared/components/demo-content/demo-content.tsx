@@ -1,7 +1,7 @@
 import { useFontContext } from "@react-library/common";
 
-import type { DemoContentProps } from "./demo-content-props.type";
-import { demoContentStyle } from "./demo-content-style.function";
+import { demoContentStyle } from "./styles/demo-content-style.function";
+import type { DemoContentProps } from "./types/demo-content-props.type";
 
 
 export function DemoContent(props: DemoContentProps) {
