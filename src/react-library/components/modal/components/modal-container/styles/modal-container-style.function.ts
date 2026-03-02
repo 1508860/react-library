@@ -6,21 +6,22 @@ import {
 	positionStrategyInternalMarginRight,
 	positionStrategyInternalMarginTop,
 	type Colour,
-	type PositionStrategyInternalAll,
 	type Size
 } from "@react-library/common";
 
+import type { ModalPositionStrategyInternal } from "../../../types/modal-position-strategy-internal.type";
+
 /**
- * Resolve modal style based on parameters
+ * Resolve modal container style based on parameters
+ * @param positionStrategy
  * @param height
  * @param width
- * @param positionStrategy
  * @param backgroundColour
  */
-export function modalStyle(
+export function modalContainerStyle(
+	positionStrategy: ModalPositionStrategyInternal,
 	height: Size,
 	width: Size,
-	positionStrategy: PositionStrategyInternalAll<Size, Size>,
 	backgroundColour: Colour | undefined
 ): CSSProperties {
 	return {

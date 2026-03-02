@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+
 import { targetEvent } from "@react-library/common";
 
 import { modalBackdropStyle } from "./styles/modal-backdrop-style.function";
@@ -9,10 +11,19 @@ import type { ModalBackdropProps } from "./types/modal-backdrop-props.type";
  */
 export function ModalBackdrop(props: ModalBackdropProps) {
 
-	const clickCallback = (event: React.MouseEvent) => targetEvent(event, () => props.onDismiss ? props.onDismiss() : void 0);
+	const handleOnDismiss = useCallback(
+		(event: React.MouseEvent) => {
+			if (!props.onDismiss) return;
+			targetEvent(event, props.onDismiss)
+		},
+		[props.onDismiss]
+	);
 
 	return (
-		<div onClick={clickCallback} style={modalBackdropStyle(props.positionStrategy, props.backgroundColour)}>
+		<div
+			onClick={handleOnDismiss}
+			style={modalBackdropStyle(props.positionStrategy, props.backdropColour)}
+		>
 			{props.children}
 		</div>
 	);
