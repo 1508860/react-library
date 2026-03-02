@@ -1,4 +1,4 @@
-import { ColourSchemeContainerLevel, ColourSchemeElevationLevel, HexRgb, type ColourScheme } from "@react-library/common";
+import { ColourSchemeContainerLevel, ColourSchemeElevationLevel, HexRgb, HexRgba, type ColourScheme } from "@react-library/common";
 
 /**
  * Defines the colour scheme for the demo application
@@ -96,8 +96,7 @@ export const DEMO_COLOUR_SCHEME: ColourScheme = {
 		outlineVariant: new HexRgb("C4", "C6", "D0")
 	},
 	backdrop: {
-		colour: new HexRgb("00", "00", "00"),
-		opacity: 0.5
+		colour: new HexRgba("00", "00", "00", "80")
 	},
 	disabled: {
 		opacity: 0.3

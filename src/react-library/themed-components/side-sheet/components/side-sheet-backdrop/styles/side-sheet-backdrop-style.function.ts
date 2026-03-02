@@ -11,7 +11,6 @@ export function sideSheetBackdropStyle(colourScheme: ColourScheme): CSSPropertie
 		backgroundColor: colourScheme.backdrop.colour.toColourString(),
 		cursor: "pointer",
 		inset: 0,
-		opacity: colourScheme.backdrop.opacity,
 		position: "absolute"
 	};
 }

@@ -68,8 +68,7 @@ type ColourSchemeOutline = (
 );
 
 type ColourSchemeBackdrop = (
-	IColour<Colour> &
-	IOpacity<StyleOpacity>
+	IColour<Colour>
 );
 
 type ColourSchemeDisabled = (
