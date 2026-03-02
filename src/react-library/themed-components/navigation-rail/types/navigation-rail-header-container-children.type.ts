@@ -1,3 +1,3 @@
 import type { ReactElement } from "react";
 
-export type NavigationRailHeaderContainerChildren = () => ReactElement;
+export type NavigationRailHeaderContainerChildren = ReactElement;

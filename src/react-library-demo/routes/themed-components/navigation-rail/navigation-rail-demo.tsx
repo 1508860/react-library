@@ -22,6 +22,8 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 	const [activeItemId, setActiveItemId] = useState<NavigationRailDemoItemId>(1);
 	const [isExpanded, setIsExpanded] = useState<boolean>(true);
 
+	const [headerChildren] = useState<ReactElement>(() => <HeaderChildren />)
+
 	const [navigationRaildemoItems] = useState<NavigationRailChildren<NavigationRailDemoItemId>>([
 		resolveNavigationRailDemoItem(1, MaterialIconName.Add, true, 123),
 		resolveNavigationRailDemoItem(2, MaterialIconName.Favorite, true),
@@ -45,7 +47,7 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 					expandedMenuWidth={220}
 					isExpanded={isExpanded}
 					menuStyle={NavigationRailMenuStyle.Standard}
-					navigationHeaderChildren={HeaderContainer}
+					navigationHeaderChildren={headerChildren}
 					onExpandedChange={setIsExpanded}
 					onItemChange={setActiveItemId}
 				>
@@ -63,7 +65,7 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 					expandedMenuWidth={220}
 					isExpanded={isExpanded}
 					menuStyle={NavigationRailMenuStyle.ImmersiveStandard}
-					navigationHeaderChildren={HeaderContainer}
+					navigationHeaderChildren={headerChildren}
 					onExpandedChange={setIsExpanded}
 					onItemChange={setActiveItemId}
 				>
@@ -81,7 +83,7 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 					expandedMenuWidth={220}
 					isExpanded={isExpanded}
 					menuStyle={NavigationRailMenuStyle.ImmersiveModal}
-					navigationHeaderChildren={HeaderContainer}
+					navigationHeaderChildren={headerChildren}
 					onExpandedChange={setIsExpanded}
 					onItemChange={setActiveItemId}
 				>
@@ -92,7 +94,7 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 	);
 }
 
-function HeaderContainer(): ReactElement {
+function HeaderChildren(): ReactElement {
 	return (
 		<DemoContent
 			childrenType={DemoContentChildren.Any}
