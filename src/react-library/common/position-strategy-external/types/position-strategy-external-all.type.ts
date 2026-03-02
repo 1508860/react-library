@@ -19,21 +19,21 @@ import type { PositionStrategyExternalTopStart } from "./position-strategy-exter
 /**
  * Union type to represent all variants for how elements can be laid out relative to and outside another element
  */
-export type PositionStrategyExternalAll<THorizontalMargin extends Size, TVerticalMargin extends Size> = (
-	PositionStrategyExternalBottomCenter<TVerticalMargin> |
-	PositionStrategyExternalBottomStart<TVerticalMargin> |
-	PositionStrategyExternalBottomEnd<TVerticalMargin> |
-	PositionStrategyExternalBottomLeft<THorizontalMargin, TVerticalMargin> |
-	PositionStrategyExternalBottomRight<THorizontalMargin, TVerticalMargin> |
-	PositionStrategyExternalLeftCenter<THorizontalMargin> |
-	PositionStrategyExternalLeftStart<THorizontalMargin> |
-	PositionStrategyExternalLeftEnd<THorizontalMargin> |
-	PositionStrategyExternalRightCenter<THorizontalMargin> |
-	PositionStrategyExternalRightStart<THorizontalMargin> |
-	PositionStrategyExternalRightEnd<THorizontalMargin> |
-	PositionStrategyExternalTopCenter<TVerticalMargin> |
-	PositionStrategyExternalTopStart<TVerticalMargin> |
-	PositionStrategyExternalTopEnd<TVerticalMargin> |
-	PositionStrategyExternalTopLeft<THorizontalMargin, TVerticalMargin> |
-	PositionStrategyExternalTopRight<THorizontalMargin, TVerticalMargin>
+export type PositionStrategyExternalAll<TMarginHorizontal extends Size, TMarginVertical extends Size> = (
+	PositionStrategyExternalBottomCenter<TMarginVertical> |
+	PositionStrategyExternalBottomStart<TMarginVertical> |
+	PositionStrategyExternalBottomEnd<TMarginVertical> |
+	PositionStrategyExternalBottomLeft<TMarginHorizontal, TMarginVertical> |
+	PositionStrategyExternalBottomRight<TMarginHorizontal, TMarginVertical> |
+	PositionStrategyExternalLeftCenter<TMarginHorizontal> |
+	PositionStrategyExternalLeftStart<TMarginHorizontal> |
+	PositionStrategyExternalLeftEnd<TMarginHorizontal> |
+	PositionStrategyExternalRightCenter<TMarginHorizontal> |
+	PositionStrategyExternalRightStart<TMarginHorizontal> |
+	PositionStrategyExternalRightEnd<TMarginHorizontal> |
+	PositionStrategyExternalTopCenter<TMarginVertical> |
+	PositionStrategyExternalTopStart<TMarginVertical> |
+	PositionStrategyExternalTopEnd<TMarginVertical> |
+	PositionStrategyExternalTopLeft<TMarginHorizontal, TMarginVertical> |
+	PositionStrategyExternalTopRight<TMarginHorizontal, TMarginVertical>
 );

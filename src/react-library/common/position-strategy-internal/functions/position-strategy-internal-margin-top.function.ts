@@ -6,7 +6,9 @@ import type { PositionStrategyInternalAll } from "../types/position-strategy-int
  * Resolve margin top value for {@link positionStrategy}
  * @param positionStrategy
  */
-export function positionStrategyInternalMarginTop(positionStrategy: PositionStrategyInternalAll<Size, Size>): Size | undefined {
+export function positionStrategyInternalMarginTop<TMarginTop extends Size>(
+	positionStrategy: PositionStrategyInternalAll<Size, TMarginTop>
+): TMarginTop | undefined {
 	switch (positionStrategy.positionType) {
 		case PositionStrategyInternal.TopCenter:
 		case PositionStrategyInternal.TopLeft:

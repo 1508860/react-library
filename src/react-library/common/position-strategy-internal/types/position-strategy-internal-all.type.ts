@@ -12,14 +12,14 @@ import type { PositionStrategyInternalTopRight } from "./position-strategy-inter
 /**
  * Union type to represent all variants for how elements can be laid out relative to and inside another element
  */
-export type PositionStrategyInternalAll<THorizontalMargin extends Size, TVerticalMargin extends Size> = (
-	PositionStrategyInternalTopLeft<THorizontalMargin, TVerticalMargin> |
-	PositionStrategyInternalTopCenter<TVerticalMargin> |
-	PositionStrategyInternalTopRight<THorizontalMargin, TVerticalMargin> |
-	PositionStrategyInternalMiddleLeft<THorizontalMargin> |
+export type PositionStrategyInternalAll<TMarginHorizontal extends Size, TMarginVertical extends Size> = (
+	PositionStrategyInternalTopLeft<TMarginHorizontal, TMarginVertical> |
+	PositionStrategyInternalTopCenter<TMarginVertical> |
+	PositionStrategyInternalTopRight<TMarginHorizontal, TMarginVertical> |
+	PositionStrategyInternalMiddleLeft<TMarginHorizontal> |
 	PositionStrategyInternalMiddleCenter |
-	PositionStrategyInternalMiddleRight<THorizontalMargin> |
-	PositionStrategyInternalBottomLeft<THorizontalMargin, TVerticalMargin> |
-	PositionStrategyInternalBottomCenter<TVerticalMargin> |
-	PositionStrategyInternalBottomRight<THorizontalMargin, TVerticalMargin>
+	PositionStrategyInternalMiddleRight<TMarginHorizontal> |
+	PositionStrategyInternalBottomLeft<TMarginHorizontal, TMarginVertical> |
+	PositionStrategyInternalBottomCenter<TMarginVertical> |
+	PositionStrategyInternalBottomRight<TMarginHorizontal, TMarginVertical>
 );

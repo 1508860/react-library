@@ -6,7 +6,9 @@ import type { PositionStrategyInternalAll } from "../types/position-strategy-int
  * Resolve margin right value for {@link positionStrategy}
  * @param positionStrategy
  */
-export function positionStrategyInternalMarginRight(positionStrategy: PositionStrategyInternalAll<Size, Size>): Size | undefined {
+export function positionStrategyInternalMarginRight<TMarginRight extends Size>(
+	positionStrategy: PositionStrategyInternalAll<TMarginRight, Size>
+): TMarginRight | undefined {
 	switch (positionStrategy.positionType) {
 		case PositionStrategyInternal.BottomRight:
 		case PositionStrategyInternal.MiddleRight:
