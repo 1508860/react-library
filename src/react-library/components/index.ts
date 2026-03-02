@@ -1,6 +1,6 @@
 export * from "./icon-svg";
 export * from "./input-currency";
-export * from "./modals";
+export * from "./modal";
 export * from "./overlay-portal";
 export * from "./pointer-move";
 export * from "./root-viewport-position-px";
