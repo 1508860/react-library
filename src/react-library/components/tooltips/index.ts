@@ -1,4 +1,6 @@
 export * from "./enums/tooltip-interaction.type";
+export * from "./hooks/tooltip-child-props-context.hook";
+export * from "./hooks/tooltip-show-context.hook";
 export * from "./types/tooltip-arrow-content.type";
 export * from "./types/tooltip-child-props.type";
 export * from "./types/tooltip-children.type";

@@ -7,6 +7,8 @@ import { TooltipBackdrop } from "./components/backdrop";
 import { TooltipContent } from "./components/content";
 import { TooltipArrow } from "./components/tooltip-arrow";
 import { TooltipContainer } from "./components/tooltip-container";
+import { TOOLTIP_CHILD_PROPS_CONTEXT } from "./constants/tooltip-child-props-context.const";
+import { TOOLTIP_SHOW_CONTEXT } from "./constants/tooltip-show-context.const";
 import { resolveTooltipChildProps } from "./functions/resolve-tooltip-child-props.function";
 import { useTooltipPositionState } from "./hooks/use-tooltip-position-state.hook";
 import type { TooltipChildProps } from "./types/tooltip-child-props.type";
@@ -50,38 +52,40 @@ export function Tooltip(props: TooltipProps) {
 	);
 
 	return (
-		<>
-			<props.children {...childProps} />
-			{
-				(props.isDisabled || !showTooltip) ?
-					<></> :
-					createPortal(
-						(
-							<>
-								<TooltipBackdrop
-									key="tooltip-backdrop"
-									onDismiss={onDismiss}
-									tooltipInteractionType={props.tooltipInteractionType}
-								/>
-								<TooltipContainer
-									key="tooltip-container"
-									position={tooltipPosition}
-								>
-									<TooltipArrow
-										key="tooltip-arrow"
-										positionStrategy={tooltipPosition?.positionStrategy}
+		<TOOLTIP_CHILD_PROPS_CONTEXT value={childProps}>
+			<TOOLTIP_SHOW_CONTEXT value={showTooltip}>
+				{props.children}
+				{
+					(props.isDisabled || !showTooltip) ?
+						<></> :
+						createPortal(
+							(
+								<>
+									<TooltipBackdrop
+										key="tooltip-backdrop"
+										onDismiss={onDismiss}
+										tooltipInteractionType={props.tooltipInteractionType}
 									/>
-									<TooltipContent
-										content={props.content}
-										key="tooltip-content"
-										ref={setTooltipElementCallback}
-									/>
-								</TooltipContainer>
-							</>
-						),
-						overlayPortal
-					)
-			}
-		</>
+									<TooltipContainer
+										key="tooltip-container"
+										position={tooltipPosition}
+									>
+										<TooltipArrow
+											key="tooltip-arrow"
+											positionStrategy={tooltipPosition?.positionStrategy}
+										/>
+										<TooltipContent
+											content={props.content}
+											key="tooltip-content"
+											ref={setTooltipElementCallback}
+										/>
+									</TooltipContainer>
+								</>
+							),
+							overlayPortal
+						)
+				}
+			</TOOLTIP_SHOW_CONTEXT>
+		</TOOLTIP_CHILD_PROPS_CONTEXT>
 	);
 }

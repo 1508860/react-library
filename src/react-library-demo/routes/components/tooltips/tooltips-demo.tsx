@@ -8,7 +8,7 @@ import {
 import {
 	Tooltip,
 	TooltipInteraction,
-	type TooltipChildProps,
+	useTooltipChildPropsContext,
 	type TooltipPositionStrategiesExternal,
 	type TooltipPositionStrategyExternal
 } from "@react-library/components";
@@ -83,14 +83,17 @@ function TooltipDemoContainer(props: ITooltipPositionStrategy<TooltipPositionStr
 			positionStrategies={[props.tooltipPositionStrategy]}
 			tooltipInteractionType={TooltipInteraction.Click}
 		>
-			{(tooltipChildProps) => <TooltipDemoSubject {...tooltipChildProps} />}
+			<TooltipDemoSubject />
 		</Tooltip>
 	);
 }
 
-function TooltipDemoSubject(props: TooltipChildProps) {
+function TooltipDemoSubject() {
+
+	const tooltipChildProps = useTooltipChildPropsContext()
+
 	return (
-		<div {...props.childProps}>
+		<div {...tooltipChildProps.childProps}>
 			<DemoContent
 				childrenType={DemoContentChildren.Text}
 				colourScheme={DemoContentColourScheme.Primary}

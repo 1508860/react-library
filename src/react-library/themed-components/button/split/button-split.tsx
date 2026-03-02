@@ -1,6 +1,6 @@
-import { Fragment, useCallback, useRef, useState, type ReactElement } from "react";
+import { Fragment, useState, type ReactElement } from "react";
 
-import { Tooltip, TooltipInteraction, type TooltipChildProps } from "@react-library/components";
+import { Tooltip, TooltipInteraction, useTooltipChildPropsContext, useTooltipShowContext } from "@react-library/components";
 import { MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
 
 import { ButtonBase } from "../base";
@@ -79,36 +79,21 @@ function ButtonMenu(props: ButtonSplitProps): ReactElement {
 			positionStrategies={BUTTON_SPLIT_MENU_TOOLTIP_POSITION_STRATEGIES_EXTERNAL}
 			tooltipInteractionType={TooltipInteraction.Click}
 		>
-			{(tooltipChildProps) => <ButtonMenuChild
-				buttonSplitProps={props}
-				tooltipChildProps={tooltipChildProps}
-			/>}
+			<ButtonMenuChild {...props} />
 		</Tooltip>
 	);
 }
 
-function ButtonMenuChild(props: {
-	buttonSplitProps: ButtonSplitProps;
-	tooltipChildProps: TooltipChildProps;
-}): ReactElement {
+function ButtonMenuChild(props: ButtonSplitProps): ReactElement {
 
-	const [isExpanded, setIsExpanded] = useState<boolean>(() => false);
-	const isExpandedRef = useRef<boolean>(isExpanded);
-	const handleIsExpanded = useCallback(
-		(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-			if (props.tooltipChildProps.tooltipInteractionType !== TooltipInteraction.Click) return;
-			const isExpandedNew = !isExpandedRef.current
-			isExpandedRef.current = isExpandedNew;
-			setIsExpanded(isExpandedNew);
-			props.tooltipChildProps.childProps.onClick(event);
-		},
-		[props.tooltipChildProps.childProps, props.tooltipChildProps.tooltipInteractionType]
-	);
+	const tooltipChildProps = useTooltipChildPropsContext();
+	const tooltipShow = useTooltipShowContext();
+
 	const [isHovered, setIsHovered] = useState<boolean>(() => false);
 	const [isPressed, setIsPressed] = useState<boolean>(() => false);
-	const [buttonColourState] = useButtonSplitColourState(props.buttonSplitProps, isHovered, isPressed);
+	const [buttonColourState] = useButtonSplitColourState(props, isHovered, isPressed);
 
-	if (props.tooltipChildProps.tooltipInteractionType !== TooltipInteraction.Click) return (
+	if (tooltipChildProps.tooltipInteractionType !== TooltipInteraction.Click) return (
 		<Fragment key="no-button-menu-child" />
 	);
 
@@ -116,52 +101,52 @@ function ButtonMenuChild(props: {
 		ButtonBase(
 			{
 				content: ButtonContent.Icon,
-				iconName: isExpanded ? MaterialIconName.KeyboardArrowUp : MaterialIconName.KeyboardArrowDown,
+				iconName: tooltipShow ? MaterialIconName.KeyboardArrowUp : MaterialIconName.KeyboardArrowDown,
 				iconStyle: (
-					(props.buttonSplitProps.content === ButtonContent.Icon || props.buttonSplitProps.content === ButtonContent.IconLabel) ?
-						props.buttonSplitProps.iconStyle :
+					(props.content === ButtonContent.Icon || props.content === ButtonContent.IconLabel) ?
+						props.iconStyle :
 						MaterialIconStyle.Default
 				)
 			},
-			handleIsExpanded,
+			tooltipChildProps.childProps.onClick,
 			buttonColourState,
 			isHovered,
 			setIsHovered,
 			setIsPressed,
-			BUTTON_SPLIT_PROPERTY_MAP.size[props.buttonSplitProps.size].menu.iconSize,
+			BUTTON_SPLIT_PROPERTY_MAP.size[props.size].menu.iconSize,
 			{
 				alignItems: "center",
 				backgroundColor: buttonColourState.backgroundColour?.toColourString(),
 				borderBottomLeftRadius: (
-					isExpanded ?
-						BUTTON_SPLIT_PROPERTY_MAP.size[props.buttonSplitProps.size].menu.borderRadius.inside.expanded :
-						BUTTON_SPLIT_PROPERTY_MAP.size[props.buttonSplitProps.size].menu.borderRadius.inside.collapsed
+					tooltipShow ?
+						BUTTON_SPLIT_PROPERTY_MAP.size[props.size].menu.borderRadius.inside.expanded :
+						BUTTON_SPLIT_PROPERTY_MAP.size[props.size].menu.borderRadius.inside.collapsed
 				),
-				borderBottomRightRadius: BUTTON_SPLIT_PROPERTY_MAP.size[props.buttonSplitProps.size].menu.borderRadius.outside,
+				borderBottomRightRadius: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].menu.borderRadius.outside,
 				borderColor: buttonColourState.borderColour?.toColourString(),
-				borderStyle: BUTTON_SPLIT_PROPERTY_MAP.style[props.buttonSplitProps.style].borderStyle,
+				borderStyle: BUTTON_SPLIT_PROPERTY_MAP.style[props.style].borderStyle,
 				borderTopLeftRadius: (
-					isExpanded ?
-						BUTTON_SPLIT_PROPERTY_MAP.size[props.buttonSplitProps.size].menu.borderRadius.inside.expanded :
-						BUTTON_SPLIT_PROPERTY_MAP.size[props.buttonSplitProps.size].menu.borderRadius.inside.collapsed
+					tooltipShow ?
+						BUTTON_SPLIT_PROPERTY_MAP.size[props.size].menu.borderRadius.inside.expanded :
+						BUTTON_SPLIT_PROPERTY_MAP.size[props.size].menu.borderRadius.inside.collapsed
 				),
-				borderTopRightRadius: BUTTON_SPLIT_PROPERTY_MAP.size[props.buttonSplitProps.size].menu.borderRadius.outside,
-				borderWidth: BUTTON_SPLIT_PROPERTY_MAP.style[props.buttonSplitProps.style].borderWidth,
+				borderTopRightRadius: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].menu.borderRadius.outside,
+				borderWidth: BUTTON_SPLIT_PROPERTY_MAP.style[props.style].borderWidth,
 				boxShadow: buttonColourState.boxShadow,
 				boxSizing: "border-box",
 				display: "inline-flex",
 				flexDirection: "row",
 				flexShrink: 0,
-				height: BUTTON_SPLIT_PROPERTY_MAP.size[props.buttonSplitProps.size].height,
+				height: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].height,
 				justifyContent: "center",
 				overflow: "hidden",
 				position: "relative",
 				transitionDuration: `${BUTTON_SPLIT_PROPERTY_MAP.transition.borderRadius.durationMs}ms`,
 				transitionProperty: "border-radius",
-				width: BUTTON_SPLIT_PROPERTY_MAP.size[props.buttonSplitProps.size].menu.width
+				width: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].menu.width
 			},
-			props.buttonSplitProps.isDisabled,
-			props.tooltipChildProps.childProps.ref
+			props.isDisabled,
+			tooltipChildProps.childProps.ref
 		)
 	);
 }
