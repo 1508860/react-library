@@ -6,6 +6,7 @@ export function demoColumnStyle(props: DemoColumnProps): CSSProperties {
 		display: "inline-block",
 		flexGrow: Math.max(props.weight, 1),
 		flexShrink: 0,
-		overflow: "hidden"
+		overflow: "hidden",
+		width: 0
 	};
 }

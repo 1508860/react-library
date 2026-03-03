@@ -2,7 +2,15 @@ import type { ReactElement } from "react";
 
 import { useRouterNotifierContext, type RouterElementWithChildrenProps } from "@react-library/router";
 
-import { DemoColumn, DemoContent, DemoContentChildren, DemoContentChildrenItem, DemoContentColourScheme, DemoContentJustify } from "@react-library-demo/shared";
+import {
+	DemoColumn,
+	DemoColumnContainer,
+	DemoContent,
+	DemoContentChildren,
+	DemoContentChildrenItem,
+	DemoContentColourScheme,
+	DemoContentJustify
+} from "@react-library-demo/shared";
 
 import { RouterBasicDemoSegmentId } from "../enums/router-basic-demo-segment-id.type";
 import { Orientation } from "@react-library/common";
@@ -14,7 +22,7 @@ import { Orientation } from "@react-library/common";
 export function ReactLibraryRouterBasicDemoElementRoot(props: RouterElementWithChildrenProps): ReactElement {
 	const routerNotifier = useRouterNotifierContext();
 	return (
-		<>
+		<DemoColumnContainer width="100%">
 			<DemoColumn
 				key="route-list"
 				weight={1}
@@ -38,10 +46,10 @@ export function ReactLibraryRouterBasicDemoElementRoot(props: RouterElementWithC
 			</DemoColumn>
 			<DemoColumn
 				key="route-elements"
-				weight={10}
+				weight={5}
 			>
 				{props.children}
 			</DemoColumn>
-		</>
+		</DemoColumnContainer>
 	);
 }
