@@ -25,7 +25,7 @@ export function demoSelectorItemListStyle(): CSSProperties {
 		height: "100%",
 		overflowX: "hidden",
 		overflowY: "auto",
-		width: 200
+		width: 220
 	};
 }
 
