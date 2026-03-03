@@ -1,6 +1,7 @@
 export * from "./enums/position-strategy-external.type";
 export * from "./functions/is-position-strategy-external-equal.function";
 export * from "./functions/is-position-strategy-external-type-in.function";
+export * from "./functions/resolve-position-strategy-external-all.function";
 export * from "./functions/resolve-position-strategy-external-margin-horizontal.function";
 export * from "./functions/resolve-position-strategy-external-margin-vertical.function";
 export * from "./types/position-strategy-external-all.type";

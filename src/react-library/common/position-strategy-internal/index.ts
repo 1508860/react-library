@@ -6,6 +6,7 @@ export * from "./functions/position-strategy-internal-margin-bottom.function";
 export * from "./functions/position-strategy-internal-margin-left.function";
 export * from "./functions/position-strategy-internal-margin-right.function";
 export * from "./functions/position-strategy-internal-margin-top.function";
+export * from "./functions/resolve-position-strategy-internal-all.function";
 export * from "./types/position-strategy-internal-all.type";
 export * from "./types/position-strategy-internal-base.type";
 export * from "./types/position-strategy-internal-bottom-center.type";
