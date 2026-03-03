@@ -21,8 +21,8 @@ import type { DemoContentChildrenProps } from "./demo-content-children-props.typ
 import type { DemoContentIndentIndex } from "./demo-content-indent-index.type";
 
 export type DemoContentProps = (
-	DemoContentChildrenProps &
 	IColourScheme<DemoContentColourScheme> &
+	DemoContentChildrenProps &
 	IHeight<Size | "auto"> &
 	Partial<IIncludeRenderCounter<boolean>> &
 	Partial<IIndentIndex<DemoContentIndentIndex>> &
