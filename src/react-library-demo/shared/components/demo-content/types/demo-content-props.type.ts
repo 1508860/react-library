@@ -6,6 +6,10 @@ import type {
 	IIndentIndex,
 	IJustify,
 	IOrientation,
+	IPaddingBottom,
+	IPaddingLeft,
+	IPaddingRight,
+	IPaddingTop,
 	IWidth,
 	Orientation,
 	Size
@@ -17,12 +21,16 @@ import type { DemoContentChildrenProps } from "./demo-content-children-props.typ
 import type { DemoContentIndentIndex } from "./demo-content-indent-index.type";
 
 export type DemoContentProps = (
-	IColourScheme<DemoContentColourScheme> &
 	DemoContentChildrenProps &
+	IColourScheme<DemoContentColourScheme> &
 	IHeight<Size | "auto"> &
 	Partial<IIncludeRenderCounter<boolean>> &
 	Partial<IIndentIndex<DemoContentIndentIndex>> &
 	IJustify<DemoContentJustify> &
 	IOrientation<Orientation> &
+	Partial<IPaddingBottom<Size>> &
+	Partial<IPaddingLeft<Size>> &
+	Partial<IPaddingRight<Size>> &
+	Partial<IPaddingTop<Size>> &
 	IWidth<Size | "auto">
 );

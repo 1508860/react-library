@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import { Orientation, type Font } from "@react-library/common";
+import { Orientation, toSizeWithUnits, type Font } from "@react-library/common";
 
 import { DemoContentColourSchemeMap } from "../enums/demo-content-colour-scheme.type";
 import type { DemoContentProps } from "../types/demo-content-props.type";
@@ -17,8 +17,11 @@ export function demoContentStyle(props: DemoContentProps, font: Font): CSSProper
 		gap: 10,
 		height: props.height,
 		justifyContent: props.justify,
-		paddingLeft: props.indentIndex === undefined ? undefined : (props.indentIndex * 20),
 		textAlign: "center",
+		paddingBottom: props.paddingBottom,
+		paddingTop: props.paddingTop,
+		paddingLeft: `calc(${toSizeWithUnits(props.paddingLeft ?? 0)} + ${toSizeWithUnits(props.indentIndex === undefined ? 0 : (props.indentIndex * 20))})`,
+		paddingRight: props.paddingRight,
 		width: props.width
 	};
 }
