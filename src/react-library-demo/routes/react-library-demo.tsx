@@ -33,7 +33,7 @@ export function ReactLibraryDemo() {
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaultSubItemId={ReactLibraryComponentsDemo.PointerMove}
+										defaultSubItemId={ReactLibraryComponentsDemo.RootViewportPositionPx}
 									>
 										{{
 											id: 1,

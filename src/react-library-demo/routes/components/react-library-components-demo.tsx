@@ -4,6 +4,7 @@ import { ReactLibraryComponentsDemo } from "./react-library-components-demo.type
 import { ReactLibraryComponentsInputCurrencyDemo } from "./input-currency";
 import { ReactLibraryComponentsModalDemo } from "./modal";
 import { ReactLibraryComponentsPointerMoveDemo } from "./pointer-move";
+import { ReactLibraryComponentsRootViewportPositionPxDemo } from "./root-viewport-position-px";
 import { ReactLibraryComponentsTooltipsDemo } from "./tooltips";
 import { ReactLibraryComponentsViewDividerDemo } from "./view-divider";
 import { ReactLibraryComponentsVirtualScrollDemo } from "./virtual-scroll";
@@ -24,6 +25,11 @@ export function ReactLibraryComponentsDemoList(): DemoSelectorSubItems<ReactLibr
 			element: () => <ReactLibraryComponentsPointerMoveDemo />,
 			id: ReactLibraryComponentsDemo.PointerMove,
 			title: "Pointer Move"
+		},
+		{
+			element: () => <ReactLibraryComponentsRootViewportPositionPxDemo />,
+			id: ReactLibraryComponentsDemo.RootViewportPositionPx,
+			title: "Root Viewport Position PX"
 		},
 		{
 			element: () => <ReactLibraryComponentsTooltipsDemo />,
