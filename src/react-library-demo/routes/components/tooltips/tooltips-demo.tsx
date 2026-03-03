@@ -46,23 +46,18 @@ export function ReactLibraryComponentsTooltipsDemo() {
 	]);
 
 	return (
-		<>
-			<DemoSection
-				key="standard"
-				title="Side Sheet - Standard"
-			>
-				{tooltipPositionStrategies.map(tooltipPositionStrategy => (
-					<DemoItem
-						height={300}
-						key={tooltipPositionStrategy.positionType}
-						label={tooltipPositionStrategy.positionType}
-						width={300}
-					>
-						<TooltipDemoContainer tooltipPositionStrategy={tooltipPositionStrategy} />
-					</DemoItem>
-				))}
-			</DemoSection>
-		</>
+		<DemoSection title="Side Sheet - Standard">
+			{tooltipPositionStrategies.map(tooltipPositionStrategy => (
+				<DemoItem
+					height={300}
+					key={tooltipPositionStrategy.positionType}
+					label={tooltipPositionStrategy.positionType}
+					width={300}
+				>
+					<TooltipDemoContainer tooltipPositionStrategy={tooltipPositionStrategy} />
+				</DemoItem>
+			))}
+		</DemoSection>
 	);
 }
 

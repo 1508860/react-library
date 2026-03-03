@@ -51,24 +51,20 @@ export function ReactLibraryComponentsModalDemo() {
 	));
 
 	return (
-		<>
-			<DemoSection
-				key="modal"
-				title="Modal"
-			>
-				<DemoContent
-					childrenType={DemoContentChildren.Items}
-					colourScheme={DemoContentColourScheme.Primary}
-					height={500}
-					includeRenderCounter={true}
-					items={demoContentItems}
-					justify={DemoContentJustify.Center}
-					key="demo-content"
-					orientation={Orientation.Vertical}
-					width="100%"
-				/>
-				{
-					currentModalPositionStrategy ?
+		<DemoSection title="Modal">
+			<DemoContent
+				childrenType={DemoContentChildren.Items}
+				colourScheme={DemoContentColourScheme.Primary}
+				height={500}
+				includeRenderCounter={true}
+				items={demoContentItems}
+				justify={DemoContentJustify.Center}
+				key="demo-content"
+				orientation={Orientation.Vertical}
+				width="100%"
+			/>
+			{
+				currentModalPositionStrategy ?
 					<Modal
 						backdropColour={colourScheme.backdrop.colour}
 						key="modal"
@@ -92,8 +88,7 @@ export function ReactLibraryComponentsModalDemo() {
 						/>
 					</Modal> :
 					<Fragment key="no-modal" />
-				}
-			</DemoSection>
-		</>
+			}
+		</DemoSection>
 	);
 }
