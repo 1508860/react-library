@@ -3,6 +3,7 @@ import type { DemoSelectorSubItems } from "@react-library-demo/shared";
 import { ReactLibraryComponentsDemo } from "./react-library-components-demo.type";
 import { ReactLibraryComponentsInputCurrencyDemo } from "./input-currency";
 import { ReactLibraryComponentsModalDemo } from "./modal";
+import { ReactLibraryComponentsPointerMoveDemo } from "./pointer-move";
 import { ReactLibraryComponentsTooltipsDemo } from "./tooltips";
 import { ReactLibraryComponentsViewDividerDemo } from "./view-divider";
 import { ReactLibraryComponentsVirtualScrollDemo } from "./virtual-scroll";
@@ -18,6 +19,11 @@ export function ReactLibraryComponentsDemoList(): DemoSelectorSubItems<ReactLibr
 			element: () => <ReactLibraryComponentsModalDemo />,
 			id: ReactLibraryComponentsDemo.Modal,
 			title: "Modal"
+		},
+		{
+			element: () => <ReactLibraryComponentsPointerMoveDemo />,
+			id: ReactLibraryComponentsDemo.PointerMove,
+			title: "Pointer Move"
 		},
 		{
 			element: () => <ReactLibraryComponentsTooltipsDemo />,

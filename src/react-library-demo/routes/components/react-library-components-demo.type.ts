@@ -4,6 +4,7 @@
 export const ReactLibraryComponentsDemo = {
 	"InputCurrency": "ReactLibraryComponentsDemo-InputCurrency",
 	"Modal": "ReactLibraryComponentsDemo-Modal",
+	"PointerMove": "ReactLibraryComponentsDemo-PointerMove",
 	"Tooltips": "ReactLibraryComponentsDemo-Tooltips",
 	"ViewDivider": "ReactLibraryComponentsDemo-ViewDivider",
 	"VirtualScroll": "ReactLibraryComponentsDemo-VirtualScroll"
