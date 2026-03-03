@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import {
+	Orientation,
 	useCurrencyDisplayState,
 	useCurrencyRoundedDisplayState,
 	useCurrencyRoundedState,
@@ -8,6 +9,15 @@ import {
 	type Currency
 } from "@react-library/common";
 import { InputCurrency } from "@react-library/components";
+
+import {
+	DemoContent,
+	DemoContentChildren,
+	DemoContentChildrenItem,
+	DemoContentColourScheme,
+	DemoContentJustify,
+	DemoSection
+} from "@react-library-demo/shared";
 
 export function ReactLibraryComponentsInputCurrencyDemo() {
 
@@ -19,45 +29,72 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 	const [currencyRoundedDisplayState] = useCurrencyRoundedDisplayState(value);
 
 	return (
-		<>
-			<InputCurrency
+		<DemoSection title="Input Currency">
+			<DemoContent
+				childrenType={DemoContentChildren.Any}
+				colourScheme={DemoContentColourScheme.Primary}
+				height={"auto"}
+				justify={DemoContentJustify.Center}
 				key="input-currency"
-				onValueChange={setValue}
-				value={value}
+				orientation={Orientation.Vertical}
+				paddingBottom={20}
+				paddingLeft={20}
+				paddingRight={20}
+				paddingTop={20}
+				width="100%"
+			>
+				<InputCurrency
+					id="input-currency"
+					name="input-currency"
+					onValueChange={setValue}
+					style={{ width: "100%" }}
+					value={value}
+				/>
+			</DemoContent>
+			<DemoContent
+				childrenType={DemoContentChildren.Any}
+				colourScheme={DemoContentColourScheme.Primary}
+				height={"auto"}
+				justify={DemoContentJustify.Center}
+				key="input-currency"
+				orientation={Orientation.Vertical}
+				paddingBottom={20}
+				paddingLeft={20}
+				paddingRight={20}
+				paddingTop={20}
+				width="100%"
+			>
+				<InputCurrency
+					id="input-currency-disabled-placeholder"
+					isDisabled={true}
+					key="input-currency-disabled-placeholder"
+					name="input-currency-disabled-placeholder"
+					onValueChange={() => { }}
+					placeholder="Disabled Placeholder"
+					style={{ width: "100%" }}
+					value={undefined}
+				/>
+			</DemoContent>
+			<DemoContent
+				childrenType={DemoContentChildren.Items}
+				colourScheme={DemoContentColourScheme.Secondary}
+				height={"auto"}
+				includeRenderCounter={true}
+				items={[
+					{ type: DemoContentChildrenItem.Text, id: 1, text: `Raw Value - ${value}` },
+					{ type: DemoContentChildrenItem.Text, id: 2, text: `Currency - ${currencyState}` },
+					{ type: DemoContentChildrenItem.Text, id: 3, text: `Currency Rounded - ${currencyRoundedState}` },
+					{ type: DemoContentChildrenItem.Text, id: 4, text: `Currency Display - ${currencyDisplayState}` },
+					{ type: DemoContentChildrenItem.Text, id: 5, text: `Currency Rounded Display - ${currencyRoundedDisplayState}` }
+				]}
+				justify={DemoContentJustify.Center}
+				orientation={Orientation.Vertical}
+				paddingBottom={20}
+				paddingLeft={20}
+				paddingRight={20}
+				paddingTop={20}
+				width="100%"
 			/>
-			<InputCurrency
-				isDisabled={true}
-				key="input-currency-disabled-placeholder"
-				onValueChange={() => { }}
-				placeholder="Disabled Placeholder"
-				value={undefined}
-			/>
-			<table key="input-currency-formatter">
-				<thead>
-					<tr>
-						<th>Formatter</th>
-						<th>Value</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Currency</td>
-						<td>{currencyState}</td>
-					</tr>
-					<tr>
-						<td>Currency Rounded</td>
-						<td>{currencyRoundedState}</td>
-					</tr>
-					<tr>
-						<td>Currency Display</td>
-						<td>{currencyDisplayState}</td>
-					</tr>
-					<tr>
-						<td>Currency Rounded Display</td>
-						<td>{currencyRoundedDisplayState}</td>
-					</tr>
-				</tbody>
-			</table>
-		</>
+		</DemoSection>
 	);
 }
