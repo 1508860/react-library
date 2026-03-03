@@ -7,8 +7,8 @@ import type { ModalPositionStrategyProps } from "../../../types/modal-position-s
  * Modal container props
  */
 export type ModalContainerProps = (
-	ModalBackgroundColour &
+	Partial<ModalBackgroundColour> &
 	ModalChild &
-	ModalDimensions &
+	Partial<ModalDimensions> &
 	ModalPositionStrategyProps
 );

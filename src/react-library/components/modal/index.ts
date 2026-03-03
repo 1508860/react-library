@@ -5,4 +5,5 @@ export * from "./types/modal-dimensions.type";
 export * from "./types/modal-on-dismiss.type";
 export * from "./types/modal-position-strategy-internal.type";
 export * from "./types/modal-position-strategy-props.type";
+export * from "./types/modal-props.type";
 export * from "./modal";

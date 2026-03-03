@@ -11,8 +11,8 @@ import type { ModalPositionStrategyProps } from "./modal-position-strategy-props
 export type ModalProps = (
 	Partial<ModalBackdropColour> &
 	Partial<ModalOnDismiss> &
-	ModalBackgroundColour &
+	Partial<ModalBackgroundColour> &
 	ModalChild &
-	ModalDimensions &
+	Partial<ModalDimensions> &
 	ModalPositionStrategyProps
 );

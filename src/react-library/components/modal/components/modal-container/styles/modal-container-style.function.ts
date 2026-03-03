@@ -20,9 +20,9 @@ import type { ModalPositionStrategyInternal } from "../../../types/modal-positio
  */
 export function modalContainerStyle(
 	positionStrategy: ModalPositionStrategyInternal,
-	height: Size,
-	width: Size,
-	backgroundColour: Colour | undefined
+	height?: Size,
+	width?: Size,
+	backgroundColour?: Colour | undefined
 ): CSSProperties {
 	return {
 		backgroundColor: backgroundColour?.toColourString(),

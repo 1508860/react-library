@@ -3,6 +3,7 @@
  */
 export const ReactLibraryComponentsDemo = {
 	"InputCurrency": "ReactLibraryComponentsDemo-InputCurrency",
+	"Modal": "ReactLibraryComponentsDemo-Modal",
 	"Tooltips": "ReactLibraryComponentsDemo-Tooltips",
 	"ViewDivider": "ReactLibraryComponentsDemo-ViewDivider",
 	"VirtualScroll": "ReactLibraryComponentsDemo-VirtualScroll"
