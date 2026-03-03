@@ -17,14 +17,14 @@ export function InputCurrency(props: InputCurrencyProps) {
 	const [isFocused, setIsFocused] = useState<boolean>(() => false);
 	const handleBlur = useCallback(
 		() => {
-			if (props.onBlur) props.onBlur();
+			if (props.onBlur) props.onBlur(props.value);
 			setIsFocused(false);
 		},
 		[props]
 	);
 	const handleFocus = useCallback(
 		() => {
-			if (props.onFocus) props.onFocus();
+			if (props.onFocus) props.onFocus(props.value);
 			setIsFocused(true);
 		},
 		[props]

@@ -21,8 +21,8 @@ export type InputCurrencyProps = (
 	Partial<IId<(number | string)>> &
 	Partial<IIsDisabled> &
 	Partial<IName<string>> &
-	Partial<IOnBlur<Callback<void>>> &
-	Partial<IOnFocus<Callback<void>>> &
+	Partial<IOnBlur<CallbackWithParameter<(Currency | undefined), void>>> &
+	Partial<IOnFocus<CallbackWithParameter<(Currency | undefined), void>>> &
 	IOnValueChange<CallbackWithParameter<(Currency | undefined), void>> &
 	Partial<IPlaceholder<string>> &
 	Partial<IStyle<CSSProperties>> &
