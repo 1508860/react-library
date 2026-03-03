@@ -30,14 +30,16 @@ export function InputCurrency(props: InputCurrencyProps) {
 	return (
 		<input
 			disabled={props.isDisabled}
+			id={`${props.id}`}
+			name={props.name}
 			onBlur={handleUnfocus}
-			onFocus={handleFocus}
 			onChange={handleOnValueChange}
+			onFocus={handleFocus}
+			placeholder={props.placeholder}
 			step={isFocused ? 0.01 : undefined}
 			style={props.style}
 			type={isFocused ? "number" : "text"}
 			value={(isFocused ? props.value : currencyDisplayState) ?? ""}
-			placeholder={props.placeholder}
 		/>
 	);
 }
