@@ -15,8 +15,20 @@ export function InputCurrency(props: InputCurrencyProps) {
 
 	// Used to switch between an input that displays currency vs an input where we can enter a numerical value
 	const [isFocused, setIsFocused] = useState<boolean>(() => false);
-	const handleFocus = useCallback(() => setIsFocused(true), []);
-	const handleUnfocus = useCallback(() => setIsFocused(false), []);
+	const handleBlur = useCallback(
+		() => {
+			if (props.onBlur) props.onBlur();
+			setIsFocused(false);
+		},
+		[props]
+	);
+	const handleFocus = useCallback(
+		() => {
+			if (props.onFocus) props.onFocus();
+			setIsFocused(true);
+		},
+		[props]
+	);
 
 	// Handle updates to input value
 	const handleUseCurrencyCallback = useCurrencyCallback();
@@ -32,7 +44,7 @@ export function InputCurrency(props: InputCurrencyProps) {
 			disabled={props.isDisabled}
 			id={`${props.id}`}
 			name={props.name}
-			onBlur={handleUnfocus}
+			onBlur={handleBlur}
 			onChange={handleOnValueChange}
 			onFocus={handleFocus}
 			placeholder={props.placeholder}
