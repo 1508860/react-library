@@ -8,14 +8,14 @@ import { useLanguageCodeContext } from "../../../iso";
  */
 export function useCurrencyFormatterState(roundValue: boolean): [Intl.NumberFormat | null] {
 
-	const useLanguageCode = useLanguageCodeContext();
+	const languageCode = useLanguageCodeContext();
 
 	const [state, setState] = useState<Intl.NumberFormat | null>(null);
 
 	useEffect(
 		() => setState(
 			new Intl.NumberFormat(
-				useLanguageCode,
+				languageCode,
 				{
 					style: "decimal",
 					useGrouping: false,
@@ -24,7 +24,7 @@ export function useCurrencyFormatterState(roundValue: boolean): [Intl.NumberForm
 				}
 			)
 		),
-		[roundValue, useLanguageCode]
+		[roundValue, languageCode]
 	);
 
 	return [state];

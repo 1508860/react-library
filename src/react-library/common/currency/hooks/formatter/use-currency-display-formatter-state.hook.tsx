@@ -11,25 +11,25 @@ import {
  */
 export function useCurrencyDisplayFormatterState(roundValue: boolean): [Intl.NumberFormat | null] {
 
-	const useCurrencyCode = useCurrencyCodeContext();
-	const useLanguageCode = useLanguageCodeContext();
+	const currencyCode = useCurrencyCodeContext();
+	const languageCode = useLanguageCodeContext();
 
 	const [state, setState] = useState<Intl.NumberFormat | null>(null);
 
 	useEffect(
 		() => setState(
 			new Intl.NumberFormat(
-				useLanguageCode,
+				languageCode,
 				{
 					style: "currency",
-					currency: useCurrencyCode,
+					currency: currencyCode,
 					useGrouping: true,
 					minimumFractionDigits: roundValue ? 0 : 2,
 					maximumFractionDigits: roundValue ? 0 : 2
 				}
 			)
 		),
-		[roundValue, useCurrencyCode, useLanguageCode]
+		[roundValue, currencyCode, languageCode]
 	);
 
 	return [state];
