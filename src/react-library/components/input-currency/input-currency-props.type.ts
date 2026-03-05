@@ -1,5 +1,4 @@
 import type {
-	Callback,
 	CallbackWithParameter,
 	Currency,
 	IId,
