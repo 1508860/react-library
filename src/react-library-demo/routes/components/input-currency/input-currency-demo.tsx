@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import {
+	DateDisplayStyle,
 	Orientation,
+	TimeDisplayStyle,
 	useCurrencyDisplayState,
 	useCurrencyRoundedDisplayState,
 	useCurrencyRoundedState,
 	useCurrencyState,
+	useDateTimeDisplayState,
 	type Currency
 } from "@react-library/common";
 import { InputCurrency } from "@react-library/components";
@@ -28,12 +31,20 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 	const [currencyDisplayState] = useCurrencyDisplayState(value);
 	const [currencyRoundedDisplayState] = useCurrencyRoundedDisplayState(value);
 
+	const [onFocusDate, setOnFocusDate] = useState<Date | undefined>(() => undefined)
+	const handleOnFocus = useCallback(() => setOnFocusDate(new Date()), []);
+	const onFocusDateDisplay = useDateTimeDisplayState(onFocusDate, DateDisplayStyle.Long, TimeDisplayStyle.Decisecond);
+
+	const [onBlurDate, setOnBlurDate] = useState<Date | undefined>(() => undefined)
+	const handleOnBlur = useCallback(() => setOnBlurDate(new Date()), []);
+	const onBlurDateDisplay = useDateTimeDisplayState(onBlurDate, DateDisplayStyle.Long, TimeDisplayStyle.Decisecond);
+
 	return (
 		<DemoSection title="Input Currency">
 			<DemoContent
 				childrenType={DemoContentChildren.Any}
 				colourScheme={DemoContentColourScheme.Primary}
-				height={"auto"}
+				height="auto"
 				justify={DemoContentJustify.Center}
 				key="input-currency"
 				orientation={Orientation.Vertical}
@@ -46,7 +57,10 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 				<InputCurrency
 					id="input-currency"
 					name="input-currency"
+					onBlur={handleOnBlur}
+					onFocus={handleOnFocus}
 					onValueChange={setValue}
+					placeholder="Placeholder"
 					style={{ width: "100%" }}
 					value={value}
 				/>
@@ -54,9 +68,9 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 			<DemoContent
 				childrenType={DemoContentChildren.Any}
 				colourScheme={DemoContentColourScheme.Primary}
-				height={"auto"}
+				height="auto"
 				justify={DemoContentJustify.Center}
-				key="input-currency"
+				key="input-currency-disabled-placeholder"
 				orientation={Orientation.Vertical}
 				paddingBottom={20}
 				paddingLeft={20}
@@ -67,7 +81,6 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 				<InputCurrency
 					id="input-currency-disabled-placeholder"
 					isDisabled={true}
-					key="input-currency-disabled-placeholder"
 					name="input-currency-disabled-placeholder"
 					onValueChange={() => { }}
 					placeholder="Disabled Placeholder"
@@ -78,14 +91,29 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 			<DemoContent
 				childrenType={DemoContentChildren.Items}
 				colourScheme={DemoContentColourScheme.Secondary}
-				height={"auto"}
-				includeRenderCounter={true}
+				height="auto"
 				items={[
 					{ type: DemoContentChildrenItem.Text, id: 1, text: `Raw Value - ${value}` },
 					{ type: DemoContentChildrenItem.Text, id: 2, text: `Currency - ${currencyState}` },
 					{ type: DemoContentChildrenItem.Text, id: 3, text: `Currency Rounded - ${currencyRoundedState}` },
 					{ type: DemoContentChildrenItem.Text, id: 4, text: `Currency Display - ${currencyDisplayState}` },
-					{ type: DemoContentChildrenItem.Text, id: 5, text: `Currency Rounded Display - ${currencyRoundedDisplayState}` }
+					{ type: DemoContentChildrenItem.Text, id: 5, text: `Currency Rounded Display - ${currencyRoundedDisplayState}` },
+				]}
+				justify={DemoContentJustify.Center}
+				orientation={Orientation.Vertical}
+				paddingBottom={20}
+				paddingLeft={20}
+				paddingRight={20}
+				paddingTop={20}
+				width="100%"
+			/>
+			<DemoContent
+				childrenType={DemoContentChildren.Items}
+				colourScheme={DemoContentColourScheme.Tertiary}
+				height="auto"
+				items={[
+					{ type: DemoContentChildrenItem.Text, id: 1, text: `On Focus - ${onFocusDateDisplay}` },
+					{ type: DemoContentChildrenItem.Text, id: 2, text: `On Blur - ${onBlurDateDisplay}` }
 				]}
 				justify={DemoContentJustify.Center}
 				orientation={Orientation.Vertical}
