@@ -12,7 +12,7 @@ import { OverlayPortal, RootViewportPositionPx } from "@react-library/components
 
 import { DemoSelector } from "@react-library-demo/shared";
 
-import { DEMO_COLOUR_SCHEME, DEMO_FONT } from "./common";
+import { DEMO_COLOUR_SCHEME, DEMO_FONT, ReactLibraryCommonDemo, ReactLibraryCommonDemoList } from "./common";
 import { ReactLibraryComponentsDemo, ReactLibraryComponentsDemoList } from "./components";
 import { ReactLibraryMaterialIconsDemo, ReactLibraryMaterialIconsDemoList } from "./material-icons";
 import { ReactLibraryRouterDemo, ReactLibraryRouterDemoList } from "./router";
@@ -28,30 +28,36 @@ export function ReactLibraryDemo() {
 							<FontProvider value={DEMO_FONT}>
 								<OverlayPortal>
 									<DemoSelector<
+										ReactLibraryCommonDemo |
 										ReactLibraryComponentsDemo |
 										ReactLibraryMaterialIconsDemo |
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaultSubItemId={ReactLibraryComponentsDemo.RootViewportPositionPx}
+										defaultSubItemId={ReactLibraryCommonDemo.Date}
 									>
 										{{
 											id: 1,
+											subItems: ReactLibraryCommonDemoList(),
+											title: "Common"
+										}}
+										{{
+											id: 2,
 											subItems: ReactLibraryComponentsDemoList(),
 											title: "Components"
 										}}
 										{{
-											id: 2,
+											id: 3,
 											subItems: ReactLibraryMaterialIconsDemoList(),
 											title: "Material Icons"
 										}}
 										{{
-											id: 3,
+											id: 4,
 											subItems: ReactLibraryRouterDemoList(),
 											title: "Router"
 										}}
 										{{
-											id: 4,
+											id: 5,
 											subItems: ReactLibraryThemedComponentsDemoList(),
 											title: "Themed Components"
 										}}
