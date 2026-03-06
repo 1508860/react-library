@@ -13,13 +13,13 @@ export function DemoItem(props: DemoItemProps) {
 	const font = useFontContext();
 
 	return (
-		<div style={demoItemStyle()}>
+		<div style={demoItemStyle(font)}>
 			<div style={demoItemContent(props)}>
 				{props.children}
 			</div>
 			{
 				((props.label?.length ?? 0) > 0) ?
-					<div style={demoItemLabel(font)}>{props.label}</div> :
+					<div style={demoItemLabel()}>{props.label}</div> :
 					<></>
 			}
 			{

@@ -4,11 +4,12 @@ import type { Font } from "@react-library/common";
 
 import type { DemoItemProps } from "./demo-item-props.type";
 
-export function demoItemStyle(): CSSProperties {
+export function demoItemStyle(font: Font): CSSProperties {
 	return {
 		alignItems: "center",
 		display: "flex",
 		flexDirection: "column",
+		fontFamily: font.fontFamily,
 		justifyContent: "center"
 	};
 }
@@ -24,9 +25,8 @@ export function demoItemContent(props: DemoItemProps): CSSProperties {
 	};
 }
 
-export function demoItemLabel(font: Font): CSSProperties {
+export function demoItemLabel(): CSSProperties {
 	return {
-		fontFamily: font.fontFamily,
 		fontSize: 16,
 		fontWeight: "bold",
 		paddingTop: 10
