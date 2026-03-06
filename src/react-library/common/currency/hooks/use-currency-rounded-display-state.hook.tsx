@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
 
 import type { CurrencyDisplay } from "../types/currency-display.type";
-import type { Currency } from "../types/currency.type";
+import type { CurrencyValue } from "../types/currency-value.type";
 import { useCurrencyDisplayFormatterState } from "./formatter/use-currency-display-formatter-state.hook";
 
 /**
  * Custom hook for a numerical value to be mapped to a currency valid display value. Rounds value to 0 decimal places
  * @param value
  */
-export function useCurrencyRoundedDisplayState(value: Currency | null | undefined): [CurrencyDisplay | undefined] {
+export function useCurrencyRoundedDisplayState(value: CurrencyValue): [CurrencyDisplay] {
 
-	const [state, setState] = useState<CurrencyDisplay | undefined>(undefined);
+	const [state, setState] = useState<CurrencyDisplay>("");
 
 	const [currencyDisplayFormatterState] = useCurrencyDisplayFormatterState(true);
 
 	useEffect(
 		() => {
-			if (!currencyDisplayFormatterState || value === undefined || value === null || typeof value !== "number" || isNaN(value)) {
-				setState(undefined);
+			if (value === undefined || value === null || typeof value !== "number" || isNaN(value)) {
+				setState("");
 				return;
 			}
 

@@ -1,22 +1,25 @@
 import { useEffect, useState } from "react";
 
-import type { Currency } from "../types/currency.type";
+import type { CurrencyInvalidValue } from "../types/currency-invalid-value.type";
+import type { CurrencyValue } from "../types/currency-value.type";
 import { useCurrencyFormatterState } from "./formatter/use-currency-formatter-state.hook";
 
 /**
  * Custom hook for a numerical value to be mapped to a currency valid value. Rounds value to 0 decimal places
  * @param value
  */
-export function useCurrencyRoundedState(value: Currency | null | undefined): [Currency | undefined] {
+export function useCurrencyRoundedState<TCurrencyInvalidValue extends CurrencyInvalidValue = never>(
+	value: CurrencyValue<TCurrencyInvalidValue>
+): [CurrencyValue<TCurrencyInvalidValue>] {
 
-	const [state, setState] = useState<Currency | undefined>(undefined);
+	const [state, setState] = useState<CurrencyValue<TCurrencyInvalidValue>>(() => value);
 
 	const [currencyFormatterState] = useCurrencyFormatterState(true);
 
 	useEffect(
 		() => {
-			if (!currencyFormatterState || value === undefined || value === null || typeof value !== "number" || isNaN(value)) {
-				setState(undefined);
+			if (value === undefined || value === null || typeof value !== "number" || isNaN(value)) {
+				setState(value);
 				return;
 			}
 

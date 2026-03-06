@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import {
 	useCurrencyCodeContext,
@@ -9,15 +9,13 @@ import {
  * Custom hook for resolving a currency display formatter
  * @param roundValue round the value to zero decimal places or dont round to the currency's standard decimal place
  */
-export function useCurrencyDisplayFormatterState(roundValue: boolean): [Intl.NumberFormat | null] {
+export function useCurrencyDisplayFormatterState(roundValue: boolean): [Intl.NumberFormat] {
 
 	const currencyCode = useCurrencyCodeContext();
 	const languageCode = useLanguageCodeContext();
 
-	const [state, setState] = useState<Intl.NumberFormat | null>(null);
-
-	useEffect(
-		() => setState(
+	const resolveState = useCallback<() => Intl.NumberFormat>(
+		() => (
 			new Intl.NumberFormat(
 				languageCode,
 				{
@@ -30,6 +28,13 @@ export function useCurrencyDisplayFormatterState(roundValue: boolean): [Intl.Num
 			)
 		),
 		[roundValue, currencyCode, languageCode]
+	);
+
+	const [state, setState] = useState<Intl.NumberFormat>(() => resolveState());
+
+	useEffect(
+		() => setState(resolveState()),
+		[resolveState]
 	);
 
 	return [state];
