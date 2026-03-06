@@ -19,7 +19,7 @@ export function useDateTimeDisplayState(value: DateTimeValue, dateStyle: DateDis
 	const [dateTimeDisplayFormatter] = useDateTimeDisplayFormatterState(dateStyle, timeStyle);
 
 	useEffect(
-		() => setState((value && dateTimeDisplayFormatter) ? dateTimeDisplayFormatter.format(value) : ""),
+		() => setState(value ? dateTimeDisplayFormatter.format(value) : ""),
 		[value, dateTimeDisplayFormatter]
 	);
 
