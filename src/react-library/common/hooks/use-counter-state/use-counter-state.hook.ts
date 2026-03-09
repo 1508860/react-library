@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 
-import type { UseCounterState } from "./use-counter-state.type";
+import type { UseCounterState } from "./types/use-counter-state.type";
 
 /**
  * Describes use state hook to handle incrementing and decrementing a counter value

@@ -1,5 +1,5 @@
-import type { IDecrement, IIncrement, IReset, ISet, IState } from "../../interfaces";
-import type { Callback, CallbackWithParameter } from "../../types";
+import type { IDecrement, IIncrement, IReset, ISet, IState } from "../../../interfaces";
+import type { Callback, CallbackWithParameter } from "../../../types";
 
 /**
  * Return state for use counter
