@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
-import type { TransitionPulseProps } from "./transition-pulse-props.type";
-import { transitionPulseStyle } from "./transition-pulse-style.function";
+import { transitionPulseStyle } from "./styles/transition-pulse-style.function";
+import type { TransitionPulseProps } from "./types/transition-pulse-props.type";
 
 /**
  * Component for handling a pulse effect within a containing relative component

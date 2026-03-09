@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 
 import type { SizePx } from "@react-library/common";
 
-import type { TransitionPulseProps } from "./transition-pulse-props.type";
+import type { TransitionPulseProps } from "../types/transition-pulse-props.type";
 
 /**
  * Resolve transition pulse style based on parameters
