@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
 import {
-	DateDisplayStyle,
+	DateTimeDisplayLength,
 	Orientation,
 	TimeDisplayStyle,
 	useCurrencyDisplayState,
@@ -33,11 +33,11 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 
 	const [onFocusDate, setOnFocusDate] = useState<Date | undefined>(() => undefined)
 	const handleOnFocus = useCallback(() => setOnFocusDate(new Date()), []);
-	const onFocusDateDisplay = useDateTimeDisplayState(onFocusDate, DateDisplayStyle.Long, TimeDisplayStyle.Decisecond);
+	const onFocusDateDisplay = useDateTimeDisplayState(onFocusDate, TimeDisplayStyle.Decisecond, DateTimeDisplayLength.Long);
 
 	const [onBlurDate, setOnBlurDate] = useState<Date | undefined>(() => undefined)
 	const handleOnBlur = useCallback(() => setOnBlurDate(new Date()), []);
-	const onBlurDateDisplay = useDateTimeDisplayState(onBlurDate, DateDisplayStyle.Long, TimeDisplayStyle.Decisecond);
+	const onBlurDateDisplay = useDateTimeDisplayState(onBlurDate, TimeDisplayStyle.Decisecond, DateTimeDisplayLength.Long);
 
 	return (
 		<DemoSection title="Input Currency">

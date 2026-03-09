@@ -2,9 +2,9 @@
  * Date display style
  */
 export const DateDisplayStyle = {
-	"Short": "short",
-	"Medium": "medium",
-	"Long": "long"
+	Year: "year",
+	Month: "month",
+	Day: "day"
 } as const satisfies Record<string, string>;
 
 /**

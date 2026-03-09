@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 import { useLanguageCodeContext } from "../../iso";
 import { DateDisplayStyle } from "../enums/date-display-style.type";
+import type { DateTimeDisplayLength } from "../enums/date-time-display-length.type";
 import type { TimeDisplayStyle } from "../enums/time-display-style.type";
 import { resolveDateTimeDisplayFormatterDateOptions } from "../functions/resolve-date-time-display-formatter-date-options.function";
 import { resolveDateTimeDisplayFormatterTimeOptions } from "../functions/resolve-date-time-display-formatter-time-options.function";
@@ -11,8 +12,13 @@ import type { DateTimeDisplayFormatterOptions } from "../types/date-time-display
  * Custom hook for resolving a date time formatter
  * @param dateStyle
  * @param timeStyle
+ * @param length
  */
-export function useDateTimeDisplayFormatterState(dateStyle?: DateDisplayStyle, timeStyle?: TimeDisplayStyle): [Intl.DateTimeFormat] {
+export function useDateTimeDisplayFormatterState(
+	dateStyle: DateDisplayStyle | undefined,
+	timeStyle: TimeDisplayStyle | undefined,
+	length: DateTimeDisplayLength
+): [Intl.DateTimeFormat] {
 
 	const languageCode = useLanguageCodeContext();
 
@@ -20,12 +26,12 @@ export function useDateTimeDisplayFormatterState(dateStyle?: DateDisplayStyle, t
 		() => {
 			const options: DateTimeDisplayFormatterOptions = {};
 
-			resolveDateTimeDisplayFormatterDateOptions(options, dateStyle);
-			resolveDateTimeDisplayFormatterTimeOptions(options, timeStyle);
+			if (dateStyle !== undefined) resolveDateTimeDisplayFormatterDateOptions(options, dateStyle, length);
+			if (timeStyle !== undefined) resolveDateTimeDisplayFormatterTimeOptions(options, timeStyle, length);
 
 			return new Intl.DateTimeFormat(languageCode, options);
 		},
-		[dateStyle, timeStyle, languageCode]
+		[dateStyle, timeStyle, length, languageCode]
 	);
 
 	const [state, setState] = useState<Intl.DateTimeFormat>(() => resolveState());

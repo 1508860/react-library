@@ -2,6 +2,7 @@ import { useState, type ReactElement } from "react";
 
 import {
 	DateDisplayStyle,
+	DateTimeDisplayLength,
 	generateGuid,
 	Orientation,
 	TimeDisplayStyle,
@@ -11,6 +12,7 @@ import {
 	type IDate,
 	type IDateStyle,
 	type IId,
+	type ILength,
 	type ITimeStyle,
 } from "@react-library/common";
 
@@ -29,6 +31,7 @@ export function ReactLibraryCommonDateDemo() {
 
 	const [dateStyles] = useState<Array<DateDisplayStyle>>(() => Object.values(DateDisplayStyle));
 	const [timeStyles] = useState<Array<TimeDisplayStyle>>(() => Object.values(TimeDisplayStyle));
+	const [dateTimeLengths] = useState<Array<DateTimeDisplayLength>>(() => Object.values(DateTimeDisplayLength));
 
 	return (
 		<>
@@ -36,38 +39,48 @@ export function ReactLibraryCommonDateDemo() {
 				key="date"
 				title="Date"
 			>
-				{dateStyles.map((dateStyle, i) =>
-					<DemoDateFormat
-						date={dateState.date}
-						dateStyle={dateStyle}
-						key={`${dateState.id}-${i}`}
-					/>
-				)}
+				{
+					dateStyles.map((dateStyle, i) =>
+						dateTimeLengths.map((dateTimeLength, i2) =>
+							<DemoDateFormat
+								date={dateState.date}
+								dateStyle={dateStyle}
+								key={`${dateState.id}-${i * i2}`}
+								length={dateTimeLength}
+							/>
+						)
+					)
+				}
 			</DemoSection>
 			<DemoSection
 				key="time"
 				title="Time"
 			>
 
-				{timeStyles.map((timeStyle, i) =>
-					<DemoTimeFormat
-						date={dateState.date}
-						key={`${dateState.id}-${i}`}
-						timeStyle={timeStyle}
-					/>
-				)}
+				{
+					timeStyles.map((timeStyle, i) =>
+						dateTimeLengths.map((dateTimeLength, i2) =>
+							<DemoTimeFormat
+								date={dateState.date}
+								key={`${dateState.id}-${i * i2}`}
+								length={dateTimeLength}
+								timeStyle={timeStyle}
+							/>
+						)
+					)
+				}
 			</DemoSection>
 			<DemoSection
 				key="date-time"
 				title="Date & Time"
 			>
 				{
-					dateStyles.map((dateStyle, i) =>
-						timeStyles.map((timeStyle, i2) =>
+					timeStyles.map((timeStyle, i) =>
+						dateTimeLengths.map((dateTimeLength, i2) =>
 							<DemoDateTimeFormat
 								date={dateState.date}
-								dateStyle={dateStyle}
 								key={`${dateState.id}-${i * i2}`}
+								length={dateTimeLength}
 								timeStyle={timeStyle}
 							/>
 						)
@@ -78,12 +91,13 @@ export function ReactLibraryCommonDateDemo() {
 	);
 }
 
-function DemoDateFormat(props: (IDate<Date> & IDateStyle<DateDisplayStyle>)): ReactElement {
-	const [dateDisplay] = useDateDisplayState(props.date, props.dateStyle);
+function DemoDateFormat(props: (IDate<Date> & IDateStyle<DateDisplayStyle> & ILength<DateTimeDisplayLength>)): ReactElement {
+	const [dateDisplay] = useDateDisplayState(props.date, props.dateStyle, props.length);
 	return (
 		<DemoItem
 			config={[
-				{ key: "Date", value: props.dateStyle }
+				{ key: "Date", value: props.dateStyle },
+				{ key: "Length", value: props.length }
 			]}
 		>
 			<DemoContent
@@ -103,12 +117,13 @@ function DemoDateFormat(props: (IDate<Date> & IDateStyle<DateDisplayStyle>)): Re
 	);
 }
 
-function DemoTimeFormat(props: (IDate<Date> & ITimeStyle<TimeDisplayStyle>)): ReactElement {
-	const [timeDisplay] = useTimeDisplayState(props.date, props.timeStyle);
+function DemoTimeFormat(props: (IDate<Date> & ITimeStyle<TimeDisplayStyle> & ILength<DateTimeDisplayLength>)): ReactElement {
+	const [timeDisplay] = useTimeDisplayState(props.date, props.timeStyle, props.length);
 	return (
 		<DemoItem
 			config={[
-				{ key: "Time", value: props.timeStyle }
+				{ key: "Time", value: props.timeStyle },
+				{ key: "Length", value: props.length }
 			]}
 		>
 			<DemoContent
@@ -128,13 +143,13 @@ function DemoTimeFormat(props: (IDate<Date> & ITimeStyle<TimeDisplayStyle>)): Re
 	);
 }
 
-function DemoDateTimeFormat(props: (IDate<Date> & IDateStyle<DateDisplayStyle> & ITimeStyle<TimeDisplayStyle>)): ReactElement {
-	const [dateTimeDisplay] = useDateTimeDisplayState(props.date, props.dateStyle, props.timeStyle);
+function DemoDateTimeFormat(props: (IDate<Date> & ITimeStyle<TimeDisplayStyle> & ILength<DateTimeDisplayLength>)): ReactElement {
+	const [dateTimeDisplay] = useDateTimeDisplayState(props.date, props.timeStyle, props.length);
 	return (
 		<DemoItem
 			config={[
-				{ key: "Date", value: props.dateStyle },
-				{ key: "Time", value: props.timeStyle }
+				{ key: "Time", value: props.timeStyle },
+				{ key: "Length", value: props.length }
 			]}
 		>
 			<DemoContent
