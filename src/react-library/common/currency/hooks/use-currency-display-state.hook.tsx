@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import type { CurrencyDisplay } from "../types/currency-display.type";
+import type { CurrencyInvalidValue } from "../types/currency-invalid-value.type";
 import type { CurrencyValue } from "../types/currency-value.type";
 import { useCurrencyDisplayFormatterState } from "./formatter/use-currency-display-formatter-state.hook";
 
@@ -8,7 +9,9 @@ import { useCurrencyDisplayFormatterState } from "./formatter/use-currency-displ
  * Custom hook for a numerical value to be mapped to a currency valid display value
  * @param value
  */
-export function useCurrencyDisplayState(value: CurrencyValue): [CurrencyDisplay] {
+export function useCurrencyDisplayState<
+	TCurrencyInvalidValue extends CurrencyInvalidValue = never
+>(value: CurrencyValue<TCurrencyInvalidValue>): [CurrencyDisplay] {
 
 	const [state, setState] = useState<CurrencyDisplay>("");
 
