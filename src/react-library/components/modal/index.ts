@@ -1,4 +1,5 @@
 export * from "./types/modal-backdrop-colour.type";
+export * from "./types/modal-backdrop-opacity.type";
 export * from "./types/modal-background-colour.type";
 export * from "./types/modal-child.type";
 export * from "./types/modal-dimensions.type";

@@ -1,5 +1,5 @@
 import type { IColour, IOnColour } from "../../../interfaces";
-import type { Colour } from "../../types/colour.type";
+import type { Colour } from "../../colour/types/colour.type";
 
 /**
  * Describes colour and on colour pairing

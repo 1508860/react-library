@@ -24,7 +24,7 @@ import type {
 	IWarning
 } from "../../../interfaces";
 import type { StyleOpacity } from "../../../style";
-import type { Colour } from "../../types/colour.type";
+import type { Colour, ColourSolid } from "../../colour/types/colour.type";
 import type { ColourSchemeContainerLevel } from "../enums/colour-scheme-container-level.type";
 import type { ColourSchemeElevationLevel } from "../enums/colour-scheme-elevation-level.type";
 import type { ColourSchemeStyleColour } from "./colour-scheme-style-colour.type";
@@ -68,7 +68,8 @@ type ColourSchemeOutline = (
 );
 
 type ColourSchemeBackdrop = (
-	IColour<Colour>
+	IColour<ColourSolid> &
+	IOpacity<StyleOpacity>
 );
 
 type ColourSchemeDisabled = (

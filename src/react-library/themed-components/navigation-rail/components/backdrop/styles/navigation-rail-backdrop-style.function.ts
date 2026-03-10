@@ -11,6 +11,7 @@ export function navigationRailBackdropStyle(colourScheme: ColourScheme): CSSProp
 		backgroundColor: colourScheme.backdrop.colour.toColourString(),
 		cursor: "pointer",
 		inset: 0,
+		opacity: colourScheme.backdrop.opacity,
 		position: "absolute"
 	};
 }

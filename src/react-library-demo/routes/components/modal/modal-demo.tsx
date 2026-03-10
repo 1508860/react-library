@@ -67,6 +67,7 @@ export function ReactLibraryComponentsModalDemo() {
 				currentModalPositionStrategy ?
 					<Modal
 						backdropColour={colourScheme.backdrop.colour}
+						backdropOpacity={colourScheme.backdrop.opacity}
 						key="modal"
 						onDismiss={resetCurrentModalPositionStrategy}
 						positionStrategy={currentModalPositionStrategy}
