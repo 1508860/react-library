@@ -25,7 +25,8 @@ export function demoSelectorItemListStyle(): CSSProperties {
 		height: "100%",
 		overflowX: "hidden",
 		overflowY: "auto",
-		width: 220
+		scrollbarWidth: "thin",
+		width: 230
 	};
 }
 
