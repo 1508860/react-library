@@ -4,7 +4,8 @@ import {
 	Orientation,
 	SCALE_PERCENT_MAX,
 	ScalePercent,
-	useArrayIncrementIntervalState,
+	UseArrayIncrementDirection,
+	useArrayIncrementState,
 	type ArrayMinLength2
 } from "@react-library/common";
 import {
@@ -25,9 +26,14 @@ import {
 
 export function ReactLibraryThemedComponentsProgressIndicatorDemo() {
 
-	const [determinateState] = useArrayIncrementIntervalState<ScalePercent, ArrayMinLength2<ScalePercent>>(
+	const { state: determinateState } = useArrayIncrementState<ScalePercent, ArrayMinLength2<ScalePercent>>(
 		[ScalePercent[0], ScalePercent[20], ScalePercent[40], ScalePercent[60], ScalePercent[100]],
-		1000
+		{
+			intervalProps: {
+				direction: UseArrayIncrementDirection.Forwards,
+				intervalMs: 1000
+			}
+		}
 	);
 
 	const [determinateCircleCompleted, setDeterminateCircleCompleted] = useState<boolean>(() => false);

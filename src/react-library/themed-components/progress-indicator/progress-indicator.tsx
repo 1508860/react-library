@@ -5,7 +5,8 @@ import {
 	ratioToScalePercent,
 	SCALE_PERCENT_MAX,
 	ScalePercent,
-	useArrayIncrementIntervalState,
+	UseArrayIncrementDirection,
+	useArrayIncrementState,
 	useColourSchemeContext,
 	useEasingLinearScalePercentState,
 	type ArrayMinLength2
@@ -126,9 +127,14 @@ function ProgressIndicatorCircleIndeterminate(): ReactElement {
 
 	const colourScheme = useColourSchemeContext();
 
-	const [activeScalePercent] = useArrayIncrementIntervalState<ScalePercent, ArrayMinLength2<ScalePercent>>(
+	const { state: activeScalePercent } = useArrayIncrementState<ScalePercent, ArrayMinLength2<ScalePercent>>(
 		PROGRESS_INDICATOR_SIZE_CIRCLE_INDETERMINATE_SCALE_PERCENT_ALL,
-		PROGRESS_INDICATOR_INDETERMINATE_CYCLE_DURATION_MS
+		{
+			intervalProps: {
+				direction: UseArrayIncrementDirection.Forwards,
+				intervalMs: PROGRESS_INDICATOR_INDETERMINATE_CYCLE_DURATION_MS
+			}
+		}
 	);
 
 	const [activeScalePercentState] = useEasingLinearScalePercentState(activeScalePercent, PROGRESS_INDICATOR_EASING_SCALE_PERCENT_TIMER_MS);

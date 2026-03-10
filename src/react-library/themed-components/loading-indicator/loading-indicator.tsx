@@ -1,5 +1,6 @@
 import {
-	useArrayIncrementIntervalState,
+	UseArrayIncrementDirection,
+	useArrayIncrementState,
 	useColourSchemeContext,
 	type ArrayMinLength2
 } from "@react-library/common";
@@ -20,9 +21,14 @@ import { LoadingIndicatorShapeMap } from "./enums/loading-indicator-shape-map.ty
 export function LoadingIndicator(props: LoadingIndicatorProps) {
 
 	const colourScheme = useColourSchemeContext();
-	const [shapeState, shapeIncrementCount] = useArrayIncrementIntervalState<LoadingIndicatorShape, ArrayMinLength2<LoadingIndicatorShape>>(
+	const { state: shapeState, count: shapeIncrementCount } = useArrayIncrementState<LoadingIndicatorShape, ArrayMinLength2<LoadingIndicatorShape>>(
 		LOADING_INDICATOR_SHAPE_ALL,
-		LOADING_INDICATOR_SHAPE_TIME_INTERVAL_MS
+		{
+			intervalProps: {
+				direction: UseArrayIncrementDirection.Forwards,
+				intervalMs: LOADING_INDICATOR_SHAPE_TIME_INTERVAL_MS
+			}
+		}
 	);
 
 	return (

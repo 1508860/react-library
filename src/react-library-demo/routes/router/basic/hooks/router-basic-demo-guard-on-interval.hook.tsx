@@ -1,4 +1,4 @@
-import { useArrayIncrementIntervalState, type ArrayMinLength3 } from "@react-library/common";
+import { UseArrayIncrementDirection, useArrayIncrementState, type ArrayMinLength3 } from "@react-library/common";
 import { RouterGuardState } from "@react-library/router";
 
 /**
@@ -7,13 +7,18 @@ import { RouterGuardState } from "@react-library/router";
  */
 export function ReactLibraryRouterBasicDemoGuardOnInterval(): RouterGuardState {
 
-	const [state] = useArrayIncrementIntervalState<RouterGuardState, ArrayMinLength3<RouterGuardState>>(
+	const { state } = useArrayIncrementState<RouterGuardState, ArrayMinLength3<RouterGuardState>>(
 		[
 			RouterGuardState.Failure,
 			RouterGuardState.Loading,
 			RouterGuardState.Success
 		],
-		1000
+		{
+			intervalProps: {
+				direction: UseArrayIncrementDirection.Forwards,
+				intervalMs: 1000
+			}
+		}
 	);
 
 	return state;
