@@ -22,6 +22,7 @@ export function demoContentStyle(props: DemoContentProps, font: Font): CSSProper
 		paddingTop: props.paddingTop,
 		paddingLeft: `calc(${toSizeWithUnits(props.paddingLeft ?? 0)} + ${toSizeWithUnits(props.indentIndex === undefined ? 0 : (props.indentIndex * 20))})`,
 		paddingRight: props.paddingRight,
+		position: "relative",
 		width: props.width
 	};
 }
