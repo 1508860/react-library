@@ -19,7 +19,6 @@ export function TransitionPulse(props: TransitionPulseProps) {
 
 	return (
 		<div
-			key={`transition-pulse-container-${props.direction}`}
 			onAnimationEnd={handleOnComplete}
 			style={transitionPulseStyle(props)}
 		/>

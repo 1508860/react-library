@@ -15,7 +15,7 @@ export function transitionPulseStyle(props: TransitionPulseProps): CSSProperties
 
 	const animationNameSuffix = (insetVertical > insetHorizontal) ? "height" : "width";
 
-	const animationName = `react-library-components-transition-pulse-${animationNameSuffix}-${props.direction}`;
+	const animationName = `react-library-components-transition-pulse-${animationNameSuffix}`;
 
 	return {
 		animationDuration: `${props.durationMs}ms`,

@@ -16,7 +16,6 @@ import {
 } from "@react-library/common";
 import {
 	TransitionPulse,
-	TransitionPulseDirection,
 	type TransitionPulseInsetData
 } from "@react-library/components";
 import { MaterialIconSvg } from "@react-library/material-icons";
@@ -131,7 +130,6 @@ export function ButtonBase(
 				clickedInset ?
 					<TransitionPulse
 						colour={buttonColourState.pulseColour}
-						direction={TransitionPulseDirection.Out}
 						durationMs={BUTTON_BASE_TIME_TRANSITION_PULSE_MS}
 						inset={clickedInset.inset}
 						key={`button-clicked-inset-layer-${clickedInset.key}`}

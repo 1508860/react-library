@@ -1,14 +1,4 @@
-@keyframes react-library-components-transition-pulse-height-in {
-	from {
-		height: 200%;
-	}
-	
-	to {
-		height: 0px;
-	}
-}
-
-@keyframes react-library-components-transition-pulse-height-out {
+@keyframes react-library-components-transition-pulse-height {
 	from {
 		height: 0px;
 	}
@@ -18,17 +8,7 @@
 	}
 }
 
-@keyframes react-library-components-transition-pulse-width-in {
-	from {
-		width: 200%;
-	}
-	
-	to {
-		width: 0px;
-	}
-}
-
-@keyframes react-library-components-transition-pulse-width-out {
+@keyframes react-library-components-transition-pulse-width {
 	from {
 		width: 0px;
 	}
