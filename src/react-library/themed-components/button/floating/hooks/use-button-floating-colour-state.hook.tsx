@@ -80,9 +80,9 @@ function resolveButtonColourState(
 	return {
 		backgroundColour: backgroundColour,
 		boxShadow: colourScheme.elevation.boxShadow[boxShadowElevationLevel],
-		disabledOpacity: colourScheme.disabled.opacity,
-		hoverOpacity: colourScheme.hovered.opacity,
+		disabledColour: onColour.toColourWithStyleOpacity(colourScheme.disabled.opacity),
+		hoverColour: onColour.toColourWithStyleOpacity(colourScheme.hovered.opacity),
 		onColour: onColour,
-		pulseOpacity: colourScheme.transition.pulse.opacity
+		pulseColour: onColour.toColourWithStyleOpacity(colourScheme.transition.pulse.opacity)
 	};
 }

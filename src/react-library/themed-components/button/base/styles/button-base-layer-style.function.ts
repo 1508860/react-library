@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import type { Colour, StyleOpacity } from "@react-library/common";
+import type { Colour } from "@react-library/common";
 
 /**
  * Resolve button base layer style based on parameters
@@ -8,12 +8,11 @@ import type { Colour, StyleOpacity } from "@react-library/common";
  * @param styleOpacity
  * @param isHovered
  */
-export function buttonBaseLayerStyle(colour: Colour, styleOpacity: StyleOpacity, isHovered: boolean): CSSProperties {
+export function buttonBaseLayerStyle(colour: Colour, isHovered: boolean): CSSProperties {
 	return {
 		backgroundColor: colour.toColourString(),
 		cursor: isHovered ? "pointer" : undefined,
 		inset: 0,
-		opacity: styleOpacity,
 		position: "absolute"
 	};
 }

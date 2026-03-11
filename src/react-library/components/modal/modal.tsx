@@ -21,7 +21,6 @@ export function Modal(props: ModalProps) {
 			<ModalContainer positionStrategy={props.positionStrategy}>
 				<ModalBackdrop
 					backdropColour={props.backdropColour}
-					backdropOpacity={props.backdropOpacity}
 					key="backdrop"
 					onDismiss={props.onDismiss}
 				/>

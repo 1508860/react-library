@@ -122,19 +122,18 @@ export function ButtonBase(
 				isDisabled ?
 					<div
 						key="button-disabled-layer"
-						style={buttonBaseLayerStyle(buttonColourState.onColour, buttonColourState.disabledOpacity, false)}
+						style={buttonBaseLayerStyle(buttonColourState.disabledColour, false)}
 					/> :
 					<Fragment key="no-button-disabled-layer" />
 			}
 			{
 				clickedInset ?
 					<TransitionPulse
-						colour={buttonColourState.onColour}
+						colour={buttonColourState.pulseColour}
 						durationMs={BUTTON_BASE_TIME_TRANSITION_PULSE_MS}
 						inset={clickedInset.inset}
 						key="button-clicked-inset-layer"
 						onComplete={() => setClickedInset(undefined)}
-						opacity={buttonColourState.pulseOpacity}
 						transitionId={clickedInset.transitionId}
 					/> :
 					<Fragment key="no-button-clicked-inset-layer" />
@@ -143,7 +142,7 @@ export function ButtonBase(
 				(!isDisabled && isHovered) ?
 					<div
 						key="button-hovered-layer"
-						style={buttonBaseLayerStyle(buttonColourState.onColour, buttonColourState.hoverOpacity, isHovered)}
+						style={buttonBaseLayerStyle(buttonColourState.hoverColour, isHovered)}
 					/> :
 					<Fragment key="no-button-hovered-layer" />
 			}

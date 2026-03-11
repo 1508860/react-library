@@ -1,10 +1,11 @@
-import { Fragment, useCallback, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 
 import {
 	Orientation,
 	PositionStrategyInternal,
 	resolvePositionStrategyInternalAll,
 	useColourSchemeContext,
+	type ColourAlpha,
 	type SizePx
 } from "@react-library/common";
 import {
@@ -24,8 +25,17 @@ import {
 
 export function ReactLibraryComponentsModalDemo() {
 
+	// Modal colour
 	const colourScheme = useColourSchemeContext();
+	const [backdropColour, setBackdropColour] = useState<ColourAlpha | undefined>(
+		() => colourScheme.backdrop.colour.toColourWithStyleOpacity(colourScheme.backdrop.opacity)
+	);
+	useEffect(
+		() => setBackdropColour(colourScheme.backdrop.colour.toColourWithStyleOpacity(colourScheme.backdrop.opacity)),
+		[colourScheme.backdrop.colour, colourScheme.backdrop.opacity]
+	)
 
+	// Position strategy
 	const [modalPositionStrategies] = useState<Array<ModalPositionStrategyInternal>>(() => (
 		Object.values(PositionStrategyInternal).map<ModalPositionStrategyInternal>(positionStrategyInternal => (
 			resolvePositionStrategyInternalAll<SizePx, SizePx>(
@@ -41,6 +51,7 @@ export function ReactLibraryComponentsModalDemo() {
 	const [currentModalPositionStrategy, setCurrentModalPositionStrategy] = useState<ModalPositionStrategyInternal | undefined>(() => undefined);
 	const resetCurrentModalPositionStrategy = useCallback(() => setCurrentModalPositionStrategy(undefined), []);
 
+	// Modal content
 	const [demoContentItems] = useState<Array<DemoContentChildrenItemProps>>(() => (
 		modalPositionStrategies.map<DemoContentChildrenItemProps>(modalPositionStrategy => ({
 			type: DemoContentChildrenItem.Button,
@@ -66,8 +77,7 @@ export function ReactLibraryComponentsModalDemo() {
 			{
 				currentModalPositionStrategy ?
 					<Modal
-						backdropColour={colourScheme.backdrop.colour}
-						backdropOpacity={colourScheme.backdrop.opacity}
+						backdropColour={backdropColour}
 						key="modal"
 						onDismiss={resetCurrentModalPositionStrategy}
 						positionStrategy={currentModalPositionStrategy}

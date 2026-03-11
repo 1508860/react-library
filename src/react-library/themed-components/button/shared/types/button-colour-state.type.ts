@@ -5,11 +5,10 @@ import type {
 	IBackgroundColour,
 	IBorderColour,
 	IBoxShadow,
-	IDisabledOpacity,
-	IHoverOpacity,
+	IDisabledColour,
+	IHoverColour,
 	IOnColour,
-	IPulseOpacity,
-	StyleOpacity
+	IPulseColour
 } from "@react-library/common";
 
 /**
@@ -19,8 +18,8 @@ export type ButtonColourState = (
 	Partial<IBackgroundColour<Colour>> &
 	Partial<IBorderColour<Colour>> &
 	Partial<IBoxShadow<Property.BoxShadow>> &
-	IDisabledOpacity<StyleOpacity> &
-	IHoverOpacity<StyleOpacity> &
+	IDisabledColour<Colour> &
+	IHoverColour<Colour> &
 	IOnColour<Colour> &
-	IPulseOpacity<StyleOpacity>
+	IPulseColour<Colour>
 );

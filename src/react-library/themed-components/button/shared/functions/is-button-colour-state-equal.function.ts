@@ -10,9 +10,9 @@ export function isButtonColourStateEqual(value1: ButtonColourState, value2: Butt
 		value1.backgroundColour?.toColourString() === value2.backgroundColour?.toColourString() &&
 		value1.borderColour?.toColourString() === value2.borderColour?.toColourString() &&
 		value1.boxShadow === value2.boxShadow &&
-		value1.disabledOpacity === value2.disabledOpacity &&
-		value1.hoverOpacity === value2.hoverOpacity &&
+		value1.disabledColour === value2.disabledColour &&
+		value1.hoverColour === value2.hoverColour &&
 		value1.onColour.toColourString() === value2.onColour.toColourString() &&
-		value1.pulseOpacity === value2.pulseOpacity
+		value1.pulseColour === value2.pulseColour
 	);
 }

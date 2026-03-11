@@ -3,9 +3,7 @@ import type {
 	Colour,
 	IColour,
 	IDurationMs,
-	IOnComplete,
-	IOpacity,
-	StyleOpacity
+	IOnComplete
 } from "@react-library/common";
 
 import type { TransitionPulseInsetData } from "./transition-pulse-inset-data.type";
@@ -17,6 +15,5 @@ export type TransitionPulseProps = (
 	IColour<Colour> &
 	IDurationMs<number> &
 	IOnComplete<Callback<void>> &
-	IOpacity<StyleOpacity> &
 	TransitionPulseInsetData
 );

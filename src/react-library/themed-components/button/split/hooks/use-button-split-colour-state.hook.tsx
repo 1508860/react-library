@@ -46,13 +46,15 @@ function resolveButtonColourState(
 					((!isPressed && isHovered) ? ColourSchemeElevationLevel.Level2 : ColourSchemeElevationLevel.Level1)
 			);
 
+			const onColour = colourScheme.primary.default.colour;
+
 			return {
 				backgroundColour: colourScheme.surface.container[ColourSchemeContainerLevel.Low],
 				boxShadow: colourScheme.elevation.boxShadow[boxShadowElevationLevel],
-				disabledOpacity: colourScheme.disabled.opacity,
-				hoverOpacity: colourScheme.hovered.opacity,
-				onColour: colourScheme.primary.default.colour,
-				pulseOpacity: colourScheme.transition.pulse.opacity
+				disabledColour: onColour.toColourWithStyleOpacity(colourScheme.disabled.opacity),
+				hoverColour: onColour.toColourWithStyleOpacity(colourScheme.hovered.opacity),
+				onColour: onColour,
+				pulseColour: onColour.toColourWithStyleOpacity(colourScheme.transition.pulse.opacity)
 			};
 		}
 		case ButtonStyle.Filled: {
@@ -61,22 +63,29 @@ function resolveButtonColourState(
 				(!props.isDisabled && !isPressed && isHovered) ? ColourSchemeElevationLevel.Level1 : ColourSchemeElevationLevel.Level0
 			);
 
+			const onColour = colourScheme.primary.default.onColour;
+
 			return {
 				backgroundColour: colourScheme.primary.default.colour,
 				boxShadow: colourScheme.elevation.boxShadow[boxShadowElevationLevel],
-				disabledOpacity: colourScheme.disabled.opacity,
-				hoverOpacity: colourScheme.hovered.opacity,
-				onColour: colourScheme.primary.default.onColour,
-				pulseOpacity: colourScheme.transition.pulse.opacity
+				disabledColour: onColour.toColourWithStyleOpacity(colourScheme.disabled.opacity),
+				hoverColour: onColour.toColourWithStyleOpacity(colourScheme.hovered.opacity),
+				onColour: onColour,
+				pulseColour: onColour.toColourWithStyleOpacity(colourScheme.transition.pulse.opacity)
 			};
 		}
-		case ButtonStyle.Outline: return {
-			backgroundColour: undefined,
-			borderColour: colourScheme.outline.outlineVariant,
-			disabledOpacity: colourScheme.disabled.opacity,
-			hoverOpacity: colourScheme.hovered.opacity,
-			onColour: colourScheme.surface.variant.onColour,
-			pulseOpacity: colourScheme.transition.pulse.opacity
-		};
+		case ButtonStyle.Outline: {
+
+			const onColour = colourScheme.surface.variant.onColour;
+
+			return {
+				backgroundColour: undefined,
+				borderColour: colourScheme.outline.outlineVariant,
+				disabledColour: onColour.toColourWithStyleOpacity(colourScheme.disabled.opacity),
+				hoverColour: onColour.toColourWithStyleOpacity(colourScheme.hovered.opacity),
+				onColour: onColour,
+				pulseColour: onColour.toColourWithStyleOpacity(colourScheme.transition.pulse.opacity)
+			};
+		}
 	}
 }

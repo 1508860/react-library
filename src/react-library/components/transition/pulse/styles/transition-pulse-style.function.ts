@@ -24,7 +24,6 @@ export function transitionPulseStyle(
 		borderRadius: "50%",
 		height: layerSize,
 		left: props.inset?.left,
-		opacity: props.opacity,
 		position: "absolute",
 		top: props.inset?.top,
 		transformOrigin: "center",
