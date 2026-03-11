@@ -1,8 +1,7 @@
 import type {
-	Guid,
 	IInset,
 	IInsetAll,
-	ITransitionId,
+	IKey,
 	SizePx
 } from "@react-library/common";
 
@@ -11,5 +10,5 @@ import type {
  */
 export type TransitionPulseInsetData = (
 	IInset<IInsetAll<SizePx>> &
-	ITransitionId<Guid>
+	Partial<IKey<number | string>>
 );

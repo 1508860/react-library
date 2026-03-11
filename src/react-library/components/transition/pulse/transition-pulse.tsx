@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 
 import { transitionPulseStyle } from "./styles/transition-pulse-style.function";
+import "./styles/transition-pulse.css";
 import type { TransitionPulseProps } from "./types/transition-pulse-props.type";
 
 /**
@@ -8,32 +9,19 @@ import type { TransitionPulseProps } from "./types/transition-pulse-props.type";
  * @param props
  */
 export function TransitionPulse(props: TransitionPulseProps) {
-	return (
-		<TransitionPulseItem {...props} key={props.transitionId} />
-	);
-}
 
-function TransitionPulseItem(props: TransitionPulseProps) {
-
-	const [applyTransition, setApplyTransition] = useState<boolean>(false);
-
-	useEffect(
-		() => setApplyTransition(true),
-		[props]
-	);
-
-	const handleTransitionEnd = useCallback(
+	const handleOnComplete = useCallback(
 		() => {
-			props.onComplete();
-			setApplyTransition(false);
+			if (props.onComplete) props.onComplete();
 		},
 		[props]
 	);
 
 	return (
 		<div
-			onTransitionEnd={handleTransitionEnd}
-			style={transitionPulseStyle(props, applyTransition)}
+			key={`transition-pulse-container-${props.direction}`}
+			onAnimationEnd={handleOnComplete}
+			style={transitionPulseStyle(props)}
 		/>
 	);
 }

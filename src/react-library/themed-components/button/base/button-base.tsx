@@ -16,6 +16,7 @@ import {
 } from "@react-library/common";
 import {
 	TransitionPulse,
+	TransitionPulseDirection,
 	type TransitionPulseInsetData
 } from "@react-library/components";
 import { MaterialIconSvg } from "@react-library/material-icons";
@@ -73,7 +74,7 @@ export function ButtonBase(
 			if (isDisabled) return;
 			if (buttonContainerElementRef.current) setClickedInset({
 				inset: pointerPositionInElement(buttonContainerElementRef.current, event),
-				transitionId: generateGuid()
+				key: generateGuid()
 			});
 			onClick(event);
 		},
@@ -130,11 +131,11 @@ export function ButtonBase(
 				clickedInset ?
 					<TransitionPulse
 						colour={buttonColourState.pulseColour}
+						direction={TransitionPulseDirection.Out}
 						durationMs={BUTTON_BASE_TIME_TRANSITION_PULSE_MS}
 						inset={clickedInset.inset}
-						key="button-clicked-inset-layer"
+						key={`button-clicked-inset-layer-${clickedInset.key}`}
 						onComplete={() => setClickedInset(undefined)}
-						transitionId={clickedInset.transitionId}
 					/> :
 					<Fragment key="no-button-clicked-inset-layer" />
 			}
