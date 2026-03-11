@@ -3,7 +3,8 @@ import { createPortal } from "react-dom";
 import { useOverlayPortalContext } from "../overlay-portal";
 
 import { ModalBackdrop } from "./components/backdrop";
-import { ModalContainer } from "./components/modal-container";
+import { ModalContainer } from "./components/container";
+import { ModalContent } from "./components/content";
 import type { ModalProps } from "./types/modal-props.type";
 
 /**
@@ -17,21 +18,23 @@ export function Modal(props: ModalProps) {
 
 	return createPortal(
 		(
-			<ModalBackdrop
-				backdropColour={props.backdropColour}
-				backdropOpacity={props.backdropOpacity}
-				onDismiss={props.onDismiss}
-				positionStrategy={props.positionStrategy}
-			>
-				<ModalContainer
+			<ModalContainer positionStrategy={props.positionStrategy}>
+				<ModalBackdrop
+					backdropColour={props.backdropColour}
+					backdropOpacity={props.backdropOpacity}
+					key="backdrop"
+					onDismiss={props.onDismiss}
+				/>
+				<ModalContent
 					backgroundColour={props.backgroundColour}
 					height={props.height}
+					key="content"
 					positionStrategy={props.positionStrategy}
 					width={props.width}
 				>
 					{props.children}
-				</ModalContainer>
-			</ModalBackdrop>
+				</ModalContent>
+			</ModalContainer>
 		),
 		overlayPortal
 	);
