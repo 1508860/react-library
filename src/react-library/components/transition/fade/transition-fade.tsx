@@ -18,8 +18,8 @@ export function TransitionFade(props: TransitionFadeProps) {
 
 	return (
 		<div
-			onAnimationEnd={handleOnComplete}
 			key={`transition-fade-container-${props.direction}`}
+			onAnimationEnd={handleOnComplete}
 			style={transitionFadeContainerStyle(props)}
 		>
 			{props.children}
