@@ -45,7 +45,7 @@ export function ReactLibraryCommonDateDemo() {
 							<DemoDateFormat
 								date={dateState.date}
 								dateStyle={dateStyle}
-								key={`${dateState.id}-${i * i2}`}
+								key={`${dateState.id}-${(i + 1) * (i2 + 1)}`}
 								length={dateTimeLength}
 							/>
 						)
@@ -62,7 +62,7 @@ export function ReactLibraryCommonDateDemo() {
 						dateTimeLengths.map((dateTimeLength, i2) =>
 							<DemoTimeFormat
 								date={dateState.date}
-								key={`${dateState.id}-${i * i2}`}
+								key={`${dateState.id}-${(i + 1) * (i2 + 1)}`}
 								length={dateTimeLength}
 								timeStyle={timeStyle}
 							/>
@@ -79,7 +79,7 @@ export function ReactLibraryCommonDateDemo() {
 						dateTimeLengths.map((dateTimeLength, i2) =>
 							<DemoDateTimeFormat
 								date={dateState.date}
-								key={`${dateState.id}-${i * i2}`}
+								key={`${dateState.id}-${(i + 1) * (i2 + 1)}`}
 								length={dateTimeLength}
 								timeStyle={timeStyle}
 							/>
