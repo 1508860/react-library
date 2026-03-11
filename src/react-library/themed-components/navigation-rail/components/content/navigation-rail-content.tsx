@@ -35,13 +35,13 @@ export function NavigationRailContent<TItemId extends NavigationRailItemId>(prop
 
 	return (
 		<div style={navigationRailContentStyle(colourScheme)}>
+			{activeChildElement}
 			<NavigationRailBackdrop
 				isExpanded={props.isExpanded}
 				key="backdrop"
 				menuStyle={props.menuStyle}
 				onExpandedChange={props.onExpandedChange}
 			/>
-			{activeChildElement}
 		</div>
 	);
 }
