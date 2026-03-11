@@ -1,5 +1,6 @@
 export * from "./border-radius";
 export * from "./clip-path";
+export * from "./constants";
 export * from "./cubic-bezier";
 export * from "./fill-rule";
 export * from "./functions";

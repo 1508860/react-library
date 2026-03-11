@@ -1,6 +1,8 @@
 
-import type { IToColourString } from "../../../../interfaces";
-import type { Callback } from "../../../../types";
+import type { IToColourString, IToColourWithStyleOpacity } from "../../../../interfaces";
+import { StyleOpacityToHexColourMap, type StyleOpacity } from "../../../../style";
+import type { Callback, CallbackWithParameter } from "../../../../types";
+
 import { ColourId } from "../../enum/colour-id.type";
 import type { HexColour } from "../../types/hex/hex-colour.type";
 import { ColourBase } from "../colour-base.class";
@@ -9,7 +11,12 @@ import { ColourBase } from "../colour-base.class";
 /**
  * Represents RGB & alpha values in hexadecimal notation
  */
-export class HexRgba extends ColourBase<typeof ColourId.HexRgba> implements IToColourString<Callback<string>> {
+export class HexRgba
+	extends
+	ColourBase<typeof ColourId.HexRgba>
+	implements
+	IToColourString<Callback<string>>,
+	IToColourWithStyleOpacity<CallbackWithParameter<StyleOpacity, HexRgba>> {
 
 	public readonly red: HexColour;
 	public readonly green: HexColour;
@@ -26,5 +33,9 @@ export class HexRgba extends ColourBase<typeof ColourId.HexRgba> implements IToC
 
 	public toColourString(): string {
 		return `#${this.red}${this.green}${this.blue}${this.alpha}`;
+	}
+
+	public toColourWithStyleOpacity(styleOpacity: StyleOpacity): HexRgba {
+		return new HexRgba(this.red, this.green, this.blue, StyleOpacityToHexColourMap[styleOpacity]);
 	}
 }

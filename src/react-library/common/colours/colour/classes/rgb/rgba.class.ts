@@ -1,10 +1,16 @@
-import type { IToColourString } from "../../../../interfaces";
-import type { Callback } from "../../../../types";
+import type { IToColourString, IToColourWithStyleOpacity } from "../../../../interfaces";
+import { StyleOpacityToRgbColourMap, type StyleOpacity } from "../../../../style";
+import type { Callback, CallbackWithParameter } from "../../../../types";
+
 import { ColourId } from "../../enum/colour-id.type";
 import type { RgbColour } from "../../types/rgb/rgb-colour.type";
 import { ColourBase } from "../colour-base.class";
 
-export class Rgba extends ColourBase<typeof ColourId.Rgba> implements IToColourString<Callback<string>> {
+export class Rgba
+	extends ColourBase<typeof ColourId.Rgba>
+	implements
+	IToColourString<Callback<string>>,
+	IToColourWithStyleOpacity<CallbackWithParameter<StyleOpacity, Rgba>> {
 
 	public readonly red: RgbColour;
 	public readonly green: RgbColour;
@@ -21,5 +27,9 @@ export class Rgba extends ColourBase<typeof ColourId.Rgba> implements IToColourS
 
 	public toColourString(): string {
 		return `rgba(${this.red},${this.green},${this.blue},${this.alpha})`;
+	}
+
+	public toColourWithStyleOpacity(styleOpacity: StyleOpacity): Rgba {
+		return new Rgba(this.red, this.green, this.blue, StyleOpacityToRgbColourMap[styleOpacity]);
 	}
 }
