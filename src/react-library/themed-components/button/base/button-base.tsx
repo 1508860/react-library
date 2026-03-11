@@ -133,7 +133,7 @@ export function ButtonBase(
 						durationMs={BUTTON_BASE_TIME_TRANSITION_PULSE_MS}
 						inset={clickedInset.inset}
 						key="button-clicked-inset-layer"
-						onDismiss={() => setClickedInset(undefined)}
+						onComplete={() => setClickedInset(undefined)}
 						opacity={buttonColourState.pulseOpacity}
 						transitionId={clickedInset.transitionId}
 					/> :

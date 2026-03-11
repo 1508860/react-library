@@ -24,7 +24,7 @@ function TransitionPulseItem(props: TransitionPulseProps) {
 
 	const handleTransitionEnd = useCallback(
 		() => {
-			props.onDismiss();
+			props.onComplete();
 			setApplyTransition(false);
 		},
 		[props]
