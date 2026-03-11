@@ -22,9 +22,7 @@ export function ModalBackdrop(props: ModalBackdropProps) {
 	return (
 		<div
 			onClick={handleOnDismiss}
-			style={modalBackdropStyle(props.positionStrategy, props.backdropColour, props.backdropOpacity)}
-		>
-			{props.children}
-		</div>
+			style={modalBackdropStyle(props.backdropColour, props.backdropOpacity)}
+		/>
 	);
 }

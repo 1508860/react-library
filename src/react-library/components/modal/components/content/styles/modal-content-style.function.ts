@@ -12,13 +12,13 @@ import {
 import type { ModalPositionStrategyInternal } from "../../../types/modal-position-strategy-internal.type";
 
 /**
- * Resolve modal container style based on parameters
+ * Resolve modal content style based on parameters
  * @param positionStrategy
  * @param height
  * @param width
  * @param backgroundColour
  */
-export function modalContainerStyle(
+export function modalContentStyle(
 	positionStrategy: ModalPositionStrategyInternal,
 	height?: Size,
 	width?: Size,

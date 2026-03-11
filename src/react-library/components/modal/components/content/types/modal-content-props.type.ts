@@ -4,9 +4,9 @@ import type { ModalDimensions } from "../../../types/modal-dimensions.type";
 import type { ModalPositionStrategyProps } from "../../../types/modal-position-strategy-props.type";
 
 /**
- * Modal container props
+ * Modal content props
  */
-export type ModalContainerProps = (
+export type ModalContentProps = (
 	Partial<ModalBackgroundColour> &
 	ModalChild &
 	Partial<ModalDimensions> &

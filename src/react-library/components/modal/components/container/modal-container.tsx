@@ -7,7 +7,7 @@ import type { ModalContainerProps } from "./types/modal-container-props.type";
  */
 export function ModalContainer(props: ModalContainerProps) {
 	return (
-		<div style={modalContainerStyle(props.positionStrategy, props.height, props.width, props.backgroundColour)}>
+		<div style={modalContainerStyle(props.positionStrategy)}>
 			{props.children}
 		</div>
 	);
