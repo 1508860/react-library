@@ -34,7 +34,7 @@ export function ReactLibraryDemo() {
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaultSubItemId={ReactLibraryCommonDemo.Date}
+										defaultSubItemId={ReactLibraryComponentsDemo.Transition}
 									>
 										{{
 											id: 1,

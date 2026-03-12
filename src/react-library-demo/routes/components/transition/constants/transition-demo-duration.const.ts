@@ -1,0 +1,1 @@
+export const TRANSITION_DEMO_TRANSITION_DURATION_MS: number = 1000;

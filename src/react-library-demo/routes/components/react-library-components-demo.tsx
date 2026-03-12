@@ -6,6 +6,7 @@ import { ReactLibraryComponentsModalDemo } from "./modal";
 import { ReactLibraryComponentsPointerMoveDemo } from "./pointer-move";
 import { ReactLibraryComponentsRootViewportPositionPxDemo } from "./root-viewport-position-px";
 import { ReactLibraryComponentsTooltipsDemo } from "./tooltips";
+import { ReactLibraryComponentsTransitionDemo } from "./transition";
 import { ReactLibraryComponentsViewDividerDemo } from "./view-divider";
 import { ReactLibraryComponentsVirtualScrollDemo } from "./virtual-scroll";
 
@@ -35,6 +36,11 @@ export function ReactLibraryComponentsDemoList(): DemoSelectorSubItems<ReactLibr
 			element: () => <ReactLibraryComponentsTooltipsDemo />,
 			id: ReactLibraryComponentsDemo.Tooltips,
 			title: "Tooltips"
+		},
+		{
+			element: () => <ReactLibraryComponentsTransitionDemo />,
+			id: ReactLibraryComponentsDemo.Transition,
+			title: "Transition"
 		},
 		{
 			element: () => <ReactLibraryComponentsViewDividerDemo />,

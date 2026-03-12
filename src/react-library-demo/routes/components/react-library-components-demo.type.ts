@@ -7,6 +7,7 @@ export const ReactLibraryComponentsDemo = {
 	"PointerMove": "ReactLibraryComponentsDemo-PointerMove",
 	"RootViewportPositionPx": "ReactLibraryComponentsDemo-RootViewportPositionPx",
 	"Tooltips": "ReactLibraryComponentsDemo-Tooltips",
+	"Transition": "ReactLibraryComponentsDemo-Transition",
 	"ViewDivider": "ReactLibraryComponentsDemo-ViewDivider",
 	"VirtualScroll": "ReactLibraryComponentsDemo-VirtualScroll"
 } as const satisfies Record<string, string>;
