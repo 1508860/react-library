@@ -17,12 +17,13 @@ export function demoContentStyle(props: DemoContentProps, font: Font): CSSProper
 		gap: 10,
 		height: props.height,
 		justifyContent: props.justify,
-		textAlign: "center",
+		overflow: props.overflow,
 		paddingBottom: props.paddingBottom,
-		paddingTop: props.paddingTop,
 		paddingLeft: `calc(${toSizeWithUnits(props.paddingLeft ?? 0)} + ${toSizeWithUnits(props.indentIndex === undefined ? 0 : (props.indentIndex * 20))})`,
 		paddingRight: props.paddingRight,
+		paddingTop: props.paddingTop,
 		position: "relative",
+		textAlign: "center",
 		width: props.width
 	};
 }

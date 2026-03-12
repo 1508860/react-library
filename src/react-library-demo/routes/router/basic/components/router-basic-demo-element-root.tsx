@@ -1,19 +1,21 @@
 import type { ReactElement } from "react";
 
+import { Orientation } from "@react-library/common";
 import { useRouterNotifierContext, type RouterElementWithChildrenProps } from "@react-library/router";
 
 import {
 	DemoColumn,
 	DemoColumnContainer,
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentChildrenItem,
 	DemoContentColourScheme,
-	DemoContentJustify
+	DemoContentJustify,
+	DemoContentOverflow
 } from "@react-library-demo/shared";
 
 import { RouterBasicDemoSegmentId } from "../enums/router-basic-demo-segment-id.type";
-import { Orientation } from "@react-library/common";
 
 /**
  * Example router segment component root
@@ -28,6 +30,7 @@ export function ReactLibraryRouterBasicDemoElementRoot(props: RouterElementWithC
 				weight={1}
 			>
 				<DemoContent
+					align={DemoContentAlign.Center}
 					childrenType={DemoContentChildren.Items}
 					colourScheme={DemoContentColourScheme.Primary}
 					height="auto"
@@ -41,6 +44,7 @@ export function ReactLibraryRouterBasicDemoElementRoot(props: RouterElementWithC
 					justify={DemoContentJustify.Start}
 					key="children"
 					orientation={Orientation.Vertical}
+					overflow={DemoContentOverflow.Auto}
 					width="100%"
 				/>
 			</DemoColumn>

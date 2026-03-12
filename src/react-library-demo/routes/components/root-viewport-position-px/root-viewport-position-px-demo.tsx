@@ -6,10 +6,12 @@ import {
 
 import {
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentChildrenItem,
 	DemoContentColourScheme,
 	DemoContentJustify,
+	DemoContentOverflow,
 	DemoResize,
 	DemoSection,
 	type DemoContentChildrenItemProps
@@ -27,12 +29,14 @@ export function ReactLibraryComponentsRootViewportPositionPxDemo() {
 			>
 				<RootViewportPositionPx>
 					<DemoContent
+						align={DemoContentAlign.Center}
 						childrenType={DemoContentChildren.Any}
 						colourScheme={DemoContentColourScheme.Primary}
 						height="100%"
 						includeRenderCounter={true}
 						justify={DemoContentJustify.Center}
 						orientation={Orientation.Vertical}
+						overflow={DemoContentOverflow.Auto}
 						width="100%"
 					>
 						<ChildComponent />
@@ -49,6 +53,7 @@ function ChildComponent() {
 
 	return (
 		<DemoContent
+			align={DemoContentAlign.Center}
 			childrenType={DemoContentChildren.Items}
 			colourScheme={DemoContentColourScheme.Secondary}
 			height="100%"
@@ -60,6 +65,7 @@ function ChildComponent() {
 			}))}
 			justify={DemoContentJustify.Center}
 			orientation={Orientation.Vertical}
+			overflow={DemoContentOverflow.Auto}
 			width="100%"
 		/>
 	);

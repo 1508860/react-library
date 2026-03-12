@@ -18,9 +18,11 @@ import {
 
 import {
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentColourScheme,
 	DemoContentJustify,
+	DemoContentOverflow,
 	DemoItem,
 	DemoSection
 } from "@react-library-demo/shared";
@@ -101,16 +103,18 @@ function DemoDateFormat(props: (IDate<Date> & IDateStyle<DateDisplayStyle> & ILe
 			]}
 		>
 			<DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Text}
 				colourScheme={DemoContentColourScheme.Secondary}
 				height="auto"
 				justify={DemoContentJustify.Start}
 				orientation={Orientation.Horizontal}
-				text={dateDisplay}
+				overflow={DemoContentOverflow.Auto}
 				paddingBottom={10}
 				paddingLeft={10}
 				paddingRight={10}
 				paddingTop={10}
+				text={dateDisplay}
 				width="100%"
 			/>
 		</DemoItem>
@@ -127,16 +131,18 @@ function DemoTimeFormat(props: (IDate<Date> & ITimeStyle<TimeDisplayStyle> & ILe
 			]}
 		>
 			<DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Text}
 				colourScheme={DemoContentColourScheme.Secondary}
 				height="auto"
 				justify={DemoContentJustify.Start}
 				orientation={Orientation.Horizontal}
-				text={timeDisplay}
+				overflow={DemoContentOverflow.Auto}
 				paddingBottom={10}
 				paddingLeft={10}
 				paddingRight={10}
 				paddingTop={10}
+				text={timeDisplay}
 				width="100%"
 			/>
 		</DemoItem>
@@ -153,16 +159,18 @@ function DemoDateTimeFormat(props: (IDate<Date> & ITimeStyle<TimeDisplayStyle> &
 			]}
 		>
 			<DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Text}
 				colourScheme={DemoContentColourScheme.Secondary}
 				height="auto"
 				justify={DemoContentJustify.Start}
 				orientation={Orientation.Horizontal}
-				text={dateTimeDisplay}
+				overflow={DemoContentOverflow.Auto}
 				paddingBottom={10}
 				paddingLeft={10}
 				paddingRight={10}
 				paddingTop={10}
+				text={dateTimeDisplay}
 				width="100%"
 			/>
 		</DemoItem>

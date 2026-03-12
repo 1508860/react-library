@@ -5,9 +5,11 @@ import type { RouterElementWithChildrenProps } from "@react-library/router";
 
 import {
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentColourScheme,
-	DemoContentJustify
+	DemoContentJustify,
+	DemoContentOverflow
 } from "@react-library-demo/shared";
 
 /**
@@ -18,6 +20,7 @@ export function ReactLibraryRouterBasicDemoElementWithChildren(props: RouterElem
 	return (
 		<>
 			<DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Text}
 				colourScheme={DemoContentColourScheme.Primary}
 				height={20}
@@ -25,16 +28,19 @@ export function ReactLibraryRouterBasicDemoElementWithChildren(props: RouterElem
 				justify={DemoContentJustify.Start}
 				key="element"
 				orientation={Orientation.Horizontal}
+				overflow={DemoContentOverflow.Auto}
 				text={`Segment: ${props.segmentId}`}
 				width="100%"
 			/>
 			<DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Any}
 				colourScheme={DemoContentColourScheme.Primary}
 				height="auto"
 				justify={DemoContentJustify.Start}
 				key="children"
 				orientation={Orientation.Vertical}
+				overflow={DemoContentOverflow.Auto}
 				width="100%"
 			>
 				{props.children}

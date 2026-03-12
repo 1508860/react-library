@@ -17,9 +17,11 @@ import {
 
 import {
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentColourScheme,
 	DemoContentJustify,
+	DemoContentOverflow,
 	DemoItem,
 	DemoSection
 } from "@react-library-demo/shared";
@@ -52,12 +54,14 @@ export function ReactLibraryThemedComponentsProgressIndicatorDemo() {
 					label={`Circle - ${determinateCircleCompleted}`}
 				>
 					<DemoContent
+						align={DemoContentAlign.Center}
 						childrenType={DemoContentChildren.Any}
 						colourScheme={DemoContentColourScheme.Primary}
 						height={300}
 						includeRenderCounter={true}
 						justify={DemoContentJustify.Center}
 						orientation={Orientation.Vertical}
+						overflow={DemoContentOverflow.Auto}
 						width={300}
 					>
 						<ProgressIndicator
@@ -75,12 +79,14 @@ export function ReactLibraryThemedComponentsProgressIndicatorDemo() {
 					label={`Flat - ${determinateFlatCompleted}`}
 				>
 					<DemoContent
+						align={DemoContentAlign.Center}
 						childrenType={DemoContentChildren.Any}
 						colourScheme={DemoContentColourScheme.Primary}
 						height={300}
 						includeRenderCounter={true}
 						justify={DemoContentJustify.Center}
 						orientation={Orientation.Vertical}
+						overflow={DemoContentOverflow.Auto}
 						width={300}
 					>
 						<ProgressIndicator
@@ -103,12 +109,14 @@ export function ReactLibraryThemedComponentsProgressIndicatorDemo() {
 					label="Circle"
 				>
 					<DemoContent
+						align={DemoContentAlign.Center}
 						childrenType={DemoContentChildren.Any}
 						colourScheme={DemoContentColourScheme.Primary}
 						height={300}
 						includeRenderCounter={true}
 						justify={DemoContentJustify.Center}
 						orientation={Orientation.Vertical}
+						overflow={DemoContentOverflow.Auto}
 						width={300}
 					>
 						<ProgressIndicator
@@ -123,12 +131,14 @@ export function ReactLibraryThemedComponentsProgressIndicatorDemo() {
 					label="Flat"
 				>
 					<DemoContent
+						align={DemoContentAlign.Center}
 						childrenType={DemoContentChildren.Any}
 						colourScheme={DemoContentColourScheme.Primary}
 						height={300}
 						includeRenderCounter={true}
 						justify={DemoContentJustify.Center}
 						orientation={Orientation.Vertical}
+						overflow={DemoContentOverflow.Auto}
 						width={300}
 					>
 						<ProgressIndicator

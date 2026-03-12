@@ -10,9 +10,11 @@ import {
 
 import {
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentColourScheme,
 	DemoContentJustify,
+	DemoContentOverflow,
 	DemoSection
 } from "@react-library-demo/shared";
 
@@ -70,12 +72,14 @@ function resolveNavigationBarDemoItem(
 		badgeLabel: badgeLabel,
 		element: () => (
 			<DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Text}
 				colourScheme={DemoContentColourScheme.Primary}
 				height={200}
 				includeRenderCounter={true}
 				justify={DemoContentJustify.Center}
 				orientation={Orientation.Vertical}
+				overflow={DemoContentOverflow.Auto}
 				text={`Navigation Item - ${itemId}`}
 				width="100%"
 			/>

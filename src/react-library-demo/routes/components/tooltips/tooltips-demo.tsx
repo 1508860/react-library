@@ -15,9 +15,11 @@ import {
 
 import {
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentColourScheme,
 	DemoContentJustify,
+	DemoContentOverflow,
 	DemoItem,
 	DemoSection
 } from "@react-library-demo/shared";
@@ -65,12 +67,14 @@ function TooltipDemoContainer(props: ITooltipPositionStrategy<TooltipPositionStr
 	return (
 		<Tooltip
 			content={() => <DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Text}
 				colourScheme={DemoContentColourScheme.Secondary}
 				height={80}
 				includeRenderCounter={true}
 				justify={DemoContentJustify.Center}
 				orientation={Orientation.Vertical}
+				overflow={DemoContentOverflow.Auto}
 				text={props.tooltipPositionStrategy.positionType}
 				width={80}
 			/>}
@@ -90,12 +94,14 @@ function TooltipDemoSubject() {
 	return (
 		<div {...tooltipChildProps.childProps}>
 			<DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Text}
 				colourScheme={DemoContentColourScheme.Primary}
 				height={100}
 				includeRenderCounter={true}
 				justify={DemoContentJustify.Center}
 				orientation={Orientation.Vertical}
+				overflow={DemoContentOverflow.Auto}
 				text="Content"
 				width={100}
 			/>

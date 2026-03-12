@@ -10,9 +10,11 @@ import {
 
 import {
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentColourScheme,
 	DemoContentJustify,
+	DemoContentOverflow,
 	DemoSection
 } from "@react-library-demo/shared";
 import { Orientation } from "@react-library/common";
@@ -97,12 +99,14 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 function HeaderChildren(): ReactElement {
 	return (
 		<DemoContent
+			align={DemoContentAlign.Center}
 			childrenType={DemoContentChildren.Any}
 			colourScheme={DemoContentColourScheme.Secondary}
 			height={80}
 			includeRenderCounter={true}
 			justify={DemoContentJustify.Center}
 			orientation={Orientation.Vertical}
+			overflow={DemoContentOverflow.Auto}
 			width="100%"
 		/>
 	);
@@ -120,12 +124,14 @@ function resolveNavigationRailDemoItem(
 		badgeLabel: badgeLabel,
 		element: () => (
 			<DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Text}
 				colourScheme={DemoContentColourScheme.Primary}
 				height="100%"
 				includeRenderCounter={true}
 				justify={DemoContentJustify.Center}
 				orientation={Orientation.Vertical}
+				overflow={DemoContentOverflow.Auto}
 				text={`Navigation Item - ${itemId}`}
 				width="100%"
 			/>

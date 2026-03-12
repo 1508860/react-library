@@ -15,10 +15,12 @@ import {
 
 import {
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentChildrenItem,
 	DemoContentColourScheme,
 	DemoContentJustify,
+	DemoContentOverflow,
 	DemoSection,
 	type DemoContentChildrenItemProps
 } from "@react-library-demo/shared";
@@ -64,6 +66,7 @@ export function ReactLibraryComponentsModalDemo() {
 	return (
 		<DemoSection title="Modal">
 			<DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Items}
 				colourScheme={DemoContentColourScheme.Primary}
 				height={500}
@@ -72,6 +75,7 @@ export function ReactLibraryComponentsModalDemo() {
 				justify={DemoContentJustify.Center}
 				key="demo-content"
 				orientation={Orientation.Vertical}
+				overflow={DemoContentOverflow.Auto}
 				width="100%"
 			/>
 			{
@@ -83,6 +87,7 @@ export function ReactLibraryComponentsModalDemo() {
 						positionStrategy={currentModalPositionStrategy}
 					>
 						<DemoContent
+							align={DemoContentAlign.Center}
 							childrenType={DemoContentChildren.Items}
 							colourScheme={DemoContentColourScheme.Secondary}
 							height={300}
@@ -95,6 +100,7 @@ export function ReactLibraryComponentsModalDemo() {
 							}]}
 							justify={DemoContentJustify.Center}
 							orientation={Orientation.Vertical}
+							overflow={DemoContentOverflow.Auto}
 							width={300}
 						/>
 					</Modal> :

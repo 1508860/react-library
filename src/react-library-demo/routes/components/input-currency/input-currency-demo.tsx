@@ -15,10 +15,12 @@ import { InputCurrency } from "@react-library/components";
 
 import {
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentChildrenItem,
 	DemoContentColourScheme,
 	DemoContentJustify,
+	DemoContentOverflow,
 	DemoSection
 } from "@react-library-demo/shared";
 
@@ -42,12 +44,14 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 	return (
 		<DemoSection title="Input Currency">
 			<DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Any}
 				colourScheme={DemoContentColourScheme.Primary}
 				height="auto"
 				justify={DemoContentJustify.Center}
 				key="input-currency"
 				orientation={Orientation.Vertical}
+				overflow={DemoContentOverflow.Auto}
 				paddingBottom={20}
 				paddingLeft={20}
 				paddingRight={20}
@@ -66,12 +70,14 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 				/>
 			</DemoContent>
 			<DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Any}
 				colourScheme={DemoContentColourScheme.Primary}
 				height="auto"
 				justify={DemoContentJustify.Center}
 				key="input-currency-disabled-placeholder"
 				orientation={Orientation.Vertical}
+				overflow={DemoContentOverflow.Auto}
 				paddingBottom={20}
 				paddingLeft={20}
 				paddingRight={20}
@@ -89,6 +95,7 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 				/>
 			</DemoContent>
 			<DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Items}
 				colourScheme={DemoContentColourScheme.Secondary}
 				height="auto"
@@ -101,6 +108,7 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 				]}
 				justify={DemoContentJustify.Center}
 				orientation={Orientation.Vertical}
+				overflow={DemoContentOverflow.Auto}
 				paddingBottom={20}
 				paddingLeft={20}
 				paddingRight={20}
@@ -108,6 +116,7 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 				width="100%"
 			/>
 			<DemoContent
+				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Items}
 				colourScheme={DemoContentColourScheme.Tertiary}
 				height="auto"
@@ -117,6 +126,7 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 				]}
 				justify={DemoContentJustify.Center}
 				orientation={Orientation.Vertical}
+				overflow={DemoContentOverflow.Auto}
 				paddingBottom={20}
 				paddingLeft={20}
 				paddingRight={20}

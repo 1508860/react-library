@@ -8,9 +8,11 @@ import {
 
 import {
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentColourScheme,
-	DemoContentJustify
+	DemoContentJustify,
+	DemoContentOverflow
 } from "@react-library-demo/shared";
 
 import { resolveVirtualScrollDemoParentData } from "./functions";
@@ -35,6 +37,7 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 			{
 				(child) =>
 					<DemoContent
+						align={DemoContentAlign.Center}
 						childrenType={DemoContentChildren.Text}
 						colourScheme={isVirtualScrollRowStandard(child) ? DemoContentColourScheme.Primary : DemoContentColourScheme.Secondary}
 						height="100%"
@@ -42,6 +45,7 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 						indentIndex={isVirtualScrollRowStandard(child) ? 2 : 1}
 						justify={DemoContentJustify.Start}
 						orientation={Orientation.Horizontal}
+						overflow={DemoContentOverflow.Auto}
 						text={child.text}
 						width="100%"
 					/>

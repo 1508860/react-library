@@ -7,10 +7,12 @@ import {
 	DemoColumn,
 	DemoColumnContainer,
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentChildrenItem,
 	DemoContentColourScheme,
 	DemoContentJustify,
+	DemoContentOverflow,
 	DemoSection
 } from "@react-library-demo/shared";
 
@@ -34,6 +36,7 @@ export function ReactLibraryComponentsPointerMoveDemo() {
 			<DemoColumnContainer width="100%">
 				<DemoColumn weight={1}>
 					<DemoContent
+						align={DemoContentAlign.Center}
 						childrenType={DemoContentChildren.Items}
 						colourScheme={DemoContentColourScheme.Tertiary}
 						height={500}
@@ -57,25 +60,30 @@ export function ReactLibraryComponentsPointerMoveDemo() {
 						]}
 						justify={DemoContentJustify.Center}
 						orientation={Orientation.Vertical}
+						overflow={DemoContentOverflow.Auto}
 						width="100%"
 					/>
 				</DemoColumn>
 				<DemoColumn weight={1}>
 					<DemoContent
+						align={DemoContentAlign.Center}
 						childrenType={DemoContentChildren.Any}
 						colourScheme={DemoContentColourScheme.Primary}
 						height={500}
 						includeRenderCounter={true}
 						justify={DemoContentJustify.Center}
 						orientation={Orientation.Vertical}
+						overflow={DemoContentOverflow.Auto}
 						width="100%"
 					>
 						<DemoContent
+							align={DemoContentAlign.Center}
 							childrenType={DemoContentChildren.Any}
 							colourScheme={DemoContentColourScheme.Secondary}
 							height={100}
 							justify={DemoContentJustify.Center}
 							orientation={Orientation.Vertical}
+							overflow={DemoContentOverflow.Auto}
 							width={100}
 						>
 							<PointerMove

@@ -14,9 +14,11 @@ import {
 
 import {
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentColourScheme,
 	DemoContentJustify,
+	DemoContentOverflow,
 	DemoSection
 } from "@react-library-demo/shared";
 
@@ -379,12 +381,14 @@ export function ReactLibraryThemedComponentsButtonGroupDemo() {
 function ButtonSplitMenuElement() {
 	return (
 		<DemoContent
+			align={DemoContentAlign.Center}
 			childrenType={DemoContentChildren.Text}
 			colourScheme={DemoContentColourScheme.Primary}
 			height={200}
 			includeRenderCounter={true}
 			justify={DemoContentJustify.Center}
 			orientation={Orientation.Vertical}
+			overflow={DemoContentOverflow.Auto}
 			text="Button split menu content"
 			width={200}
 		/>

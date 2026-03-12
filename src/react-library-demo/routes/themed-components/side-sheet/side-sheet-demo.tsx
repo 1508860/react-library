@@ -15,10 +15,12 @@ import {
 
 import {
 	DemoContent,
+	DemoContentAlign,
 	DemoContentChildren,
 	DemoContentChildrenItem,
 	DemoContentColourScheme,
 	DemoContentJustify,
+	DemoContentOverflow,
 	DemoSection
 } from "@react-library-demo/shared";
 
@@ -87,6 +89,7 @@ export function ReactLibraryThemedComponentsSideSheetDemo() {
 function SideSheetChild(props: (ICount<number> & IOnOpen<Callback<void>>)): ReactElement {
 	return (
 		<DemoContent
+			align={DemoContentAlign.Center}
 			childrenType={DemoContentChildren.Items}
 			colourScheme={DemoContentColourScheme.Primary}
 			height="100%"
@@ -97,6 +100,7 @@ function SideSheetChild(props: (ICount<number> & IOnOpen<Callback<void>>)): Reac
 			]}
 			justify={DemoContentJustify.Center}
 			orientation={Orientation.Vertical}
+			overflow={DemoContentOverflow.Auto}
 			width="100%"
 		/>
 	);
@@ -105,12 +109,14 @@ function SideSheetChild(props: (ICount<number> & IOnOpen<Callback<void>>)): Reac
 function SideSheetBody(): ReactElement {
 	return (
 		<DemoContent
+			align={DemoContentAlign.Center}
 			childrenType={DemoContentChildren.Text}
 			colourScheme={DemoContentColourScheme.Primary}
 			height={400}
 			includeRenderCounter={true}
 			justify={DemoContentJustify.Center}
 			orientation={Orientation.Vertical}
+			overflow={DemoContentOverflow.Auto}
 			text="Panel content"
 			width="100%"
 		/>
@@ -120,12 +126,14 @@ function SideSheetBody(): ReactElement {
 function SideSheetFooter(): ReactElement {
 	return (
 		<DemoContent
+			align={DemoContentAlign.Center}
 			childrenType={DemoContentChildren.Text}
 			colourScheme={DemoContentColourScheme.Primary}
 			height={80}
 			includeRenderCounter={true}
 			justify={DemoContentJustify.Center}
 			orientation={Orientation.Vertical}
+			overflow={DemoContentOverflow.Auto}
 			text="Panel footer"
 			width="100%"
 		/>
