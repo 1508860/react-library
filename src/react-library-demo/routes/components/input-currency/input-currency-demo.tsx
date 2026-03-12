@@ -65,7 +65,7 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 					onFocus={handleOnFocus}
 					onValueChange={setValue}
 					placeholder="Placeholder"
-					style={{ width: "100%" }}
+					style={{ boxSizing: "border-box", width: "100%" }}
 					value={value}
 				/>
 			</DemoContent>
@@ -90,7 +90,7 @@ export function ReactLibraryComponentsInputCurrencyDemo() {
 					name="input-currency-disabled-placeholder"
 					onValueChange={() => { }}
 					placeholder="Disabled Placeholder"
-					style={{ width: "100%" }}
+					style={{ boxSizing: "border-box", width: "100%" }}
 					value={undefined}
 				/>
 			</DemoContent>
