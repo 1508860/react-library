@@ -68,14 +68,13 @@ function TooltipDemoContainer(props: ITooltipPositionStrategy<TooltipPositionStr
 		<Tooltip
 			content={() => <DemoContent
 				align={DemoContentAlign.Center}
-				childrenType={DemoContentChildren.Text}
+				childrenType={DemoContentChildren.Any}
 				colourScheme={DemoContentColourScheme.Secondary}
 				height={80}
 				includeRenderCounter={true}
 				justify={DemoContentJustify.Center}
 				orientation={Orientation.Vertical}
 				overflow={DemoContentOverflow.Auto}
-				text={props.tooltipPositionStrategy.positionType}
 				width={80}
 			/>}
 			overlayPortalMargin={20}
