@@ -34,7 +34,7 @@ export function ReactLibraryDemo() {
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaultSubItemId={ReactLibraryComponentsDemo.Transition}
+										defaultSubItemId={ReactLibraryComponentsDemo.IconSvg}
 									>
 										{{
 											id: 1,

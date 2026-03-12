@@ -2,6 +2,7 @@
  * React library component demo types
  */
 export const ReactLibraryComponentsDemo = {
+	"IconSvg": "ReactLibraryComponentsDemo-IconSvg",
 	"InputCurrency": "ReactLibraryComponentsDemo-InputCurrency",
 	"Modal": "ReactLibraryComponentsDemo-Modal",
 	"PointerMove": "ReactLibraryComponentsDemo-PointerMove",
