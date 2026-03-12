@@ -1,5 +1,13 @@
-import { Orientation, useArrayIncrementState, type ArrayMinLength2 } from "@react-library/common";
-import { TransitionFade, TransitionFadeDirection } from "@react-library/components";
+import {
+	Orientation,
+	useArrayIncrementState,
+	type ArrayMinLength2
+} from "@react-library/common";
+import {
+	TransitionFade,
+	TransitionFadeDirection,
+	TransitionFadeTiming
+} from "@react-library/components";
 
 import {
 	DemoContent,
@@ -25,6 +33,7 @@ export function ReactLibraryComponentsTransitionFadeDemo() {
 			direction={state}
 			durationMs={TRANSITION_DEMO_TRANSITION_DURATION_MS}
 			onComplete={increment}
+			timing={TransitionFadeTiming.EaseInOut}
 		>
 			<DemoContent
 				align={DemoContentAlign.Center}

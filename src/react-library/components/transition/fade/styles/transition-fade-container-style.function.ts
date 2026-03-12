@@ -14,7 +14,7 @@ export function transitionFadeContainerStyle(props: TransitionFadeProps): CSSPro
 		animationFillMode: "forwards",
 		animationIterationCount: 1,
 		animationName: props.direction !== TransitionFadeDirection.None ? `react-library-components-transition-fade-${props.direction}` : undefined,
-		animationTimingFunction: "ease-in-out",
+		animationTimingFunction: props.timing,
 		display: "inline-flex"
 	};
 }
