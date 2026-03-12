@@ -4,6 +4,7 @@ import { ReactLibraryComponentsDemo } from "./react-library-components-demo.type
 import { ReactLibraryComponentsIconSvgDemo } from "./icon-svg";
 import { ReactLibraryComponentsInputCurrencyDemo } from "./input-currency";
 import { ReactLibraryComponentsModalDemo } from "./modal";
+import { ReactLibraryComponentsOverlayPortalDemo } from "./overlay-portal";
 import { ReactLibraryComponentsPointerMoveDemo } from "./pointer-move";
 import { ReactLibraryComponentsRootViewportPositionPxDemo } from "./root-viewport-position-px";
 import { ReactLibraryComponentsTooltipsDemo } from "./tooltips";
@@ -27,6 +28,11 @@ export function ReactLibraryComponentsDemoList(): DemoSelectorSubItems<ReactLibr
 			element: () => <ReactLibraryComponentsModalDemo />,
 			id: ReactLibraryComponentsDemo.Modal,
 			title: "Modal"
+		},
+				{
+			element: () => <ReactLibraryComponentsOverlayPortalDemo />,
+			id: ReactLibraryComponentsDemo.OverlayPortal,
+			title: "Overlay Portal"
 		},
 		{
 			element: () => <ReactLibraryComponentsPointerMoveDemo />,

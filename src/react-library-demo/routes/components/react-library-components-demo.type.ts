@@ -5,6 +5,7 @@ export const ReactLibraryComponentsDemo = {
 	"IconSvg": "ReactLibraryComponentsDemo-IconSvg",
 	"InputCurrency": "ReactLibraryComponentsDemo-InputCurrency",
 	"Modal": "ReactLibraryComponentsDemo-Modal",
+	"OverlayPortal": "ReactLibraryComponentsDemo-OverlayPortal",
 	"PointerMove": "ReactLibraryComponentsDemo-PointerMove",
 	"RootViewportPositionPx": "ReactLibraryComponentsDemo-RootViewportPositionPx",
 	"Tooltips": "ReactLibraryComponentsDemo-Tooltips",
