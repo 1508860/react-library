@@ -13,6 +13,7 @@ export function DemoContent(props: DemoContentProps) {
 
 	const font = useFontContext();
 	const renderCounter = useRenderCounterRef();
+	
 	return (
 		<div style={demoContentStyle(props, font)}>
 
