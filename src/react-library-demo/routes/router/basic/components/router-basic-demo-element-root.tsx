@@ -45,6 +45,10 @@ export function ReactLibraryRouterBasicDemoElementRoot(props: RouterElementWithC
 					key="children"
 					orientation={Orientation.Vertical}
 					overflow={DemoContentOverflow.Auto}
+					paddingBottom={20}
+					paddingLeft={20}
+					paddingRight={20}
+					paddingTop={20}
 					width="100%"
 				/>
 			</DemoColumn>
