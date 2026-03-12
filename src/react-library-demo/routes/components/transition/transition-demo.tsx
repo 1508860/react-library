@@ -7,9 +7,9 @@ import {
 export function ReactLibraryComponentsTransitionDemo() {
 	return (
 		<>
-			<ReactLibraryComponentsTransitionFadeDemo />
-			<ReactLibraryComponentsTransitionPulseDemo />
-			<ReactLibraryComponentsTransitionRotateIndefiniteDemo />
+			<ReactLibraryComponentsTransitionFadeDemo key="fade" />
+			<ReactLibraryComponentsTransitionPulseDemo key="pulse" />
+			<ReactLibraryComponentsTransitionRotateIndefiniteDemo key="rotate-indefinite" />
 		</>
 	);
 }
