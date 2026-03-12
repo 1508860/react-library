@@ -1,7 +1,10 @@
+import { useState, type ReactElement } from "react";
+
 import {
 	Orientation,
 	useArrayIncrementState,
-	type ArrayMinLength2
+	type ArrayMinLength2,
+	type ITiming
 } from "@react-library/common";
 import {
 	TransitionFade,
@@ -15,13 +18,34 @@ import {
 	DemoContentChildren,
 	DemoContentColourScheme,
 	DemoContentJustify,
-	DemoContentOverflow
+	DemoContentOverflow,
+	DemoItem,
+	DemoSection
 } from "@react-library-demo/shared";
 
-import { TRANSITION_DEMO_TRANSITION_DURATION_MS } from "../constants";
-import { TRANSITION_DEMO_SIZE_PX } from "../constants/transition-demo-size.const";
+import { TRANSITION_DEMO_SIZE_PX, TRANSITION_DEMO_TRANSITION_DURATION_MS } from "../constants";
 
 export function ReactLibraryComponentsTransitionFadeDemo() {
+
+	const [timimngs] = useState<Array<TransitionFadeTiming>>(() => Object.values(TransitionFadeTiming));
+
+	return (
+		<DemoSection title="Fade">
+			{timimngs.map(timing => (
+				<DemoItem
+					config={[
+						{ key: "Timing", value: timing }
+					]}
+					key={timing}
+				>
+					<ReactLibraryComponentsTransitionFadeDemoItem timing={timing} />
+				</DemoItem>
+			))}
+		</DemoSection>
+	);
+}
+
+function ReactLibraryComponentsTransitionFadeDemoItem(props: ITiming<TransitionFadeTiming>): ReactElement {
 
 	const { state, increment } = useArrayIncrementState<TransitionFadeDirection, ArrayMinLength2<TransitionFadeDirection>>(
 		[TransitionFadeDirection.Out, TransitionFadeDirection.In],
@@ -33,7 +57,7 @@ export function ReactLibraryComponentsTransitionFadeDemo() {
 			direction={state}
 			durationMs={TRANSITION_DEMO_TRANSITION_DURATION_MS}
 			onComplete={increment}
-			timing={TransitionFadeTiming.EaseInOut}
+			timing={props.timing}
 		>
 			<DemoContent
 				align={DemoContentAlign.Center}

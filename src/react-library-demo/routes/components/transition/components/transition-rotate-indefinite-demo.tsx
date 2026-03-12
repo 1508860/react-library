@@ -1,4 +1,4 @@
-import { Orientation } from "@react-library/common";
+import { Orientation, type IDirection, type ITiming } from "@react-library/common";
 import {
 	TransitionRotateIndefinite,
 	TransitionRotateIndefiniteDirection,
@@ -11,13 +11,46 @@ import {
 	DemoContentChildren,
 	DemoContentColourScheme,
 	DemoContentJustify,
-	DemoContentOverflow
+	DemoContentOverflow,
+	DemoItem,
+	DemoSection
 } from "@react-library-demo/shared";
 
 import { TRANSITION_DEMO_SIZE_PX, TRANSITION_DEMO_TRANSITION_DURATION_MS } from "../constants";
+import { useState } from "react";
 
-export function ReactLibraryComponentsTransitionIndefiniteDemo() {
+export function ReactLibraryComponentsTransitionRotateIndefiniteDemo() {
 
+	const [directions] = useState<Array<TransitionRotateIndefiniteDirection>>(() => Object.values(TransitionRotateIndefiniteDirection));
+	const [timings] = useState<Array<TransitionRotateIndefiniteTiming>>(() => Object.values(TransitionRotateIndefiniteTiming));
+
+	return (
+		<DemoSection title="RotateIndefinite">
+			{
+				directions.map(direction => (
+					timings.map(timing => (
+						<DemoItem
+							config={[
+								{ key: "Direction", value: direction },
+								{ key: "Timing", value: timing }
+							]}
+							key={timing}
+						>
+							<ReactLibraryComponentsTransitionRotateIndefiniteDemoItem
+								direction={direction}
+								timing={timing}
+							/>
+						</DemoItem>
+					))
+				))}
+		</DemoSection>
+	);
+}
+
+export function ReactLibraryComponentsTransitionRotateIndefiniteDemoItem(props: (
+	IDirection<TransitionRotateIndefiniteDirection> &
+	ITiming<TransitionRotateIndefiniteTiming>
+)) {
 	return (
 		<DemoContent
 			align={DemoContentAlign.Center}
@@ -31,9 +64,9 @@ export function ReactLibraryComponentsTransitionIndefiniteDemo() {
 			width={TRANSITION_DEMO_SIZE_PX}
 		>
 			<TransitionRotateIndefinite
-				direction={TransitionRotateIndefiniteDirection.Forwards}
+				direction={props.direction}
 				fullRotationDurationMs={TRANSITION_DEMO_TRANSITION_DURATION_MS}
-				timing={TransitionRotateIndefiniteTiming.Linear}
+				timing={props.timing}
 			>
 				<DemoContent
 					align={DemoContentAlign.Center}

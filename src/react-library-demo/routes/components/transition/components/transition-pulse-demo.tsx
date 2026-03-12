@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, type ReactElement } from "react";
 
 import {
 	generateGuid,
@@ -6,7 +6,8 @@ import {
 	Orientation,
 	StyleOpacityToHexColourMap,
 	type Colour,
-	type Guid
+	type Guid,
+	type ITiming
 } from "@react-library/common";
 import { TransitionPulse, TransitionPulseTiming } from "@react-library/components";
 
@@ -16,12 +17,34 @@ import {
 	DemoContentChildren,
 	DemoContentColourScheme,
 	DemoContentJustify,
-	DemoContentOverflow
+	DemoContentOverflow,
+	DemoItem,
+	DemoSection
 } from "@react-library-demo/shared";
 
 import { TRANSITION_DEMO_SIZE_PX, TRANSITION_DEMO_TRANSITION_DURATION_MS } from "../constants";
 
 export function ReactLibraryComponentsTransitionPulseDemo() {
+
+	const [timings] = useState<Array<TransitionPulseTiming>>(() => Object.values(TransitionPulseTiming));
+
+	return (
+		<DemoSection title="Pulse">
+			{timings.map(timing => (
+				<DemoItem
+					config={[
+						{ key: "Timing", value: timing }
+					]}
+					key={timing}
+				>
+					<ReactLibraryComponentsTransitionPulseDemoItem timing={timing} />
+				</DemoItem>
+			))}
+		</DemoSection>
+	);
+}
+
+function ReactLibraryComponentsTransitionPulseDemoItem(props: ITiming<TransitionPulseTiming>): ReactElement {
 
 	const [colour] = useState<Colour>(() => new HexRgba("00", "00", "00", StyleOpacityToHexColourMap[0.5]));
 
@@ -51,7 +74,7 @@ export function ReactLibraryComponentsTransitionPulseDemo() {
 				}}
 				key={transitionPulseKey}
 				onComplete={handleSetTransitionPulseKey}
-				timing={TransitionPulseTiming.EaseInOut}
+				timing={props.timing}
 			/>
 		</DemoContent>
 	);
