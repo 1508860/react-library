@@ -11,7 +11,11 @@ import {
 	useEasingLinearScalePercentState,
 	type ArrayMinLength2
 } from "@react-library/common";
-import { TransitionRotateIndefinite } from "@react-library/components";
+import {
+	TransitionRotateIndefinite,
+	TransitionRotateIndefiniteDirection,
+	TransitionRotateIndefiniteTiming
+} from "@react-library/components";
 
 import {
 	PROGRESS_INDICATOR_EASING_SCALE_PERCENT_TIMER_MS,
@@ -140,7 +144,11 @@ function ProgressIndicatorCircleIndeterminate(): ReactElement {
 	const [activeScalePercentState] = useEasingLinearScalePercentState(activeScalePercent, PROGRESS_INDICATOR_EASING_SCALE_PERCENT_TIMER_MS);
 
 	return (
-		<TransitionRotateIndefinite fullRotationDurationMs={PROGRESS_INDICATOR_INDETERMINATE_CYCLE_DURATION_MS}>
+		<TransitionRotateIndefinite
+			direction={TransitionRotateIndefiniteDirection.Forwards}
+			fullRotationDurationMs={PROGRESS_INDICATOR_INDETERMINATE_CYCLE_DURATION_MS}
+			timing={TransitionRotateIndefiniteTiming.EaseInOut}
+		>
 			<div style={PROGRESS_INDICATOR_CIRCLE_CONTAINER_STYLE}>
 				<div
 					key="progress-indicator-circle-indeterminate-inactive"

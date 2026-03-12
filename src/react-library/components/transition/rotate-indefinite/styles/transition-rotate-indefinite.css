@@ -1,4 +1,15 @@
-@keyframes react-library-components-transition-rotate-indefinite {
+@keyframes react-library-components-transition-rotate-indefinite-backwards {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(-360deg);
+	}
+}
+
+
+@keyframes react-library-components-transition-rotate-indefinite-forwards {
 	from {
 		transform: rotate(0deg);
 	}

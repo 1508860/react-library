@@ -11,8 +11,8 @@ export function transitionRotateIndefiniteContainerStyle(props: TransitionRotate
 		alignItems: "center",
 		animationDuration: `${props.fullRotationDurationMs}ms`,
 		animationIterationCount: "infinite",
-		animationName: "react-library-components-transition-rotate-indefinite",
-		animationTimingFunction: "ease-in-out",
+		animationName: `react-library-components-transition-rotate-indefinite-${props.direction}`,
+		animationTimingFunction: props.timing,
 		display: "inline-flex"
 	};
 }
