@@ -22,7 +22,7 @@ export function transitionPulseStyle(props: TransitionPulseProps): CSSProperties
 		animationFillMode: "forwards",
 		animationIterationCount: 1,
 		animationName: animationName,
-		animationTimingFunction: "ease-in-out",
+		animationTimingFunction: props.timing,
 		aspectRatio: 1,
 		backgroundColor: props.colour.toColourString(),
 		borderRadius: "50%",

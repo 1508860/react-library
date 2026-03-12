@@ -8,7 +8,7 @@ import {
 	type Colour,
 	type Guid
 } from "@react-library/common";
-import { TransitionPulse } from "@react-library/components";
+import { TransitionPulse, TransitionPulseTiming } from "@react-library/components";
 
 import {
 	DemoContent,
@@ -51,6 +51,7 @@ export function ReactLibraryComponentsTransitionPulseDemo() {
 				}}
 				key={transitionPulseKey}
 				onComplete={handleSetTransitionPulseKey}
+				timing={TransitionPulseTiming.EaseInOut}
 			/>
 		</DemoContent>
 	);

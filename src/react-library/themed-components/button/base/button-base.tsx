@@ -16,6 +16,7 @@ import {
 } from "@react-library/common";
 import {
 	TransitionPulse,
+	TransitionPulseTiming,
 	type TransitionPulseInsetData
 } from "@react-library/components";
 import { MaterialIconSvg } from "@react-library/material-icons";
@@ -134,6 +135,7 @@ export function ButtonBase(
 						inset={clickedInset.inset}
 						key={`button-clicked-inset-layer-${clickedInset.key}`}
 						onComplete={() => setClickedInset(undefined)}
+						timing={TransitionPulseTiming.EaseInOut}
 					/> :
 					<Fragment key="no-button-clicked-inset-layer" />
 			}
