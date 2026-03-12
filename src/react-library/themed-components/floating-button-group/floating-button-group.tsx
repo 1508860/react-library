@@ -45,6 +45,7 @@ export function FloatingButtonGroup(props: FloatingButtonGroupProps) {
 
 	return (
 		<div style={FLOATING_BUTTON_GROUP_CONTAINER_STYLE}>
+			{props.children}
 			{props.button.type === FloatingButtonGroupButton.Default ?
 				<ButtonDefault
 					button={props.button}
@@ -61,7 +62,6 @@ export function FloatingButtonGroup(props: FloatingButtonGroupProps) {
 					positionStrategy={props.positionStrategy}
 					size={props.size}
 				/>}
-			{props.children}
 		</div>
 	);
 }
