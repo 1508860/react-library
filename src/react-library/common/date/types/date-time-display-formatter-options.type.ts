@@ -1,4 +1,4 @@
-import type { IFractionalSecondDigits } from "react-library/common/interfaces";
+import type { IFractionalSecondDigits } from "../../interfaces";
 
 /**
  * Type to define options for formatting date time
