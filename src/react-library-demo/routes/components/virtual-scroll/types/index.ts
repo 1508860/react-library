@@ -1,2 +1,2 @@
-export * from "./virtual-scroll-test-parent.type";
-export * from "./virtual-scroll-test-standard.type";
+export * from "./virtual-scroll-demo-item-child-data.type";
+export * from "./virtual-scroll-demo-item-data.type";

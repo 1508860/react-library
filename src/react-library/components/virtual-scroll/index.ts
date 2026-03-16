@@ -1,12 +1,8 @@
-export * from "./components/virtual-scroll-accordion-grand-parent-view";
-export * from "./components/virtual-scroll-accordion-great-grand-parent-view";
-export * from "./components/virtual-scroll-accordion-parent-view";
-export * from "./components/virtual-scroll-view";
-
-export * from "./enums/virtual-scroll-row.type";
-
-export * from "./functions/is-virtual-scroll-row-standard.function";
-
-export * from "./types/virtual-scroll-config.type";
-export * from "./types/virtual-scroll-row.type";
-export * from "./types/virtual-scroll-view-props.type";
+export * from "./components/virtual-scroll";
+export * from "./components/virtual-scroll-item";
+export * from "./types/virtual-scroll-child.type";
+export * from "./types/virtual-scroll-item-child.type";
+export * from "./types/virtual-scroll-item-id.type";
+export * from "./types/virtual-scroll-item-size.type";
+export * from "./types/virtual-scroll-item-sort-order.type";
+export * from "./types/virtual-scroll-orientation.type";

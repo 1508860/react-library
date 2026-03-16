@@ -1,1 +1,1 @@
-export * from "./resolve-virtual-scroll-parent-data.function";
+export * from "./resolve-virtual-scroll-demo-Items.function";

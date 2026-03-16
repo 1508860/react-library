@@ -34,7 +34,7 @@ export function ReactLibraryDemo() {
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaultSubItemId={ReactLibraryComponentsDemo.OverlayPortal}
+										defaultSubItemId={ReactLibraryComponentsDemo.VirtualScroll}
 									>
 										{{
 											id: 1,
