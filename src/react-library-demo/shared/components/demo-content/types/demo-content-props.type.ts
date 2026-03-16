@@ -6,6 +6,7 @@ import type {
 	IIncludeRenderCounter,
 	IIndentIndex,
 	IJustify,
+	IOnClick,
 	IOrientation,
 	IOverflow,
 	IPaddingBottom,
@@ -32,6 +33,7 @@ export type DemoContentProps = (
 	Partial<IIncludeRenderCounter<boolean>> &
 	Partial<IIndentIndex<DemoContentIndentIndex>> &
 	IJustify<DemoContentJustify> &
+	Partial<IOnClick<Element>> &
 	IOrientation<Orientation> &
 	IOverflow<DemoContentOverflow> &
 	Partial<IPaddingBottom<Size>> &

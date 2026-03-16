@@ -13,9 +13,12 @@ export function DemoContent(props: DemoContentProps) {
 
 	const font = useFontContext();
 	const renderCounter = useRenderCounterRef();
-	
+
 	return (
-		<div style={demoContentStyle(props, font)}>
+		<div
+			onClick={props.onClick}
+			style={demoContentStyle(props, font)}
+		>
 
 			<DemoContentChildrenElement {...props} key="children" />
 
