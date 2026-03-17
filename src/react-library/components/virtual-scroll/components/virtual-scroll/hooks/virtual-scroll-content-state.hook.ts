@@ -71,9 +71,6 @@ export function useVirtualScrollContentState(
 				scrollState,
 				itemsRef.current
 			);
-
-			console.log(renderState);
-
 			setItemsInView(renderState.itemsInView);
 			setSize(renderState.size);
 		},
