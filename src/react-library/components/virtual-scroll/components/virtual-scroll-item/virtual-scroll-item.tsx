@@ -13,16 +13,16 @@ export function VirtualScrollItem(props: VirtualScrollItemProps) {
 
 	const virtualScrollOrientation = useVirtualScrollOrientationContext();
 	const [virtualScrollItemRegister] = useVirtualScrollItemRegisterState(props.id, props.size, props.sortOrder);
-	const [VirtualScrollItemChild] = useVirtualScrollItemChildState(props.id, props.children);
+	const [virtualScrollItemChild] = useVirtualScrollItemChildState(props.id, props.children);
 
-	if (!VirtualScrollItemChild) return undefined;
+	if (!virtualScrollItemChild) return undefined;
 
 	return (
 		<div
 			key={`child-container-${props.id}`}
 			style={virtualScrollItemStyle(virtualScrollOrientation, virtualScrollItemRegister.size)}
 		>
-			<VirtualScrollItemChild key={props.id} />
+			{virtualScrollItemChild}
 		</div>
 	);
 }

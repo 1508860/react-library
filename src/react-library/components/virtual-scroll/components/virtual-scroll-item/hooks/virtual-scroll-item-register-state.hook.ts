@@ -26,31 +26,32 @@ export function useVirtualScrollItemRegisterState(
 	const virtualScrollItemRegister = useVirtualScrollItemRegisterContext();
 	const virtualScrollItemUnregister = useVirtualScrollItemUnregisterContext();
 
-
+	const isRegisteredRef = useRef<boolean>(false);
 	const idRef = useRef<VirtualScrollItemId>(id);
 	const sizeRef = useRef<VirtualScrollItemSize>(size ?? virtualScrollItemSizeDefault);
+	const sortOrderRef = useRef<VirtualScrollItemSortOrder>(sortOrder);
 	const [state, setState] = useState<VirtualScrollItemRegisterState>(() => ({ size: sizeRef.current }));
 
 	// Register item
 	useEffect(
 		() => {
 			const newState = (size ?? virtualScrollItemSizeDefault);
-			if (idRef.current === id && sizeRef.current === newState) return;
+
+			if (!isRegisteredRef.current) {
+				isRegisteredRef.current = true;
+			}
+			else if (idRef.current === id && sizeRef.current === newState && sortOrderRef.current === sortOrder) return;
+
 			idRef.current = id;
 			sizeRef.current = newState;
-			virtualScrollItemRegister({
-				id: id,
-				size: newState,
-				sortOrder: sortOrder
-			});
-			setState({
-				size: newState
-			});
+			sortOrderRef.current = sortOrder;
+
+			virtualScrollItemRegister({ id: id, size: newState, sortOrder: sortOrder });
+			setState({ size: newState });
 
 			return () => {
-				virtualScrollItemUnregister({
-					id: id
-				});
+				virtualScrollItemUnregister({ id: id });
+				isRegisteredRef.current = false;
 			}
 		},
 		[id, size, sortOrder, virtualScrollItemSizeDefault, virtualScrollItemRegister, virtualScrollItemUnregister]

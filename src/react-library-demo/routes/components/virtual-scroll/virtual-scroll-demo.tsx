@@ -17,9 +17,7 @@ import {
 } from "@react-library-demo/shared";
 
 import { resolveVirtualScrollDemoItems } from "./functions";
-import type {
-	VirtualScrollDemoItemData
-} from "./types";
+import type { VirtualScrollDemoItemData } from "./types";
 
 export function ReactLibraryComponentsVirtualScrollDemo() {
 
