@@ -3,12 +3,14 @@ import type {
 	IChild,
 	IItemBufferCount,
 	IItemSize,
-	IOrientation
+	IOrientation,
+	IScrollbar
 } from "@react-library/common";
 
 import type { VirtualScrollChild } from "../../../types/virtual-scroll-child.type";
 import type { VirtualScrollItemSize } from "../../../types/virtual-scroll-item-size.type";
 import type { VirtualScrollOrientation } from "../../../types/virtual-scroll-orientation.type";
+import type { VirtualScrollBarConfig } from "../../../types/virtual-scrollbar-config.type";
 
 /**
  * Props for virtual scroll component
@@ -21,5 +23,6 @@ export type VirtualScrollProps = (
 	 */
 	IItemBufferCount<number> &
 	IItemSize<VirtualScrollItemSize> &
-	IOrientation<VirtualScrollOrientation>
+	IOrientation<VirtualScrollOrientation> &
+	Partial<IScrollbar<VirtualScrollBarConfig>>
 );

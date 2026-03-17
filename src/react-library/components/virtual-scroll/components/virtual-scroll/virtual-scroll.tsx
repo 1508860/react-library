@@ -52,9 +52,9 @@ export function VirtualScroll(props: VirtualScrollProps) {
 		<div
 			onScroll={handleSetScrollState}
 			ref={setVirtualScrollElementCallback}
-			style={virtualScrollStyle(props.orientation)}
+			style={virtualScrollStyle(props.orientation, props.scrollbar)}
 		>
-			<div style={virtualScrollContainerStyle(props.orientation, size.childrenSize, size.paddingStart, size.paddingEnd)}>
+			<div style={virtualScrollContainerStyle(props.orientation, size)}>
 				<VIRTUAL_SCROLL_ORIENTATION_CONTEXT value={props.orientation}>
 					<VIRTUAL_SCROLL_ITEM_SIZE_DEFAULT_CONTEXT value={props.itemSize}>
 						<VIRTUAL_SCROLL_ITEM_REGISTER_CONTEXT value={itemRegister}>

@@ -1,25 +1,25 @@
 import type { CSSProperties } from "react";
 
-import { Orientation, type Size, type SizePx } from "@react-library/common";
+import { Orientation } from "@react-library/common";
+
+import type { VirtualScrollContentSize } from "../types/virtual-scroll-content-size.type";
 
 /**
  * Resolve virtual scroll container style based on parameters
  * @param orientation
- * @param childrenSize
- * @param paddingStart
- * @param paddingEnd
+ * @param size
  */
-export function virtualScrollContainerStyle(orientation: Orientation, childrenSize: Size, paddingStart: SizePx, paddingEnd: SizePx): CSSProperties {
+export function virtualScrollContainerStyle(orientation: Orientation, size: VirtualScrollContentSize): CSSProperties {
 	return {
 		boxSizing: "content-box",
 		display: "flex",
 		flexDirection: orientation === Orientation.Horizontal ? "row" : "column",
-		height: orientation === Orientation.Vertical ? childrenSize : "100%",
-		paddingTop: orientation === Orientation.Vertical ? paddingStart : 0,
-		paddingRight: orientation === Orientation.Horizontal ? paddingEnd : 0,
-		paddingBottom: orientation === Orientation.Vertical ? paddingEnd : 0,
-		paddingLeft: orientation === Orientation.Horizontal ? paddingStart : 0,
+		height: orientation === Orientation.Vertical ? size.childrenSize : "100%",
+		paddingTop: orientation === Orientation.Vertical ? size.paddingStart : 0,
+		paddingRight: orientation === Orientation.Horizontal ? size.paddingEnd : 0,
+		paddingBottom: orientation === Orientation.Vertical ? size.paddingEnd : 0,
+		paddingLeft: orientation === Orientation.Horizontal ? size.paddingStart : 0,
 		position: "relative",
-		width: orientation === Orientation.Horizontal ? childrenSize : "100%",
+		width: orientation === Orientation.Horizontal ? size.childrenSize : "100%"
 	};
 };
