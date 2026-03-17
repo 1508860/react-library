@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import { ProgressIndicatorPosition } from "../enums/progress-indicator-position.type";
+import { ProgressIndicatorPosition } from "../../../enums/progress-indicator-position.type";
 
 /**
  * Resolve progress indicator flat container style based on parameters
