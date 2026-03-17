@@ -35,7 +35,7 @@ export function virtualScrollRender(
 	// Validate parameters
 	const validItemBufferCount: number = (itemBufferCount < 0 ? 0 : itemBufferCount);
 	const scrollStart: SizePx = (orientation === Orientation.Horizontal ? scrollState.scrollStartHorizontal : scrollState.scrollStartVertical);
-	const scrollToEndOfViewport: SizePx = (scrollStart + (orientation === Orientation.Horizontal ? virtualScrollSize.width : virtualScrollSize.width));
+	const scrollToEndOfViewport: SizePx = (scrollStart + (orientation === Orientation.Horizontal ? virtualScrollSize.width : virtualScrollSize.height));
 	const orderedItems: Array<VirtualScrollItemId> = virtualScrollSort(itemMap);
 
 	const getValidatedItem = (id: VirtualScrollItemId): VirtualScrollItemMapValue => {
