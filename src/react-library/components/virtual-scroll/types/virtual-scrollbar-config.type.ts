@@ -1,10 +1,9 @@
 import type {
 	Colour,
 	IColour,
-	ISize,
+	IShow,
 	IThumb,
-	ITrack,
-	Size
+	ITrack
 } from "@react-library/common";
 
 /**
@@ -12,7 +11,7 @@ import type {
  */
 export type VirtualScrollBarConfig = (
 	Partial<IColour<VirtualScrollBarConfigColour>> &
-	Partial<ISize<Size>>
+	Partial<IShow>
 );
 
 export type VirtualScrollBarConfigColour = (

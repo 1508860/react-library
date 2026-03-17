@@ -1,9 +1,10 @@
 import { useCallback, useState } from "react";
 
-import { Orientation } from "@react-library/common";
+import { HexRgb, Orientation } from "@react-library/common";
 import {
 	VirtualScroll,
 	VirtualScrollItem,
+	type VirtualScrollBarConfig,
 	type VirtualScrollItemId
 } from "@react-library/components";
 
@@ -23,14 +24,15 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 
 	// virtual scroll
 	const [itemBufferCount] = useState<number>(() => 20);
-	const [defaultRowSize] = useState<number>(() => 30);
-	const [items] = useState<Array<VirtualScrollDemoItemData>>(() => resolveVirtualScrollDemoItems(
-		1000,
-		10,
-		defaultRowSize,
-		60,
-		2
-	));
+	const [defaultItemSize] = useState<number>(() => 30);
+	const [scrollBarConfig] = useState<VirtualScrollBarConfig>(() => ({
+		colour: {
+			thumb: new HexRgb("00", "FF", "00"),
+			track: new HexRgb("FF", "00", "00")
+		},
+		show: true
+	}));
+	const [items] = useState<Array<VirtualScrollDemoItemData>>(() => resolveVirtualScrollDemoItems(1000, 10, 60, 2));
 
 	const [showItemChildren, setShowItemChildren] = useState<VirtualScrollItemId | undefined>(() => undefined);
 	const handleSetShowItemChildren = useCallback(
@@ -41,8 +43,9 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 	return (<>
 		<VirtualScroll
 			itemBufferCount={itemBufferCount}
-			itemSize={defaultRowSize}
+			itemSize={defaultItemSize}
 			orientation={Orientation.Vertical}
+			scrollbar={scrollBarConfig}
 		>
 			{items.map((item, itemIndex) => ([
 				<VirtualScrollItem
@@ -54,7 +57,7 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 					{() => <DemoContent
 						align={DemoContentAlign.Center}
 						childrenType={DemoContentChildren.Text}
-						colourScheme={DemoContentColourScheme.Primary}
+						colourScheme={item.virtualScrollRowSize === undefined ? DemoContentColourScheme.Primary : DemoContentColourScheme.Secondary}
 						height="100%"
 						includeRenderCounter={true}
 						justify={DemoContentJustify.Start}
@@ -77,7 +80,7 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 								{() => <DemoContent
 									align={DemoContentAlign.Center}
 									childrenType={DemoContentChildren.Text}
-									colourScheme={DemoContentColourScheme.Primary}
+									colourScheme={DemoContentColourScheme.Tertiary}
 									height="100%"
 									includeRenderCounter={true}
 									indentIndex={2}

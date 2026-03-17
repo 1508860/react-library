@@ -18,6 +18,7 @@ export function virtualScrollStyle(orientation: Orientation, scrollbarConfig: Pa
 		width: "100%",
 		overflowX: orientation === Orientation.Horizontal ? "auto" : "unset",
 		overflowY: orientation === Orientation.Vertical ? "auto" : "unset",
-		scrollbarColor: scrollbarColour ? `${scrollbarColour.thumb.toColourString()} ${scrollbarColour.track.toColourString()}` : undefined
+		scrollbarColor: scrollbarColour ? `${scrollbarColour.thumb.toColourString()} ${scrollbarColour.track.toColourString()}` : undefined,
+		scrollbarWidth: scrollbarConfig?.show ? undefined : "none"
 	};
 };
