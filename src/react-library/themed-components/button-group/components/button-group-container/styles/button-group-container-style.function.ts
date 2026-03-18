@@ -2,11 +2,11 @@ import type { CSSProperties } from "react";
 
 import { Orientation, type SizePx } from "@react-library/common";
 
-import { ButtonSize } from "../../button";
+import { ButtonSize } from "../../../../button";
 
-import { ButtonGroupAction } from "../enums/button-group-action.type";
-import { ButtonGroupAlignItems } from "../enums/button-group-align-items.type";
-import type { ButtonGroupProps } from "../types/button-group-props.type";
+import { ButtonGroupAction } from "../../../enums/button-group-action.type";
+import { ButtonGroupAlignItems } from "../../../enums/button-group-align-items.type";
+import type { ButtonGroupProps } from "../../../types/button-group-props.type";
 
 /**
  * Resolve button group container style based on parameters
