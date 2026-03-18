@@ -38,8 +38,8 @@ export type ButtonGroupButtonClick = (
  * Describes selection configuration for a button group's button
  */
 export type ButtonGroupButtonSelection = (
-	ButtonSelectionContent &
 	ButtonGroupButtonBase &
+	ButtonSelectionContent &
 	IIsSelected
 );
 
@@ -47,8 +47,8 @@ export type ButtonGroupButtonSelection = (
  * Describes split configuration for a button group's button
  */
 export type ButtonGroupButtonSplit = (
-	ButtonSplitContent &
 	ButtonGroupButtonBase &
+	ButtonSplitContent &
 	ButtonSplitMenuElement
 );
 
