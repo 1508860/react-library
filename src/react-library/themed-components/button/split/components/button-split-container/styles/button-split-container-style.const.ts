@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-import { BUTTON_SPLIT_PROPERTY_MAP } from "../constants/button-split-property-map.const";
+import { BUTTON_SPLIT_PROPERTY_MAP } from "../../../constants/button-split-property-map.const";
 
 /**
  * Button split container style

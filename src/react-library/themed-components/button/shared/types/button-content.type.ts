@@ -2,7 +2,7 @@ import type { IContent, IIconName, IIconStyle, ILabel } from "@react-library/com
 import type { MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
 
 import type { ButtonContent } from "../enums/button-content.type";
-import type { ButtonIconWidthProps } from "../types/button-icon-width-props.type";
+import type { ButtonIconWidthProps } from "./button-icon-width-props.type";
 
 /**
  * Describes base type for button content
