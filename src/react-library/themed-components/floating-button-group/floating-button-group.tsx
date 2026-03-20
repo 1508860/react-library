@@ -58,7 +58,6 @@ export function FloatingButtonGroup(props: FloatingButtonGroupPropsAll) {
 
 /**
  * TODO
- * Move exclude icon to shared type and make use of. Look for "Exclude<"
  * Look at any types that can be cebtralised to shared types folder:
  * - Orientation
  * - ColourSchemeStyle

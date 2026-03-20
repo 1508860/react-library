@@ -14,13 +14,13 @@ import type {
 	Orientation,
 	PositionStrategyInternalCorner
 } from "@react-library/common";
-import type { MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
+import type { MaterialIconStyle } from "@react-library/material-icons";
 
 import type { ButtonClickTarget, ButtonSizeFloating } from "../../../../button";
 
 import type { FloatingButtonGroupButtonMenuChildren } from "../../../types/floating-button-group-button-menu-children.type";
+import type { FloatingButtonGroupMenuIconAllowed } from "../../../types/floating-button-group-menu-icon.type";
 import type { FloatingButtonGroupButtonMenuItemContent } from "../../floating-button-group-menu-item";
-import type { FloatingButtonGroupMenuIconClose } from "react-library/themed-components/floating-button-group/types/floating-button-group-menu-icon.type";
 
 /**
  * Props for floating button group menu button
@@ -28,7 +28,7 @@ import type { FloatingButtonGroupMenuIconClose } from "react-library/themed-comp
 export type FloatingButtonGroupMenuProps = (
 	IChild<FloatingButtonGroupButtonMenuChildren<FloatingButtonGroupMenuChildProps>> &
 	IColourSchemeStyle<ColourSchemeStyleStandard> &
-	IIconName<Exclude<MaterialIconName, FloatingButtonGroupMenuIconClose>> &
+	IIconName<FloatingButtonGroupMenuIconAllowed> &
 	IIconStyle<MaterialIconStyle> &
 	Partial<IIsDisabled> &
 	IOrientation<Orientation> &
