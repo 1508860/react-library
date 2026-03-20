@@ -11,9 +11,9 @@ import {
 	BUTTON_FLOATING_PROPERTY_MAP,
 	ButtonContent,
 	type ButtonSizeFloating
-} from "../../button";
+} from "../../../../button";
 
-import type { FloatingButtonGroupPosition } from "../types/floating-button-group-position.type";
+import type { FloatingButtonGroupPosition } from "../../../types/floating-button-group-position.type";
 
 /**
  * Resolve floating button group menu children style based on parameters

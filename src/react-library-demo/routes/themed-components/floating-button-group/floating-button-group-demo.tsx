@@ -27,16 +27,16 @@ export function ReactLibraryFloatingButtonGroupDemo() {
 				title="Floating Button Group - Default"
 			>
 				<FloatingButtonGroup
-					button={{
-						type: FloatingButtonGroupButton.Default,
-						colourSchemeStyle: ColourSchemeStyle.Primary,
+					type={FloatingButtonGroupButton.Default}
+					colourSchemeStyle={ColourSchemeStyle.Primary}
+					content={{
 						content: ButtonContent.IconLabel,
 						iconName: MaterialIconName.Add,
 						iconStyle: MaterialIconStyle.Default,
-						isDisabled: false,
-						label: "Label",
-						onClick: () => { }
+						label: "Label"
 					}}
+					isDisabled={false}
+					onClick={() => { }}
 					positionStrategy={PositionStrategyInternal.BottomRight}
 					size={ButtonSize.Medium}
 				>
@@ -48,70 +48,80 @@ export function ReactLibraryFloatingButtonGroupDemo() {
 				title="Floating Button Group - Menu"
 			>
 				<FloatingButtonGroup
-					button={{
-						type: FloatingButtonGroupButton.Menu,
-						children: [
-							{
+					type={FloatingButtonGroupButton.Menu}
+					colourSchemeStyle={ColourSchemeStyle.Primary}
+					iconName={MaterialIconName.Add}
+					iconStyle={MaterialIconStyle.Default}
+					isDisabled={false}
+					items={[
+						{
+							content: {
 								content: ButtonContent.IconLabel,
 								iconName: MaterialIconName.Add,
 								iconStyle: MaterialIconStyle.Default,
-								isDisabled: false,
-								key: 1,
-								label: "Label 1",
-								onClick: () => { }
+								label: "Label 1"
 							},
-							{
+							isDisabled: false,
+							key: 1,
+							onClick: () => { }
+						},
+						{
+							content: {
 								content: ButtonContent.IconLabel,
 								iconName: MaterialIconName.Favorite,
 								iconStyle: MaterialIconStyle.Default,
-								isDisabled: false,
-								key: 2,
-								label: "Label 2",
-								onClick: () => { }
+								label: "Label 2"
 							},
-							{
+							isDisabled: false,
+							key: 2,
+							onClick: () => { }
+						},
+						{
+							content: {
 								content: ButtonContent.IconLabel,
 								iconName: MaterialIconName.Favorite,
 								iconStyle: MaterialIconStyle.Default,
-								isDisabled: false,
-								key: 3,
-								label: "Label 3",
-								onClick: () => { }
+								label: "Label 3"
 							},
-							{
+							isDisabled: false,
+							key: 3,
+							onClick: () => { }
+						},
+						{
+							content: {
 								content: ButtonContent.IconLabel,
 								iconName: MaterialIconName.Favorite,
 								iconStyle: MaterialIconStyle.Default,
-								isDisabled: false,
-								key: 4,
-								label: "Label 4",
-								onClick: () => { }
+								label: "Label 4"
 							},
-							{
+							isDisabled: false,
+							key: 4,
+							onClick: () => { }
+						},
+						{
+							content: {
 								content: ButtonContent.IconLabel,
 								iconName: MaterialIconName.Favorite,
 								iconStyle: MaterialIconStyle.Default,
-								isDisabled: false,
-								key: 5,
-								label: "Label 5",
-								onClick: () => { }
+								label: "Label 5"
 							},
-							{
+							isDisabled: false,
+							key: 5,
+							onClick: () => { }
+						},
+						{
+							content: {
 								content: ButtonContent.IconLabel,
 								iconName: MaterialIconName.Favorite,
 								iconStyle: MaterialIconStyle.Default,
-								isDisabled: false,
-								key: 6,
-								label: "Label 6",
-								onClick: () => { }
-							}
-						],
-						colourSchemeStyle: ColourSchemeStyle.Primary,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						isDisabled: false,
-						orientation: Orientation.Vertical
-					}}
+								label: "Label 6"
+							},
+							isDisabled: false,
+							key: 6,
+							onClick: () => { }
+						}
+					]}
+					orientation={Orientation.Vertical}
 					positionStrategy={PositionStrategyInternal.BottomRight}
 					size={ButtonSize.Medium}
 				>

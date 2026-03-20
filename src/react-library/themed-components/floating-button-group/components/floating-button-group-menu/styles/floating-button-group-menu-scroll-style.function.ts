@@ -1,9 +1,9 @@
 import type { CSSProperties } from "react";
-import type { FloatingButtonGroupPosition } from "../types/floating-button-group-position.type";
 
+import type { FloatingButtonGroupPosition } from "../../../types/floating-button-group-position.type";
 
 /**
- * Resolve floating button group menu scroll style based on parameters
+ * Resolve floating button group menu children scroll style based on parameters
  * @param position
  */
 export function floatingButtonGroupMenuScrollStyle(position: FloatingButtonGroupPosition): CSSProperties {

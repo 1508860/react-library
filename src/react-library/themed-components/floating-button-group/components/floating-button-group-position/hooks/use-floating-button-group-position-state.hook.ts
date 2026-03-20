@@ -7,9 +7,9 @@ import {
 	type SizePx
 } from "@react-library/common";
 
-import type { FloatingButtonGroupPositionAlignItems } from "../types/floating-button-group-position-align-items.type";
-import type { FloatingButtonGroupPositionFlexDirection } from "../types/floating-button-group-position-flex-direction.type";
-import type { FloatingButtonGroupPosition } from "../types/floating-button-group-position.type";
+import type { FloatingButtonGroupPositionAlignItems } from "../../../types/floating-button-group-position-align-items.type";
+import type { FloatingButtonGroupPositionFlexDirection } from "../../../types/floating-button-group-position-flex-direction.type";
+import type { FloatingButtonGroupPosition } from "../../../types/floating-button-group-position.type";
 
 /**
  * Describes use state hook result for the floating button group position
