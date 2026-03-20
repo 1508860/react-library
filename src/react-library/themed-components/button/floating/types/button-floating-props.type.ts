@@ -2,12 +2,13 @@ import type {
 	ColourSchemeStyle,
 	IColourSchemeStyle,
 	IIsDisabled,
-	IOnClick
+	IOnClick,
+	IShape,
+	ISize
 } from "@react-library/common";
 
+import type { ButtonShape } from "../../shared/enums/button-shape.type";
 import type { ButtonSizeFloating } from "../../shared/enums/button-size.type";
-import type { ButtonShapeProps } from "../../shared/types/button-shape-props.type";
-import type { ButtonSizeProps } from "../../shared/types/button-size-props.type";
 
 import type { ButtonFloatingContent } from "./button-floating-content.type";
 
@@ -16,9 +17,9 @@ import type { ButtonFloatingContent } from "./button-floating-content.type";
  */
 export type ButtonFloatingProps = (
 	ButtonFloatingContent &
-	ButtonShapeProps &
-	ButtonSizeProps<ButtonSizeFloating> &
 	IColourSchemeStyle<ColourSchemeStyle> &
 	Partial<IIsDisabled> &
-	IOnClick<HTMLDivElement>
+	IOnClick<HTMLDivElement> &
+	IShape<ButtonShape> &
+	ISize<ButtonSizeFloating>
 );

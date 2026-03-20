@@ -2,12 +2,12 @@ import type {
 	IIsDisabled,
 	IIsSelected,
 	IOnClick,
+	ISize,
 	IStyle
 } from "@react-library/common";
 
 import type { ButtonSize } from "../../shared/enums/button-size.type";
 import type { ButtonStyle } from "../../shared/enums/button-style.type";
-import type { ButtonSizeProps } from "../../shared/types/button-size-props.type";
 
 import type { ButtonSelectionContent } from "./button-selection-content.type";
 
@@ -16,9 +16,9 @@ import type { ButtonSelectionContent } from "./button-selection-content.type";
  */
 export type ButtonSelectionProps = (
 	ButtonSelectionContent &
-	ButtonSizeProps<ButtonSize> &
 	Partial<IIsDisabled> &
 	IIsSelected &
 	IOnClick<HTMLDivElement> &
+	ISize<ButtonSize> &
 	IStyle<ButtonStyle>
 );
