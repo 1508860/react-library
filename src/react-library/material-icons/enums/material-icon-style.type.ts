@@ -3,6 +3,7 @@
  */
 export const MaterialIconStyle = {
 	Default: "default",
+	DefaultFilled: "default-filled",
 	Thick: "thick"
 } as const satisfies Record<string, string>;
 

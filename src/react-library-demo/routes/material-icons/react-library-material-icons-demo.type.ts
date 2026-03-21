@@ -3,6 +3,7 @@
  */
 export const ReactLibraryMaterialIconsDemo = {
 	"Default": "ReactLibraryMaterialIconsDemo-Default",
+	"DefaultFilled": "ReactLibraryMaterialIconsDemo-DefaultFilled",
 	"Thick": "ReactLibraryMaterialIconsDemo-Thick"
 } as const satisfies Record<string, string>;
 
