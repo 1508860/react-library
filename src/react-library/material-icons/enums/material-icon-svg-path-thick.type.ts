@@ -9,6 +9,7 @@ export type MaterialIconSvgPathThick = (typeof MaterialIconSvgPathThick)[keyof t
 
 /**
  * Type for material icon SVG data to draw the icon from
+ * Generated from: https://fonts.google.com/icons?icon.size=30&icon.color=%231f1f1f&icon.platform=web&selected=Material+Symbols+Outlined:add:FILL@0;wght@700;GRAD@0;opsz@24
  */
 export const MaterialIconSvgPathThick = {
 	[MaterialIconName.Add]: ["M417-417H166v-126h251v-251h126v251h251v126H543v251H417v-251Z"],

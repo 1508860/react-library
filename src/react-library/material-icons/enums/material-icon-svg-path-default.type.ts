@@ -9,6 +9,7 @@ export type MaterialIconSvgPathDefault = (typeof MaterialIconSvgPathDefault)[key
 
 /**
  * Type for material icon SVG data to draw the icon from as an outline
+ * Generated from: https://fonts.google.com/icons?icon.size=30&icon.color=%231f1f1f&icon.platform=web&selected=Material+Symbols+Outlined:add:FILL@0;wght@400;GRAD@0;opsz@24
  */
 export const MaterialIconSvgPathDefault = {
 	[MaterialIconName.Add]: ["M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"],
