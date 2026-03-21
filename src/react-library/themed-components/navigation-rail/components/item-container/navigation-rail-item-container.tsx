@@ -67,7 +67,7 @@ export function NavigationRailItemContainer<TItemId extends NavigationRailItemId
 						colour={isActive ? colourScheme.secondary.container.onColour : colourScheme.surface.variant.onColour}
 						name={props.iconName}
 						size={NAVIGATION_RAIL_PROPERTY_MAP.itemIconSize}
-						style={isActive ? MaterialIconStyle.Thick : MaterialIconStyle.Default}
+						style={isActive ? MaterialIconStyle.DefaultFilled : MaterialIconStyle.Default}
 					/>
 				</Badge>
 				{props.orientation === Orientation.Horizontal ? <span key="label">{props.label}</span> : <Fragment key="no-label" />}

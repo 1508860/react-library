@@ -68,7 +68,7 @@ export function NavigationBarItemContainer<TItemId extends NavigationBarItemId>(
 						key="icon"
 						name={props.iconName}
 						size={NAVIGATION_BAR_PROPERTY_MAP.iconSize}
-						style={isActive ? MaterialIconStyle.Thick : MaterialIconStyle.Default}
+						style={isActive ? MaterialIconStyle.DefaultFilled : MaterialIconStyle.Default}
 					/>
 				</Badge>
 				{props.orientation === Orientation.Horizontal ? <span key="label">{props.label}</span> : <Fragment key="no-label" />}
