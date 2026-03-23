@@ -3,7 +3,6 @@ import type { CSSProperties } from "react";
 import {
 	Orientation,
 	PositionStrategyInternal,
-	type PositionStrategyInternalCorner,
 	type SizePx
 } from "@react-library/common";
 
@@ -13,6 +12,8 @@ import {
 	type ButtonSizeFloating
 } from "../../../../button";
 
+import type { FloatingButtonGroupOrientation } from "../../../types/floating-button-group-orientation.type";
+import type { FloatingButtonGroupPositionStrategy } from "../../../types/floating-button-group-position-strategy.type";
 import type { FloatingButtonGroupPosition } from "../../../types/floating-button-group-position.type";
 
 /**
@@ -24,9 +25,9 @@ import type { FloatingButtonGroupPosition } from "../../../types/floating-button
  */
 export function floatingButtonGroupMenuChildrenStyle(
 	position: FloatingButtonGroupPosition,
-	positionStrategy: PositionStrategyInternalCorner,
+	positionStrategy: FloatingButtonGroupPositionStrategy,
 	buttonSize: ButtonSizeFloating,
-	orientation: Orientation
+	orientation: FloatingButtonGroupOrientation
 ): CSSProperties {
 
 	let paddingBottom: SizePx = 0;

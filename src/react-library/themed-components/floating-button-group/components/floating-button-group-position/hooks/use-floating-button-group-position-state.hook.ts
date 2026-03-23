@@ -1,14 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import {
-	Orientation,
-	PositionStrategyInternal,
-	type PositionStrategyInternalCorner,
-	type SizePx
-} from "@react-library/common";
+import { Orientation, PositionStrategyInternal, type SizePx } from "@react-library/common";
 
+import type { FloatingButtonGroupOrientation } from "../../../types/floating-button-group-orientation.type";
 import type { FloatingButtonGroupPositionAlignItems } from "../../../types/floating-button-group-position-align-items.type";
 import type { FloatingButtonGroupPositionFlexDirection } from "../../../types/floating-button-group-position-flex-direction.type";
+import type { FloatingButtonGroupPositionStrategy } from "../../../types/floating-button-group-position-strategy.type";
 import type { FloatingButtonGroupPosition } from "../../../types/floating-button-group-position.type";
 
 /**
@@ -17,8 +14,8 @@ import type { FloatingButtonGroupPosition } from "../../../types/floating-button
  * @param orientation
  */
 export function useFloatingButtonGroupPositionState(
-	positionStrategy: PositionStrategyInternalCorner,
-	orientation: Orientation
+	positionStrategy: FloatingButtonGroupPositionStrategy,
+	orientation: FloatingButtonGroupOrientation
 ): [FloatingButtonGroupPosition] {
 
 	const resolvePosition = useCallback<() => FloatingButtonGroupPosition>(

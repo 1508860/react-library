@@ -1,5 +1,4 @@
 import type {
-	ColourSchemeStyleStandard,
 	IChild,
 	IColourSchemeStyle,
 	IContent,
@@ -10,16 +9,17 @@ import type {
 	IOnClick,
 	IOrientation,
 	IPositionStrategy,
-	ISize,
-	Orientation,
-	PositionStrategyInternalCorner
+	ISize
 } from "@react-library/common";
 import type { MaterialIconStyle } from "@react-library/material-icons";
 
 import type { ButtonClickTarget, ButtonSizeFloating } from "../../../../button";
 
 import type { FloatingButtonGroupButtonMenuChildren } from "../../../types/floating-button-group-button-menu-children.type";
+import type { FloatingButtonGroupMenuColourSchemeStyle } from "../../../types/floating-button-group-colour-scheme-style.type";
 import type { FloatingButtonGroupMenuIconAllowed } from "../../../types/floating-button-group-menu-icon.type";
+import type { FloatingButtonGroupOrientation } from "../../../types/floating-button-group-orientation.type";
+import type { FloatingButtonGroupPositionStrategy } from "../../../types/floating-button-group-position-strategy.type";
 import type { FloatingButtonGroupButtonMenuItemContent } from "../../floating-button-group-menu-item";
 
 /**
@@ -27,12 +27,12 @@ import type { FloatingButtonGroupButtonMenuItemContent } from "../../floating-bu
  */
 export type FloatingButtonGroupMenuProps = (
 	IChild<FloatingButtonGroupButtonMenuChildren<FloatingButtonGroupMenuChildProps>> &
-	IColourSchemeStyle<ColourSchemeStyleStandard> &
+	IColourSchemeStyle<FloatingButtonGroupMenuColourSchemeStyle> &
 	IIconName<FloatingButtonGroupMenuIconAllowed> &
 	IIconStyle<MaterialIconStyle> &
 	Partial<IIsDisabled> &
-	IOrientation<Orientation> &
-	IPositionStrategy<PositionStrategyInternalCorner> &
+	IOrientation<FloatingButtonGroupOrientation> &
+	IPositionStrategy<FloatingButtonGroupPositionStrategy> &
 	ISize<ButtonSizeFloating>
 );
 

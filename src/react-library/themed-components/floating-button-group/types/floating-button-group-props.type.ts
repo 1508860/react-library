@@ -1,8 +1,6 @@
 import type { PropsWithChildren } from "react";
 
 import type {
-	ColourSchemeStyle,
-	ColourSchemeStyleStandard,
 	IColourSchemeStyle,
 	IContent,
 	IIconName,
@@ -13,9 +11,7 @@ import type {
 	IOrientation,
 	IPositionStrategy,
 	ISize,
-	IType,
-	Orientation,
-	PositionStrategyInternalCorner
+	IType
 } from "@react-library/common";
 import type { MaterialIconStyle } from "@react-library/material-icons";
 
@@ -25,14 +21,20 @@ import type { FloatingButtonGroupButtonDefaultContent } from "../components/floa
 import type { FloatingButtonGroupMenuChildProps } from "../components/floating-button-group-menu";
 import type { FloatingButtonGroupButton } from "../enums/floating-button-group-button.type";
 import type { FloatingButtonGroupButtonMenuChildren } from "./floating-button-group-button-menu-children.type";
+import type {
+	FloatingButtonGroupDefaultColourSchemeStyle,
+	FloatingButtonGroupMenuColourSchemeStyle
+} from "./floating-button-group-colour-scheme-style.type";
 import type { FloatingButtonGroupMenuIconAllowed } from "./floating-button-group-menu-icon.type";
+import type { FloatingButtonGroupOrientation } from "./floating-button-group-orientation.type";
+import type { FloatingButtonGroupPositionStrategy } from "./floating-button-group-position-strategy.type";
 
 /**
  * Baes props for floating button group
  */
 type FloatingButtonGroupPropsBase<TFloatingButtonGroupButton extends FloatingButtonGroupButton> = (
 	Partial<IIsDisabled> &
-	IPositionStrategy<PositionStrategyInternalCorner> &
+	IPositionStrategy<FloatingButtonGroupPositionStrategy> &
 	PropsWithChildren &
 	ISize<ButtonSizeFloating> &
 	IType<TFloatingButtonGroupButton>
@@ -42,7 +44,7 @@ type FloatingButtonGroupPropsBase<TFloatingButtonGroupButton extends FloatingBut
  * Props for floating button group default
  */
 export type FloatingButtonGroupPropsDefault = (
-	IColourSchemeStyle<ColourSchemeStyle> &
+	IColourSchemeStyle<FloatingButtonGroupDefaultColourSchemeStyle> &
 	IContent<FloatingButtonGroupButtonDefaultContent> &
 	FloatingButtonGroupPropsBase<typeof FloatingButtonGroupButton.Default> &
 	IOnClick<ButtonClickTarget>
@@ -52,12 +54,12 @@ export type FloatingButtonGroupPropsDefault = (
  * Props for floating button group menu
  */
 export type FloatingButtonGroupPropsMenu = (
-	IColourSchemeStyle<ColourSchemeStyleStandard> &
+	IColourSchemeStyle<FloatingButtonGroupMenuColourSchemeStyle> &
 	FloatingButtonGroupPropsBase<typeof FloatingButtonGroupButton.Menu> &
 	IIconName<FloatingButtonGroupMenuIconAllowed> &
 	IIconStyle<MaterialIconStyle> &
 	IItems<FloatingButtonGroupButtonMenuChildren<FloatingButtonGroupMenuChildProps>> &
-	IOrientation<Orientation>
+	IOrientation<FloatingButtonGroupOrientation>
 );
 
 /**

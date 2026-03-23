@@ -55,12 +55,3 @@ export function FloatingButtonGroup(props: FloatingButtonGroupPropsAll) {
 		</FloatingButtonGroupPosition>
 	);
 }
-
-/**
- * TODO
- * Look at any types that can be cebtralised to shared types folder:
- * - Orientation
- * - ColourSchemeStyle
- * - PositionStrategyInternalCorner
- * - Material icon name?
- */
