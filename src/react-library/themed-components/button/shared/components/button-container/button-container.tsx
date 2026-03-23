@@ -1,5 +1,11 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
+import type { TransitionPulseInsetData } from "@react-library/components";
+
+import { BUTTON_CLICKED_INSET_CONTEXT } from "../../constants/button-clicked-inset-context.const";
+import { BUTTON_COLOUR_STATE_CONTEXT } from "../../constants/button-colour-state-context.const";
+import { BUTTON_IS_HOVERED_CONTEXT } from "../../constants/button-is-hovered-context.const";
+import { resolveButtonClickedInset } from "../../functions/resolve-button-clicked-inset.function";
 import type { ButtonClickTarget } from "../../types/button-click-target.type";
 
 import type { ButtonContainerProps } from "./types/button-container-props.type";
@@ -8,7 +14,22 @@ import type { ButtonContainerProps } from "./types/button-container-props.type";
  * Button container component
  * @param props
  */
-export function ButtonContainer(props: ButtonContainerProps) {
+export function ButtonContainer<TStyleConfig, TUseColourStateConfig>(props: ButtonContainerProps<TStyleConfig, TUseColourStateConfig>) {
+
+	const [isHovered, setIsHovered] = useState<boolean>(() => false);
+	const [isPressed, setIsPressed] = useState<boolean>(() => false);
+	const [clickedInset, setClickedInset] = useState<TransitionPulseInsetData | null>(() => null);
+
+	const [buttonColourState] = props.useColourState({
+		config: props.colourStateConfig,
+		isHovered: isHovered,
+		isPressed: isPressed
+	});
+
+	const [buttonStyle] = props.useStyleState({
+		config: props.styleConfig,
+		colour: buttonColourState
+	});
 
 	// Handle setting refs
 	const handleButtonContainerElementRef = useCallback(
@@ -20,55 +41,38 @@ export function ButtonContainer(props: ButtonContainerProps) {
 
 	// Click event handler
 	const handleOnClick = useCallback(
-		(event: React.MouseEvent<ButtonClickTarget, MouseEvent>) => {
+		(event: React.MouseEvent<ButtonClickTarget>) => {
 			if (props.isDisabled) return;
+			setClickedInset(resolveButtonClickedInset(event));
 			props.onClick(event);
 		},
 		[props]
 	);
 
 	// Pointer event handlers (for cosmetics etc)
-	const handlePointerEnter = useCallback(
-		() => {
-			if (!props.onHover) return;
-			props.onHover(true)
-		},
-		[props]
-	);
-	const handleOnPointerLeave = useCallback(
-		() => {
-			if (!props.onHover) return;
-			props.onHover(false)
-		},
-		[props]
-	);
-	const handlePointerDown = useCallback(
-		() => {
-			if (!props.onPress) return;
-			props.onPress(true)
-		},
-		[props]
-	);
-	const handlePointerUp = useCallback(
-		() => {
-			if (!props.onPress) return;
-			props.onPress(false)
-		},
-		[props]
-	);
+	const handlePointerEnter = useCallback(() => setIsHovered(true), []);
+	const handleOnPointerLeave = useCallback(() => setIsHovered(false), []);
+	const handlePointerDown = useCallback(() => setIsPressed(true), []);
+	const handlePointerUp = useCallback(() => setIsPressed(false), []);
 
 	return (
-		<div
-			onClick={handleOnClick}
-			onPointerCancel={handleOnPointerLeave}
-			onPointerDown={handlePointerDown}
-			onPointerEnter={handlePointerEnter}
-			onPointerLeave={handleOnPointerLeave}
-			onPointerUp={handlePointerUp}
-			ref={handleButtonContainerElementRef}
-			style={props.style}
-		>
-			{props.children}
-		</div>
+		<BUTTON_COLOUR_STATE_CONTEXT value={buttonColourState}>
+			<BUTTON_CLICKED_INSET_CONTEXT value={clickedInset}>
+				<BUTTON_IS_HOVERED_CONTEXT value={isHovered}>
+					<div
+						onClick={handleOnClick}
+						onPointerCancel={handleOnPointerLeave}
+						onPointerDown={handlePointerDown}
+						onPointerEnter={handlePointerEnter}
+						onPointerLeave={handleOnPointerLeave}
+						onPointerUp={handlePointerUp}
+						ref={handleButtonContainerElementRef}
+						style={buttonStyle}
+					>
+						{props.children}
+					</div>
+				</BUTTON_IS_HOVERED_CONTEXT>
+			</BUTTON_CLICKED_INSET_CONTEXT>
+		</BUTTON_COLOUR_STATE_CONTEXT>
 	);
 }

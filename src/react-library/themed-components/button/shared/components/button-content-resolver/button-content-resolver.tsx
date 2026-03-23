@@ -4,6 +4,7 @@ import { useFontContext } from "@react-library/common";
 import { MaterialIconName, MaterialIconStyle, MaterialIconSvg } from "@react-library/material-icons";
 
 import { ButtonContent } from "../../enums/button-content.type";
+import { useButtonColourStateContext } from "../../hooks/button-colour-state-context.hook";
 
 import { buttonContentResolverLabelStyle } from "./styles/button-content-resolver-label-style.function";
 import type { ButtonContentResolverProps } from "./types/button-content-resolver-props.type";
@@ -18,13 +19,14 @@ export function ButtonContentResolver<TMaterialIconName extends MaterialIconName
 ) {
 
 	const font = useFontContext();
+	const buttonColourState = useButtonColourStateContext();
 
 	return (
 		<>
 			{
 				(props.content.content === ButtonContent.Icon || props.content.content === ButtonContent.IconLabel) ?
 					<MaterialIconSvg
-						colour={props.colour}
+						colour={buttonColourState.onColour}
 						key="button-icon"
 						name={props.content.iconName}
 						size={props.iconSize}
@@ -36,7 +38,7 @@ export function ButtonContentResolver<TMaterialIconName extends MaterialIconName
 				(props.content.content === ButtonContent.IconLabel || props.content.content === ButtonContent.Label) ?
 					<span
 						key="button-label"
-						style={buttonContentResolverLabelStyle(props.colour, font)}
+						style={buttonContentResolverLabelStyle(buttonColourState.onColour, font)}
 					>
 						{props.content.label}
 					</span> :

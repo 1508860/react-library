@@ -8,49 +8,43 @@ import {
 	type ColourScheme
 } from "@react-library/common";
 
+import type { ButtonContainerUseColourStateParam } from "../../shared/components/button-container";
 import { isButtonColourStateEqual } from "../../shared/functions/is-button-colour-state-equal.function";
 import type { ButtonColourState } from "../../shared/types/button-colour-state.type";
 import type { ButtonFloatingProps } from "../types/button-floating-props.type";
 
 /**
  * Derive the floating button colour state based on parameters
- * @param props
- * @param isHovered
- * @param isPressed
+ * @param param
  */
-export function useButtonFloatingColourState(props: ButtonFloatingProps, isHovered: boolean, isPressed: boolean): [ButtonColourState] {
+export function useButtonFloatingColourState(param: ButtonContainerUseColourStateParam<ButtonFloatingProps>): [ButtonColourState] {
 
 	const colourScheme = useColourSchemeContext();
-	const [state, setState] = useState<ButtonColourState>(() => resolveButtonColourState(props, isHovered, isPressed, colourScheme));
+	const [state, setState] = useState<ButtonColourState>(() => resolveButtonColourState(param, colourScheme));
 	const stateRef = useRef<ButtonColourState>(state);
 
 	useEffect(
 		() => {
-			const newState = resolveButtonColourState(props, isHovered, isPressed, colourScheme);
+			const newState = resolveButtonColourState(param, colourScheme);
 			if (isButtonColourStateEqual(stateRef.current, newState)) return;
 			stateRef.current = newState;
 			setState(newState);
 		},
-		[props, isHovered, isPressed, colourScheme]
+		[param, colourScheme]
 	);
 
 	return [state];
 }
 
-function resolveButtonColourState(
-	props: ButtonFloatingProps,
-	isHovered: boolean,
-	isPressed: boolean,
-	colourScheme: ColourScheme
-): ButtonColourState {
+function resolveButtonColourState(param: ButtonContainerUseColourStateParam<ButtonFloatingProps>, colourScheme: ColourScheme): ButtonColourState {
 
 	const boxShadowElevationLevel: ColourSchemeElevationLevel = (
-		(!props.isDisabled && !isPressed && isHovered) ? ColourSchemeElevationLevel.Level4 : ColourSchemeElevationLevel.Level3
+		(!param.config.isDisabled && !param.isPressed && param.isHovered) ? ColourSchemeElevationLevel.Level4 : ColourSchemeElevationLevel.Level3
 	);
 	let backgroundColour: Colour | undefined = undefined;
 	let onColour: Colour | undefined = undefined;
 
-	switch (props.colourSchemeStyle) {
+	switch (param.config.colourSchemeStyle) {
 		case ColourSchemeStyle.Primary:
 			backgroundColour = colourScheme.primary.default.colour;
 			onColour = colourScheme.primary.default.onColour;

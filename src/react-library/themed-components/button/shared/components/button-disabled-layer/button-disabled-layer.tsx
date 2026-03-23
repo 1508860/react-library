@@ -1,5 +1,7 @@
 import { Fragment } from "react";
 
+import { useButtonColourStateContext } from "../../hooks/button-colour-state-context.hook";
+
 import { buttonDisabledLayerStyle } from "./styles/button-disabled-layer-style.function";
 import type { ButtonDisabledLayerProps } from "./types/button-disabled-layer-props.type";
 
@@ -9,14 +11,16 @@ import type { ButtonDisabledLayerProps } from "./types/button-disabled-layer-pro
  */
 export function ButtonDisabledLayer(props: ButtonDisabledLayerProps) {
 
-	if (!props.show) return (
+	const buttonColourState = useButtonColourStateContext();
+
+	if (!props.isDisabled) return (
 		<Fragment key="no-button-disabled-layer" />
 	);
 
 	return (
 		<div
 			key="button-disabled-layer"
-			style={buttonDisabledLayerStyle(props.colour)}
+			style={buttonDisabledLayerStyle(buttonColourState.disabledColour)}
 		/>
 	);
 }

@@ -9,7 +9,6 @@ import type { Colour } from "@react-library/common";
 export function buttonDisabledLayerStyle(colour: Colour): CSSProperties {
 	return {
 		backgroundColor: colour.toColourString(),
-		cursor: "pointer",
 		inset: 0,
 		position: "absolute"
 	};

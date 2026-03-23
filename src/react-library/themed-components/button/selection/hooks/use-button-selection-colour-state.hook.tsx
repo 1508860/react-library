@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { ColourSchemeContainerLevel, ColourSchemeElevationLevel, useColourSchemeContext, type ColourScheme } from "@react-library/common";
 
+import type { ButtonContainerUseColourStateParam } from "../../shared/components/button-container";
 import { ButtonStyle } from "../../shared/enums/button-style.type";
 import { isButtonColourStateEqual } from "../../shared/functions/is-button-colour-state-equal.function";
 import type { ButtonColourState } from "../../shared/types/button-colour-state.type";
@@ -9,47 +10,40 @@ import type { ButtonSelectionProps } from "../types/button-selection-props.type"
 
 /**
  * Derive the selection button colour state based on parameters
- * @param props
- * @param isHovered
- * @param isPressed
+ * @param param
  */
-export function useButtonSelectionColourState(props: ButtonSelectionProps, isHovered: boolean, isPressed: boolean): [ButtonColourState] {
+export function useButtonSelectionColourState(param: ButtonContainerUseColourStateParam<ButtonSelectionProps>): [ButtonColourState] {
 
 	const colourScheme = useColourSchemeContext();
-	const [state, setState] = useState<ButtonColourState>(() => resolveButtonColourState(props, isHovered, isPressed, colourScheme));
+	const [state, setState] = useState<ButtonColourState>(() => resolveButtonColourState(param, colourScheme));
 	const stateRef = useRef<ButtonColourState>(state);
 
 	useEffect(
 		() => {
-			const newState = resolveButtonColourState(props, isHovered, isPressed, colourScheme);
+			const newState = resolveButtonColourState(param, colourScheme);
 			if (isButtonColourStateEqual(stateRef.current, newState)) return;
 			stateRef.current = newState;
 			setState(newState);
 		},
-		[props, isHovered, isPressed, colourScheme]
+		[param, colourScheme]
 	);
 
 	return [state];
 }
 
-function resolveButtonColourState(
-	props: ButtonSelectionProps,
-	isHovered: boolean,
-	isPressed: boolean,
-	colourScheme: ColourScheme
-): ButtonColourState {
-	switch (props.style) {
+function resolveButtonColourState(param: ButtonContainerUseColourStateParam<ButtonSelectionProps>, colourScheme: ColourScheme): ButtonColourState {
+	switch (param.config.style) {
 		case ButtonStyle.Elevated: {
 
 			const boxShadowElevationLevel: ColourSchemeElevationLevel = (
-				props.isDisabled ? ColourSchemeElevationLevel.Level0 :
-					((!isPressed && isHovered) ? ColourSchemeElevationLevel.Level2 : ColourSchemeElevationLevel.Level1)
+				param.config.isDisabled ? ColourSchemeElevationLevel.Level0 :
+					((!param.isPressed && param.isHovered) ? ColourSchemeElevationLevel.Level2 : ColourSchemeElevationLevel.Level1)
 			);
 
-			const onColour = props.isSelected ? colourScheme.primary.default.onColour : colourScheme.primary.default.colour;
+			const onColour = param.config.isSelected ? colourScheme.primary.default.onColour : colourScheme.primary.default.colour;
 
 			return {
-				backgroundColour: props.isSelected ? colourScheme.primary.default.colour : colourScheme.surface.container[ColourSchemeContainerLevel.Low],
+				backgroundColour: param.config.isSelected ? colourScheme.primary.default.colour : colourScheme.surface.container[ColourSchemeContainerLevel.Low],
 				boxShadow: colourScheme.elevation.boxShadow[boxShadowElevationLevel],
 				disabledColour: onColour.toColourWithStyleOpacity(colourScheme.disabled.opacity),
 				hoverColour: onColour.toColourWithStyleOpacity(colourScheme.hovered.opacity),
@@ -60,13 +54,13 @@ function resolveButtonColourState(
 		case ButtonStyle.Filled: {
 
 			const boxShadowElevationLevel: ColourSchemeElevationLevel = (
-				(!props.isDisabled && !isPressed && isHovered) ? ColourSchemeElevationLevel.Level1 : ColourSchemeElevationLevel.Level0
+				(!param.config.isDisabled && !param.isPressed && param.isHovered) ? ColourSchemeElevationLevel.Level1 : ColourSchemeElevationLevel.Level0
 			);
 
-			const onColour = !props.isSelected ? colourScheme.surface.variant.onColour : colourScheme.primary.default.onColour;
+			const onColour = !param.config.isSelected ? colourScheme.surface.variant.onColour : colourScheme.primary.default.onColour;
 
 			return {
-				backgroundColour: !props.isSelected ? colourScheme.surface.container[ColourSchemeContainerLevel.Medium] : colourScheme.primary.default.colour,
+				backgroundColour: !param.config.isSelected ? colourScheme.surface.container[ColourSchemeContainerLevel.Medium] : colourScheme.primary.default.colour,
 				boxShadow: colourScheme.elevation.boxShadow[boxShadowElevationLevel],
 				disabledColour: onColour.toColourWithStyleOpacity(colourScheme.disabled.opacity),
 				hoverColour: onColour.toColourWithStyleOpacity(colourScheme.hovered.opacity),
@@ -76,10 +70,10 @@ function resolveButtonColourState(
 		};
 		case ButtonStyle.Outline: {
 
-			const onColour = props.isSelected ? colourScheme.surface.inverse.onColour : colourScheme.surface.variant.onColour;
+			const onColour = param.config.isSelected ? colourScheme.surface.inverse.onColour : colourScheme.surface.variant.onColour;
 
 			return {
-				backgroundColour: props.isSelected ? colourScheme.surface.inverse.colour : undefined,
+				backgroundColour: param.config.isSelected ? colourScheme.surface.inverse.colour : undefined,
 				borderColour: colourScheme.outline.outlineVariant,
 				disabledColour: onColour.toColourWithStyleOpacity(colourScheme.disabled.opacity),
 				hoverColour: onColour.toColourWithStyleOpacity(colourScheme.hovered.opacity),

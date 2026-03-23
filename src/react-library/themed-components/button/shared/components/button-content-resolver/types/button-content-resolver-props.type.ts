@@ -1,4 +1,4 @@
-import type { Colour, IColour, IContent, IIconSize, Size } from "@react-library/common";
+import type { IContent, IIconSize, Size } from "@react-library/common";
 import type { MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
 
 import type {
@@ -11,7 +11,6 @@ import type {
  * Props for button content resolver props
  */
 export type ButtonContentResolverProps<TMaterialIconName extends MaterialIconName, TMaterialIconStyle extends MaterialIconStyle> = (
-	IColour<Colour> &
 	IContent<(
 		ButtonContentIcon<TMaterialIconName, TMaterialIconStyle> |
 		ButtonContentIconLabel<TMaterialIconName, TMaterialIconStyle> |
