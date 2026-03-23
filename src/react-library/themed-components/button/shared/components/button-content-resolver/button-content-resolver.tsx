@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 
 import { useFontContext } from "@react-library/common";
-import { MaterialIconSvg } from "@react-library/material-icons";
+import { MaterialIconName, MaterialIconStyle, MaterialIconSvg } from "@react-library/material-icons";
 
 import { ButtonContent } from "../../enums/button-content.type";
 
@@ -13,7 +13,9 @@ import type { ButtonContentResolverProps } from "./types/button-content-resolver
  * Resolves if an icon and/or label should be displayed
  * @param props
  */
-export function ButtonContentResolver(props: ButtonContentResolverProps) {
+export function ButtonContentResolver<TMaterialIconName extends MaterialIconName, TMaterialIconStyle extends MaterialIconStyle>(
+	props: ButtonContentResolverProps<TMaterialIconName, TMaterialIconStyle>
+) {
 
 	const font = useFontContext();
 

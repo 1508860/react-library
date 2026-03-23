@@ -3,7 +3,6 @@ import { useCallback, useState } from "react";
 import type { TransitionPulseInsetData } from "@react-library/components";
 
 import { ButtonContainer } from "../shared/components/button-container";
-import { ButtonContentResolver } from "../shared/components/button-content-resolver";
 import { ButtonDisabledLayer } from "../shared/components/button-disabled-layer";
 import { ButtonHoveredLayer } from "../shared/components/button-hovered-layer";
 import { ButtonPulseLayer } from "../shared/components/button-pulse-layer";
@@ -12,6 +11,7 @@ import { ButtonShape } from "../shared/enums/button-shape.type";
 import { resolveButtonClickedInset } from "../shared/functions/resolve-button-clicked-inset.function";
 import type { ButtonClickTarget } from "../shared/types/button-click-target.type";
 
+import { ButtonSelectionContentResolver } from "./components/button-selection-content-resolver";
 import { BUTTON_SELECTION_PROPERTY_MAP } from "./constants/button-selection-property-map.const";
 import { useButtonSelectionColourState } from "./hooks/use-button-selection-colour-state.hook";
 import type { ButtonSelectionProps } from "./types/button-selection-props.type";
@@ -70,10 +70,11 @@ export function ButtonSelection(props: ButtonSelectionProps) {
 				)
 			}}
 		>
-			<ButtonContentResolver
+			<ButtonSelectionContentResolver
 				colour={buttonColourState.onColour}
 				content={props.content}
 				iconSize={BUTTON_SELECTION_PROPERTY_MAP.size[props.size].iconSize}
+				isSelected={props.isSelected}
 				key="button-content-resolver"
 			/>
 			<ButtonDisabledLayer

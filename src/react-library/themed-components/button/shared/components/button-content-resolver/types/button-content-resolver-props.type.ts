@@ -4,19 +4,17 @@ import type { MaterialIconName, MaterialIconStyle } from "@react-library/materia
 import type {
 	ButtonContentIcon,
 	ButtonContentIconLabel,
-	ButtonContentIconWithWidth,
 	ButtonContentLabel
 } from "../../../types/button-content.type";
 
 /**
  * Props for button content resolver props
  */
-export type ButtonContentResolverProps = (
+export type ButtonContentResolverProps<TMaterialIconName extends MaterialIconName, TMaterialIconStyle extends MaterialIconStyle> = (
 	IColour<Colour> &
 	IContent<(
-		ButtonContentIcon<MaterialIconName, MaterialIconStyle> |
-		ButtonContentIconLabel<MaterialIconName, MaterialIconStyle> |
-		ButtonContentIconWithWidth<MaterialIconName, MaterialIconStyle> |
+		ButtonContentIcon<TMaterialIconName, TMaterialIconStyle> |
+		ButtonContentIconLabel<TMaterialIconName, TMaterialIconStyle> |
 		ButtonContentLabel
 	)> &
 	IIconSize<Size>
