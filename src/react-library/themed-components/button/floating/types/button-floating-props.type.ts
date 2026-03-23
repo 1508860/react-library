@@ -1,6 +1,7 @@
 import type {
 	ColourSchemeStyle,
 	IColourSchemeStyle,
+	IContent,
 	IIsDisabled,
 	IOnClick,
 	IShape,
@@ -16,7 +17,7 @@ import type { ButtonFloatingContent } from "./button-floating-content.type";
  * Props for button floating
  */
 export type ButtonFloatingProps = (
-	ButtonFloatingContent &
+	IContent<ButtonFloatingContent> &
 	IColourSchemeStyle<ColourSchemeStyle> &
 	Partial<IIsDisabled> &
 	IOnClick<HTMLDivElement> &

@@ -1,4 +1,5 @@
 import type {
+	IContent,
 	IIsDisabled,
 	IIsSelected,
 	IOnClick,
@@ -15,7 +16,7 @@ import type { ButtonSelectionContent } from "./button-selection-content.type";
  * Props for button selection
  */
 export type ButtonSelectionProps = (
-	ButtonSelectionContent &
+	IContent<ButtonSelectionContent> &
 	Partial<IIsDisabled> &
 	IIsSelected &
 	IOnClick<HTMLDivElement> &

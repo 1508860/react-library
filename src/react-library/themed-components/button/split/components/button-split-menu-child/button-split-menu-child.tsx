@@ -90,8 +90,8 @@ export function ButtonSplitMenuChild(props: ButtonSplitProps) {
 					content: ButtonContent.Icon,
 					iconName: tooltipShow ? MaterialIconName.KeyboardArrowUp : MaterialIconName.KeyboardArrowDown,
 					iconStyle: (
-						(props.content === ButtonContent.Icon || props.content === ButtonContent.IconLabel) ?
-							props.iconStyle :
+						(props.content.content === ButtonContent.Icon || props.content.content === ButtonContent.IconLabel) ?
+							props.content.iconStyle :
 							MaterialIconStyle.Default
 					)
 				}}

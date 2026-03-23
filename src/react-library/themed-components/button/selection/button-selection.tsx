@@ -58,21 +58,21 @@ export function ButtonSelection(props: ButtonSelectionProps) {
 				height: BUTTON_SELECTION_PROPERTY_MAP.size[props.size].height,
 				justifyContent: "center",
 				overflow: "hidden",
-				paddingLeft: BUTTON_SELECTION_PROPERTY_MAP.size[props.size].content[props.content].paddingHorizontal,
-				paddingRight: BUTTON_SELECTION_PROPERTY_MAP.size[props.size].content[props.content].paddingHorizontal,
+				paddingLeft: BUTTON_SELECTION_PROPERTY_MAP.size[props.size].content[props.content.content].paddingHorizontal,
+				paddingRight: BUTTON_SELECTION_PROPERTY_MAP.size[props.size].content[props.content.content].paddingHorizontal,
 				position: "relative",
 				transitionDuration: `${BUTTON_SELECTION_PROPERTY_MAP.transition.borderRadius.durationMs}ms`,
 				transitionProperty: "border-radius",
 				width: (
-					(props.content === ButtonContent.Icon) ?
-						BUTTON_SELECTION_PROPERTY_MAP.size[props.size].content[props.content].iconWidth[props.iconWidth] :
+					(props.content.content === ButtonContent.Icon) ?
+						BUTTON_SELECTION_PROPERTY_MAP.size[props.size].content[props.content.content].iconWidth[props.content.iconWidth] :
 						undefined
 				)
 			}}
 		>
 			<ButtonContentResolver
 				colour={buttonColourState.onColour}
-				content={props}
+				content={props.content}
 				iconSize={BUTTON_SELECTION_PROPERTY_MAP.size[props.size].iconSize}
 				key="button-content-resolver"
 			/>

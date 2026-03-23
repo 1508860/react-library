@@ -60,15 +60,15 @@ export function ButtonSplitStandard(props: ButtonSplitProps) {
 				height: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].height,
 				justifyContent: "center",
 				overflow: "hidden",
-				paddingLeft: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].button.content[props.content].paddingHorizontal,
-				paddingRight: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].button.content[props.content].paddingHorizontal,
+				paddingLeft: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].button.content[props.content.content].paddingHorizontal,
+				paddingRight: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].button.content[props.content.content].paddingHorizontal,
 				position: "relative",
-				width: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].button.content[props.content].width
+				width: BUTTON_SPLIT_PROPERTY_MAP.size[props.size].button.content[props.content.content].width
 			}}
 		>
 			<ButtonContentResolver
 				colour={buttonColourState.onColour}
-				content={props}
+				content={props.content}
 				iconSize={BUTTON_SPLIT_PROPERTY_MAP.size[props.size].button.iconSize}
 				key="button-content-resolver"
 			/>

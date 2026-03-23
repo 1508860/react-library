@@ -50,44 +50,54 @@ export function ReactLibraryThemedComponentsButtonGroupDemo() {
 					style={ButtonStyle.Elevated}
 				>
 					{{
-						content: ButtonContent.Icon,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						iconWidth: ButtonIconWidth.Narrow,
+						content: {
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: ButtonIconWidth.Narrow
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.First,
 						onClick: () => { }
 					}}
 					{{
-						content: ButtonContent.IconLabel,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
+						content: {
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: "Label"
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Second,
-						label: "Label",
 						onClick: () => { }
 					}}
 					{{
-						content: ButtonContent.Icon,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						iconWidth: ButtonIconWidth.Default,
+						content: {
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: ButtonIconWidth.Default
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Third,
 						onClick: () => { }
 					}}
 					{{
-						content: ButtonContent.Label,
+						content: {
+							content: ButtonContent.Label,
+							label: "Label"
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Fourth,
-						label: "Label",
 						onClick: () => { }
 					}}
 					{{
-						content: ButtonContent.Icon,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						iconWidth: ButtonIconWidth.Wide,
+						content: {
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: ButtonIconWidth.Wide
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Fifth,
 						onClick: () => { }
@@ -105,32 +115,38 @@ export function ReactLibraryThemedComponentsButtonGroupDemo() {
 					style={ButtonStyle.Elevated}
 				>
 					{{
-						content: ButtonContent.IconLabel,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
+						content: {
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: "Label"
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.First,
-						label: "Label",
 						menuElement: ButtonSplitMenuElement,
 						onClick: () => { }
 					}}
 					{{
-						content: ButtonContent.IconLabel,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
+						content: {
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: "Label"
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Second,
-						label: "Label",
 						menuElement: ButtonSplitMenuElement,
 						onClick: () => { }
 					}}
 					{{
-						content: ButtonContent.IconLabel,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
+						content: {
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: "Label"
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Third,
-						label: "Label",
 						menuElement: ButtonSplitMenuElement,
 						onClick: () => { }
 					}}
@@ -148,51 +164,61 @@ export function ReactLibraryThemedComponentsButtonGroupDemo() {
 				>
 					{{
 						action: ButtonGroupAction.Click,
-						content: ButtonContent.IconLabel,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
+						content: {
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: "Label"
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.First,
-						label: "Label",
 						onClick: () => { },
 					}}
 					{{
 						action: ButtonGroupAction.Split,
-						content: ButtonContent.IconLabel,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
+						content: {
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: "Label"
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Second,
-						label: "Label",
 						menuElement: ButtonSplitMenuElement,
 						onClick: () => { }
 					}}
 					{{
 						action: ButtonGroupAction.Click,
-						content: ButtonContent.Icon,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						iconWidth: ButtonIconWidth.Default,
+						content: {
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: ButtonIconWidth.Default
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Third,
 						onClick: () => { }
 					}}
 					{{
 						action: ButtonGroupAction.Click,
-						content: ButtonContent.Label,
+						content: {
+							content: ButtonContent.Label,
+							label: "Label"
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Fourth,
-						label: "Label",
 						onClick: () => { }
 					}}
 					{{
 						action: ButtonGroupAction.Split,
-						content: ButtonContent.IconLabel,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
+						content: {
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: "Label"
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Fifth,
-						label: "Label",
 						menuElement: ButtonSplitMenuElement,
 						onClick: () => { }
 					}}
@@ -209,48 +235,58 @@ export function ReactLibraryThemedComponentsButtonGroupDemo() {
 					style={ButtonStyle.Elevated}
 				>
 					{{
-						content: ButtonContent.Icon,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						iconWidth: ButtonIconWidth.Narrow,
+						content: {
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: ButtonIconWidth.Narrow
+						},
 						isDisabled: false,
 						isSelected: buttonIdSingle === ButtonGroupDemoButtonId.First,
 						key: ButtonGroupDemoButtonId.First,
 						onClick: () => setButtonIdSingle(ButtonGroupDemoButtonId.First)
 					}}
 					{{
-						content: ButtonContent.IconLabel,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
+						content: {
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: "Label"
+						},
 						isDisabled: false,
 						isSelected: buttonIdSingle === ButtonGroupDemoButtonId.Second,
 						key: ButtonGroupDemoButtonId.Second,
-						label: "Label",
 						onClick: () => setButtonIdSingle(ButtonGroupDemoButtonId.Second)
 					}}
 					{{
-						content: ButtonContent.Icon,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						iconWidth: ButtonIconWidth.Default,
+						content: {
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: ButtonIconWidth.Default
+						},
 						isDisabled: false,
 						isSelected: buttonIdSingle === ButtonGroupDemoButtonId.Third,
 						key: ButtonGroupDemoButtonId.Third,
 						onClick: () => setButtonIdSingle(ButtonGroupDemoButtonId.Third)
 					}}
 					{{
-						content: ButtonContent.Label,
+						content: {
+							content: ButtonContent.Label,
+							label: "Label"
+						},
 						isDisabled: false,
 						isSelected: buttonIdSingle === ButtonGroupDemoButtonId.Fourth,
 						key: ButtonGroupDemoButtonId.Fourth,
-						label: "Label",
 						onClick: () => setButtonIdSingle(ButtonGroupDemoButtonId.Fourth)
 					}}
 					{{
-						content: ButtonContent.Icon,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						iconWidth: ButtonIconWidth.Wide,
+						content: {
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: ButtonIconWidth.Wide
+						},
 						isDisabled: false,
 						isSelected: buttonIdSingle === ButtonGroupDemoButtonId.Fifth,
 						key: ButtonGroupDemoButtonId.Fifth,
@@ -269,48 +305,58 @@ export function ReactLibraryThemedComponentsButtonGroupDemo() {
 					style={ButtonStyle.Elevated}
 				>
 					{{
-						content: ButtonContent.Icon,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						iconWidth: ButtonIconWidth.Narrow,
+						content: {
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: ButtonIconWidth.Narrow
+						},
 						isDisabled: false,
 						isSelected: !!buttonIdMulti.find(x => x === ButtonGroupDemoButtonId.First),
 						key: ButtonGroupDemoButtonId.First,
 						onClick: () => setButtonIdMultiToggle(ButtonGroupDemoButtonId.First)
 					}}
 					{{
-						content: ButtonContent.IconLabel,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
+						content: {
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: "Label"
+						},
 						isDisabled: false,
 						isSelected: !!buttonIdMulti.find(x => x === ButtonGroupDemoButtonId.Second),
 						key: ButtonGroupDemoButtonId.Second,
-						label: "Label",
 						onClick: () => setButtonIdMultiToggle(ButtonGroupDemoButtonId.Second)
 					}}
 					{{
-						content: ButtonContent.Icon,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						iconWidth: ButtonIconWidth.Default,
+						content: {
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: ButtonIconWidth.Default
+						},
 						isDisabled: false,
 						isSelected: !!buttonIdMulti.find(x => x === ButtonGroupDemoButtonId.Third),
 						key: ButtonGroupDemoButtonId.Third,
 						onClick: () => setButtonIdMultiToggle(ButtonGroupDemoButtonId.Third)
 					}}
 					{{
-						content: ButtonContent.Label,
+						content: {
+							content: ButtonContent.Label,
+							label: "Label"
+						},
 						isDisabled: false,
 						isSelected: !!buttonIdMulti.find(x => x === ButtonGroupDemoButtonId.Fourth),
 						key: ButtonGroupDemoButtonId.Fourth,
-						label: "Label",
 						onClick: () => setButtonIdMultiToggle(ButtonGroupDemoButtonId.Fourth)
 					}}
 					{{
-						content: ButtonContent.Icon,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						iconWidth: ButtonIconWidth.Wide,
+						content: {
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: ButtonIconWidth.Wide
+						},
 						isDisabled: false,
 						isSelected: !!buttonIdMulti.find(x => x === ButtonGroupDemoButtonId.Fifth),
 						key: ButtonGroupDemoButtonId.Fifth,
@@ -330,44 +376,54 @@ export function ReactLibraryThemedComponentsButtonGroupDemo() {
 					style={ButtonStyle.Elevated}
 				>
 					{{
-						content: ButtonContent.Icon,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						iconWidth: ButtonIconWidth.Narrow,
+						content: {
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: ButtonIconWidth.Narrow
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.First,
 						onClick: () => { }
 					}}
 					{{
-						content: ButtonContent.IconLabel,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
+						content: {
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: "Label"
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Second,
-						label: "Label",
 						onClick: () => { }
 					}}
 					{{
-						content: ButtonContent.Icon,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						iconWidth: ButtonIconWidth.Default,
+						content: {
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: ButtonIconWidth.Default
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Third,
 						onClick: () => { }
 					}}
 					{{
-						content: ButtonContent.Label,
+						content: {
+							content: ButtonContent.Label,
+							label: "Label"
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Fourth,
-						label: "Label",
 						onClick: () => { }
 					}}
 					{{
-						content: ButtonContent.Icon,
-						iconName: MaterialIconName.Add,
-						iconStyle: MaterialIconStyle.Default,
-						iconWidth: ButtonIconWidth.Wide,
+						content: {
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: ButtonIconWidth.Wide
+						},
 						isDisabled: false,
 						key: ButtonGroupDemoButtonId.Fifth,
 						onClick: () => { }

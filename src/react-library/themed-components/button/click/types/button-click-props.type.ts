@@ -1,4 +1,5 @@
 import type {
+	IContent,
 	IIsDisabled,
 	IOnClick,
 	IShape,
@@ -16,7 +17,7 @@ import type { ButtonClickContent } from "./button-click-content.type";
  * Props for button click
  */
 export type ButtonClickProps = (
-	ButtonClickContent &
+	IContent<ButtonClickContent> &
 	Partial<IIsDisabled> &
 	IOnClick<HTMLDivElement> &
 	IShape<ButtonShape> &

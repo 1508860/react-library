@@ -54,15 +54,15 @@ export function ButtonFloating(props: ButtonFloatingProps) {
 				height: BUTTON_FLOATING_PROPERTY_MAP.size[props.size].height,
 				justifyContent: "center",
 				overflow: "hidden",
-				paddingLeft: BUTTON_FLOATING_PROPERTY_MAP.size[props.size].content[props.content].paddingHorizontal,
-				paddingRight: BUTTON_FLOATING_PROPERTY_MAP.size[props.size].content[props.content].paddingHorizontal,
+				paddingLeft: BUTTON_FLOATING_PROPERTY_MAP.size[props.size].content[props.content.content].paddingHorizontal,
+				paddingRight: BUTTON_FLOATING_PROPERTY_MAP.size[props.size].content[props.content.content].paddingHorizontal,
 				position: "relative",
-				width: BUTTON_FLOATING_PROPERTY_MAP.size[props.size].content[props.content].iconWidth
+				width: BUTTON_FLOATING_PROPERTY_MAP.size[props.size].content[props.content.content].iconWidth
 			}}
 		>
 			<ButtonContentResolver
 				colour={buttonColourState.onColour}
-				content={props}
+				content={props.content}
 				iconSize={BUTTON_FLOATING_PROPERTY_MAP.size[props.size].iconSize}
 				key="button-content-resolver"
 			/>

@@ -57,19 +57,19 @@ export function ButtonClick(props: ButtonClickProps) {
 				height: BUTTON_CLICK_PROPERTY_MAP.size[props.size].height,
 				justifyContent: "center",
 				overflow: "hidden",
-				paddingLeft: BUTTON_CLICK_PROPERTY_MAP.size[props.size].content[props.content].paddingHorizontal,
-				paddingRight: BUTTON_CLICK_PROPERTY_MAP.size[props.size].content[props.content].paddingHorizontal,
+				paddingLeft: BUTTON_CLICK_PROPERTY_MAP.size[props.size].content[props.content.content].paddingHorizontal,
+				paddingRight: BUTTON_CLICK_PROPERTY_MAP.size[props.size].content[props.content.content].paddingHorizontal,
 				position: "relative",
 				width: (
-					(props.content === ButtonContent.Icon) ?
-						BUTTON_CLICK_PROPERTY_MAP.size[props.size].content[props.content].iconWidth[props.iconWidth] :
+					(props.content.content === ButtonContent.Icon) ?
+						BUTTON_CLICK_PROPERTY_MAP.size[props.size].content[props.content.content].iconWidth[props.content.iconWidth] :
 						undefined
 				)
 			}}
 		>
 			<ButtonContentResolver
 				colour={buttonColourState.onColour}
-				content={props}
+				content={props.content}
 				iconSize={BUTTON_CLICK_PROPERTY_MAP.size[props.size].iconSize}
 				key="button-content-resolver"
 			/>

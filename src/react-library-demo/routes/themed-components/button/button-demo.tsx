@@ -30,10 +30,12 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				title="Button Content"
 			>
 				<ButtonClick
-					content={ButtonContent.Icon}
-					iconName={MaterialIconName.Add}
-					iconStyle={MaterialIconStyle.Default}
-					iconWidth={ButtonIconWidth.Default}
+					content={{
+						content: ButtonContent.Icon,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						iconWidth: ButtonIconWidth.Default
+					}}
 					key={1}
 					onClick={() => { }}
 					shape={ButtonShape.Round}
@@ -41,10 +43,12 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 					style={ButtonStyle.Elevated}
 				/>
 				<ButtonClick
-					content={ButtonContent.IconLabel}
-					iconName={MaterialIconName.Add}
-					iconStyle={MaterialIconStyle.Default}
-					label={ButtonContent.IconLabel}
+					content={{
+						content: ButtonContent.IconLabel,
+						iconName: MaterialIconName.Add,
+						iconStyle: MaterialIconStyle.Default,
+						label: ButtonContent.IconLabel
+					}}
 					key={2}
 					onClick={() => { }}
 					shape={ButtonShape.Round}
@@ -52,8 +56,10 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 					style={ButtonStyle.Elevated}
 				/>
 				<ButtonClick
-					content={ButtonContent.Label}
-					label={ButtonContent.Label}
+					content={{
+						content: ButtonContent.Label,
+						label: ButtonContent.Label
+					}}
 					key={3}
 					onClick={() => { }}
 					shape={ButtonShape.Round}
@@ -67,10 +73,12 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 			>
 				{Object.values(ButtonShape).map((buttonShape, i) =>
 					<ButtonClick
-						content={ButtonContent.IconLabel}
-						iconName={MaterialIconName.Add}
-						iconStyle={MaterialIconStyle.Default}
-						label={buttonShape}
+						content={{
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: buttonShape
+						}}
 						key={i}
 						onClick={() => { }}
 						shape={buttonShape}
@@ -85,10 +93,12 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 			>
 				{Object.values(ButtonSize).map((buttonSize, i) =>
 					<ButtonClick
-						content={ButtonContent.IconLabel}
-						iconName={MaterialIconName.Add}
-						iconStyle={MaterialIconStyle.Default}
-						label={buttonSize}
+						content={{
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: buttonSize
+						}}
 						key={i}
 						onClick={() => { }}
 						shape={ButtonShape.Round}
@@ -103,11 +113,13 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 			>
 				{Object.values(ButtonStyle).map((buttonStyle, i) => [false, true].map((isDisabled, j) =>
 					<ButtonClick
-						content={ButtonContent.IconLabel}
-						iconName={MaterialIconName.Add}
-						iconStyle={MaterialIconStyle.Default}
+						content={{
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: `${buttonStyle}${isDisabled ? " disabled" : ""}`
+						}}
 						isDisabled={isDisabled}
-						label={`${buttonStyle}${isDisabled ? " disabled" : ""}`}
 						key={((i * j) + j)}
 						onClick={() => { }}
 						shape={ButtonShape.Round}
@@ -122,10 +134,12 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 			>
 				{Object.values(ButtonIconWidth).map((buttonIconWidth, i) =>
 					<ButtonClick
-						content={ButtonContent.Icon}
-						iconName={MaterialIconName.Add}
-						iconStyle={MaterialIconStyle.Default}
-						iconWidth={buttonIconWidth}
+						content={{
+							content: ButtonContent.Icon,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							iconWidth: buttonIconWidth
+						}}
 						key={i}
 						onClick={() => { }}
 						shape={ButtonShape.Round}
@@ -140,12 +154,14 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 			>
 				{[false, true].map((isSelected, i) => [false, true].map((isDisabled, j) =>
 					<ButtonSelection
-						content={ButtonContent.IconLabel}
-						iconName={MaterialIconName.Add}
-						iconStyle={MaterialIconStyle.Default}
+						content={{
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: `${isSelected ? "selected" : "unselected"}${isDisabled ? " disabled" : ""}`
+						}}
 						isDisabled={isDisabled}
 						isSelected={isSelected}
-						label={`${isSelected ? "selected" : "unselected"}${isDisabled ? " disabled" : ""}`}
 						key={((i * j) + j)}
 						onClick={() => { }}
 						size={ButtonSize.Medium}
@@ -160,12 +176,14 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				{Object.values(ColourSchemeStyle).map((colourSchemeStyle, i) => [false, true].map((isDisabled, j) =>
 					<ButtonFloating
 						colourSchemeStyle={colourSchemeStyle}
-						content={ButtonContent.IconLabel}
-						iconName={MaterialIconName.Add}
-						iconStyle={MaterialIconStyle.Default}
+						content={{
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: `${colourSchemeStyle}${isDisabled ? " disabled" : ""}`
+						}}
 						isDisabled={isDisabled}
 						key={((i * j) + j)}
-						label={`${colourSchemeStyle}${isDisabled ? " disabled" : ""}`}
 						onClick={() => { }}
 						shape={ButtonShape.Round}
 						size={ButtonSize.Medium}
@@ -178,13 +196,15 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 			>
 				{[false, true].map((isDisabled, i) =>
 					<ButtonSplit
-						content={ButtonContent.IconLabel}
-						iconName={MaterialIconName.Add}
-						iconStyle={MaterialIconStyle.Default}
+						content={{
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: `Split button${isDisabled ? " disabled" : ""}`
+						}}
 						isDisabled={isDisabled}
 						menuElement={ButtonSplitMenuElement}
 						key={i}
-						label={`Split button${isDisabled ? " disabled" : ""}`}
 						onClick={() => { }}
 						style={ButtonStyle.Elevated}
 						size={ButtonSize.Medium}

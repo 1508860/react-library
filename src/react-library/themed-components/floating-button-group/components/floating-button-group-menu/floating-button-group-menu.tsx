@@ -45,9 +45,11 @@ export function FloatingButtonGroupMenu(props: FloatingButtonGroupMenuProps) {
 				<FloatingButtonGroupButtonContainer key="floating-button-group-button">
 					<ButtonFloating
 						colourSchemeStyle={props.colourSchemeStyle}
-						content={ButtonContent.Icon}
-						iconName={showChildren ? FLOATING_BUTTON_GROUP_MENU_ICON_CLOSE : props.iconName}
-						iconStyle={props.iconStyle}
+						content={{
+							content: ButtonContent.Icon,
+							iconName: showChildren ? FLOATING_BUTTON_GROUP_MENU_ICON_CLOSE : props.iconName,
+							iconStyle: props.iconStyle
+						}}
 						isDisabled={props.isDisabled}
 						onClick={toggleShowChildren}
 						shape={showChildren ? ButtonShape.Round : ButtonShape.Soft}

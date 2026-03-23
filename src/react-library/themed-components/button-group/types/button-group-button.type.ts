@@ -1,6 +1,6 @@
 import type { Attributes } from "react";
 
-import type { IAction, IIsDisabled, IIsSelected, IOnClick } from "@react-library/common";
+import type { IAction, IContent, IIsDisabled, IIsSelected, IOnClick } from "@react-library/common";
 
 import type {
 	ButtonClickContent,
@@ -30,7 +30,7 @@ type ButtonGroupButtonActionBase<TButtonGroupAction extends ButtonGroupAction> =
  * Describes click configuration for a button group's button
  */
 export type ButtonGroupButtonClick = (
-	ButtonClickContent &
+	IContent<ButtonClickContent> &
 	ButtonGroupButtonBase
 );
 
@@ -39,7 +39,7 @@ export type ButtonGroupButtonClick = (
  */
 export type ButtonGroupButtonSelection = (
 	ButtonGroupButtonBase &
-	ButtonSelectionContent &
+	IContent<ButtonSelectionContent> &
 	IIsSelected
 );
 
@@ -48,7 +48,7 @@ export type ButtonGroupButtonSelection = (
  */
 export type ButtonGroupButtonSplit = (
 	ButtonGroupButtonBase &
-	ButtonSplitContent &
+	IContent<ButtonSplitContent> &
 	ButtonSplitMenuElement
 );
 
