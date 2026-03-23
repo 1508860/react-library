@@ -1,4 +1,6 @@
-import { ColourSchemeStyle, Orientation } from "@react-library/common";
+import { useState } from "react";
+
+import { ColourSchemeStyle, Orientation, type ArrayFixedLength2 } from "@react-library/common";
 import { MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
 import {
 	ButtonClick,
@@ -23,6 +25,10 @@ import {
 } from "@react-library-demo/shared";
 
 export function ReactLibraryThemedComponentsButtonDemo() {
+
+	const [isDisabledStates] = useState<ArrayFixedLength2<boolean>>(() => [false, true]);
+	const [isSelectedStates] = useState<ArrayFixedLength2<boolean>>(() => [false, true]);
+
 	return (
 		<>
 			<DemoSection
@@ -111,7 +117,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				key="button-style"
 				title="Button Style"
 			>
-				{Object.values(ButtonStyle).map((buttonStyle, i) => [false, true].map((isDisabled, j) =>
+				{Object.values(ButtonStyle).map((buttonStyle, i) => isDisabledStates.map((isDisabled, j) =>
 					<ButtonClick
 						content={{
 							content: ButtonContent.IconLabel,
@@ -124,7 +130,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 						onClick={() => { }}
 						shape={ButtonShape.Round}
 						size={ButtonSize.Medium}
-						style={ButtonStyle.Elevated}
+						style={buttonStyle}
 					/>
 				))}
 			</DemoSection>
@@ -152,7 +158,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				key="button-selection"
 				title="Selection Button"
 			>
-				{[false, true].map((isSelected, i) => [false, true].map((isDisabled, j) =>
+				{isSelectedStates.map((isSelected, i) => isDisabledStates.map((isDisabled, j) =>
 					<ButtonSelection
 						content={{
 							content: ButtonContent.IconLabel,
@@ -173,7 +179,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				key="button-floating"
 				title="Floating Button"
 			>
-				{Object.values(ColourSchemeStyle).map((colourSchemeStyle, i) => [false, true].map((isDisabled, j) =>
+				{Object.values(ColourSchemeStyle).map((colourSchemeStyle, i) => isDisabledStates.map((isDisabled, j) =>
 					<ButtonFloating
 						colourSchemeStyle={colourSchemeStyle}
 						content={{
@@ -194,7 +200,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				key="button-split"
 				title="Split Button"
 			>
-				{[false, true].map((isDisabled, i) =>
+				{isDisabledStates.map((isDisabled, i) =>
 					<ButtonSplit
 						content={{
 							content: ButtonContent.IconLabel,
