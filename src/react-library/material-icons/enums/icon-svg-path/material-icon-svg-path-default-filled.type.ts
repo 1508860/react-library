@@ -1,6 +1,6 @@
 import type { ArrayMinLength1 } from "@react-library/common";
 
-import { MaterialIconName } from "./material-icon-name.type";
+import { MaterialIconName } from "../material-icon-name.type";
 
 /**
  * Type for {@link MaterialIconSvgPathDefaultFilled}

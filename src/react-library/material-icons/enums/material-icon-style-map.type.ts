@@ -2,9 +2,9 @@ import type { ArrayMinLength1 } from "@react-library/common";
 
 import type { MaterialIconName } from "./material-icon-name.type";
 import { MaterialIconStyle } from "./material-icon-style.type";
-import { MaterialIconSvgPathDefaultFilled } from "./material-icon-svg-path-default-filled.type";
-import { MaterialIconSvgPathDefault } from "./material-icon-svg-path-default.type";
-import { MaterialIconSvgPathThick } from "./material-icon-svg-path-thick.type";
+import { MaterialIconSvgPathDefaultFilled } from "./icon-svg-path/material-icon-svg-path-default-filled.type";
+import { MaterialIconSvgPathDefault } from "./icon-svg-path/material-icon-svg-path-default.type";
+import { MaterialIconSvgPathThick } from "./icon-svg-path/material-icon-svg-path-thick.type";
 
 /**
  * Material icon style map to retiurn relevant set of icon SVG paths for {@link MaterialIconName} icons
