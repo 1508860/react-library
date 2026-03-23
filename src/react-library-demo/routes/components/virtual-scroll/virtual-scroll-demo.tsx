@@ -51,7 +51,7 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 				<VirtualScrollItem
 					id={item.id}
 					key={item.id}
-					sortOrder={[itemIndex]}
+					index={[itemIndex]}
 					size={item.virtualScrollRowSize}
 				>
 					{() => <DemoContent
@@ -74,7 +74,7 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 							<VirtualScrollItem
 								id={`${item.id}-${itemChild.id}`}
 								key={`${item.id}-${itemChild.id}`}
-								sortOrder={[itemIndex, itemChildIndex]}
+								index={[itemIndex, itemChildIndex]}
 								size={itemChild.virtualScrollRowSize}
 							>
 								{() => <DemoContent

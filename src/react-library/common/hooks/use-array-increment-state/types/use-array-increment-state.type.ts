@@ -16,7 +16,7 @@ export type UseArrayIncrementState<TElement> = (
 	ICount<number> &
 	IDecrement<Callback<void>> &
 	IIncrement<Callback<void>> &
-	IIndex &
+	IIndex<number> &
 	IReset<Callback<void>> &
 	ISet<CallbackWithParameter<TElement, void>> &
 	IState<TElement>

@@ -12,7 +12,7 @@ import type { VirtualScrollItemProps } from "./types/virtual-scroll-item-props.t
 export function VirtualScrollItem(props: VirtualScrollItemProps) {
 
 	const virtualScrollOrientation = useVirtualScrollOrientationContext();
-	const [virtualScrollItemRegister] = useVirtualScrollItemRegisterState(props.id, props.size, props.sortOrder);
+	const [virtualScrollItemRegister] = useVirtualScrollItemRegisterState(props.id, props.size, props.index);
 	const [virtualScrollItemChild] = useVirtualScrollItemChildState(props.id, props.children);
 
 	if (!virtualScrollItemChild) return undefined;

@@ -1,8 +1,8 @@
-import type { CallbackWithParameter, IId, ISize, ISortOrder } from "@react-library/common";
+import type { CallbackWithParameter, IId, IIndex, ISize } from "@react-library/common";
 
 import type { VirtualScrollItemId } from "./virtual-scroll-item-id.type";
+import type { VirtualScrollItemIndex } from "./virtual-scroll-item-index.type";
 import type { VirtualScrollItemSize } from "./virtual-scroll-item-size.type";
-import type { VirtualScrollItemSortOrder } from "./virtual-scroll-item-sort-order.type";
 
 /**
  * Virtual scroll item register callback
@@ -14,6 +14,6 @@ export type VirtualScrollItemRegister = CallbackWithParameter<VirtualScrollItemR
  */
 export type VirtualScrollItemRegisterParam = (
 	IId<VirtualScrollItemId> &
-	ISize<VirtualScrollItemSize> &
-	ISortOrder<VirtualScrollItemSortOrder>
+	IIndex<VirtualScrollItemIndex> &
+	ISize<VirtualScrollItemSize>
 );

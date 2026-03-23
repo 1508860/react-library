@@ -44,7 +44,7 @@ export function useVirtualScrollContentState(
 				param.id,
 				{
 					size: param.size,
-					sortOrder: param.sortOrder
+					index: param.index
 				}
 			);
 			handleSetRenderId();

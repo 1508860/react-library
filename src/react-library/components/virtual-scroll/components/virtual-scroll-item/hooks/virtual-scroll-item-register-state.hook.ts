@@ -4,8 +4,8 @@ import { useVirtualScrollItemSizeDefaultContext } from "../../../hooks/virtual-s
 import { useVirtualScrollItemRegisterContext } from "../../../hooks/virtual-scroll-item-register-context.hook";
 import { useVirtualScrollItemUnregisterContext } from "../../../hooks/virtual-scroll-item-unregister-context.hook";
 import type { VirtualScrollItemId } from "../../../types/virtual-scroll-item-id.type";
+import type { VirtualScrollItemIndex } from "../../../types/virtual-scroll-item-index.type";
 import type { VirtualScrollItemSize } from "../../../types/virtual-scroll-item-size.type";
-import type { VirtualScrollItemSortOrder } from "../../../types/virtual-scroll-item-sort-order.type";
 
 import type { VirtualScrollItemRegisterState } from "../types/virtual-scroll-item-register-state.type";
 
@@ -14,12 +14,12 @@ import type { VirtualScrollItemRegisterState } from "../types/virtual-scroll-ite
  * Also uses {@link useVirtualScrollItemRegisterContext} to register this item with the virtual scroll
  * @param id
  * @param size
- * @param sortOrder
+ * @param index
  */
 export function useVirtualScrollItemRegisterState(
 	id: VirtualScrollItemId,
 	size: VirtualScrollItemSize | undefined,
-	sortOrder: VirtualScrollItemSortOrder
+	index: VirtualScrollItemIndex
 ): [VirtualScrollItemRegisterState] {
 
 	const virtualScrollItemSizeDefault = useVirtualScrollItemSizeDefaultContext();
@@ -29,7 +29,7 @@ export function useVirtualScrollItemRegisterState(
 	const isRegisteredRef = useRef<boolean>(false);
 	const idRef = useRef<VirtualScrollItemId>(id);
 	const sizeRef = useRef<VirtualScrollItemSize>(size ?? virtualScrollItemSizeDefault);
-	const sortOrderRef = useRef<VirtualScrollItemSortOrder>(sortOrder);
+	const indexRef = useRef<VirtualScrollItemIndex>(index);
 	const [state, setState] = useState<VirtualScrollItemRegisterState>(() => ({ size: sizeRef.current }));
 
 	// Register item
@@ -40,13 +40,13 @@ export function useVirtualScrollItemRegisterState(
 			if (!isRegisteredRef.current) {
 				isRegisteredRef.current = true;
 			}
-			else if (idRef.current === id && sizeRef.current === newState && sortOrderRef.current === sortOrder) return;
+			else if (idRef.current === id && sizeRef.current === newState && indexRef.current === index) return;
 
 			idRef.current = id;
 			sizeRef.current = newState;
-			sortOrderRef.current = sortOrder;
+			indexRef.current = index;
 
-			virtualScrollItemRegister({ id: id, size: newState, sortOrder: sortOrder });
+			virtualScrollItemRegister({ id: id, size: newState, index: index });
 			setState({ size: newState });
 
 			return () => {
@@ -54,7 +54,7 @@ export function useVirtualScrollItemRegisterState(
 				isRegisteredRef.current = false;
 			}
 		},
-		[id, size, sortOrder, virtualScrollItemSizeDefault, virtualScrollItemRegister, virtualScrollItemUnregister]
+		[id, size, index, virtualScrollItemSizeDefault, virtualScrollItemRegister, virtualScrollItemUnregister]
 	);
 
 	return [state];
