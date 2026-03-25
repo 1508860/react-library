@@ -1,7 +1,4 @@
-import type { Property } from "csstype";
-
 import type {
-	Colour,
 	IBottom,
 	IBoxShadow,
 	IColour,
@@ -11,17 +8,25 @@ import type {
 	IRightRadius,
 	IStyle,
 	ITop,
-	IWidth,
-	Size
+	IWidth
 } from "@react-library/common";
 
+import type { TransitionBorderRadiusBorderBoxShadow } from "./transition-border-radius-border-box-shadow.type";
+import type { TransitionBorderRadiusBorderColour } from "./transition-border-radius-border-colour.type";
+import type {
+	TransitionBorderRadiusBorderBottomStyle,
+	TransitionBorderRadiusBorderLeftStyle,
+	TransitionBorderRadiusBorderRightStyle,
+	TransitionBorderRadiusBorderTopStyle
+} from "./transition-border-radius-border-style.type";
+import type { TransitionBorderRadiusBorderWidth } from "./transition-border-radius-border-width.type";
 import type { TransitionBorderRadiusUnits } from "./transition-border-radius-units.type";
 
 /**
  * Transition border radius component style for the single scope
  */
 export type TransitionBorderRadiusStyleSingle = (
-	Partial<IBoxShadow<Property.BoxShadow>> &
+	Partial<IBoxShadow<TransitionBorderRadiusBorderBoxShadow>> &
 	Partial<IBottom<Partial<TransitionBorderRadiusStyleSingleBottom>>> &
 	Partial<ILeft<Partial<TransitionBorderRadiusStyleSingleLeft>>> &
 	Partial<IRight<Partial<TransitionBorderRadiusStyleSingleRight>>> &
@@ -32,38 +37,38 @@ export type TransitionBorderRadiusStyleSingle = (
  * Transition border radius component style for the bottom side of the element
  */
 export type TransitionBorderRadiusStyleSingleBottom = (
-	IColour<Colour> &
+	IColour<TransitionBorderRadiusBorderColour> &
 	ILeftRadius<TransitionBorderRadiusUnits> &
 	IRightRadius<TransitionBorderRadiusUnits> &
-	IStyle<Property.BorderBottomStyle> &
-	IWidth<Size>
+	IStyle<TransitionBorderRadiusBorderBottomStyle> &
+	IWidth<TransitionBorderRadiusBorderWidth>
 );
 
 /**
  * Transition border radius component style for the left side of the element
  */
 export type TransitionBorderRadiusStyleSingleLeft = (
-	IColour<Colour> &
-	IStyle<Property.BorderLeftStyle> &
-	IWidth<Size>
+	IColour<TransitionBorderRadiusBorderColour> &
+	IStyle<TransitionBorderRadiusBorderLeftStyle> &
+	IWidth<TransitionBorderRadiusBorderWidth>
 );
 
 /**
  * Transition border radius component style for the right side of the element
  */
 export type TransitionBorderRadiusStyleSingleRight = (
-	IColour<Colour> &
-	IStyle<Property.BorderRightStyle> &
-	IWidth<Size>
+	IColour<TransitionBorderRadiusBorderColour> &
+	IStyle<TransitionBorderRadiusBorderRightStyle> &
+	IWidth<TransitionBorderRadiusBorderWidth>
 );
 
 /**
  * Transition border radius component style for the top side of the element
  */
 export type TransitionBorderRadiusStyleSingleTop = (
-	IColour<Colour> &
+	IColour<TransitionBorderRadiusBorderColour> &
 	ILeftRadius<TransitionBorderRadiusUnits> &
 	IRightRadius<TransitionBorderRadiusUnits> &
-	IStyle<Property.BorderTopStyle> &
-	IWidth<Size>
+	IStyle<TransitionBorderRadiusBorderTopStyle> &
+	IWidth<TransitionBorderRadiusBorderWidth>
 );
