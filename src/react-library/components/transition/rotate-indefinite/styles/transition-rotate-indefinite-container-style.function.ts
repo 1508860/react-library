@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 
+import { TransitionTimingMap } from "../../shared/enums/transition-timing-map.type";
 import type { TransitionRotateIndefiniteProps } from "../types/transition-rotate-indefinite-props.type";
 
 /**
@@ -12,7 +13,7 @@ export function transitionRotateIndefiniteContainerStyle(props: TransitionRotate
 		animationDuration: `${props.fullRotationDurationMs}ms`,
 		animationIterationCount: "infinite",
 		animationName: `react-library-components-transition-rotate-indefinite-${props.direction}`,
-		animationTimingFunction: props.timing,
+		animationTimingFunction: TransitionTimingMap[props.timing],
 		display: "inline-flex"
 	};
 }

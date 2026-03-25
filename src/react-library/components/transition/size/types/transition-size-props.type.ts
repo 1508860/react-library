@@ -11,8 +11,8 @@ import type {
 	IWidth
 } from "@react-library/common";
 
+import type { TransitionTiming } from "../../shared/enums/transition-timing.type";
 import type { TransitionSizeDirection } from "../enums/transition-size-direction.type";
-import type { TransitionSizeTiming } from "../enums/transition-size-timing.type";
 import type { TransitionSizeUnits } from "./transition-size-units.type";
 
 /**
@@ -24,6 +24,6 @@ export type TransitionSizeProps = (
 	IDurationMs<number> &
 	IHeight<TransitionSizeUnits> &
 	Partial<IOnComplete<Callback<void>>> &
-	ITiming<TransitionSizeTiming> &
+	ITiming<TransitionTiming> &
 	IWidth<TransitionSizeUnits>
 );

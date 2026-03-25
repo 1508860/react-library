@@ -11,7 +11,7 @@ import {
 import {
 	TransitionSize,
 	TransitionSizeDirection,
-	TransitionSizeTiming,
+	TransitionTiming,
 	type TransitionSizeUnits
 } from "@react-library/components";
 
@@ -31,7 +31,7 @@ import { TRANSITION_DEMO_SIZE_PX, TRANSITION_DEMO_TRANSITION_DURATION_MS } from 
 export function ReactLibraryComponentsTransitionSizeDemo() {
 
 	const [directions] = useState<Array<TransitionSizeDirection>>(() => Object.values(TransitionSizeDirection));
-	const [timings] = useState<Array<TransitionSizeTiming>>(() => Object.values(TransitionSizeTiming));
+	const [timings] = useState<Array<TransitionTiming>>(() => Object.values(TransitionTiming));
 
 	return (
 		<DemoSection title="Size">
@@ -56,10 +56,10 @@ export function ReactLibraryComponentsTransitionSizeDemo() {
 	);
 }
 
-function ReactLibraryComponentsTransitionSizeDemoItem(props: (IDirection<TransitionSizeDirection> & ITiming<TransitionSizeTiming>)): ReactElement {
+function ReactLibraryComponentsTransitionSizeDemoItem(props: (IDirection<TransitionSizeDirection> & ITiming<TransitionTiming>)): ReactElement {
 
 	const { state: size } = useArrayIncrementState<TransitionSizeUnits, ArrayMinLength2<TransitionSizeUnits>>(
-		[TRANSITION_DEMO_SIZE_PX / 2, TRANSITION_DEMO_SIZE_PX],
+		[TRANSITION_DEMO_SIZE_PX / 4, TRANSITION_DEMO_SIZE_PX / 2],
 		{
 			intervalProps: {
 				direction: UseArrayIncrementDirection.Forwards,
@@ -92,11 +92,11 @@ function ReactLibraryComponentsTransitionSizeDemoItem(props: (IDirection<Transit
 					align={DemoContentAlign.Center}
 					childrenType={DemoContentChildren.Any}
 					colourScheme={DemoContentColourScheme.Secondary}
-					height={TRANSITION_DEMO_SIZE_PX}
+					height={"100%"}
 					justify={DemoContentJustify.Center}
 					orientation={Orientation.Vertical}
 					overflow={DemoContentOverflow.Auto}
-					width={TRANSITION_DEMO_SIZE_PX}
+					width={"100%"}
 				/>
 			</TransitionSize>
 		</DemoContent>

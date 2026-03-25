@@ -1,6 +1,7 @@
 import type { Property } from "csstype";
 import type { CSSProperties } from "react";
 
+import { TransitionTimingMap } from "../../shared/enums/transition-timing-map.type";
 import { TransitionSizeDirection } from "../enums/transition-size-direction.type";
 import type { TransitionSizeProps } from "../types/transition-size-props.type";
 
@@ -29,7 +30,7 @@ export function transitionSizeStyle(props: TransitionSizeProps): CSSProperties {
 		height: props.height ?? "auto",
 		transitionDuration: `${props.durationMs}ms`,
 		transitionProperty: transitionProperty,
-		transitionTimingFunction: props.timing,
+		transitionTimingFunction: TransitionTimingMap[props.timing],
 		width: props.width ?? "auto",
 		overflow: "hidden"
 	};

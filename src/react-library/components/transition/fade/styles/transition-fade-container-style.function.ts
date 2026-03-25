@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 
+import { TransitionTimingMap } from "../../shared/enums/transition-timing-map.type";
 import type { TransitionFadeProps } from "../types/transition-fade-props.type";
 import { TransitionFadeDirection } from "../enums/transition-fade-direction.type";
 
@@ -14,7 +15,7 @@ export function transitionFadeContainerStyle(props: TransitionFadeProps): CSSPro
 		animationFillMode: "forwards",
 		animationIterationCount: 1,
 		animationName: props.direction !== TransitionFadeDirection.None ? `react-library-components-transition-fade-${props.direction}` : undefined,
-		animationTimingFunction: props.timing,
+		animationTimingFunction: TransitionTimingMap[props.timing],
 		display: "inline-flex"
 	};
 }

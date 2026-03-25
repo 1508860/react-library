@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import { TransitionPulse, TransitionPulseTiming } from "@react-library/components";
+import { TransitionPulse, TransitionTiming } from "@react-library/components";
 
 import { useButtonClickedInsetContextOptional } from "../../hooks/button-clicked-inset-context-optional.hook";
 import { useButtonColourStateContext } from "../../hooks/button-colour-state-context.hook";
@@ -27,7 +27,7 @@ export function ButtonPulseLayer() {
 			durationMs={BUTTON_PULSE_LAYER_TRANSITION_MS}
 			inset={buttonClickedInset.inset}
 			key={`button-clicked-inset-layer-${buttonClickedInset.key}`}
-			timing={TransitionPulseTiming.EaseInOut}
+			timing={TransitionTiming.EaseInOut}
 		/>
 	);
 }

@@ -11,7 +11,7 @@ import {
 import {
 	TransitionRotateIndefinite,
 	TransitionRotateIndefiniteDirection,
-	TransitionRotateIndefiniteTiming
+	TransitionTiming
 } from "@react-library/components";
 
 import {
@@ -44,7 +44,7 @@ export function ProgressIndicatorCircleIndeterminate() {
 		<TransitionRotateIndefinite
 			direction={TransitionRotateIndefiniteDirection.Forwards}
 			fullRotationDurationMs={PROGRESS_INDICATOR_INDETERMINATE_CYCLE_DURATION_MS}
-			timing={TransitionRotateIndefiniteTiming.EaseInOut}
+			timing={TransitionTiming.EaseInOut}
 		>
 			<ProgressIndicatorCircleContainer>
 				<ProgressIndicatorCircle

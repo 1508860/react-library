@@ -9,7 +9,7 @@ import {
 import {
 	TransitionFade,
 	TransitionFadeDirection,
-	TransitionFadeTiming
+	TransitionTiming
 } from "@react-library/components";
 
 import {
@@ -27,7 +27,7 @@ import { TRANSITION_DEMO_SIZE_PX, TRANSITION_DEMO_TRANSITION_DURATION_MS } from 
 
 export function ReactLibraryComponentsTransitionFadeDemo() {
 
-	const [timings] = useState<Array<TransitionFadeTiming>>(() => Object.values(TransitionFadeTiming));
+	const [timings] = useState<Array<TransitionTiming>>(() => Object.values(TransitionTiming));
 
 	return (
 		<DemoSection title="Fade">
@@ -45,7 +45,7 @@ export function ReactLibraryComponentsTransitionFadeDemo() {
 	);
 }
 
-function ReactLibraryComponentsTransitionFadeDemoItem(props: ITiming<TransitionFadeTiming>): ReactElement {
+function ReactLibraryComponentsTransitionFadeDemoItem(props: ITiming<TransitionTiming>): ReactElement {
 
 	const { state, increment } = useArrayIncrementState<TransitionFadeDirection, ArrayMinLength2<TransitionFadeDirection>>(
 		[TransitionFadeDirection.Out, TransitionFadeDirection.In],

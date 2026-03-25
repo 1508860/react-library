@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 
 import type { SizePx } from "@react-library/common";
 
+import { TransitionTimingMap } from "../../shared/enums/transition-timing-map.type";
 import type { TransitionPulseProps } from "../types/transition-pulse-props.type";
 
 /**
@@ -22,7 +23,7 @@ export function transitionPulseStyle(props: TransitionPulseProps): CSSProperties
 		animationFillMode: "forwards",
 		animationIterationCount: 1,
 		animationName: animationName,
-		animationTimingFunction: props.timing,
+		animationTimingFunction: TransitionTimingMap[props.timing],
 		aspectRatio: 1,
 		backgroundColor: props.colour.toColourString(),
 		borderRadius: "50%",

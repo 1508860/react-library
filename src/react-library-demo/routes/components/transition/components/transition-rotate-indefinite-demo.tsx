@@ -2,7 +2,7 @@ import { Orientation, type IDirection, type ITiming } from "@react-library/commo
 import {
 	TransitionRotateIndefinite,
 	TransitionRotateIndefiniteDirection,
-	TransitionRotateIndefiniteTiming
+	TransitionTiming
 } from "@react-library/components";
 
 import {
@@ -22,7 +22,7 @@ import { useState } from "react";
 export function ReactLibraryComponentsTransitionRotateIndefiniteDemo() {
 
 	const [directions] = useState<Array<TransitionRotateIndefiniteDirection>>(() => Object.values(TransitionRotateIndefiniteDirection));
-	const [timings] = useState<Array<TransitionRotateIndefiniteTiming>>(() => Object.values(TransitionRotateIndefiniteTiming));
+	const [timings] = useState<Array<TransitionTiming>>(() => Object.values(TransitionTiming));
 
 	return (
 		<DemoSection title="RotateIndefinite">
@@ -49,7 +49,7 @@ export function ReactLibraryComponentsTransitionRotateIndefiniteDemo() {
 
 export function ReactLibraryComponentsTransitionRotateIndefiniteDemoItem(props: (
 	IDirection<TransitionRotateIndefiniteDirection> &
-	ITiming<TransitionRotateIndefiniteTiming>
+	ITiming<TransitionTiming>
 )) {
 	return (
 		<DemoContent

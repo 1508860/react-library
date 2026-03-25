@@ -9,7 +9,7 @@ import {
 	type Guid,
 	type ITiming
 } from "@react-library/common";
-import { TransitionPulse, TransitionPulseTiming } from "@react-library/components";
+import { TransitionPulse, TransitionTiming } from "@react-library/components";
 
 import {
 	DemoContent,
@@ -26,7 +26,7 @@ import { TRANSITION_DEMO_SIZE_PX, TRANSITION_DEMO_TRANSITION_DURATION_MS } from 
 
 export function ReactLibraryComponentsTransitionPulseDemo() {
 
-	const [timings] = useState<Array<TransitionPulseTiming>>(() => Object.values(TransitionPulseTiming));
+	const [timings] = useState<Array<TransitionTiming>>(() => Object.values(TransitionTiming));
 
 	return (
 		<DemoSection title="Pulse">
@@ -44,7 +44,7 @@ export function ReactLibraryComponentsTransitionPulseDemo() {
 	);
 }
 
-function ReactLibraryComponentsTransitionPulseDemoItem(props: ITiming<TransitionPulseTiming>): ReactElement {
+function ReactLibraryComponentsTransitionPulseDemoItem(props: ITiming<TransitionTiming>): ReactElement {
 
 	const [colour] = useState<Colour>(() => new HexRgba("00", "00", "00", StyleOpacityToHexColourMap[0.5]));
 
