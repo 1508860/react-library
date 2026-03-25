@@ -27,11 +27,11 @@ import { TRANSITION_DEMO_SIZE_PX, TRANSITION_DEMO_TRANSITION_DURATION_MS } from 
 
 export function ReactLibraryComponentsTransitionFadeDemo() {
 
-	const [timimngs] = useState<Array<TransitionFadeTiming>>(() => Object.values(TransitionFadeTiming));
+	const [timings] = useState<Array<TransitionFadeTiming>>(() => Object.values(TransitionFadeTiming));
 
 	return (
 		<DemoSection title="Fade">
-			{timimngs.map(timing => (
+			{timings.map(timing => (
 				<DemoItem
 					config={[
 						{ key: "Timing", value: timing }
