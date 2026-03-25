@@ -6,6 +6,7 @@ import {
 	useArrayIncrementState,
 	type ArrayMinLength2,
 	type IDirection,
+	type ISize,
 	type ITiming
 } from "@react-library/common";
 import {
@@ -33,6 +34,16 @@ export function ReactLibraryComponentsTransitionSizeDemo() {
 	const [directions] = useState<Array<TransitionSizeDirection>>(() => Object.values(TransitionSizeDirection));
 	const [timings] = useState<Array<TransitionTiming>>(() => Object.values(TransitionTiming));
 
+	const { state: size } = useArrayIncrementState<TransitionSizeUnits, ArrayMinLength2<TransitionSizeUnits>>(
+		[TRANSITION_DEMO_SIZE_PX / 4, TRANSITION_DEMO_SIZE_PX / 2],
+		{
+			intervalProps: {
+				direction: UseArrayIncrementDirection.Forwards,
+				intervalMs: TRANSITION_DEMO_TRANSITION_DURATION_MS
+			}
+		}
+	);
+
 	return (
 		<DemoSection title="Size">
 			{directions.map(direction =>
@@ -47,6 +58,7 @@ export function ReactLibraryComponentsTransitionSizeDemo() {
 						<ReactLibraryComponentsTransitionSizeDemoItem
 							direction={direction}
 							key={`${timing}`}
+							size={size}
 							timing={timing}
 						/>
 					</DemoItem>
@@ -56,18 +68,13 @@ export function ReactLibraryComponentsTransitionSizeDemo() {
 	);
 }
 
-function ReactLibraryComponentsTransitionSizeDemoItem(props: (IDirection<TransitionSizeDirection> & ITiming<TransitionTiming>)): ReactElement {
-
-	const { state: size } = useArrayIncrementState<TransitionSizeUnits, ArrayMinLength2<TransitionSizeUnits>>(
-		[TRANSITION_DEMO_SIZE_PX / 4, TRANSITION_DEMO_SIZE_PX / 2],
-		{
-			intervalProps: {
-				direction: UseArrayIncrementDirection.Forwards,
-				intervalMs: TRANSITION_DEMO_TRANSITION_DURATION_MS
-			}
-		}
-	);
-
+function ReactLibraryComponentsTransitionSizeDemoItem(
+	props: (
+		IDirection<TransitionSizeDirection> &
+		ISize<TransitionSizeUnits> &
+		ITiming<TransitionTiming>
+	)
+): ReactElement {
 	return (
 		<DemoContent
 			align={DemoContentAlign.Center}
@@ -83,10 +90,9 @@ function ReactLibraryComponentsTransitionSizeDemoItem(props: (IDirection<Transit
 			<TransitionSize
 				direction={props.direction}
 				durationMs={TRANSITION_DEMO_TRANSITION_DURATION_MS}
-				height={(props.direction === TransitionSizeDirection.All || props.direction === TransitionSizeDirection.Vertical) ? size : TRANSITION_DEMO_SIZE_PX}
-				key={`${props.direction}-${props.timing}`}
+				height={(props.direction === TransitionSizeDirection.All || props.direction === TransitionSizeDirection.Vertical) ? props.size : TRANSITION_DEMO_SIZE_PX}
 				timing={props.timing}
-				width={(props.direction === TransitionSizeDirection.All || props.direction === TransitionSizeDirection.Horizontal) ? size : TRANSITION_DEMO_SIZE_PX}
+				width={(props.direction === TransitionSizeDirection.All || props.direction === TransitionSizeDirection.Horizontal) ? props.size : TRANSITION_DEMO_SIZE_PX}
 			>
 				<DemoContent
 					align={DemoContentAlign.Center}

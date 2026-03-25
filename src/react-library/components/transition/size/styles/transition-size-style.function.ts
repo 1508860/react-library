@@ -28,10 +28,10 @@ export function transitionSizeStyle(props: TransitionSizeProps): CSSProperties {
 	return {
 		display: "block",
 		height: props.height ?? "auto",
+		overflow: "hidden",
 		transitionDuration: `${props.durationMs}ms`,
 		transitionProperty: transitionProperty,
 		transitionTimingFunction: TransitionTimingMap[props.timing],
-		width: props.width ?? "auto",
-		overflow: "hidden"
+		width: props.width ?? "auto"
 	};
 }
