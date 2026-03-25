@@ -1,5 +1,3 @@
-import react from "react";
-
 import type { ButtonContainerUseStyleStateParam } from "../../shared/components/button-container";
 import { BUTTON_FLOATING_PROPERTY_MAP } from "../constants/button-floating-property-map.const";
 import type { ButtonFloatingProps } from "../types/button-floating-props.type";
@@ -8,7 +6,7 @@ import type { ButtonFloatingProps } from "../types/button-floating-props.type";
  * Derive the floating button style state based on parameters
  * @param param
  */
-export function useButtonFloatingStyleState(param: ButtonContainerUseStyleStateParam<ButtonFloatingProps>): [react.CSSProperties] {
+export function useButtonFloatingStyleState(param: ButtonContainerUseStyleStateParam<ButtonFloatingProps>): [React.CSSProperties] {
 	return [{
 		alignItems: "center",
 		backgroundColor: param.colour.backgroundColour?.toColourString(),

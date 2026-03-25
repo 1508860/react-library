@@ -1,5 +1,3 @@
-import react from "react";
-
 import type { ButtonContainerUseStyleStateParam } from "../../shared/components/button-container";
 import { ButtonContent } from "../../shared/enums/button-content.type";
 import { BUTTON_CLICK_PROPERTY_MAP } from "../constants/button-click-property-map.const";
@@ -9,7 +7,7 @@ import type { ButtonClickProps } from "../types/button-click-props.type";
  * Derive the click button style state based on parameters
  * @param param
  */
-export function useButtonClickStyleState(param: ButtonContainerUseStyleStateParam<ButtonClickProps>): [react.CSSProperties] {
+export function useButtonClickStyleState(param: ButtonContainerUseStyleStateParam<ButtonClickProps>): [React.CSSProperties] {
 	return [{
 		alignItems: "center",
 		backgroundColor: param.colour.backgroundColour?.toColourString(),

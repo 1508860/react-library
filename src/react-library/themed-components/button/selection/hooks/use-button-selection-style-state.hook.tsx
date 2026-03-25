@@ -1,5 +1,3 @@
-import react from "react";
-
 import type { ButtonContainerUseStyleStateParam } from "../../shared/components/button-container";
 import { ButtonContent } from "../../shared/enums/button-content.type";
 import { ButtonShape } from "../../shared/enums/button-shape.type";
@@ -10,7 +8,7 @@ import type { ButtonSelectionProps } from "../types/button-selection-props.type"
  * Derive the selection button style state based on parameters
  * @param param
  */
-export function useButtonSelectionStyleState(param: ButtonContainerUseStyleStateParam<ButtonSelectionProps>): [react.CSSProperties] {
+export function useButtonSelectionStyleState(param: ButtonContainerUseStyleStateParam<ButtonSelectionProps>): [React.CSSProperties] {
 	return [{
 		alignItems: "center",
 		backgroundColor: param.colour.backgroundColour?.toColourString(),

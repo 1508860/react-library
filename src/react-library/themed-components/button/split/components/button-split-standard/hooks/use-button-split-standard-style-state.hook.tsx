@@ -1,5 +1,3 @@
-import react from "react";
-
 import type { ButtonContainerUseStyleStateParam } from "../../../../shared/components/button-container";
 import { BUTTON_SPLIT_PROPERTY_MAP } from "../../../constants/button-split-property-map.const";
 import type { ButtonSplitProps } from "../../../types/button-split-props.type";
@@ -8,7 +6,7 @@ import type { ButtonSplitProps } from "../../../types/button-split-props.type";
  * Derive the split button standard style state based on parameters
  * @param param
  */
-export function useButtonSplitStandardStyleState(param: ButtonContainerUseStyleStateParam<ButtonSplitProps>): [react.CSSProperties] {
+export function useButtonSplitStandardStyleState(param: ButtonContainerUseStyleStateParam<ButtonSplitProps>): [React.CSSProperties] {
 	return [{
 		alignItems: "center",
 		backgroundColor: param.colour.backgroundColour?.toColourString(),
