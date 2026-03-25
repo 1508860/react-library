@@ -10,6 +10,7 @@ import {
 } from "@react-library/common";
 import {
 	TransitionBorderRadius,
+	TransitionBorderRadiusScope,
 	TransitionTiming,
 	type TransitionBorderRadiusUnits
 } from "@react-library/components";
@@ -64,10 +65,10 @@ export function ReactLibraryComponentsTransitionBorderRadiusDemo() {
 function ReactLibraryComponentsTransitionBorderRadiusDemoItem(props: (IBorderRadius<TransitionBorderRadiusUnits> & ITiming<TransitionTiming>)): ReactElement {
 	return (
 		<TransitionBorderRadius
-			borderBottomLeftRadius={props.borderRadius}
-			borderBottomRightRadius={props.borderRadius}
-			borderTopLeftRadius={props.borderRadius}
-			borderTopRightRadius={props.borderRadius}
+			scope={TransitionBorderRadiusScope.All}
+			style={{
+				radius: props.borderRadius
+			}}
 			durationMs={TRANSITION_DEMO_TRANSITION_DURATION_MS}
 			timing={props.timing}
 		>
