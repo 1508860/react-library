@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 import { useTooltipShowContext } from "@react-library/components";
 
 import type { ButtonContainerUseStyleStateParam } from "../../../../shared/components/button-container";
@@ -8,7 +10,7 @@ import type { ButtonSplitProps } from "../../../types/button-split-props.type";
  * Derive the split button menu child style state based on parameters
  * @param param
  */
-export function useButtonSplitMenuChildStyleState(param: ButtonContainerUseStyleStateParam<ButtonSplitProps>): [React.CSSProperties] {
+export function useButtonSplitMenuChildStyleState(param: ButtonContainerUseStyleStateParam<ButtonSplitProps>): [CSSProperties] {
 
 	const tooltipShow = useTooltipShowContext();
 
