@@ -5,7 +5,7 @@ import type { StyleCubicBezierFunc } from "../types/cubic-bezier-func.type";
 /**
  * Class to handle the cubic bezier style function
  */
-export class StyleCubicBezier implements IIsEqual<CallbackWithParameter<StyleCubicBezier, boolean>>, IToStyleCubicBezierString<Callback<string>> {
+export class StyleCubicBezier implements IIsEqual<CallbackWithParameter<StyleCubicBezier, boolean>>, IToStyleCubicBezierString<Callback<StyleCubicBezierFunc>> {
 
 	private readonly _x1: number;
 	private readonly _y1: number;
@@ -31,7 +31,7 @@ export class StyleCubicBezier implements IIsEqual<CallbackWithParameter<StyleCub
 		return this._styleCubicBezierString;
 	}
 
-	public toStyleCubicBezierString(): string {
+	public toStyleCubicBezierString(): StyleCubicBezierFunc {
 		return this._styleCubicBezierString ?? this._toStyleCubicBezierString();
 	}
 }
