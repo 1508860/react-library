@@ -16,6 +16,8 @@ export function transitionFadeContainerStyle(props: TransitionFadeProps): CSSPro
 		animationIterationCount: 1,
 		animationName: props.direction !== TransitionFadeDirection.None ? `react-library-components-transition-fade-${props.direction}` : undefined,
 		animationTimingFunction: TransitionTimingMap[props.timing],
-		display: "inline-flex"
+		display: "inline-flex",
+		height: props.height,
+		width: props.width
 	};
 }

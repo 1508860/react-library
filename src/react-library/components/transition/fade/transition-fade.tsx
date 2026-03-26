@@ -1,4 +1,7 @@
 import { useCallback } from "react";
+
+import type { Callback } from "@react-library/common";
+
 import { transitionFadeContainerStyle } from "./styles/transition-fade-container-style.function";
 import "./styles/transition-fade.css";
 import type { TransitionFadeProps } from "./types/transition-fade-props.type";
@@ -9,9 +12,11 @@ import type { TransitionFadeProps } from "./types/transition-fade-props.type";
  */
 export function TransitionFade(props: TransitionFadeProps) {
 
-	const handleOnComplete = useCallback<() => void>(
+	const handleOnComplete = useCallback<Callback<void>>(
 		() => {
-			if (props.onComplete) props.onComplete();
+			if (props.onComplete) props.onComplete({
+				direction: props.direction
+			});
 		},
 		[props]
 	);

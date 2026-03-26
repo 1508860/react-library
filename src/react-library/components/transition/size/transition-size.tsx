@@ -1,5 +1,7 @@
 import { useCallback } from "react";
 
+import type { Callback } from "@react-library/common";
+
 import { transitionSizeStyle } from "./styles/transition-size-style.function";
 import type { TransitionSizeProps } from "./types/transition-size-props.type";
 
@@ -9,7 +11,7 @@ import type { TransitionSizeProps } from "./types/transition-size-props.type";
  */
 export function TransitionSize(props: TransitionSizeProps) {
 
-	const handleOnComplete = useCallback<() => void>(
+	const handleOnComplete = useCallback<Callback<void>>(
 		() => {
 			if (props.onComplete) props.onComplete();
 		},

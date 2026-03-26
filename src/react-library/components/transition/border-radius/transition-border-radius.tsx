@@ -1,5 +1,7 @@
 import { useCallback } from "react";
 
+import type { Callback } from "@react-library/common";
+
 import { transitionBorderRadiusStyle } from "./styles/transition-border-radius-style.function";
 import type { TransitionBorderRadiusProps } from "./types/transition-border-radius-props.type";
 
@@ -9,7 +11,7 @@ import type { TransitionBorderRadiusProps } from "./types/transition-border-radi
  */
 export function TransitionBorderRadius(props: TransitionBorderRadiusProps) {
 
-	const handleOnComplete = useCallback<() => void>(
+	const handleOnComplete = useCallback<Callback<void>>(
 		() => {
 			if (props.onComplete) props.onComplete();
 		},

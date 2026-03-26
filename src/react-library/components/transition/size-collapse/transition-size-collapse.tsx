@@ -1,5 +1,7 @@
 import { useCallback } from "react";
 
+import type { Callback } from "@react-library/common";
+
 import { TRANSITION_SIZE_COLLAPSE_CONTENT_STYLE } from "./styles/transition-size-collapse-content-style.const";
 import { transitionSizeCollapseStyle } from "./styles/transition-size-collapse-style.function";
 import type { TransitionSizeCollapseProps } from "./types/transition-size-collapse-props.type";
@@ -10,7 +12,7 @@ import type { TransitionSizeCollapseProps } from "./types/transition-size-collap
  */
 export function TransitionSizeCollapse(props: TransitionSizeCollapseProps) {
 
-	const handleOnComplete = useCallback<() => void>(
+	const handleOnComplete = useCallback<Callback<void>>(
 		() => {
 			if (props.onComplete) props.onComplete();
 		},
