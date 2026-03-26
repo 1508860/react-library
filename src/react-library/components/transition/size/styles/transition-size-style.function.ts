@@ -28,7 +28,7 @@ export function transitionSizeStyle(props: TransitionSizeProps): CSSProperties {
 	return {
 		display: "block",
 		height: props.height ?? "auto",
-		overflow: "hidden",
+		overflow: "visible",
 		transitionDuration: `${props.durationMs}ms`,
 		transitionProperty: transitionProperty,
 		transitionTimingFunction: TransitionTimingMap[props.timing],

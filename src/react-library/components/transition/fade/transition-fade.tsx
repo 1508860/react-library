@@ -14,7 +14,7 @@ export function TransitionFade(props: TransitionFadeProps) {
 			if (props.onComplete) props.onComplete();
 		},
 		[props]
-	)
+	);
 
 	return (
 		<div

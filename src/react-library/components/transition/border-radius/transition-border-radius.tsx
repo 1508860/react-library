@@ -14,7 +14,7 @@ export function TransitionBorderRadius(props: TransitionBorderRadiusProps) {
 			if (props.onComplete) props.onComplete();
 		},
 		[props]
-	)
+	);
 
 	return (
 		<div

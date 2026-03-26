@@ -14,7 +14,7 @@ export function TransitionSize(props: TransitionSizeProps) {
 			if (props.onComplete) props.onComplete();
 		},
 		[props]
-	)
+	);
 
 	return (
 		<div
