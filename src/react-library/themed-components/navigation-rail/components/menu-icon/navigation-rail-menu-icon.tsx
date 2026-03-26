@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { useColourSchemeContext } from "@react-library/common";
 import { MaterialIconSvg, MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
@@ -21,20 +21,39 @@ export function NavigationRailMenuIcon(props: NavigationRailMenuIconProps) {
 	// Handle hovered state
 	const [isHovered, setIsHovered] = useState<boolean>(() => false);
 	const handlePointerEnter = useCallback(() => setIsHovered(true), []);
-	const handleOnPointerLeave = useCallback(() => setIsHovered(false), []);
+	const handlePointerLeave = useCallback(() => setIsHovered(false), []);
+
+	// Handle pressed state
+	const [isPressed, setIsPressed] = useState<boolean>(() => false);
+	const handlePointerDown = useCallback(() => setIsPressed(true), []);
+	const handlePointerUp = useCallback(() => setIsPressed(false), []);
+
+	// Resolve icon style
+	const [iconStyle, setIconStyle] = useState<MaterialIconStyle>(() => MaterialIconStyle.Default);
+	useEffect(
+		() => {
+			if (isPressed) setIconStyle(MaterialIconStyle.DefaultFilled);
+			else if (isHovered) setIconStyle(MaterialIconStyle.Thick);
+			else setIconStyle(MaterialIconStyle.Default);
+		},
+		[isHovered, isPressed]
+	);
 
 	return (
 		<div
 			onClick={handleExpandedOnChange}
+			onPointerCancel={handlePointerLeave}
+			onPointerDown={handlePointerDown}
 			onPointerEnter={handlePointerEnter}
-			onPointerLeave={handleOnPointerLeave}
+			onPointerLeave={handlePointerLeave}
+			onPointerUp={handlePointerUp}
 			style={navigationRailMenuIconContainerStyle(props.isExpanded, isHovered)}
 		>
 			<MaterialIconSvg
 				colour={props.isExpanded ? colourScheme.secondary.container.onColour : colourScheme.surface.variant.onColour}
 				name={props.isExpanded ? MaterialIconName.MenuOpen : MaterialIconName.Menu}
 				size={NAVIGATION_RAIL_PROPERTY_MAP.menuIconSize}
-				style={MaterialIconStyle.Default}
+				style={iconStyle}
 			/>
 		</div>
 	);
