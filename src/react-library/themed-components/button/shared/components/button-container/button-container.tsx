@@ -8,13 +8,14 @@ import { BUTTON_IS_HOVERED_CONTEXT } from "../../constants/button-is-hovered-con
 import { resolveButtonClickedInset } from "../../functions/resolve-button-clicked-inset.function";
 import type { ButtonClickTarget } from "../../types/button-click-target.type";
 
+import { BUTTON_CONTAINER_STYLE } from "./styles/button-container-style.const";
 import type { ButtonContainerProps } from "./types/button-container-props.type";
 
 /**
  * Button container component
  * @param props
  */
-export function ButtonContainer<TStyleConfig, TUseColourStateConfig>(props: ButtonContainerProps<TStyleConfig, TUseColourStateConfig>) {
+export function ButtonContainer<TUseColourStateConfig>(props: ButtonContainerProps<TUseColourStateConfig>) {
 
 	const [isHovered, setIsHovered] = useState<boolean>(() => false);
 	const [isPressed, setIsPressed] = useState<boolean>(() => false);
@@ -24,11 +25,6 @@ export function ButtonContainer<TStyleConfig, TUseColourStateConfig>(props: Butt
 		config: props.colourStateConfig,
 		isHovered: isHovered,
 		isPressed: isPressed
-	});
-
-	const [buttonStyle] = props.useStyleState({
-		config: props.styleConfig,
-		colour: buttonColourState
 	});
 
 	// Handle setting refs
@@ -67,7 +63,7 @@ export function ButtonContainer<TStyleConfig, TUseColourStateConfig>(props: Butt
 						onPointerLeave={handleOnPointerLeave}
 						onPointerUp={handlePointerUp}
 						ref={handleButtonContainerElementRef}
-						style={buttonStyle}
+						style={BUTTON_CONTAINER_STYLE}
 					>
 						{props.children}
 					</div>

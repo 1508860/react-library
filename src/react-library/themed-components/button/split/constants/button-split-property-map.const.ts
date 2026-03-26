@@ -187,10 +187,5 @@ export const BUTTON_SPLIT_PROPERTY_MAP: ButtonSplitPropertyMap = {
 			borderStyle: "solid",
 			borderWidth: 1
 		}
-	},
-	transition: {
-		borderRadius: {
-			durationMs: 200
-		}
 	}
 }

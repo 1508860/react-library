@@ -5,7 +5,6 @@ import type {
 	IBorderStyle,
 	IBorderWidth,
 	IContent,
-	IDurationMs,
 	IFontSize,
 	IGap,
 	IHeight,
@@ -15,7 +14,6 @@ import type {
 	IShape,
 	ISize,
 	IStyle,
-	ITransition,
 	SizePx
 } from "@react-library/common";
 
@@ -30,8 +28,7 @@ import type { ButtonStyle } from "../../shared/enums/button-style.type";
  */
 export type ButtonSelectionPropertyMap = (
 	ISize<Record<ButtonSize, ButtonSelectionPropertySizeMap>> &
-	IStyle<Record<ButtonStyle, ButtonSelectionPropertyStyleMap>> &
-	ITransition<IBorderRadius<IDurationMs<number>>>
+	IStyle<Record<ButtonStyle, ButtonSelectionPropertyStyleMap>>
 );
 
 type ButtonSelectionPropertySizeMap = (

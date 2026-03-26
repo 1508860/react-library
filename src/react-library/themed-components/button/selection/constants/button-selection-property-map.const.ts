@@ -179,10 +179,5 @@ export const BUTTON_SELECTION_PROPERTY_MAP: ButtonSelectionPropertyMap = {
 			borderStyle: "solid",
 			borderWidth: 1
 		}
-	},
-	transition: {
-		borderRadius: {
-			durationMs: 200
-		}
 	}
 }

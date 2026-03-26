@@ -7,7 +7,6 @@ import type {
 	IButton,
 	ICollapsed,
 	IContent,
-	IDurationMs,
 	IExpanded,
 	IFontSize,
 	IGap,
@@ -19,7 +18,6 @@ import type {
 	IPaddingHorizontal,
 	ISize,
 	IStyle,
-	ITransition,
 	IWidth,
 	SizePx
 } from "@react-library/common";
@@ -34,8 +32,7 @@ import type { ButtonStyle } from "../../shared/enums/button-style.type";
 export type ButtonSplitPropertyMap = (
 	IGap<SizePx> &
 	ISize<Record<ButtonSize, ButtonSplitPropertySizeMap>> &
-	IStyle<Record<ButtonStyle, ButtonSplitPropertyStyleMap>> &
-	ITransition<IBorderRadius<IDurationMs<number>>>
+	IStyle<Record<ButtonStyle, ButtonSplitPropertyStyleMap>>
 );
 
 type ButtonSplitPropertySizeMap = (
