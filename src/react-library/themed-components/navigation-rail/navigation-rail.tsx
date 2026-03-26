@@ -13,7 +13,6 @@ export function NavigationRail<TItemId extends NavigationRailItemId>(props: Navi
 	return (
 		<div style={NAVIGATION_RAIL_CONTAINER_STYLE}>
 			<NavigationRailImmersiveMenu
-				expandedMenuWidth={props.expandedMenuWidth}
 				isExpanded={props.isExpanded}
 				key="immersive-menu"
 				menuStyle={props.menuStyle}

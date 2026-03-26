@@ -43,7 +43,7 @@ export const NAVIGATION_RAIL_PROPERTY_MAP: NavigationRailPropertyMap = {
 			menuCollapsedWidth: 96
 		}
 	},
-	menuTransitionPer100PxDurationMs: 200,
+	menuTransitionDurationMs: 500,
 	orientation: {
 		[Orientation.Horizontal]: {
 			borderRadius: 28,

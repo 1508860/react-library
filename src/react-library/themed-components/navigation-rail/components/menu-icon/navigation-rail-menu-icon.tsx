@@ -28,7 +28,7 @@ export function NavigationRailMenuIcon(props: NavigationRailMenuIconProps) {
 			onClick={handleExpandedOnChange}
 			onPointerEnter={handlePointerEnter}
 			onPointerLeave={handleOnPointerLeave}
-			style={navigationRailMenuIconContainerStyle(props.expandedMenuWidth, props.isExpanded, props.menuStyle, isHovered)}
+			style={navigationRailMenuIconContainerStyle(props.isExpanded, isHovered)}
 		>
 			<MaterialIconSvg
 				colour={props.isExpanded ? colourScheme.secondary.container.onColour : colourScheme.surface.variant.onColour}

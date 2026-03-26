@@ -1,17 +1,14 @@
 import type { CSSProperties } from "react";
 
-import type { ColourScheme } from "@react-library/common";
-
 /**
  * Resolve navigation rail backdrop style based on parameters
- * @param colourScheme
+ * @param isExpanded
  */
-export function navigationRailBackdropStyle(colourScheme: ColourScheme): CSSProperties {
+export function navigationRailBackdropStyle(isExpanded: boolean): CSSProperties {
 	return {
-		backgroundColor: colourScheme.backdrop.colour.toColourString(),
-		cursor: "pointer",
-		inset: 0,
-		opacity: colourScheme.backdrop.opacity,
-		position: "absolute"
+		height: isExpanded ? undefined : 0,
+		inset: isExpanded ? 0 : undefined,
+		position: "absolute",
+		width: isExpanded ? undefined : 0
 	};
 }

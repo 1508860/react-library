@@ -19,7 +19,7 @@ import type {
 	IMenuIconTransform,
 	IMenuPaddingHorizontal,
 	IMenuStyle,
-	IMenuTransitionPer100PxDurationMs,
+	IMenuTransitionDurationMs,
 	IOrientation,
 	Orientation,
 	SizePx,
@@ -46,7 +46,7 @@ export type NavigationRailPropertyMap = (
 	IMenuIconSize<SizePx> &
 	IMenuPaddingHorizontal<SizePx> &
 	IMenuStyle<Record<NavigationRailMenuStyle, NavigationRailPropertyMenuStyleMap>> &
-	IMenuTransitionPer100PxDurationMs<number> &
+	IMenuTransitionDurationMs<number> &
 	IOrientation<Record<Orientation, NavigationRailPropertyOrientationMap>>
 );
 

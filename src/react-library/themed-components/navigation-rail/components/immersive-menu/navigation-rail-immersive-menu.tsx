@@ -24,10 +24,8 @@ export function NavigationRailImmersiveMenu(props: NavigationRailImmersiveMenuPr
 					{props.navigationHeaderChildren}
 				</NavigationRailHeaderContainer>
 				<NavigationRailMenuIcon
-					expandedMenuWidth={props.expandedMenuWidth}
 					isExpanded={props.isExpanded}
 					key="menu-icon"
-					menuStyle={props.menuStyle}
 					onChange={props.onExpandedChange}
 				/>
 			</div>
