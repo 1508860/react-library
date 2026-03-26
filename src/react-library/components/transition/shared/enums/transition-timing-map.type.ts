@@ -17,6 +17,6 @@ export const TransitionTimingMap = {
 	TransitionTiming,
 	(
 		Extends<Property.AnimationTimingFunction, ("ease" | "ease-in-out" | "linear")> |
-		string
+		typeof TRANSITION_TIMING_OVERSHOOT_IN_OUT
 	)
 >;
