@@ -17,10 +17,12 @@ export function transitionBorderRadiusStyle(props: TransitionBorderRadiusProps):
 		borderWidth: props.style?.width,
 		boxShadow: props.style?.boxShadow,
 		display: "block",
+		height: props.height,
 		overflow: "hidden",
 		transitionDuration: `${props.durationMs}ms`,
 		transitionProperty: "border-radius",
-		transitionTimingFunction: TransitionTimingMap[props.timing]
+		transitionTimingFunction: TransitionTimingMap[props.timing],
+		width: props.width
 	};
 
 	return {
@@ -47,9 +49,11 @@ export function transitionBorderRadiusStyle(props: TransitionBorderRadiusProps):
 		boxShadow: props.style?.boxShadow,
 		boxSizing: "border-box",
 		display: "block",
+		height: props.height,
 		overflow: "hidden",
 		transitionDuration: `${props.durationMs}ms`,
 		transitionProperty: "border-radius",
-		transitionTimingFunction: TransitionTimingMap[props.timing]
+		transitionTimingFunction: TransitionTimingMap[props.timing],
+		width: props.width
 	};
 }

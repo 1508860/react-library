@@ -4,10 +4,13 @@ import type {
 	Callback,
 	IChild,
 	IDurationMs,
+	IHeight,
 	IOnComplete,
 	IScope,
 	IStyle,
-	ITiming
+	ITiming,
+	IWidth,
+	Size
 } from "@react-library/common";
 
 import type { TransitionTiming } from "../../shared/enums/transition-timing.type";
@@ -18,10 +21,12 @@ import type { TransitionBorderRadiusStyleSingle } from "./transition-border-radi
 type TransitionBorderRadiusPropsBase<TTransitionBorderRadiusScope extends TransitionBorderRadiusScope, TStyle> = (
 	IChild<ReactElement> &
 	IDurationMs<number> &
+	Partial<IHeight<Size>> &
 	Partial<IOnComplete<Callback<void>>> &
 	IScope<TTransitionBorderRadiusScope> &
 	Partial<IStyle<TStyle>> &
-	ITiming<TransitionTiming>
+	ITiming<TransitionTiming> &
+	Partial<IWidth<Size>>
 );
 
 /**
