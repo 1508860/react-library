@@ -47,7 +47,7 @@ export function ButtonContainer<TUseColourStateConfig>(props: ButtonContainerPro
 
 	// Pointer event handlers (for cosmetics etc)
 	const handlePointerEnter = useCallback(() => setIsHovered(true), []);
-	const handleOnPointerLeave = useCallback(() => setIsHovered(false), []);
+	const handlePointerLeave = useCallback(() => setIsHovered(false), []);
 	const handlePointerDown = useCallback(() => setIsPressed(true), []);
 	const handlePointerUp = useCallback(() => setIsPressed(false), []);
 
@@ -57,10 +57,10 @@ export function ButtonContainer<TUseColourStateConfig>(props: ButtonContainerPro
 				<BUTTON_IS_HOVERED_CONTEXT value={isHovered}>
 					<div
 						onClick={handleOnClick}
-						onPointerCancel={handleOnPointerLeave}
+						onPointerCancel={handlePointerLeave}
 						onPointerDown={handlePointerDown}
 						onPointerEnter={handlePointerEnter}
-						onPointerLeave={handleOnPointerLeave}
+						onPointerLeave={handlePointerLeave}
 						onPointerUp={handlePointerUp}
 						ref={handleButtonContainerElementRef}
 						style={BUTTON_CONTAINER_STYLE}

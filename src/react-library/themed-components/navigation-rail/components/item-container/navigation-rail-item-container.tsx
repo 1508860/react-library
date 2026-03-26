@@ -35,7 +35,7 @@ export function NavigationRailItemContainer<TItemId extends NavigationRailItemId
 		},
 		[isActive]
 	);
-	const handleOnPointerLeave = useCallback(() => setIsHovered(false), []);
+	const handlePointerLeave = useCallback(() => setIsHovered(false), []);
 	const handlePointerDown = useCallback(
 		() => {
 			if (isActive) return;
@@ -48,10 +48,10 @@ export function NavigationRailItemContainer<TItemId extends NavigationRailItemId
 	return (
 		<div
 			onClick={handleClick}
-			onPointerCancel={handleOnPointerLeave}
+			onPointerCancel={handlePointerLeave}
 			onPointerDown={handlePointerDown}
 			onPointerEnter={handlePointerEnter}
-			onPointerLeave={handleOnPointerLeave}
+			onPointerLeave={handlePointerLeave}
 			onPointerUp={handlePointerUp}
 			style={navigationRailItemContainerStyle(props.orientation, (!isActive && isHovered))}
 		>
