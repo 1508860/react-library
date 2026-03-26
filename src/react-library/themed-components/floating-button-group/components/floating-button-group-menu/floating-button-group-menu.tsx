@@ -1,6 +1,11 @@
 import { useState, useCallback, type ReactNode } from "react";
 
 import { PositionStrategyInternal, Orientation } from "@react-library/common";
+import {
+	TransitionSizeCollapse,
+	TransitionSizeCollapseDirection,
+	TransitionTiming
+} from "@react-library/components";
 
 import { ButtonFloating, ButtonContent, ButtonShape } from "../../../button";
 
@@ -10,6 +15,7 @@ import { useFloatingButtonGroupPositionContext } from "../../hooks/virtual-scrol
 import { FloatingButtonGroupButtonContainer } from "../floating-button-group-button-container";
 import { FloatingButtonGroupMenuItem } from "../floating-button-group-menu-item";
 
+import { FLOATING_BUTTON_GROUP_MENU_TRANSITION_SIZE_COLLAPSE_MS } from "./constants/floating-button-group-menu-transition.const";
 import { FLOATING_BUTTON_GROUP_MENU_CHILD_STYLE } from "./styles/floating-button-group-menu-child-style.const";
 import { floatingButtonGroupMenuChildrenStyle } from "./styles/floating-button-group-menu-children-style.function";
 import { floatingButtonGroupMenuScrollStyle } from "./styles/floating-button-group-menu-scroll-style.function";
@@ -60,22 +66,30 @@ export function FloatingButtonGroupMenu(props: FloatingButtonGroupMenuProps) {
 					key="floating-button-group-menu-scroll"
 					style={floatingButtonGroupMenuScrollStyle(position)}
 				>
-					<div style={floatingButtonGroupMenuChildrenStyle(position, props.positionStrategy, props.size, props.orientation)}>
-						{(showChildren ? (props.children.map(child =>
-							<div
-								key={child.key}
-								style={FLOATING_BUTTON_GROUP_MENU_CHILD_STYLE}
-							>
-								<FloatingButtonGroupMenuItem
-									colourSchemeStyle={props.colourSchemeStyle}
-									content={child.content}
-									isDisabled={child.isDisabled}
-									onClick={child.onClick}
-									size={props.size}
-								/>
-							</div>
-						)) : [])}
-					</div>
+					<TransitionSizeCollapse
+						direction={TransitionSizeCollapseDirection.All}
+						durationMs={FLOATING_BUTTON_GROUP_MENU_TRANSITION_SIZE_COLLAPSE_MS}
+						isCollapsed={!showChildren}
+						key="transition-size-collapse"
+						timing={TransitionTiming.EaseInOut}
+					>
+						<div style={floatingButtonGroupMenuChildrenStyle(position, props.positionStrategy, props.size, props.orientation)}>
+							{props.children.map(child =>
+								<div
+									key={child.key}
+									style={FLOATING_BUTTON_GROUP_MENU_CHILD_STYLE}
+								>
+									<FloatingButtonGroupMenuItem
+										colourSchemeStyle={props.colourSchemeStyle}
+										content={child.content}
+										isDisabled={child.isDisabled}
+										onClick={child.onClick}
+										size={props.size}
+									/>
+								</div>
+							)}
+						</div>
+					</TransitionSizeCollapse>
 				</div>
 			])}
 		</>
