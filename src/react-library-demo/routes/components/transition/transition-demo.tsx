@@ -1,9 +1,10 @@
 import {
+	ReactLibraryComponentsTransitionBorderRadiusDemo,
 	ReactLibraryComponentsTransitionFadeDemo,
-	ReactLibraryComponentsTransitionRotateIndefiniteDemo,
 	ReactLibraryComponentsTransitionPulseDemo,
-	ReactLibraryComponentsTransitionSizeDemo,
-	ReactLibraryComponentsTransitionBorderRadiusDemo
+	ReactLibraryComponentsTransitionRotateIndefiniteDemo,
+	ReactLibraryComponentsTransitionSizeCollapseDemo,
+	ReactLibraryComponentsTransitionSizeDemo
 } from "./components";
 
 export function ReactLibraryComponentsTransitionDemo() {
@@ -13,6 +14,7 @@ export function ReactLibraryComponentsTransitionDemo() {
 			<ReactLibraryComponentsTransitionFadeDemo key="fade" />
 			<ReactLibraryComponentsTransitionPulseDemo key="pulse" />
 			<ReactLibraryComponentsTransitionRotateIndefiniteDemo key="rotate-indefinite" />
+			<ReactLibraryComponentsTransitionSizeCollapseDemo key="size-collapse" />
 			<ReactLibraryComponentsTransitionSizeDemo key="size" />
 		</>
 	);
