@@ -6,6 +6,6 @@ import type { StyleGlobal } from "../global";
  */
 export type StyleBorderRadiusCorner = (
 	StyleGlobal |
-	`${Size}` |
+	Size |
 	`${SizeWithUnits} ${SizeWithUnits}`
 );
