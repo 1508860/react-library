@@ -45,7 +45,7 @@ export function ReactLibraryComponentsTransitionSizeCollapseDemo() {
 	);
 
 	return (
-		<DemoSection title="Size">
+		<DemoSection title="Size Collapse">
 			{directions.map(direction =>
 				timings.map(timing =>
 					<DemoItem
