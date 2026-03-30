@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 import { useColourSchemeContext } from "@react-library/common";
+import { TransitionRotate, TransitionTiming } from "@react-library/components";
 import { MaterialIconSvg, MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
 
 import { NAVIGATION_RAIL_PROPERTY_MAP } from "../../constants/navigation-rail-property-map.const";
@@ -47,14 +48,20 @@ export function NavigationRailMenuIcon(props: NavigationRailMenuIconProps) {
 			onPointerEnter={handlePointerEnter}
 			onPointerLeave={handlePointerLeave}
 			onPointerUp={handlePointerUp}
-			style={navigationRailMenuIconContainerStyle(props.isExpanded, isHovered)}
+			style={navigationRailMenuIconContainerStyle(isHovered)}
 		>
-			<MaterialIconSvg
-				colour={props.isExpanded ? colourScheme.secondary.container.onColour : colourScheme.surface.variant.onColour}
-				name={props.isExpanded ? MaterialIconName.MenuOpen : MaterialIconName.Menu}
-				size={NAVIGATION_RAIL_PROPERTY_MAP.menuIconSize}
-				style={iconStyle}
-			/>
+			<TransitionRotate
+				durationMs={NAVIGATION_RAIL_PROPERTY_MAP.menuTransitionDurationMs}
+				rotate={NAVIGATION_RAIL_PROPERTY_MAP.expanded[`${props.isExpanded}`].menuIconRotate}
+				timing={TransitionTiming.OvershootInOut}
+			>
+				<MaterialIconSvg
+					colour={props.isExpanded ? colourScheme.secondary.container.onColour : colourScheme.surface.variant.onColour}
+					name={props.isExpanded ? MaterialIconName.MenuOpen : MaterialIconName.Menu}
+					size={NAVIGATION_RAIL_PROPERTY_MAP.menuIconSize}
+					style={iconStyle}
+				/>
+			</TransitionRotate>
 		</div>
 	);
 }

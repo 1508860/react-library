@@ -15,16 +15,15 @@ import type {
 	IMenuCollapsedWidth,
 	IMenuIconPaddingHorizontal,
 	IMenuIconPaddingVertical,
+	IMenuIconRotate,
 	IMenuIconSize,
-	IMenuIconTransform,
 	IMenuPaddingHorizontal,
 	IMenuStyle,
 	IMenuTransitionDurationMs,
 	IOrientation,
 	Orientation,
-	SizePx,
-	StyleTransformCollection,
-	StyleTransformRotate
+	ScaleDegreesState,
+	SizePx
 } from "@react-library/common";
 
 import type { NavigationRailMenuStyle } from "../enums/navigation-rail-menu-style.type";
@@ -51,7 +50,7 @@ export type NavigationRailPropertyMap = (
 );
 
 type NavigationRailPropertyMenuIconExpandedMap = (
-	IMenuIconTransform<StyleTransformCollection<[StyleTransformRotate]>>
+	IMenuIconRotate<ScaleDegreesState>
 );
 
 type NavigationRailPropertyOrientationMap = (

@@ -1,4 +1,4 @@
-import { Orientation, StyleTransformCollection } from "@react-library/common";
+import { Orientation, ScaleDegrees } from "@react-library/common";
 
 import { NavigationRailMenuStyle } from "../enums/navigation-rail-menu-style.type";
 import type { NavigationRailPropertyMap } from "../types/navigation-rail-property-map.type";
@@ -9,10 +9,16 @@ import type { NavigationRailPropertyMap } from "../types/navigation-rail-propert
 export const NAVIGATION_RAIL_PROPERTY_MAP: NavigationRailPropertyMap = {
 	expanded: {
 		false: {
-			menuIconTransform: new StyleTransformCollection(["rotate(0deg)"])
+			menuIconRotate: {
+				degrees: ScaleDegrees[0],
+				rotationCount: 0
+			}
 		},
 		true: {
-			menuIconTransform: new StyleTransformCollection(["rotate(180deg)"])
+			menuIconRotate: {
+				degrees: ScaleDegrees[180],
+				rotationCount: 0
+			}
 		}
 	},
 	fontSize: 12,
