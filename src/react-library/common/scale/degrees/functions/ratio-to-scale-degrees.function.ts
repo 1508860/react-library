@@ -1,22 +1,45 @@
+import { ScaleDegreesError } from "../../../errors";
 import type { IRatio } from "../../../interfaces";
-import { SCALE_DEGREES_ALL } from "../constants/scale-degrees-all.const";
-import { SCALE_DEGREES_MAX } from "../constants/scale-degrees-max.const";
-import { SCALE_DEGREES_MIN } from "../constants/scale-degrees-min.const";
 
-import type { ScaleDegrees } from "../enums/scale-degrees.type";
+import { SCALE_DEGREES_ALL_NEGATIVE } from "../constants/scale-degrees-all-negative.const";
+import { SCALE_DEGREES_ALL_POSITIVE } from "../constants/scale-degrees-all-positive.const";
+import { SCALE_DEGREES_FULL_NEGATIVE } from "../constants/scale-degrees-full-negative.const";
+import { SCALE_DEGREES_FULL_POSITIVE } from "../constants/scale-degrees-full-positive.const";
+import { SCALE_DEGREES_NONE } from "../constants/scale-degrees-none.const";
+
+import type { ScaleDegreesState } from "../types/scale-degrees-state.type";
 
 /**
- * Converts a {@link IRatio} to a {@link ScaleDegrees}
- * Note: ratios below 0 are treated as 0% and ratios above 100 are treated as 100%
+ * Converts a {@link IRatio} to a {@link ScaleDegreesState}
  * @param ratio
  */
-export function ratioToScaleDegrees(ratio: IRatio): ScaleDegrees {
+export function ratioToScaleDegreesState(ratio: IRatio): ScaleDegreesState {
 
-	const ratioValue: number = (ratio.numerator / ratio.denominator) * SCALE_DEGREES_MAX;
+	const ratioValue: number = (ratio.numerator / ratio.denominator);
 
-	for (const scaleDegrees of SCALE_DEGREES_ALL) {
-		if ((ratioValue >= scaleDegrees - 0.5) && (ratioValue < scaleDegrees + 0.5)) return scaleDegrees;
+	// Handle negative rotation
+	if (ratioValue < SCALE_DEGREES_NONE) {
+		const rotationCount = -(ratioValue % SCALE_DEGREES_FULL_NEGATIVE);
+		const partialRatioValue: number = ratioValue - rotationCount;
+		for (const scaleDegrees of SCALE_DEGREES_ALL_NEGATIVE) {
+			if ((partialRatioValue <= scaleDegrees - 0.5) && (partialRatioValue > scaleDegrees + 0.5)) return {
+				degrees: scaleDegrees,
+				rotationCount: rotationCount
+			};
+		}
+
+		throw new ScaleDegreesError();
 	}
 
-	return ratioValue < SCALE_DEGREES_MIN ? SCALE_DEGREES_MIN : SCALE_DEGREES_MAX;
+	// Handle positive rotation
+	const rotationCount = (ratioValue % SCALE_DEGREES_FULL_POSITIVE);
+	const partialRatioValue: number = ratioValue - rotationCount;
+	for (const scaleDegrees of SCALE_DEGREES_ALL_POSITIVE) {
+		if ((partialRatioValue >= scaleDegrees - 0.5) && (partialRatioValue < scaleDegrees + 0.5)) return {
+			degrees: scaleDegrees,
+			rotationCount: rotationCount
+		};
+	}
+
+	throw new ScaleDegreesError();
 }

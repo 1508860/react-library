@@ -1,10 +1,15 @@
 import { ScaleDegrees } from "../enums/scale-degrees.type";
 
 /**
- * All degrees scale values
+ * All degrees scale values that are positive
+ * Note: includes the lower bound of 0
  */
-export const SCALE_DEGREES_ALL: Array<ScaleDegrees> = [
-	ScaleDegrees[0], ScaleDegrees[1], ScaleDegrees[2], ScaleDegrees[3], ScaleDegrees[4], ScaleDegrees[5], ScaleDegrees[6], ScaleDegrees[7], ScaleDegrees[8], ScaleDegrees[9],
+export const SCALE_DEGREES_ALL_POSITIVE: Array<ScaleDegrees> = [
+	// None
+	ScaleDegrees[0],
+
+	// Positive
+	ScaleDegrees[1], ScaleDegrees[2], ScaleDegrees[3], ScaleDegrees[4], ScaleDegrees[5], ScaleDegrees[6], ScaleDegrees[7], ScaleDegrees[8], ScaleDegrees[9],
 	ScaleDegrees[10], ScaleDegrees[11], ScaleDegrees[12], ScaleDegrees[13], ScaleDegrees[14], ScaleDegrees[15], ScaleDegrees[16], ScaleDegrees[17], ScaleDegrees[18], ScaleDegrees[19],
 	ScaleDegrees[20], ScaleDegrees[21], ScaleDegrees[22], ScaleDegrees[23], ScaleDegrees[24], ScaleDegrees[25], ScaleDegrees[26], ScaleDegrees[27], ScaleDegrees[28], ScaleDegrees[29],
 	ScaleDegrees[30], ScaleDegrees[31], ScaleDegrees[32], ScaleDegrees[33], ScaleDegrees[34], ScaleDegrees[35], ScaleDegrees[36], ScaleDegrees[37], ScaleDegrees[38], ScaleDegrees[39],

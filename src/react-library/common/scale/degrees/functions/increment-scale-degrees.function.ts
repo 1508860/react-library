@@ -1,17 +1,17 @@
-import { SCALE_DEGREES_MAX } from "../constants/scale-degrees-max.const";
-import type { ScaleDegrees } from "../enums/scale-degrees.type";
-import { ratioToScaleDegrees } from "./ratio-to-scale-degrees.function";
+import { SCALE_DEGREES_FULL_POSITIVE } from "../constants/scale-degrees-full-positive.const";
+import type { ScaleDegreesState } from "../types/scale-degrees-state.type";
+import { ratioToScaleDegreesState } from "./ratio-to-scale-degrees.function";
+import { scaleDegreesStateValue } from "./scale-degrees-state-value.function";
 
 /**
- * Increment a {@link scaleDegrees} by {@link incrementBy}
- * Note: ratios below 0 are treated as 0% and ratios above 100 are treated as 100%
- * Note: a negative {@link incrementBy} will decrement {@link scaleDegrees}
- * @param scaleDegrees
+ * Increment a {@link scaleDegreesState} by {@link incrementBy}
+ * Note: a negative {@link incrementBy} will decrement {@link scaleDegreesState}
+ * @param scaleDegreesState
  * @param incrementBy
  */
-export function incrementScaleDegrees(scaleDegrees: ScaleDegrees, incrementBy: number): ScaleDegrees {
-	return ratioToScaleDegrees({
-		denominator: SCALE_DEGREES_MAX,
-		numerator: scaleDegrees + incrementBy
+export function incrementScaleDegrees(scaleDegreesState: ScaleDegreesState, incrementBy: number): ScaleDegreesState {
+	return ratioToScaleDegreesState({
+		denominator: SCALE_DEGREES_FULL_POSITIVE,
+		numerator: scaleDegreesStateValue(scaleDegreesState) + incrementBy
 	});
 }
