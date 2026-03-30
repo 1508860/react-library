@@ -43,6 +43,7 @@ export function transitionSizeCollapseStyle(props: TransitionSizeCollapseProps):
 		gridTemplateColumns: gridTemplateColumns,
 		gridTemplateRows: gridTemplateRows,
 		height: height,
+		overflow: "hidden",
 		transitionDuration: `${props.durationMs}ms`,
 		transitionProperty: transitionProperty,
 		transitionTimingFunction: TransitionTimingMap[props.timing],

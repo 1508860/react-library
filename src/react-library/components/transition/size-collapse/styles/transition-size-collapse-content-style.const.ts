@@ -6,6 +6,7 @@ import type { CSSProperties } from "react";
 export const TRANSITION_SIZE_COLLAPSE_CONTENT_STYLE: CSSProperties = {
 	display: "block",
 	height: "auto",
-	overflow: "hidden",
+	minHeight: 0,
+	minWidth: 0,
 	width: "auto"
 };
