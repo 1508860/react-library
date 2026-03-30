@@ -1,6 +1,6 @@
-import type { ScalePercent } from "../enums/scale-percent.type";
+import { ScalePercent } from "../enums/scale-percent.type";
 
 /**
  * Max percentage scale value
  */
-export const SCALE_PERCENT_MAX: ScalePercent = 100;
+export const SCALE_PERCENT_MAX: ScalePercent = ScalePercent[100];
