@@ -1,6 +1,6 @@
 import { Orientation, useColourSchemeContext } from "@react-library/common";
 import {
-	TransitionSize,
+	TransitionSizeCollapse,
 	TransitionSizeDirection,
 	TransitionTiming
 } from "@react-library/components";
@@ -23,21 +23,20 @@ export function SideSheetPanel(props: SideSheetPanelProps) {
 	const colourScheme = useColourSchemeContext();
 
 	return (
-		<TransitionSize
+		<TransitionSizeCollapse
 			direction={TransitionSizeDirection.Horizontal}
 			durationMs={SIDE_SHEET_PANEL_TRANSITION_DURATION_MS}
-			timing={TransitionTiming.EaseInOut}
 			height={"100%"}
-			width={props.show ? props.width : 0}
+			isCollapsed={!props.show}
+			timing={TransitionTiming.EaseInOut}
 		>
-			<div style={sideSheetPanelStyle(colourScheme)}>
+			<div style={sideSheetPanelStyle(props.width, colourScheme)}>
 				<SideSheetPanelHeader
 					key="header"
 					onBack={props.onBack}
 					onClose={props.onClose}
 					show={props.showContent}
 					title={props.title}
-					width={props.width}
 				/>
 				<SideSheetPanelBody
 					body={props.body}
@@ -45,7 +44,6 @@ export function SideSheetPanel(props: SideSheetPanelProps) {
 					includeBodyPaddingHorizontal={props.includeBodyPaddingHorizontal}
 					key="body"
 					show={props.showContent}
-					width={props.width}
 				/>
 				<Divider
 					hide={(!props.showFooterDivider || !props.footer)}
@@ -56,9 +54,8 @@ export function SideSheetPanel(props: SideSheetPanelProps) {
 					key="footer"
 					footer={props.footer}
 					show={props.showContent}
-					width={props.width}
 				/>
 			</div>
-		</TransitionSize>
+		</TransitionSizeCollapse>
 	);
 }

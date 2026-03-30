@@ -1,6 +1,6 @@
 import { Fragment } from "react"
 
-import { sideSheetPanelFooterStyle } from "./styles/side-sheet-panel-footer-style.function";
+import { SIDE_SHEET_PANEL_FOOTER_STYLE } from "./styles/side-sheet-panel-footer-style.const";
 import type { SideSheetPanelFooterProps } from "./types/side-sheet-panel-footer-props.type";
 
 /**
@@ -15,7 +15,7 @@ export function SideSheetPanelFooter(props: SideSheetPanelFooterProps) {
 	return (
 		<div
 			key="side-sheet-panel-footer"
-			style={sideSheetPanelFooterStyle(props.width)}
+			style={SIDE_SHEET_PANEL_FOOTER_STYLE}
 		>
 			<props.footer />
 		</div>

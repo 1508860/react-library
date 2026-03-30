@@ -1,7 +1,7 @@
 import { Fragment } from "react"
 
 import { sideSheetPanelBodyContentStyle } from "./styles/side-sheet-panel-body-content-style.function";
-import { sideSheetPanelBodyStyle } from "./styles/side-sheet-panel-body-style.function";
+import { SIDE_SHEET_PANEL_BODY_STYLE } from "./styles/side-sheet-panel-body-style.const";
 import type { SideSheetPanelBodyProps } from "./types/side-sheet-panel-body-props.type";
 
 /**
@@ -16,7 +16,7 @@ export function SideSheetPanelBody(props: SideSheetPanelBodyProps) {
 	return (
 		<div
 			key="side-sheet-panel-body"
-			style={sideSheetPanelBodyStyle(props.width)}
+			style={SIDE_SHEET_PANEL_BODY_STYLE}
 		>
 			<div style={sideSheetPanelBodyContentStyle(props.includeBodyPaddingBottom, props.includeBodyPaddingHorizontal)}>
 				<props.body />

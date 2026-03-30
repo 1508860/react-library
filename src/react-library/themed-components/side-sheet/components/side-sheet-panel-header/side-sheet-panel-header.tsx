@@ -5,7 +5,7 @@ import { MaterialIconName } from "@react-library/material-icons";
 
 import { SideSheetPanelHeaderIcon } from "../side-sheet-panel-header-icon";
 
-import { sideSheetPanelHeaderStyle } from "./styles/side-sheet-panel-header-style.function";
+import { SIDE_SHEET_PANEL_HEADER_STYLE } from "./styles/side-sheet-panel-header-style.const";
 import { sideSheetPanelHeaderTitleStyle } from "./styles/side-sheet-panel-header-title-style.function";
 import type { SideSheetPanelHeaderProps } from "./types/side-sheet-panel-header-props.type";
 
@@ -24,7 +24,7 @@ export function SideSheetPanelHeader(props: SideSheetPanelHeaderProps) {
 	return (
 		<div
 			key="side-sheet-panel-header"
-			style={sideSheetPanelHeaderStyle(props.width)}
+			style={SIDE_SHEET_PANEL_HEADER_STYLE}
 		>
 			<SideSheetPanelHeaderIcon
 				name={MaterialIconName.ArrowBack}
