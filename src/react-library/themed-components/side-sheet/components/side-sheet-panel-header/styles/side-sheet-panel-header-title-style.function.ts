@@ -13,6 +13,9 @@ export function sideSheetPanelHeaderTitleStyle(colourScheme: ColourScheme, font:
 		flexGrow: 1,
 		fontFamily: font.fontFamily,
 		fontSize: 22,
-		fontWeight: 400
+		fontWeight: 400,
+		overflow: "hidden",
+		textOverflow: "ellipsis",
+		whiteSpace: "nowrap"
 	};
 }

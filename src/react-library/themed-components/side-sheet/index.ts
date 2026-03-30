@@ -1,3 +1,4 @@
+export * from "./components/side-sheet-panel/constants/side-sheet-panel-max-width.const";
 export * from "./enums/side-sheet-position.type";
 export * from "./enums/side-sheet-style.type";
 export * from "./types/side-sheet-body.type";

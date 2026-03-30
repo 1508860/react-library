@@ -9,7 +9,7 @@ import { SIDE_SHEET_PANEL_MAX_WIDTH_PX } from "../constants/side-sheet-panel-max
  * @param width
  * @param colourScheme
  */
-export function sideSheetPanelStyle(width: Size, colourScheme: ColourScheme): CSSProperties {
+export function sideSheetPanelStyle(width: Size | undefined, colourScheme: ColourScheme): CSSProperties {
 	return {
 		alignItems: "stretch",
 		backgroundColor: colourScheme.surface.default.colour.toColourString(),

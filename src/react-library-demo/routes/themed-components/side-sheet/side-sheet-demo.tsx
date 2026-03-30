@@ -8,6 +8,7 @@ import {
 	type IOnOpen
 } from "@react-library/common";
 import {
+	SIDE_SHEET_PANEL_MAX_WIDTH_PX,
 	SideSheet,
 	SideSheetPosition,
 	SideSheetStyle
@@ -48,7 +49,7 @@ export function ReactLibraryThemedComponentsSideSheetDemo() {
 					position={SideSheetPosition.End}
 					show={show}
 					title="Side Sheet Title"
-					width={400}
+					width={SIDE_SHEET_PANEL_MAX_WIDTH_PX}
 				>
 					<SideSheetChild
 						count={backCounter}
@@ -74,7 +75,7 @@ export function ReactLibraryThemedComponentsSideSheetDemo() {
 					show={show}
 					showFooterDivider={true}
 					title="Side Sheet Title"
-					width={400}
+					width={SIDE_SHEET_PANEL_MAX_WIDTH_PX}
 				>
 					<SideSheetChild
 						count={backCounter}
