@@ -1,6 +1,10 @@
-import { useColourSchemeContext } from "@react-library/common";
+import {
+	useColourSchemeContext,
+	useDelayBooleanState,
+	UseDelayBooleanStateDirection
+} from "@react-library/common";
 
-import { useSideSheetTransitionShowState } from "../../hooks/use-side-sheet-transition-show-state.hook";
+import { SIDE_SHEET_PANEL_TRANSITION_DURATION_MS } from "../../constants/side-sheet-panel-transition-duration-ms.const";
 import { NavigationRailBackdrop } from "../side-sheet-backdrop";
 import { SideSheetPanel } from "../side-sheet-panel";
 import { SIDE_SHEET_MODAL_CHILDREN_STYLE } from "./styles/side-sheet-modal-children-style.const";
@@ -16,7 +20,7 @@ export function SideSheetModal(props: SideSheetModalProps) {
 	const colourScheme = useColourSchemeContext();
 
 	// Handle show states for content
-	const [showContent] = useSideSheetTransitionShowState(props.show);
+	const [showContent] = useDelayBooleanState(props.show, UseDelayBooleanStateDirection.ToFalse, SIDE_SHEET_PANEL_TRANSITION_DURATION_MS);
 
 	return (
 		<div style={SIDE_SHEET_MODAL_STYLE}>
