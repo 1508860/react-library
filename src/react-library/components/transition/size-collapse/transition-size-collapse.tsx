@@ -2,7 +2,7 @@ import { useCallback } from "react";
 
 import type { Callback } from "@react-library/common";
 
-import { TRANSITION_SIZE_COLLAPSE_CONTENT_STYLE } from "./styles/transition-size-collapse-content-style.const";
+import { transitionSizeCollapseContentStyle } from "./styles/transition-size-collapse-content-style.function";
 import { transitionSizeCollapseStyle } from "./styles/transition-size-collapse-style.function";
 import type { TransitionSizeCollapseProps } from "./types/transition-size-collapse-props.type";
 
@@ -25,7 +25,7 @@ export function TransitionSizeCollapse(props: TransitionSizeCollapseProps) {
 			onTransitionEnd={handleOnComplete}
 			style={transitionSizeCollapseStyle(props)}
 		>
-			<div style={TRANSITION_SIZE_COLLAPSE_CONTENT_STYLE}>
+			<div style={transitionSizeCollapseContentStyle(props.direction)}>
 				{props.children}
 			</div>
 		</div>
