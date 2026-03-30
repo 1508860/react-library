@@ -14,6 +14,7 @@ export function transitionRotateIndefiniteContainerStyle(props: TransitionRotate
 		animationIterationCount: "infinite",
 		animationName: `react-library-components-transition-rotate-indefinite-${props.direction}`,
 		animationTimingFunction: TransitionTimingMap[props.timing],
-		display: "inline-flex"
+		display: "inline-flex",
+		justifyContent: "center"
 	};
 }
