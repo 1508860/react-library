@@ -32,7 +32,7 @@ export function SideSheetModal(props: SideSheetModalProps) {
 			</div>
 			<NavigationRailBackdrop
 				onClose={props.onClose}
-				show={showContent}
+				show={props.show}
 				key="backdrop"
 			/>
 			<div style={sideSheetModalPanelStyle(props.detach, props.position, colourScheme)}>
