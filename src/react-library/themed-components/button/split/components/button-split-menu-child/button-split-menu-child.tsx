@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 
 import {
-	TooltipInteraction,
 	useTooltipChildPropsContext,
+	useTooltipShowCallbackContext,
 	useTooltipShowContext
 } from "@react-library/components";
 import { MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
@@ -14,7 +14,6 @@ import { ButtonDisabledLayer } from "../../../shared/components/button-disabled-
 import { ButtonHoveredLayer } from "../../../shared/components/button-hovered-layer";
 import { ButtonPulseLayer } from "../../../shared/components/button-pulse-layer";
 import { ButtonContent } from "../../../shared/enums/button-content.type";
-import type { ButtonClickTarget } from "../../../shared/types/button-click-target.type";
 
 import { BUTTON_SPLIT_PROPERTY_MAP } from "../../constants/button-split-property-map.const";
 import { useButtonSplitColourState } from "../../hooks/use-button-split-colour-state.hook";
@@ -28,21 +27,16 @@ export function ButtonSplitMenuChild(props: ButtonSplitProps) {
 
 	const tooltipChildProps = useTooltipChildPropsContext();
 	const tooltipShow = useTooltipShowContext();
+	const tooltipShowCallback = useTooltipShowCallbackContext();
 
-	const handleOnClick = useCallback(
-		(event: React.MouseEvent<ButtonClickTarget>) => {
-			if (tooltipChildProps.tooltipInteractionType !== TooltipInteraction.Click) return;
-			tooltipChildProps.childProps.onClick(event);
-		},
-		[tooltipChildProps.childProps, tooltipChildProps.tooltipInteractionType]
-	);
+	const handleOnClick = useCallback(() => tooltipShowCallback(true), [tooltipShowCallback]);
 
 	return (
 		<ButtonContainer<ButtonSplitProps>
 			colourStateConfig={props}
 			isDisabled={!!props.isDisabled}
 			onClick={handleOnClick}
-			ref={tooltipChildProps.childProps.ref}
+			ref={tooltipChildProps.ref}
 			useColourState={useButtonSplitColourState}
 		>
 			<ButtonContentContainer

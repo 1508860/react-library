@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import {
 	Orientation,
@@ -7,8 +7,8 @@ import {
 } from "@react-library/common";
 import {
 	Tooltip,
-	TooltipInteraction,
 	useTooltipChildPropsContext,
+	useTooltipShowCallbackContext,
 	type TooltipPositionStrategiesExternal,
 	type TooltipPositionStrategyExternal
 } from "@react-library/components";
@@ -79,7 +79,7 @@ function TooltipDemoContainer(props: ITooltipPositionStrategy<TooltipPositionStr
 			/>}
 			overlayPortalMargin={20}
 			positionStrategies={[props.tooltipPositionStrategy]}
-			tooltipInteractionType={TooltipInteraction.Click}
+			showBackdrop={true}
 		>
 			<TooltipDemoSubject />
 		</Tooltip>
@@ -88,10 +88,12 @@ function TooltipDemoContainer(props: ITooltipPositionStrategy<TooltipPositionStr
 
 function TooltipDemoSubject() {
 
-	const tooltipChildProps = useTooltipChildPropsContext()
+	const tooltipChildProps = useTooltipChildPropsContext();
+	const tooltipShowCallback = useTooltipShowCallbackContext();
+	const handleOnClick = useCallback(() => tooltipShowCallback(true), [tooltipShowCallback]);
 
 	return (
-		<div {...tooltipChildProps.childProps}>
+		<div ref={tooltipChildProps.ref}>
 			<DemoContent
 				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Text}
@@ -99,6 +101,7 @@ function TooltipDemoSubject() {
 				height={100}
 				includeRenderCounter={true}
 				justify={DemoContentJustify.Center}
+				onClick={handleOnClick}
 				orientation={Orientation.Vertical}
 				overflow={DemoContentOverflow.Auto}
 				text="Content"

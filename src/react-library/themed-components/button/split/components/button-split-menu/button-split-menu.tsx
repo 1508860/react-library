@@ -1,4 +1,4 @@
-import { Tooltip, TooltipInteraction } from "@react-library/components";
+import { Tooltip } from "@react-library/components";
 
 import type { ButtonSplitProps } from "../../types/button-split-props.type";
 import { ButtonSplitMenuChild } from "../button-split-menu-child";
@@ -16,7 +16,7 @@ export function ButtonSplitMenu(props: ButtonSplitProps) {
 			content={props.menuElement}
 			isDisabled={props.isDisabled}
 			positionStrategies={BUTTON_SPLIT_MENU_TOOLTIP_POSITION_STRATEGIES_EXTERNAL}
-			tooltipInteractionType={TooltipInteraction.Click}
+			showBackdrop={true}
 		>
 			<ButtonSplitMenuChild {...props} />
 		</Tooltip>

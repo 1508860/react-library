@@ -23,6 +23,8 @@ import { resolveValidTooltipPositionLeft } from "../functions/resolve-valid-tool
 import { resolveValidTooltipPositionRight } from "../functions/resolve-valid-tooltip-position/resolve-valid-tooltip-position-right.function";
 import { resolveValidTooltipPositionTop } from "../functions/resolve-valid-tooltip-position/resolve-valid-tooltip-position-top.function";
 import type { TooltipPosition } from "../types/position/tooltip-position.type";
+import type { TooltipChildElement } from "../types/tooltip-child-element.type";
+import type { TooltipElement } from "../types/tooltip-element.type";
 import type { TooltipPositionStrategiesExternal } from "../types/tooltip-position-strategies-external.type";
 
 /**
@@ -38,8 +40,8 @@ export function useTooltipPositionState(
 	showTooltip: boolean,
 	positionStrategies: TooltipPositionStrategiesExternal,
 	overlayPortalMargin: SizePx | undefined,
-	tooltipElement: Element | null,
-	childElement: Element | null
+	tooltipElement: TooltipElement,
+	childElement: TooltipChildElement
 ): [TooltipPosition | undefined] {
 
 	const [state, setState] = useState<TooltipPosition | undefined>(undefined);

@@ -2,7 +2,6 @@ import { Fragment, useCallback } from "react";
 
 import { targetEvent } from "@react-library/common";
 
-import { TooltipInteraction } from "../../enums/tooltip-interaction.type";
 import { TOOLTIP_BACKDROP_STYLE } from "./styles/tooltip-backdrop-style.const";
 import type { TooltipBackdropProps } from "./types/tooltip-backdrop-props.type";
 
@@ -17,11 +16,11 @@ export function TooltipBackdrop(props: TooltipBackdropProps) {
 		[props.onDismiss]
 	);
 
-	if (props.tooltipInteractionType === TooltipInteraction.Hover) return (<Fragment key="hover" />);
+	if (!props.show) return (<Fragment key="no-backdrop" />);
 
 	return (
 		<div
-			key="click"
+			key="backdrop"
 			onClick={handleOnDismiss}
 			style={TOOLTIP_BACKDROP_STYLE}
 		/>

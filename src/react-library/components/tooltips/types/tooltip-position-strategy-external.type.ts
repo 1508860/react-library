@@ -1,11 +1,16 @@
-import type { PositionStrategyExternalAll, SizePx } from "@react-library/common";
+import type { ReactElement } from "react";
 
-import type { TooltipArrowContent } from "./tooltip-arrow-content.type";
+import type {
+	Callback,
+	IArrowContent,
+	PositionStrategyExternalAll,
+	SizePx
+} from "@react-library/common";
 
 /**
  * Type for tooltip position strategy external
  */
 export type TooltipPositionStrategyExternal = (
-	Partial<TooltipArrowContent> &
+	Partial<IArrowContent<Callback<ReactElement>>> &
 	PositionStrategyExternalAll<SizePx, SizePx>
 );

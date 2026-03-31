@@ -1,10 +1,11 @@
+import type { IContent, IRefCallback } from "@react-library/common";
 import type { TooltipContent } from "../../../types/tooltip-content.type";
-import type { TooltipRefCallback } from "../../../types/tooltip-ref-callback.type";
+import type { TooltipElement } from "../../../types/tooltip-element.type";
 
 /**
  * Tooltip content props
 */
 export type TooltipContentProps = (
-	TooltipContent &
-	TooltipRefCallback
+	IContent<TooltipContent> &
+	IRefCallback<TooltipElement>
 );

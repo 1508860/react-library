@@ -1,8 +1,10 @@
-import type { TooltipPositionStrategyProps } from "../../../types/tooltip-position-strategy-props.type";
+import type { IPositionStrategy } from "@react-library/common";
+
+import type { TooltipPositionStrategyExternal } from "../../../types/tooltip-position-strategy-external.type";
 
 /**
  * Tooltip arrow props
  */
 export type TooltipArrowProps = (
-	Partial<TooltipPositionStrategyProps>
+	Partial<IPositionStrategy<TooltipPositionStrategyExternal>>
 );
