@@ -4,11 +4,9 @@ import {
 	ColourSchemeStyleStandardToContainer,
 	resolveColourSchemeStyleColour,
 	StyleShape,
-	StyleTransformCollection,
 	type Colour,
 	type ColourScheme,
-	type SizePx,
-	type StyleTransformRotate
+	type SizePx
 } from "@react-library/common";
 
 import { LOADING_INDICATOR_SHAPE_TIME_TRANSITION } from "../constants/loading-indicator-shape-time.const";
@@ -21,19 +19,16 @@ import type { LoadingIndicatorProps } from "../types/loading-indicator-props.typ
  * @param colourScheme
  * @param styleShape
  * @param show
- * @param shapeIncrementCount
  */
 export function loadingIndicatorStyle(
 	props: LoadingIndicatorProps,
 	colourScheme: ColourScheme,
 	styleShape: StyleShape,
-	show: boolean,
-	shapeIncrementCount: number
+	show: boolean
 ): CSSProperties {
 
 	const fullSize: SizePx = 38;
-	const styleTransformRotate: StyleTransformRotate = `rotate(${shapeIncrementCount * 180}deg)`;
-	
+
 	let backgroundColor: Colour | undefined = undefined;
 
 	switch (props.style) {
@@ -51,8 +46,6 @@ export function loadingIndicatorStyle(
 		flexShrink: 0,
 		height: show ? fullSize : 0,
 		position: "absolute",
-		transform: new StyleTransformCollection([styleTransformRotate]).toStyleTransformCollectionString(),
-		transformOrigin: "center",
 		transition: LOADING_INDICATOR_SHAPE_TIME_TRANSITION,
 		width: show ? fullSize : 0
 	};
