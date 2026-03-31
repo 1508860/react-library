@@ -8,8 +8,8 @@ import {
 	incrementScaleDegrees
 } from "@react-library/common";
 
-import { LOADING_INDICATOR_ROTATE } from "../constants/loading-indicator-rotate.const";
 import { LOADING_INDICATOR_SHAPE_ALL } from "../constants/loading-indicator-shape-all.const";
+import { LOADING_INDICATOR_SHAPE_ROTATE } from "../constants/loading-indicator-shape-rotate.const";
 import { LOADING_INDICATOR_SHAPE_TIME_INTERVAL_MS } from "../constants/loading-indicator-shape-time.const";
 import type { LoadingIndicatorShape } from "../enums/loading-indicator-shape.type";
 import type { LoadingIndicatorState } from "../types/loading-indicator-state.type";
@@ -34,7 +34,7 @@ export function useCurrencyDisplayFormatterState(): LoadingIndicatorState {
 
 	useEffect(
 		() => {
-			const newScaleDegreesState = incrementScaleDegrees(scaleDegreesStateRef.current, LOADING_INDICATOR_ROTATE);
+			const newScaleDegreesState = incrementScaleDegrees(scaleDegreesStateRef.current, LOADING_INDICATOR_SHAPE_ROTATE);
 			scaleDegreesStateRef.current = newScaleDegreesState;
 			setScaleDegreesState(newScaleDegreesState);
 		},

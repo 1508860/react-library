@@ -4,10 +4,10 @@ import {
 	ColourSchemeStyleStandardToContainer,
 	resolveColourSchemeStyleColour,
 	type Colour,
-	type ColourScheme,
-	type SizePx
+	type ColourScheme
 } from "@react-library/common";
 
+import { LOADING_INDICATOR_BACKGROUND_SIZE } from "../constants/loading-indicator-size.const";
 import { LoadingIndicatorStyle } from "../enums/loading-indicator-style.type";
 import type { LoadingIndicatorProps } from "../types/loading-indicator-props.type";
 
@@ -21,8 +21,6 @@ export function loadingIndicatorBackgroundStyle(
 	colourScheme: ColourScheme
 ): CSSProperties {
 
-	const size: SizePx = 48;
-
 	let backgroundColor: Colour | undefined = undefined;
 
 	if (props.style === LoadingIndicatorStyle.Contained) {
@@ -35,9 +33,9 @@ export function loadingIndicatorBackgroundStyle(
 		borderRadius: "50%",
 		display: "inline-flex",
 		flexShrink: 0,
-		height: size,
+		height: LOADING_INDICATOR_BACKGROUND_SIZE,
 		justifyContent: "center",
 		position: "relative",
-		width: size
+		width: LOADING_INDICATOR_BACKGROUND_SIZE
 	};
 }
