@@ -17,6 +17,9 @@ export function DemoContent(props: DemoContentProps) {
 	return (
 		<div
 			onClick={props.onClick}
+			onMouseEnter={props.onMouseEnter}
+			onMouseLeave={props.onMouseLeave}
+			ref={props.ref}
 			style={demoContentStyle(props, font)}
 		>
 

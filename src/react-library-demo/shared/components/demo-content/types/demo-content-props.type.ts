@@ -7,12 +7,15 @@ import type {
 	IIndentIndex,
 	IJustify,
 	IOnClick,
+	IOnMouseEnter,
+	IOnMouseLeave,
 	IOrientation,
 	IOverflow,
 	IPaddingBottom,
 	IPaddingLeft,
 	IPaddingRight,
 	IPaddingTop,
+	IRefCallback,
 	IWidth,
 	Orientation,
 	Size
@@ -34,11 +37,14 @@ export type DemoContentProps = (
 	Partial<IIndentIndex<DemoContentIndentIndex>> &
 	IJustify<DemoContentJustify> &
 	Partial<IOnClick<Element>> &
+	Partial<IOnMouseEnter<Element>> &
+	Partial<IOnMouseLeave<Element>> &
 	IOrientation<Orientation> &
 	IOverflow<DemoContentOverflow> &
 	Partial<IPaddingBottom<Size>> &
 	Partial<IPaddingLeft<Size>> &
 	Partial<IPaddingRight<Size>> &
 	Partial<IPaddingTop<Size>> &
+	Partial<IRefCallback<Element>> &
 	IWidth<Size | "auto">
 );
