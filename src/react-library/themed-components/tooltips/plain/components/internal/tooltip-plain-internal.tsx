@@ -6,7 +6,7 @@ import { useTooltipChildPropsContext } from "@react-library/components";
 import { TOOLTIP_PLAIN_CHILD_PROPS_CONTEXT } from "../../constants/tooltip-plain-child-props-context.const";
 import type { TooltipPlainChildProps } from "../../types/tooltip-plain-child-props.type";
 
-import { TooltipPlainContentContainer } from "../tooltip-plain-content-container";
+import { TooltipPlainContentContainer } from "../content-container";
 
 import type { TooltipPlainInternalProps } from "./types/tooltip-plain-internal-props.type";
 

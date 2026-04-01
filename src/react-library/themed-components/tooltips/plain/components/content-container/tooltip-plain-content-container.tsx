@@ -14,7 +14,7 @@ import {
 
 import { TOOLTIP_PLAIN_TRANSITION_FADE_MS } from "../../constants/tooltip-plain-transition.const";
 
-import { TooltipPlainContentBody } from "../tooltip-plain-content-body";
+import { TooltipPlainContentBody } from "../content-body";
 
 import type { TooltipPlainContentContainerProps } from "./types/tooltip-plain-content-container-props.type";
 
