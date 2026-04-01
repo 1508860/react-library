@@ -13,7 +13,6 @@ import {
 export function ButtonSplitMenu(props: ButtonSplitProps) {
 	return (
 		<Tooltip
-			content={props.menuElement}
 			isDisabled={props.isDisabled}
 			positionStrategies={BUTTON_SPLIT_MENU_TOOLTIP_POSITION_STRATEGIES_EXTERNAL}
 			showBackdrop={true}

@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import {
 	Orientation,
@@ -8,6 +8,7 @@ import {
 import {
 	Tooltip,
 	useTooltipChildPropsContext,
+	useTooltipContentCallbackContext,
 	useTooltipShowCallbackContext,
 	type TooltipPositionStrategiesExternal,
 	type TooltipPositionStrategyExternal
@@ -66,17 +67,6 @@ export function ReactLibraryComponentsTooltipsDemo() {
 function TooltipDemoContainer(props: ITooltipPositionStrategy<TooltipPositionStrategyExternal>) {
 	return (
 		<Tooltip
-			content={() => <DemoContent
-				align={DemoContentAlign.Center}
-				childrenType={DemoContentChildren.Any}
-				colourScheme={DemoContentColourScheme.Secondary}
-				height={80}
-				includeRenderCounter={true}
-				justify={DemoContentJustify.Center}
-				orientation={Orientation.Vertical}
-				overflow={DemoContentOverflow.Auto}
-				width={80}
-			/>}
 			overlayPortalMargin={20}
 			positionStrategies={[props.tooltipPositionStrategy]}
 			showBackdrop={true}
@@ -91,6 +81,10 @@ function TooltipDemoSubject() {
 	const tooltipChildProps = useTooltipChildPropsContext();
 	const tooltipShowCallback = useTooltipShowCallbackContext();
 	const handleOnClick = useCallback(() => tooltipShowCallback(true), [tooltipShowCallback]);
+	const tooltipContentCallback = useTooltipContentCallbackContext();
+
+	// Set tooltip content
+	useEffect(() => tooltipContentCallback(<TooltipDemoContent />), [tooltipContentCallback]);
 
 	return (
 		<div ref={tooltipChildProps.ref}>
@@ -108,6 +102,22 @@ function TooltipDemoSubject() {
 				width={100}
 			/>
 		</div>
+	);
+}
+
+function TooltipDemoContent() {
+	return (
+		<DemoContent
+			align={DemoContentAlign.Center}
+			childrenType={DemoContentChildren.Any}
+			colourScheme={DemoContentColourScheme.Secondary}
+			height={80}
+			includeRenderCounter={true}
+			justify={DemoContentJustify.Center}
+			orientation={Orientation.Vertical}
+			overflow={DemoContentOverflow.Auto}
+			width={80}
+		/>
 	);
 }
 
