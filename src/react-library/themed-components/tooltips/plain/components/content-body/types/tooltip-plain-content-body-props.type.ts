@@ -7,4 +7,4 @@ import type { TooltipPlainContent } from "../../../types/tooltip-plain-content.t
  */
 export type TooltipPlainContentBodyProps = (
 	IContent<TooltipPlainContent>
-)
+);

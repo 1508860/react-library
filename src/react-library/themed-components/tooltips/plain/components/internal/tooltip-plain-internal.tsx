@@ -28,7 +28,7 @@ export function TooltipPlainInternal(props: TooltipPlainInternalProps) {
 			ref: tooltipChildProps.ref
 		}),
 		[tooltipChildProps.ref]
-	)
+	);
 	const [tooltipPlainChildProps, setTooltipPlainChildProps] = useState<TooltipPlainChildProps>(() => resolveTooltipChildProps());
 	useEffect(() => setTooltipPlainChildProps(resolveTooltipChildProps()), [resolveTooltipChildProps]);
 

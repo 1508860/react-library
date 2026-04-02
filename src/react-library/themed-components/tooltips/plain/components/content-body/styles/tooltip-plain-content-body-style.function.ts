@@ -16,6 +16,7 @@ export function tooltipPlainContentBodyStyle(colourScheme: ColourScheme, font: F
 		display: "flex",
 		flexDirection: "row",
 		fontFamily: font.fontFamily,
+		fontSize: 12,
 		fontWeight: 400,
 		maxWidth: 400,
 		padding: 8

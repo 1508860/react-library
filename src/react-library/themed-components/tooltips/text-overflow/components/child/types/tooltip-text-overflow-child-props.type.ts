@@ -9,4 +9,4 @@ import type { TooltipTextOverflowWidth } from "../../../types/tooltip-text-overf
 export type TooltipTextOverflowChildProps = (
 	IContent<TooltipTextOverflowContent> &
 	IWidth<TooltipTextOverflowWidth>
-)
+);

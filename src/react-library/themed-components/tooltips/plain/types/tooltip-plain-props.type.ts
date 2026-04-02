@@ -10,4 +10,4 @@ import type { TooltipPlainContent } from "./tooltip-plain-content.type";
 export type TooltipPlainProps = (
 	IContent<TooltipPlainContent> &
 	PropsWithChildren
-)
+);
