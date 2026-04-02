@@ -9,3 +9,4 @@ export * from "./shared/enums/button-style.type";
 export * from "./shared/types/button-click-target.type";
 export * from "./shared/types/button-content.type";
 export * from "./split";
+export * from "./text";
