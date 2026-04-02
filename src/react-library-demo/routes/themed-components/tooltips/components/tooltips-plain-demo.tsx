@@ -30,14 +30,14 @@ export function ReactLibraryThemedComponentsTooltipsPlainDemo() {
 				width={TOOLTIPS_DEMO_SIZE_PX}
 			>
 				<TooltipPlain content="Tooltip plain content">
-					<ReactLibraryThemedComponentsTooltipsPlainsDemoSubject />
+					<ReactLibraryThemedComponentsTooltipsPlainDemoSubject />
 				</TooltipPlain>
 			</DemoContent>
 		</DemoSection>
 	);
 }
 
-function ReactLibraryThemedComponentsTooltipsPlainsDemoSubject() {
+function ReactLibraryThemedComponentsTooltipsPlainDemoSubject() {
 
 	const tooltipPlainChildProps = useTooltipPlainChildPropsContext();
 
