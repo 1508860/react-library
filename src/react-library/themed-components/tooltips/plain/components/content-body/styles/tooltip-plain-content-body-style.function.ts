@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 import type { ColourScheme, Font } from "@react-library/common";
 
 /**
- * Resolve tooltip plain content bosy style based on parameters
+ * Resolve tooltip plain content body style based on parameters
  * @param colourScheme
  * @param font
  */
