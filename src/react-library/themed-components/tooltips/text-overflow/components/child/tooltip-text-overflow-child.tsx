@@ -47,11 +47,3 @@ export function TooltipTextOverflowChild(props: TooltipTextOverflowChildProps) {
 		</div>
 	);
 }
-
-/**
- * TODO
- * 
- * - Check resize of div or change to content and calculate if tooltip needs to be shown when hovered
- * - Add in wrapper callbacks to perform this check when hovering
- * - Maybe we don't need resize check, just simply check on mouse enter if we need the tooltip
- */
