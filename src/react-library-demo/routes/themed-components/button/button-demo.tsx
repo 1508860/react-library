@@ -4,6 +4,7 @@ import { ColourSchemeStyle, Orientation, type ArrayFixedLength2 } from "@react-l
 import { MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
 import {
 	ButtonClick,
+	type ButtonClickStyle,
 	ButtonContent,
 	ButtonFloating,
 	ButtonIconWidth,
@@ -11,7 +12,7 @@ import {
 	ButtonShape,
 	ButtonSize,
 	ButtonSplit,
-	ButtonStyle
+	ButtonStyle,
 } from "@react-library/themed-components";
 
 import {
@@ -28,6 +29,12 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 
 	const [isDisabledStates] = useState<ArrayFixedLength2<boolean>>(() => [false, true]);
 	const [isSelectedStates] = useState<ArrayFixedLength2<boolean>>(() => [false, true]);
+	const [buttonClickStyles] = useState<Array<ButtonClickStyle>>(
+		() => Object.values(ButtonStyle)
+			.filter(buttonStyle => (
+				buttonStyle !== ButtonStyle.Text
+			))
+	);
 
 	return (
 		<>
@@ -117,7 +124,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				key="button-style"
 				title="Button Style"
 			>
-				{Object.values(ButtonStyle).map((buttonStyle, i) => isDisabledStates.map((isDisabled, j) =>
+				{buttonClickStyles.map((buttonStyle, i) => isDisabledStates.map((isDisabled, j) =>
 					<ButtonClick
 						content={{
 							content: ButtonContent.IconLabel,
