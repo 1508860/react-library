@@ -4,7 +4,8 @@
 export const ButtonStyle = {
 	Elevated: "elevated",
 	Filled: "filled",
-	Outline: "outline"
+	Outline: "outline",
+	Text: "text"
 } as const satisfies Record<string, string>;
 
 /**

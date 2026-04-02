@@ -1,6 +1,13 @@
-import type { IAction, IChildren } from "@react-library/common";
+import type { IAction, IChildren, IStyle } from "@react-library/common";
+
+import type {
+	ButtonClickStyle,
+	ButtonSelectionStyle,
+	ButtonSplitStyle
+} from "../../button";
 
 import type { ButtonGroupAction } from "../enums/button-group-action.type";
+
 import type {
 	ButtonGroupButtonClick,
 	ButtonGroupButtonClickWithAction,
@@ -21,7 +28,8 @@ type ButtonGroupActionBase<TButtonGroupAction extends ButtonGroupAction> = (
  */
 export type ButtonGroupActionClick = (
 	ButtonGroupActionBase<typeof ButtonGroupAction.Click> &
-	IChildren<ButtonGroupButtonClick>
+	IChildren<ButtonGroupButtonClick> &
+	IStyle<ButtonClickStyle>
 );
 
 /**
@@ -29,7 +37,8 @@ export type ButtonGroupActionClick = (
  */
 export type ButtonGroupActionClickOrSplit = (
 	ButtonGroupActionBase<typeof ButtonGroupAction.ClickOrSplit> &
-	IChildren<ButtonGroupButtonClickWithAction | ButtonGroupButtonSplitWithAction>
+	IChildren<ButtonGroupButtonClickWithAction | ButtonGroupButtonSplitWithAction> &
+	IStyle<ButtonClickStyle & ButtonSplitStyle>
 );
 
 /**
@@ -37,7 +46,8 @@ export type ButtonGroupActionClickOrSplit = (
  */
 export type ButtonGroupActionSelection = (
 	ButtonGroupActionBase<typeof ButtonGroupAction.Selection> &
-	IChildren<ButtonGroupButtonSelection>
+	IChildren<ButtonGroupButtonSelection> &
+	IStyle<ButtonSelectionStyle>
 );
 
 /**
@@ -45,7 +55,8 @@ export type ButtonGroupActionSelection = (
  */
 export type ButtonGroupActionSplit = (
 	ButtonGroupActionBase<typeof ButtonGroupAction.Split> &
-	IChildren<ButtonGroupButtonSplit>
+	IChildren<ButtonGroupButtonSplit> &
+	IStyle<ButtonSplitStyle>
 );
 
 /**

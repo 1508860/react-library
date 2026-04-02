@@ -21,14 +21,14 @@ import type { ButtonContent } from "../../shared/enums/button-content.type";
 import type { ButtonIconWidth } from "../../shared/enums/button-icon-width.type";
 import type { ButtonShape } from "../../shared/enums/button-shape.type";
 import type { ButtonSize } from "../../shared/enums/button-size.type";
-import type { ButtonStyle } from "../../shared/enums/button-style.type";
+import type { ButtonClickStyle } from "./button-click-style.type";
 
 /**
  * Describes values for button click style sizes
  */
 export type ButtonClickPropertyMap = (
 	ISize<Record<ButtonSize, ButtonClickPropertySizeMap>> &
-	IStyle<Record<ButtonStyle, ButtonClickPropertyStyleMap>>
+	IStyle<Record<ButtonClickStyle, ButtonClickPropertyStyleMap>>
 );
 
 type ButtonClickPropertySizeMap = (

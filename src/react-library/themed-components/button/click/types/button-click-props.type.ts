@@ -9,9 +9,9 @@ import type {
 
 import type { ButtonShape } from "../../shared/enums/button-shape.type";
 import type { ButtonSize } from "../../shared/enums/button-size.type";
-import type { ButtonStyle } from "../../shared/enums/button-style.type";
 
 import type { ButtonClickContent } from "./button-click-content.type";
+import type { ButtonClickStyle } from "./button-click-style.type";
 
 /**
  * Props for button click
@@ -22,5 +22,5 @@ export type ButtonClickProps = (
 	IOnClick<HTMLDivElement> &
 	IShape<ButtonShape> &
 	ISize<ButtonSize> &
-	IStyle<ButtonStyle>
+	IStyle<ButtonClickStyle>
 );

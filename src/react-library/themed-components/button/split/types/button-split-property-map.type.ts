@@ -24,7 +24,8 @@ import type {
 
 import type { ButtonContent } from "../../shared/enums/button-content.type";
 import type { ButtonSize } from "../../shared/enums/button-size.type";
-import type { ButtonStyle } from "../../shared/enums/button-style.type";
+
+import type { ButtonSplitStyle } from "./button-split-style.type";
 
 /**
  * Describes values for button split style sizes
@@ -32,7 +33,7 @@ import type { ButtonStyle } from "../../shared/enums/button-style.type";
 export type ButtonSplitPropertyMap = (
 	IGap<SizePx> &
 	ISize<Record<ButtonSize, ButtonSplitPropertySizeMap>> &
-	IStyle<Record<ButtonStyle, ButtonSplitPropertyStyleMap>>
+	IStyle<Record<ButtonSplitStyle, ButtonSplitPropertyStyleMap>>
 );
 
 type ButtonSplitPropertySizeMap = (

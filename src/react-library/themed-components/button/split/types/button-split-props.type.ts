@@ -1,10 +1,10 @@
 import type { IContent, IIsDisabled, IOnClick, ISize, IStyle } from "@react-library/common";
 
 import type { ButtonSize } from "../../shared/enums/button-size.type";
-import type { ButtonStyle } from "../../shared/enums/button-style.type";
 
 import type { ButtonSplitContent } from "./button-split-content.type";
 import type { ButtonSplitMenuElement } from "./button-split-menu-element.type";
+import type { ButtonSplitStyle } from "./button-split-style.type";
 
 /**
  * Props for button split
@@ -15,5 +15,5 @@ export type ButtonSplitProps = (
 	Partial<IIsDisabled> &
 	IOnClick<HTMLDivElement> &
 	ISize<ButtonSize> &
-	IStyle<ButtonStyle>
+	IStyle<ButtonSplitStyle>
 );
