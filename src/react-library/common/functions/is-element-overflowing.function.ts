@@ -14,7 +14,6 @@ export function isElementOvervlowing(element: Element): boolean {
  * @param element
  */
 export function isElementOvervlowingHorizontal(element: Element): boolean {
-	console.log(element.clientWidth, element.scrollWidth);
 	return element.clientWidth < element.scrollWidth;
 }
 
