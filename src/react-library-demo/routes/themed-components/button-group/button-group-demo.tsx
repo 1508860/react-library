@@ -365,6 +365,69 @@ export function ReactLibraryThemedComponentsButtonGroupDemo() {
 				</ButtonGroup>
 			</DemoSection>
 			<DemoSection
+				key="button-group-text"
+				title="Button Group - Text"
+			>
+				<ButtonGroup
+					action={ButtonGroupAction.Text}
+					orientation={Orientation.Horizontal}
+					size={ButtonSize.Medium}
+					style={ButtonStyle.Text}
+				>
+					{{
+						content: {
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: "Label"
+						},
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.First,
+						onClick: () => { }
+					}}
+					{{
+						content: {
+							content: ButtonContent.Label,
+							label: "Label"
+						},
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Second,
+						onClick: () => { }
+					}}
+					{{
+						content: {
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: "Label"
+						},
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Third,
+						onClick: () => { }
+					}}
+					{{
+						content: {
+							content: ButtonContent.Label,
+							label: "Label"
+						},
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Fourth,
+						onClick: () => { }
+					}}
+					{{
+						content: {
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: "Label"
+						},
+						isDisabled: false,
+						key: ButtonGroupDemoButtonId.Fifth,
+						onClick: () => { }
+					}}
+				</ButtonGroup>
+			</DemoSection>
+			<DemoSection
 				key="button-group-click-vertical-end"
 				title="Button Group - Click - Vertical End"
 			>
