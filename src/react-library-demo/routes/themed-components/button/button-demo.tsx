@@ -13,6 +13,8 @@ import {
 	ButtonSize,
 	ButtonSplit,
 	ButtonStyle,
+	ButtonText,
+	type ButtonTextStyle,
 } from "@react-library/themed-components";
 
 import {
@@ -33,6 +35,15 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 		() => Object.values(ButtonStyle)
 			.filter(buttonStyle => (
 				buttonStyle !== ButtonStyle.Text
+			))
+	);
+
+	const [buttonTextStyles] = useState<Array<ButtonTextStyle>>(
+		() => Object.values(ButtonStyle)
+			.filter(buttonStyle => (
+				buttonStyle !== ButtonStyle.Elevated &&
+				buttonStyle !== ButtonStyle.Filled &&
+				buttonStyle !== ButtonStyle.Outline
 			))
 	);
 
@@ -223,6 +234,26 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 						size={ButtonSize.Medium}
 					/>
 				)}
+			</DemoSection>
+			<DemoSection
+				key="button-text"
+				title="Text Button"
+			>
+				{buttonTextStyles.map((buttonStyle, i) => isDisabledStates.map((isDisabled, j) =>
+					<ButtonText
+						content={{
+							content: ButtonContent.IconLabel,
+							iconName: MaterialIconName.Add,
+							iconStyle: MaterialIconStyle.Default,
+							label: `${buttonStyle}${isDisabled ? " disabled" : ""}`
+						}}
+						isDisabled={isDisabled}
+						key={((i * j) + j)}
+						onClick={() => { }}
+						size={ButtonSize.Medium}
+						style={buttonStyle}
+					/>
+				))}
 			</DemoSection>
 		</>
 	);
