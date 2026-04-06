@@ -1,9 +1,11 @@
-import type { IAction, IChildren, IStyle } from "@react-library/common";
+import type { IAction, IChildren, ISize, IStyle } from "@react-library/common";
 
 import type {
 	ButtonClickStyle,
 	ButtonSelectionStyle,
-	ButtonSplitStyle
+	ButtonSize,
+	ButtonSplitStyle,
+	ButtonTextStyle
 } from "../../button";
 
 import type { ButtonGroupAction } from "../enums/button-group-action.type";
@@ -13,7 +15,8 @@ import type {
 	ButtonGroupButtonClickWithAction,
 	ButtonGroupButtonSelection,
 	ButtonGroupButtonSplit,
-	ButtonGroupButtonSplitWithAction
+	ButtonGroupButtonSplitWithAction,
+	ButtonGroupButtonText
 } from "./button-group-button.type";
 
 /**
@@ -29,6 +32,7 @@ type ButtonGroupActionBase<TButtonGroupAction extends ButtonGroupAction> = (
 export type ButtonGroupActionClick = (
 	ButtonGroupActionBase<typeof ButtonGroupAction.Click> &
 	IChildren<ButtonGroupButtonClick> &
+	ISize<ButtonSize> &
 	IStyle<ButtonClickStyle>
 );
 
@@ -38,6 +42,7 @@ export type ButtonGroupActionClick = (
 export type ButtonGroupActionClickOrSplit = (
 	ButtonGroupActionBase<typeof ButtonGroupAction.ClickOrSplit> &
 	IChildren<ButtonGroupButtonClickWithAction | ButtonGroupButtonSplitWithAction> &
+	ISize<ButtonSize> &
 	IStyle<ButtonClickStyle & ButtonSplitStyle>
 );
 
@@ -47,6 +52,7 @@ export type ButtonGroupActionClickOrSplit = (
 export type ButtonGroupActionSelection = (
 	ButtonGroupActionBase<typeof ButtonGroupAction.Selection> &
 	IChildren<ButtonGroupButtonSelection> &
+	ISize<ButtonSize> &
 	IStyle<ButtonSelectionStyle>
 );
 
@@ -56,7 +62,18 @@ export type ButtonGroupActionSelection = (
 export type ButtonGroupActionSplit = (
 	ButtonGroupActionBase<typeof ButtonGroupAction.Split> &
 	IChildren<ButtonGroupButtonSplit> &
+	ISize<ButtonSize> &
 	IStyle<ButtonSplitStyle>
+);
+
+/**
+ * Describes a button group action of text
+ */
+export type ButtonGroupActionText = (
+	ButtonGroupActionBase<typeof ButtonGroupAction.Text> &
+	IChildren<ButtonGroupButtonText> &
+	ISize<ButtonSize> &
+	IStyle<ButtonTextStyle>
 );
 
 /**
@@ -66,5 +83,6 @@ export type ButtonGroupActionAll = (
 	ButtonGroupActionClick |
 	ButtonGroupActionClickOrSplit |
 	ButtonGroupActionSelection |
-	ButtonGroupActionSplit
+	ButtonGroupActionSplit |
+	ButtonGroupActionText
 );

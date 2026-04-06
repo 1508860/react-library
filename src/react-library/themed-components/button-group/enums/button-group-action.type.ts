@@ -5,7 +5,8 @@ export const ButtonGroupAction = {
 	Click: "click",
 	ClickOrSplit: "click-or-split",
 	Split: "split",
-	Selection: "selection"
+	Selection: "selection",
+	Text: "text"
 } as const satisfies Record<string, string>;
 
 /**

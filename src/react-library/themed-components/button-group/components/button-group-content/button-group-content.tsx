@@ -1,7 +1,13 @@
+import {
+	ButtonClick,
+	ButtonSelection,
+	ButtonShape,
+	ButtonSplit,
+	ButtonText
+} from "../../../button";
+
 import { ButtonGroupAction } from "../../enums/button-group-action.type";
-import { ButtonGroupClick } from "../button-group-click";
-import { ButtonGroupSelection } from "../button-group-selection";
-import { ButtonGroupSplit } from "../button-group-split";
+
 import type { ButtonGroupContentProps } from "./types/button-group-content-props.type";
 
 /**
@@ -9,50 +15,86 @@ import type { ButtonGroupContentProps } from "./types/button-group-content-props
  * @param props
  */
 export function ButtonGroupContent(props: ButtonGroupContentProps) {
-	switch (props.buttonGroup.action) {
+
+	const buttonGroup = props.buttonGroup;
+
+	switch (buttonGroup.action) {
 		case ButtonGroupAction.Click: return (
-			(Array.isArray(props.buttonGroup.children) ? props.buttonGroup.children : [props.buttonGroup.children])
+			(Array.isArray(buttonGroup.children) ? buttonGroup.children : [buttonGroup.children])
 				.map(child => (
-					<ButtonGroupClick
-						button={child}
-						buttonGroup={props.buttonGroup}
-						key={`${props.buttonGroup.action}-button-click-${child.key}`}
+					<ButtonClick
+						content={child.content}
+						isDisabled={child.isDisabled}
+						key={`${buttonGroup.action}-key-${child.key}`}
+						onClick={child.onClick}
+						shape={ButtonShape.Round}
+						size={buttonGroup.size}
+						style={buttonGroup.style}
 					/>
 				))
 		);
 		case ButtonGroupAction.ClickOrSplit: return (
-			(Array.isArray(props.buttonGroup.children) ? props.buttonGroup.children : [props.buttonGroup.children])
+			(Array.isArray(buttonGroup.children) ? buttonGroup.children : [buttonGroup.children])
 				.map(child => (
 					(child.action === ButtonGroupAction.Split) ?
-						<ButtonGroupSplit
-							button={child}
-							buttonGroup={props.buttonGroup}
-							key={`${props.buttonGroup.action}-button-split-${child.key}`}
+						<ButtonSplit
+							content={child.content}
+							isDisabled={child.isDisabled}
+							key={`${buttonGroup.action}-${child.action}-key-${child.key}`}
+							menuElement={child.menuElement}
+							onClick={child.onClick}
+							size={buttonGroup.size}
+							style={buttonGroup.style}
 						/> :
-						<ButtonGroupClick
-							button={child}
-							buttonGroup={props.buttonGroup}
-							key={`${props.buttonGroup.action}-button-click-${child.key}`}
+						<ButtonClick
+							content={child.content}
+							isDisabled={child.isDisabled}
+							key={`${buttonGroup.action}-${child.action}-key-${child.key}`}
+							onClick={child.onClick}
+							shape={ButtonShape.Round}
+							size={buttonGroup.size}
+							style={buttonGroup.style}
 						/>
 				))
 		);
 		case ButtonGroupAction.Selection: return (
-			(Array.isArray(props.buttonGroup.children) ? props.buttonGroup.children : [props.buttonGroup.children])
+			(Array.isArray(buttonGroup.children) ? buttonGroup.children : [buttonGroup.children])
 				.map(child => (
-					<ButtonGroupSelection
-						button={child}
-						buttonGroup={props.buttonGroup}
-						key={`${props.buttonGroup.action}-button-selection-${child.key}`}
+					<ButtonSelection
+						content={child.content}
+						isDisabled={child.isDisabled}
+						isSelected={child.isSelected}
+						key={`${buttonGroup.action}-key-${child.key}`}
+						onClick={child.onClick}
+						size={buttonGroup.size}
+						style={buttonGroup.style}
 					/>
 				))
 		);
 		case ButtonGroupAction.Split: return (
-			(Array.isArray(props.buttonGroup.children) ? props.buttonGroup.children : [props.buttonGroup.children])
+			(Array.isArray(buttonGroup.children) ? buttonGroup.children : [buttonGroup.children])
 				.map(child => (
-					<ButtonGroupSplit
-						button={child}
-						buttonGroup={props.buttonGroup}
-						key={`${props.buttonGroup.action}-button-split-${child.key}`}
+					<ButtonSplit
+						content={child.content}
+						isDisabled={child.isDisabled}
+						key={`${buttonGroup.action}-key-${child.key}`}
+						menuElement={child.menuElement}
+						onClick={child.onClick}
+						size={buttonGroup.size}
+						style={buttonGroup.style}
+					/>
+				))
+		);
+		case ButtonGroupAction.Text: return (
+			(Array.isArray(buttonGroup.children) ? buttonGroup.children : [buttonGroup.children])
+				.map(child => (
+					<ButtonText
+						content={child.content}
+						isDisabled={child.isDisabled}
+						key={`${buttonGroup.action}-key-${child.key}`}
+						onClick={child.onClick}
+						size={buttonGroup.size}
+						style={buttonGroup.style}
 					/>
 				))
 		);

@@ -6,7 +6,8 @@ import type {
 	ButtonClickContent,
 	ButtonSelectionContent,
 	ButtonSplitContent,
-	ButtonSplitMenuElement
+	ButtonSplitMenuElement,
+	ButtonTextContent
 } from "../../button";
 import type { ButtonGroupAction } from "../enums/button-group-action.type";
 
@@ -50,6 +51,14 @@ export type ButtonGroupButtonSplit = (
 	ButtonGroupButtonBase &
 	IContent<ButtonSplitContent> &
 	ButtonSplitMenuElement
+);
+
+/**
+ * Describes text configuration for a button group's button
+ */
+export type ButtonGroupButtonText = (
+	ButtonGroupButtonBase &
+	IContent<ButtonTextContent>
 );
 
 /**
