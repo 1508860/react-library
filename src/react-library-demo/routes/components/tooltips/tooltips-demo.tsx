@@ -7,6 +7,7 @@ import {
 } from "@react-library/common";
 import {
 	Tooltip,
+	useTooltipBackdropConfigCallbackContext,
 	useTooltipChildPropsContext,
 	useTooltipContentCallbackContext,
 	useTooltipShowCallbackContext,
@@ -69,7 +70,6 @@ function TooltipDemoContainer(props: ITooltipPositionStrategy<TooltipPositionStr
 		<Tooltip
 			overlayPortalMargin={20}
 			positionStrategies={[props.tooltipPositionStrategy]}
-			showBackdrop={true}
 		>
 			<TooltipDemoSubject />
 		</Tooltip>
@@ -78,13 +78,23 @@ function TooltipDemoContainer(props: ITooltipPositionStrategy<TooltipPositionStr
 
 function TooltipDemoSubject() {
 
+	const tooltipBackdropConfigCallback = useTooltipBackdropConfigCallbackContext();
 	const tooltipChildProps = useTooltipChildPropsContext();
-	const tooltipShowCallback = useTooltipShowCallbackContext();
-	const handleOnClick = useCallback(() => tooltipShowCallback(true), [tooltipShowCallback]);
 	const tooltipContentCallback = useTooltipContentCallbackContext();
+	const tooltipShowCallback = useTooltipShowCallbackContext();
 
-	// Set tooltip content
-	useEffect(() => tooltipContentCallback(<TooltipDemoContent />), [tooltipContentCallback]);
+	const handleOnClick = useCallback(() => tooltipShowCallback(true), [tooltipShowCallback]);
+
+	// Set tooltip backdrop and content
+	useEffect(
+		() => {
+			tooltipBackdropConfigCallback({
+				onDismiss: () => tooltipShowCallback(false)
+			});
+			tooltipContentCallback(<TooltipDemoContent />);
+		},
+		[tooltipBackdropConfigCallback, tooltipContentCallback, tooltipShowCallback]
+	);
 
 	return (
 		<div ref={tooltipChildProps.ref}>

@@ -1,9 +1,10 @@
-import type { Callback, IOnDismiss, IShow } from "@react-library/common";
+import type { IConfig } from "@react-library/common";
+
+import type { TooltipBackdropConfig } from "../../../types/tooltip-backdrop-config.type";
 
 /**
  * Tooltip backdrop props
 */
 export type TooltipBackdropProps = (
-	IOnDismiss<Callback<void>> &
-	Partial<IShow>
+	Partial<IConfig<TooltipBackdropConfig>>
 );

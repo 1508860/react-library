@@ -15,7 +15,6 @@ export function ButtonSplitMenu(props: ButtonSplitProps) {
 		<Tooltip
 			isDisabled={props.isDisabled}
 			positionStrategies={BUTTON_SPLIT_MENU_TOOLTIP_POSITION_STRATEGIES_EXTERNAL}
-			showBackdrop={true}
 		>
 			<ButtonSplitMenuChild {...props} />
 		</Tooltip>

@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from "react";
 
 import {
+	useTooltipBackdropConfigCallbackContext,
 	useTooltipChildPropsContext,
 	useTooltipContentCallbackContext,
 	useTooltipShowCallbackContext,
@@ -26,13 +27,26 @@ import type { ButtonSplitProps } from "../../types/button-split-props.type";
  */
 export function ButtonSplitMenuChild(props: ButtonSplitProps) {
 
+	const tooltipBackdropConfigCallback = useTooltipBackdropConfigCallbackContext();
 	const tooltipChildProps = useTooltipChildPropsContext();
+	const tooltipContentCallback = useTooltipContentCallbackContext();
 	const tooltipShow = useTooltipShowContext();
 	const tooltipShowCallback = useTooltipShowCallbackContext();
-	const tooltipContentCallback = useTooltipContentCallbackContext();
 
-	// Set tooltip content
-	useEffect(() => tooltipContentCallback(tooltipShow ? <props.menuElement /> : undefined), [props, tooltipShow, tooltipContentCallback]);
+	// Set tooltip backdop and content
+	useEffect(
+		() => {
+			tooltipBackdropConfigCallback(
+				tooltipShow ?
+					{
+						onDismiss: () => tooltipShowCallback(false)
+					} :
+					undefined
+			);
+			tooltipContentCallback(tooltipShow ? <props.menuElement /> : undefined);
+		},
+		[props, tooltipBackdropConfigCallback, tooltipContentCallback, tooltipShow, tooltipShowCallback]
+	);
 
 	const handleOnClick = useCallback(() => tooltipShowCallback(true), [tooltipShowCallback]);
 

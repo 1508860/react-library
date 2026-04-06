@@ -3,8 +3,7 @@ import type { PropsWithChildren } from "react";
 import type {
 	IIsDisabled,
 	IOverlayPortalMargin,
-	IPositionStrategies,
-	IShowBackdrop
+	IPositionStrategies
 } from "@react-library/common";
 
 import type { TooltipOverlayPortalMarginSize } from "./tooltip-overlay-portal-margin-size.type";
@@ -17,6 +16,5 @@ export type TooltipProps = (
 	Partial<IIsDisabled> &
 	Partial<IOverlayPortalMargin<TooltipOverlayPortalMarginSize>> &
 	IPositionStrategies<TooltipPositionStrategiesExternal> &
-	PropsWithChildren &
-	Partial<IShowBackdrop<boolean>>
+	PropsWithChildren
 );

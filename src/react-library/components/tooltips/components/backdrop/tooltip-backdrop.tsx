@@ -12,11 +12,14 @@ import type { TooltipBackdropProps } from "./types/tooltip-backdrop-props.type";
 export function TooltipBackdrop(props: TooltipBackdropProps) {
 
 	const handleOnDismiss = useCallback(
-		(event: React.MouseEvent) => targetEvent(event, props.onDismiss),
-		[props.onDismiss]
+		(event: React.MouseEvent) => {
+			if (!props.config) return;
+			targetEvent(event, props.config.onDismiss)
+		},
+		[props.config]
 	);
 
-	if (!props.show) return (<Fragment key="no-backdrop" />);
+	if (!props.config) return (<Fragment key="no-backdrop" />);
 
 	return (
 		<div

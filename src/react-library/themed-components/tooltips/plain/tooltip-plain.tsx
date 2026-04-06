@@ -14,7 +14,6 @@ export function TooltipPlain(props: TooltipPlainProps) {
 		<Tooltip
 			overlayPortalMargin={TOOLTIP_PLAIN_OVERLAY_PORTAL_MARGIN}
 			positionStrategies={TOOLTIP_PLAIN_POSITION_STRATEGIES}
-			showBackdrop={false}
 		>
 			<TooltipPlainInternal content={props.content}>
 				{props.children}
