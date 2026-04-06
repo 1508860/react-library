@@ -1,5 +1,6 @@
-import { Fragment } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 
+import type { Callback } from "@react-library/common";
 import { TransitionPulse, TransitionTiming } from "@react-library/components";
 
 import { useButtonClickedInsetContextOptional } from "../../hooks/button-clicked-inset-context-optional.hook";
@@ -17,7 +18,12 @@ export function ButtonPulseLayer() {
 	const buttonClickedInset = useButtonClickedInsetContextOptional();
 	const buttonColourState = useButtonColourStateContext();
 
-	if (!buttonClickedInset) return (
+	const [show, setShow] = useState<boolean>(() => !!buttonClickedInset);
+	const handleOnComplete = useCallback<Callback<void>>(() => setShow(false), []);
+
+	useEffect(() => setShow(!!buttonClickedInset), [buttonClickedInset]);
+
+	if (!buttonClickedInset || !show) return (
 		<Fragment key="no-button-pulse-layer" />
 	);
 
@@ -28,6 +34,7 @@ export function ButtonPulseLayer() {
 			inset={buttonClickedInset.inset}
 			key={`button-clicked-inset-layer-${buttonClickedInset.key}`}
 			timing={TransitionTiming.EaseInOut}
+			onComplete={handleOnComplete}
 		/>
 	);
 }
