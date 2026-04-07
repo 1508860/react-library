@@ -6,6 +6,7 @@ import { ReactLibraryThemedComponentsButtonDemo } from "./button";
 import { ReactLibraryThemedComponentsButtonGroupDemo } from "./button-group";
 import { ReactLibraryFloatingButtonGroupDemo } from "./floating-button-group";
 import { ReactLibraryThemedComponentsLoadingIndicatorDemo } from "./loading-indicator";
+import { ReactLibraryThemedComponentsModalsDemo } from "./modals";
 import { ReactLibraryThemedComponentsNavigationBarDemo } from "./navigation-bar";
 import { ReactLibraryThemedComponentsNavigationRailDemo } from "./navigation-rail";
 import { ReactLibraryThemedComponentsProgressIndicatorDemo } from "./progress-indicator";
@@ -38,6 +39,11 @@ export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<Rea
 			element: () => <ReactLibraryThemedComponentsLoadingIndicatorDemo />,
 			id: ReactLibraryThemedComponentsDemo.LoadingIndicator,
 			title: "Loading Indicator"
+		},
+		{
+			element: () => <ReactLibraryThemedComponentsModalsDemo />,
+			id: ReactLibraryThemedComponentsDemo.Modals,
+			title: "Modals"
 		},
 		{
 			element: () => <ReactLibraryThemedComponentsNavigationBarDemo />,

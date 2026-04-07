@@ -7,6 +7,7 @@ export const ReactLibraryThemedComponentsDemo = {
 	"ButtonGroup": "ReactLibraryThemedComponentsDemo-ButtonGroup",
 	"FloatingButtonGroup": "ReactLibraryThemedComponentsDemo-FloatingButtonGroup",
 	"LoadingIndicator": "ReactLibraryThemedComponentsDemo-LoadingIndicator",
+	"Modals": "ReactLibraryThemedComponentsDemo-Modals",
 	"NavigationBar": "ReactLibraryThemedComponentsDemo-NavigationBar",
 	"NavigationRail": "ReactLibraryThemedComponentsDemo-NavigationRail",
 	"ProgressIndicator": "ReactLibraryThemedComponentsDemo-ProgressIndicator",

@@ -34,7 +34,7 @@ export function ReactLibraryDemo() {
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaultSubItemId={ReactLibraryThemedComponentsDemo.Tooltips}
+										defaultSubItemId={ReactLibraryThemedComponentsDemo.Modals}
 									>
 										{{
 											id: 1,
