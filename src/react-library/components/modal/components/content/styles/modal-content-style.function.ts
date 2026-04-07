@@ -4,35 +4,34 @@ import {
 	positionStrategyInternalMarginBottom,
 	positionStrategyInternalMarginLeft,
 	positionStrategyInternalMarginRight,
-	positionStrategyInternalMarginTop,
-	type Colour,
-	type Size
+	positionStrategyInternalMarginTop
 } from "@react-library/common";
 
+import type { ModalContentConfig } from "../../../types/modal-content-config.type";
 import type { ModalPositionStrategyInternal } from "../../../types/modal-position-strategy-internal.type";
 
 /**
  * Resolve modal content style based on parameters
+ * @param contentConfig
  * @param positionStrategy
- * @param height
- * @param width
- * @param backgroundColour
  */
 export function modalContentStyle(
-	positionStrategy: ModalPositionStrategyInternal,
-	height?: Size,
-	width?: Size,
-	backgroundColour?: Colour | undefined
+	contentConfig: ModalContentConfig | undefined,
+	positionStrategy: ModalPositionStrategyInternal
 ): CSSProperties {
 	return {
-		backgroundColor: backgroundColour?.toColourString(),
+		backgroundColor: contentConfig?.backgroundColour?.toColourString(),
 		bottom: positionStrategyInternalMarginBottom(positionStrategy),
 		display: "block",
-		height: height,
+		height: contentConfig?.height,
 		left: positionStrategyInternalMarginLeft(positionStrategy),
+		maxHeight: contentConfig?.maxHeight,
+		maxWidth: contentConfig?.maxWidth,
+		minHeight: contentConfig?.minHeight,
+		minWidth: contentConfig?.minWidth,
 		position: "relative",
 		right: positionStrategyInternalMarginRight(positionStrategy),
 		top: positionStrategyInternalMarginTop(positionStrategy),
-		width: width
+		width: contentConfig?.width
 	};
 }

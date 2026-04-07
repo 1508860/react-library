@@ -19,17 +19,13 @@ export function Modal(props: ModalProps) {
 	return createPortal(
 		(
 			<ModalContainer positionStrategy={props.positionStrategy}>
-				<ModalBackdrop
-					backdropColour={props.backdropColour}
-					key="backdrop"
-					onDismiss={props.onDismiss}
-				/>
+				< ModalBackdrop key="backdrop">
+					{props.backdrop}
+				</ModalBackdrop>
 				<ModalContent
-					backgroundColour={props.backgroundColour}
-					height={props.height}
+					contentConfig={props.contentConfig}
 					key="content"
 					positionStrategy={props.positionStrategy}
-					width={props.width}
 				>
 					{props.children}
 				</ModalContent>

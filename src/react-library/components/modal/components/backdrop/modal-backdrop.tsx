@@ -1,8 +1,6 @@
-import { useCallback } from "react";
+import { Fragment } from "react";
 
-import { targetEvent } from "@react-library/common";
-
-import { modalBackdropStyle } from "./styles/modal-backdrop-style.function";
+import { MODAL_BACKDROP_STYLE } from "./styles/modal-backdrop-style.const";
 import type { ModalBackdropProps } from "./types/modal-backdrop-props.type";
 
 /**
@@ -11,18 +9,16 @@ import type { ModalBackdropProps } from "./types/modal-backdrop-props.type";
  */
 export function ModalBackdrop(props: ModalBackdropProps) {
 
-	const handleOnDismiss = useCallback(
-		(event: React.MouseEvent) => {
-			if (!props.onDismiss) return;
-			targetEvent(event, props.onDismiss)
-		},
-		[props.onDismiss]
+	if (!props.children) return (
+		<Fragment key="no-backdrop" />
 	);
 
 	return (
 		<div
-			onClick={handleOnDismiss}
-			style={modalBackdropStyle(props.backdropColour)}
-		/>
+			key="backdrop"
+			style={MODAL_BACKDROP_STYLE}
+		>
+			{props.children}
+		</div>
 	);
 }

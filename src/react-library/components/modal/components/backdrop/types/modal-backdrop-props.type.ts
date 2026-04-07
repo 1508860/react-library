@@ -1,10 +1,10 @@
-import type { ModalBackdropColour } from "../../../types/modal-backdrop-colour.type";
-import type { ModalOnDismiss } from "../../../types/modal-on-dismiss.type";
+import type { IChild } from "@react-library/common";
+
+import type { ModalBackdropElement } from "../../../types/modal-backdrop-element.type";
 
 /**
  * Modal backdrop props
  */
 export type ModalBackdropProps = (
-	Partial<ModalBackdropColour> &
-	Partial<ModalOnDismiss>
+	IChild<ModalBackdropElement | undefined>
 );

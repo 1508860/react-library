@@ -7,7 +7,7 @@ import type { ModalContentProps } from "./types/modal-content-props.type";
  */
 export function ModalContent(props: ModalContentProps) {
 	return (
-		<div style={modalContentStyle(props.positionStrategy, props.height, props.width, props.backgroundColour)}>
+		<div style={modalContentStyle(props.contentConfig, props.positionStrategy)}>
 			{props.children}
 		</div>
 	);

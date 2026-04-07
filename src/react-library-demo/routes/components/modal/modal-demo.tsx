@@ -1,15 +1,14 @@
-import { Fragment, useCallback, useEffect, useState } from "react";
+import { Fragment, useCallback, useState } from "react";
 
 import {
 	Orientation,
 	PositionStrategyInternal,
 	resolvePositionStrategyInternalAll,
-	useColourSchemeContext,
-	type ColourAlpha,
 	type SizePx
 } from "@react-library/common";
 import {
 	Modal,
+	type ModalContentConfig,
 	type ModalPositionStrategyInternal
 } from "@react-library/components";
 
@@ -27,16 +26,6 @@ import {
 
 export function ReactLibraryComponentsModalDemo() {
 
-	// Modal colour
-	const colourScheme = useColourSchemeContext();
-	const [backdropColour, setBackdropColour] = useState<ColourAlpha | undefined>(
-		() => colourScheme.backdrop.colour.toColourWithStyleOpacity(colourScheme.backdrop.opacity)
-	);
-	useEffect(
-		() => setBackdropColour(colourScheme.backdrop.colour.toColourWithStyleOpacity(colourScheme.backdrop.opacity)),
-		[colourScheme.backdrop.colour, colourScheme.backdrop.opacity]
-	)
-
 	// Position strategy
 	const [modalPositionStrategies] = useState<Array<ModalPositionStrategyInternal>>(() => (
 		Object.values(PositionStrategyInternal).map<ModalPositionStrategyInternal>(positionStrategyInternal => (
@@ -52,6 +41,12 @@ export function ReactLibraryComponentsModalDemo() {
 
 	const [currentModalPositionStrategy, setCurrentModalPositionStrategy] = useState<ModalPositionStrategyInternal | undefined>(() => undefined);
 	const resetCurrentModalPositionStrategy = useCallback(() => setCurrentModalPositionStrategy(undefined), []);
+
+	// Modal content config
+	const [modalContentConfig] = useState<ModalContentConfig>(() => ({
+		height: 300,
+		width: 300
+	}))
 
 	// Modal content
 	const [demoContentItems] = useState<Array<DemoContentChildrenItemProps>>(() => (
@@ -81,16 +76,28 @@ export function ReactLibraryComponentsModalDemo() {
 			{
 				currentModalPositionStrategy ?
 					<Modal
-						backdropColour={backdropColour}
+						backdrop={
+							<DemoContent
+								align={DemoContentAlign.Center}
+								childrenType={DemoContentChildren.Any}
+								colourScheme={DemoContentColourScheme.Tertiary}
+								height="100%"
+								justify={DemoContentJustify.Center}
+								opacity={0.5}
+								orientation={Orientation.Vertical}
+								overflow={DemoContentOverflow.Auto}
+								width="100%"
+							/>
+						}
+						contentConfig={modalContentConfig}
 						key="modal"
-						onDismiss={resetCurrentModalPositionStrategy}
 						positionStrategy={currentModalPositionStrategy}
 					>
 						<DemoContent
 							align={DemoContentAlign.Center}
 							childrenType={DemoContentChildren.Items}
 							colourScheme={DemoContentColourScheme.Secondary}
-							height={300}
+							height="100%"
 							includeRenderCounter={true}
 							items={[{
 								type: DemoContentChildrenItem.Button,
@@ -101,7 +108,7 @@ export function ReactLibraryComponentsModalDemo() {
 							justify={DemoContentJustify.Center}
 							orientation={Orientation.Vertical}
 							overflow={DemoContentOverflow.Auto}
-							width={300}
+							width="100%"
 						/>
 					</Modal> :
 					<Fragment key="no-modal" />

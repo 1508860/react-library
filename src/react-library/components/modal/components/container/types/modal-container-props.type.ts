@@ -1,11 +1,13 @@
 import type { PropsWithChildren } from "react";
 
-import type { ModalPositionStrategyProps } from "../../../types/modal-position-strategy-props.type";
+import type { IPositionStrategy } from "@react-library/common";
+
+import type { ModalPositionStrategyInternal } from "../../../types/modal-position-strategy-internal.type";
 
 /**
  * Modal container props
  */
 export type ModalContainerProps = (
-	ModalPositionStrategyProps &
+	IPositionStrategy<ModalPositionStrategyInternal> &
 	PropsWithChildren
 );
