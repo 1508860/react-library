@@ -3,8 +3,9 @@ import { Fragment, useCallback, useEffect, useState } from "react"
 import { useColourSchemeContext } from "@react-library/common";
 import { MaterialIconStyle, MaterialIconSvg } from "@react-library/material-icons";
 
-import type { SideSheetPanelHeaderIconProps } from "./types/side-sheet-panel-header-icon-props.type";
 import { SIDE_SHEET_PANEL_HEADER_ICON_SIZE } from "./constants/side-sheet-panel-header-icon-size.const";
+import type { SideSheetPanelHeaderIconProps } from "./types/side-sheet-panel-header-icon-props.type";
+import { sideSheetPanelHeaderIconStyle } from "./styles/side-sheet-panel-header-icon-style.function";
 
 /**
  * Side sheet panel header icon component
@@ -47,6 +48,7 @@ export function SideSheetPanelHeaderIcon(props: SideSheetPanelHeaderIconProps) {
 			onPointerEnter={handlePointerEnter}
 			onPointerLeave={handlePointerLeave}
 			onPointerUp={handlePointerUp}
+			style={sideSheetPanelHeaderIconStyle(isHovered)}
 		>
 			<MaterialIconSvg
 				colour={colourScheme.surface.variant.onColour}
