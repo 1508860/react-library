@@ -4,7 +4,7 @@ import type { Extends } from "../../types";
 import { PositionStrategyInternal } from "../enums/position-strategy-internal.type";
 
 /**
- * Resolve {@link CSS.Property.JustifyContent} value for {@link positionStrategyType} and a {@link flexDirection}
+ * Resolve {@link Property.JustifyContent} value for {@link positionStrategyType} and a {@link flexDirection}
  * @param positionStrategyType
  * @param flexDirection
  */
