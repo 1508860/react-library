@@ -4,6 +4,7 @@ export * from "./button-group";
 export * from "./divider";
 export * from "./floating-button-group";
 export * from "./loading-indicator";
+export * from "./modals";
 export * from "./navigation-bar";
 export * from "./navigation-rail";
 export * from "./progress-indicator";
