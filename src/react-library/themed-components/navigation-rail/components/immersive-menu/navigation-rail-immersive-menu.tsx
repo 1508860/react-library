@@ -28,6 +28,7 @@ export function NavigationRailImmersiveMenu(props: NavigationRailImmersiveMenuPr
 					key="menu-icon"
 					onChange={props.onExpandedChange}
 				/>
+				
 			</div>
 			: <Fragment key="no-menu-icon-immersive" />
 	);

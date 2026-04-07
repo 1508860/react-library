@@ -28,8 +28,8 @@ export const NAVIGATION_RAIL_PROPERTY_MAP: NavigationRailPropertyMap = {
 	itemContentGap: 4,
 	itemIconSize: 24,
 	itemPaddingHorizontal: 16,
-	menuIconPaddingHorizontal: 16,
-	menuIconPaddingVertical: 6,
+	menuIconMarginHorizontal: 10,
+	menuIconPadding: 6,
 	menuIconSize: 24,
 	menuPaddingHorizontal: 20,
 	menuStyle: {

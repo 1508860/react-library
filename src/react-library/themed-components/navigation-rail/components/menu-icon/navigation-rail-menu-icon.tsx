@@ -1,12 +1,14 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 
 import { useColourSchemeContext } from "@react-library/common";
 import { TransitionRotate, TransitionTiming } from "@react-library/components";
-import { MaterialIconSvg, MaterialIconName, MaterialIconStyle } from "@react-library/material-icons";
+import { MaterialIconName } from "@react-library/material-icons";
+
+import { IconClick } from "../../../shared";
 
 import { NAVIGATION_RAIL_PROPERTY_MAP } from "../../constants/navigation-rail-property-map.const";
-import { navigationRailMenuIconContainerStyle } from "./styles/navigation-rail-menu-icon-container-style.function";
 import type { NavigationRailMenuIconProps } from "./types/navigation-rail-menu-icon-props-props.type";
+import { NAVIGATION_RAIL_MENU_ICON_CONTAINER_STYLE } from "./styles/navigation-rail-menu-icon-container-style.const";
 
 /**
  * Component to handle a navigation rail menu icon
@@ -19,47 +21,19 @@ export function NavigationRailMenuIcon(props: NavigationRailMenuIconProps) {
 	// Handle expanded state
 	const handleExpandedOnChange = useCallback(() => props.onChange(!props.isExpanded), [props]);
 
-	// Handle hovered state
-	const [isHovered, setIsHovered] = useState<boolean>(() => false);
-	const handlePointerEnter = useCallback(() => setIsHovered(true), []);
-	const handlePointerLeave = useCallback(() => setIsHovered(false), []);
-
-	// Handle pressed state
-	const [isPressed, setIsPressed] = useState<boolean>(() => false);
-	const handlePointerDown = useCallback(() => setIsPressed(true), []);
-	const handlePointerUp = useCallback(() => setIsPressed(false), []);
-
-	// Resolve icon style
-	const [iconStyle, setIconStyle] = useState<MaterialIconStyle>(() => MaterialIconStyle.Default);
-	useEffect(
-		() => {
-			if (isPressed) setIconStyle(MaterialIconStyle.DefaultFilled);
-			else if (isHovered) setIconStyle(MaterialIconStyle.Thick);
-			else setIconStyle(MaterialIconStyle.Default);
-		},
-		[isHovered, isPressed]
-	);
-
 	return (
-		<div
-			onClick={handleExpandedOnChange}
-			onPointerCancel={handlePointerLeave}
-			onPointerDown={handlePointerDown}
-			onPointerEnter={handlePointerEnter}
-			onPointerLeave={handlePointerLeave}
-			onPointerUp={handlePointerUp}
-			style={navigationRailMenuIconContainerStyle(isHovered)}
-		>
+		<div style={NAVIGATION_RAIL_MENU_ICON_CONTAINER_STYLE}>
 			<TransitionRotate
 				durationMs={NAVIGATION_RAIL_PROPERTY_MAP.menuTransitionDurationMs}
 				rotate={NAVIGATION_RAIL_PROPERTY_MAP.expanded[`${props.isExpanded}`].menuIconRotate}
 				timing={TransitionTiming.OvershootInOut}
 			>
-				<MaterialIconSvg
+				<IconClick
 					colour={props.isExpanded ? colourScheme.secondary.container.onColour : colourScheme.surface.variant.onColour}
 					name={props.isExpanded ? MaterialIconName.MenuOpen : MaterialIconName.Menu}
+					onClick={handleExpandedOnChange}
+					padding={NAVIGATION_RAIL_PROPERTY_MAP.menuIconPadding}
 					size={NAVIGATION_RAIL_PROPERTY_MAP.menuIconSize}
-					style={iconStyle}
 				/>
 			</TransitionRotate>
 		</div>

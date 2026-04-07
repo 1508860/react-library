@@ -13,8 +13,8 @@ import type {
 	IMenuBorderBottomRightRadius,
 	IMenuBorderTopRightRadius,
 	IMenuCollapsedWidth,
-	IMenuIconPaddingHorizontal,
-	IMenuIconPaddingVertical,
+	IMenuIconMarginHorizontal,
+	IMenuIconPadding,
 	IMenuIconRotate,
 	IMenuIconSize,
 	IMenuPaddingHorizontal,
@@ -40,8 +40,8 @@ export type NavigationRailPropertyMap = (
 	IItemContentGap<SizePx> &
 	IItemIconSize<SizePx> &
 	IItemPaddingHorizontal<SizePx> &
-	IMenuIconPaddingHorizontal<SizePx> &
-	IMenuIconPaddingVertical<SizePx> &
+	IMenuIconMarginHorizontal<SizePx> &
+	IMenuIconPadding<SizePx> &
 	IMenuIconSize<SizePx> &
 	IMenuPaddingHorizontal<SizePx> &
 	IMenuStyle<Record<NavigationRailMenuStyle, NavigationRailPropertyMenuStyleMap>> &
