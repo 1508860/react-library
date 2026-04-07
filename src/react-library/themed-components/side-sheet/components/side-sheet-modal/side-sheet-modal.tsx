@@ -4,8 +4,9 @@ import {
 	UseDelayBooleanStateDirection
 } from "@react-library/common";
 
+import { Backdrop } from "../../../shared";
+
 import { SIDE_SHEET_PANEL_TRANSITION_DURATION_MS } from "../../constants/side-sheet-panel-transition-duration-ms.const";
-import { NavigationRailBackdrop } from "../side-sheet-backdrop";
 import { SideSheetPanel } from "../side-sheet-panel";
 import { SIDE_SHEET_MODAL_CHILDREN_STYLE } from "./styles/side-sheet-modal-children-style.const";
 import { sideSheetModalPanelStyle } from "./styles/side-sheet-modal-panel-style.function";
@@ -30,10 +31,11 @@ export function SideSheetModal(props: SideSheetModalProps) {
 			>
 				{props.children}
 			</div>
-			<NavigationRailBackdrop
-				onClose={props.onClose}
+			<Backdrop
+				isAbsolute={true}
+				onClick={props.onClose}
 				show={props.show}
-				key="backdrop"
+				transitionDurationMs={SIDE_SHEET_PANEL_TRANSITION_DURATION_MS}
 			/>
 			<div style={sideSheetModalPanelStyle(props.detach, props.position, colourScheme)}>
 				<SideSheetPanel

@@ -1,12 +1,15 @@
-import { useEffect, useRef, useState, type ReactElement } from "react";
+import { Fragment, useEffect, useRef, useState, type ReactElement } from "react";
 
 import { useColourSchemeContext } from "@react-library/common";
 
+import { NAVIGATION_RAIL_PROPERTY_MAP } from "../../constants/navigation-rail-property-map.const";
+import { NavigationRailMenuStyle } from "../../enums/navigation-rail-menu-style.type";
 import type { NavigationRailItemId } from "../../types/navigation-rail-item-id.type";
 import type { NavigationRailItem } from "../../types/navigation-rail-item.type";
-import { NavigationRailBackdrop } from "../backdrop";
+
 import { navigationRailContentStyle } from "./styles/navigation-rail-content-style.function";
 import type { NavigationRailContentProps } from "./types/navigation-rail-content-props.type";
+import { Backdrop } from "react-library/themed-components/shared";
 
 /**
  * Component to handle a navigation rail content
@@ -33,15 +36,22 @@ export function NavigationRailContent<TItemId extends NavigationRailItemId>(prop
 		[props.children, props.activeItemId]
 	);
 
+
+
 	return (
 		<div style={navigationRailContentStyle(colourScheme)}>
 			{activeChildElement}
-			<NavigationRailBackdrop
-				isExpanded={props.isExpanded}
-				key="backdrop"
-				menuStyle={props.menuStyle}
-				onExpandedChange={props.onExpandedChange}
-			/>
+			{
+				(props.menuStyle !== NavigationRailMenuStyle.ImmersiveModal) ?
+					<Fragment key="no-backdrop" /> :
+					<Backdrop
+						isAbsolute={true}
+						key="backdrop"
+						onClick={() => props.onExpandedChange(false)}
+						show={props.isExpanded}
+						transitionDurationMs={NAVIGATION_RAIL_PROPERTY_MAP.menuTransitionDurationMs}
+					/>
+			}
 		</div>
 	);
 }
