@@ -19,7 +19,7 @@ export function Modal(props: ModalProps) {
 	return createPortal(
 		(
 			<ModalContainer positionStrategy={props.positionStrategy}>
-				< ModalBackdrop key="backdrop">
+				<ModalBackdrop key="backdrop">
 					{props.backdrop}
 				</ModalBackdrop>
 				<ModalContent
