@@ -5,10 +5,12 @@ import type {
 	IHeight,
 	IIncludeRenderCounter,
 	IIndentIndex,
+	IIsAbsolute,
 	IJustify,
 	IOnClick,
 	IOnMouseEnter,
 	IOnMouseLeave,
+	IOpacity,
 	IOrientation,
 	IOverflow,
 	IPaddingBottom,
@@ -18,7 +20,8 @@ import type {
 	IRefCallback,
 	IWidth,
 	Orientation,
-	Size
+	Size,
+	StyleOpacity
 } from "@react-library/common";
 
 import type { DemoContentAlign } from "../enums/demo-content-align.type";
@@ -35,10 +38,12 @@ export type DemoContentProps = (
 	IHeight<Size | "auto"> &
 	Partial<IIncludeRenderCounter<boolean>> &
 	Partial<IIndentIndex<DemoContentIndentIndex>> &
+	Partial<IIsAbsolute<boolean>> &
 	IJustify<DemoContentJustify> &
 	Partial<IOnClick<Element>> &
 	Partial<IOnMouseEnter<Element>> &
 	Partial<IOnMouseLeave<Element>> &
+	Partial<IOpacity<StyleOpacity>> &
 	IOrientation<Orientation> &
 	IOverflow<DemoContentOverflow> &
 	Partial<IPaddingBottom<Size>> &
