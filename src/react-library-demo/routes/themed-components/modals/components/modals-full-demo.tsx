@@ -33,8 +33,7 @@ export function ReactLibraryThemedComponentsModalsFullDemo() {
 				orientation={Orientation.Vertical}
 				overflow={DemoContentOverflow.Auto}
 				width={MODALS_DEMO_SIZE_PX}
-			>
-			</DemoContent>
+			/>
 		</DemoSection>
 	);
 }
