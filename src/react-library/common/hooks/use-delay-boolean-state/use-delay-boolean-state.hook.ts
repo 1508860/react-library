@@ -19,8 +19,8 @@ export function useDelayBooleanState(boolean: boolean, direction: UseDelayBoolea
 		() => {
 			if (
 				boolean === booleanRef.current &&
-				direction == directionRef.current &&
-				delayMs == delayMsRef.current
+				direction === directionRef.current &&
+				delayMs === delayMsRef.current
 			) return;
 
 			const newState: boolean = boolean;
