@@ -4,25 +4,28 @@ import { UseDelayBooleanStateDirection } from "./enums/use-delay-boolean-state-d
 
 /**
  * Custom hook to handle delaying the change of a boolean state
+ * @param boolean
+ * @param direction
+ * @param delayMs
  */
-export function useDelayBooleanState(show: boolean, direction: UseDelayBooleanStateDirection, delayMs: number): [boolean] {
+export function useDelayBooleanState(boolean: boolean, direction: UseDelayBooleanStateDirection, delayMs: number): [boolean] {
 
-	const showRef = useRef<boolean>(show);
+	const booleanRef = useRef<boolean>(boolean);
 	const directionRef = useRef<UseDelayBooleanStateDirection>(direction);
 	const delayMsRef = useRef<number>(delayMs);
-	const [state, setState] = useState<boolean>(() => show);
+	const [state, setState] = useState<boolean>(() => boolean);
 
 	useEffect(
 		() => {
 			if (
-				show === showRef.current &&
+				boolean === booleanRef.current &&
 				direction == directionRef.current &&
 				delayMs == delayMsRef.current
 			) return;
 
-			const newState: boolean = show;
+			const newState: boolean = boolean;
 
-			showRef.current = newState;
+			booleanRef.current = newState;
 			directionRef.current = direction;
 			delayMsRef.current = delayMs;
 
@@ -39,7 +42,7 @@ export function useDelayBooleanState(show: boolean, direction: UseDelayBooleanSt
 
 			return;
 		},
-		[show, direction, delayMs]
+		[boolean, direction, delayMs]
 	);
 
 	return [state];
