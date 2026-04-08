@@ -1,10 +1,12 @@
+import type { Property } from "csstype";
 import type { CSSProperties } from "react";
 
 import {
 	positionStrategyInternalMarginBottom,
 	positionStrategyInternalMarginLeft,
 	positionStrategyInternalMarginRight,
-	positionStrategyInternalMarginTop
+	positionStrategyInternalMarginTop,
+	toSizeWithUnits
 } from "@react-library/common";
 
 import type { ModalContentConfig } from "../../../types/modal-content-config.type";
@@ -19,14 +21,24 @@ export function modalContentStyle(
 	contentConfig: ModalContentConfig | undefined,
 	positionStrategy: ModalPositionStrategyInternal
 ): CSSProperties {
+
+	let maxHeight: Property.MaxHeight | undefined = undefined;
+	let maxWidth: Property.MaxHeight | undefined = undefined;
+
+	if (contentConfig?.maxHeight === undefined) maxHeight = "100%";
+	else maxHeight = `calc(${toSizeWithUnits(contentConfig?.maxHeight)}, 100%)`;
+
+	if (contentConfig?.maxWidth === undefined) maxWidth = "100%";
+	else maxWidth = `calc(${toSizeWithUnits(contentConfig?.maxWidth)}, 100%)`;
+
 	return {
 		backgroundColor: contentConfig?.backgroundColour?.toColourString(),
 		bottom: positionStrategyInternalMarginBottom(positionStrategy),
 		display: "block",
 		height: contentConfig?.height,
 		left: positionStrategyInternalMarginLeft(positionStrategy),
-		maxHeight: contentConfig?.maxHeight,
-		maxWidth: contentConfig?.maxWidth,
+		maxHeight: maxHeight,
+		maxWidth: maxWidth,
 		minHeight: contentConfig?.minHeight,
 		minWidth: contentConfig?.minWidth,
 		position: "relative",
