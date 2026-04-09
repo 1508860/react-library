@@ -26,6 +26,7 @@ export function demoContentStyle(props: DemoContentProps, font: Font): CSSProper
 		boxSizing: "border-box",
 		display: "flex",
 		flexDirection: props.orientation === Orientation.Horizontal ? "row" : "column",
+		flexShrink: 0,
 		fontFamily: font.fontFamily,
 		fontSize: 16,
 		gap: 10,
