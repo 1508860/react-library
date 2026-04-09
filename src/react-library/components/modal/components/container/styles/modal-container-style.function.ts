@@ -18,7 +18,7 @@ export function modalContainerStyle(positionStrategy: ModalPositionStrategyInter
 		flexDirection: "column",
 		inset: 0,
 		justifyContent: positionStrategyInternalFlexJustifyContent(positionStrategy.positionType, "column"),
-		overflow: "auto",
+		overflow: "hidden",
 		position: "absolute"
 	};
 }
