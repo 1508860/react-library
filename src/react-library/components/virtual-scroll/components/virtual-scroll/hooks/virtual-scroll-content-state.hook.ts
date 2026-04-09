@@ -18,14 +18,14 @@ import type { VirtualScrollItemMap, VirtualScrollItemMapValue } from "../types/v
  * Resolves content state for virtual scroll and resolves items in the view to be rendered
  * @param itemBufferCount
  * @param orientation
- * @param virtualScrollSize
- * @param scrollState
+ * @param containerSize
+ * @param containerScrollState
  */
 export function useVirtualScrollContentState(
 	itemBufferCount: number,
 	orientation: VirtualScrollOrientation,
-	virtualScrollSize: DimensionsPx,
-	scrollState: ScrollObserverState
+	containerSize: DimensionsPx,
+	containerScrollState: ScrollObserverState
 ): VirtualScrollContentState {
 
 	const [renderId, setRenderId] = useState<Guid>(() => generateGuid());
@@ -67,14 +67,14 @@ export function useVirtualScrollContentState(
 			const renderState = virtualScrollRender(
 				itemBufferCount,
 				orientation,
-				virtualScrollSize,
-				scrollState,
+				containerSize,
+				containerScrollState,
 				itemsRef.current
 			);
 			setItemsInView(renderState.itemsInView);
 			setSize(renderState.size);
 		},
-		[itemBufferCount, orientation, virtualScrollSize, scrollState, renderId]
+		[itemBufferCount, orientation, containerSize, containerScrollState, renderId]
 	)
 
 	return {

@@ -1,10 +1,11 @@
 import { useCallback, useState } from "react";
 
-import { HexRgb, Orientation } from "@react-library/common";
+import { Orientation } from "@react-library/common";
 import {
 	VirtualScroll,
 	VirtualScrollItem,
-	type VirtualScrollBarConfig,
+	type VirtualScrollContainerProps,
+	type VirtualScrollContainerResult,
 	type VirtualScrollItemId
 } from "@react-library/components";
 
@@ -25,13 +26,6 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 	// virtual scroll
 	const [itemBufferCount] = useState<number>(() => 20);
 	const [defaultItemSize] = useState<number>(() => 30);
-	const [scrollBarConfig] = useState<VirtualScrollBarConfig>(() => ({
-		colour: {
-			thumb: new HexRgb("00", "FF", "00"),
-			track: new HexRgb("FF", "00", "00")
-		},
-		show: true
-	}));
 	const [items] = useState<Array<VirtualScrollDemoItemData>>(() => resolveVirtualScrollDemoItems(1000, 10, 60, 2));
 
 	const [showItemChildren, setShowItemChildren] = useState<VirtualScrollItemId | undefined>(() => undefined);
@@ -40,12 +34,12 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 		[]
 	);
 
-	return (<>
+	return (
 		<VirtualScroll
+			container={ReactLibraryComponentsVirtualScrollDemoScrollbar}
 			itemBufferCount={itemBufferCount}
 			itemSize={defaultItemSize}
 			orientation={Orientation.Vertical}
-			scrollbar={scrollBarConfig}
 		>
 			{items.map((item, itemIndex) => ([
 				<VirtualScrollItem
@@ -96,5 +90,22 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 				)
 			])).flat()}
 		</VirtualScroll>
-	</>);
+	);
+}
+
+function ReactLibraryComponentsVirtualScrollDemoScrollbar(props: VirtualScrollContainerProps): VirtualScrollContainerResult {
+	return (
+		<div
+			onScroll={props.onScroll}
+			ref={props.ref}
+			style={{
+				height: "100%",
+				overflowX: props.style.overflowX,
+				overflowY: props.style.overflowY,
+				width: "100%"
+			}}
+		>
+			{props.children}
+		</div>
+	)
 }

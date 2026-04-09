@@ -20,22 +20,22 @@ import { virtualScrollSort } from "./virtual-scroll-sort.function";
  * This is to improve app performance, especially in the case of a large number of items
  * @param itemBufferCount
  * @param orientation
- * @param virtualScrollSize
- * @param scrollState
+ * @param containerSize
+ * @param containerScrollState
  * @param itemMap
  */
 export function virtualScrollRender(
 	itemBufferCount: number,
 	orientation: VirtualScrollOrientation,
-	virtualScrollSize: DimensionsPx,
-	scrollState: ScrollObserverState,
+	containerSize: DimensionsPx,
+	containerScrollState: ScrollObserverState,
 	itemMap: VirtualScrollItemMap
 ): VirtualScrollRenderState {
 
 	// Validate parameters
 	const validItemBufferCount: number = (itemBufferCount < 0 ? 0 : itemBufferCount);
-	const scrollStart: SizePx = (orientation === Orientation.Horizontal ? scrollState.scrollStartHorizontal : scrollState.scrollStartVertical);
-	const scrollToEndOfViewport: SizePx = (scrollStart + (orientation === Orientation.Horizontal ? virtualScrollSize.width : virtualScrollSize.height));
+	const scrollStart: SizePx = (orientation === Orientation.Horizontal ? containerScrollState.scrollStartHorizontal : containerScrollState.scrollStartVertical);
+	const scrollToEndOfViewport: SizePx = (scrollStart + (orientation === Orientation.Horizontal ? containerSize.width : containerSize.height));
 	const orderedItems: Array<VirtualScrollItemId> = virtualScrollSort(itemMap);
 
 	const getValidatedItem = (id: VirtualScrollItemId): VirtualScrollItemMapValue => {

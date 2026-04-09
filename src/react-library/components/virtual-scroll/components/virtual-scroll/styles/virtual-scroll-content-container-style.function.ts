@@ -5,11 +5,11 @@ import { Orientation } from "@react-library/common";
 import type { VirtualScrollContentSize } from "../types/virtual-scroll-content-size.type";
 
 /**
- * Resolve virtual scroll container style based on parameters
+ * Resolve virtual scroll content container style based on parameters
  * @param orientation
  * @param size
  */
-export function virtualScrollContainerStyle(orientation: Orientation, size: VirtualScrollContentSize): CSSProperties {
+export function virtualScrollContentContainerStyle(orientation: Orientation, size: VirtualScrollContentSize): CSSProperties {
 	return {
 		boxSizing: "content-box",
 		display: "flex",

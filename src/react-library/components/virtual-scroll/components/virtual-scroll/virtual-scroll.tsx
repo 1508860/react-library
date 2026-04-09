@@ -2,6 +2,7 @@ import { useCallback, useState, type RefCallback } from "react";
 
 import {
 	type ScrollObserverState,
+	Orientation,
 	ResizeObserverDebounce,
 	resolveScrollObserverState,
 	SCROLL_OBSERVER_STATE_DEFAULT,
@@ -14,10 +15,10 @@ import { VIRTUAL_SCROLL_ITEM_SIZE_DEFAULT_CONTEXT } from "../../constants/virtua
 import { VIRTUAL_SCROLL_ITEM_UNREGISTER_CONTEXT } from "../../constants/virtual-scroll-item-unregister-context.const";
 import { VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT } from "../../constants/virtual-scroll-items-in-view-context.const";
 import { VIRTUAL_SCROLL_ORIENTATION_CONTEXT } from "../../constants/virtual-scroll-orientation-context.const";
+import type { VirtualScrollContainerElement } from "../../types/virtual-scroll-container-element.type";
 
 import { useVirtualScrollContentState } from "./hooks/virtual-scroll-content-state.hook";
-import { virtualScrollContainerStyle } from "./styles/virtual-scroll-container-style.function";
-import { virtualScrollStyle } from "./styles/virtual-scroll-style.function";
+import { virtualScrollContentContainerStyle } from "./styles/virtual-scroll-content-container-style.function";
 import type { VirtualScrollProps } from "./types/virtual-scroll-props.type";
 
 /**
@@ -26,17 +27,18 @@ import type { VirtualScrollProps } from "./types/virtual-scroll-props.type";
  * @param props
  */
 export function VirtualScroll(props: VirtualScrollProps) {
-	// Elements
-	const [virtualScrollElement, setVirtualScrollElement] = useState<HTMLDivElement | null>(null);
-	const setVirtualScrollElementCallback = useCallback<RefCallback<HTMLDivElement | null>>((element) => setVirtualScrollElement(element), []);
 
-	// Virtual scroll container resize state
-	const [virtualScrollSize] = useResizeObserverState(true, true, virtualScrollElement, "border-box", ResizeObserverDebounce["100Ms"]);
+	// Container element
+	const [ContainerElement, setContainerElement] = useState<VirtualScrollContainerElement>(() => null);
+	const setContainerElementCallback = useCallback<RefCallback<VirtualScrollContainerElement>>((element) => setContainerElement(element), []);
 
-	// Virtual scroll container scroll state
-	const [scrollState, setScrollState] = useState<ScrollObserverState>(SCROLL_OBSERVER_STATE_DEFAULT);
-	const handleSetScrollState = useCallback(
-		(event: React.UIEvent) => targetEvent(event, (callbackEvent) => setScrollState(resolveScrollObserverState(callbackEvent.currentTarget))),
+	// Container resize state
+	const [containerSize] = useResizeObserverState(true, true, ContainerElement, "border-box", ResizeObserverDebounce["100Ms"]);
+
+	// Container scroll state
+	const [containerScrollState, setContainerScrollState] = useState<ScrollObserverState>(SCROLL_OBSERVER_STATE_DEFAULT);
+	const handleSetContainerScrollState = useCallback(
+		(event: React.UIEvent) => targetEvent(event, (callbackEvent) => setContainerScrollState(resolveScrollObserverState(callbackEvent.currentTarget))),
 		[]
 	);
 
@@ -44,17 +46,21 @@ export function VirtualScroll(props: VirtualScrollProps) {
 	const { itemRegister, itemsInView, itemUnregister, size } = useVirtualScrollContentState(
 		props.itemBufferCount,
 		props.orientation,
-		virtualScrollSize,
-		scrollState
+		containerSize,
+		containerScrollState
 	);
 
 	return (
-		<div
-			onScroll={handleSetScrollState}
-			ref={setVirtualScrollElementCallback}
-			style={virtualScrollStyle(props.orientation, props.scrollbar)}
+		<props.container
+			onScroll={handleSetContainerScrollState}
+			orientation={props.orientation}
+			ref={setContainerElementCallback}
+			style={{
+				overflowX: props.orientation === Orientation.Horizontal ? "auto" : "unset",
+				overflowY: props.orientation === Orientation.Vertical ? "auto" : "unset"
+			}}
 		>
-			<div style={virtualScrollContainerStyle(props.orientation, size)}>
+			<div style={virtualScrollContentContainerStyle(props.orientation, size)}>
 				<VIRTUAL_SCROLL_ORIENTATION_CONTEXT value={props.orientation}>
 					<VIRTUAL_SCROLL_ITEM_SIZE_DEFAULT_CONTEXT value={props.itemSize}>
 						<VIRTUAL_SCROLL_ITEM_REGISTER_CONTEXT value={itemRegister}>
@@ -67,6 +73,6 @@ export function VirtualScroll(props: VirtualScrollProps) {
 					</VIRTUAL_SCROLL_ITEM_SIZE_DEFAULT_CONTEXT>
 				</VIRTUAL_SCROLL_ORIENTATION_CONTEXT>
 			</div>
-		</div>
+		</props.container>
 	);
 }
