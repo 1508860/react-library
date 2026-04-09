@@ -23,9 +23,9 @@ export function DemoItem(props: DemoItemProps) {
 					<></>
 			}
 			{
-				(Array.isArray(props.config)) ?
+				(Array.isArray(props.config) && props.config.length > 0) ?
 					<ul>
-						{props.config.map(configItem => <li key={configItem.key}>{configItem.key}: {configItem.value}</li>)}
+						{props.config.map(configItem => <li key={configItem.key}>{configItem.key}: {`${configItem.value}`}</li>)}
 					</ul> :
 					<></>
 			}
