@@ -26,10 +26,10 @@ export function modalContentStyle(
 	let maxWidth: Property.MaxHeight | undefined = undefined;
 
 	if (contentConfig?.maxHeight === undefined) maxHeight = "100%";
-	else maxHeight = `calc(${toSizeWithUnits(contentConfig?.maxHeight)}, 100%)`;
+	else maxHeight = `min(${toSizeWithUnits(contentConfig?.maxHeight)}, 100%)`;
 
 	if (contentConfig?.maxWidth === undefined) maxWidth = "100%";
-	else maxWidth = `calc(${toSizeWithUnits(contentConfig?.maxWidth)}, 100%)`;
+	else maxWidth = `min(${toSizeWithUnits(contentConfig?.maxWidth)}, 100%)`;
 
 	return {
 		backgroundColor: contentConfig?.backgroundColour?.toColourString(),
