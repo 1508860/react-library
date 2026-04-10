@@ -1,6 +1,6 @@
 import type { IChildrenSize, IPaddingEnd, IPaddingStart } from "@react-library/common";
 
-import type { VirtualScrollItemSize } from "../../../types/virtual-scroll-item-size.type";
+import type { VirtualScrollItemSize } from "./virtual-scroll-item-size.type";
 
 /**
  * Describes the size of the content for the virtual scroll
