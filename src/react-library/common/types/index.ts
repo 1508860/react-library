@@ -2,6 +2,7 @@ export * from "./array/array-fixed-length.type";
 export * from "./array/array-max-length.type";
 export * from "./array/array-min-length.type";
 export * from "./callback.type";
+export * from "./camel-to-kebab-case.type";
 export * from "./extends.type";
 export * from "./natural-integer-integer.type";
 export * from "./nonnegative-integer.type";
