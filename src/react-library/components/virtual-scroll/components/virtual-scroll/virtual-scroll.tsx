@@ -53,7 +53,7 @@ export function VirtualScroll(props: VirtualScrollProps) {
 			orientation: props.orientation,
 			ref: setContainerElementCallback
 		}),
-		[props]
+		[props.orientation, handleSetContainerScrollState, setContainerElementCallback]
 	);
 	const [containerProps, setContainerProps] = useState<VirtualScrollContainerProps>(() => resolveContainerProps());
 	useEffect(() => setContainerProps(resolveContainerProps()), [resolveContainerProps]);

@@ -1,7 +1,7 @@
 
 import type { IChild, IItemBufferCount, IItemSize, IOrientation } from "@react-library/common";
 
-import type { VirtualScrollContainer } from "../../../types/virtual-scroll-child.type";
+import type { VirtualScrollContainer } from "../../../types/virtual-scroll-container.type";
 import type { VirtualScrollItemSize } from "../../../types/virtual-scroll-item-size.type";
 import type { VirtualScrollOrientation } from "../../../types/virtual-scroll-orientation.type";
 

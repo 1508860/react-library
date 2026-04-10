@@ -1,4 +1,4 @@
-import type { VirtualScrollContentSize } from "../types/virtual-scroll-content-size.type";
+import type { VirtualScrollContentSize } from "../../../types/virtual-scroll-content-size.type";
 
 /**
  * Describes the default size of the content for the virtual scroll

@@ -6,11 +6,11 @@ import {
 	type SizePx
 } from "@react-library/common";
 
+import type { VirtualScrollContentSize } from "../../../types/virtual-scroll-content-size.type";
 import type { VirtualScrollItemId } from "../../../types/virtual-scroll-item-id.type";
 import type { VirtualScrollItemsInView } from "../../../types/virtual-scroll-items-in-view.type";
 import type { VirtualScrollOrientation } from "../../../types/virtual-scroll-orientation.type";
 
-import type { VirtualScrollContentSize } from "../types/virtual-scroll-content-size.type";
 import type { VirtualScrollItemMap, VirtualScrollItemMapValue } from "../types/virtual-scroll-item-map.type";
 import type { VirtualScrollRenderState } from "../types/virtual-scroll-render-state.type";
 import { virtualScrollSort } from "./virtual-scroll-sort.function";

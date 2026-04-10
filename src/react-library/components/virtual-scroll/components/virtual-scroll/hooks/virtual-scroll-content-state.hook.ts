@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import { generateGuid, type DimensionsPx, type Guid, type ScrollObserverState } from "@react-library/common";
 
+import type { VirtualScrollContentSize } from "../../../types/virtual-scroll-content-size.type";
 import type { VirtualScrollItemId } from "../../../types/virtual-scroll-item-id.type";
 import type { VirtualScrollItemRegister } from "../../../types/virtual-scroll-item-register.type";
 import type { VirtualScrollItemUnregister } from "../../../types/virtual-scroll-item-unregister.type";
@@ -10,7 +11,6 @@ import type { VirtualScrollOrientation } from "../../../types/virtual-scroll-ori
 
 import { VIRTUAL_SCROLL_CONTENT_SIZE_DEFAULT } from "../constants/virtual-scroll-content-size-default.const";
 import { virtualScrollRender } from "../functions/virtual-scroll-render.function";
-import type { VirtualScrollContentSize } from "../types/virtual-scroll-content-size.type";
 import type { VirtualScrollContentState } from "../types/virtual-scroll-content-state.type";
 import type { VirtualScrollItemMap, VirtualScrollItemMapValue } from "../types/virtual-scroll-item-map.type";
 

@@ -1,10 +1,10 @@
 import type { IItemRegister, IItemsInView, IItemUnregister, ISize } from "@react-library/common";
 
+import type { VirtualScrollContentSize } from "../../../types/virtual-scroll-content-size.type";
 import type { VirtualScrollItemRegister } from "../../../types/virtual-scroll-item-register.type";
 import type { VirtualScrollItemsInView } from "../../../types/virtual-scroll-items-in-view.type";
 import type { VirtualScrollItemUnregister } from "../../../types/virtual-scroll-item-unregister.type";
 
-import type { VirtualScrollContentSize } from "./virtual-scroll-content-size.type";
 
 /**
  * Describes the state of the content for the virtual scroll
