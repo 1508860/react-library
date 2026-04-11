@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
-import type { Callback } from "@react-library/common";
+import { useResolveState, type Callback } from "@react-library/common";
 import { useTooltipChildPropsContext } from "@react-library/components";
 
 import { TOOLTIP_PLAIN_CHILD_PROPS_CONTEXT } from "../../constants/tooltip-plain-child-props-context.const";
@@ -29,8 +29,7 @@ export function TooltipPlainInternal(props: TooltipPlainInternalProps) {
 		}),
 		[tooltipChildProps.ref]
 	);
-	const [tooltipPlainChildProps, setTooltipPlainChildProps] = useState<TooltipPlainChildProps>(() => resolveTooltipChildProps());
-	useEffect(() => setTooltipPlainChildProps(resolveTooltipChildProps()), [resolveTooltipChildProps]);
+	const tooltipPlainChildProps = useResolveState<TooltipPlainChildProps>(resolveTooltipChildProps);
 
 	return (
 		<TOOLTIP_PLAIN_CHILD_PROPS_CONTEXT value={tooltipPlainChildProps}>

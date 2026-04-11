@@ -1,6 +1,9 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 
+import { useResolveState } from "../../hooks";
 import { useLanguageCodeContext } from "../../iso";
+import type { Callback } from "../../types";
+
 import { DateDisplayStyle } from "../enums/date-display-style.type";
 import type { DateTimeDisplayLength } from "../enums/date-time-display-length.type";
 import type { TimeDisplayStyle } from "../enums/time-display-style.type";
@@ -22,7 +25,7 @@ export function useDateTimeDisplayFormatterState(
 
 	const languageCode = useLanguageCodeContext();
 
-	const resolveState = useCallback<() => Intl.DateTimeFormat>(
+	const resolveState = useCallback<Callback<Intl.DateTimeFormat>>(
 		() => {
 			const options: DateTimeDisplayFormatterOptions = {};
 
@@ -34,12 +37,7 @@ export function useDateTimeDisplayFormatterState(
 		[dateStyle, timeStyle, length, languageCode]
 	);
 
-	const [state, setState] = useState<Intl.DateTimeFormat>(() => resolveState());
-
-	useEffect(
-		() => setState(resolveState()),
-		[resolveState]
-	);
+	const state = useResolveState<Intl.DateTimeFormat>(resolveState);
 
 	return [state];
 }

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, type RefCallback } from "react";
+import { useCallback, useState, type RefCallback } from "react";
 
 import {
 	type Callback,
@@ -7,7 +7,8 @@ import {
 	resolveScrollObserverState,
 	SCROLL_OBSERVER_STATE_DEFAULT,
 	targetEvent,
-	useResizeObserverState
+	useResizeObserverState,
+	useResolveState
 } from "@react-library/common";
 
 import { VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT } from "../../constants/virtual-scroll-content-size-context.const";
@@ -55,8 +56,7 @@ export function VirtualScroll(props: VirtualScrollProps) {
 		}),
 		[props.orientation, handleSetContainerScrollState, setContainerElementCallback]
 	);
-	const [containerProps, setContainerProps] = useState<VirtualScrollContainerProps>(() => resolveContainerProps());
-	useEffect(() => setContainerProps(resolveContainerProps()), [resolveContainerProps]);
+	const containerProps = useResolveState<VirtualScrollContainerProps>(resolveContainerProps);
 
 	// Virtual scroll render state
 	const { itemRegister, itemsInView, itemUnregister, size } = useVirtualScrollContentState(

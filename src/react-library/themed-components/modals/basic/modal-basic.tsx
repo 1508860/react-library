@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
-import { useDelayCallback, type Callback } from "@react-library/common";
+import { useDelayCallback, useResolveState, type Callback } from "@react-library/common";
 import { Modal } from "@react-library/components";
 
 import { Backdrop } from "../../shared";
@@ -39,8 +39,7 @@ export function ModalBasic(props: ModalBasicProps) {
 		() => (props.actionConfirm ? { action: handleOnConfirmCallback, text: props.actionConfirm.text } : undefined),
 		[props.actionConfirm, handleOnConfirmCallback]
 	);
-	const [actionConfirm, setActionConfirm] = useState<ModalBasicActionConfirm | undefined>(() => resolveActionConfirm());
-	useEffect(() => setActionConfirm(resolveActionConfirm()), [resolveActionConfirm]);
+	const actionConfirm = useResolveState<ModalBasicActionConfirm | undefined>(resolveActionConfirm);
 
 	// On dismiss callback
 	const onDismissCallback = useCallback<Callback<void>>(() => props.actionDismiss.action(), [props.actionDismiss]);
@@ -58,8 +57,7 @@ export function ModalBasic(props: ModalBasicProps) {
 		() => ({ action: handleOnDismissCallback, text: props.actionDismiss.text }),
 		[props.actionDismiss, handleOnDismissCallback]
 	);
-	const [actionDismiss, setActionDismiss] = useState<ModalBasicActionDismiss>(() => resolveActionDismiss());
-	useEffect(() => setActionDismiss(resolveActionDismiss()), [resolveActionDismiss]);
+	const actionDismiss = useResolveState<ModalBasicActionDismiss>(resolveActionDismiss);
 
 	return (
 		<Modal

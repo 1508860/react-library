@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import {
 	useDelayBooleanState,
 	UseDelayBooleanStateDirection,
+	useResolveState,
 	type Callback
 } from "@react-library/common";
 import {
@@ -59,8 +60,7 @@ export function useTooltipRichInternalState(): TooltipRichInternalState {
 		}),
 		[tooltipChildProps.ref]
 	);
-	const [childProps, setChildProps] = useState<TooltipRichChildProps>(() => resolveTooltipChildProps());
-	useEffect(() => setChildProps(resolveTooltipChildProps()), [resolveTooltipChildProps]);
+	const childProps = useResolveState<TooltipRichChildProps>(resolveTooltipChildProps);
 
 	// Handle tooltip content
 	useEffect(

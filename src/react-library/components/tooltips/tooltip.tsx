@@ -1,5 +1,7 @@
-import { useCallback, useEffect, useState, type RefCallback } from "react";
+import { useCallback, useState, type RefCallback } from "react";
 import { createPortal } from "react-dom";
+
+import { useResolveState, type Callback } from "@react-library/common";
 
 import { useOverlayPortalContext } from "../overlay-portal";
 
@@ -47,9 +49,8 @@ export function Tooltip(props: TooltipProps) {
 	const setChildElementCallback = useCallback<RefCallback<TooltipChildElement>>((element) => setChildElement(element), []);
 
 	// Child element props
-	const resolveChildProps = useCallback<() => TooltipChildProps>(() => ({ ref: setChildElementCallback }), [setChildElementCallback]);
-	const [childProps, setChildElementProps] = useState<TooltipChildProps>(resolveChildProps());
-	useEffect(() => setChildElementProps(resolveChildProps()), [resolveChildProps]);
+	const resolveChildProps = useCallback<Callback<TooltipChildProps>>(() => ({ ref: setChildElementCallback }), [setChildElementCallback]);
+	const childProps = useResolveState<TooltipChildProps>(resolveChildProps);
 
 	// Tooltip position
 	const [tooltipPosition] = useTooltipPositionState(

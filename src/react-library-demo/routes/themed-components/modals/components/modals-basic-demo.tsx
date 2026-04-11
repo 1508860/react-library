@@ -1,7 +1,8 @@
-import { Fragment, useCallback, useEffect, useState } from "react";
+import { Fragment, useCallback, useState } from "react";
 
 import {
 	Orientation,
+	useResolveState,
 	type Callback,
 	type IActionConfirm,
 	type IChild,
@@ -10,8 +11,8 @@ import {
 	type ITextMaxWidth,
 	type ITitle
 } from "@react-library/common";
-import { ModalBasic, ModalBasicActionDismissText } from "@react-library/themed-components";
 import { MaterialIconName } from "@react-library/material-icons";
+import { ModalBasic, ModalBasicActionDismissText } from "@react-library/themed-components";
 
 import {
 	DEMO_LOREM_IPSUM,
@@ -105,8 +106,7 @@ function ModalsBasicDemoItem(props: (
 		},
 		[props]
 	);
-	const [demoItemConfig, setDemoItemConfig] = useState<DemoItemConfigCollection>(() => resolveDemoItemConfig());
-	useEffect(() => setDemoItemConfig(resolveDemoItemConfig()), [resolveDemoItemConfig]);
+	const demoItemConfig = useResolveState<DemoItemConfigCollection>(resolveDemoItemConfig);
 
 	const [showModal, setShowModal] = useState<boolean>(() => false);
 	const handleHideModal = useCallback<Callback<void>>(() => setShowModal(false), []);

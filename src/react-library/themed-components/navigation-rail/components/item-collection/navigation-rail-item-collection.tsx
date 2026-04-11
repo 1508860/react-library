@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 
-import { Orientation, useFontContext } from "@react-library/common";
+import { Orientation, useFontContext, useResolveState } from "@react-library/common";
 
 import { NavigationRailMenuStyle } from "../../enums/navigation-rail-menu-style.type";
 import type { NavigationRailItemId } from "../../types/navigation-rail-item-id.type";
@@ -22,8 +22,7 @@ export function NavigationRailItemCollection<TItemId extends NavigationRailItemI
 		() => ((props.menuStyle !== NavigationRailMenuStyle.Standard || props.isExpanded) ? Orientation.Horizontal : Orientation.Vertical),
 		[props.isExpanded, props.menuStyle]
 	);
-	const [itemOrientation, setItemOrientation] = useState<Orientation>(() => resolveOrientation());
-	useEffect(() => setItemOrientation(resolveOrientation()), [resolveOrientation]);
+	const itemOrientation = useResolveState<Orientation>(resolveOrientation);
 
 	return (
 		<div style={NAVIGATION_RAIL_ITEM_COLLECTION_CONTAINER_STYLE}>

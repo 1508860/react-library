@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 
-import { Orientation, type Callback } from "@react-library/common";
+import { Orientation, useResolveState, type Callback } from "@react-library/common";
 
 import {
 	ButtonContent,
@@ -51,8 +51,7 @@ export function ModalBasicActions(props: ModalBasicActionsProps) {
 		[props.actionConfirm, props.actionDismiss.action, props.actionDismiss.text]
 	);
 
-	const [buttonGroupChildren, setButtonGroupChildren] = useState<Array<ButtonGroupButtonText>>(() => resolveButtonGroupChildren());
-	useEffect(() => setButtonGroupChildren(resolveButtonGroupChildren()), [resolveButtonGroupChildren]);
+	const buttonGroupChildren = useResolveState<Array<ButtonGroupButtonText>>(resolveButtonGroupChildren);
 
 	return (
 		<div style={MODAL_BASIC_ACTIONS_STYLE}>

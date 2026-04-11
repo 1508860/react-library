@@ -1,12 +1,21 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback } from "react";
 
-import { Orientation, PositionStrategyInternal, type SizePx } from "@react-library/common";
+import {
+	Orientation,
+	PositionStrategyInternal,
+	useResolveState,
+	type Callback,
+	type SizePx,
+	type UseResolveStateEqualityCallback
+} from "@react-library/common";
 
 import type { FloatingButtonGroupOrientation } from "../../../types/floating-button-group-orientation.type";
 import type { FloatingButtonGroupPositionAlignItems } from "../../../types/floating-button-group-position-align-items.type";
 import type { FloatingButtonGroupPositionFlexDirection } from "../../../types/floating-button-group-position-flex-direction.type";
 import type { FloatingButtonGroupPositionStrategy } from "../../../types/floating-button-group-position-strategy.type";
 import type { FloatingButtonGroupPosition } from "../../../types/floating-button-group-position.type";
+
+import { isFloatingButtonGroupPositionEqual } from "../functions/is-floating-button-group-position-equal.functions";
 
 /**
  * Describes use state hook result for the floating button group position
@@ -18,7 +27,7 @@ export function useFloatingButtonGroupPositionState(
 	orientation: FloatingButtonGroupOrientation
 ): [FloatingButtonGroupPosition] {
 
-	const resolvePosition = useCallback<() => FloatingButtonGroupPosition>(
+	const resolvePosition = useCallback<Callback<FloatingButtonGroupPosition>>(
 		() => {
 			let alignItems: FloatingButtonGroupPositionAlignItems = undefined;
 			let bottom: SizePx | undefined = undefined;
@@ -98,36 +107,8 @@ export function useFloatingButtonGroupPositionState(
 		[positionStrategy, orientation]
 	);
 
-	const [state, setState] = useState<FloatingButtonGroupPosition>(resolvePosition());
-	const stateRef = useRef<FloatingButtonGroupPosition>(state);
-
-	const setValidatedState = useCallback(
-		(newState: FloatingButtonGroupPosition) => {
-			if (isFloatingButtonGroupPositionEqual(stateRef.current, newState)) return;
-			stateRef.current = newState;
-			setState(newState);
-		},
-		[]
-	);
-
-	useEffect(
-		() => setValidatedState(resolvePosition()),
-		[resolvePosition, setValidatedState]
-	);
+	const stateEqualityCallback = useCallback<UseResolveStateEqualityCallback<FloatingButtonGroupPosition>>(isFloatingButtonGroupPositionEqual, []);
+	const state = useResolveState<FloatingButtonGroupPosition>(resolvePosition, stateEqualityCallback);
 
 	return [state];
-}
-
-function isFloatingButtonGroupPositionEqual(state1: FloatingButtonGroupPosition, state2: FloatingButtonGroupPosition): boolean {
-	return (
-		state1 &&
-		state2 &&
-		state1.alignItems === state2.alignItems &&
-		state1.flexDirection === state2.flexDirection &&
-		state1.gap === state2.gap &&
-		state1.inset.bottom === state2.inset.bottom &&
-		state1.inset.left === state2.inset.left &&
-		state1.inset.right === state2.inset.right &&
-		state1.inset.top === state2.inset.top
-	);
 }

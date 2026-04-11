@@ -7,6 +7,7 @@ import {
 
 import {
 	useColourSchemeContext,
+	useResolveState,
 	type Callback,
 	type CallbackWithParameter
 } from "@react-library/common";
@@ -45,8 +46,7 @@ export function Backdrop(props: BackdropProps) {
 		() => (!!props.onClick || !!props.onPointerEnter || !!props.onPointerLeave),
 		[props.onClick, props.onPointerEnter, props.onPointerLeave]
 	);
-	const [showPointer, setShowPointer] = useState(() => resolveShowPointer());
-	useEffect(() => setShowPointer(resolveShowPointer()), [resolveShowPointer]);
+	const showPointer = useResolveState<boolean>(resolveShowPointer);
 
 	// Handle transition on complete
 	const handleTransitionFadeOnComplete = useCallback<CallbackWithParameter<TransitionFadeOnCompleteParam, void>>(

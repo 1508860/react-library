@@ -1,6 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 
+import { useResolveState } from "../../../hooks";
 import { useLanguageCodeContext } from "../../../iso";
+import type { Callback } from "../../../types";
 
 /**
  * Custom hook for resolving a currency formatter
@@ -10,7 +12,7 @@ export function useCurrencyFormatterState(roundValue: boolean): [Intl.NumberForm
 
 	const languageCode = useLanguageCodeContext();
 
-	const resolveState = useCallback<() => Intl.NumberFormat>(
+	const resolveState = useCallback<Callback<Intl.NumberFormat>>(
 		() => (
 			new Intl.NumberFormat(
 				languageCode,
@@ -25,12 +27,7 @@ export function useCurrencyFormatterState(roundValue: boolean): [Intl.NumberForm
 		[roundValue, languageCode]
 	);
 
-	const [state, setState] = useState<Intl.NumberFormat>(() => resolveState());
-
-	useEffect(
-		() => setState(resolveState()),
-		[resolveState]
-	);
+	const state = useResolveState<Intl.NumberFormat>(resolveState);
 
 	return [state];
 }
