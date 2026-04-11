@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 
+import { useResolveState, type Callback } from "@react-library/common";
 import type { TransitionPulseInsetData } from "@react-library/components";
 
 import { BUTTON_CLICKED_INSET_CONTEXT } from "../../constants/button-clicked-inset-context.const";
@@ -10,6 +11,7 @@ import type { ButtonClickTarget } from "../../types/button-click-target.type";
 
 import { BUTTON_CONTAINER_STYLE } from "./styles/button-container-style.const";
 import type { ButtonContainerProps } from "./types/button-container-props.type";
+import type { ButtonContainerUseColourStateParam } from "./types/button-container-use-colour-state-param.type";
 
 /**
  * Button container component
@@ -21,11 +23,16 @@ export function ButtonContainer<TUseColourStateConfig>(props: ButtonContainerPro
 	const [isPressed, setIsPressed] = useState<boolean>(() => false);
 	const [clickedInset, setClickedInset] = useState<TransitionPulseInsetData | null>(() => null);
 
-	const [buttonColourState] = props.useColourState({
-		config: props.colourStateConfig,
-		isHovered: isHovered,
-		isPressed: isPressed
-	});
+	const resolveButtonColourStateParam = useCallback<Callback<ButtonContainerUseColourStateParam<TUseColourStateConfig>>>(
+		() => ({
+			config: props.colourStateConfig,
+			isHovered: isHovered,
+			isPressed: isPressed
+		}),
+		[props.colourStateConfig, isHovered, isPressed]
+	);
+	const buttonColourStateParam = useResolveState<ButtonContainerUseColourStateParam<TUseColourStateConfig>>(resolveButtonColourStateParam);
+	const [buttonColourState] = props.useColourState(buttonColourStateParam);
 
 	// Handle setting refs
 	const handleButtonContainerElementRef = useCallback(

@@ -5,7 +5,8 @@ import {
 	type ArrayMinLength2,
 	UseArrayIncrementDirection,
 	type ScaleDegreesState,
-	incrementScaleDegrees
+	incrementScaleDegrees,
+	type UseArrayIncrementStateProps
 } from "@react-library/common";
 
 import { LOADING_INDICATOR_SHAPE_ALL } from "../constants/loading-indicator-shape-all.const";
@@ -17,16 +18,18 @@ import type { LoadingIndicatorState } from "../types/loading-indicator-state.typ
 /**
  * Custom hook for resolving the loading indicator's state
  */
-export function useCurrencyDisplayFormatterState(): LoadingIndicatorState {
+export function useLoadingIndicatorState(): LoadingIndicatorState {
+
+	const [arrayIncrementStateProps] = useState<UseArrayIncrementStateProps>(() => ({
+		intervalProps: {
+			direction: UseArrayIncrementDirection.Forwards,
+			intervalMs: LOADING_INDICATOR_SHAPE_TIME_INTERVAL_MS
+		}
+	}));
 
 	const { state: shapeState, count: shapeIncrementCount } = useArrayIncrementState<LoadingIndicatorShape, ArrayMinLength2<LoadingIndicatorShape>>(
 		LOADING_INDICATOR_SHAPE_ALL,
-		{
-			intervalProps: {
-				direction: UseArrayIncrementDirection.Forwards,
-				intervalMs: LOADING_INDICATOR_SHAPE_TIME_INTERVAL_MS
-			}
-		}
+		arrayIncrementStateProps
 	);
 
 	const [scaleDegreesState, setScaleDegreesState] = useState<ScaleDegreesState>(() => ({ degrees: 0, rotationCount: 0 }));

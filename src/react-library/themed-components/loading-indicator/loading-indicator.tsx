@@ -11,7 +11,7 @@ import { LOADING_INDICATOR_SHAPE_ALL } from "./constants/loading-indicator-shape
 import { LOADING_INDICATOR_SHAPE_TIME_TRANSITION_MS } from "./constants/loading-indicator-shape-time.const";
 import { LOADING_INDICATOR_SHAPE_SIZE } from "./constants/loading-indicator-size.const";
 import { LoadingIndicatorShapeMap } from "./enums/loading-indicator-shape-map.type";
-import { useCurrencyDisplayFormatterState } from "./hooks/use-loading-indicator-state.hook";
+import { useLoadingIndicatorState } from "./hooks/use-loading-indicator-state.hook";
 import { loadingIndicatorBackgroundStyle } from "./styles/loading-indicator-background-style.function";
 import { loadingIndicatorContainerStyle } from "./styles/loading-indicator-container-style.function";
 import { LOADING_INDICATOR_SHAPE_CONTAINER_STYLE } from "./styles/loading-indicator-shape-container-style.const";
@@ -26,7 +26,7 @@ export function LoadingIndicator(props: LoadingIndicatorProps) {
 
 	const colourScheme = useColourSchemeContext();
 
-	const loadingIndicatorState = useCurrencyDisplayFormatterState();
+	const loadingIndicatorState = useLoadingIndicatorState();
 
 	return (
 		<div style={loadingIndicatorContainerStyle(props)}>

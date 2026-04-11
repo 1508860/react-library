@@ -1,11 +1,24 @@
+import { useCallback } from "react";
+
+import { useResolveState, type Callback } from "@react-library/common";
+
 import { RouterGuardState } from "../../enums/router-guard-state.type";
+import type { RouterGuardHookCallback } from "../../types/router-guard-hook-callback.type";
+
 import { RouterGuardFailureResolver } from "../router-guard-failure-resolver";
 import { RouterGuardLoadingResolver } from "../router-guard-loading-resolver";
 import type { RouterGuardOutletProps } from "./types/router-guard-outlet-props.type";
 
 export function RouterGuardOutlet(props: RouterGuardOutletProps) {
 
-	const state = props.hooks[props.hookIndex].hook({ segmentId: props.segmentId });
+	const resolveHookCallback = useCallback<Callback<RouterGuardHookCallback>>(
+		() => props.hooks[props.hookIndex].hook,
+		[props.hookIndex, props.hooks]
+	);
+
+	const hookCallback = useResolveState<RouterGuardHookCallback>(resolveHookCallback);
+
+	const state = hookCallback({ segmentId: props.segmentId });
 
 	return (
 		state === RouterGuardState.Failure ?
