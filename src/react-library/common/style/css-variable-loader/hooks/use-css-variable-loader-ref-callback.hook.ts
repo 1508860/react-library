@@ -16,7 +16,7 @@ export function useStyleCssVariableLoaderRefCallback<TElement extends ElementCSS
 			if (element) {
 				let key: StyleCssVariableLoaderVariableKey;
 				for (key in variables) {
-					element.style.setProperty(key, variables[key] ?? null);
+					element.style.setProperty(key, (variables[key] !== undefined ? `${variables[key]}` : null));
 				}
 			}
 			if (refCallback) refCallback(element);

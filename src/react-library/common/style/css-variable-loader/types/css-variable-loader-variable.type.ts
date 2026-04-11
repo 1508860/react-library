@@ -2,7 +2,7 @@
  * Used to configure values for CSS variables to be loaded for an element
  */
 export type StyleCssVariableLoaderVariables = {
-	[key: StyleCssVariableLoaderVariableKey]: (string | null | undefined);
+	[key: StyleCssVariableLoaderVariableKey]: (number | string | null | undefined);
 };
 
 /**
