@@ -1,27 +1,26 @@
 {
 	"compilerOptions": {
-		"baseUrl": "./src/",
 		"paths": {
 			"@react-library/common": [
-				"react-library/common/index.ts"
+				"./src/react-library/common/index.ts"
 			],
 			"@react-library/components": [
-				"react-library/components/index.ts"
+				"./src/react-library/components/index.ts"
 			],
 			"@react-library/material-icons": [
-				"react-library/material-icons/index.ts"
+				"./src/react-library/material-icons/index.ts"
 			],
 			"@react-library/router": [
-				"react-library/router/index.ts"
+				"./src/react-library/router/index.ts"
 			],
 			"@react-library/themed-components": [
-				"react-library/themed-components/index.ts"
+				"./src/react-library/themed-components/index.ts"
 			],
 			"@react-library-demo/routes": [
-				"react-library-demo/routes/index.ts"
+				"./src/react-library-demo/routes/index.ts"
 			],
 			"@react-library-demo/shared": [
-				"react-library-demo/shared/index.ts"
+				"./src/react-library-demo/shared/index.ts"
 			]
 		},
 	},
