@@ -2,7 +2,7 @@ import { Fragment } from "react";
 
 import { useColourSchemeContext } from "@react-library/common";
 
-import { sideSheetPanelStyle } from "./styles/divider-style.function";
+import { dividerStyle } from "./styles/divider-style.function";
 import type { DividerProps } from "./types/divider-props.type";
 
 /**
@@ -28,6 +28,11 @@ export function DividerLine(props: DividerProps) {
 	const colourScheme = useColourSchemeContext();
 
 	return (
-		<div style={sideSheetPanelStyle(props.orientation, colourScheme)} />
+		<div style={dividerStyle(
+			props.marginAfter,
+			props.marginBefore,
+			props.orientation,
+			colourScheme
+		)} />
 	);
 }
