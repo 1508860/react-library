@@ -3,7 +3,6 @@ import {
 	useArrayIncrementState,
 	ScalePercent,
 	type ArrayMinLength2,
-	UseArrayIncrementDirection,
 	useEasingLinearScalePercentState,
 	incrementScalePercent,
 	SCALE_PERCENT_MAX
@@ -22,7 +21,12 @@ import {
 import { ProgressIndicatorCircle } from "../progress-indicator-circle";
 import { ProgressIndicatorCircleContainer } from "../progress-indicator-circle-container";
 
-import { PROGRESS_INDICATOR_CIRCLE_INDETERMINATE_SCALE_PERCENT_ALL } from "./constants/progress-indicator-circle-indeterminate-scale.const";
+import {
+	PROGRESS_INDICATOR_CIRCLE_INDETERMINATE_SCALE_PERCENT_ALL
+} from "./constants/progress-indicator-circle-indeterminate-scale.const";
+import {
+	PROGRESS_INDICATOR_CIRCLE_INDETERMINATE_SHAPE_ARRAY_INCREMENT_STATE_PROPS
+} from "./constants/progress-indicator-circle-indeterminate-time.const";
 
 export function ProgressIndicatorCircleIndeterminate() {
 
@@ -30,12 +34,7 @@ export function ProgressIndicatorCircleIndeterminate() {
 
 	const { state: activeScalePercent } = useArrayIncrementState<ScalePercent, ArrayMinLength2<ScalePercent>>(
 		PROGRESS_INDICATOR_CIRCLE_INDETERMINATE_SCALE_PERCENT_ALL,
-		{
-			intervalProps: {
-				direction: UseArrayIncrementDirection.Forwards,
-				intervalMs: PROGRESS_INDICATOR_INDETERMINATE_CYCLE_DURATION_MS
-			}
-		}
+		PROGRESS_INDICATOR_CIRCLE_INDETERMINATE_SHAPE_ARRAY_INCREMENT_STATE_PROPS
 	);
 
 	const [activeScalePercentState] = useEasingLinearScalePercentState(activeScalePercent, PROGRESS_INDICATOR_EASING_SCALE_PERCENT_TIMER_MS);
