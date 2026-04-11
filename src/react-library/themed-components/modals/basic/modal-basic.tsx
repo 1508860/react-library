@@ -9,8 +9,8 @@ import { ModalBasicActions } from "./components/actions";
 import { ModalBasicContainer } from "./components/container";
 import { ModalBasicContentContainer } from "./components/content-container";
 import { ModalBasicHeader } from "./components/header";
+import { MODAL_BASIC_CONTENT_CONFIG } from "./constants/modal-basic-content-config.const";
 import { MODAL_BASIC_POSITION_STRATEGY } from "./constants/modal-basic-position-strategy.const";
-import { MODAL_BASIC_SIZE_MAX_WIDTH, MODAL_BASIC_SIZE_MIN_WIDTH } from "./constants/modal-basic-size.const";
 import { MODAL_BASIC_TRANSITION_MS } from "./constants/modal-basic-transition.const";
 import type { ModalBasicActionConfirm, ModalBasicActionDismiss } from "./types/modal-basic-action.type";
 import type { ModalBasicProps } from "./types/modal-basic-props.type";
@@ -70,10 +70,7 @@ export function ModalBasic(props: ModalBasicProps) {
 					transitionDurationMs={MODAL_BASIC_TRANSITION_MS}
 				/>
 			}
-			contentConfig={{
-				maxWidth: MODAL_BASIC_SIZE_MAX_WIDTH,
-				minWidth: MODAL_BASIC_SIZE_MIN_WIDTH
-			}}
+			contentConfig={MODAL_BASIC_CONTENT_CONFIG}
 			positionStrategy={MODAL_BASIC_POSITION_STRATEGY}
 		>
 			<ModalBasicContainer show={showModal}>

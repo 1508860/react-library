@@ -7,7 +7,8 @@ import {
 
 import {
 	ResizeObserverDebounce,
-	useResizeObserverState
+	useResizeObserverState,
+	useResolveState
 } from "@react-library/common";
 
 import { RootViewportPositionPxProvider } from "./providers/root-viewport-position-px-provider";
@@ -26,6 +27,20 @@ export function RootViewportPositionPx(props: PropsWithChildren) {
 	// Root viewport position container resize state
 	const [viewportDimensions] = useResizeObserverState(true, true, viewportElement, "border-box", ResizeObserverDebounce["100Ms"]);
 
+	const resolveProviderState = useCallback(
+		() => ({
+			height: viewportDimensions.height,
+			marginBottom: 0,
+			marginLeft: 0,
+			marginRight: 0,
+			marginTop: 0,
+			width: viewportDimensions.width
+		}),
+		[viewportDimensions.height, viewportDimensions.width]
+	);
+
+	const providerState = useResolveState(resolveProviderState);
+
 	return (
 		<div
 			ref={setViewportElementCallback}
@@ -33,14 +48,7 @@ export function RootViewportPositionPx(props: PropsWithChildren) {
 		>
 			{
 				!viewportElement ? <></> :
-					<RootViewportPositionPxProvider value={{
-						height: viewportDimensions.height,
-						marginBottom: 0,
-						marginLeft: 0,
-						marginRight: 0,
-						marginTop: 0,
-						width: viewportDimensions.width
-					}}					>
+					<RootViewportPositionPxProvider value={providerState}>
 						{props.children}
 					</RootViewportPositionPxProvider>
 			}

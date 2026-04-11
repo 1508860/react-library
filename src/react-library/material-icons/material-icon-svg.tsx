@@ -1,4 +1,6 @@
-import { SVG_NAMESPACE } from "@react-library/common";
+import { useCallback } from "react";
+
+import { SVG_NAMESPACE, useResolveState } from "@react-library/common";
 import { IconSvg } from "@react-library/components";
 
 import { MATERIAL_ICON_SVG_VIEW_BOX } from "./constants/material-icon-svg-view-box.const";
@@ -10,14 +12,22 @@ import type { MaterialIconSvgProps } from "./types/material-icon-svg-props.type"
  * @param props
  */
 export function MaterialIconSvg(props: MaterialIconSvgProps) {
+
+	const resolveDataState = useCallback(
+		() => ({
+			namespace: SVG_NAMESPACE,
+			paths: MaterialIconStyleMap[props.style][props.name],
+			viewBox: MATERIAL_ICON_SVG_VIEW_BOX
+		}),
+		[props.name, props.style]
+	);
+
+	const dataState = useResolveState(resolveDataState);
+
 	return (
 		<IconSvg
 			colour={props.colour}
-			data={{
-				namespace: SVG_NAMESPACE,
-				paths: MaterialIconStyleMap[props.style][props.name],
-				viewBox: MATERIAL_ICON_SVG_VIEW_BOX
-			}}
+			data={dataState}
 			size={props.size}
 		/>
 	);
