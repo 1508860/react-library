@@ -1,36 +1,24 @@
 import type { PropsWithChildren } from "react";
 
 import type {
-	Colour,
-	IBackgroundColour,
+	IColour,
 	IDirection,
-	IHeight,
-	IMaxHeight,
-	IMaxWidth,
-	IMinHeight,
-	IMinWidth,
 	IOrientation,
-	IScrollbarBackgroundColour,
-	IScrollbarColour,
-	IWidth,
-	Orientation,
-	Size
+	ISize,
+	Orientation
 } from "@react-library/common";
+
+import type { ScrollColour } from "../../shared/types/scroll-colour.type";
 
 import type { ScrollBasicDirection } from "../enums/scroll-basic-direction.type";
 
+import type { ScrollBasicSizeAll } from "./scroll-basic-size.type";
+
 type ScrollBasicPropsBase<TScrollBasicDirection extends ScrollBasicDirection> = (
-	Partial<IBackgroundColour<Colour>> &
+	IColour<ScrollColour> &
 	IDirection<TScrollBasicDirection> &
-	Partial<IHeight<Size>> &
-	Partial<IMaxHeight<Size>> &
-	Partial<IMaxWidth<Size>> &
-	Partial<IMinHeight<Size>> &
-	Partial<IMinWidth<Size>> &
 	PropsWithChildren &
-	IScrollbarBackgroundColour<Colour> &
-	IScrollbarColour<Colour> &
-	Partial<IWidth<Size>>
+	ISize<ScrollBasicSizeAll>
 );
 
 /**

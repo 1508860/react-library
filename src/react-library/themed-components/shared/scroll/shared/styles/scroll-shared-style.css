@@ -12,8 +12,8 @@
 }
 
 .react-library-themed-components-shared-scroll::-webkit-scrollbar {
-	height: 15px;
-	width: 15px;
+	height: 10px;
+	width: 10px;
 }
 
 .react-library-themed-components-shared-scroll::-webkit-scrollbar-track {
@@ -22,12 +22,12 @@
 
 .react-library-themed-components-shared-scroll::-webkit-scrollbar-track-piece {
 	background-color: var(--scrollbar-background-colour);
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
 .react-library-themed-components-shared-scroll::-webkit-scrollbar-thumb {
 	background-color: var(--scrollbar-colour);
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
 .react-library-themed-components-shared-scroll::-webkit-scrollbar-button {

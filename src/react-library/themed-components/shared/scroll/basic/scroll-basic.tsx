@@ -23,17 +23,17 @@ export function ScrollBasic(props: ScrollBasicProps) {
 	// CSS variables
 	const resolveCssVariables = useCallback<Callback<StyleCssVariableLoaderVariables>>(
 		() => ({
-			"--background-colour": props.backgroundColour?.toColourString(),
-			"--height": props.height !== null && props.height !== undefined ? toSizeWithUnits(props.height) : null,
-			"--max-height": props.maxHeight !== null && props.maxHeight !== undefined ? toSizeWithUnits(props.maxHeight) : null,
-			"--max-width": props.maxWidth !== null && props.maxWidth !== undefined ? toSizeWithUnits(props.maxWidth) : null,
-			"--min-height": props.minHeight !== null && props.minHeight !== undefined ? toSizeWithUnits(props.minHeight) : null,
-			"--min-width": props.minWidth !== null && props.minWidth !== undefined ? toSizeWithUnits(props.minWidth) : null,
+			"--background-colour": props.colour.backgroundColour?.toColourString(),
+			"--height": props.size.height !== null && props.size.height !== undefined ? toSizeWithUnits(props.size.height) : null,
+			"--max-height": props.size.maxHeight !== null && props.size.maxHeight !== undefined ? toSizeWithUnits(props.size.maxHeight) : null,
+			"--max-width": props.size.maxWidth !== null && props.size.maxWidth !== undefined ? toSizeWithUnits(props.size.maxWidth) : null,
+			"--min-height": props.size.minHeight !== null && props.size.minHeight !== undefined ? toSizeWithUnits(props.size.minHeight) : null,
+			"--min-width": props.size.minWidth !== null && props.size.minWidth !== undefined ? toSizeWithUnits(props.size.minWidth) : null,
 			"--overflow-x": (props.direction === ScrollBasicDirection.Both || props.orientation === Orientation.Horizontal) ? "auto" : "unset",
 			"--overflow-y": (props.direction === ScrollBasicDirection.Both || props.orientation === Orientation.Vertical) ? "auto" : "unset",
-			"--scrollbar-background-colour": props.scrollbarBackgroundColour.toColourString(),
-			"--scrollbar-colour": props.scrollbarColour.toColourString(),
-			"--width": props.width !== null && props.width !== undefined ? toSizeWithUnits(props.width) : null
+			"--scrollbar-background-colour": props.colour.scrollbarBackgroundColour.toColourString(),
+			"--scrollbar-colour": props.colour.scrollbarColour.toColourString(),
+			"--width": props.size.width !== null && props.size.width !== undefined ? toSizeWithUnits(props.size.width) : null
 		}),
 		[props]
 	);

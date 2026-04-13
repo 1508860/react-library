@@ -1,18 +1,13 @@
 import type { PropsWithChildren } from "react";
 
-import type {
-	Colour,
-	IBackgroundColour,
-	IScrollbarBackgroundColour,
-	IScrollbarColour
-} from "@react-library/common";
+import type { IColour } from "@react-library/common";
+
+import type { ScrollColour } from "../../shared/types/scroll-colour.type";
 
 /**
  * Props for the scroll virtual component
  */
 export type ScrollVirtualProps = (
-	Partial<IBackgroundColour<Colour>> &
-	PropsWithChildren &
-	IScrollbarBackgroundColour<Colour> &
-	IScrollbarColour<Colour>
+	IColour<ScrollColour> &
+	PropsWithChildren
 );

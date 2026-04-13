@@ -28,15 +28,15 @@ export function ScrollVirtual(props: ScrollVirtualProps): VirtualScrollContainer
 	// CSS variables
 	const resolveCssVariables = useCallback<Callback<StyleCssVariableLoaderVariables>>(
 		() => ({
-			"--background-colour": props.backgroundColour?.toColourString(),
-			"--scrollbar-background-colour": props.scrollbarBackgroundColour.toColourString(),
-			"--scrollbar-colour": props.scrollbarColour.toColourString(),
+			"--background-colour": props.colour.backgroundColour?.toColourString(),
+			"--scrollbar-background-colour": props.colour.scrollbarBackgroundColour.toColourString(),
+			"--scrollbar-colour": props.colour.scrollbarColour.toColourString(),
 			"--height": "100%",
 			"--overflow-x": containerProps.orientation === Orientation.Horizontal ? "auto" : "unset",
 			"--overflow-y": containerProps.orientation === Orientation.Vertical ? "auto" : "unset",
 			"--width": "100%"
 		}),
-		[props.backgroundColour, props.scrollbarBackgroundColour, props.scrollbarColour, containerProps.orientation]
+		[props.colour.backgroundColour, props.colour.scrollbarBackgroundColour, props.colour.scrollbarColour, containerProps.orientation]
 	);
 	const cssVariables = useResolveState<StyleCssVariableLoaderVariables>(resolveCssVariables);
 
