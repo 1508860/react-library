@@ -75,7 +75,7 @@ export function ModalBasic(props: ModalBasicProps) {
 		>
 			<ModalBasicContainer show={showModal}>
 				<ModalBasicHeader
-					hasChildren={props.iconName !== undefined}
+					hasChildren={props.children !== undefined}
 					iconName={props.iconName}
 					key="header"
 					text={props.text}
@@ -83,6 +83,7 @@ export function ModalBasic(props: ModalBasicProps) {
 					title={props.title}
 				/>
 				<ModalBasicContentContainer
+					childrenSize={props.childrenSize}
 					isFullWidth={props.isFullWidth}
 					key="content-container"
 				>

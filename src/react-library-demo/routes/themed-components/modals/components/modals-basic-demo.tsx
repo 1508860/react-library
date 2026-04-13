@@ -80,6 +80,12 @@ export function ReactLibraryThemedComponentsModalsBasicDemo() {
 				isFullWidth={true}
 				title={true}
 			/>
+			<ModalsBasicDemoItem
+				actionConfirm={true}
+				children={true}
+				iconName={true}
+				title={true}
+			/>
 		</DemoSection>
 	);
 }
@@ -151,31 +157,23 @@ function ModalsBasicDemoItem(props: (
 						text={DEMO_LOREM_IPSUM}
 						textMaxWidth={props.textMaxWidth ? MODALS_DEMO_BASIC_CHILDREN_TEXT_MAX_WIDTH_PX : undefined}
 						title={props.title ? "Title" : undefined}
+						childrenSize={{
+							height: MODALS_DEMO_BASIC_CHILDREN_HEIGHT_PX
+						}}
 					>
 						{
 							props.children ?
 								<DemoContent
 									align={DemoContentAlign.Center}
-									childrenType={DemoContentChildren.Any}
+									childrenType={DemoContentChildren.Text}
 									colourScheme={DemoContentColourScheme.Secondary}
-									height={MODALS_DEMO_BASIC_CHILDREN_HEIGHT_PX}
+									height={MODALS_DEMO_BASIC_CHILDREN_OVERFLOW_HEIGHT_PX}
 									justify={DemoContentJustify.Center}
 									orientation={Orientation.Vertical}
 									overflow={DemoContentOverflow.Auto}
+									text="Custom demo content"
 									width="100%"
-								>
-									<DemoContent
-										align={DemoContentAlign.Center}
-										childrenType={DemoContentChildren.Text}
-										colourScheme={DemoContentColourScheme.Secondary}
-										height={MODALS_DEMO_BASIC_CHILDREN_OVERFLOW_HEIGHT_PX}
-										justify={DemoContentJustify.Center}
-										orientation={Orientation.Vertical}
-										overflow={DemoContentOverflow.Auto}
-										text="Custom demo content"
-										width="100%"
-									/>
-								</DemoContent> : undefined
+								/> : undefined
 						}
 					</ModalBasic> :
 					<Fragment key="no-modal-basic" />

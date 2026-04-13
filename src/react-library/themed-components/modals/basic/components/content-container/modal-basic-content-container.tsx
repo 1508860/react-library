@@ -4,6 +4,8 @@ import { Orientation } from "@react-library/common";
 
 import { Divider } from "../../../../divider";
 
+import { ModalBasicChildrenContainer } from "../children-container";
+
 import { modalBasicContentContainerStyle } from "./styles/modal-basic-content-container-style.function";
 import type { ModalBasicContentContainerProps } from "./types/modal-basic-content-container-props.type";
 
@@ -26,7 +28,12 @@ export function ModalBasicContentContainer(props: ModalBasicContentContainerProp
 				key="divider-top"
 				orientation={Orientation.Horizontal}
 			/>
-			{props.children}
+			<ModalBasicChildrenContainer
+				childrenSize={props.childrenSize}
+				key="children-container"
+			>
+				{props.children}
+			</ModalBasicChildrenContainer>
 			<Divider
 				key="divider-bottom"
 				orientation={Orientation.Horizontal}

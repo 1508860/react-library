@@ -1,6 +1,7 @@
 export * from "./constants/modal-basic-size.const";
 export * from "./enums/modal-basic-action-dismiss-text.type";
 export * from "./types/modal-basic-action.type";
+export * from "./types/modal-basic-child-size.type";
 export * from "./types/modal-basic-child.type";
 export * from "./types/modal-basic-icon-name.type";
 export * from "./types/modal-basic-props.type";
