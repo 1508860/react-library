@@ -6,14 +6,24 @@ import type { ModalBasicActionDismissText } from "../enums/modal-basic-action-di
  * Modal basic component dismiss action
  */
 export type ModalBasicActionDismiss = (
-	IAction<Callback<void>> &
+	IAction<ModalBasicActionDismissCallback> &
 	IText<ModalBasicActionDismissText>
 );
+
+/**
+ * Modal basic component dismiss action callback
+ */
+export type ModalBasicActionDismissCallback = Callback<void>;
 
 /**
  * Modal basic component confirm action
  */
 export type ModalBasicActionConfirm = (
-	IAction<Callback<void>> &
+	IAction<ModalBasicActionConfirmCallback> &
 	IText<string>
 );
+
+/**
+ * Modal basic component confirm action callback
+ */
+export type ModalBasicActionConfirmCallback = Callback<void>;
