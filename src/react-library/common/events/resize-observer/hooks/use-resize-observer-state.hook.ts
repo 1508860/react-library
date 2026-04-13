@@ -25,7 +25,7 @@ export function useResizeObserverState(
 	debounceMs: ResizeObserverDebounce
 ): [DimensionsPx] {
 
-	const [state, setState] = useState<DimensionsPx>(element ? resolveDimensionsPx(element) : DIMENSIONS_SIZE_PX_DEFAULT);
+	const [state, setState] = useState<DimensionsPx>(() => element ? resolveDimensionsPx(element) : DIMENSIONS_SIZE_PX_DEFAULT);
 	const stateRef = useRef<DimensionsPx>(state);
 
 	const setValidatedState = useCallback(
