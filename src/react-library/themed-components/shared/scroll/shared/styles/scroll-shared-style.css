@@ -1,0 +1,40 @@
+.react-library-themed-components-shared-scroll {
+	background-color: var(--background-colour);
+	box-sizing: border-box;
+	height: var(--height);
+	max-height: var(--max-height);
+	max-width: var(--max-width);
+	min-height: var(--min-height);
+	min-width: var(--min-width);
+	overflow-x: var(--overflow-x);
+	overflow-y: var(--overflow-y);
+	width: var(--width);
+}
+
+.react-library-themed-components-shared-scroll::-webkit-scrollbar {
+	height: 15px;
+	width: 15px;
+}
+
+.react-library-themed-components-shared-scroll::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+.react-library-themed-components-shared-scroll::-webkit-scrollbar-track-piece {
+	background-color: var(--scrollbar-background-colour);
+	border-radius: 10px;
+}
+
+.react-library-themed-components-shared-scroll::-webkit-scrollbar-thumb {
+	background-color: var(--scrollbar-colour);
+	border-radius: 10px;
+}
+
+.react-library-themed-components-shared-scroll::-webkit-scrollbar-button {
+	height: 0px;
+	width: 0px;
+}
+
+.react-library-themed-components-shared-scroll::-webkit-scrollbar-corner {
+	background-color: transparent;
+}
