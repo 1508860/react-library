@@ -98,12 +98,3 @@ export function ModalBasic(props: ModalBasicProps) {
 		</Modal>
 	);
 }
-
-/**
- * TODO
- * 
- * Finish styling
- * Sort out max width / height for modal. Calc not working
- * Remove top padding for buttons if no custim content exists
- * Sort out scrolling for custom content?
- */

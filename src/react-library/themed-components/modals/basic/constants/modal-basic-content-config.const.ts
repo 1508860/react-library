@@ -6,7 +6,7 @@ import {
 } from "./modal-basic-size.const";
 
 /**
- * Defines the amount of padding between items in the header or action components
+ * Defines the modal content config for the basic modal component
  */
 export const MODAL_BASIC_CONTENT_CONFIG: ModalContentConfig = {
 	maxWidth: MODAL_BASIC_SIZE_MAX_WIDTH,
