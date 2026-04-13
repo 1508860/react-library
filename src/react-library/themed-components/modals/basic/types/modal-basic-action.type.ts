@@ -1,4 +1,4 @@
-import type { Callback, IAction, IText } from "@react-library/common";
+import type { Callback, IAction, IIsDisabled, IText } from "@react-library/common";
 
 import type { ModalBasicActionDismissText } from "../enums/modal-basic-action-dismiss-text.type";
 
@@ -7,6 +7,7 @@ import type { ModalBasicActionDismissText } from "../enums/modal-basic-action-di
  */
 export type ModalBasicActionDismiss = (
 	IAction<ModalBasicActionDismissCallback> &
+	Partial<IIsDisabled> &
 	IText<ModalBasicActionDismissText>
 );
 
@@ -20,6 +21,7 @@ export type ModalBasicActionDismissCallback = Callback<void>;
  */
 export type ModalBasicActionConfirm = (
 	IAction<ModalBasicActionConfirmCallback> &
+	Partial<IIsDisabled> &
 	IText<string>
 );
 

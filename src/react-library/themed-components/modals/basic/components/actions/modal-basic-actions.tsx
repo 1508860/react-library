@@ -31,7 +31,7 @@ export function ModalBasicActions(props: ModalBasicActionsProps) {
 					content: ButtonContent.Label,
 					label: ModalBasicActionDismissTextMap[props.actionDismiss.text]
 				},
-				isDisabled: false,
+				isDisabled: props.actionDismiss.isDisabled,
 				key: 1,
 				onClick: props.actionDismiss.action
 			}];
@@ -41,14 +41,14 @@ export function ModalBasicActions(props: ModalBasicActionsProps) {
 					content: ButtonContent.Label,
 					label: props.actionConfirm.text
 				},
-				isDisabled: false,
+				isDisabled: props.actionConfirm.isDisabled,
 				key: 2,
 				onClick: props.actionConfirm.action
 			})
 
 			return result;
 		},
-		[props.actionConfirm, props.actionDismiss.action, props.actionDismiss.text]
+		[props.actionConfirm, props.actionDismiss.action, props.actionDismiss.isDisabled, props.actionDismiss.text]
 	);
 
 	const buttonGroupChildren = useResolveState<Array<ButtonGroupButtonText>>(resolveButtonGroupChildren);
