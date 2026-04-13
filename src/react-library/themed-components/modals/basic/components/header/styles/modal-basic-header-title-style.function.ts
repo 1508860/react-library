@@ -9,10 +9,10 @@ import type { ColourScheme, Font } from "@react-library/common";
  */
 export function modalBasicHeaderTitleStyle(colourScheme: ColourScheme, font: Font): CSSProperties {
 	return {
-		fontFamily: font.fontFamily,
 		color: colourScheme.surface.default.onColour.toColourString(),
-		fontWeight: 400,
+		fontFamily: font.fontFamily,
 		fontSize: 24,
+		fontWeight: 400,
 		maxWidth: "100%"
 	};
 }

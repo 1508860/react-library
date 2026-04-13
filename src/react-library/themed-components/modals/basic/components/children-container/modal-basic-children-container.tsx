@@ -1,7 +1,6 @@
 import { useCallback } from "react";
 
 import {
-	HexRgba,
 	Orientation,
 	useColourSchemeContext,
 	useResolveState,
@@ -15,6 +14,8 @@ import {
 	type ScrollColour
 } from "../../../../shared";
 
+import { MODAL_BASIC_COLOUR_SCROLLBAR_BACKGROUND } from "../../constants/modal-basic-colour.const";
+
 import type { ModalBasicChildrenContainerProps } from "./types/modal-basic-children-container-props.type";
 
 /**
@@ -27,7 +28,7 @@ export function ModalBasicChildrenContainer(props: ModalBasicChildrenContainerPr
 	const colourScheme = useColourSchemeContext();
 	const resolveScrollBasicColour = useCallback<Callback<ScrollColour>>(
 		() => ({
-			scrollbarBackgroundColour: new HexRgba("00", "00", "00", "00"),
+			scrollbarBackgroundColour: MODAL_BASIC_COLOUR_SCROLLBAR_BACKGROUND,
 			scrollbarColour: colourScheme.outline.outline,
 		}),
 		[colourScheme.outline.outline]

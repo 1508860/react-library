@@ -16,11 +16,11 @@ export function modalBasicHeaderTextStyle(
 	font: Font
 ): CSSProperties {
 	return {
-		fontFamily: font.fontFamily,
 		color: colourScheme.surface.variant.onColour.toColourString(),
-		fontWeight: 400,
+		fontFamily: font.fontFamily,
 		fontSize: 14,
+		fontWeight: 400,
 		maxWidth: maxWidth,
-		width: "100%",
+		width: "100%"
 	};
 }
