@@ -102,12 +102,12 @@ function ModalsBasicDemoItem(props: (
 	const resolveDemoItemConfig = useCallback<Callback<DemoItemConfigCollection>>(
 		() => {
 			const result: DemoItemConfigCollection = [];
-			if (props.actionConfirm) result.push({ key: "actionConfirm", value: props.actionConfirm })
-			if (props.children) result.push({ key: "children", value: props.children })
-			if (props.iconName) result.push({ key: "iconName", value: props.iconName })
-			if (props.isFullWidth) result.push({ key: "isFullWidth", value: props.isFullWidth })
-			if (props.textMaxWidth) result.push({ key: "textMaxWidth", value: props.textMaxWidth })
-			if (props.title) result.push({ key: "title", value: props.title })
+			if (props.actionConfirm) result.push({ key: "actionConfirm", value: props.actionConfirm });
+			if (props.children) result.push({ key: "children", value: props.children });
+			if (props.iconName) result.push({ key: "iconName", value: props.iconName });
+			if (props.isFullWidth) result.push({ key: "isFullWidth", value: props.isFullWidth });
+			if (props.textMaxWidth) result.push({ key: "textMaxWidth", value: props.textMaxWidth });
+			if (props.title) result.push({ key: "title", value: props.title });
 			return result;
 		},
 		[props]
@@ -124,7 +124,7 @@ function ModalsBasicDemoItem(props: (
 				config={demoItemConfig}
 				height={MODALS_DEMO_SIZE_PX}
 				key="demo-content"
-				label={demoItemConfig.length === 0 ? "Basic" : undefined}
+				label={demoItemConfig.length === 0 ? "Simple" : undefined}
 				width={MODALS_DEMO_SIZE_PX}
 			>
 				<DemoContent
