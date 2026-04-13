@@ -13,6 +13,7 @@ export function virtualScrollItemStyle(orientation: Orientation, size: VirtualSc
 	return {
 		flexShrink: 0,
 		height: orientation === Orientation.Horizontal ? "100%" : size,
+		overflow: "hidden",
 		position: "relative",
 		width: orientation === Orientation.Vertical ? "100%" : size
 	};
