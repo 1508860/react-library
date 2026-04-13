@@ -10,6 +10,15 @@ import { iconClickStyle } from "./styles/icon-click-style.function";
  */
 export function IconClick(props: IconClickProps) {
 
+	// Handle click event
+	const handleClick = useCallback(
+		(event: React.MouseEvent<Element>) => {
+			if (props.isDisabled) return;
+			props.onClick(event);
+		},
+		[props]
+	);
+
 	// Handle hovered state
 	const [isHovered, setIsHovered] = useState<boolean>(() => false);
 	const handlePointerEnter = useCallback(() => setIsHovered(true), []);
@@ -38,7 +47,7 @@ export function IconClick(props: IconClickProps) {
 	return (
 		<div
 			key="icon"
-			onClick={props.onClick}
+			onClick={handleClick}
 			onPointerCancel={handlePointerLeave}
 			onPointerDown={handlePointerDown}
 			onPointerEnter={handlePointerEnter}

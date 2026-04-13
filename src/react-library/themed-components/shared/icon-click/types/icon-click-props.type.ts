@@ -1,6 +1,7 @@
 import type {
 	Colour,
 	IColour,
+	IIsDisabled,
 	IName,
 	IOnClick,
 	IPadding,
@@ -14,6 +15,7 @@ import type { MaterialIconName } from "@react-library/material-icons";
  */
 export type IconClickProps = (
 	IColour<Colour> &
+	Partial<IIsDisabled> &
 	IName<MaterialIconName> &
 	IOnClick<Element> &
 	Partial<IPadding<Size>> &
