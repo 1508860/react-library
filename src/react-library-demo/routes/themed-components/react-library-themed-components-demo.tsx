@@ -11,6 +11,7 @@ import { ReactLibraryThemedComponentsNavigationBarDemo } from "./navigation-bar"
 import { ReactLibraryThemedComponentsNavigationRailDemo } from "./navigation-rail";
 import { ReactLibraryThemedComponentsProgressIndicatorDemo } from "./progress-indicator";
 import { ReactLibraryThemedComponentsSideSheetDemo } from "./side-sheet";
+import { ReactLibraryThemedComponentsTextAreaDemo } from "./text-area";
 import { ReactLibraryThemedComponentsTooltipsDemo } from "./tooltips";
 
 export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<ReactLibraryThemedComponentsDemo> {
@@ -64,6 +65,11 @@ export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<Rea
 			element: () => <ReactLibraryThemedComponentsSideSheetDemo />,
 			id: ReactLibraryThemedComponentsDemo.SideSheet,
 			title: "Side Sheet"
+		},
+				{
+			element: () => <ReactLibraryThemedComponentsTextAreaDemo />,
+			id: ReactLibraryThemedComponentsDemo.TextArea,
+			title: "Text Area"
 		},
 		{
 			element: () => <ReactLibraryThemedComponentsTooltipsDemo />,
