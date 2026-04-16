@@ -12,7 +12,7 @@ export const ReactLibraryThemedComponentsDemo = {
 	"NavigationRail": "ReactLibraryThemedComponentsDemo-NavigationRail",
 	"ProgressIndicator": "ReactLibraryThemedComponentsDemo-ProgressIndicator",
 	"SideSheet": "ReactLibraryThemedComponentsDemo-SideSheet",
-	"TextArea": "ReactLibraryThemedComponentsDemo-TextArea",
+	"TextField": "ReactLibraryThemedComponentsDemo-TextField",
 	"Tooltips": "ReactLibraryThemedComponentsDemo-Tooltips"
 } as const satisfies Record<string, string>;
 
