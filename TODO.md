@@ -133,7 +133,63 @@
 		- Tabs
 			- Implement
 		- Text fields
-			- Implement
+			- input
+				- Currency
+					- Use input currency?
+				- Number
+					- Remove increment wheel
+				- Text
+					- Password (hidden)
+				- Text area
+					- Multi line fixed height that scrolls
+					- Expanding input for each new line
+						- Can also have max height
+			- Container
+				- Border
+					- Default
+					- Focus
+					- Error
+				- Leading icon
+					- Any icon (search)
+				- Extra text
+					- Mutually exclusive
+					- Leading text
+					- Trailing text
+						- Input is right aligned if trailing text exists
+				- Trailing icon
+					- Clear
+					- Error
+				- Label
+					- Placeholder
+					- Appears above input if filled
+					- Animate transition from placeholdre to label?
+					- Include trailing asterisk if required
+			- Supporting text
+				- Text
+				- Character count (text / text area)
+					- Minimum
+					- Maximum
+				- Word count (text / text area)
+					- Minimum
+					- Maximum
+				- Numerical boundary? (currency / number)
+				- Error
+					- Invalid character count
+					- Invalid numerical value
+					- Required
+			- States
+				- Disabled
+				- Focused
+				- Hovered
+				- Enabled
+			- Extra
+				- Icons & Images -  https://m3.material.io/components/text-fields/guidelines#5c8a5f07-b1a5-455f-bf76-7ff0d724f6b0
+				- Readonly (same as disabled?)
+				- Form
+					- id attribute to include label in form
+					- Add form provider with callback to clear all form data
+					- Add default form value prop to input or just set to undefined?
+					- Fieldset & legend elements?
 		- Toolbars
 			- Implement
 
