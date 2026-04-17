@@ -4,10 +4,12 @@
 export const MaterialIconName = {
 	Add: "Add",
 	ArrowBack: "ArrowBack",
+	Cancel: "Cancel",
 	CheckCircle: "CheckCircle",
 	ChevronRight: "ChevronRight",
 	Close: "Close",
 	Delete: "Delete",
+	Error: "Error",
 	ExpandCircleDown: "ExpandCircleDown",
 	ExpandCircleUp: "ExpandCircleUp",
 	Favorite: "Favorite",
