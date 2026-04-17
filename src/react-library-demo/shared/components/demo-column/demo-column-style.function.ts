@@ -3,6 +3,7 @@ import type { DemoColumnProps } from "./demo-column-props.type";
 
 export function demoColumnStyle(props: DemoColumnProps): CSSProperties {
 	return {
+		backgroundColor: "inherit",
 		display: "inline-block",
 		flexGrow: Math.max(props.weight, 1),
 		flexShrink: 0,

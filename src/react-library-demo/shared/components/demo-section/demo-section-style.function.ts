@@ -6,6 +6,7 @@ import type { DemoSectionProps } from "./demo-section-props.type";
 
 export function demoSectionStyle(): CSSProperties {
 	return {
+		backgroundColor: "inherit",
 		display: "flex",
 		flexDirection: "column",
 		width: "100%"
@@ -26,6 +27,7 @@ export function demoSectionTitle(font: Font): CSSProperties {
 
 export function demoSectionContent(props: DemoSectionProps): CSSProperties {
 	return {
+		backgroundColor: "inherit",
 		display: "flex",
 		flexDirection: "row",
 		flexWrap: "wrap",

@@ -4,6 +4,7 @@ import type { DemoColumnContainerProps } from "./demo-column-container-props.typ
 
 export function demoColumnContainerStyle(props: DemoColumnContainerProps): CSSProperties {
 	return {
+		backgroundColor: "inherit",
 		display: "flex",
 		flexDirection: "row",
 		overflow: "hidden",

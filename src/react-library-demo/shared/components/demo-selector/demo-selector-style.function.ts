@@ -4,6 +4,7 @@ import type { Font } from "@react-library/common";
 
 export function demoSelctorStyle(): CSSProperties {
 	return {
+		backgroundColor: "#FFFFFF",
 		display: "flex",
 		flexDirection: "row",
 		height: "100%",
@@ -13,7 +14,7 @@ export function demoSelctorStyle(): CSSProperties {
 
 export function demoSelectorItemListStyle(): CSSProperties {
 	return {
-		backgroundColor: "#FFFFFF",
+		backgroundColor: "inherit",
 		borderRightColor: "#000000",
 		borderRightStyle: "solid",
 		borderRightWidth: 1,
@@ -63,6 +64,7 @@ export function demoSelectorSubItemStyle(font: Font, isCurrent: boolean): CSSPro
 
 export function demoSelectorContentStyle(): CSSProperties {
 	return {
+		backgroundColor: "inherit",
 		display: "flex",
 		flexBasis: 0,
 		flexDirection: "column",

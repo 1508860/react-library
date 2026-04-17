@@ -7,6 +7,7 @@ import type { DemoItemProps } from "./demo-item-props.type";
 export function demoItemStyle(font: Font): CSSProperties {
 	return {
 		alignItems: "center",
+		backgroundColor: "inherit",
 		display: "flex",
 		flexDirection: "column",
 		fontFamily: font.fontFamily,
@@ -17,6 +18,7 @@ export function demoItemStyle(font: Font): CSSProperties {
 export function demoItemContent(props: DemoItemProps): CSSProperties {
 	return {
 		alignItems: "center",
+		backgroundColor: "inherit",
 		display: "flex",
 		flexDirection: "column",
 		justifyContent: "center",

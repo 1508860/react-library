@@ -5,6 +5,7 @@ import type { DemoResizeProps } from "./demo-resize-props.type";
 
 export function demoResizeStyle(props: DemoResizeProps): CSSProperties {
 	return {
+		backgroundColor: "inherit",
 		display: "flex",
 		flexDirection: "row",
 		height: props.height,
