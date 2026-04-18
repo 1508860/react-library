@@ -10,4 +10,5 @@ export * from "./navigation-rail";
 export * from "./progress-indicator";
 export * from "./shared";
 export * from "./side-sheet";
+export * from "./text-field";
 export * from "./tooltips";

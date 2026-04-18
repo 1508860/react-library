@@ -1,10 +1,11 @@
-import { DemoSection } from "@react-library-demo/shared";
+import {
+	ReactLibraryThemedComponentsTextFieldTextDemo
+} from "./components";
 
 export function ReactLibraryThemedComponentsTextFieldDemo() {
 	return (
 		<>
-			<DemoSection title="Text Field - Outlined">
-			</DemoSection>
+			<ReactLibraryThemedComponentsTextFieldTextDemo key="text" />
 		</>
 	);
 }
