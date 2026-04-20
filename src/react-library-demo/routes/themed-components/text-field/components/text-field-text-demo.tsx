@@ -69,23 +69,6 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					value={value}
 				/>
 			</DemoItem>
-			<DemoItem label="Password">
-				<TextFieldText
-					defaultText="Some default text"
-					extraTextPosition={TextFieldExtraTextPosition.None}
-					isPassword={true}
-					isRequired={true}
-					label="Label"
-					leadingIconName={MaterialIconName.Search}
-					maxWidth={500}
-					minWidth={300}
-					name={`${props.style}-3`}
-					onValueChange={setValue}
-					style={props.style}
-					validation={TextFieldValidationText.None}
-					value={value}
-				/>
-			</DemoItem>
 			<DemoItem label={`Extra text - ${TextFieldExtraTextPosition.End}`}>
 				<TextFieldText
 					defaultText="Some default text"
@@ -138,7 +121,6 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					value={value}
 				/>
 			</DemoItem>
-
 			<DemoItem label="Word count">
 				<TextFieldText
 					defaultText="Some default text"

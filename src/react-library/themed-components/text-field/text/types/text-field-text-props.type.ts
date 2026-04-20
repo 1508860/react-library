@@ -1,7 +1,6 @@
 import type {
 	CallbackWithParameter,
 	IDefaultText,
-	IIsPassword,
 	ILabel,
 	IOnValueChange,
 	IValue
@@ -16,7 +15,6 @@ import type { TextFieldValidationTextProps } from "../../shared/types/text-field
  */
 export type TextFieldTextProps = (
 	Partial<IDefaultText<string | undefined>> &
-	Partial<IIsPassword<boolean>> &
 	ILabel<string> &
 	IOnValueChange<CallbackWithParameter<(string | undefined), void>> &
 	TextFieldCommonProps &

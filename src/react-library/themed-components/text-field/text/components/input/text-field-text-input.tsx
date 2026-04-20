@@ -47,7 +47,7 @@ export function TextFieldTextInput(props: TextFieldTextProps) {
 			onMouseLeave={textFieldEvents.onMouseLeave}
 			placeholder={props.label}
 			style={textFieldTextInputStyle(props.extraTextPosition, props.style, colourState)}
-			type={props.isPassword ? "password" : "text"}
+			type="text"
 			value={value}
 		/>
 	);
