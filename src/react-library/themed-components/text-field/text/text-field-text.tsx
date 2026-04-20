@@ -64,6 +64,7 @@ export function TextFieldText(props: TextFieldTextProps) {
 				</TextFieldExtraTextContainer>
 				<TextFieldIconClear
 					key="icon-clear"
+					isDisabled={!!props.isDisabled}
 					onClear={handleOnClear}
 					style={props.style}
 				/>

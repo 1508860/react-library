@@ -30,6 +30,7 @@ export function TextFieldIconClear(props: TextFieldIconClearProps) {
 	return (
 		<IconClick
 			colour={colourState.style.trailingIcon}
+			isDisabled={props.isDisabled}
 			key="icon-clear"
 			name={MaterialIconName.Cancel}
 			onClick={props.onClear}
