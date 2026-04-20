@@ -10,6 +10,7 @@ import { TextFieldInnerContainer } from "../shared/components/inner-container";
 import { TextFieldInputContainer } from "../shared/components/input-container";
 import { TextFieldInputLabel } from "../shared/components/input-label";
 import { TextFieldLeadingIcon } from "../shared/components/leading-icon";
+import { TextFieldProvider } from "../shared/components/provider";
 
 import { useTextFieldTextIsPopulatedState } from "./hooks/text-field-text-is-populated-state.hook";
 import type { TextFieldTextProps } from "./types/text-field-text-props.type";
@@ -28,55 +29,57 @@ export function TextFieldText(props: TextFieldTextProps) {
 	);
 
 	return (
-		<TextFieldContainer<TextFieldTextProps>
+		<TextFieldProvider<TextFieldTextProps>
 			props={props}
 			useIsPopulatedState={useTextFieldTextIsPopulatedState}
 		>
-			<TextFieldInnerContainer
-				common={props}
-				key="inner-container"
-			>
-				<TextFieldLeadingIcon
-					key="leading-icon"
-					leadingIconName={props.leadingIconName}
-					style={props.style}
-				/>
-				<TextFieldExtraTextContainer
-					key="input-container"
-					{...props}
+			<TextFieldContainer>
+				<TextFieldInnerContainer
+					common={props}
+					key="inner-container"
 				>
-					<TextFieldInputContainer
-						key="input-container"
+					<TextFieldLeadingIcon
+						key="leading-icon"
+						leadingIconName={props.leadingIconName}
 						style={props.style}
+					/>
+					<TextFieldExtraTextContainer
+						key="input-container"
+						{...props}
 					>
-						<TextFieldInputLabel
-							isRequired={!!props.isRequired}
-							key="label"
-							label={props.label}
-							name={props.name}
+						<TextFieldInputContainer
+							key="input-container"
 							style={props.style}
-						/>
-						<TextFieldTextInput
-							{...props}
-							key="input"
-						/>
-					</TextFieldInputContainer>
-				</TextFieldExtraTextContainer>
-				<TextFieldIconClear
-					key="icon-clear"
-					isDisabled={!!props.isDisabled}
-					onClear={handleOnClear}
-					style={props.style}
+						>
+							<TextFieldInputLabel
+								isRequired={!!props.isRequired}
+								key="label"
+								label={props.label}
+								name={props.name}
+								style={props.style}
+							/>
+							<TextFieldTextInput
+								{...props}
+								key="input"
+							/>
+						</TextFieldInputContainer>
+					</TextFieldExtraTextContainer>
+					<TextFieldIconClear
+						key="icon-clear"
+						isDisabled={!!props.isDisabled}
+						onClear={handleOnClear}
+						style={props.style}
+					/>
+					<TextFieldIconError
+						key="icon-error"
+						style={props.style}
+					/>
+				</TextFieldInnerContainer>
+				<TextFieldTextSupportingText
+					{...props}
+					key="supporting-text"
 				/>
-				<TextFieldIconError
-					key="icon-error"
-					style={props.style}
-				/>
-			</TextFieldInnerContainer>
-			<TextFieldTextSupportingText
-				{...props}
-				key="supporting-text"
-			/>
-		</TextFieldContainer>
+			</TextFieldContainer>
+		</TextFieldProvider>
 	);
 }
