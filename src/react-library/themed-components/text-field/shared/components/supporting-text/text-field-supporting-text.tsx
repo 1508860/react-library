@@ -1,6 +1,7 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 
 import { useTextFieldColourStateContext } from "../../hooks/text-field-colour-state-context.hook";
+import { useTextFieldEventsContext } from "../../hooks/text-field-events-context.hook";
 
 import { textFieldSupportingTextContainerStyle } from "./styles/text-field-supporting-text-container-style.function";
 import { textFieldSupportingTextStyle } from "./styles/text-field-supporting-text-style.function";
@@ -13,6 +14,13 @@ export function TextFieldSupportingText(props: TextFieldSupportingTextProps) {
 
 	// Contexts
 	const colourState = useTextFieldColourStateContext();
+	const textFieldEvents = useTextFieldEventsContext();
+
+	// Handle error state
+	useEffect(
+		() => textFieldEvents.onIsErrored(!!props.left?.isErrored || !!props.right?.isErrored),
+		[props.left?.isErrored, props.right?.isErrored, textFieldEvents]
+	);
 
 	if (!props.left && !props.right) return (
 		<Fragment key="no-container" />

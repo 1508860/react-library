@@ -1,11 +1,11 @@
 import type {
 	Callback,
+	CallbackWithParameter,
 	IOnBlur,
-	IOnError,
 	IOnFocus,
+	IOnIsErrored,
 	IOnMouseEnter,
-	IOnMouseLeave,
-	IOnValid
+	IOnMouseLeave
 } from "@react-library/common";
 
 /**
@@ -13,9 +13,8 @@ import type {
  */
 export type TextFieldEvents = (
 	IOnBlur<Callback<void>> &
-	IOnError<Callback<void>> &
 	IOnFocus<Callback<void>> &
+	IOnIsErrored<CallbackWithParameter<boolean, void>> &
 	IOnMouseEnter<Element> &
-	IOnMouseLeave<Element> &
-	IOnValid<Callback<void>>
+	IOnMouseLeave<Element>
 );

@@ -25,11 +25,10 @@ export function TextFieldProvider<TProps extends TextFieldCommonProps>(props: Te
 
 	const [TextFieldEvents] = useState<TextFieldEvents>(() => ({
 		onBlur: () => setIsFocused(false),
-		onError: () => setIsErrored(true),
 		onFocus: () => setIsFocused(true),
+		onIsErrored: setIsErrored,
 		onMouseEnter: () => setIsHovered(true),
-		onMouseLeave: () => setIsHovered(false),
-		onValid: () => setIsErrored(false)
+		onMouseLeave: () => setIsHovered(false)
 	}));
 
 	// Is populated
