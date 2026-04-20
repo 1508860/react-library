@@ -8,7 +8,7 @@ import {
 
 import { TEXT_FIELD_PROPERTY_MAP } from "../../constants/text-field-property-map.const";
 import { useTextFieldColourStateContext } from "../../hooks/text-field-colour-state-context.hook";
-import { useTextFieldIsErrored } from "../../hooks/text-field-is-errored-state.hook";
+import { useTextFieldIsErroredState } from "../../hooks/text-field-is-errored-state.hook";
 
 import type { TextFieldIconErrorProps } from "./types/text-field-icon-error-props.type";
 
@@ -21,7 +21,7 @@ export function TextFieldIconError(props: TextFieldIconErrorProps) {
 	const colourState = useTextFieldColourStateContext();
 
 	// Error state
-	const isErrored = useTextFieldIsErrored();
+	const isErrored = useTextFieldIsErroredState();
 
 	if (!isErrored) return (
 		<Fragment key="no-icon-error" />
@@ -29,7 +29,7 @@ export function TextFieldIconError(props: TextFieldIconErrorProps) {
 
 	return (
 		<MaterialIconSvg
-			colour={colourState.trailingIcon}
+			colour={colourState.style.trailingIcon}
 			key="trailing-icon-error"
 			name={MaterialIconName.Error}
 			size={TEXT_FIELD_PROPERTY_MAP.style[props.style].iconSize}

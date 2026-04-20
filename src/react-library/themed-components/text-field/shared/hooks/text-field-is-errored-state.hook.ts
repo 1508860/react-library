@@ -9,7 +9,7 @@ import { useTextFieldStyleStateContext } from "./text-field-style-state-context.
 /**
  * Custom hook to resolve if the {@link TextFieldStyleState} is an errored state
  */
-export function useTextFieldIsErrored(): boolean {
+export function useTextFieldIsErroredState(): boolean {
 
 	const styleState = useTextFieldStyleStateContext();
 

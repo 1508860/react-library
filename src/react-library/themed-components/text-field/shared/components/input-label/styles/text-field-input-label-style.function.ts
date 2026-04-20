@@ -21,7 +21,7 @@ export function textFieldInputLabelStyle(
 	return {
 		backgroundColor: "inherit",
 		boxSizing: "border-box",
-		color: colourState.label.toColourString(),
+		color: colourState.style.label.toColourString(),
 		flexShrink: 0,
 		fontSize: styleMap.label.populated[`${isPopulated}`].fontSize,
 		fontWeight: styleMap.label.populated[`${isPopulated}`].fontWeight,

@@ -22,8 +22,8 @@ export function textFieldTextInputStyle(
 	return {
 		backgroundColor: "transparent",
 		borderStyle: "none",
-		caretColor: colourState.caret?.toColourString(),
-		color: colourState.inputText.toColourString(),
+		caretColor: colourState.style.caret?.toColourString(),
+		color: colourState.style.inputText.toColourString(),
 		fontSize: styleMap.text.fontSize,
 		fontWeight: styleMap.text.fontWeight,
 		lineHeight: styleMap.text.lineHeight,

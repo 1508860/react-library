@@ -21,7 +21,7 @@ export function TextFieldLeadingIcon(props: TextFieldLeadingIconProps) {
 
 	return (
 		<MaterialIconSvg
-			colour={colourState.leadingIcon}
+			colour={colourState.style.leadingIcon}
 			key="leading-icon"
 			name={props.leadingIconName}
 			size={TEXT_FIELD_PROPERTY_MAP.style[props.style].iconSize}

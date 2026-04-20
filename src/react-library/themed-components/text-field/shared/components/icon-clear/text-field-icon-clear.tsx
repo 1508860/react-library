@@ -6,7 +6,7 @@ import { IconClick } from "../../../../shared";
 
 import { TEXT_FIELD_PROPERTY_MAP } from "../../constants/text-field-property-map.const";
 import { useTextFieldColourStateContext } from "../../hooks/text-field-colour-state-context.hook";
-import { useTextFieldIsErrored } from "../../hooks/text-field-is-errored-state.hook";
+import { useTextFieldIsErroredState } from "../../hooks/text-field-is-errored-state.hook";
 import { useTextFieldIsPopulatedStateContext } from "../../hooks/text-field-is-populated-state-context.hook";
 
 import type { TextFieldIconClearProps } from "./types/text-field-icon-clear-props.type";
@@ -21,7 +21,7 @@ export function TextFieldIconClear(props: TextFieldIconClearProps) {
 	const isPopulatedState = useTextFieldIsPopulatedStateContext();
 
 	// Error state
-	const isErrored = useTextFieldIsErrored();
+	const isErrored = useTextFieldIsErroredState();
 
 	if (isErrored || isPopulatedState.isDefault) return (
 		<Fragment key="no-icon-clear" />
@@ -29,7 +29,7 @@ export function TextFieldIconClear(props: TextFieldIconClearProps) {
 
 	return (
 		<IconClick
-			colour={colourState.trailingIcon}
+			colour={colourState.style.trailingIcon}
 			key="icon-clear"
 			name={MaterialIconName.Cancel}
 			onClick={props.onClear}

@@ -25,12 +25,12 @@ export function textFieldInnerContainerStyle(
 
 	return {
 		alignItems: "center",
-		backgroundColor: colourState.background?.toColourString() ?? "inherit",
+		backgroundColor: colourState.style.background?.toColourString() ?? "inherit",
 		borderBottomLeftRadius: styleMap.borderRadius.bottomLeft,
 		borderBottomRightRadius: styleMap.borderRadius.bottomRight,
 		borderBottomStyle: styleMap.styleState[styleState].border.bottom?.style,
 		borderBottomWidth: styleMap.styleState[styleState].border.bottom?.width,
-		borderColor: colourState.border.toColourString(),
+		borderColor: colourState.style.border.toColourString(),
 		borderLeftStyle: styleMap.styleState[styleState].border.left?.style,
 		borderLeftWidth: styleMap.styleState[styleState].border.left?.width,
 		borderRightStyle: styleMap.styleState[styleState].border.right?.style,

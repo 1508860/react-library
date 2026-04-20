@@ -14,6 +14,7 @@ import { TextFieldLeadingIcon } from "../shared/components/leading-icon";
 import { useTextFieldTextIsPopulatedState } from "./hooks/text-field-text-is-populated-state.hook";
 import type { TextFieldTextProps } from "./types/text-field-text-props.type";
 import { TextFieldTextInput } from "./components/input";
+import { TextFieldTextSupportingText } from "./components/supporting-text";
 
 /**
  * Text field text component
@@ -31,7 +32,10 @@ export function TextFieldText(props: TextFieldTextProps) {
 			props={props}
 			useIsPopulatedState={useTextFieldTextIsPopulatedState}
 		>
-			<TextFieldInnerContainer common={props}>
+			<TextFieldInnerContainer
+				common={props}
+				key="inner-container"
+			>
 				<TextFieldLeadingIcon
 					key="leading-icon"
 					leadingIconName={props.leadingIconName}
@@ -68,6 +72,10 @@ export function TextFieldText(props: TextFieldTextProps) {
 					style={props.style}
 				/>
 			</TextFieldInnerContainer>
+			<TextFieldTextSupportingText
+				{...props}
+				key="supporting-text"
+			/>
 		</TextFieldContainer>
 	);
 }

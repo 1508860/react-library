@@ -7,6 +7,7 @@ import type {
 	IMinWidth,
 	IName,
 	IStyle,
+	ISupportingText,
 	IWidth,
 	Size
 } from "@react-library/common";
@@ -27,5 +28,6 @@ export type TextFieldCommonProps = (
 	Partial<IMinWidth<Size>> &
 	IName<string> &
 	IStyle<TextFieldStyle> &
+	Partial<ISupportingText<string>> &
 	Partial<IWidth<Size>>
 );
