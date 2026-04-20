@@ -1,5 +1,6 @@
 import { Fragment, useCallback, useEffect, useState } from "react"
 
+import type { Callback } from "@react-library/common";
 import { MaterialIconStyle, MaterialIconSvg } from "@react-library/material-icons";
 
 import type { IconClickProps } from "./types/icon-click-props.type";
@@ -21,23 +22,36 @@ export function IconClick(props: IconClickProps) {
 
 	// Handle hovered state
 	const [isHovered, setIsHovered] = useState<boolean>(() => false);
-	const handlePointerEnter = useCallback(() => setIsHovered(true), []);
+	const handlePointerEnter = useCallback<Callback<void>>(
+		() => {
+			if (props.isDisabled) return;
+			setIsHovered(true);
+		},
+		[props.isDisabled]
+	);
 	const handlePointerLeave = useCallback(() => setIsHovered(false), []);
 
 	// Handle pressed state
 	const [isPressed, setIsPressed] = useState<boolean>(() => false);
-	const handlePointerDown = useCallback(() => setIsPressed(true), []);
+	const handlePointerDown = useCallback(
+		() => {
+			if (props.isDisabled) return;
+			setIsPressed(true);
+		},
+		[props.isDisabled]
+	);
 	const handlePointerUp = useCallback(() => setIsPressed(false), []);
 
 	// Resolve icon style
 	const [iconStyle, setIconStyle] = useState<MaterialIconStyle>(() => MaterialIconStyle.Default);
 	useEffect(
 		() => {
-			if (isPressed) setIconStyle(MaterialIconStyle.DefaultFilled);
+			if (props.isDisabled) setIconStyle(MaterialIconStyle.Default)
+			else if (isPressed) setIconStyle(MaterialIconStyle.DefaultFilled);
 			else if (isHovered) setIconStyle(MaterialIconStyle.Thick);
 			else setIconStyle(MaterialIconStyle.Default);
 		},
-		[isHovered, isPressed]
+		[props.isDisabled, isHovered, isPressed]
 	);
 
 	if (!props.onClick) return (
