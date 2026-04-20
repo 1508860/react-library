@@ -1,7 +1,11 @@
 import { useState } from "react";
 
 import { MaterialIconName } from "@react-library/material-icons";
-import { TextField, TextFieldContent, TextFieldExtraTextPosition, TextFieldStyle } from "@react-library/themed-components";
+import {
+	TextFieldExtraTextPosition,
+	TextFieldStyle,
+	TextFieldText
+} from "@react-library/themed-components";
 
 import {
 	DemoItem,
@@ -16,8 +20,7 @@ export function ReactLibraryThemedComponentsTextFieldTextDemo() {
 		<>
 			<DemoSection title="Text Field - Text">
 				<DemoItem label={`${TextFieldStyle.Filled}`}>
-					<TextField
-						content={TextFieldContent.Text}
+					<TextFieldText
 						defaultText="Some default text"
 						extraTextPosition={TextFieldExtraTextPosition.None}
 						isDisabled={false}
@@ -33,8 +36,7 @@ export function ReactLibraryThemedComponentsTextFieldTextDemo() {
 					/>
 				</DemoItem>
 				<DemoItem label={`${TextFieldStyle.Filled} - disabled`}>
-					<TextField
-						content={TextFieldContent.Text}
+					<TextFieldText
 						defaultText="Some default text"
 						extraTextPosition={TextFieldExtraTextPosition.None}
 						isDisabled={true}
@@ -50,8 +52,7 @@ export function ReactLibraryThemedComponentsTextFieldTextDemo() {
 					/>
 				</DemoItem>
 				<DemoItem label={`${TextFieldStyle.Filled} - is password`}>
-					<TextField
-						content={TextFieldContent.Text}
+					<TextFieldText
 						defaultText="Some default text"
 						extraTextPosition={TextFieldExtraTextPosition.None}
 						isPassword={true}
@@ -67,12 +68,10 @@ export function ReactLibraryThemedComponentsTextFieldTextDemo() {
 					/>
 				</DemoItem>
 				<DemoItem label={`${TextFieldStyle.Filled} - extra text - ${TextFieldExtraTextPosition.End}`}>
-					<TextField
-						content={TextFieldContent.Text}
+					<TextFieldText
 						defaultText="Some default text"
 						extraText="Extra"
 						extraTextPosition={TextFieldExtraTextPosition.End}
-						isPassword={true}
 						isRequired={true}
 						label="Label"
 						leadingIconName={MaterialIconName.Search}
@@ -85,12 +84,10 @@ export function ReactLibraryThemedComponentsTextFieldTextDemo() {
 					/>
 				</DemoItem>
 				<DemoItem label={`${TextFieldStyle.Filled} - extra text - ${TextFieldExtraTextPosition.Start}`}>
-					<TextField
-						content={TextFieldContent.Text}
+					<TextFieldText
 						defaultText="Some default text"
 						extraText="Extra"
 						extraTextPosition={TextFieldExtraTextPosition.Start}
-						isPassword={true}
 						isRequired={true}
 						label="Label"
 						leadingIconName={MaterialIconName.Search}
@@ -103,8 +100,7 @@ export function ReactLibraryThemedComponentsTextFieldTextDemo() {
 					/>
 				</DemoItem>
 				<DemoItem label={`${TextFieldStyle.Outlined}`}>
-					<TextField
-						content={TextFieldContent.Text}
+					<TextFieldText
 						defaultText="Some default text"
 						extraTextPosition={TextFieldExtraTextPosition.None}
 						isDisabled={false}
@@ -120,8 +116,7 @@ export function ReactLibraryThemedComponentsTextFieldTextDemo() {
 					/>
 				</DemoItem>
 				<DemoItem label={`${TextFieldStyle.Outlined} - disabled`}>
-					<TextField
-						content={TextFieldContent.Text}
+					<TextFieldText
 						defaultText="Some default text"
 						extraTextPosition={TextFieldExtraTextPosition.None}
 						isDisabled={true}
@@ -137,8 +132,7 @@ export function ReactLibraryThemedComponentsTextFieldTextDemo() {
 					/>
 				</DemoItem>
 				<DemoItem label={`${TextFieldStyle.Outlined} - is password`}>
-					<TextField
-						content={TextFieldContent.Text}
+					<TextFieldText
 						defaultText="Some default text"
 						extraTextPosition={TextFieldExtraTextPosition.None}
 						isPassword={true}
@@ -154,12 +148,10 @@ export function ReactLibraryThemedComponentsTextFieldTextDemo() {
 					/>
 				</DemoItem>
 				<DemoItem label={`${TextFieldStyle.Outlined} - extra text - ${TextFieldExtraTextPosition.End}`}>
-					<TextField
-						content={TextFieldContent.Text}
+					<TextFieldText
 						defaultText="Some default text"
 						extraText="Extra"
 						extraTextPosition={TextFieldExtraTextPosition.End}
-						isPassword={true}
 						isRequired={true}
 						label="Label"
 						leadingIconName={MaterialIconName.Search}
@@ -172,12 +164,10 @@ export function ReactLibraryThemedComponentsTextFieldTextDemo() {
 					/>
 				</DemoItem>
 				<DemoItem label={`${TextFieldStyle.Outlined} - extra text - ${TextFieldExtraTextPosition.Start}`}>
-					<TextField
-						content={TextFieldContent.Text}
+					<TextFieldText
 						defaultText="Some default text"
 						extraText="Extra"
 						extraTextPosition={TextFieldExtraTextPosition.Start}
-						isPassword={true}
 						isRequired={true}
 						label="Label"
 						leadingIconName={MaterialIconName.Search}
