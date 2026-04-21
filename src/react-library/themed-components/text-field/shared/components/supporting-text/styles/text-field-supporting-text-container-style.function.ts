@@ -17,7 +17,7 @@ export function textFieldSupportingTextContainerStyle(style: TextFieldStyle): CS
 		display: "flex",
 		flexDirection: "row",
 		gap: styleMap.supportingText.gap,
-		justifyContent: "center",
+		justifyContent: "end",
 		paddingBottom: styleMap.supportingText.paddingBottom,
 		paddingLeft: styleMap.supportingText.paddingHorizontal,
 		paddingRight: styleMap.supportingText.paddingHorizontal,
