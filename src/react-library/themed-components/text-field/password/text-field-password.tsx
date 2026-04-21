@@ -1,0 +1,57 @@
+import { TextFieldContainer } from "../shared/components/container";
+import { TextFieldIconError } from "../shared/components/icon-error";
+import { TextFieldInnerContainer } from "../shared/components/inner-container";
+import { TextFieldInputContainer } from "../shared/components/input-container";
+import { TextFieldInputLabel } from "../shared/components/input-label";
+import { TextFieldProvider } from "../shared/components/provider";
+
+import { TextFieldTextPassword } from "./components/input";
+import { TextFieldPasswordSupportingText } from "./components/supporting-text";
+import { useTextFieldPasswordIsPopulatedState } from "./hooks/text-field-password-is-populated-state.hook";
+import type { TextFieldPasswordProps } from "./types/text-field-password-props.type";
+
+/**
+ * Text field password component
+ */
+export function TextFieldPassword(props: TextFieldPasswordProps) {
+	return (
+		<TextFieldProvider<TextFieldPasswordProps>
+			isDisabled={false}
+			props={props}
+			style={props.style}
+			useIsPopulatedState={useTextFieldPasswordIsPopulatedState}
+		>
+			<TextFieldContainer>
+				<TextFieldInnerContainer
+					{...props}
+					key="inner-container"
+				>
+					<TextFieldInputContainer
+						key="input-container"
+						style={props.style}
+					>
+						<TextFieldInputLabel
+							isRequired={true}
+							key="label"
+							label={props.label}
+							name={props.name}
+							style={props.style}
+						/>
+						<TextFieldTextPassword
+							{...props}
+							key="input"
+						/>
+					</TextFieldInputContainer>
+					<TextFieldIconError
+						key="icon-error"
+						style={props.style}
+					/>
+				</TextFieldInnerContainer>
+				<TextFieldPasswordSupportingText
+					{...props}
+					key="supporting-text"
+				/>
+			</TextFieldContainer>
+		</TextFieldProvider>
+	);
+}

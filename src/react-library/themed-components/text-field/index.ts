@@ -1,3 +1,4 @@
+export * from "./password";
 export * from "./readonly";
 export * from "./shared/enums/text-field-extra-text-position.type";
 export * from "./shared/enums/text-field-style.type";
@@ -11,5 +12,7 @@ export * from "./shared/types/text-field-props-leading-icon.type";
 export * from "./shared/types/text-field-props-size.type";
 export * from "./shared/types/text-field-props-style.type";
 export * from "./shared/types/text-field-props-supporting-text.type";
+export * from "./shared/types/text-field-props-validation-password.type";
 export * from "./shared/types/text-field-props-validation-text.type";
+export * from "./shared/types/text-field-validation-password-config.type";
 export * from "./text";

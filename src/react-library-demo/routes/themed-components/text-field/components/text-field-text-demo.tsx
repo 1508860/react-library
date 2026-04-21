@@ -128,8 +128,8 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					isRequired={true}
 					label="Label"
 					leadingIconName={MaterialIconName.Search}
-					maxWordCount={5}
 					maxWidth={500}
+					maxWordCount={5}
 					minWidth={300}
 					name={`text-${props.style}-7`}
 					onValueChange={setValue}
