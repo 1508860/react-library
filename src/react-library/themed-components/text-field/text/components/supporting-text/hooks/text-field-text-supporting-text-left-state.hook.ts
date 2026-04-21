@@ -2,10 +2,10 @@ import { useCallback } from "react";
 
 import { useResolveState, type Callback } from "@react-library/common";
 
-import { isTextFieldSupportingTextConfigEqual } from "../../../shared/functions/is-text-field-supporting-text-config-equal.function";
-import type { TextFieldSupportingTextConfig } from "../../../shared/types/text-field-supporting-text-config.type";
+import { isTextFieldSupportingTextConfigEqual } from "../../../../shared/functions/is-text-field-supporting-text-config-equal.function";
+import type { TextFieldSupportingTextConfig } from "../../../../shared/types/text-field-supporting-text-config.type";
 
-import type { TextFieldTextProps } from "../../types/text-field-text-props.type";
+import type { TextFieldTextProps } from "../../../types/text-field-text-props.type";
 
 /**
  * Custom hook to resolve the left config for supporting text 
