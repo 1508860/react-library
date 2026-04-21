@@ -2,7 +2,7 @@ import type { PropsWithChildren } from "react";
 
 import type { IStyle } from "@react-library/common";
 
-import type { TextFieldExtraTextProps } from "../../../types/text-field-extra-text-props.type";
+import type { TextFieldPropsExtraText } from "../../../types/text-field-props-extra-text.type";
 import type { TextFieldStyle } from "../../../enums/text-field-style.type";
 
 /**
@@ -11,5 +11,5 @@ import type { TextFieldStyle } from "../../../enums/text-field-style.type";
 export type TextFieldExtraTextContainerProps = (
 	PropsWithChildren &
 	IStyle<TextFieldStyle> &
-	TextFieldExtraTextProps
+	TextFieldPropsExtraText
 );

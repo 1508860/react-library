@@ -2,38 +2,38 @@ import type { IMaxCharacterCount, IMaxWordCount, IValidation } from "@react-libr
 
 import type { TextFieldValidationText } from "../enums/text-field-validation-text.type";
 
-type TextFieldValidationTextPropsBase<TTextFieldValidationText extends TextFieldValidationText> = (
+type TextFieldPropsValidationTextBase<TTextFieldValidationText extends TextFieldValidationText> = (
 	IValidation<TTextFieldValidationText>
 );
 
 /**
  *  Props for text field component for validating that a text input value has met character requirements
  */
-export type TextFieldValidationTextPropsEnd = (
+export type TextFieldPropsValidationTextEnd = (
 	IMaxCharacterCount<number> &
-	TextFieldValidationTextPropsBase<typeof TextFieldValidationText.Character>
+	TextFieldPropsValidationTextBase<typeof TextFieldValidationText.Character>
 );
 
 /**
  *  Props for text field component for no text validation
  */
-export type TextFieldValidationTextPropsNone = (
-	TextFieldValidationTextPropsBase<typeof TextFieldValidationText.None>
+export type TextFieldPropsValidationTextNone = (
+	TextFieldPropsValidationTextBase<typeof TextFieldValidationText.None>
 );
 
 /**
  *  Props for text field component for validating that a text input value has met word requirements
  */
-export type TextFieldValidationTextPropsStart = (
+export type TextFieldPropsValidationTextStart = (
 	IMaxWordCount<number> &
-	TextFieldValidationTextPropsBase<typeof TextFieldValidationText.Word>
+	TextFieldPropsValidationTextBase<typeof TextFieldValidationText.Word>
 );
 
 /**
  * Props for text field component content
  */
-export type TextFieldValidationTextProps = (
-	TextFieldValidationTextPropsEnd |
-	TextFieldValidationTextPropsNone |
-	TextFieldValidationTextPropsStart
+export type TextFieldPropsValidationText = (
+	TextFieldPropsValidationTextEnd |
+	TextFieldPropsValidationTextNone |
+	TextFieldPropsValidationTextStart
 );
