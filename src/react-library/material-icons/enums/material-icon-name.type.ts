@@ -20,7 +20,9 @@ export const MaterialIconName = {
 	MenuOpen: "MenuOpen",
 	Search: "Search",
 	Settings: "Settings",
-	Star: "Star"
+	Star: "Star",
+	Visibility: "Visibility",
+	VisibilityOff: "VisibilityOff"
 } as const satisfies Record<string, string>;
 
 /**
