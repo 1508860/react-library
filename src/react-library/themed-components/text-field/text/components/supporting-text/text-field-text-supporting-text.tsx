@@ -2,8 +2,8 @@ import { TextFieldSupportingText } from "../../../shared/components/supporting-t
 
 import type { TextFieldTextProps } from "../../types/text-field-text-props.type";
 
-import { useTextFieldTextSupportingTextLeftState } from "../hooks/text-field-text-supporting-text-left-state.hook";
-import { useTextFieldTextSupportingTextRightState } from "../hooks/text-field-text-supporting-text-right-state.hook";
+import { useTextFieldTextSupportingTextLeftState } from "./hooks/text-field-text-supporting-text-left-state.hook";
+import { useTextFieldTextSupportingTextRightState } from "./hooks/text-field-text-supporting-text-right-state.hook";
 
 /**
  * Text field text supporting text component
