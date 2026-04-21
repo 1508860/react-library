@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import type { IStyle } from "@react-library/common";
 import { MaterialIconName } from "@react-library/material-icons";
 import {
 	TextFieldExtraTextPosition,
@@ -12,21 +13,20 @@ import {
 	DemoItem,
 	DemoSection
 } from "@react-library-demo/shared";
-import type { IStyle } from "@react-library/common";
 
 export function ReactLibraryThemedComponentsTextFieldTextDemo() {
 
 	const [textFieldStyles] = useState<Array<TextFieldStyle>>(() => Object.values(TextFieldStyle));
 
 	return (
-		<>
+		<DemoSection title={`Text Field - text`}>
 			{textFieldStyles.map(textFieldStyle => (
 				<ReactLibraryThemedComponentsTextFieldTextDemoStyle
 					key={textFieldStyle}
 					style={textFieldStyle}
 				/>
 			))}
-		</>
+		</DemoSection>
 	);
 }
 
@@ -35,7 +35,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 	const [value, setValue] = useState<string | undefined>(() => undefined);
 
 	return (
-		<DemoSection title={`Text Field - text - ${props.style}`}>
+		<>
 			<DemoItem label="Basic">
 				<TextFieldText
 					defaultText="Some default text"
@@ -45,7 +45,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					leadingIconName={MaterialIconName.Search}
 					maxWidth={500}
 					minWidth={300}
-					name={`${props.style}-1`}
+					name={`text-${props.style}-1`}
 					onValueChange={setValue}
 					style={props.style}
 					validation={TextFieldValidationText.None}
@@ -62,7 +62,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					leadingIconName={MaterialIconName.Search}
 					maxWidth={500}
 					minWidth={300}
-					name={`${props.style}-2`}
+					name={`text-${props.style}-2`}
 					onValueChange={setValue}
 					style={props.style}
 					validation={TextFieldValidationText.None}
@@ -79,7 +79,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					leadingIconName={MaterialIconName.Search}
 					maxWidth={500}
 					minWidth={300}
-					name={`${props.style}-4`}
+					name={`text-${props.style}-4`}
 					onValueChange={setValue}
 					style={props.style}
 					validation={TextFieldValidationText.None}
@@ -96,7 +96,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					leadingIconName={MaterialIconName.Search}
 					maxWidth={500}
 					minWidth={300}
-					name={`${props.style}-5`}
+					name={`text-${props.style}-5`}
 					onValueChange={setValue}
 					style={props.style}
 					validation={TextFieldValidationText.None}
@@ -113,7 +113,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					maxCharacterCount={10}
 					maxWidth={500}
 					minWidth={300}
-					name={`${props.style}-6`}
+					name={`text-${props.style}-6`}
 					onValueChange={setValue}
 					style={props.style}
 					supportingText="Supporting text"
@@ -131,7 +131,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					maxWordCount={5}
 					maxWidth={500}
 					minWidth={300}
-					name={`${props.style}-7`}
+					name={`text-${props.style}-7`}
 					onValueChange={setValue}
 					style={props.style}
 					supportingText="Supporting text"
@@ -139,6 +139,6 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					value={value}
 				/>
 			</DemoItem>
-		</DemoSection>
+		</>
 	);
 }
