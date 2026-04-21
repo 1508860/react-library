@@ -19,6 +19,7 @@ export * from "./observer";
 export * from "./orientation";
 export * from "./position-strategy-external";
 export * from "./position-strategy-internal";
+export * from "./regex";
 export * from "./scale";
 export * from "./sorting";
 export * from "./style";
