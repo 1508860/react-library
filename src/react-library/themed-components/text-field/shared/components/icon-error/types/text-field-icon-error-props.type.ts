@@ -1,10 +1,8 @@
-import type { IStyle } from "@react-library/common";
-
-import type { TextFieldStyle } from "../../../enums/text-field-style.type";
+import type { TextFieldPropsStyle } from "../../../types/text-field-props-style.type";
 
 /**
  * Props for text field icon error component
  */
 export type TextFieldIconErrorProps = (
-	IStyle<TextFieldStyle>
+	TextFieldPropsStyle
 );

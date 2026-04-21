@@ -1,4 +1,5 @@
 import type { CallbackWithParameter } from "@react-library/common";
+
 import type { TextFieldIsPopulatedState } from "./text-field-is-populated-state.type";
 
 /**

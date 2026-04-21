@@ -18,7 +18,7 @@ export function TextFieldReadonly(props: TextFieldReadonlyProps) {
 		>
 			<TextFieldContainer>
 				<TextFieldInnerContainer
-					common={props}
+					{...props}
 					key="inner-container"
 				>
 					<TextFieldExtraTextContainer

@@ -19,7 +19,7 @@ export function TextFieldInnerContainer(props: TextFieldInnerContainerProps) {
 	const styleState = useTextFieldStyleStateContext();
 
 	return (
-		<div style={textFieldInnerContainerStyle(props.common, font, colourState, styleState)}>
+		<div style={textFieldInnerContainerStyle(props, font, colourState, styleState)}>
 			{props.children}
 		</div>
 	);

@@ -1,6 +1,6 @@
-import type { ILeft, IRight, IStyle } from "@react-library/common";
+import type { ILeft, IRight } from "@react-library/common";
 
-import type { TextFieldStyle } from "../../../enums/text-field-style.type";
+import type { TextFieldPropsStyle } from "../../../types/text-field-props-style.type";
 import type { TextFieldSupportingTextConfig } from "../../../types/text-field-supporting-text-config.type";
 
 /**
@@ -9,5 +9,5 @@ import type { TextFieldSupportingTextConfig } from "../../../types/text-field-su
 export type TextFieldSupportingTextProps = (
 	Partial<ILeft<TextFieldSupportingTextConfig>> &
 	Partial<IRight<TextFieldSupportingTextConfig>> &
-	IStyle<TextFieldStyle>
+	TextFieldPropsStyle
 );

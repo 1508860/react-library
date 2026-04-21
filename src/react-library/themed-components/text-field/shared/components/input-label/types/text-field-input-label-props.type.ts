@@ -1,13 +1,12 @@
-import type { IIsRequired, ILabel, IName, IStyle } from "@react-library/common";
-
-import type { TextFieldStyle } from "../../../enums/text-field-style.type";
+import type { TextFieldPropsInputReadonly } from "../../../types/text-field-props-input-readonly.type";
+import type { TextFieldPropsIsRequired } from "../../../types/text-field-props-is-required.type";
+import type { TextFieldPropsStyle } from "../../../types/text-field-props-style.type";
 
 /**
  * Props for text field input label component
  */
 export type TextFieldInputLabelProps = (
-	IIsRequired<boolean> &
-	ILabel<string> &
-	IName<string> &
-	IStyle<TextFieldStyle>
+	TextFieldPropsInputReadonly &
+	TextFieldPropsIsRequired &
+	TextFieldPropsStyle
 );

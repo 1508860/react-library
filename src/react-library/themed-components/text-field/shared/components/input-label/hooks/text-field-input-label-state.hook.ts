@@ -7,7 +7,7 @@ import { useResolveState, type Callback } from "@react-library/common";
  * @param isRequired
  * @param label
  */
-export function useTextFieldInputLabelState(label: string, isRequired: boolean): string {
+export function useTextFieldInputLabelState(label: string, isRequired: boolean | undefined): string {
 
 	const resolveState = useCallback<Callback<string>>(
 		() => isRequired ? `${label}*` : label,

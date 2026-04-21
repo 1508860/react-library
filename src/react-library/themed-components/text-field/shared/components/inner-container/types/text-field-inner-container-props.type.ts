@@ -1,13 +1,13 @@
 import type { PropsWithChildren } from "react";
 
-import type { ICommon } from "@react-library/common";
-
-import type { TextFieldCommonPropsReadonly } from "../../../types/text-field-common-props.type";
+import type { TextFieldPropsSize } from "../../../types/text-field-props-size.type";
+import type { TextFieldPropsStyle } from "../../../types/text-field-props-style.type";
 
 /**
  * Props for text field inner container component
  */
 export type TextFieldInnerContainerProps = (
-	ICommon<TextFieldCommonPropsReadonly> &
+	TextFieldPropsSize &
+	TextFieldPropsStyle &
 	PropsWithChildren
 );

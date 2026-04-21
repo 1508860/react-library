@@ -37,7 +37,7 @@ export function TextFieldText(props: TextFieldTextProps) {
 		>
 			<TextFieldContainer>
 				<TextFieldInnerContainer
-					common={props}
+					{...props}
 					key="inner-container"
 				>
 					<TextFieldLeadingIcon

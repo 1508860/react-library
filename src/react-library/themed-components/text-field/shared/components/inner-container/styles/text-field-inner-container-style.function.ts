@@ -5,23 +5,24 @@ import type { Font } from "@react-library/common";
 import { TEXT_FIELD_PROPERTY_MAP } from "../../../constants/text-field-property-map.const";
 import type { TextFieldStyleState } from "../../../enums/text-field-style-state.type";
 import type { TextFieldColourState } from "../../../types/text-field-colour-state.type";
-import type { TextFieldCommonPropsReadonly } from "../../../types/text-field-common-props.type";
+
+import type { TextFieldInnerContainerProps } from "../types/text-field-inner-container-props.type";
 
 /**
  * Resolve text field inner container style based on parameters
- * @param commonProps
+ * @param props
  * @param font
  * @param colourState
  * @param styleState
  */
 export function textFieldInnerContainerStyle(
-	commonProps: TextFieldCommonPropsReadonly,
+	props: TextFieldInnerContainerProps,
 	font: Font,
 	colourState: TextFieldColourState,
 	styleState: TextFieldStyleState
 ): CSSProperties {
 
-	const styleMap = TEXT_FIELD_PROPERTY_MAP.style[commonProps.style];
+	const styleMap = TEXT_FIELD_PROPERTY_MAP.style[props.style];
 
 	return {
 		alignItems: "center",
@@ -44,13 +45,13 @@ export function textFieldInnerContainerStyle(
 		flexDirection: "row",
 		fontFamily: font.fontFamily,
 		gap: styleMap.gap,
-		maxWidth: commonProps.maxWidth,
+		maxWidth: props.maxWidth,
 		minHeight: styleMap.minHeight,
-		minWidth: commonProps.minWidth,
+		minWidth: props.minWidth,
 		paddingBottom: styleMap.styleState[styleState].paddingBottom,
 		paddingLeft: styleMap.styleState[styleState].paddingLeft,
 		paddingRight: styleMap.styleState[styleState].paddingRight,
 		paddingTop: styleMap.styleState[styleState].paddingTop,
-		width: commonProps.width
+		width: props.width
 	};
 }

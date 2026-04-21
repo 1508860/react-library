@@ -1,12 +1,12 @@
-import type { Callback, IIsDisabled, IOnClear, IStyle } from "@react-library/common";
-
-import type { TextFieldStyle } from "../../../enums/text-field-style.type";
+import type { TextFieldPropsIsDisabled } from "../../../types/text-field-props-is-disabled.type";
+import type { TextFieldPropsOnClear } from "../../../types/text-field-props-on-clear.type";
+import type { TextFieldPropsStyle } from "../../../types/text-field-props-style.type";
 
 /**
  * Props for text field icon clear component
  */
 export type TextFieldIconClearProps = (
-	IIsDisabled &
-	IOnClear<Callback<void>> &
-	IStyle<TextFieldStyle>
+	TextFieldPropsIsDisabled &
+	TextFieldPropsOnClear &
+	TextFieldPropsStyle
 );
