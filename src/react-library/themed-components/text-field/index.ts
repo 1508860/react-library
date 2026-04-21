@@ -1,3 +1,4 @@
+export * from "./readonly";
 export * from "./shared/enums/text-field-extra-text-position.type";
 export * from "./shared/enums/text-field-style.type";
 export * from "./shared/enums/text-field-validation-text.type";
