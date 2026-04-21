@@ -46,7 +46,7 @@ export function TextFieldText(props: TextFieldTextProps) {
 						style={props.style}
 					/>
 					<TextFieldExtraTextContainer
-						key="input-container"
+						key="extra-text-container"
 						{...props}
 					>
 						<TextFieldInputContainer

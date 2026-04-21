@@ -22,7 +22,7 @@ export function TextFieldReadonly(props: TextFieldReadonlyProps) {
 					key="inner-container"
 				>
 					<TextFieldExtraTextContainer
-						key="input-container"
+						key="extra-text-container"
 						{...props}
 					>
 						<TextFieldInputContainer

@@ -6,10 +6,7 @@ import {
 	TextFieldStyle
 } from "@react-library/themed-components";
 
-import {
-	DemoItem,
-	DemoSection
-} from "@react-library-demo/shared";
+import { DemoItem, DemoSection } from "@react-library-demo/shared";
 
 export function ReactLibraryThemedComponentsTextFieldReadonlyDemo() {
 

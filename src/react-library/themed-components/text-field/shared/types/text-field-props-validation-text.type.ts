@@ -30,7 +30,7 @@ export type TextFieldPropsValidationTextStart = (
 );
 
 /**
- * Props for text field component content
+ *  Props for text field component for validating a text input value
  */
 export type TextFieldPropsValidationText = (
 	TextFieldPropsValidationTextEnd |

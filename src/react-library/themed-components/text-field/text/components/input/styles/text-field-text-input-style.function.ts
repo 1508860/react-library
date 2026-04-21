@@ -7,7 +7,6 @@ import type { TextFieldColourState } from "../../../../shared/types/text-field-c
 
 /**
  * Resolve text field text input style based on parameters
- * @param content
  * @param extraTextPosition
  * @param style
  * @param colourState
