@@ -30,6 +30,7 @@ export function useTextFieldTextSupportingTextRightState(props: TextFieldTextPro
 					text: `${wordCount}/${props.maxWordCount}`
 				};
 			}
+			return undefined;
 		},
 		[props]
 	);

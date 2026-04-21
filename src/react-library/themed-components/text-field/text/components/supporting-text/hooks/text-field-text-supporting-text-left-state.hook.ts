@@ -17,6 +17,7 @@ export function useTextFieldTextSupportingTextLeftState(props: TextFieldTextProp
 			if (props.isDisabled) return undefined;
 			if (props.isRequired && props.value === undefined) return { isErrored: true, text: "Is Required" };
 			if (props.supportingText !== undefined) return { isErrored: false, text: props.supportingText };
+			return undefined;
 		},
 		[props.isDisabled, props.isRequired, props.supportingText, props.value]
 	);
