@@ -12,10 +12,10 @@ import { TextFieldInputLabel } from "../shared/components/input-label";
 import { TextFieldLeadingIcon } from "../shared/components/leading-icon";
 import { TextFieldProvider } from "../shared/components/provider";
 
-import { useTextFieldTextIsPopulatedState } from "./hooks/text-field-text-is-populated-state.hook";
-import type { TextFieldTextProps } from "./types/text-field-text-props.type";
 import { TextFieldTextInput } from "./components/input";
 import { TextFieldTextSupportingText } from "./components/supporting-text";
+import { useTextFieldTextIsPopulatedState } from "./hooks/text-field-text-is-populated-state.hook";
+import type { TextFieldTextProps } from "./types/text-field-text-props.type";
 
 /**
  * Text field text component

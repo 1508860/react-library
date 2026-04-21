@@ -6,7 +6,7 @@ import type { TextFieldStyle } from "../../../../shared/enums/text-field-style.t
 import type { TextFieldColourState } from "../../../../shared/types/text-field-colour-state.type";
 
 /**
- * Resolve text field text style based on parameters
+ * Resolve text field text input style based on parameters
  * @param content
  * @param extraTextPosition
  * @param style

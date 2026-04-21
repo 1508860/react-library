@@ -1,7 +1,6 @@
 import type {
 	CallbackWithParameter,
 	IDefaultText,
-	ILabel,
 	IOnValueChange,
 	IValue
 } from "@react-library/common";
@@ -15,7 +14,6 @@ import type { TextFieldValidationTextProps } from "../../shared/types/text-field
  */
 export type TextFieldTextProps = (
 	Partial<IDefaultText<string | undefined>> &
-	ILabel<string> &
 	IOnValueChange<CallbackWithParameter<(string | undefined), void>> &
 	TextFieldCommonProps &
 	TextFieldExtraTextProps &
