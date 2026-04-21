@@ -8,7 +8,6 @@ import { TEXT_FIELD_IS_POPULATED_STATE_CONTEXT } from "../../constants/text-fiel
 import { TEXT_FIELD_STYLE_STATE_CONTEXT } from "../../constants/text-field-style-state-context.const";
 import { useTextFieldColourState } from "../../hooks/text-field-colour-state.hook";
 import { TextFieldStyleState } from "../../enums/text-field-style-state.type";
-import type { TextFieldCommonProps } from "../../types/text-field-common-props.type";
 import type { TextFieldEvents } from "../../types/text-field-events.type";
 
 import type { TextFieldProviderProps } from "./types/text-field-provider-props.type";
@@ -16,7 +15,7 @@ import type { TextFieldProviderProps } from "./types/text-field-provider-props.t
 /**
  * Text field provider component
  */
-export function TextFieldProvider<TProps extends TextFieldCommonProps>(props: TextFieldProviderProps<TProps>) {
+export function TextFieldProvider<TProps>(props: TextFieldProviderProps<TProps>) {
 
 	// Input event states
 	const [isErrored, setIsErrored] = useState<boolean>(() => false);
@@ -37,7 +36,7 @@ export function TextFieldProvider<TProps extends TextFieldCommonProps>(props: Te
 	// Style state
 	const resolveStyleState = useCallback<Callback<TextFieldStyleState>>(
 		() => {
-			if (props.props.isDisabled) return TextFieldStyleState.Disabled;
+			if (props.isDisabled) return TextFieldStyleState.Disabled;
 			if (isErrored) {
 				if (isFocused) return TextFieldStyleState.ErroredFocused;
 				if (isHovered) return TextFieldStyleState.ErroredHovered;
@@ -47,12 +46,12 @@ export function TextFieldProvider<TProps extends TextFieldCommonProps>(props: Te
 			if (isHovered) return TextFieldStyleState.Hovered;
 			return TextFieldStyleState.Enabled;
 		},
-		[props.props.isDisabled, isErrored, isFocused, isHovered]
+		[props.isDisabled, isErrored, isFocused, isHovered]
 	);
 	const styleState = useResolveState(resolveStyleState);
 
 	// Colour state
-	const colourState = useTextFieldColourState(props.props.style, styleState);
+	const colourState = useTextFieldColourState(props.style, styleState);
 
 	return (
 		<TEXT_FIELD_EVENTS_CONTEXT value={TextFieldEvents}>

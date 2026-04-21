@@ -30,7 +30,9 @@ export function TextFieldText(props: TextFieldTextProps) {
 
 	return (
 		<TextFieldProvider<TextFieldTextProps>
+			isDisabled={!!props.isDisabled}
 			props={props}
+			style={props.style}
 			useIsPopulatedState={useTextFieldTextIsPopulatedState}
 		>
 			<TextFieldContainer>

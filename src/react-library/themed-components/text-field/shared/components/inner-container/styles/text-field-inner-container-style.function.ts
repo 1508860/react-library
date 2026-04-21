@@ -5,7 +5,7 @@ import type { Font } from "@react-library/common";
 import { TEXT_FIELD_PROPERTY_MAP } from "../../../constants/text-field-property-map.const";
 import type { TextFieldStyleState } from "../../../enums/text-field-style-state.type";
 import type { TextFieldColourState } from "../../../types/text-field-colour-state.type";
-import type { TextFieldCommonProps } from "../../../types/text-field-common-props.type";
+import type { TextFieldCommonPropsReadonly } from "../../../types/text-field-common-props.type";
 
 /**
  * Resolve text field inner container style based on parameters
@@ -15,7 +15,7 @@ import type { TextFieldCommonProps } from "../../../types/text-field-common-prop
  * @param styleState
  */
 export function textFieldInnerContainerStyle(
-	commonProps: TextFieldCommonProps,
+	commonProps: TextFieldCommonPropsReadonly,
 	font: Font,
 	colourState: TextFieldColourState,
 	styleState: TextFieldStyleState
