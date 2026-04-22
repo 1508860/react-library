@@ -12,7 +12,7 @@ export function textFieldSupportingTextContainerStyle(style: TextFieldStyle): CS
 	const styleMap = TEXT_FIELD_PROPERTY_MAP.style[style];
 
 	return {
-		alignItems: "center",
+		alignItems: "stretch",
 		boxSizing: "border-box",
 		display: "flex",
 		flexDirection: "row",

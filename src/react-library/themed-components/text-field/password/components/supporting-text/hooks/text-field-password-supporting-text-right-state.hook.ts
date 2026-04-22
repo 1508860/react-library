@@ -2,39 +2,54 @@ import { useCallback } from "react";
 
 import { useResolveState, type Callback } from "@react-library/common";
 
-import { isTextFieldSupportingTextConfigEqual } from "../../../../shared/functions/is-text-field-supporting-text-config-equal.function";
-import type { TextFieldSupportingTextConfig } from "../../../../shared/types/text-field-supporting-text-config.type";
+import { TextFieldSupportingTextRightId } from "../../../../shared/enums/text-field-supporting-text-right-id.type";
+import { isTextFieldSupportingTextConfigsEqual } from "../../../../shared/functions/is-text-field-supporting-text-config-equal.function";
+import type { TextFieldSupportingTextConfigsRight } from "../../../../shared/types/text-field-props-supporting-text-config.type";
 
 import type { TextFieldPasswordProps } from "../../../types/text-field-password-props.type";
 
 /**
- * Custom hook to resolve the right config for supporting text 
+ * Custom hook to resolve the right config for supporting text for a text input
  */
-export function useTextFieldpasswordSupportingTextRightState(props: TextFieldPasswordProps): TextFieldSupportingTextConfig | undefined {
+export function useTextFieldpasswordSupportingTextRightState(props: TextFieldPasswordProps): TextFieldSupportingTextConfigsRight {
 
-	const resolveState = useCallback<Callback<TextFieldSupportingTextConfig | undefined>>(
+	const resolveState = useCallback<Callback<TextFieldSupportingTextConfigsRight>>(
 		() => {
-			const characterCount: number = props.value?.length ?? 0;
 			const validation = props.validation;
-			if(!validation) return undefined;
-			if (validation.maxCharacterCount !== undefined && characterCount > validation.maxCharacterCount) {
-				return {
+			if (!validation) return [];
+
+			const characterCount: number = props.value?.length ?? 0;
+			const exceedsMaxCharacterCount: boolean = validation.maxCharacterCount !== undefined && characterCount > validation.maxCharacterCount;
+			const exceedsMinCharacterCount: boolean = validation.minCharacterCount !== undefined && characterCount < validation.minCharacterCount;
+
+			if (exceedsMinCharacterCount && exceedsMaxCharacterCount) {
+				return [{
+					id: TextFieldSupportingTextRightId.MinCharacterCount,
 					isErrored: true,
-					text: `${characterCount}/${validation.maxCharacterCount}`
-				};
+					text: `${validation.minCharacterCount} <= ${characterCount} <= ${validation.maxCharacterCount}`
+				}];
 			}
-			if (validation.minCharacterCount !== undefined && characterCount < validation.minCharacterCount) {
-				return {
+			if (exceedsMinCharacterCount) {
+				return [{
+					id: TextFieldSupportingTextRightId.MinCharacterCount,
 					isErrored: true,
 					text: `${characterCount}/${validation.minCharacterCount} min`
-				};
+				}];
 			}
-			return undefined;
+			if (exceedsMaxCharacterCount) {
+				return [{
+					id: TextFieldSupportingTextRightId.MaxCharacterCount,
+					isErrored: true,
+					text: `${characterCount}/${validation.maxCharacterCount}`
+				}];
+			}
+
+			return [];
 		},
 		[props]
 	);
 
-	const isStateEqual = useCallback(isTextFieldSupportingTextConfigEqual, []);
+	const isStateEqual = useCallback(isTextFieldSupportingTextConfigsEqual, []);
 
 	const state = useResolveState(resolveState, isStateEqual);
 

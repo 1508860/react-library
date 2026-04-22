@@ -6,6 +6,7 @@ import { useTextFieldEventsContext } from "../../hooks/text-field-events-context
 import { textFieldSupportingTextContainerStyle } from "./styles/text-field-supporting-text-container-style.function";
 import { textFieldSupportingTextStyle } from "./styles/text-field-supporting-text-style.function";
 import type { TextFieldSupportingTextProps } from "./types/text-field-supporting-text-props.type";
+import { textFieldSupportingTextSideStyle } from "./styles/text-field-supporting-text-side-style.function";
 
 /**
  * Text field supporting text component
@@ -18,11 +19,15 @@ export function TextFieldSupportingText(props: TextFieldSupportingTextProps) {
 
 	// Handle error state
 	useEffect(
-		() => textFieldEvents.onIsErrored(!!props.left?.isErrored || !!props.right?.isErrored),
-		[props.left?.isErrored, props.right?.isErrored, textFieldEvents]
+		() => {
+			const hasLeftError: boolean = props.left.some(x => x.isErrored === true);
+			const hasRightError: boolean = props.right.some(x => x.isErrored === true);
+			textFieldEvents.onIsErrored(hasLeftError || hasRightError);
+		},
+		[props.left, props.right, textFieldEvents]
 	);
 
-	if (!props.left && !props.right) return (
+	if (props.left.length === 0 && props.right.length === 0) return (
 		<Fragment key="no-container" />
 	);
 
@@ -31,26 +36,32 @@ export function TextFieldSupportingText(props: TextFieldSupportingTextProps) {
 			key="container"
 			style={textFieldSupportingTextContainerStyle(props.style)}
 		>
-			{
-				props.left ?
-					<div
-						key="left"
-						style={textFieldSupportingTextStyle(props.left.isErrored, props.style, colourState, true)}
+			<div
+				key="left"
+				style={textFieldSupportingTextSideStyle(true)}
+			>
+				{props.left.map(x => (
+					<span
+						key={x.id}
+						style={textFieldSupportingTextStyle(x.isErrored, props.style, colourState)}
 					>
-						{props.left.text}
-					</div> :
-					<Fragment key="no-left" />
-			}
-			{
-				props.right ?
-					<div
-						key="right"
-						style={textFieldSupportingTextStyle(props.right.isErrored, props.style, colourState, false)}
+						{x.text}
+					</span>
+				))}
+			</div>
+			<div
+				key="right"
+				style={textFieldSupportingTextSideStyle(false)}
+			>
+				{props.right.map(x => (
+					<span
+						key={x.id}
+						style={textFieldSupportingTextStyle(x.isErrored, props.style, colourState)}
 					>
-						{props.right.text}
-					</div> :
-					<Fragment key="no-right" />
-			}
+						{x.text}
+					</span>
+				))}
+			</div>
 		</div>
 	);
 }
