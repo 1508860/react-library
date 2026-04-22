@@ -16,7 +16,10 @@ export function ReactLibraryThemedComponentsTextFieldReadonlyDemo() {
 	return (
 		<DemoSection title="Text Field - readonly">
 			{textFieldStyles.map(textFieldStyle => (
-				<DemoItem>
+				<DemoItem
+					key={textFieldStyle}
+					label={textFieldStyle}
+				>
 					<TextFieldReadonly
 						extraTextPosition={TextFieldExtraTextPosition.None}
 						label="Label"
