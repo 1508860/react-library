@@ -6,11 +6,13 @@ import {
 	type CallbackWithParameter
 } from "@react-library/common";
 
+import { TEXT_FIELD_STYLE_CLASS_INPUT_PLACEHOLDER } from "../../../shared/constants/text-field-style-class.const";
 import { useTextFieldColourStateContext } from "../../../shared/hooks/text-field-colour-state-context.hook";
 import { useTextFieldEventsContext } from "../../../shared/hooks/text-field-events-context.hook";
+import "../../../shared/styles/text-field-input-placeholder-style.css";
+
 import type { TextFieldTextProps } from "../../types/text-field-text-props.type";
 
-import "./styles/text-field-text-input-style.css";
 import { textFieldTextInputStyle } from "./styles/text-field-text-input-style.function";
 
 /**
@@ -35,10 +37,9 @@ export function TextFieldTextInput(props: TextFieldTextProps) {
 
 	return (
 		<input
-			className="react-library-themed-components-text-field-text"
+			className={TEXT_FIELD_STYLE_CLASS_INPUT_PLACEHOLDER}
 			disabled={props.isDisabled}
 			id={props.name}
-			key="input"
 			name={props.name}
 			onBlur={textFieldEvents.onBlur}
 			onChange={handleOnValueChange}

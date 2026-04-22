@@ -3,6 +3,7 @@ import { useCallback } from "react";
 import { type Callback, useResolveState } from "@react-library/common";
 
 import { useTextFieldColourStateContext } from "../../../shared/hooks/text-field-colour-state-context.hook";
+
 import type { TextFieldReadonlyProps } from "../../types/text-field-readonly-props.type";
 
 import { textFieldReadonlyInputStyle } from "./styles/text-field-readonly-input-style.function";
@@ -23,7 +24,6 @@ export function TextFieldReadonlyInput(props: TextFieldReadonlyProps) {
 		<input
 			disabled={true}
 			id={props.name}
-			key="input"
 			name={props.name}
 			style={textFieldReadonlyInputStyle(props.extraTextPosition, props.style, colourState)}
 			type="text"
