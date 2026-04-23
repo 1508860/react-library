@@ -31,7 +31,7 @@ export function ScrollBasic(props: ScrollBasicProps) {
 			"--min-width": props.size.minWidth !== null && props.size.minWidth !== undefined ? toSizeWithUnits(props.size.minWidth) : null,
 			"--overflow-x": (props.direction === ScrollBasicDirection.Both || props.orientation === Orientation.Horizontal) ? "auto" : "unset",
 			"--overflow-y": (props.direction === ScrollBasicDirection.Both || props.orientation === Orientation.Vertical) ? "auto" : "unset",
-			"--scrollbar-background-colour": props.colour.scrollbarBackgroundColour.toColourString(),
+			"--scrollbar-background-colour": props.colour.scrollbarBackgroundColour?.toColourString(),
 			"--scrollbar-colour": props.colour.scrollbarColour.toColourString(),
 			"--width": props.size.width !== null && props.size.width !== undefined ? toSizeWithUnits(props.size.width) : null
 		}),

@@ -1,5 +1,5 @@
 .react-library-themed-components-shared-scroll {
-	background-color: var(--background-colour);
+	background-color: var(--background-colour, transparent);
 	box-sizing: border-box;
 	height: var(--height);
 	max-height: var(--max-height);
@@ -21,7 +21,7 @@
 }
 
 .react-library-themed-components-shared-scroll::-webkit-scrollbar-track-piece {
-	background-color: var(--scrollbar-background-colour);
+	background-color: var(--scrollbar-background-colour, transparent);
 	border-radius: 5px;
 }
 

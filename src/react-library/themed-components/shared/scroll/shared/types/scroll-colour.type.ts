@@ -11,6 +11,6 @@ import type {
  */
 export type ScrollColour = (
 	Partial<IBackgroundColour<Colour>> &
-	IScrollbarBackgroundColour<Colour> &
+	Partial<IScrollbarBackgroundColour<Colour>> &
 	IScrollbarColour<Colour>
 );
