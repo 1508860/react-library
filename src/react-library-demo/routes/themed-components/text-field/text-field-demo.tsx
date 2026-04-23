@@ -1,4 +1,5 @@
 import {
+	ReactLibraryThemedComponentsTextFieldNumberDemo,
 	ReactLibraryThemedComponentsTextFieldPasswordDemo,
 	ReactLibraryThemedComponentsTextFieldReadonlyDemo,
 	ReactLibraryThemedComponentsTextFieldTextareaDemo,
@@ -8,6 +9,7 @@ import {
 export function ReactLibraryThemedComponentsTextFieldDemo() {
 	return (
 		<>
+			<ReactLibraryThemedComponentsTextFieldNumberDemo key="number" />
 			<ReactLibraryThemedComponentsTextFieldPasswordDemo key="password" />
 			<ReactLibraryThemedComponentsTextFieldReadonlyDemo key="readonly" />
 			<ReactLibraryThemedComponentsTextFieldTextDemo key="text" />

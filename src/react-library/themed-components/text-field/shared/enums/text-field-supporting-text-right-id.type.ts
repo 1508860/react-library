@@ -3,8 +3,10 @@
  */
 export const TextFieldSupportingTextRightId = {
 	MaxCharacterCount: "MaxCharacterCount",
+	MaxNumber: "MaxNumber",
 	MaxWordCount: "MaxWordCount",
-	MinCharacterCount: "MinCharacterCount"
+	MinCharacterCount: "MinCharacterCount",
+	MinNumber: "MinNumber"
 } as const satisfies Record<string, string>;
 
 /**

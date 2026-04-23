@@ -6,12 +6,12 @@ import type { TextFieldStyle } from "../../../../shared/enums/text-field-style.t
 import type { TextFieldColourState } from "../../../../shared/types/text-field-colour-state.type";
 
 /**
- * Resolve text field text input style based on parameters
+ * Resolve text field number input style based on parameters
  * @param extraTextPosition
  * @param style
  * @param colourState
  */
-export function textFieldTextInputStyle(
+export function textFieldNumberInputStyle(
 	extraTextPosition: TextFieldExtraTextPosition,
 	style: TextFieldStyle,
 	colourState: TextFieldColourState
