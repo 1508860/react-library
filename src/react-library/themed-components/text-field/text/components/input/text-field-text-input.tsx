@@ -6,10 +6,10 @@ import {
 	type CallbackWithParameter
 } from "@react-library/common";
 
-import { TEXT_FIELD_STYLE_CLASS_INPUT_PLACEHOLDER } from "../../../shared/constants/text-field-style-class.const";
+import { TEXT_FIELD_STYLE_CLASS_INPUT } from "../../../shared/constants/text-field-style-class.const";
 import { useTextFieldColourStateContext } from "../../../shared/hooks/text-field-colour-state-context.hook";
 import { useTextFieldEventsContext } from "../../../shared/hooks/text-field-events-context.hook";
-import "../../../shared/styles/text-field-input-placeholder-style.css";
+import "../../../shared/styles/text-field-input-style.css";
 
 import type { TextFieldTextProps } from "../../types/text-field-text-props.type";
 
@@ -37,7 +37,7 @@ export function TextFieldTextInput(props: TextFieldTextProps) {
 
 	return (
 		<input
-			className={TEXT_FIELD_STYLE_CLASS_INPUT_PLACEHOLDER}
+			className={TEXT_FIELD_STYLE_CLASS_INPUT}
 			disabled={props.isDisabled}
 			id={props.name}
 			name={props.name}

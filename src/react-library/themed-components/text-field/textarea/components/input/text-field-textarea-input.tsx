@@ -4,10 +4,10 @@ import { type Callback, useResolveState, type CallbackWithParameter } from "@rea
 
 import { ScrollTextArea, type ScrollColour } from "../../../../shared";
 
-import { TEXT_FIELD_STYLE_CLASS_INPUT_PLACEHOLDER } from "../../../shared/constants/text-field-style-class.const";
+import { TEXT_FIELD_STYLE_CLASS_INPUT } from "../../../shared/constants/text-field-style-class.const";
 import { useTextFieldColourStateContext } from "../../../shared/hooks/text-field-colour-state-context.hook";
 import { useTextFieldEventsContext } from "../../../shared/hooks/text-field-events-context.hook";
-import "../../../shared/styles/text-field-input-placeholder-style.css";
+import "../../../shared/styles/text-field-input-style.css";
 
 import type { TextFieldTextareaProps } from "../../types/text-field-textarea-props.type";
 
@@ -44,7 +44,7 @@ export function TextFieldTextareaInput(props: TextFieldTextareaProps) {
 
 	return (
 		<ScrollTextArea
-			className={TEXT_FIELD_STYLE_CLASS_INPUT_PLACEHOLDER}
+			className={TEXT_FIELD_STYLE_CLASS_INPUT}
 			colour={scrollTextareaColour}
 			disabled={props.isDisabled}
 			id={props.name}

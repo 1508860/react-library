@@ -6,10 +6,10 @@ import {
 	type CallbackWithParameter
 } from "@react-library/common";
 
-import { TEXT_FIELD_STYLE_CLASS_INPUT_PLACEHOLDER } from "../../../shared/constants/text-field-style-class.const";
+import { TEXT_FIELD_STYLE_CLASS_INPUT } from "../../../shared/constants/text-field-style-class.const";
 import { useTextFieldColourStateContext } from "../../../shared/hooks/text-field-colour-state-context.hook";
 import { useTextFieldEventsContext } from "../../../shared/hooks/text-field-events-context.hook";
-import "../../../shared/styles/text-field-input-placeholder-style.css";
+import "../../../shared/styles/text-field-input-style.css";
 
 import { textFieldTextPasswordStyle } from "./styles/text-field-password-input-style.function";
 import type { TextFieldPasswordInputProps } from "./types/text-field-password-props.type";
@@ -36,7 +36,7 @@ export function TextFieldPasswordInput(props: TextFieldPasswordInputProps) {
 
 	return (
 		<input
-			className={TEXT_FIELD_STYLE_CLASS_INPUT_PLACEHOLDER}
+			className={TEXT_FIELD_STYLE_CLASS_INPUT}
 			id={props.name}
 			name={props.name}
 			onBlur={textFieldEvents.onBlur}
