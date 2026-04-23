@@ -28,6 +28,11 @@
 .react-library-themed-components-shared-scroll::-webkit-scrollbar-thumb {
 	background-color: var(--scrollbar-colour);
 	border-radius: 5px;
+	cursor: grab;
+}
+
+.react-library-themed-components-shared-scroll::-webkit-scrollbar-thumb:active {
+	cursor: grabbing;
 }
 
 .react-library-themed-components-shared-scroll::-webkit-scrollbar-button {
