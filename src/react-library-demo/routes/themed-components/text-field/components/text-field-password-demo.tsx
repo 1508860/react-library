@@ -7,7 +7,7 @@ import { DemoItem, DemoSection } from "@react-library-demo/shared";
 export function ReactLibraryThemedComponentsTextFieldPasswordDemo() {
 
 	const [textFieldStyles] = useState<Array<TextFieldStyle>>(() => Object.values(TextFieldStyle));
-	const [value, setValue] = useState<string | undefined>(() => "A password input");
+	const [value, setValue] = useState<string | undefined>(() => " ");
 	const [validation] = useState<TextFieldValidationPasswordConfig | undefined>(() => ({
 		hasLowercase: true,
 		hasNumeric: true,
