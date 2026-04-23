@@ -18,6 +18,6 @@ export function textFieldInputContainerStyle(style: TextFieldStyle): CSSProperti
 		flexDirection: "column",
 		flexGrow: 1,
 		flexShrink: 0,
-		justifyContent: "center"
+		justifyContent: "start"
 	};
 }

@@ -75,6 +75,7 @@ type TextFieldPropertyContentLabelPopulatedMap = (
 	IFontSize<Size> &
 	IFontWeight<Property.FontWeight> &
 	ILeft<Size | undefined> &
+	Partial<ILineHeight<Size>> &
 	Partial<IPaddingHorizontal<Size>> &
 	ITop<Size | undefined>
 );

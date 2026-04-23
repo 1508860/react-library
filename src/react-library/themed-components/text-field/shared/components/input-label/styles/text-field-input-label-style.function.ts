@@ -26,6 +26,7 @@ export function textFieldInputLabelStyle(
 		fontSize: styleMap.label.populated[`${isPopulated}`].fontSize,
 		fontWeight: styleMap.label.populated[`${isPopulated}`].fontWeight,
 		left: styleMap.label.populated[`${isPopulated}`].left,
+		lineHeight: styleMap.label.populated[`${isPopulated}`].lineHeight,
 		paddingLeft: styleMap.label.populated[`${isPopulated}`].paddingHorizontal,
 		paddingRight: styleMap.label.populated[`${isPopulated}`].paddingHorizontal,
 		position: "absolute",

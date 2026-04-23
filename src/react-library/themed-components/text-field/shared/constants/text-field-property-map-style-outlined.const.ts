@@ -19,12 +19,14 @@ export const TEXT_FIELD_PROPERTY_MAP_STYLE_OUTLINED: TextFieldPropertyStyleMap =
 				fontSize: 16,
 				fontWeight: 400,
 				left: undefined,
+				lineHeight: "24pt",
 				top: undefined
 			},
 			true: {
 				fontSize: 12,
 				fontWeight: 400,
 				left: 12,
+				lineHeight: undefined,
 				paddingHorizontal: 4,
 				top: -7
 			}
