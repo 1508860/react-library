@@ -31,10 +31,17 @@ export function ScrollTextArea(props: ScrollTextareaProps) {
 	// Ref to load CSS variables
 	const refCallback = useStyleCssVariableLoaderRefCallback<HTMLTextAreaElement>(cssVariables, props.ref);
 
+	// Class name
+	const resolveClassName = useCallback<Callback<string>>(
+		() => !props.className ? SCROLL_SHARED_CLASS_NAME : `${SCROLL_SHARED_CLASS_NAME} ${props.className}`,
+		[props.className]
+	);
+	const className = useResolveState(resolveClassName);
+
 	return (
 		<textarea
 			{...props}
-			className={SCROLL_SHARED_CLASS_NAME}
+			className={className}
 			ref={refCallback}
 		/>
 	);
