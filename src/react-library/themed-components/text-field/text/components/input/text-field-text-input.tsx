@@ -29,7 +29,10 @@ export function TextFieldTextInput(props: TextFieldTextProps) {
 	const value = useResolveState(resolveValue);
 	const handleOnValueChange = useCallback<CallbackWithParameter<React.ChangeEvent<HTMLInputElement>, void>>(
 		(event) => {
-			if (event.target.value.trim().length === 0) props.onValueChange(undefined);
+			if (event.target.value.length === 0) {
+				props.onValueChange(undefined);
+				return;
+			}
 			props.onValueChange(event.target.value);
 		},
 		[props]

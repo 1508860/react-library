@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-import type { CallbackWithParameter } from "@react-library/common";
+import { useResolveState, type Callback, type CallbackWithParameter } from "@react-library/common";
 
 import { TEXT_FIELD_STYLE_CLASS_INPUT } from "../../../shared/constants/text-field-style-class.const";
 import { useTextFieldColourStateContext } from "../../../shared/hooks/text-field-colour-state-context.hook";
@@ -21,10 +21,17 @@ export function TextFieldNumberInput(props: TextFieldNumberProps) {
 	const textFieldEvents = useTextFieldEventsContext();
 
 	// On value change
+	const resolveValue = useCallback<Callback<string>>(() => props.value?.toString() ?? "", [props.value]);
+	const value = useResolveState(resolveValue);
 	const handleOnValueChange = useCallback<CallbackWithParameter<React.ChangeEvent<HTMLInputElement>, void>>(
 		(event) => {
-			if (event.target.value.trim().length === 0) props.onValueChange(undefined);
-			props.onValueChange(parseFloat(event.target.value));
+			const newValue: string = event.target.value.trim();
+			if (newValue.length === 0) {
+				props.onValueChange(undefined);
+				return;
+			}
+			const newValueParsed: number = parseFloat(newValue);
+			props.onValueChange(newValueParsed);
 		},
 		[props]
 	);
@@ -46,7 +53,7 @@ export function TextFieldNumberInput(props: TextFieldNumberProps) {
 			step={props.valueStep}
 			style={textFieldNumberInputStyle(props.extraTextPosition, props.style, colourState)}
 			type="number"
-			value={props.value}
+			value={value}
 		/>
 	);
 }
