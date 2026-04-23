@@ -6,7 +6,7 @@ import {
 	TextFieldExtraTextPosition,
 	TextFieldStyle,
 	TextFieldText,
-	TextFieldValidationText
+	type TextFieldValidationTextConfig
 } from "@react-library/themed-components";
 
 import {
@@ -33,6 +33,10 @@ export function ReactLibraryThemedComponentsTextFieldTextDemo() {
 function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFieldStyle>) {
 
 	const [value, setValue] = useState<string | undefined>(() => undefined);
+	const [validation] = useState<TextFieldValidationTextConfig>(() => ({
+		maxCharacterCount: 10,
+		maxWordCount: 5
+	}));
 
 	return (
 		<>
@@ -48,7 +52,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					name={`text-${props.style}-1`}
 					onValueChange={setValue}
 					style={props.style}
-					validation={TextFieldValidationText.None}
+					validation={validation}
 					value={value}
 				/>
 			</DemoItem>
@@ -65,7 +69,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					name={`text-${props.style}-2`}
 					onValueChange={setValue}
 					style={props.style}
-					validation={TextFieldValidationText.None}
+					validation={validation}
 					value={value}
 				/>
 			</DemoItem>
@@ -82,7 +86,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					name={`text-${props.style}-4`}
 					onValueChange={setValue}
 					style={props.style}
-					validation={TextFieldValidationText.None}
+					validation={validation}
 					value={value}
 				/>
 			</DemoItem>
@@ -99,43 +103,24 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					name={`text-${props.style}-5`}
 					onValueChange={setValue}
 					style={props.style}
-					validation={TextFieldValidationText.None}
+					validation={validation}
 					value={value}
 				/>
 			</DemoItem>
-			<DemoItem label="Character count">
+			<DemoItem label="Validation">
 				<TextFieldText
 					defaultText="Some default text"
 					extraTextPosition={TextFieldExtraTextPosition.None}
 					isRequired={true}
 					label="Label"
 					leadingIconName={MaterialIconName.Search}
-					maxCharacterCount={10}
 					maxWidth={500}
 					minWidth={300}
 					name={`text-${props.style}-6`}
 					onValueChange={setValue}
 					style={props.style}
 					supportingText="Supporting text"
-					validation={TextFieldValidationText.Character}
-					value={value}
-				/>
-			</DemoItem>
-			<DemoItem label="Word count">
-				<TextFieldText
-					defaultText="Some default text"
-					extraTextPosition={TextFieldExtraTextPosition.None}
-					isRequired={true}
-					label="Label"
-					leadingIconName={MaterialIconName.Search}
-					maxWidth={500}
-					maxWordCount={5}
-					minWidth={300}
-					name={`text-${props.style}-7`}
-					onValueChange={setValue}
-					style={props.style}
-					supportingText="Supporting text"
-					validation={TextFieldValidationText.Word}
+					validation={validation}
 					value={value}
 				/>
 			</DemoItem>
