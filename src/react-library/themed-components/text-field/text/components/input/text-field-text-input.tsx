@@ -29,8 +29,8 @@ export function TextFieldTextInput(props: TextFieldTextProps) {
 	const value = useResolveState(resolveValue);
 	const handleOnValueChange = useCallback<CallbackWithParameter<React.ChangeEvent<HTMLInputElement>, void>>(
 		(event) => {
-			if (event.target.value.trim().length === 0) props.onValueChange(undefined)
-			props.onValueChange(event.target.value)
+			if (event.target.value.trim().length === 0) props.onValueChange(undefined);
+			props.onValueChange(event.target.value);
 		},
 		[props]
 	);

@@ -23,8 +23,8 @@ export function TextFieldNumberInput(props: TextFieldNumberProps) {
 	// On value change
 	const handleOnValueChange = useCallback<CallbackWithParameter<React.ChangeEvent<HTMLInputElement>, void>>(
 		(event) => {
-			if (event.target.value.trim().length === 0) props.onValueChange(undefined)
-			props.onValueChange(parseFloat(event.target.value))
+			if (event.target.value.trim().length === 0) props.onValueChange(undefined);
+			props.onValueChange(parseFloat(event.target.value));
 		},
 		[props]
 	);

@@ -36,8 +36,8 @@ export function TextFieldTextareaInput(props: TextFieldTextareaProps) {
 	const value = useResolveState(resolveValue);
 	const handleOnValueChange = useCallback<CallbackWithParameter<React.ChangeEvent<HTMLTextAreaElement>, void>>(
 		(event) => {
-			if (event.target.value.trim().length === 0) props.onValueChange(undefined)
-			props.onValueChange(event.target.value)
+			if (event.target.value.trim().length === 0) props.onValueChange(undefined);
+			props.onValueChange(event.target.value);
 		},
 		[props]
 	);
