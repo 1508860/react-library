@@ -127,5 +127,8 @@ export const TEXT_FIELD_PROPERTY_MAP_STYLE_FILLED: TextFieldPropertyStyleMap = {
 		fontSize: 16,
 		fontWeight: 400,
 		lineHeight: "24pt"
+	},
+	textarea: {
+		marginTop: 15
 	}
 };

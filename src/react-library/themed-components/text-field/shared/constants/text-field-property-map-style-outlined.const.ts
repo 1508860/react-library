@@ -215,5 +215,8 @@ export const TEXT_FIELD_PROPERTY_MAP_STYLE_OUTLINED: TextFieldPropertyStyleMap =
 		fontSize: 16,
 		fontWeight: 400,
 		lineHeight: "24pt"
+	},
+	textarea: {
+		marginTop: 0
 	}
 };

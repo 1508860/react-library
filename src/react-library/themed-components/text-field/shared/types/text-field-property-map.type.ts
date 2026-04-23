@@ -15,6 +15,7 @@ import type {
 	ILabel,
 	ILeft,
 	ILineHeight,
+	IMarginTop,
 	IMinHeight,
 	IPaddingBottom,
 	IPaddingHorizontal,
@@ -26,6 +27,7 @@ import type {
 	IStyleState,
 	ISupportingText,
 	IText,
+	ITextarea,
 	ITop,
 	ITopLeft,
 	ITopRight,
@@ -54,7 +56,8 @@ export type TextFieldPropertyStyleMap = (
 	IMinHeight<Size> &
 	IStyleState<Record<TextFieldStyleState, TextFieldPropertyContentStyleStateMap>> &
 	ISupportingText<TextFieldPropertyContentSupportingTextMap> &
-	IText<TextFieldPropertyContentTextMap>
+	IText<TextFieldPropertyContentTextMap> &
+	ITextarea<TextFieldPropertyContentTextarea>
 );
 
 type TextFieldPropertyContentBorderRadiusMap = (
@@ -104,4 +107,8 @@ type TextFieldPropertyContentTextMap = (
 	IFontSize<Size> &
 	IFontWeight<Property.FontWeight> &
 	ILineHeight<Size>
+);
+
+type TextFieldPropertyContentTextarea = (
+	IMarginTop<Size>
 );
