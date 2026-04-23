@@ -11,7 +11,7 @@ export function demoItemStyle(font: Font): CSSProperties {
 		display: "flex",
 		flexDirection: "column",
 		fontFamily: font.fontFamily,
-		justifyContent: "center"
+		justifyContent: "start"
 	};
 }
 
