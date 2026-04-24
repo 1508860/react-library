@@ -14,10 +14,10 @@ export function useTextFieldTextIsPopulatedState(props: TextFieldTextProps): Tex
 
 	const resolveState = useCallback<Callback<TextFieldIsPopulatedState>>(
 		() => ({
-			isDefault: (props.defaultText === undefined ? props.value === undefined : props.value === props.defaultText),
+			isDefault: (props.defaultValue === undefined ? props.value === undefined : props.value === props.defaultValue),
 			isPopulated: props.value !== undefined
 		}),
-		[props.defaultText, props.value]
+		[props.defaultValue, props.value]
 	);
 	const state = useResolveState(resolveState);
 

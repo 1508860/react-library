@@ -24,7 +24,7 @@ export function TextFieldNumber(props: TextFieldNumberProps) {
 
 	// Clear event
 	const handleOnClear = useCallback<Callback<void>>(
-		() => props.onValueChange(props.defaultNumber ?? undefined),
+		() => props.onValueChange(props.defaultValue ?? undefined),
 		[props]
 	);
 

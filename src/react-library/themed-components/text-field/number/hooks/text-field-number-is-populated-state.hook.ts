@@ -14,10 +14,10 @@ export function useTextFieldNumberIsPopulatedState(props: TextFieldNumberProps):
 
 	const resolveState = useCallback<Callback<TextFieldIsPopulatedState>>(
 		() => ({
-			isDefault: (props.defaultNumber === undefined ? props.value === undefined : props.value === props.defaultNumber),
+			isDefault: (props.defaultValue === undefined ? props.value === undefined : props.value === props.defaultValue),
 			isPopulated: props.value !== undefined
 		}),
-		[props.defaultNumber, props.value]
+		[props.defaultValue, props.value]
 	);
 	const state = useResolveState(resolveState);
 

@@ -44,7 +44,7 @@ function ReactLibraryThemedComponentsTextFieldNumberDemoStyle(props: IStyle<Text
 		<>
 			<DemoItem label="Basic">
 				<TextFieldNumber
-					defaultNumber={defaultValue}
+					defaultValue={defaultValue}
 					extraTextPosition={TextFieldExtraTextPosition.None}
 					isRequired={true}
 					label="Label"
@@ -61,7 +61,7 @@ function ReactLibraryThemedComponentsTextFieldNumberDemoStyle(props: IStyle<Text
 			</DemoItem>
 			<DemoItem label="Disabled">
 				<TextFieldNumber
-					defaultNumber={defaultValue}
+					defaultValue={defaultValue}
 					extraTextPosition={TextFieldExtraTextPosition.None}
 					isDisabled={true}
 					isRequired={true}
@@ -79,7 +79,7 @@ function ReactLibraryThemedComponentsTextFieldNumberDemoStyle(props: IStyle<Text
 			</DemoItem>
 			<DemoItem label={`Extra text - ${TextFieldExtraTextPosition.End}`}>
 				<TextFieldNumber
-					defaultNumber={defaultValue}
+					defaultValue={defaultValue}
 					extraText="Extra"
 					extraTextPosition={TextFieldExtraTextPosition.End}
 					isRequired={true}
@@ -97,7 +97,7 @@ function ReactLibraryThemedComponentsTextFieldNumberDemoStyle(props: IStyle<Text
 			</DemoItem>
 			<DemoItem label={`Extra text - ${TextFieldExtraTextPosition.Start}`}>
 				<TextFieldNumber
-					defaultNumber={defaultValue}
+					defaultValue={defaultValue}
 					extraText="Extra"
 					extraTextPosition={TextFieldExtraTextPosition.Start}
 					isRequired={true}

@@ -32,7 +32,7 @@ export function ReactLibraryThemedComponentsTextFieldTextDemo() {
 
 function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFieldStyle>) {
 
-	const [defaultText] = useState<string>(() => "Some default text");
+	const [defaultValue] = useState<string>(() => "Some default text");
 	const [value, setValue] = useState<string | undefined>(() => undefined);
 	const [validation] = useState<TextFieldValidationTextConfig>(() => ({
 		maxCharacterCount: 10,
@@ -43,7 +43,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 		<>
 			<DemoItem label="Basic">
 				<TextFieldText
-					defaultText={defaultText}
+					defaultValue={defaultValue}
 					extraTextPosition={TextFieldExtraTextPosition.None}
 					isRequired={true}
 					label="Label"
@@ -59,7 +59,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 			</DemoItem>
 			<DemoItem label="Disabled">
 				<TextFieldText
-					defaultText={defaultText}
+					defaultValue={defaultValue}
 					extraTextPosition={TextFieldExtraTextPosition.None}
 					isDisabled={true}
 					isRequired={true}
@@ -76,7 +76,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 			</DemoItem>
 			<DemoItem label={`Extra text - ${TextFieldExtraTextPosition.End}`}>
 				<TextFieldText
-					defaultText={defaultText}
+					defaultValue={defaultValue}
 					extraText="Extra"
 					extraTextPosition={TextFieldExtraTextPosition.End}
 					isRequired={true}
@@ -93,7 +93,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 			</DemoItem>
 			<DemoItem label={`Extra text - ${TextFieldExtraTextPosition.Start}`}>
 				<TextFieldText
-					defaultText={defaultText}
+					defaultValue={defaultValue}
 					extraText="Extra"
 					extraTextPosition={TextFieldExtraTextPosition.Start}
 					isRequired={true}

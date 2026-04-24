@@ -24,7 +24,7 @@ export function TextFieldText(props: TextFieldTextProps) {
 
 	// Clear event
 	const handleOnClear = useCallback<Callback<void>>(
-		() => props.onValueChange(props.defaultText ?? undefined),
+		() => props.onValueChange(props.defaultValue ?? undefined),
 		[props]
 	);
 

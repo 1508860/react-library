@@ -1,6 +1,6 @@
 import type {
 	CallbackWithParameter,
-	IDefaultNumber,
+	IDefaultValue,
 	IOnValueChange,
 	IValue,
 	IValueStep
@@ -20,7 +20,7 @@ import type { TextFieldPropsValidationNumber } from "../../shared/types/text-fie
  * Props for text field number component
  */
 export type TextFieldNumberProps = (
-	Partial<IDefaultNumber<number | undefined>> &
+	Partial<IDefaultValue<number | undefined>> &
 	IOnValueChange<CallbackWithParameter<(number | undefined), void>> &
 	TextFieldPropsExtraText &
 	TextFieldPropsInputReadonly &
