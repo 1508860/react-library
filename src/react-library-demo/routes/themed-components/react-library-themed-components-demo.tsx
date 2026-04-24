@@ -4,6 +4,7 @@ import { ReactLibraryThemedComponentsDemo } from "./react-library-themed-compone
 import { ReactLibraryThemedComponentsBadgeDemo } from "./badge";
 import { ReactLibraryThemedComponentsButtonDemo } from "./button";
 import { ReactLibraryThemedComponentsButtonGroupDemo } from "./button-group";
+import { ReactLibraryThemedComponentsCheckboxDemo } from "./checkbox";
 import { ReactLibraryFloatingButtonGroupDemo } from "./floating-button-group";
 import { ReactLibraryThemedComponentsLoadingIndicatorDemo } from "./loading-indicator";
 import { ReactLibraryThemedComponentsModalsDemo } from "./modals";
@@ -30,6 +31,11 @@ export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<Rea
 			element: () => <ReactLibraryThemedComponentsButtonGroupDemo />,
 			id: ReactLibraryThemedComponentsDemo.ButtonGroup,
 			title: "Button Group"
+		},
+		{
+			element: () => <ReactLibraryThemedComponentsCheckboxDemo />,
+			id: ReactLibraryThemedComponentsDemo.Checkbox,
+			title: "Checkbox"
 		},
 		{
 			element: () => <ReactLibraryFloatingButtonGroupDemo />,
@@ -66,7 +72,7 @@ export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<Rea
 			id: ReactLibraryThemedComponentsDemo.SideSheet,
 			title: "Side Sheet"
 		},
-				{
+		{
 			element: () => <ReactLibraryThemedComponentsTextFieldDemo />,
 			id: ReactLibraryThemedComponentsDemo.TextField,
 			title: "Text Field"
