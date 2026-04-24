@@ -13,7 +13,7 @@ import { TextFieldLeadingIcon } from "../shared/components/leading-icon";
 import { TextFieldProvider } from "../shared/components/provider";
 
 import { TextFieldNumberInput } from "./components/input";
-import { TextFieldTextSupportingText } from "./components/supporting-text";
+import { TextFieldNumberSupportingText } from "./components/supporting-text";
 import { useTextFieldNumberIsPopulatedState } from "./hooks/text-field-number-is-populated-state.hook";
 import type { TextFieldNumberProps } from "./types/text-field-number-props.type";
 
@@ -77,7 +77,7 @@ export function TextFieldNumber(props: TextFieldNumberProps) {
 						style={props.style}
 					/>
 				</TextFieldInnerContainer>
-				<TextFieldTextSupportingText
+				<TextFieldNumberSupportingText
 					{...props}
 					key="supporting-text"
 				/>

@@ -6,9 +6,9 @@ import { useTextFieldNumberSupportingTextLeftState } from "./hooks/text-field-nu
 import { useTextFieldNumberSupportingTextRightState } from "./hooks/text-field-number-supporting-text-right-state.hook";
 
 /**
- * Text field text supporting text component
+ * Text field currency supporting text component
  */
-export function TextFieldTextSupportingText(props: TextFieldNumberProps) {
+export function TextFieldNumberSupportingText(props: TextFieldNumberProps) {
 
 	const leftConfig = useTextFieldNumberSupportingTextLeftState(props);
 	const rightConfig = useTextFieldNumberSupportingTextRightState(props);
