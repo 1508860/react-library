@@ -60,7 +60,6 @@ export function IconClick(props: IconClickProps) {
 
 	return (
 		<div
-			key="icon"
 			onClick={handleClick}
 			onPointerCancel={handlePointerLeave}
 			onPointerDown={handlePointerDown}
