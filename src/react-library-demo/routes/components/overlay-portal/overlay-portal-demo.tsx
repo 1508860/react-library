@@ -71,21 +71,7 @@ function ReactLibraryComponentsOverlayPortalDemoModal(props: IShow): ReactElemen
 	const overlayPortalViewportPositionPx = useOverlayPortalViewportPositionPxContext();
 
 	return (
-		<DemoContent
-			align={DemoContentAlign.Center}
-			childrenType={DemoContentChildren.Any}
-			colourScheme={DemoContentColourScheme.Primary}
-			height="100%"
-			includeRenderCounter={true}
-			justify={DemoContentJustify.Center}
-			orientation={Orientation.Vertical}
-			overflow={DemoContentOverflow.Auto}
-			paddingBottom={20}
-			paddingLeft={20}
-			paddingRight={20}
-			paddingTop={20}
-			width="100%"
-		>
+		<>
 			<DemoContent
 				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Text}
@@ -166,6 +152,6 @@ function ReactLibraryComponentsOverlayPortalDemoModal(props: IShow): ReactElemen
 					) :
 					<Fragment key="no-portal" />
 			}
-		</DemoContent>
+		</>
 	);
 }
