@@ -1,3 +1,4 @@
+export * from "./text-field-currency-demo";
 export * from "./text-field-number-demo";
 export * from "./text-field-password-demo";
 export * from "./text-field-readonly-demo";
