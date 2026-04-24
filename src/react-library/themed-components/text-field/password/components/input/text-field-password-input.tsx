@@ -9,6 +9,7 @@ import {
 import { TEXT_FIELD_STYLE_CLASS_INPUT } from "../../../shared/constants/text-field-style-class.const";
 import { useTextFieldColourStateContext } from "../../../shared/hooks/text-field-colour-state-context.hook";
 import { useTextFieldEventsContext } from "../../../shared/hooks/text-field-events-context.hook";
+import { useTextFieldShowContentContext } from "../../../shared/hooks/text-field-show-content-context.hook";
 import "../../../shared/styles/text-field-input-style.css";
 
 import { textFieldTextPasswordStyle } from "./styles/text-field-password-input-style.function";
@@ -21,6 +22,7 @@ export function TextFieldPasswordInput(props: TextFieldPasswordInputProps) {
 
 	// Contexts
 	const colourState = useTextFieldColourStateContext();
+	const showContent = useTextFieldShowContentContext();
 	const textFieldEvents = useTextFieldEventsContext();
 
 	// On value change
@@ -49,7 +51,7 @@ export function TextFieldPasswordInput(props: TextFieldPasswordInputProps) {
 			onMouseLeave={textFieldEvents.onMouseLeave}
 			placeholder={props.label}
 			style={textFieldTextPasswordStyle(props.style, colourState)}
-			type={props.showContent ? "text" : "password"}
+			type={showContent ? "text" : "password"}
 			value={value}
 		/>
 	);
