@@ -2,7 +2,9 @@ import { useCallback, useState } from "react";
 
 import {
 	useCurrencyCallback,
-	useCurrencyDisplayState
+	useCurrencyDisplayState,
+	useResolveState,
+	type Callback
 } from "@react-library/common";
 
 import type { InputCurrencyProps } from "./input-currency-props.type";
@@ -30,13 +32,33 @@ export function InputCurrency(props: InputCurrencyProps) {
 		[props]
 	);
 
-	// Handle updates to input value
+	// Value
+	const resolveValue = useCallback<Callback<string>>(
+		() => {
+			if(props.value === undefined || isNaN(props.value)) return "";
+			return props.value.toString();
+		},
+		[props.value]
+	);
+	const value = useResolveState(resolveValue);
+
+	// Value - on change
 	const handleUseCurrencyCallback = useCurrencyCallback();
 	const handleOnValueChange = useCallback(
-		(event: React.ChangeEvent<HTMLInputElement>) => props.onValueChange(handleUseCurrencyCallback(parseFloat(event.target.value))),
+		(event: React.ChangeEvent<HTMLInputElement>) => {
+			const newValue: string = event.target.value.trim();
+			if (newValue.length === 0) {
+				props.onValueChange(undefined);
+				return;
+			}
+			const newValueParsed: number = parseFloat(newValue);
+			const newValueCurrency: number = handleUseCurrencyCallback(newValueParsed);
+			props.onValueChange(newValueCurrency);
+		},
 		[props, handleUseCurrencyCallback]
 	);
 
+	// Value - display
 	const [currencyDisplayState] = useCurrencyDisplayState(props.value);
 
 	return (
@@ -56,7 +78,7 @@ export function InputCurrency(props: InputCurrencyProps) {
 			step={isFocused ? props.valueStep : undefined}
 			style={props.style}
 			type={isFocused ? "number" : "text"}
-			value={(isFocused ? props.value : currencyDisplayState) ?? ""}
+			value={(isFocused ? value : currencyDisplayState) ?? ""}
 		/>
 	);
 }
