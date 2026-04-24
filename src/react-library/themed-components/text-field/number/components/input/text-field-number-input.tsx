@@ -21,7 +21,13 @@ export function TextFieldNumberInput(props: TextFieldNumberProps) {
 	const textFieldEvents = useTextFieldEventsContext();
 
 	// On value change
-	const resolveValue = useCallback<Callback<string>>(() => props.value?.toString() ?? "", [props.value]);
+	const resolveValue = useCallback<Callback<string>>(
+		() => {
+			if (props.value === undefined || isNaN(props.value)) return "";
+			return props.value.toString();
+		},
+		[props.value]
+	);
 	const value = useResolveState(resolveValue);
 	const handleOnValueChange = useCallback<CallbackWithParameter<React.ChangeEvent<HTMLInputElement>, void>>(
 		(event) => {
