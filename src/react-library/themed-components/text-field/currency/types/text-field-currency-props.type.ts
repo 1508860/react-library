@@ -1,5 +1,6 @@
 import type {
 	CallbackWithParameter,
+	Currency,
 	IDefaultValue,
 	IOnValueChange,
 	IValue,
@@ -20,8 +21,8 @@ import type { TextFieldPropsValidationCurrency } from "../../shared/types/text-f
  * Props for text field currency component
  */
 export type TextFieldCurrencyProps = (
-	Partial<IDefaultValue<number | undefined>> &
-	IOnValueChange<CallbackWithParameter<(number | undefined), void>> &
+	Partial<IDefaultValue<Currency | undefined>> &
+	IOnValueChange<CallbackWithParameter<(Currency | undefined), void>> &
 	TextFieldPropsExtraText &
 	TextFieldPropsInputReadonly &
 	TextFieldPropsIsDisabled &
@@ -31,6 +32,6 @@ export type TextFieldCurrencyProps = (
 	TextFieldPropsStyle &
 	TextFieldPropsSupportingText &
 	TextFieldPropsValidationCurrency &
-	IValue<number | undefined> &
-	Partial<IValueStep<number>>
+	IValue<Currency | undefined> &
+	Partial<IValueStep<Currency>>
 );

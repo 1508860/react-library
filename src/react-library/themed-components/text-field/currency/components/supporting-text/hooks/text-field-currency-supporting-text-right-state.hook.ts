@@ -24,14 +24,14 @@ export function useTextFieldCurrencySupportingTextRightState(props: TextFieldCur
 
 			if (validation.minValue !== undefined) {
 				result.push({
-					id: TextFieldSupportingTextRightId.MinNumber,
+					id: TextFieldSupportingTextRightId.MinCurrency,
 					isErrored: (props.value === undefined || props.value < validation.minValue),
 					text: `min: ${validation.minValue}`
 				});
 			}
 			if (validation.maxValue !== undefined) {
 				result.push({
-					id: TextFieldSupportingTextRightId.MaxNumber,
+					id: TextFieldSupportingTextRightId.MaxCurrency,
 					isErrored: (props.value === undefined || props.value > validation.maxValue),
 					text: `max: ${validation.maxValue}`
 				});

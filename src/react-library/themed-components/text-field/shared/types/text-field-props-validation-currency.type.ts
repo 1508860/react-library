@@ -1,4 +1,5 @@
 import type {
+	Currency,
 	IMaxValue,
 	IMinValue,
 	IValidation
@@ -15,6 +16,6 @@ export type TextFieldPropsValidationCurrency = (
  *  Config for text field component for validating a currency input value
  */
 export type TextFieldValidationCurrencyConfig = (
-	Partial<IMaxValue<number>> &
-	Partial<IMinValue<number>>
+	Partial<IMaxValue<Currency>> &
+	Partial<IMinValue<Currency>>
 );
