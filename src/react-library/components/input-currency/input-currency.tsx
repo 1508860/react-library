@@ -41,14 +41,19 @@ export function InputCurrency(props: InputCurrencyProps) {
 
 	return (
 		<input
+			className={props.className}
 			disabled={props.isDisabled}
 			id={`${props.id}`}
+			max={props.maxValue}
+			min={props.minValue}
 			name={props.name}
 			onBlur={handleBlur}
 			onChange={handleOnValueChange}
 			onFocus={handleFocus}
+			onMouseEnter={props.onMouseEnter}
+			onMouseLeave={props.onMouseLeave}
 			placeholder={props.placeholder}
-			step={isFocused ? 0.01 : undefined}
+			step={isFocused ? props.valueStep : undefined}
 			style={props.style}
 			type={isFocused ? "number" : "text"}
 			value={(isFocused ? props.value : currencyDisplayState) ?? ""}
