@@ -42,6 +42,7 @@ export function demoSelectorItemStyle(font: Font): CSSProperties {
 		fontWeight: "bold",
 		height: 40,
 		textAlign: "center",
+		userSelect: "none",
 		width: "100%"
 	};
 }
@@ -52,13 +53,15 @@ export function demoSelectorSubItemStyle(font: Font, isCurrent: boolean): CSSPro
 		backgroundColor: isCurrent ? "#E4E4E4" : undefined,
 		borderRadius: 20,
 		boxSizing: "border-box",
+		cursor: "pointer",
 		display: "block",
 		flexShrink: 0,
 		fontFamily: font.fontFamily,
 		height: 40,
 		marginLeft: 10,
 		marginRight: 10,
-		textAlign: "center"
+		textAlign: "center",
+		userSelect: "none"
 	};
 }
 

@@ -39,6 +39,7 @@ export function demoContentStyle(props: DemoContentProps, font: Font): CSSProper
 		paddingTop: props.paddingTop,
 		position: props.isAbsolute ? "absolute" : "relative",
 		textAlign: "center",
+		userSelect: "none",
 		width: props.width
 	};
 }

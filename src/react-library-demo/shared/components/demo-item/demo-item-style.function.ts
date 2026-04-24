@@ -11,7 +11,8 @@ export function demoItemStyle(font: Font): CSSProperties {
 		display: "flex",
 		flexDirection: "column",
 		fontFamily: font.fontFamily,
-		justifyContent: "start"
+		justifyContent: "start",
+		userSelect: "none"
 	};
 }
 
@@ -31,6 +32,7 @@ export function demoItemLabel(): CSSProperties {
 	return {
 		fontSize: 16,
 		fontWeight: "bold",
-		paddingTop: 10
+		paddingTop: 10,
+		userSelect: "none"
 	};
 }

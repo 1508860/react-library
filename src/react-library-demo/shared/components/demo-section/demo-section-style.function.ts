@@ -21,7 +21,8 @@ export function demoSectionTitle(font: Font): CSSProperties {
 		fontFamily: font.fontFamily,
 		fontSize: 20,
 		fontWeight: "bold",
-		padding: 20
+		padding: 20,
+		userSelect: "none"
 	};
 }
 
