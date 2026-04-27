@@ -11,7 +11,7 @@ import type {
 } from "@react-library/common";
 
 /**
- * Type for callback events for 
+ * Type for callback events for the text field
  */
 export type TextFieldEvents = (
 	IOnBlur<Callback<void>> &

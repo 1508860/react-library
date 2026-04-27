@@ -24,7 +24,7 @@ export function TextFieldProvider<TProps>(props: TextFieldProviderProps<TProps>)
 	const [isFocused, setIsFocused] = useState<boolean>(() => false);
 	const [isHovered, setIsHovered] = useState<boolean>(() => false);
 
-	const [TextFieldEvents] = useState<TextFieldEvents>(() => ({
+	const [textFieldEvents] = useState<TextFieldEvents>(() => ({
 		onBlur: () => setIsFocused(false),
 		onFocus: () => setIsFocused(true),
 		onIsErrored: setIsErrored,
@@ -58,7 +58,7 @@ export function TextFieldProvider<TProps>(props: TextFieldProviderProps<TProps>)
 	const colourState = useTextFieldColourState(props.style, styleState);
 
 	return (
-		<TEXT_FIELD_EVENTS_CONTEXT value={TextFieldEvents}>
+		<TEXT_FIELD_EVENTS_CONTEXT value={textFieldEvents}>
 			<TEXT_FIELD_IS_POPULATED_STATE_CONTEXT value={isPopulated}>
 				<TEXT_FIELD_SHOW_CONTENT_CONTEXT value={showContent}>
 					<TEXT_FIELD_STYLE_STATE_CONTEXT value={styleState}>
