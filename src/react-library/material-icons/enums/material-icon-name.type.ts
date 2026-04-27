@@ -6,6 +6,8 @@ export const MaterialIconName = {
 	ArrowBack: "ArrowBack",
 	Cancel: "Cancel",
 	CheckCircle: "CheckCircle",
+	CheckIndeterminateSmall: "CheckIndeterminateSmall",
+	CheckSmall: "CheckSmall",
 	ChevronRight: "ChevronRight",
 	Close: "Close",
 	Delete: "Delete",

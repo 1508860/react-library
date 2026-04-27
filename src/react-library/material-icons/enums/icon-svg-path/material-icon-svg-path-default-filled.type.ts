@@ -18,6 +18,8 @@ export const MaterialIconSvgPathDefaultFilled = {
 	[MaterialIconName.ArrowBack]: MaterialIconSvgPathThick[MaterialIconName.ArrowBack],
 	[MaterialIconName.Cancel]: ["m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"],
 	[MaterialIconName.CheckCircle]: ["m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"],
+	[MaterialIconName.CheckIndeterminateSmall]: ["M240-440v-80h480v80H240Z"],
+	[MaterialIconName.CheckSmall]: ["M400-304 240-464l56-56 104 104 264-264 56 56-320 320Z"],
 	[MaterialIconName.ChevronRight]: MaterialIconSvgPathThick[MaterialIconName.ChevronRight],
 	[MaterialIconName.Close]: MaterialIconSvgPathThick[MaterialIconName.Close],
 	[MaterialIconName.Delete]: ["M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm80-160h80v-360h-80v360Zm160 0h80v-360h-80v360Z"],
