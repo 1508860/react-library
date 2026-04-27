@@ -3,6 +3,7 @@ import { MaterialIconName } from "@react-library/material-icons";
 import { CheckboxContainer } from "../shared/components/container";
 import { CheckboxHoveredLayer } from "../shared/components/hovered-layer";
 import { CheckboxIcon } from "../shared/components/icon";
+import { CheckboxInput } from "../shared/components/input";
 import { CheckboxLabel } from "../shared/components/label";
 import { CheckboxProvider } from "../shared/components/provider";
 import { CheckboxPulseLayer } from "../shared/components/pulse-layer";
@@ -37,6 +38,10 @@ export function Checkbox(props: CheckboxProps) {
 				<CheckboxLabel
 					{...props}
 					key="label"
+				/>
+				<CheckboxInput
+					{...props}
+					key="input"
 				/>
 			</CheckboxContainer>
 		</CheckboxProvider>

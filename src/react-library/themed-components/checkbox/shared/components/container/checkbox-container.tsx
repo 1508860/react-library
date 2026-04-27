@@ -14,7 +14,7 @@ export function CheckboxContainer(props: CheckboxContainerProps) {
 
 	return (
 		<div
-			onClick={checkboxEvents.onClick}
+			onClick={checkboxEvents.onToggle}
 			onPointerCancel={checkboxEvents.onPointerLeave}
 			onPointerEnter={checkboxEvents.onPointerEnter}
 			onPointerLeave={checkboxEvents.onPointerLeave}

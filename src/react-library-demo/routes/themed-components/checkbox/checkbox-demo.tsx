@@ -33,7 +33,7 @@ export function ReactLibraryThemedComponentsCheckboxDemo() {
 					/>
 				</DemoItem>
 				<DemoItem
-					key="label"
+					key="is-required"
 					label="Required"
 				>
 					<Checkbox

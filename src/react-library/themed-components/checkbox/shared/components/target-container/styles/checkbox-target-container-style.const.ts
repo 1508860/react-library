@@ -16,4 +16,4 @@ export const CHECKBOX_TARGET_CONTAINER_STYLE: CSSProperties = {
 	overflow: "hidden",
 	position: "relative",
 	width: CHECKBOX_SIZE_TARGET_CONTAINER
-}
+};

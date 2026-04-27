@@ -34,7 +34,7 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 	// Clicked inset
 	const [clickedInset, setClickedInset] = useState<TransitionPulseInsetData | null>(() => null);
 
-	const handleOnClick = useCallback<Callback<void>>(
+	const handleOnToggle = useCallback<Callback<void>>(
 		() => {
 			if (props.isDisabled) return;
 			setClickedInset(resolveCheckboxClickedInset());
@@ -46,11 +46,11 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 	// Checkbox events
 	const resolveCheckboxEvents = useCallback<Callback<CheckboxEvents>>(
 		() => ({
-			onClick: handleOnClick,
 			onPointerEnter: () => setIsHovered(true),
-			onPointerLeave: () => setIsHovered(false)
+			onPointerLeave: () => setIsHovered(false),
+			onToggle: handleOnToggle
 		}),
-		[handleOnClick]
+		[handleOnToggle]
 	);
 	const checkboxEvents = useResolveState(resolveCheckboxEvents);
 
