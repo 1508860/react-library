@@ -9,6 +9,7 @@ import { CheckboxProvider } from "../shared/components/provider";
 import { CheckboxPulseLayer } from "../shared/components/pulse-layer";
 import { CheckboxTarget } from "../shared/components/target";
 import { CheckboxTargetContainer } from "../shared/components/target-container";
+import { CheckboxSelectedState } from "../shared/enums/checkbox-selected-state.type";
 
 import type { CheckboxProps } from "./types/checkbox-props.type";
 
@@ -25,8 +26,8 @@ export function Checkbox(props: CheckboxProps) {
 						key="target"
 					>
 						<CheckboxIcon
-							{...props}
 							iconName={MaterialIconName.CheckSmall}
+							selectedState={CheckboxSelectedState.Selected}
 						/>
 					</CheckboxTarget>
 					<CheckboxHoveredLayer

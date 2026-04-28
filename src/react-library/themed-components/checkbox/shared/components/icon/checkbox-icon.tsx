@@ -7,6 +7,7 @@ import {
 
 import { CHECKBOX_SIZE_ICON } from "../../constants/checkbox-size.const";
 import { useCheckboxColourStateContext } from "../../hooks/checkbox-colour-state-context.hook";
+import { useCheckboxSelectedStateContext } from "../../hooks/checkbox-selected-state-context.hook";
 
 import type { CheckboxIconProps } from "./types/checkbox-icon-props.type";
 
@@ -16,9 +17,10 @@ import type { CheckboxIconProps } from "./types/checkbox-icon-props.type";
 export function CheckboxIcon(props: CheckboxIconProps) {
 
 	const checkboxColourState = useCheckboxColourStateContext();
+	const checkboxSelectedState = useCheckboxSelectedStateContext();
 
 	return (
-		props.value ?
+		checkboxSelectedState === props.selectedState ?
 			<MaterialIconSvg
 				colour={checkboxColourState.iconColour}
 				key="icon"

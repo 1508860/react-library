@@ -17,6 +17,7 @@ import { isCheckboxColourStateEqual } from "../../functions/is-checkbox-colour-s
 import { resolveCheckboxClickedInset } from "../../functions/resolve-checkbox-clicked-inset.function";
 import { resolveCheckboxColourState } from "../../functions/resolve-checkbox-colour-state.function";
 import type { CheckboxEvents } from "../../types/checkbox-events.type";
+import type { CheckboxOnValueChange } from "../../types/checkbox-on-value-change.type";
 
 import type { CheckboxProviderProps } from "./types/checkbox-provider-props.type";
 
@@ -34,13 +35,19 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 	// Clicked inset
 	const [clickedInset, setClickedInset] = useState<TransitionPulseInsetData | null>(() => null);
 
-	const handleOnToggle = useCallback<Callback<void>>(
-		() => {
+	// Handle value change
+	const handleOnValueChange = useCallback<CheckboxOnValueChange>(
+		(value) => {
 			if (props.isDisabled) return;
 			setClickedInset(resolveCheckboxClickedInset());
-			props.onValueChange(!props.value);
+			props.onValueChange(value);
 		},
 		[props]
+	);
+
+	const handleOnToggle = useCallback<Callback<void>>(
+		() => handleOnValueChange(!props.value),
+		[props.value, handleOnValueChange]
 	);
 
 	// Checkbox events
