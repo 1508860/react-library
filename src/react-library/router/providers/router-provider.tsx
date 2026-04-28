@@ -33,7 +33,7 @@ export function RouterProvider(props: RouterProps) {
 			}
 		},
 		[]
-	)
+	);
 
 	// Handle notifications and observers to communicate changes to routing
 	const routerSubjectNotifyRef = useRef<RouterSubjectNotify>(
@@ -41,7 +41,7 @@ export function RouterProvider(props: RouterProps) {
 	);
 
 	const [routerSubject] = useState<RouterSubject>(() => new Subject<RouterSubjectNotify>({
-		onSubscribe: (observer: Observer<RouterSubjectNotify>) => observer.update(routerSubjectNotifyRef.current),
+		onSubscribe: (observer: Observer<RouterSubjectNotify>) => observer.update(routerSubjectNotifyRef.current)
 	}));
 
 	const handleRouterChange = useCallback(
