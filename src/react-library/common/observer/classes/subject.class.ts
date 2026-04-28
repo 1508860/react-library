@@ -15,10 +15,10 @@ export class Subject<TState> implements
 
 	private readonly _observers: Map<Guid, Observer<TState>>;
 
-	constructor(options: SubjectOptions<TState>) {
+	constructor(options?: SubjectOptions<TState>) {
 		this._observers = new Map<Guid, Observer<TState>>();
-		this._onSubscribe = options.onSubscribe;
-		this._onUnsubscribe = options.onUnsubscribe;
+		this._onSubscribe = options?.onSubscribe;
+		this._onUnsubscribe = options?.onUnsubscribe;
 	}
 
 	public notify(state: TState): void {

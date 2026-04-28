@@ -6,9 +6,9 @@ import type { Observer } from "../types/observer.type";
 /**
  * Custom ref hook for creating an observer to be consumed by a subject
  */
-export function useObserverRef<T>(update: (state: T) => void): RefObject<Observer<T>> {
+export function useObserverRef<TState>(update: (state: TState) => void): RefObject<Observer<TState>> {
 
-	const ref = useRef<Observer<T>>(observerFactory(update));
+	const ref = useRef<Observer<TState>>(observerFactory(update));
 
 	return ref;
 }
