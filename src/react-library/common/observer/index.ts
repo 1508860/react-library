@@ -1,5 +1,4 @@
 export * from "./classes/subject.class";
-export * from "./functions/observer-factory.function";
-export * from "./hooks/use-observer-ref.hook";
+export * from "./hooks/use-observer.hook";
 export * from "./types/observer.type";
 export * from "./types/subject-options.type";

@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
-import { useObserverRef } from "@react-library/common";
+import { useObserver } from "@react-library/common";
 
 import { RouterSegment } from "../../../enums/router-segment.type";
 import { useRouterContext } from "../../../hooks/router-context.hook";
@@ -92,18 +92,9 @@ export function useRouterActiveRouteState(segmentId: RouterSegmentId): [RouterAc
 			setValidState(activeRouteState.route.children, activeChildRouteState);
 		},
 		[segmentId, router, routerNotifier, setValidState]
-	)
-
-	const observer = useObserverRef<RouterSubjectNotify>(handleChildElement);
-
-	useEffect(
-		() => {
-			const currentObserver = observer.current;
-			routerSubject.subscribe(currentObserver);
-			return () => routerSubject.unsubscribe(currentObserver);
-		},
-		[routerSubject, observer]
 	);
+
+	useObserver<RouterSubjectNotify>(routerSubject, handleChildElement);
 
 	return [state];
 }

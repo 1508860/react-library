@@ -9,13 +9,13 @@ import type { Subscriber } from "../types/subscriber.type";
 import type { UseSubscriberEqualityCallback } from "../types/use-subscriber-equality-callback.type";
 
 /**
- * Custom ref for creating a subscriber to be used by a subscribing component and consumed by a subscriber state
+ * Custom hook for creating a subscriber to be used by a subscribing component and consumed by a subscriber state
  * @param subscriberState
  * @param state
  * @param equalityCallback
  */
 export function useSubscriber<TState>(
-	subscriberState: SubscriberState<TState>,
+	subscriberState: SubscriberState<TState> | null,
 	state: TState,
 	equalityCallback?: UseSubscriberEqualityCallback<TState>
 ): void {
@@ -28,12 +28,13 @@ export function useSubscriber<TState>(
 
 	useEffect(
 		() => {
+			if(!subscriberState) return;
 			const subscriber: Subscriber<TState> = {
 				id: id,
 				state: resolvedState
 			};
-			subscriberState.subscribe(subscriber);
-			return () => subscriberState.unsubscribe(subscriber);
+			subscriberState?.subscribe(subscriber);
+			return () => subscriberState?.unsubscribe(subscriber);
 		},
 		[subscriberState, id, resolvedState]
 	);
