@@ -23,7 +23,7 @@ export function resolveCheckboxColourState(
 			borderColour: selectedState === CheckboxSelectedState.UnSelected ? disabledColour : undefined,
 			hoverColour: disabledColour,
 			iconColour: colourScheme.surface.default.colour,
-			labelColour: disabledColour,
+			labelColour: colourScheme.surface.default.onColour,
 			pulseColour: disabledColour
 		};
 	}
@@ -35,7 +35,7 @@ export function resolveCheckboxColourState(
 			borderColour: selectedState === CheckboxSelectedState.UnSelected ? errorColour : undefined,
 			hoverColour: errorColour.toColourWithStyleOpacity(0.08),
 			iconColour: colourScheme.primary.default.onColour,
-			labelColour: errorColour,
+			labelColour: colourScheme.surface.default.onColour,
 			pulseColour: errorColour.toColourWithStyleOpacity(0.1)
 		};
 	}
@@ -46,7 +46,7 @@ export function resolveCheckboxColourState(
 		borderColour: selectedState === CheckboxSelectedState.UnSelected ? colourScheme.surface.variant.onColour : undefined,
 		hoverColour: layerColour.toColourWithStyleOpacity(0.08),
 		iconColour: colourScheme.primary.default.onColour,
-		labelColour: colourScheme.surface.variant.onColour,
+		labelColour: colourScheme.surface.default.onColour,
 		pulseColour: layerColour.toColourWithStyleOpacity(0.1)
 	};
 }
