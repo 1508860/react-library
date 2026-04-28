@@ -23,6 +23,7 @@ export * from "./regex";
 export * from "./scale";
 export * from "./sorting";
 export * from "./style";
+export * from "./subscriber-state";
 export * from "./types";
 export * from "./units";
 export * from "./url";
