@@ -1,8 +1,9 @@
 import type { Guid } from "../../guid";
-import type { INotify, IOnSubscribable, ISubscribable, ISubscribedCount } from "../../interfaces";
+import type { INotify, ISubscribable, ISubscribedCount } from "../../interfaces";
 import type { Callback, CallbackWithParameter } from "../../types";
 
 import type { Observer } from "../types/observer.type";
+import type { SubjectOptions } from "../types/subject-options.type";
 
 export class Subject<TState> implements
 	INotify<CallbackWithParameter<TState, void>>,
@@ -14,9 +15,7 @@ export class Subject<TState> implements
 
 	private readonly _observers: Map<Guid, Observer<TState>>;
 
-	constructor(
-		options: Partial<IOnSubscribable<CallbackWithParameter<Observer<TState>, void>, CallbackWithParameter<Observer<TState>, void>>>
-	) {
+	constructor(options: SubjectOptions<TState>) {
 		this._observers = new Map<Guid, Observer<TState>>();
 		this._onSubscribe = options.onSubscribe;
 		this._onUnsubscribe = options.onUnsubscribe;
