@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 
 import {
-	useColourSchemeContext,
 	useResolveState,
 	type Callback
 } from "@react-library/common";
@@ -13,10 +12,9 @@ import { CHECKBOX_EVENTS_CONTEXT } from "../../constants/checkbox-events-context
 import { CHECKBOX_IS_HOVERED_CONTEXT } from "../../constants/checkbox-is-hovered-context.const";
 import { CHECKBOX_SELECTED_STATE_CONTEXT } from "../../constants/checkbox-selected-state-context.const";
 import { CheckboxSelectedState } from "../../enums/checkbox-selected-state.type";
-import { isCheckboxColourStateEqual } from "../../functions/is-checkbox-colour-state-equal.function";
 import { resolveCheckboxClickedInset } from "../../functions/resolve-checkbox-clicked-inset.function";
-import { resolveCheckboxColourState } from "../../functions/resolve-checkbox-colour-state.function";
-import type { CheckboxEvents } from "../../types/checkbox-events.type";
+import { useCheckboxColourState } from "../../hooks/use-checkbox-colour-state.hook";
+import { useCheckboxEventsState } from "../../hooks/use-checkbox-events-state.hook";
 import type { CheckboxOnValueChange } from "../../types/checkbox-on-value-change.type";
 
 import type { CheckboxProviderProps } from "./types/checkbox-provider-props.type";
@@ -25,9 +23,6 @@ import type { CheckboxProviderProps } from "./types/checkbox-provider-props.type
  * Checkbox provider
  */
 export function CheckboxProvider(props: CheckboxProviderProps) {
-
-	// Contexts
-	const colourScheme = useColourSchemeContext();
 
 	// Input event states
 	const [isHovered, setIsHovered] = useState<boolean>(() => false);
@@ -51,15 +46,7 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 	);
 
 	// Checkbox events
-	const resolveCheckboxEvents = useCallback<Callback<CheckboxEvents>>(
-		() => ({
-			onPointerEnter: () => setIsHovered(true),
-			onPointerLeave: () => setIsHovered(false),
-			onToggle: handleOnToggle
-		}),
-		[handleOnToggle]
-	);
-	const checkboxEvents = useResolveState(resolveCheckboxEvents);
+	const checkboxEvents = useCheckboxEventsState(handleOnToggle, setIsHovered);
 
 	// Selected state
 	const resolveSelectedState = useCallback<Callback<CheckboxSelectedState>>(
@@ -69,12 +56,7 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 	const selectedState = useResolveState(resolveSelectedState);
 
 	// Colour state
-	const resolveColourState = useCallback(
-		() => resolveCheckboxColourState(!!props.isDisabled, colourScheme, (!!props.isRequired && !props.value), selectedState),
-		[props.isDisabled, props.isRequired, props.value, colourScheme, selectedState]
-	);
-	const isColourStateEqual = useCallback(isCheckboxColourStateEqual, []);
-	const colourState = useResolveState(resolveColourState, isColourStateEqual);
+	const colourState = useCheckboxColourState(!!props.isDisabled, (!!props.isRequired && !props.value), selectedState);
 
 	return (
 		<CHECKBOX_IS_HOVERED_CONTEXT value={isHovered}>
