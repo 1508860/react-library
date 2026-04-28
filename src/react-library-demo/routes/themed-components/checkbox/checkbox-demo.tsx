@@ -1,12 +1,16 @@
 import { useState } from "react";
 
-import { Checkbox } from "@react-library/themed-components";
+import { Checkbox, CheckboxGroup } from "@react-library/themed-components";
 
 import { DemoItem, DemoSection } from "@react-library-demo/shared";
 
 export function ReactLibraryThemedComponentsCheckboxDemo() {
 
 	const [checkboxSelected, setCheckboxSelected] = useState<boolean>(() => true);
+
+	const [checkboxGroupSelected1, setCheckboxGroupSelected1] = useState<boolean>(() => true);
+	const [checkboxGroupSelected2, setCheckboxGroupSelected2] = useState<boolean>(() => true);
+	const [checkboxGroupSelected3, setCheckboxGroupSelected3] = useState<boolean>(() => true);
 
 	return (
 		<>
@@ -59,19 +63,29 @@ export function ReactLibraryThemedComponentsCheckboxDemo() {
 			</DemoSection>
 			<DemoSection title="Checkbox - group">
 				<DemoItem
-					key="standard"
-					label="Standard"
-				>
-				</DemoItem>
-				<DemoItem
 					key="label"
 					label="Label"
 				>
-				</DemoItem>
-				<DemoItem
-					key="disabled"
-					label="Disabled"
-				>
+					<CheckboxGroup label="Group Label">
+						<Checkbox
+							label="Label"
+							name="checkboxgroup-label-1"
+							onValueChange={setCheckboxGroupSelected1}
+							value={checkboxGroupSelected1}
+						/>
+						<Checkbox
+							label="Label"
+							name="checkboxgroup-label-2"
+							onValueChange={setCheckboxGroupSelected2}
+							value={checkboxGroupSelected2}
+						/>
+						<Checkbox
+							label="Label"
+							name="checkboxgroup-label-3"
+							onValueChange={setCheckboxGroupSelected3}
+							value={checkboxGroupSelected3}
+						/>
+					</CheckboxGroup>
 				</DemoItem>
 			</DemoSection>
 		</>

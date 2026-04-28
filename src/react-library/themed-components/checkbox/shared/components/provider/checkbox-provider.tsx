@@ -15,7 +15,8 @@ import { CheckboxSelectedState } from "../../enums/checkbox-selected-state.type"
 import { resolveCheckboxClickedInset } from "../../functions/resolve-checkbox-clicked-inset.function";
 import { useCheckboxColourState } from "../../hooks/use-checkbox-colour-state.hook";
 import { useCheckboxEventsState } from "../../hooks/use-checkbox-events-state.hook";
-import type { CheckboxOnValueChange } from "../../types/checkbox-on-value-change.type";
+import { useCheckboxObserver } from "../../hooks/use-checkbox-observer.hook";
+import { useCheckboxSubscriber } from "../../hooks/use-checkbox-subscriber.hook";
 
 import type { CheckboxProviderProps } from "./types/checkbox-provider-props.type";
 
@@ -30,19 +31,14 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 	// Clicked inset
 	const [clickedInset, setClickedInset] = useState<TransitionPulseInsetData | null>(() => null);
 
-	// Handle value change
-	const handleOnValueChange = useCallback<CheckboxOnValueChange>(
-		(value) => {
+	// Handle toggling current value
+	const handleOnToggle = useCallback<Callback<void>>(
+		() => {
 			if (props.isDisabled) return;
 			setClickedInset(resolveCheckboxClickedInset());
-			props.onValueChange(value);
+			props.onValueChange(!props.value)
 		},
 		[props]
-	);
-
-	const handleOnToggle = useCallback<Callback<void>>(
-		() => handleOnValueChange(!props.value),
-		[props.value, handleOnValueChange]
 	);
 
 	// Checkbox events
@@ -54,6 +50,12 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 		[props.value]
 	);
 	const selectedState = useResolveState(resolveSelectedState);
+
+	// Checkbox subscriber - for checkbox group to maintain child states
+	useCheckboxSubscriber(selectedState);
+
+	// Checkbox observer - for updating checkbox state due to checkbox group change
+	useCheckboxObserver(props.onValueChange);
 
 	// Colour state
 	const colourState = useCheckboxColourState(!!props.isDisabled, (!!props.isRequired && !props.value), selectedState);
