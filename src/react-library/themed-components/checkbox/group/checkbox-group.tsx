@@ -46,13 +46,6 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
 					key="label"
 				/>
 			</CheckboxContainer>
-			{props.children}
 		</CheckboxGroupProvider>
 	);
 }
-
-/**
- * TODO
- * - Add optional group hooks to group provider for group with group support
- * - Change to have a separate group component inside a group container to separate structural requirements for easier custom styling
- */

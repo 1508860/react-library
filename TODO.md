@@ -104,7 +104,6 @@
 		- Carousel
 			- Implement
 		- Checkbox
-			- Implement
 			- Integrate with form
 		- Chips
 			- Implement

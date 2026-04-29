@@ -1,5 +1,6 @@
 export * from "./checkbox";
 export * from "./group";
+export * from "./group-container";
 export * from "./shared/types/checkbox-on-value-change.type";
 export * from "./shared/types/checkbox-props-is-disabled.type";
 export * from "./shared/types/checkbox-props-is-required.type";

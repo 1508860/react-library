@@ -19,7 +19,7 @@ import type { CheckboxColourState } from "../../../types/checkbox-colour-state.t
 export function checkboxTargetStyle(checkboxColourState: CheckboxColourState, checkboxSelectedState: CheckboxSelectedState): CSSProperties {
 
 	const borderWidth: Size = (
-		checkboxSelectedState === CheckboxSelectedState.UnSelected ?
+		checkboxSelectedState === CheckboxSelectedState.Unselected ?
 			CHECKBOX_SIZE_TARGET_BORDER_WIDTH_UNSELECTED :
 			CHECKBOX_SIZE_TARGET_BORDER_WIDTH_SELECTED
 	);

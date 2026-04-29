@@ -2,7 +2,8 @@ import { useCallback, useState } from "react";
 
 import {
 	useResolveState,
-	type Callback
+	type Callback,
+	type CallbackWithParameter
 } from "@react-library/common";
 import type { TransitionPulseInsetData } from "@react-library/components";
 
@@ -34,9 +35,8 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 	// Handle toggling current value
 	const handleOnToggle = useCallback<Callback<void>>(
 		() => {
-			if (props.isDisabled) return;
 			setClickedInset(resolveCheckboxClickedInset());
-			props.onValueChange(!props.value)
+			props.onValueChange(!props.value);
 		},
 		[props]
 	);
@@ -46,16 +46,25 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 
 	// Selected state
 	const resolveSelectedState = useCallback<Callback<CheckboxSelectedState>>(
-		() => props.value ? CheckboxSelectedState.Selected : CheckboxSelectedState.UnSelected,
+		() => props.value ? CheckboxSelectedState.Selected : CheckboxSelectedState.Unselected,
 		[props.value]
 	);
 	const selectedState = useResolveState(resolveSelectedState);
+
+	// Handle observer change
+	const handleObserverUpdate = useCallback<CallbackWithParameter<CheckboxSelectedState, void>>(
+		// Set to selected if partially selected
+		(value) => {
+			props.onValueChange(value === CheckboxSelectedState.Selected);
+		},
+		[props]
+	);
 
 	// Checkbox subscriber - for checkbox group to maintain child states
 	useCheckboxSubscriber(selectedState);
 
 	// Checkbox observer - for updating checkbox state due to checkbox group change
-	useCheckboxObserver(props.onValueChange);
+	useCheckboxObserver(handleObserverUpdate);
 
 	// Colour state
 	const colourState = useCheckboxColourState(!!props.isDisabled, (!!props.isRequired && !props.value), selectedState);

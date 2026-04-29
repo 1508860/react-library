@@ -4,7 +4,7 @@
 export const CheckboxSelectedState = {
 	Indeterminate: "indeterminate",
 	Selected: "selected",
-	UnSelected: "unselected"
+	Unselected: "unselected"
 } as const satisfies Record<string, string>;
 
 /**

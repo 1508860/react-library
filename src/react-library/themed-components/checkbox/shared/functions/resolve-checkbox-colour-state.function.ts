@@ -19,8 +19,8 @@ export function resolveCheckboxColourState(
 	if (isDisabled) {
 		const disabledColour = colourScheme.surface.default.onColour.toColourWithStyleOpacity(0.38);
 		return {
-			backgroundColour: selectedState === CheckboxSelectedState.UnSelected ? undefined : disabledColour,
-			borderColour: selectedState === CheckboxSelectedState.UnSelected ? disabledColour : undefined,
+			backgroundColour: selectedState === CheckboxSelectedState.Unselected ? undefined : disabledColour,
+			borderColour: selectedState === CheckboxSelectedState.Unselected ? disabledColour : undefined,
 			hoverColour: disabledColour,
 			iconColour: colourScheme.surface.default.colour,
 			labelColour: colourScheme.surface.default.onColour,
@@ -31,8 +31,8 @@ export function resolveCheckboxColourState(
 	if (isErrored) {
 		const errorColour = colourScheme.error.default.colour;
 		return {
-			backgroundColour: selectedState === CheckboxSelectedState.UnSelected ? undefined : errorColour,
-			borderColour: selectedState === CheckboxSelectedState.UnSelected ? errorColour : undefined,
+			backgroundColour: selectedState === CheckboxSelectedState.Unselected ? undefined : errorColour,
+			borderColour: selectedState === CheckboxSelectedState.Unselected ? errorColour : undefined,
 			hoverColour: errorColour.toColourWithStyleOpacity(0.08),
 			iconColour: colourScheme.primary.default.onColour,
 			labelColour: colourScheme.surface.default.onColour,
@@ -40,10 +40,10 @@ export function resolveCheckboxColourState(
 		};
 	}
 
-	const layerColour = selectedState === CheckboxSelectedState.UnSelected ? colourScheme.surface.default.onColour : colourScheme.primary.default.colour;
+	const layerColour = selectedState === CheckboxSelectedState.Unselected ? colourScheme.surface.default.onColour : colourScheme.primary.default.colour;
 	return {
-		backgroundColour: selectedState === CheckboxSelectedState.UnSelected ? undefined : colourScheme.primary.default.colour,
-		borderColour: selectedState === CheckboxSelectedState.UnSelected ? colourScheme.surface.variant.onColour : undefined,
+		backgroundColour: selectedState === CheckboxSelectedState.Unselected ? undefined : colourScheme.primary.default.colour,
+		borderColour: selectedState === CheckboxSelectedState.Unselected ? colourScheme.surface.variant.onColour : undefined,
 		hoverColour: layerColour.toColourWithStyleOpacity(0.08),
 		iconColour: colourScheme.primary.default.onColour,
 		labelColour: colourScheme.surface.default.onColour,
