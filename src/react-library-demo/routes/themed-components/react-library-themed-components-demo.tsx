@@ -11,6 +11,7 @@ import { ReactLibraryThemedComponentsModalsDemo } from "./modals";
 import { ReactLibraryThemedComponentsNavigationBarDemo } from "./navigation-bar";
 import { ReactLibraryThemedComponentsNavigationRailDemo } from "./navigation-rail";
 import { ReactLibraryThemedComponentsProgressIndicatorDemo } from "./progress-indicator";
+import { ReactLibraryThemedComponentsRadioButtonDemo } from "./radio-button";
 import { ReactLibraryThemedComponentsSideSheetDemo } from "./side-sheet";
 import { ReactLibraryThemedComponentsTextFieldDemo } from "./text-field";
 import { ReactLibraryThemedComponentsTooltipsDemo } from "./tooltips";
@@ -66,6 +67,11 @@ export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<Rea
 			element: () => <ReactLibraryThemedComponentsProgressIndicatorDemo />,
 			id: ReactLibraryThemedComponentsDemo.ProgressIndicator,
 			title: "Progress Indicator"
+		},
+			{
+			element: () => <ReactLibraryThemedComponentsRadioButtonDemo />,
+			id: ReactLibraryThemedComponentsDemo.RadioButton,
+			title: "Radio Button"
 		},
 		{
 			element: () => <ReactLibraryThemedComponentsSideSheetDemo />,

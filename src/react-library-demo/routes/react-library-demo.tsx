@@ -34,7 +34,7 @@ export function ReactLibraryDemo() {
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaultSubItemId={ReactLibraryThemedComponentsDemo.Checkbox}
+										defaultSubItemId={ReactLibraryThemedComponentsDemo.RadioButton}
 									>
 										{{
 											id: 1,

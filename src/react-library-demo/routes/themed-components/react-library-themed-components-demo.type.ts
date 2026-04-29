@@ -12,6 +12,7 @@ export const ReactLibraryThemedComponentsDemo = {
 	"NavigationBar": "ReactLibraryThemedComponentsDemo-NavigationBar",
 	"NavigationRail": "ReactLibraryThemedComponentsDemo-NavigationRail",
 	"ProgressIndicator": "ReactLibraryThemedComponentsDemo-ProgressIndicator",
+	"RadioButton": "ReactLibraryThemedComponentsDemo-RadioButton",
 	"SideSheet": "ReactLibraryThemedComponentsDemo-SideSheet",
 	"TextField": "ReactLibraryThemedComponentsDemo-TextField",
 	"Tooltips": "ReactLibraryThemedComponentsDemo-Tooltips"
