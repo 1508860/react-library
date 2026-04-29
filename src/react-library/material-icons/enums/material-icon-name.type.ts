@@ -20,6 +20,8 @@ export const MaterialIconName = {
 	KeyboardArrowUp: "KeyboardArrowUp",
 	Menu: "Menu",
 	MenuOpen: "MenuOpen",
+	RadioButtonChecked: "RadioButtonChecked",
+	RadioButtonUnchecked: "RadioButtonUnchecked",
 	Search: "Search",
 	Settings: "Settings",
 	Star: "Star",
