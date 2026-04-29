@@ -9,6 +9,7 @@ export * from "./modals";
 export * from "./navigation-bar";
 export * from "./navigation-rail";
 export * from "./progress-indicator";
+export * from "./radio-button";
 export * from "./shared";
 export * from "./side-sheet";
 export * from "./text-field";
