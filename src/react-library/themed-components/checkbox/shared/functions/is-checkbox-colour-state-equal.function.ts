@@ -9,9 +9,9 @@ export function isCheckboxColourStateEqual(value1: CheckboxColourState, value2: 
 	return (
 		value1.backgroundColour?.toColourString() === value2.backgroundColour?.toColourString() &&
 		value1.borderColour?.toColourString() === value2.borderColour?.toColourString() &&
-		value1.hoverColour?.toColourString() === value2.hoverColour?.toColourString() &&
-		value1.iconColour?.toColourString() === value2.iconColour?.toColourString() &&
+		value1.hoverColour.toColourString() === value2.hoverColour.toColourString() &&
+		value1.iconColour.toColourString() === value2.iconColour.toColourString() &&
 		value1.labelColour.toColourString() === value2.labelColour.toColourString() &&
-		value1.pulseColour?.toColourString() === value2.pulseColour?.toColourString()
+		value1.pulseColour.toColourString() === value2.pulseColour.toColourString()
 	);
 }

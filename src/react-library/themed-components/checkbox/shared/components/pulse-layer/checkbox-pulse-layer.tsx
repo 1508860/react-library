@@ -9,7 +9,7 @@ import { useCheckboxColourStateContext } from "../../hooks/checkbox-colour-state
 import { CHECKBOX_PULSE_LAYER_TRANSITION_MS } from "./constants/checkbox-pulse-layer-transition.const";
 
 /**
- * checkbox pulse layer component.
+ * Checkbox pulse layer component.
  * For creating a pulse effect when clicking the checkbox
  * @param props
  */

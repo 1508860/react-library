@@ -2,9 +2,10 @@ import { Fragment } from "react";
 
 import { useFontContext } from "@react-library/common";
 
+import { useCheckboxColourStateContext } from "../../hooks/checkbox-colour-state-context.hook";
+
 import { checkboxLabelStyle } from "./styles/checkbox-label-style.function";
 import type { CheckboxLabelProps } from "./types/checkbox-label-props.type";
-import { useCheckboxColourStateContext } from "../../hooks/checkbox-colour-state-context.hook";
 
 /**
  * Checkbox label

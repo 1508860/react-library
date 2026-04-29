@@ -8,7 +8,7 @@ export const CHECKBOX_SIZE_CONTAINER_GAP: Size = 4;
 /**
  * Checkbox container padding vertical
  */
-export const CHECKBOX_SIZE_CONTAINER_PADDING_VERTICAL: Size = 2;
+export const CHECKBOX_SIZE_CONTAINER_PADDING_VERTICAL: Size = 4;
 
 /**
  * Checkbox label font size
