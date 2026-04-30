@@ -16,10 +16,11 @@ export function resolveRadioButtonColourState(
 	isChecked: boolean
 ): RadioButtonColourState {
 	if (isDisabled) {
-		const disabledColour = colourScheme.surface.default.onColour.toColourWithStyleOpacity(0.38);
+		const colour = (isChecked ? colourScheme.primary.default.colour : colourScheme.surface.default.onColour);
+		const disabledColour = colour.toColourWithStyleOpacity(0.38);
 		return {
 			hoverColour: disabledColour,
-			iconColour: colourScheme.surface.default.colour,
+			iconColour: disabledColour,
 			labelColour: colourScheme.surface.default.onColour,
 			pulseColour: disabledColour
 		};
@@ -29,16 +30,17 @@ export function resolveRadioButtonColourState(
 		const errorColour = colourScheme.error.default.colour;
 		return {
 			hoverColour: errorColour.toColourWithStyleOpacity(0.08),
-			iconColour: colourScheme.primary.default.onColour,
-			labelColour: colourScheme.surface.default.onColour,
+			iconColour: errorColour,
+			labelColour: errorColour,
 			pulseColour: errorColour.toColourWithStyleOpacity(0.1)
 		};
 	}
 
-	const layerColour = isChecked ? colourScheme.surface.default.onColour : colourScheme.primary.default.colour;
+	const iconColour = isChecked ? colourScheme.primary.default.colour : colourScheme.surface.variant.onColour;
+	const layerColour = isChecked ? colourScheme.primary.default.colour : colourScheme.surface.default.onColour;
 	return {
 		hoverColour: layerColour.toColourWithStyleOpacity(0.08),
-		iconColour: colourScheme.primary.default.onColour,
+		iconColour: iconColour,
 		labelColour: colourScheme.surface.default.onColour,
 		pulseColour: layerColour.toColourWithStyleOpacity(0.1)
 	};

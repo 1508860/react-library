@@ -1,6 +1,7 @@
 export * from "./radio-button";
 export * from "./radio-button-group";
 export * from "./shared/enums/radio-button-value.type";
+export * from "./shared/types/radio-button-name.type";
 export * from "./shared/types/radio-button-on-value-change.type";
 export * from "./shared/types/radio-button-props-group-value.type";
 export * from "./shared/types/radio-button-props-id.type";

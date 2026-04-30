@@ -28,8 +28,3 @@ export function RadioButton(props: RadioButtonProps) {
 		</RadioButtonContainer>
 	);
 }
-
-/**
- * TODO
- * Get rid of placeholder in checkbox and radio button?
- */
