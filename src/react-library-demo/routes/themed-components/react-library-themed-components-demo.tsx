@@ -13,6 +13,7 @@ import { ReactLibraryThemedComponentsNavigationRailDemo } from "./navigation-rai
 import { ReactLibraryThemedComponentsProgressIndicatorDemo } from "./progress-indicator";
 import { ReactLibraryThemedComponentsRadioButtonDemo } from "./radio-button";
 import { ReactLibraryThemedComponentsSideSheetDemo } from "./side-sheet";
+import { ReactLibraryThemedComponentsSwitchDemo } from "./switch";
 import { ReactLibraryThemedComponentsTextFieldDemo } from "./text-field";
 import { ReactLibraryThemedComponentsTooltipsDemo } from "./tooltips";
 
@@ -68,7 +69,7 @@ export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<Rea
 			id: ReactLibraryThemedComponentsDemo.ProgressIndicator,
 			title: "Progress Indicator"
 		},
-			{
+		{
 			element: () => <ReactLibraryThemedComponentsRadioButtonDemo />,
 			id: ReactLibraryThemedComponentsDemo.RadioButton,
 			title: "Radio Button"
@@ -77,6 +78,11 @@ export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<Rea
 			element: () => <ReactLibraryThemedComponentsSideSheetDemo />,
 			id: ReactLibraryThemedComponentsDemo.SideSheet,
 			title: "Side Sheet"
+		},
+		{
+			element: () => <ReactLibraryThemedComponentsSwitchDemo />,
+			id: ReactLibraryThemedComponentsDemo.Switch,
+			title: "Switch"
 		},
 		{
 			element: () => <ReactLibraryThemedComponentsTextFieldDemo />,

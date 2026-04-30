@@ -34,7 +34,7 @@ export function ReactLibraryDemo() {
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaultSubItemId={ReactLibraryThemedComponentsDemo.RadioButton}
+										defaultSubItemId={ReactLibraryThemedComponentsDemo.Switch}
 									>
 										{{
 											id: 1,
