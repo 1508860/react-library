@@ -20,9 +20,9 @@ import {
 
 export function ReactLibraryThemedComponentsNavigationBarDemo() {
 
-	const [itemId, setItemId] = useState<NavigationBarDemoItemId>(1);
+	const [itemId, setItemId] = useState<NavigationBarDemoItemId>(() => 1);
 
-	const [navigationBardemoItems] = useState<NavigationBarChildren<NavigationBarDemoItemId>>([
+	const [navigationBardemoItems] = useState<NavigationBarChildren<NavigationBarDemoItemId>>(() => [
 		resolveNavigationBarDemoItem(1, MaterialIconName.Add, true, 123),
 		resolveNavigationBarDemoItem(2, MaterialIconName.Favorite, true),
 		resolveNavigationBarDemoItem(3, MaterialIconName.Home, false),
