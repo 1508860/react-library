@@ -1,5 +1,6 @@
 import {
 	ReactLibraryComponentsTransitionBorderRadiusDemo,
+	ReactLibraryComponentsTransitionColourDemo,
 	ReactLibraryComponentsTransitionFadeDemo,
 	ReactLibraryComponentsTransitionPulseDemo,
 	ReactLibraryComponentsTransitionRotateDemo,
@@ -12,6 +13,7 @@ export function ReactLibraryComponentsTransitionDemo() {
 	return (
 		<>
 			<ReactLibraryComponentsTransitionBorderRadiusDemo key="border-radius" />
+			<ReactLibraryComponentsTransitionColourDemo key="colour" />
 			<ReactLibraryComponentsTransitionFadeDemo key="fade" />
 			<ReactLibraryComponentsTransitionPulseDemo key="pulse" />
 			<ReactLibraryComponentsTransitionRotateDemo key="rotate" />
