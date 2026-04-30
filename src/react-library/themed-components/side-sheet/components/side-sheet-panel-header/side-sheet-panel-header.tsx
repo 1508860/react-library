@@ -27,13 +27,17 @@ export function SideSheetPanelHeader(props: SideSheetPanelHeaderProps) {
 			key="side-sheet-panel-header"
 			style={SIDE_SHEET_PANEL_HEADER_STYLE}
 		>
-			<IconClick
-				colour={colourScheme.surface.variant.onColour}
-				key="icon-arrow-back"
-				name={MaterialIconName.ArrowBack}
-				onClick={() => props.onBack}
-				size={SIDE_SHEET_PANEL_HEADER_ICON_SIZE}
-			/>
+			{
+				props.onBack ?
+					<IconClick
+						colour={colourScheme.surface.variant.onColour}
+						key="icon-arrow-back"
+						name={MaterialIconName.ArrowBack}
+						onClick={props.onBack}
+						size={SIDE_SHEET_PANEL_HEADER_ICON_SIZE}
+					/> :
+					<Fragment key="no-icon-arrow-back" />
+			}
 			<div style={sideSheetPanelHeaderTitleStyle(colourScheme, font)}>
 				{props.title}
 			</div>
@@ -41,7 +45,7 @@ export function SideSheetPanelHeader(props: SideSheetPanelHeaderProps) {
 				colour={colourScheme.surface.variant.onColour}
 				key="icon-close"
 				name={MaterialIconName.Close}
-				onClick={() => props.onClose}
+				onClick={props.onClose}
 				size={SIDE_SHEET_PANEL_HEADER_ICON_SIZE}
 			/>
 		</div>
