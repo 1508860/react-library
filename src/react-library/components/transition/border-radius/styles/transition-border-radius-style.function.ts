@@ -20,7 +20,7 @@ export function transitionBorderRadiusStyle(props: TransitionBorderRadiusProps):
 		height: props.height,
 		overflow: "hidden",
 		transitionDuration: `${props.durationMs}ms`,
-		transitionProperty: "border-radius",
+		transitionProperty: "border-radius border-color",
 		transitionTimingFunction: TransitionTimingMap[props.timing],
 		width: props.width
 	};
@@ -52,7 +52,7 @@ export function transitionBorderRadiusStyle(props: TransitionBorderRadiusProps):
 		height: props.height,
 		overflow: "hidden",
 		transitionDuration: `${props.durationMs}ms`,
-		transitionProperty: "border-radius",
+		transitionProperty: "border-radius border-color",
 		transitionTimingFunction: TransitionTimingMap[props.timing],
 		width: props.width
 	};
