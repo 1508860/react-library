@@ -1,5 +1,5 @@
 /**
- * For a component that can have a inset value for top, right, bottom, left
+ * For a component that can have an inset value for top, right, bottom, left
  */
 export interface IInsetAll<TInsetAll> {
 	bottom: TInsetAll;
