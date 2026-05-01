@@ -5,6 +5,8 @@ import type { CSSProperties } from "react";
  */
 export const CHECKBOX_INPUT_STYLE: CSSProperties = {
 	height: 0,
-	display: "none",
+	left: 0,
+	position: "absolute",
+	top: 0,
 	width: 0
 };
