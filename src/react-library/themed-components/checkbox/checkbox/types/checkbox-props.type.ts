@@ -1,3 +1,4 @@
+import type { CheckboxPropsId } from "../../shared/types/checkbox-props-id.type";
 import type { CheckboxPropsIsDisabled } from "../../shared/types/checkbox-props-is-disabled.type";
 import type { CheckboxPropsIsRequired } from "../../shared/types/checkbox-props-is-required.type";
 import type { CheckboxPropsLabel } from "../../shared/types/checkbox-props-label.type";
@@ -9,6 +10,7 @@ import type { CheckboxPropsValue } from "../../shared/types/checkbox-props-value
  * Checkbox props
  */
 export type CheckboxProps = (
+	CheckboxPropsId &
 	CheckboxPropsIsDisabled &
 	CheckboxPropsIsRequired &
 	CheckboxPropsLabel &

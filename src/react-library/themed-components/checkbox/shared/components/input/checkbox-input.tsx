@@ -13,7 +13,7 @@ export function CheckboxInput(props: CheckboxInputProps) {
 	return (
 		<input
 			disabled={props.isDisabled}
-			id={props.name}
+			id={props.id}
 			name={props.name}
 			onChange={checkboxEvents.onToggle}
 			placeholder={props.label}

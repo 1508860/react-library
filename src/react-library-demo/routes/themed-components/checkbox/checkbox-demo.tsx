@@ -38,6 +38,7 @@ export function ReactLibraryThemedComponentsCheckboxDemo() {
 					label="Standard"
 				>
 					<Checkbox
+						id="checkbox-1"
 						name="checkbox-1"
 						onValueChange={setCheckboxSelected}
 						value={checkboxSelected}
@@ -48,6 +49,7 @@ export function ReactLibraryThemedComponentsCheckboxDemo() {
 					label="Label"
 				>
 					<Checkbox
+						id="checkbox-2"
 						label="Label"
 						name="checkbox-2"
 						onValueChange={setCheckboxSelected}
@@ -59,6 +61,7 @@ export function ReactLibraryThemedComponentsCheckboxDemo() {
 					label="Required"
 				>
 					<Checkbox
+						id="checkbox-3"
 						isRequired={true}
 						label="Label"
 						name="checkbox-3"
@@ -71,6 +74,7 @@ export function ReactLibraryThemedComponentsCheckboxDemo() {
 					label="Disabled"
 				>
 					<Checkbox
+						id="checkbox-4"
 						isDisabled={true}
 						label="Label"
 						name="checkbox-4"
@@ -85,20 +89,26 @@ export function ReactLibraryThemedComponentsCheckboxDemo() {
 					label="Standard"
 				>
 					<CheckboxGroupContainer>
-						<CheckboxGroup label="Label - Group" />
+						<CheckboxGroup
+							id="checkboxgroup-standard"
+							label="Label - Group"
+						/>
 						<Checkbox
+							id="checkboxgroup-standard-1"
 							label="Label"
 							name="checkboxgroup-standard-1"
 							onValueChange={setCheckboxGroupStandardSelected1}
 							value={checkboxGroupStandardSelected1}
 						/>
 						<Checkbox
+							id="checkboxgroup-standard-2"
 							label="Label"
 							name="checkboxgroup-standard-2"
 							onValueChange={setCheckboxGroupStandardSelected2}
 							value={checkboxGroupStandardSelected2}
 						/>
 						<Checkbox
+							id="checkboxgroup-standard-3"
 							label="Label"
 							name="checkboxgroup-standard-3"
 							onValueChange={setCheckboxGroupStandardSelected3}
@@ -112,34 +122,45 @@ export function ReactLibraryThemedComponentsCheckboxDemo() {
 					label="Nested"
 				>
 					<CheckboxGroupContainer>
-						<CheckboxGroup label="Label - Group Main" />
+						<CheckboxGroup
+							id="checkboxgroup-nested"
+							label="Label - Group Main"
+						/>
 						<Checkbox
+							id="checkboxgroup-nested-1"
 							label="Label"
 							name="checkboxgroup-nested-1"
 							onValueChange={setCheckboxGroupNestedSelected1}
 							value={checkboxGroupNestedSelected1}
 						/>
 						<Checkbox
+							id="checkboxgroup-nested-2"
 							label="Label"
 							name="checkboxgroup-nested-2"
 							onValueChange={setCheckboxGroupNestedSelected2}
 							value={checkboxGroupNestedSelected2}
 						/>
 						<CheckboxGroupContainer>
-							<CheckboxGroup label="Label - Sub Group 1" />
+							<CheckboxGroup
+								id="checkboxgroup-nested-group-1"
+								label="Label - Sub Group 1"
+							/>
 							<Checkbox
+								id="checkboxgroup-nested-1-1"
 								label="Label"
 								name="checkboxgroup-nested-1-1"
 								onValueChange={setCheckboxGroupNested1Selected1}
 								value={checkboxGroupNested1Selected1}
 							/>
 							<Checkbox
+								id="checkboxgroup-nested-1-2"
 								label="Label"
 								name="checkboxgroup-nested-1-2"
 								onValueChange={setCheckboxGroupNested1Selected2}
 								value={checkboxGroupNested1Selected2}
 							/>
 							<Checkbox
+								id="checkboxgroup-nested-1-3"
 								label="Label"
 								name="checkboxgroup-nested-1-3"
 								onValueChange={setCheckboxGroupNested1Selected3}
@@ -147,20 +168,26 @@ export function ReactLibraryThemedComponentsCheckboxDemo() {
 							/>
 						</CheckboxGroupContainer>
 						<CheckboxGroupContainer>
-							<CheckboxGroup label="Label - Sub Group 2" />
+							<CheckboxGroup
+								id="checkboxgroup-nested-group-2"
+								label="Label - Sub Group 2"
+							/>
 							<Checkbox
+								id="checkboxgroup-nested-2-1"
 								label="Label"
 								name="checkboxgroup-nested-2-1"
 								onValueChange={setCheckboxGroupNested2Selected1}
 								value={checkboxGroupNested2Selected1}
 							/>
 							<Checkbox
+								id="checkboxgroup-nested-2-2"
 								label="Label"
 								name="checkboxgroup-nested-2-2"
 								onValueChange={setCheckboxGroupNested2Selected2}
 								value={checkboxGroupNested2Selected2}
 							/>
 							<Checkbox
+								id="checkboxgroup-nested-2-3"
 								label="Label"
 								name="checkboxgroup-nested-2-3"
 								onValueChange={setCheckboxGroupNested2Selected3}

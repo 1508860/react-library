@@ -22,7 +22,7 @@ export function CheckboxLabel(props: CheckboxLabelProps) {
 
 	return (
 		<label
-			htmlFor={props.name}
+			htmlFor={props.id}
 			key="label"
 			style={checkboxLabelStyle(font, checkboxColourState)}
 		>
