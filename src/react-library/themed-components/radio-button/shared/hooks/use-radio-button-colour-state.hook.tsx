@@ -18,7 +18,7 @@ import { useRadioButtonValueContext } from "./radio-button-value-context.hook";
 export function useRadioButtonColourState(
 	isDisabled: boolean | undefined,
 	value: RadioButtonValue,
-	isErrored: boolean,
+	isErrored: boolean
 ): RadioButtonColourState {
 
 	// Contexts
