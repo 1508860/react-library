@@ -85,7 +85,7 @@ export function ReactLibraryThemedComponentsCheckboxDemo() {
 			</DemoSection>
 			<DemoSection title="Checkbox - group">
 				<DemoItem
-					key="label"
+					key="standard"
 					label="Standard"
 				>
 					<CheckboxGroupContainer>
@@ -118,7 +118,7 @@ export function ReactLibraryThemedComponentsCheckboxDemo() {
 				</DemoItem>
 
 				<DemoItem
-					key="label"
+					key="nested"
 					label="Nested"
 				>
 					<CheckboxGroupContainer>
