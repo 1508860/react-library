@@ -1,4 +1,6 @@
 export * from "./enums/transition-border-radius-scope.type";
+export * from "./functions/is-transition-border-radius-style-all-equal.function";
+export * from "./functions/is-transition-border-radius-style-single-equal.function"
 export * from "./types/transition-border-radius-border-box-shadow.type";
 export * from "./types/transition-border-radius-border-colour.type";
 export * from "./types/transition-border-radius-border-style.type";

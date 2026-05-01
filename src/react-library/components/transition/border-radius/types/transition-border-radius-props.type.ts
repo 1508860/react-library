@@ -1,8 +1,7 @@
-import type { ReactElement } from "react";
+import type { PropsWithChildren } from "react";
 
 import type {
 	Callback,
-	IChild,
 	IDurationMs,
 	IHeight,
 	IOnComplete,
@@ -19,10 +18,10 @@ import type { TransitionBorderRadiusPropsScope } from "./transition-border-radiu
  * Props for transition border radius component
 */
 export type TransitionBorderRadiusProps = (
-	IChild<ReactElement> &
 	IDurationMs<number> &
 	Partial<IHeight<Size>> &
 	Partial<IOnComplete<Callback<void>>> &
+	PropsWithChildren &
 	ITiming<TransitionTiming> &
 	TransitionBorderRadiusPropsScope &
 	Partial<IWidth<Size>>

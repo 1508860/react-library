@@ -16,6 +16,7 @@ export function transitionBorderRadiusStyle(props: TransitionBorderRadiusProps):
 		borderStyle: props.style?.style,
 		borderWidth: props.style?.width,
 		boxShadow: props.style?.boxShadow,
+		boxSizing: "border-box",
 		display: "block",
 		height: props.height,
 		overflow: "hidden",
