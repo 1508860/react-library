@@ -2,6 +2,7 @@ import {
 	ReactLibraryComponentsTransitionBorderRadiusDemo,
 	ReactLibraryComponentsTransitionColourDemo,
 	ReactLibraryComponentsTransitionFadeDemo,
+	ReactLibraryComponentsTransitionInsetDemo,
 	ReactLibraryComponentsTransitionPulseDemo,
 	ReactLibraryComponentsTransitionRotateDemo,
 	ReactLibraryComponentsTransitionRotateIndefiniteDemo,
@@ -15,6 +16,7 @@ export function ReactLibraryComponentsTransitionDemo() {
 			<ReactLibraryComponentsTransitionBorderRadiusDemo key="border-radius" />
 			<ReactLibraryComponentsTransitionColourDemo key="colour" />
 			<ReactLibraryComponentsTransitionFadeDemo key="fade" />
+			<ReactLibraryComponentsTransitionInsetDemo key="inset" />
 			<ReactLibraryComponentsTransitionPulseDemo key="pulse" />
 			<ReactLibraryComponentsTransitionRotateDemo key="rotate" />
 			<ReactLibraryComponentsTransitionRotateIndefiniteDemo key="rotate-indefinite" />

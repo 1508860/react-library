@@ -1,6 +1,7 @@
 export * from "./border-radius";
 export * from "./colour";
 export * from "./fade";
+export * from "./inset";
 export * from "./pulse";
 export * from "./rotate";
 export * from "./rotate-indefinite";
