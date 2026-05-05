@@ -46,7 +46,7 @@ export function TextFieldNumberInput(props: TextFieldNumberProps) {
 		<input
 			className={TEXT_FIELD_STYLE_CLASS_INPUT}
 			disabled={props.isDisabled}
-			id={props.name}
+			id={props.id}
 			max={props.validation?.maxValue}
 			min={props.validation?.minValue}
 			name={props.name}

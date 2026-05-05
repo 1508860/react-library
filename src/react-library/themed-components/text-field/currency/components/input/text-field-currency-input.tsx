@@ -21,7 +21,7 @@ export function TextFieldCurrencyInput(props: TextFieldCurrencyProps) {
 		<InputCurrency
 			className={TEXT_FIELD_STYLE_CLASS_INPUT}
 			isDisabled={props.isDisabled}
-			id={props.name}
+			id={props.id}
 			maxValue={props.validation?.maxValue}
 			minValue={props.validation?.minValue}
 			name={props.name}

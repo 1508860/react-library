@@ -42,7 +42,7 @@ export function TextFieldPasswordInput(props: TextFieldPasswordInputProps) {
 	return (
 		<input
 			className={TEXT_FIELD_STYLE_CLASS_INPUT}
-			id={props.name}
+			id={props.id}
 			name={props.name}
 			onBlur={textFieldEvents.onBlur}
 			onChange={handleOnValueChange}

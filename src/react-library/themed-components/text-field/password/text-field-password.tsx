@@ -32,10 +32,10 @@ export function TextFieldPassword(props: TextFieldPasswordProps) {
 						style={props.style}
 					>
 						<TextFieldInputLabel
+							id={props.id}
 							isRequired={true}
 							key="label"
 							label={props.label}
-							name={props.name}
 							style={props.style}
 						/>
 						<TextFieldPasswordInput

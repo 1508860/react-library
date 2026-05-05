@@ -23,7 +23,7 @@ export function TextFieldReadonlyInput(props: TextFieldReadonlyProps) {
 	return (
 		<input
 			disabled={true}
-			id={props.name}
+			id={props.id}
 			name={props.name}
 			style={textFieldReadonlyInputStyle(props.extraTextPosition, props.style, colourState)}
 			type="text"

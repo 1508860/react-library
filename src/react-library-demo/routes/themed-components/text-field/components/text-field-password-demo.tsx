@@ -27,6 +27,7 @@ export function ReactLibraryThemedComponentsTextFieldPasswordDemo() {
 						label={textFieldStyle}
 					>
 						<TextFieldPassword
+							id={`password-${textFieldStyle}`}
 							label="Label"
 							maxWidth={500}
 							minWidth={300}
@@ -42,6 +43,7 @@ export function ReactLibraryThemedComponentsTextFieldPasswordDemo() {
 						label={`${textFieldStyle} - validation`}
 					>
 						<TextFieldPassword
+							id={`password-${textFieldStyle}-validation`}
 							label="Label"
 							maxWidth={500}
 							minWidth={300}

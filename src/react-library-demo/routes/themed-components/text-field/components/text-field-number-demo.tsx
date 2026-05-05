@@ -46,6 +46,7 @@ function ReactLibraryThemedComponentsTextFieldNumberDemoStyle(props: IStyle<Text
 				<TextFieldNumber
 					defaultValue={defaultValue}
 					extraTextPosition={TextFieldExtraTextPosition.None}
+					id={`number-${props.style}-1`}
 					isRequired={true}
 					label="Label"
 					leadingIconName={MaterialIconName.Search}
@@ -63,6 +64,7 @@ function ReactLibraryThemedComponentsTextFieldNumberDemoStyle(props: IStyle<Text
 				<TextFieldNumber
 					defaultValue={defaultValue}
 					extraTextPosition={TextFieldExtraTextPosition.None}
+					id={`number-${props.style}-2`}
 					isDisabled={true}
 					isRequired={true}
 					label="Label"
@@ -82,6 +84,7 @@ function ReactLibraryThemedComponentsTextFieldNumberDemoStyle(props: IStyle<Text
 					defaultValue={defaultValue}
 					extraText="Extra"
 					extraTextPosition={TextFieldExtraTextPosition.End}
+					id={`number-${props.style}-3`}
 					isRequired={true}
 					label="Label"
 					leadingIconName={MaterialIconName.Search}
@@ -100,6 +103,7 @@ function ReactLibraryThemedComponentsTextFieldNumberDemoStyle(props: IStyle<Text
 					defaultValue={defaultValue}
 					extraText="Extra"
 					extraTextPosition={TextFieldExtraTextPosition.Start}
+					id={`number-${props.style}-4`}
 					isRequired={true}
 					label="Label"
 					leadingIconName={MaterialIconName.Search}

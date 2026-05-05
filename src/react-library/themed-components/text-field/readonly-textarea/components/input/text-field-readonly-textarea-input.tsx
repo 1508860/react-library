@@ -38,7 +38,7 @@ export function TextFieldReadonlyTextareaInput(props: TextFieldReadonlyTextareaP
 			className={TEXT_FIELD_STYLE_CLASS_INPUT}
 			colour={scrollTextareaColour}
 			disabled={true}
-			id={props.name}
+			id={props.id}
 			name={props.name}
 			style={textFieldReadonlyTextareaInputStyle(
 				props.inputheight,

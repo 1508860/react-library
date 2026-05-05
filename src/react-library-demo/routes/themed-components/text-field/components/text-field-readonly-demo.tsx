@@ -22,6 +22,7 @@ export function ReactLibraryThemedComponentsTextFieldReadonlyDemo() {
 				>
 					<TextFieldReadonly
 						extraTextPosition={TextFieldExtraTextPosition.None}
+						id={`readonly-${textFieldStyle}`}
 						label="Label"
 						maxWidth={500}
 						minWidth={300}

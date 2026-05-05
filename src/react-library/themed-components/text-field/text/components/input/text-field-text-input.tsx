@@ -42,7 +42,7 @@ export function TextFieldTextInput(props: TextFieldTextProps) {
 		<input
 			className={TEXT_FIELD_STYLE_CLASS_INPUT}
 			disabled={props.isDisabled}
-			id={props.name}
+			id={props.id}
 			name={props.name}
 			onBlur={textFieldEvents.onBlur}
 			onChange={handleOnValueChange}

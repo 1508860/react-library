@@ -19,7 +19,7 @@ export function TextFieldInputLabel(props: TextFieldInputLabelProps) {
 
 	return (
 		<label
-			htmlFor={props.name}
+			htmlFor={props.id}
 			key="label"
 			style={textFieldInputLabelStyle(props.style, colourState, isPopulatedState.isPopulated)}
 		>

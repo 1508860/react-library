@@ -46,6 +46,7 @@ function ReactLibraryThemedComponentsTextFieldCurrencyDemoStyle(props: IStyle<Te
 				<TextFieldCurrency
 					defaultValue={defaultValue}
 					extraTextPosition={TextFieldExtraTextPosition.None}
+					id={`currency-${props.style}-1`}
 					isRequired={true}
 					label="Label"
 					leadingIconName={MaterialIconName.Search}
@@ -63,6 +64,7 @@ function ReactLibraryThemedComponentsTextFieldCurrencyDemoStyle(props: IStyle<Te
 				<TextFieldCurrency
 					defaultValue={defaultValue}
 					extraTextPosition={TextFieldExtraTextPosition.None}
+					id={`currency-${props.style}-2`}
 					isDisabled={true}
 					isRequired={true}
 					label="Label"
@@ -82,6 +84,7 @@ function ReactLibraryThemedComponentsTextFieldCurrencyDemoStyle(props: IStyle<Te
 					defaultValue={defaultValue}
 					extraText="Extra"
 					extraTextPosition={TextFieldExtraTextPosition.End}
+					id={`currency-${props.style}-3`}
 					isRequired={true}
 					label="Label"
 					leadingIconName={MaterialIconName.Search}
@@ -100,6 +103,7 @@ function ReactLibraryThemedComponentsTextFieldCurrencyDemoStyle(props: IStyle<Te
 					defaultValue={defaultValue}
 					extraText="Extra"
 					extraTextPosition={TextFieldExtraTextPosition.Start}
+					id={`currency-${props.style}-4`}
 					isRequired={true}
 					label="Label"
 					leadingIconName={MaterialIconName.Search}

@@ -50,7 +50,7 @@ export function TextFieldTextareaInput(props: TextFieldTextareaProps) {
 			className={TEXT_FIELD_STYLE_CLASS_INPUT}
 			colour={scrollTextareaColour}
 			disabled={props.isDisabled}
-			id={props.name}
+			id={props.id}
 			name={props.name}
 			onBlur={textFieldEvents.onBlur}
 			onChange={handleOnValueChange}

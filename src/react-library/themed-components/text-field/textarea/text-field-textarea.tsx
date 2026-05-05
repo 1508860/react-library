@@ -31,10 +31,10 @@ export function TextFieldTextarea(props: TextFieldTextareaProps) {
 						style={props.style}
 					>
 						<TextFieldInputLabel
+							id={props.id}
 							isRequired={!!props.isRequired}
 							key="label"
 							label={props.label}
-							name={props.name}
 							style={props.style}
 						/>
 						<TextFieldTextareaInput

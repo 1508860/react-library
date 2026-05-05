@@ -25,16 +25,17 @@ export function ReactLibraryThemedComponentsTextFieldTextareaDemo() {
 					label={textFieldStyle}
 				>
 					<TextFieldTextarea
+						id={`textarea-${textFieldStyle}`}
 						inputheight={inputHeight}
 						inputMaxheight={inputMaxHeight}
 						inputMinheight={inputMinHeight}
 						label="Label"
-						width={500}
 						name={`textarea-${textFieldStyle}`}
 						onValueChange={setValue}
 						style={textFieldStyle}
 						validation={validation}
 						value={value}
+						width={500}
 					/>
 				</DemoItem>
 			))}

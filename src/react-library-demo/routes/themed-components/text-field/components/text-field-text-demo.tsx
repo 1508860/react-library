@@ -45,6 +45,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 				<TextFieldText
 					defaultValue={defaultValue}
 					extraTextPosition={TextFieldExtraTextPosition.None}
+					id={`text-${props.style}-1`}
 					isRequired={true}
 					label="Label"
 					leadingIconName={MaterialIconName.Search}
@@ -61,6 +62,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 				<TextFieldText
 					defaultValue={defaultValue}
 					extraTextPosition={TextFieldExtraTextPosition.None}
+					id={`text-${props.style}-2`}
 					isDisabled={true}
 					isRequired={true}
 					label="Label"
@@ -79,6 +81,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					defaultValue={defaultValue}
 					extraText="Extra"
 					extraTextPosition={TextFieldExtraTextPosition.End}
+					id={`text-${props.style}-3`}
 					isRequired={true}
 					label="Label"
 					leadingIconName={MaterialIconName.Search}
@@ -96,6 +99,7 @@ function ReactLibraryThemedComponentsTextFieldTextDemoStyle(props: IStyle<TextFi
 					defaultValue={defaultValue}
 					extraText="Extra"
 					extraTextPosition={TextFieldExtraTextPosition.Start}
+					id={`text-${props.style}-4`}
 					isRequired={true}
 					label="Label"
 					leadingIconName={MaterialIconName.Search}

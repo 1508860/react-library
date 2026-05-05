@@ -26,10 +26,10 @@ export function TextFieldReadonlyTextarea(props: TextFieldReadonlyTextareaProps)
 						style={props.style}
 					>
 						<TextFieldInputLabel
+							id={props.id}
 							isRequired={false}
 							key="label"
 							label={props.label}
-							name={props.name}
 							style={props.style}
 						/>
 						<TextFieldReadonlyTextareaInput
