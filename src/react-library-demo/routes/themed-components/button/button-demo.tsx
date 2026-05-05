@@ -95,7 +95,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				key="button-shape"
 				title="Button Shape"
 			>
-				{Object.values(ButtonShape).map((buttonShape, i) =>
+				{Object.values(ButtonShape).map(buttonShape =>
 					<ButtonClick
 						content={{
 							content: ButtonContent.IconLabel,
@@ -103,7 +103,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 							iconStyle: MaterialIconStyle.Default,
 							label: buttonShape
 						}}
-						key={i}
+						key={buttonShape}
 						onClick={() => { }}
 						shape={buttonShape}
 						size={ButtonSize.Medium}
@@ -115,7 +115,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				key="button-size"
 				title="Button Size"
 			>
-				{Object.values(ButtonSize).map((buttonSize, i) =>
+				{Object.values(ButtonSize).map(buttonSize =>
 					<ButtonClick
 						content={{
 							content: ButtonContent.IconLabel,
@@ -123,7 +123,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 							iconStyle: MaterialIconStyle.Default,
 							label: buttonSize
 						}}
-						key={i}
+						key={buttonSize}
 						onClick={() => { }}
 						shape={ButtonShape.Round}
 						size={buttonSize}
@@ -135,7 +135,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				key="button-style"
 				title="Button Style"
 			>
-				{buttonClickStyles.map((buttonStyle, i) => isDisabledStates.map((isDisabled, j) =>
+				{buttonClickStyles.map(buttonStyle => isDisabledStates.map(isDisabled =>
 					<ButtonClick
 						content={{
 							content: ButtonContent.IconLabel,
@@ -144,7 +144,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 							label: `${buttonStyle}${isDisabled ? " disabled" : ""}`
 						}}
 						isDisabled={isDisabled}
-						key={((i * j) + j)}
+						key={`${buttonStyle}-${isDisabled}`}
 						onClick={() => { }}
 						shape={ButtonShape.Round}
 						size={ButtonSize.Medium}
@@ -156,7 +156,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				key="button-icon-width"
 				title="Button Icon Width"
 			>
-				{Object.values(ButtonIconWidth).map((buttonIconWidth, i) =>
+				{Object.values(ButtonIconWidth).map(buttonIconWidth =>
 					<ButtonClick
 						content={{
 							content: ButtonContent.Icon,
@@ -164,7 +164,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 							iconStyle: MaterialIconStyle.Default,
 							iconWidth: buttonIconWidth
 						}}
-						key={i}
+						key={buttonIconWidth}
 						onClick={() => { }}
 						shape={ButtonShape.Round}
 						size={ButtonSize.Medium}
@@ -176,7 +176,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				key="button-selection"
 				title="Selection Button"
 			>
-				{isSelectedStates.map((isSelected, i) => isDisabledStates.map((isDisabled, j) =>
+				{isSelectedStates.map(isSelected => isDisabledStates.map(isDisabled =>
 					<ButtonSelection
 						content={{
 							content: ButtonContent.IconLabel,
@@ -186,7 +186,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 						}}
 						isDisabled={isDisabled}
 						isSelected={isSelected}
-						key={((i * j) + j)}
+						key={`${isSelected}-${isDisabled}`}
 						onClick={() => { }}
 						size={ButtonSize.Medium}
 						style={ButtonStyle.Elevated}
@@ -197,7 +197,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				key="button-floating"
 				title="Floating Button"
 			>
-				{Object.values(ColourSchemeStyle).map((colourSchemeStyle, i) => isDisabledStates.map((isDisabled, j) =>
+				{Object.values(ColourSchemeStyle).map(colourSchemeStyle => isDisabledStates.map(isDisabled =>
 					<ButtonFloating
 						colourSchemeStyle={colourSchemeStyle}
 						content={{
@@ -207,7 +207,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 							label: `${colourSchemeStyle}${isDisabled ? " disabled" : ""}`
 						}}
 						isDisabled={isDisabled}
-						key={((i * j) + j)}
+						key={`${colourSchemeStyle}-${isDisabled}`}
 						onClick={() => { }}
 						shape={ButtonShape.Round}
 						size={ButtonSize.Medium}
@@ -218,7 +218,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				key="button-split"
 				title="Split Button"
 			>
-				{isDisabledStates.map((isDisabled, i) =>
+				{isDisabledStates.map(isDisabled =>
 					<ButtonSplit
 						content={{
 							content: ButtonContent.IconLabel,
@@ -228,7 +228,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 						}}
 						isDisabled={isDisabled}
 						menuElement={ButtonSplitMenuElement}
-						key={i}
+						key={`${isDisabled}`}
 						onClick={() => { }}
 						style={ButtonStyle.Elevated}
 						size={ButtonSize.Medium}
@@ -239,7 +239,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 				key="button-text"
 				title="Text Button"
 			>
-				{buttonTextStyles.map((buttonStyle, i) => isDisabledStates.map((isDisabled, j) =>
+				{buttonTextStyles.map(buttonStyle => isDisabledStates.map(isDisabled =>
 					<ButtonText
 						content={{
 							content: ButtonContent.IconLabel,
@@ -248,7 +248,7 @@ export function ReactLibraryThemedComponentsButtonDemo() {
 							label: `${buttonStyle}${isDisabled ? " disabled" : ""}`
 						}}
 						isDisabled={isDisabled}
-						key={((i * j) + j)}
+						key={`${buttonStyle}-${isDisabled}`}
 						onClick={() => { }}
 						size={ButtonSize.Medium}
 						style={buttonStyle}
