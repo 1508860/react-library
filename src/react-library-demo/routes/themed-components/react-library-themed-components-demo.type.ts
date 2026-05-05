@@ -8,6 +8,7 @@ export const ReactLibraryThemedComponentsDemo = {
 	"Checkbox": "ReactLibraryThemedComponentsDemo-Checkbox",
 	"FloatingButtonGroup": "ReactLibraryThemedComponentsDemo-FloatingButtonGroup",
 	"LoadingIndicator": "ReactLibraryThemedComponentsDemo-LoadingIndicator",
+	"Menu": "ReactLibraryThemedComponentsDemo-Menu",
 	"Modals": "ReactLibraryThemedComponentsDemo-Modals",
 	"NavigationBar": "ReactLibraryThemedComponentsDemo-NavigationBar",
 	"NavigationRail": "ReactLibraryThemedComponentsDemo-NavigationRail",

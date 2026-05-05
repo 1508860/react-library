@@ -34,7 +34,7 @@ export function ReactLibraryDemo() {
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaultSubItemId={ReactLibraryThemedComponentsDemo.Switch}
+										defaultSubItemId={ReactLibraryThemedComponentsDemo.Menu}
 									>
 										{{
 											id: 1,

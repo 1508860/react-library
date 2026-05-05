@@ -7,6 +7,7 @@ import { ReactLibraryThemedComponentsButtonGroupDemo } from "./button-group";
 import { ReactLibraryThemedComponentsCheckboxDemo } from "./checkbox";
 import { ReactLibraryFloatingButtonGroupDemo } from "./floating-button-group";
 import { ReactLibraryThemedComponentsLoadingIndicatorDemo } from "./loading-indicator";
+import { ReactLibraryThemedComponentsMenuDemo } from "./menu";
 import { ReactLibraryThemedComponentsModalsDemo } from "./modals";
 import { ReactLibraryThemedComponentsNavigationBarDemo } from "./navigation-bar";
 import { ReactLibraryThemedComponentsNavigationRailDemo } from "./navigation-rail";
@@ -48,6 +49,11 @@ export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<Rea
 			element: () => <ReactLibraryThemedComponentsLoadingIndicatorDemo />,
 			id: ReactLibraryThemedComponentsDemo.LoadingIndicator,
 			title: "Loading Indicator"
+		},
+		{
+			element: () => <ReactLibraryThemedComponentsMenuDemo />,
+			id: ReactLibraryThemedComponentsDemo.Menu,
+			title: "Menu"
 		},
 		{
 			element: () => <ReactLibraryThemedComponentsModalsDemo />,
