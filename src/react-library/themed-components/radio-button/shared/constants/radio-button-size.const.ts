@@ -8,7 +8,7 @@ export const RADIO_BUTTON_SIZE_CONTAINER_GAP: Size = 4;
 /**
  * Radio button container padding vertical
  */
-export const RADIO_BUTTON_SIZE_CONTAINER_PADDING_VERTICAL: Size = 4;
+export const RADIO_BUTTON_SIZE_CONTAINER_MARGIN_VERTICAL: Size = 4;
 
 /**
  * Radio button label font size

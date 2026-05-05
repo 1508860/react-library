@@ -6,9 +6,9 @@ import { toSizeWithUnits, type Size, type SizePx, type SizeWithUnits } from "@re
 export const CHECKBOX_SIZE_CONTAINER_GAP: Size = 4;
 
 /**
- * Checkbox container padding vertical
+ * Checkbox container margin vertical
  */
-export const CHECKBOX_SIZE_CONTAINER_PADDING_VERTICAL: Size = 4;
+export const CHECKBOX_SIZE_CONTAINER_MARGIN_VERTICAL: Size = 4;
 
 /**
  * Checkbox label font size
