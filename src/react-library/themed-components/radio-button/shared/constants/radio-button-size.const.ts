@@ -1,4 +1,4 @@
-import type { Size, SizePx } from "@react-library/common";
+import { toSizeWithUnits, type Size, type SizePx, type SizeWithUnits } from "@react-library/common";
 
 /**
  * Radio button container gap between child items
@@ -24,3 +24,8 @@ export const RADIO_BUTTON_SIZE_TARGET_CONTAINER: SizePx = 40;
  * Radio button icon size
  */
 export const RADIO_BUTTON_SIZE_ICON: Size = 20;
+
+/**
+ * Radio button label font size
+ */
+export const RADIO_BUTTON_SIZE_LABEL_LINE_HEIGHT: SizeWithUnits = toSizeWithUnits(RADIO_BUTTON_SIZE_TARGET_CONTAINER);

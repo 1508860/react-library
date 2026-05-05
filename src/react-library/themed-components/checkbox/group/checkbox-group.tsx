@@ -19,7 +19,10 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
 	return (
 		<CheckboxGroupProvider {...props}>
 			<CheckboxContainer {...props}>
-				<CheckboxTargetContainer key="target-container">
+				<CheckboxTargetContainer
+					{...props}
+					key="target-container"
+				>
 					<CheckboxTarget
 						{...props}
 						key="target"

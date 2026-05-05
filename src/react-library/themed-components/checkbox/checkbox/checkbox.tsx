@@ -20,7 +20,10 @@ export function Checkbox(props: CheckboxProps) {
 	return (
 		<CheckboxProvider {...props}>
 			<CheckboxContainer {...props}>
-				<CheckboxTargetContainer key="target-container">
+				<CheckboxTargetContainer
+					{...props}
+					key="target-container"
+				>
 					<CheckboxTarget
 						{...props}
 						key="target"

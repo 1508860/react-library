@@ -1,9 +1,5 @@
-import { useCallback } from "react";
-
-import type { Callback } from "@react-library/common";
-
+import { useRadioButtonEventsContext } from "../../hooks/radio-button-events-context.hook";
 import { useRadioButtonNameContext } from "../../hooks/radio-button-name-context.hook";
-import { useRadioButtonOnValueChangeContext } from "../../hooks/radio-button-on-value-change-context.hook";
 
 import { RADIO_BUTTON_INPUT_STYLE } from "./styles/radio-button-input-style.const";
 import type { RadioButtonInputProps } from "./types/radio-button-input-props.type";
@@ -14,20 +10,15 @@ import type { RadioButtonInputProps } from "./types/radio-button-input-props.typ
 export function RadioButtonInput(props: RadioButtonInputProps) {
 
 	// Local contexts
+	const radioButtonEvents = useRadioButtonEventsContext();
 	const radioButtonName = useRadioButtonNameContext();
-	const radioButtonOnValueChange = useRadioButtonOnValueChangeContext();
-
-	const handleOnValueChange = useCallback<Callback<void>>(
-		() => radioButtonOnValueChange(props.value),
-		[props.value, radioButtonOnValueChange]
-	)
 
 	return (
 		<input
 			disabled={props.isDisabled}
 			id={props.id}
 			name={radioButtonName}
-			onChange={handleOnValueChange}
+			onChange={radioButtonEvents.onChecked}
 			placeholder={props.label}
 			style={RADIO_BUTTON_INPUT_STYLE}
 			type="radio"

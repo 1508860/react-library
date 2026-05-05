@@ -1,4 +1,4 @@
-import type { Size, SizePx } from "@react-library/common";
+import { toSizeWithUnits, type Size, type SizePx, type SizeWithUnits } from "@react-library/common";
 
 /**
  * Checkbox container gap between child items
@@ -39,3 +39,8 @@ export const CHECKBOX_SIZE_TARGET_CONTAINER: SizePx = 40;
  * Checkbox icon size
  */
 export const CHECKBOX_SIZE_ICON: Size = 18;
+
+/**
+ * Checkbox label font size
+ */
+export const CHECKBOX_SIZE_LABEL_LINE_HEIGHT: SizeWithUnits = toSizeWithUnits(CHECKBOX_SIZE_TARGET_CONTAINER);

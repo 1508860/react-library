@@ -1,4 +1,5 @@
 import type { RadioButtonPropsId } from "../../../types/radio-button-props-id.type";
+import type { RadioButtonPropsIsDisabled } from "../../../types/radio-button-props-is-disabled.type";
 import type { RadioButtonPropsLabel } from "../../../types/radio-button-props-label.type";
 
 /**
@@ -6,5 +7,6 @@ import type { RadioButtonPropsLabel } from "../../../types/radio-button-props-la
  */
 export type RadioButtonLabelProps = (
 	RadioButtonPropsId &
+	RadioButtonPropsIsDisabled &
 	RadioButtonPropsLabel
 );

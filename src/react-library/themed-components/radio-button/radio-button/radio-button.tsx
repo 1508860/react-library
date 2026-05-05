@@ -15,7 +15,10 @@ export function RadioButton(props: RadioButtonProps) {
 
 	return (
 		<RadioButtonContainer {...props}>
-			<RadioButtonTargetContainer key="target-container">
+			<RadioButtonTargetContainer
+				{...props}
+				key="target-container"
+			>
 				<RadioButtonIcon {...props} key="icon" />
 				<RadioButtonHoveredLayer
 					{...props}
