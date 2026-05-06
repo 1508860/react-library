@@ -5,6 +5,7 @@ export * from "./checkbox";
 export * from "./divider";
 export * from "./floating-button-group";
 export * from "./loading-indicator";
+export * from "./menu";
 export * from "./modals";
 export * from "./navigation-bar";
 export * from "./navigation-rail";
