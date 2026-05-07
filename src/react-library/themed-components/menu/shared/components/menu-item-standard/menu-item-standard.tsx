@@ -1,4 +1,6 @@
-import { Fragment } from "react";
+import { Fragment, useCallback } from "react";
+
+import type { Callback } from "@react-library/common";
 
 import type { MenuPropsItemContentStandard } from "../../types/menu-props-item-content.type";
 
@@ -13,9 +15,18 @@ import { MenuTextContainer } from "../menu-text-container";
  */
 export function MenuItemStandard(props: MenuPropsItemContentStandard) {
 
+	const handleOnClick = useCallback<Callback<void>>(
+		() => props.onSelect({
+			id: props.id,
+			isSelected: !props.isSelected
+		}),
+		[props]
+	);
+
 	return (
 		<MenuItem
 			{...props}
+			onClick={handleOnClick}
 		>
 			{
 				props.leadingIconName ?
@@ -26,8 +37,8 @@ export function MenuItemStandard(props: MenuPropsItemContentStandard) {
 					<Fragment key="no-leading-icon" />
 			}
 			<MenuTextContainer key="text-container">
-				<MenuText {...props} />
-				<MenuSupportingText {...props} />
+				<MenuText {...props} key="text" />
+				<MenuSupportingText {...props} key="supporting-text" />
 			</MenuTextContainer>
 			{
 				props.trailingIconName ?

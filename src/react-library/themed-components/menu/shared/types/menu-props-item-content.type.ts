@@ -7,7 +7,7 @@ import type { MenuPropsId } from "./menu-props-id.type";
 import type { MenuPropsIsDisabled } from "./menu-props-is-disabled.type";
 import type { MenuPropsIsSelected } from "./menu-props-is-selected.type";
 import type { MenuPropsLeadingIconName } from "./menu-props-leading-icon-name.type";
-import type { MenuPropsOnClick } from "./menu-props-on-click.type";
+import type { MenuPropsOnSelect } from "./menu-props-on-select.type";
 import type { MenuPropsSupportingText } from "./menu-props-supporting-text.type";
 import type { MenuPropsText } from "./menu-props-text.type";
 import type { MenuPropsTitle } from "./menu-props-title.type";
@@ -26,7 +26,7 @@ export type MenuPropsItemContentStandard = (
 	MenuPropsIsDisabled &
 	MenuPropsIsSelected &
 	MenuPropsLeadingIconName &
-	MenuPropsOnClick &
+	MenuPropsOnSelect &
 	MenuPropsSupportingText &
 	MenuPropsText &
 	MenuPropsTrailingIconName
@@ -40,7 +40,6 @@ export type MenuPropsItemContentSubmenu = (
 	MenuPropsItemContentGroups &
 	MenuPropsContent<typeof MenuItemContent.Submenu> &
 	MenuPropsLeadingIconName &
-	MenuPropsOnClick &
 	MenuPropsSupportingText &
 	MenuPropsText
 );

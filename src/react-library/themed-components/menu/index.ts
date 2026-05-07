@@ -7,7 +7,7 @@ export * from "./shared/types/menu-props-is-disabled.type";
 export * from "./shared/types/menu-props-is-selected.type";
 export * from "./shared/types/menu-props-item-content.type";
 export * from "./shared/types/menu-props-leading-icon-name.type";
-export * from "./shared/types/menu-props-on-click.type";
+export * from "./shared/types/menu-props-on-select.type";
 export * from "./shared/types/menu-props-style.type";
 export * from "./shared/types/menu-props-supporting-text.type";
 export * from "./shared/types/menu-props-text.type";

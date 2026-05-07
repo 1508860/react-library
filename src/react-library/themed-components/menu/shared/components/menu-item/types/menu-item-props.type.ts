@@ -10,6 +10,6 @@ import type { MenuPropsOnClick } from "../../../types/menu-props-on-click.type";
 export type MenuItemProps = (
 	MenuPropsIsDisabled &
 	MenuPropsIsSelected &
-	Partial<MenuPropsOnClick> &
+	MenuPropsOnClick &
 	PropsWithChildren
 );
