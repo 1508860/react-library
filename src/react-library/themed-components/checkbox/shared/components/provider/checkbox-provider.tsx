@@ -5,15 +5,18 @@ import {
 	type Callback,
 	type CallbackWithParameter
 } from "@react-library/common";
-import type { TransitionPulseInsetData } from "@react-library/components";
+import {
+	resolveTransitionPulseInsetFromSize,
+	type TransitionPulseInsetData
+} from "@react-library/components";
 
 import { CHECKBOX_CLICKED_INSET_CONTEXT } from "../../constants/checkbox-clicked-inset-context.const";
 import { CHECKBOX_COLOUR_STATE_CONTEXT } from "../../constants/checkbox-colour-state-context.const";
 import { CHECKBOX_EVENTS_CONTEXT } from "../../constants/checkbox-events-context.const";
 import { CHECKBOX_IS_HOVERED_CONTEXT } from "../../constants/checkbox-is-hovered-context.const";
 import { CHECKBOX_SELECTED_STATE_CONTEXT } from "../../constants/checkbox-selected-state-context.const";
+import { CHECKBOX_SIZE_TARGET_CONTAINER } from "../../constants/checkbox-size.const";
 import { CheckboxSelectedState } from "../../enums/checkbox-selected-state.type";
-import { resolveCheckboxClickedInset } from "../../functions/resolve-checkbox-clicked-inset.function";
 import { useCheckboxColourState } from "../../hooks/use-checkbox-colour-state.hook";
 import { useCheckboxEventsState } from "../../hooks/use-checkbox-events-state.hook";
 import { useCheckboxObserver } from "../../hooks/use-checkbox-observer.hook";
@@ -35,7 +38,7 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 	// Handle toggling current value
 	const handleOnToggle = useCallback<Callback<void>>(
 		() => {
-			setClickedInset(resolveCheckboxClickedInset());
+			setClickedInset(resolveTransitionPulseInsetFromSize(CHECKBOX_SIZE_TARGET_CONTAINER));
 			props.onValueChange(!props.value);
 		},
 		[props]

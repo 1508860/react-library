@@ -1,13 +1,16 @@
 import { useCallback, useState } from "react";
 
 import type { Callback } from "@react-library/common";
-import type { TransitionPulseInsetData } from "@react-library/components";
+import {
+	resolveTransitionPulseInsetFromSize,
+	type TransitionPulseInsetData
+} from "@react-library/components";
 
 import { RADIO_BUTTON_CLICKED_INSET_CONTEXT } from "../../constants/radio-button-clicked-inset-context.const";
 import { RADIO_BUTTON_COLOUR_STATE_CONTEXT } from "../../constants/radio-button-colour-state-context.const";
 import { RADIO_BUTTON_EVENTS_CONTEXT } from "../../constants/radio-button-events-context.const";
 import { RADIO_BUTTON_IS_HOVERED_CONTEXT } from "../../constants/radio-button-is-hovered-context.const";
-import { resolveRadioButtonClickedInset } from "../../functions/resolve-radio-button-clicked-inset.function";
+import { RADIO_BUTTON_SIZE_TARGET_CONTAINER } from "../../constants/radio-button-size.const";
 import { useRadioButtonColourState } from "../../hooks/use-radio-button-colour-state.hook";
 import { useRadioButtonIsErroredContext } from "../../hooks/radio-button-is-errored-context.hook";
 import { useRadioButtonOnValueChangeContext } from "../../hooks/radio-button-on-value-change-context.hook";
@@ -37,7 +40,7 @@ export function RadioButtonContainer(props: RadioButtonContainerProps) {
 	const handleOnChecked = useCallback<Callback<void>>(
 		() => {
 			if (props.isDisabled) return;
-			setClickedInset(resolveRadioButtonClickedInset())
+			setClickedInset(resolveTransitionPulseInsetFromSize(RADIO_BUTTON_SIZE_TARGET_CONTAINER))
 			radioButtonOnValueChange(props.value);
 		},
 		[props.isDisabled, props.value, radioButtonOnValueChange]

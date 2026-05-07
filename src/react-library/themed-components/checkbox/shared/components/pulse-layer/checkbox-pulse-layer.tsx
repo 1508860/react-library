@@ -24,7 +24,7 @@ export function CheckboxPulseLayer() {
 	useEffect(() => setShow(!!checkboxClickedInset), [checkboxClickedInset]);
 
 	if (!checkboxClickedInset || !show) return (
-		<Fragment key="no-checkbox-pulse-layer" />
+		<Fragment key="no-pulse-layer" />
 	);
 
 	return (
@@ -32,7 +32,7 @@ export function CheckboxPulseLayer() {
 			colour={checkboxColourState.pulseColour}
 			durationMs={CHECKBOX_PULSE_LAYER_TRANSITION_MS}
 			inset={checkboxClickedInset.inset}
-			key={`checkbox-clicked-inset-layer-${checkboxClickedInset.key}`}
+			key={`pulse-layer-${checkboxClickedInset.key}`}
 			timing={TransitionTiming.EaseInOut}
 			onComplete={handleOnComplete}
 		/>

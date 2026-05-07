@@ -24,7 +24,7 @@ export function ButtonPulseLayer() {
 	useEffect(() => setShow(!!buttonClickedInset), [buttonClickedInset]);
 
 	if (!buttonClickedInset || !show) return (
-		<Fragment key="no-button-pulse-layer" />
+		<Fragment key="no-pulse-layer" />
 	);
 
 	return (
@@ -32,7 +32,7 @@ export function ButtonPulseLayer() {
 			colour={buttonColourState.pulseColour}
 			durationMs={BUTTON_PULSE_LAYER_TRANSITION_MS}
 			inset={buttonClickedInset.inset}
-			key={`button-clicked-inset-layer-${buttonClickedInset.key}`}
+			key={`pulse-layer-${buttonClickedInset.key}`}
 			timing={TransitionTiming.EaseInOut}
 			onComplete={handleOnComplete}
 		/>

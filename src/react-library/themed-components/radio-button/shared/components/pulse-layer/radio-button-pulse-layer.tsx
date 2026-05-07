@@ -32,7 +32,7 @@ export function RadioButtonPulseLayer() {
 			colour={radioButtonColourState.pulseColour}
 			durationMs={RADIO_BUTTON_PULSE_LAYER_TRANSITION_MS}
 			inset={radioButtonClickedInset.inset}
-			key={`clicked-inset-layer-${radioButtonClickedInset.key}`}
+			key={`pulse-layer-${radioButtonClickedInset.key}`}
 			timing={TransitionTiming.EaseInOut}
 			onComplete={handleOnComplete}
 		/>

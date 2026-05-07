@@ -1,12 +1,14 @@
 import { useCallback, useState } from "react";
 
 import { useResolveState, type Callback } from "@react-library/common";
-import type { TransitionPulseInsetData } from "@react-library/components";
+import {
+	resolveTransitionPulseInsetFromEvent,
+	type TransitionPulseInsetData
+} from "@react-library/components";
 
 import { BUTTON_CLICKED_INSET_CONTEXT } from "../../constants/button-clicked-inset-context.const";
 import { BUTTON_COLOUR_STATE_CONTEXT } from "../../constants/button-colour-state-context.const";
 import { BUTTON_IS_HOVERED_CONTEXT } from "../../constants/button-is-hovered-context.const";
-import { resolveButtonClickedInset } from "../../functions/resolve-button-clicked-inset.function";
 import type { ButtonClickTarget } from "../../types/button-click-target.type";
 
 import { BUTTON_CONTAINER_STYLE } from "./styles/button-container-style.const";
@@ -46,7 +48,7 @@ export function ButtonContainer<TUseColourStateConfig>(props: ButtonContainerPro
 	const handleOnClick = useCallback(
 		(event: React.MouseEvent<ButtonClickTarget>) => {
 			if (props.isDisabled) return;
-			setClickedInset(resolveButtonClickedInset(event));
+			setClickedInset(resolveTransitionPulseInsetFromEvent(event));
 			props.onClick(event);
 		},
 		[props]

@@ -6,7 +6,10 @@ import {
 	type Callback,
 	type CallbackWithParameter,
 } from "@react-library/common";
-import type { TransitionPulseInsetData } from "@react-library/components";
+import {
+	resolveTransitionPulseInsetFromSize,
+	type TransitionPulseInsetData
+} from "@react-library/components";
 
 import { CHECKBOX_CLICKED_INSET_CONTEXT } from "../../constants/checkbox-clicked-inset-context.const";
 import { CHECKBOX_EVENTS_CONTEXT } from "../../constants/checkbox-events-context.const";
@@ -14,9 +17,9 @@ import { CHECKBOX_GROUP_SELECTED_COUNTS_DEFAULT } from "../../constants/checkbox
 import { CHECKBOX_IS_HOVERED_CONTEXT } from "../../constants/checkbox-is-hovered-context.const";
 import { CHECKBOX_SELECTED_STATE_CONTEXT } from "../../constants/checkbox-selected-state-context.const";
 import { CheckboxSelectedState } from "../../enums/checkbox-selected-state.type";
+import { CHECKBOX_SIZE_TARGET_CONTAINER } from "../../constants/checkbox-size.const";
 import { CHECKBOX_SUBJECT_CONTEXT } from "../../constants/checkbox-subject-context.const";
 import { CHECKBOX_SUBSCRIBER_STATE_CONTEXT } from "../../constants/checkbox-subscriber-state-context.const";
-import { resolveCheckboxClickedInset } from "../../functions/resolve-checkbox-clicked-inset.function";
 import { useCheckboxEventsState } from "../../hooks/use-checkbox-events-state.hook";
 import { useCheckboxObserver } from "../../hooks/use-checkbox-observer.hook";
 import { useCheckboxSubscriber } from "../../hooks/use-checkbox-subscriber.hook";
@@ -76,7 +79,7 @@ export function CheckboxGroupContainerProvider(props: CheckboxGroupContainerProv
 	const handleOnToggle = useCallback<Callback<void>>(
 		// Set to selected if partially selected
 		() => {
-			setClickedInset(resolveCheckboxClickedInset());
+			setClickedInset(resolveTransitionPulseInsetFromSize(CHECKBOX_SIZE_TARGET_CONTAINER));
 			const newState = (selectedStateRef.current === CheckboxSelectedState.Selected) ? CheckboxSelectedState.Unselected : CheckboxSelectedState.Selected;
 			handleSetSelectedState(newState);
 			checkboxSubject.notify(newState);
