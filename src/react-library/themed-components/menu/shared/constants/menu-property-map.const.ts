@@ -9,7 +9,7 @@ export const MENU_PROPERTY_MAP: MenuPropertyMap = {
 		gap: 2
 	},
 	divider: {
-		paddingVertical: 12
+		paddingVertical: 4
 	},
 	group: {
 		borderRadius: 8,

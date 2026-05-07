@@ -11,17 +11,25 @@ import { MenuStyle } from "../../../enums/menu-style.type";
 
 /**
  * Resolve menu group style based on parameters
- * @param style
+ * @param groupIndex
  * @param colourScheme
+ * @param groupCount
+ * @param style
  */
-export function menuGroupStyle(style: MenuStyle, colourScheme: ColourScheme): CSSProperties {
+export function menuGroupStyle(groupIndex: number, colourScheme: ColourScheme, groupCount: number, style: MenuStyle): CSSProperties {
 
 	const backgroundColor: Colour = style === MenuStyle.Vibrant ? colourScheme.tertiary.container.colour : colourScheme.surface.container.low;
+
+	const isFirstGroup: boolean = groupIndex === 0;
+	const isLastGroup: boolean = groupIndex === (groupCount - 1);
 
 	return {
 		alignItems: "stretch",
 		backgroundColor: backgroundColor.toColourString(),
-		borderRadius: MENU_PROPERTY_MAP.group.borderRadius,
+		borderBottomLeftRadius: isLastGroup ? MENU_PROPERTY_MAP.container.borderRadius : MENU_PROPERTY_MAP.group.borderRadius,
+		borderBottomRightRadius: isLastGroup ? MENU_PROPERTY_MAP.container.borderRadius : MENU_PROPERTY_MAP.group.borderRadius,
+		borderTopLeftRadius: isFirstGroup ? MENU_PROPERTY_MAP.container.borderRadius : MENU_PROPERTY_MAP.group.borderRadius,
+		borderTopRightRadius: isFirstGroup ? MENU_PROPERTY_MAP.container.borderRadius : MENU_PROPERTY_MAP.group.borderRadius,
 		boxShadow: colourScheme.elevation.boxShadow[ColourSchemeElevationLevel.Level2],
 		boxSizing: "border-box",
 		display: "flex",

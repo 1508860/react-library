@@ -11,12 +11,10 @@ import { MENU_PROPERTY_MAP } from "../../../constants/menu-property-map.const";
 export function menuContainerStyle(width: Size | undefined): CSSProperties {
 	return {
 		alignItems: "stretch",
-		borderRadius: MENU_PROPERTY_MAP.container.borderRadius,
 		boxSizing: "border-box",
 		display: "flex",
 		flexDirection: "column",
 		gap: MENU_PROPERTY_MAP.container.gap,
-		overflow: "hidden",
 		position: "relative",
 		width: width
 	};

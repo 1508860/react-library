@@ -13,9 +13,12 @@ export function Menu(props: MenuProps) {
 	return (
 		<MenuContainer {...props}>
 
-			{props.groups.map(group => (
+			{props.groups.map((group, groupIndex) => (
 
-				<MenuGroup key={group.id}>
+				<MenuGroup
+					groupIndex={groupIndex}
+					key={group.id}
+				>
 
 					{group.sections.map((section, sectionIndex) => (
 
@@ -25,14 +28,14 @@ export function Menu(props: MenuProps) {
 								section.items.map(item => (
 									<MenuItemResolver
 										{...item}
-										key={`${item.id}`}
+										key={`item-${item.id}`}
 									/>
 								))
 							}
 							{
-								(sectionIndex === 0 || (sectionIndex === (section.items.length - 1))) ?
+								(sectionIndex === (group.sections.length - 1)) ?
 									<Fragment key="no-divider" /> :
-									< MenuItemDivider key="divider" />
+									<MenuItemDivider key="divider" />
 							}
 
 						</Fragment>
