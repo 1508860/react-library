@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 import { useFontContext } from "@react-library/common";
 
 import { useMenuItemColourStateContext } from "../../hooks/menu-item-colour-state-context.hook";
@@ -14,8 +16,15 @@ export function MenuSupportingText(props: MenuSupportingTextProps) {
 
 	const colourState = useMenuItemColourStateContext();
 
+	if (!props.supportingText) return (
+		<Fragment key="no-supporting-text" />
+	);
+
 	return (
-		<div style={menuSupportingTextStyle(font, colourState)}>
+		<div
+			key="supporting-text"
+			style={menuSupportingTextStyle(font, colourState)}
+		>
 			{props.supportingText}
 		</div>
 	);
