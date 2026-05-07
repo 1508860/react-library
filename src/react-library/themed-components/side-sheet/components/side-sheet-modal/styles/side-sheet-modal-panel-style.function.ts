@@ -10,7 +10,7 @@ import { SideSheetPosition } from "../../../enums/side-sheet-position.type";
  * Resolve side sheet modal panel style based on parameters
  * @param detach
  * @param position
- * @param Colourscheme
+ * @param colourScheme
  */
 export function sideSheetModalPanelStyle(detach: boolean, position: SideSheetPosition, colourScheme: ColourScheme): CSSProperties {
 	return {
