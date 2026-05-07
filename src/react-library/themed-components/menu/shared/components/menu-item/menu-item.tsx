@@ -64,6 +64,7 @@ export function MenuItem(props: MenuItemProps) {
 							onPointerCancel={handleOnPointerLeave}
 							onPointerEnter={handleOnPointerEnter}
 							onPointerLeave={handleOnPointerLeave}
+							ref={props.ref}
 							style={menuItemStyle(colourState)}
 						>
 							{props.children}
