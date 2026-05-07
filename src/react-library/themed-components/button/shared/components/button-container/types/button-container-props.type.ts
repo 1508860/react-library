@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from "react";
+import type { MouseEventHandler, PropsWithChildren } from "react";
 
 import type {
 	CallbackWithParameter,
@@ -19,7 +19,7 @@ import type { ButtonContainerUseColourStateParam } from "./button-container-use-
 export type ButtonContainerProps<TUseColourStateConfig> = (
 	IColourStateConfig<TUseColourStateConfig> &
 	IIsDisabled &
-	IOnClick<ButtonClickTarget> &
+	IOnClick<MouseEventHandler<ButtonClickTarget>> &
 	PropsWithChildren &
 	Partial<IRefCallback<ButtonClickTarget | null>> &
 	IUseColourState<CallbackWithParameter<ButtonContainerUseColourStateParam<TUseColourStateConfig>, [ButtonColourState]>>

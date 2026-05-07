@@ -1,3 +1,5 @@
+import type { MouseEventHandler } from "react";
+
 import type {
 	IContent,
 	IIsDisabled,
@@ -19,7 +21,7 @@ export type ButtonSelectionProps = (
 	IContent<ButtonSelectionContent> &
 	Partial<IIsDisabled> &
 	IIsSelected &
-	IOnClick<HTMLDivElement> &
+	IOnClick<MouseEventHandler<HTMLDivElement>> &
 	ISize<ButtonSize> &
 	IStyle<ButtonSelectionStyle>
 );

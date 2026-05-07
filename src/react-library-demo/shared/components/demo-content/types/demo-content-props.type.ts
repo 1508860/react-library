@@ -1,3 +1,4 @@
+import type { MouseEventHandler } from "react";
 
 import type {
 	IAlign,
@@ -40,7 +41,7 @@ export type DemoContentProps = (
 	Partial<IIndentIndex<DemoContentIndentIndex>> &
 	Partial<IIsAbsolute<boolean>> &
 	IJustify<DemoContentJustify> &
-	Partial<IOnClick<Element>> &
+	Partial<IOnClick<MouseEventHandler<Element>>> &
 	Partial<IOnMouseEnter<Element>> &
 	Partial<IOnMouseLeave<Element>> &
 	Partial<IOpacity<StyleOpacity>> &

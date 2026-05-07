@@ -1,3 +1,5 @@
+import type { MouseEventHandler } from "react";
+
 import type { IContent, IIsDisabled, IOnClick, ISize, IStyle } from "@react-library/common";
 
 import type { ButtonSize } from "../../shared/enums/button-size.type";
@@ -13,7 +15,7 @@ export type ButtonSplitProps = (
 	IContent<ButtonSplitContent> &
 	ButtonSplitMenuElement &
 	Partial<IIsDisabled> &
-	IOnClick<HTMLDivElement> &
+	IOnClick<MouseEventHandler<HTMLDivElement>> &
 	ISize<ButtonSize> &
 	IStyle<ButtonSplitStyle>
 );

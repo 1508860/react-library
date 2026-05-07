@@ -1,4 +1,4 @@
-import type { Attributes } from "react";
+import type { Attributes, MouseEventHandler } from "react";
 
 import type { IAction, IContent, IIsDisabled, IIsSelected, IOnClick } from "@react-library/common";
 
@@ -17,7 +17,7 @@ import type { ButtonGroupAction } from "../enums/button-group-action.type";
 type ButtonGroupButtonBase = (
 	Attributes &
 	Partial<IIsDisabled> &
-	IOnClick<HTMLDivElement>
+	IOnClick<MouseEventHandler<HTMLDivElement>>
 );
 
 /**

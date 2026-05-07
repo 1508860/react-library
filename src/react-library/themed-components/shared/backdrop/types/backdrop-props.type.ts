@@ -1,3 +1,5 @@
+import type { MouseEventHandler } from "react";
+
 import type {
 	CallbackWithParameter,
 	IIsAbsolute,
@@ -16,7 +18,7 @@ import type { BackdropOnCompleteParam } from "./backdrop-on-complete-param.type"
  */
 export type BackdropProps = (
 	Partial<IIsAbsolute<boolean>> &
-	Partial<IOnClick<Element>> &
+	Partial<IOnClick<MouseEventHandler<Element>>> &
 	Partial<IOnComplete<CallbackWithParameter<BackdropOnCompleteParam, void>>> &
 	Partial<IOnPointerEnter<Element>> &
 	Partial<IOnPointerLeave<Element>> &

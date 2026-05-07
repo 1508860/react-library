@@ -1,3 +1,5 @@
+import type { MouseEventHandler } from "react";
+
 import type {
 	ColourSchemeStyle,
 	IColourSchemeStyle,
@@ -20,7 +22,7 @@ export type ButtonFloatingProps = (
 	IContent<ButtonFloatingContent> &
 	IColourSchemeStyle<ColourSchemeStyle> &
 	Partial<IIsDisabled> &
-	IOnClick<HTMLDivElement> &
+	IOnClick<MouseEventHandler<HTMLDivElement>> &
 	IShape<ButtonShape> &
 	ISize<ButtonSizeFloating>
 );

@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from "react";
+import type { MouseEventHandler, PropsWithChildren } from "react";
 
 import type {
 	IColourSchemeStyle,
@@ -47,7 +47,7 @@ export type FloatingButtonGroupPropsDefault = (
 	IColourSchemeStyle<FloatingButtonGroupDefaultColourSchemeStyle> &
 	IContent<FloatingButtonGroupButtonDefaultContent> &
 	FloatingButtonGroupPropsBase<typeof FloatingButtonGroupButton.Default> &
-	IOnClick<ButtonClickTarget>
+	IOnClick<MouseEventHandler<ButtonClickTarget>>
 );
 
 /**

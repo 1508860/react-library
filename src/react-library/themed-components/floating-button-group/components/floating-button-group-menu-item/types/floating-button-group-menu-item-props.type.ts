@@ -1,3 +1,5 @@
+import type { MouseEventHandler } from "react";
+
 import type {
 	IColourSchemeStyle,
 	IContent,
@@ -19,6 +21,6 @@ export type FloatingButtonGroupMenuItemProps = (
 	IColourSchemeStyle<FloatingButtonGroupMenuColourSchemeStyle> &
 	IContent<FloatingButtonGroupButtonMenuItemContent> &
 	Partial<IIsDisabled> &
-	IOnClick<ButtonClickTarget> &
+	IOnClick<MouseEventHandler<ButtonClickTarget>> &
 	ISize<ButtonSizeFloating>
 );

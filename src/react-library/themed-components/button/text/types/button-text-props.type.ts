@@ -1,3 +1,5 @@
+import type { MouseEventHandler } from "react";
+
 import type {
 	IContent,
 	IIsDisabled,
@@ -17,7 +19,7 @@ import type { ButtonTextStyle } from "./button-text-style.type";
 export type ButtonTextProps = (
 	IContent<ButtonTextContent> &
 	Partial<IIsDisabled> &
-	IOnClick<HTMLDivElement> &
+	IOnClick<MouseEventHandler<HTMLDivElement>> &
 	ISize<ButtonSize> &
 	IStyle<ButtonTextStyle>
 );

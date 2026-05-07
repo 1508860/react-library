@@ -1,3 +1,5 @@
+import type { MouseEventHandler } from "react";
+
 import type {
 	Colour,
 	IColour,
@@ -17,7 +19,7 @@ export type IconClickProps = (
 	IColour<Colour> &
 	Partial<IIsDisabled> &
 	IName<MaterialIconName> &
-	IOnClick<Element> &
+	IOnClick<MouseEventHandler<Element>> &
 	Partial<IPadding<Size>> &
 	ISize<Size>
 );
