@@ -6,3 +6,10 @@ import type { Callback, IOnClick } from "@react-library/common";
 export type MenuPropsOnClick = (
 	Partial<IOnClick<Callback<void>>>
 );
+
+/**
+ * Describes props for a menu on click event
+ */
+export type MenuPropsOnClickOptional = (
+	Partial<MenuPropsOnClick>
+);

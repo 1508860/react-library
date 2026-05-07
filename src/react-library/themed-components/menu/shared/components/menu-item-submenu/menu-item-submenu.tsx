@@ -6,6 +6,8 @@ import type { MenuPropsItemContentSubmenu } from "../../types/menu-props-item-co
 
 import { MenuIcon } from "../menu-icon";
 import { MenuItem } from "../menu-item";
+import { MenuItemHoveredLayer } from "../menu-item-hovered-layer";
+import { MenuItemPulseLayer } from "../menu-item-pulse-layer";
 import { MenuSupportingText } from "../menu-supporting-text";
 import { MenuText } from "../menu-text";
 import { MenuTextContainer } from "../menu-text-container";
@@ -17,6 +19,7 @@ export function MenuItemSubmenu(props: MenuPropsItemContentSubmenu) {
 	return (
 		<MenuItem
 			{...props}
+			onClick={() => { }}
 		>
 			{
 				props.leadingIconName ?
@@ -30,12 +33,17 @@ export function MenuItemSubmenu(props: MenuPropsItemContentSubmenu) {
 				<MenuText {...props} />
 				<MenuSupportingText {...props} />
 			</MenuTextContainer>
-			{
-				<MenuIcon
-					iconName={MaterialIconName.ChevronRight}
-					key="trailing-icon"
-				/>
-			}
+			<MenuIcon
+				iconName={MaterialIconName.ChevronRight}
+				key="trailing-icon"
+			/>
+			<MenuItemHoveredLayer
+				{...props}
+				key="hovered-layer"
+			/>
+			<MenuItemPulseLayer
+				key="pulse-layer"
+			/>
 		</MenuItem>
 	);
 }

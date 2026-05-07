@@ -6,6 +6,8 @@ import type { MenuPropsItemContentStandard } from "../../types/menu-props-item-c
 
 import { MenuIcon } from "../menu-icon";
 import { MenuItem } from "../menu-item";
+import { MenuItemHoveredLayer } from "../menu-item-hovered-layer";
+import { MenuItemPulseLayer } from "../menu-item-pulse-layer";
 import { MenuSupportingText } from "../menu-supporting-text";
 import { MenuText } from "../menu-text";
 import { MenuTextContainer } from "../menu-text-container";
@@ -16,10 +18,7 @@ import { MenuTextContainer } from "../menu-text-container";
 export function MenuItemStandard(props: MenuPropsItemContentStandard) {
 
 	const handleOnClick = useCallback<Callback<void>>(
-		() => props.onSelect({
-			id: props.id,
-			isSelected: !props.isSelected
-		}),
+		() => props.onSelect({ isSelected: !props.isSelected }),
 		[props]
 	);
 
@@ -48,6 +47,13 @@ export function MenuItemStandard(props: MenuPropsItemContentStandard) {
 					/> :
 					<Fragment key="no-trailing-icon" />
 			}
+			<MenuItemHoveredLayer
+				{...props}
+				key="hovered-layer"
+			/>
+			<MenuItemPulseLayer
+				key="pulse-layer"
+			/>
 		</MenuItem>
 	);
 }

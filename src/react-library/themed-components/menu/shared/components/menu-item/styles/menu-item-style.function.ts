@@ -17,8 +17,12 @@ export function menuItemStyle(colourState: MenuItemColourState): CSSProperties {
 		flexDirection: "row",
 		flexShrink: 0,
 		gap: MENU_PROPERTY_MAP.item.gap,
-		height: MENU_PROPERTY_MAP.item.height,
+		height: MENU_PROPERTY_MAP.item.contentHeight,
+		overflow: "hidden",
 		paddingLeft: MENU_PROPERTY_MAP.item.paddingHorizontal,
-		paddingRight: MENU_PROPERTY_MAP.item.paddingHorizontal
+		paddingRight: MENU_PROPERTY_MAP.item.paddingHorizontal,
+		marginTop: MENU_PROPERTY_MAP.item.marginVertical,
+		marginBottom: MENU_PROPERTY_MAP.item.marginVertical,
+		position: "relative"
 	};
 }

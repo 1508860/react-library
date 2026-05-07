@@ -6,3 +6,10 @@ import type { IIsSelected } from "@react-library/common";
 export type MenuPropsIsSelected = (
 	IIsSelected
 );
+
+/**
+ * Describes props for a menu is selected state
+ */
+export type MenuPropsIsSelectedOptional = (
+	Partial<MenuPropsIsSelected>
+);

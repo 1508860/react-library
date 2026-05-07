@@ -18,9 +18,10 @@ export const MENU_PROPERTY_MAP: MenuPropertyMap = {
 	},
 	item: {
 		borderRadius: 12,
+		contentHeight: 48,
 		gap: 8,
-		height: 48,
 		iconSize: 20,
+		marginVertical: 1,
 		paddingHorizontal: 12,
 		supportingText: {
 			fontSize: 12,

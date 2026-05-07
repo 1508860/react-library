@@ -1,14 +1,15 @@
 import type {
 	IBorderRadius,
 	IContainer,
+	IContentHeight,
 	IDivider,
 	IFontSize,
 	IGap,
 	IGroup,
-	IHeight,
 	IIconSize,
 	IItem,
 	ILineHeight,
+	IMarginVertical,
 	IPaddingHorizontal,
 	IPaddingVertical,
 	ISupportingText,
@@ -44,9 +45,10 @@ type MenuPropertyGroupMap = (
 
 type MenuPropertyItemMap = (
 	IBorderRadius<Size> &
+	IContentHeight<Size> &
 	IGap<Size> &
-	IHeight<Size> &
 	IIconSize<Size> &
+	IMarginVertical<Size> &
 	IPaddingHorizontal<Size> &
 	ISupportingText<MenuPropertyItemTextMap> &
 	IText<MenuPropertyItemTextMap>
