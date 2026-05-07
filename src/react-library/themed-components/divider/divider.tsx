@@ -13,9 +13,8 @@ export function Divider(props: DividerProps) {
 
 	return (
 		<DividerLine
-			hide={props.hide}
+			{...props}
 			key="divider"
-			orientation={props.orientation}
 		/>
 	)
 }

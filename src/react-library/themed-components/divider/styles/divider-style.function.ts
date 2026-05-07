@@ -19,10 +19,10 @@ export function dividerStyle(
 		backgroundColor: colourScheme.outline.outlineVariant.toColourString(),
 		display: "block",
 		height: orientation === Orientation.Vertical ? "100%" : 1,
-		marginBottom: orientation === Orientation.Vertical ? marginAfter : undefined,
-		marginLeft: orientation === Orientation.Horizontal ? marginBefore : undefined,
-		marginRight: orientation === Orientation.Horizontal ? marginAfter : undefined,
-		marginTop: orientation === Orientation.Vertical ? marginBefore : undefined,
+		marginBottom: orientation === Orientation.Horizontal ? marginAfter : undefined,
+		marginLeft: orientation === Orientation.Vertical ? marginBefore : undefined,
+		marginRight: orientation === Orientation.Vertical ? marginAfter : undefined,
+		marginTop: orientation === Orientation.Horizontal ? marginBefore : undefined,
 		width: orientation === Orientation.Horizontal ? "100%" : 1
 	};
 }
