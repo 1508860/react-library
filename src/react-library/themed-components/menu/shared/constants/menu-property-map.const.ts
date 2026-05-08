@@ -20,16 +20,17 @@ export const MENU_PROPERTY_MAP: MenuPropertyMap = {
 		borderRadius: 12,
 		contentHeight: 48,
 		gap: 8,
+		height: 50, // contentHeight + (marginVertical * 2)
 		iconSize: 20,
 		marginVertical: 1,
 		paddingHorizontal: 12,
 		supportingText: {
 			fontSize: 12,
-			lineHeight: "16pt"
+			lineHeight: "12pt"
 		},
 		text: {
 			fontSize: 14,
-			lineHeight: "20pt"
+			lineHeight: "16pt"
 		}
 	}
 };

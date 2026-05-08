@@ -27,7 +27,7 @@ export function MenuContainer(props: MenuContainerProps) {
 					onPointerCancel={props.onPointerLeave}
 					onPointerEnter={props.onPointerEnter}
 					onPointerLeave={props.onPointerLeave}
-					style={menuContainerStyle(props.groupWidth)}
+					style={menuContainerStyle(props.containerHeight, props.containerWidth)}
 				>
 					{props.children}
 				</div>

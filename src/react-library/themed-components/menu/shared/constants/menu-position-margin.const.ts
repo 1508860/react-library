@@ -6,6 +6,6 @@ import type { SizePx } from "@react-library/common";
 export const MENU_POSITION_MARGIN: SizePx = 0;
 
 /**
- * Menu overlay portal margin to prevent MENUS from being positioned too closely to the edge of the containing portal
+ * Menu overlay portal margin to prevent menus from being positioned too closely to the edge of the containing portal
  */
 export const MENU_OVERLAY_PORTAL_MARGIN: SizePx = 4;

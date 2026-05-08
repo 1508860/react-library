@@ -62,13 +62,13 @@ export function MenuItemSubmenuChild(props: MenuPropsItemContentSubmenu) {
 		(menuProps) => (
 			<MenuResolver
 				groups={props.groups}
-				groupWidth={props.groupWidth}
+				containerWidth={props.containerWidth}
 				onPointerEnter={menuProps.onPointerEnter}
 				onPointerLeave={menuProps.onPointerLeave}
 				style={menuStyle}
 			/>
 		),
-		[props.groups, props.groupWidth, menuStyle]
+		[props.containerWidth, props.groups, menuStyle]
 	);
 
 	// Handle state when tooltip is not shown

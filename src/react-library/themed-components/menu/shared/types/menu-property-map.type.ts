@@ -6,6 +6,7 @@ import type {
 	IFontSize,
 	IGap,
 	IGroup,
+	IHeight,
 	IIconSize,
 	IItem,
 	ILineHeight,
@@ -15,6 +16,7 @@ import type {
 	ISupportingText,
 	IText,
 	Size,
+	SizePx,
 	SizeWithUnits
 } from "@react-library/common";
 
@@ -47,6 +49,7 @@ type MenuPropertyItemMap = (
 	IBorderRadius<Size> &
 	IContentHeight<Size> &
 	IGap<Size> &
+	IHeight<SizePx> &
 	IIconSize<Size> &
 	IMarginVertical<Size> &
 	IPaddingHorizontal<Size> &

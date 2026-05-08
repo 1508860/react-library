@@ -10,15 +10,24 @@ import { MenuItemTitle } from "../menu-item-title";
  */
 export function MenuItemResolver(props: MenuPropsItemAllResolver) {
 	if (props.content === MenuItemContent.Submenu) return (
-		<MenuItemSubmenu {...props} key="submenu" />
+		<MenuItemSubmenu
+			{...props}
+			key="submenu"
+		/>
 	);
 
 	if (props.content === MenuItemContent.Title) return (
-		<MenuItemTitle {...props} key="title" />
+		<MenuItemTitle
+			{...props}
+			key="title"
+		/>
 	);
 
 	// Standard
 	return (
-		<MenuItemStandard {...props} key="standard" />
+		<MenuItemStandard
+			{...props}
+			key="standard"
+		/>
 	);
 }

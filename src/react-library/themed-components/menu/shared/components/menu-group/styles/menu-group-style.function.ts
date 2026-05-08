@@ -35,6 +35,8 @@ export function menuGroupStyle(groupIndex: number, colourScheme: ColourScheme, g
 		display: "flex",
 		flexDirection: "column",
 		flexShrink: 0,
+		maxHeight: "100%",
+		overflow: "hidden",
 		paddingBottom: MENU_PROPERTY_MAP.group.paddingVertical,
 		paddingLeft: MENU_PROPERTY_MAP.group.paddingHorizontal,
 		paddingRight: MENU_PROPERTY_MAP.group.paddingHorizontal,

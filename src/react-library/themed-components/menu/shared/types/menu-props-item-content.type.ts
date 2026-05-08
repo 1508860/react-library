@@ -2,8 +2,8 @@ import type { ArrayMinLength1, IGroups, IItems, ISections } from "@react-library
 
 import type { MenuItemContent } from "../enums/menu-item-content.type";
 
+import type { MenuPropsContainerWidth } from "./menu-props-container-width.type";
 import type { MenuPropsContent } from "./menu-props-content.type";
-import type { MenuPropsGroupWidth } from "./menu-props-group-width.type";
 import type { MenuPropsId } from "./menu-props-id.type";
 import type { MenuPropsIsDisabled } from "./menu-props-is-disabled.type";
 import type { MenuPropsIsSelected } from "./menu-props-is-selected.type";
@@ -37,8 +37,8 @@ export type MenuPropsItemContentStandard = (
  * Describes props for a submenu menu item
  */
 export type MenuPropsItemContentSubmenu = (
+	MenuPropsContainerWidth &
 	MenuPropsContent<typeof MenuItemContent.Submenu> &
-	MenuPropsGroupWidth &
 	MenuPropsIsDisabled &
 	MenuPropsItemContentBase &
 	MenuPropsItemContentContainer &

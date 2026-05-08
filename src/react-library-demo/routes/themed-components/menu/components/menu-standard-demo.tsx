@@ -86,6 +86,7 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 									text: MenuDemoId.Standard4
 								},
 								{
+									containerWidth: 200,
 									content: MenuItemContent.Submenu,
 									groups: [
 										{
@@ -121,6 +122,7 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 															text: MenuDemoId.Standard9
 														},
 														{
+															containerWidth: 200,
 															content: MenuItemContent.Submenu,
 															id: MenuDemoId.Submenu2,
 															groups: [
@@ -161,7 +163,6 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 																	]
 																}
 															],
-															groupWidth: 200,
 															text: MenuDemoId.Submenu2
 														}
 													]
@@ -169,7 +170,6 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 											]
 										}
 									],
-									groupWidth: 200,
 									id: MenuDemoId.Submenu1,
 									leadingIconName: MaterialIconName.Home,
 									text: MenuDemoId.Submenu1
@@ -225,7 +225,7 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 					>
 						<Menu
 							groups={menuGoups.groups}
-							groupWidth={300}
+							containerWidth={300}
 							style={menuStyle}
 						/>
 					</DemoItem>
