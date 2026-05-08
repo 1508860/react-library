@@ -19,8 +19,7 @@
 - Animation
 	- Move animation durations to a config object for colour scheme?
 - Custom hooks
-	- How to deal with complex state comparisons before setting state (currently just using ref to get at previous state)
-	- Make sure we're not setting state if values are the same for primitive / complex types
+	- Make sure we're not setting state if values are the same for primitive / complex types - use equality function
 - Performance
 	- Check usage of useEffect, useLayoutEffect, useCallback
 		- Make everything use effect and see where layout or callback can be used etc
@@ -104,40 +103,43 @@
 		- Carousel
 			- Implement
 		- Checkbox
-			- Integrate with form
+			- Integrate with form - TODO
 		- Chips
 			- Implement
 		- Dialogs
 			- Basic
-				- Make supporting text optional to allow a content only modal
+				- Make supporting text optional to allow a content only modal - TODO
+				- Add prop to wrap modal in a form? Add context for valid form flag as well as callback to set in parent? - TODO
 			- Full
-				- Add optional action button bar at the bottom
+				- Add optional action button bar at the bottom - TODO
 		- Lists
 			- Implement
 		- Menus
-			- Implement
+			- Add custom variant
+			- Add select variant. Single depth list with virtual scroll - TODO
+				- Fix issue with clicked inset etc not working
+				- Explore memo for virtual scroll
 		- Radio button
-			- Implement
-			- Integrate with form
+			- Integrate with form - TODO
 		- Search
 			- Modes
 				- Docked (tooltip)
 				- Full screen
 					- Don't use optional divider between search bar and list
-			- 
 		- Sliders
 			- Implement
 		- Snackbar
 			- Implement
 		- Switch
-			- Implement
-			- Integrate with form
+			- Integrate with form - TODO
 		- Tabs
 			- Implement
 		- Text fields
-			- Select
+			- Add copy text trailing click icon
+			- Select - TODO
 			- Date / time picker
 			- Icons & Images -  https://m3.material.io/components/text-fields/guidelines#5c8a5f07-b1a5-455f-bf76-7ff0d724f6b0
+			- Integrate with form - TODO
 			- Form
 				- GUID id attribute to include label in form
 				- Add form provider with callback to clear all form data / set to default
