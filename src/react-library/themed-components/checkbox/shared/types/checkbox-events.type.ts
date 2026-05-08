@@ -1,3 +1,5 @@
+import type { PointerEventHandler } from "react";
+
 import type {
 	Callback,
 	IOnPointerEnter,
@@ -9,7 +11,7 @@ import type {
  * Type for callback events for the checkbox
  */
 export type CheckboxEvents = (
-	IOnPointerEnter<Element> &
-	IOnPointerLeave<Element> &
+	IOnPointerEnter<PointerEventHandler<Element>> &
+	IOnPointerLeave<PointerEventHandler<Element>> &
 	IOnToggle<Callback<void>>
 );

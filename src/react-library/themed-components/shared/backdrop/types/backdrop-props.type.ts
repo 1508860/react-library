@@ -1,4 +1,4 @@
-import type { MouseEventHandler } from "react";
+import type { MouseEventHandler, PointerEventHandler } from "react";
 
 import type {
 	CallbackWithParameter,
@@ -20,8 +20,8 @@ export type BackdropProps = (
 	Partial<IIsAbsolute<boolean>> &
 	Partial<IOnClick<MouseEventHandler<Element>>> &
 	Partial<IOnComplete<CallbackWithParameter<BackdropOnCompleteParam, void>>> &
-	Partial<IOnPointerEnter<Element>> &
-	Partial<IOnPointerLeave<Element>> &
+	Partial<IOnPointerEnter<PointerEventHandler<Element>>> &
+	Partial<IOnPointerLeave<PointerEventHandler<Element>>> &
 	IShow &
 	ITransitionDurationMs<number>
 );
