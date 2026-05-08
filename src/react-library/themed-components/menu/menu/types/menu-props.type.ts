@@ -1,5 +1,5 @@
 import type { MenuPropsGroupWidth } from "../../shared/types/menu-props-group-width.type";
-import type { MenuPropsItemContentGroups } from "../../shared/types/menu-props-item-content.type";
+import type { MenuPropsItemContentContainer } from "../../shared/types/menu-props-item-content.type";
 import type { MenuPropsStyle } from "../../shared/types/menu-props-style.type";
 
 /**
@@ -7,6 +7,6 @@ import type { MenuPropsStyle } from "../../shared/types/menu-props-style.type";
  */
 export type MenuProps = (
 	MenuPropsGroupWidth &
-	MenuPropsItemContentGroups &
+	MenuPropsItemContentContainer &
 	MenuPropsStyle
 );

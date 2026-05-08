@@ -9,7 +9,7 @@ import {
 	Menu,
 	MenuItemContent,
 	MenuStyle,
-	type MenuPropsItemContentGroups
+	type MenuPropsItemContentContainer
 } from "@react-library/themed-components";
 
 import { DemoItem, DemoSection } from "@react-library-demo/shared";
@@ -32,7 +32,7 @@ export function ReactLibraryThemedComponentsMenuDemo() {
 		[]
 	);
 
-	const resolveMenuGroups = useCallback<Callback<MenuPropsItemContentGroups>>(
+	const resolveMenuGroups = useCallback<Callback<MenuPropsItemContentContainer>>(
 		() => ({
 			groups: [
 				{

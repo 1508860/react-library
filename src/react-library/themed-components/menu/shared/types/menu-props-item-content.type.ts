@@ -41,7 +41,7 @@ export type MenuPropsItemContentSubmenu = (
 	MenuPropsGroupWidth &
 	MenuPropsIsDisabled &
 	MenuPropsItemContentBase &
-	MenuPropsItemContentGroups &
+	MenuPropsItemContentContainer &
 	MenuPropsLeadingIconName &
 	MenuPropsSupportingText &
 	MenuPropsText
@@ -101,6 +101,6 @@ export type MenuPropsItemContentGroup = (
  * Describes props for a menu item group
  * - Each section is separated by a gap
  */
-export type MenuPropsItemContentGroups = (
+export type MenuPropsItemContentContainer = (
 	IGroups<ArrayMinLength1<MenuPropsItemContentGroup>>
 );
