@@ -29,11 +29,11 @@ export function ScrollVirtual(props: ScrollVirtualProps): VirtualScrollContainer
 	const resolveCssVariables = useCallback<Callback<StyleCssVariableLoaderVariables>>(
 		() => ({
 			"--background-colour": props.colour.backgroundColour?.toColourString(),
-			"--scrollbar-background-colour": props.colour.scrollbarBackgroundColour?.toColourString(),
-			"--scrollbar-colour": props.colour.scrollbarColour.toColourString(),
 			"--height": "100%",
 			"--overflow-x": containerProps.orientation === Orientation.Horizontal ? "auto" : "unset",
 			"--overflow-y": containerProps.orientation === Orientation.Vertical ? "auto" : "unset",
+			"--scrollbar-background-colour": props.colour.scrollbarBackgroundColour?.toColourString(),
+			"--scrollbar-colour": props.colour.scrollbarColour.toColourString(),
 			"--width": "100%"
 		}),
 		[props.colour.backgroundColour, props.colour.scrollbarBackgroundColour, props.colour.scrollbarColour, containerProps.orientation]
