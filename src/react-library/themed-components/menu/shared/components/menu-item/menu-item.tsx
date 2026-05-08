@@ -1,6 +1,6 @@
 import { Fragment, useCallback, useState } from "react";
 
-import type { Callback } from "@react-library/common";
+import type { Callback, CallbackWithParameter } from "@react-library/common";
 import {
 	resolveTransitionPulseInsetFromEvent,
 	type TransitionPulseInsetData
@@ -25,15 +25,30 @@ export function MenuItem(props: MenuItemProps) {
 
 	// Input event states
 	const [isHovered, setIsHovered] = useState<boolean>(() => false);
-	const handleOnPointerEnter = useCallback<Callback<void>>(() => setIsHovered(true), []);
-	const handleOnPointerLeave = useCallback<Callback<void>>(() => setIsHovered(false), []);
+	const handleOnPointerEnter = useCallback<Callback<void>>(
+		() => {
+			if (props.isDisabled) return;
+			if (props.onPointerEnter) props.onPointerEnter();
+			setIsHovered(true);
+		},
+		[props]
+	);
+
+	const handleOnPointerLeave = useCallback<Callback<void>>(
+		() => {
+			if (props.isDisabled) return;
+			if (props.onPointerLeave) props.onPointerLeave();
+			setIsHovered(false);
+		},
+		[props]
+	);
 
 	// Clicked inset
 	const [clickedInset, setClickedInset] = useState<TransitionPulseInsetData | null>(() => null);
 
 	// Handle on click
-	const handleOnClick = useCallback(
-		(event: React.MouseEvent<Element>) => {
+	const handleOnClick = useCallback<CallbackWithParameter<React.MouseEvent<Element>, void>>(
+		(event) => {
 			if (!props.onClick || props.isDisabled) return;
 			setClickedInset(resolveTransitionPulseInsetFromEvent(event));
 			props.onClick();
@@ -46,11 +61,13 @@ export function MenuItem(props: MenuItemProps) {
 
 	if (!props.onClick || props.isDisabled) return (
 		<Fragment key="readonly">
-			<MENU_ITEM_COLOUR_STATE_CONTEXT value={colourState}>
-				<div style={menuItemStyle(colourState)}>
-					{props.children}
-				</div>
-			</MENU_ITEM_COLOUR_STATE_CONTEXT>
+			<MENU_ITEM_IS_HOVERED_CONTEXT value={false}>
+				<MENU_ITEM_COLOUR_STATE_CONTEXT value={colourState}>
+					<div style={menuItemStyle(colourState)}>
+						{props.children}
+					</div>
+				</MENU_ITEM_COLOUR_STATE_CONTEXT>
+			</MENU_ITEM_IS_HOVERED_CONTEXT>
 		</Fragment>
 	);
 

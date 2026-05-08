@@ -3,6 +3,7 @@ import type { ArrayMinLength1, IGroups, IItems, ISections } from "@react-library
 import type { MenuItemContent } from "../enums/menu-item-content.type";
 
 import type { MenuPropsContent } from "./menu-props-content.type";
+import type { MenuPropsGroupWidth } from "./menu-props-group-width.type";
 import type { MenuPropsId } from "./menu-props-id.type";
 import type { MenuPropsIsDisabled } from "./menu-props-is-disabled.type";
 import type { MenuPropsIsSelected } from "./menu-props-is-selected.type";
@@ -21,10 +22,10 @@ type MenuPropsItemContentBase = (
  * Describes props for a standard menu item
  */
 export type MenuPropsItemContentStandard = (
-	MenuPropsItemContentBase &
 	MenuPropsContent<typeof MenuItemContent.Standard> &
 	MenuPropsIsDisabled &
 	MenuPropsIsSelected &
+	MenuPropsItemContentBase &
 	MenuPropsLeadingIconName &
 	MenuPropsOnSelect &
 	MenuPropsSupportingText &
@@ -36,9 +37,11 @@ export type MenuPropsItemContentStandard = (
  * Describes props for a submenu menu item
  */
 export type MenuPropsItemContentSubmenu = (
+	MenuPropsContent<typeof MenuItemContent.Submenu> &
+	MenuPropsGroupWidth &
+	MenuPropsIsDisabled &
 	MenuPropsItemContentBase &
 	MenuPropsItemContentGroups &
-	MenuPropsContent<typeof MenuItemContent.Submenu> &
 	MenuPropsLeadingIconName &
 	MenuPropsSupportingText &
 	MenuPropsText
@@ -48,8 +51,8 @@ export type MenuPropsItemContentSubmenu = (
  * Describes props for a title menu item
  */
 export type MenuPropsItemContentTitle = (
-	MenuPropsItemContentBase &
 	MenuPropsContent<typeof MenuItemContent.Title> &
+	MenuPropsItemContentBase &
 	MenuPropsTitle
 );
 
