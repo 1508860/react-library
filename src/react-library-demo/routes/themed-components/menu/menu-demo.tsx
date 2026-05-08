@@ -1,7 +1,13 @@
-import { ReactLibraryThemedComponentsMenuStandardDemo } from "./components/menu-standard-demo";
+import {
+	ReactLibraryThemedComponentsMenuSelectdDemo,
+	ReactLibraryThemedComponentsMenuStandardDemo
+} from "./components";
 
 export function ReactLibraryThemedComponentsMenuDemo() {
 	return (
-		<ReactLibraryThemedComponentsMenuStandardDemo key="standard" />
+		<>
+			<ReactLibraryThemedComponentsMenuSelectdDemo key="select" />
+			<ReactLibraryThemedComponentsMenuStandardDemo key="standard" />
+		</>
 	);
 }
