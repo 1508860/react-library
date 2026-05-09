@@ -6,7 +6,6 @@ import type { MenuPropsContainerWidth } from "./menu-props-container-width.type"
 import type { MenuPropsContent } from "./menu-props-content.type";
 import type { MenuPropsId } from "./menu-props-id.type";
 import type { MenuPropsIsDisabled } from "./menu-props-is-disabled.type";
-import type { MenuPropsIsSelected } from "./menu-props-is-selected.type";
 import type { MenuPropsLeadingIconName } from "./menu-props-leading-icon-name.type";
 import type { MenuPropsOnSelect } from "./menu-props-on-select.type";
 import type { MenuPropsSupportingText } from "./menu-props-supporting-text.type";
@@ -24,7 +23,6 @@ type MenuPropsItemContentBase = (
 export type MenuPropsItemContentStandard = (
 	MenuPropsContent<typeof MenuItemContent.Standard> &
 	MenuPropsIsDisabled &
-	MenuPropsIsSelected &
 	MenuPropsItemContentBase &
 	MenuPropsLeadingIconName &
 	MenuPropsOnSelect &

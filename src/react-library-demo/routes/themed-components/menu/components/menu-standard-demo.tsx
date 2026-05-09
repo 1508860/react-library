@@ -3,7 +3,7 @@ import { Fragment, useCallback, useState } from "react";
 import {
 	useResolveState,
 	type Callback,
-	type CallbackWith2Parameters
+	type CallbackWithParameter
 } from "@react-library/common";
 import {
 	Menu,
@@ -22,14 +22,14 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 	const [menuStyles] = useState<Array<MenuStyle>>(() => Object.values(MenuStyle));
 
 	const [selectedMenuItemIds, setSelectedMenuItemIds] = useState<Set<MenuDemoId>>(() => new Set<MenuDemoId>());
-	const handleSetSelectedMenuItemId = useCallback<CallbackWith2Parameters<boolean, MenuDemoId, void>>(
-		(isSelected, menuDemoId) => setSelectedMenuItemIds((prevState) => {
+	const handleSetSelectedMenuItemId = useCallback<CallbackWithParameter<MenuDemoId, void>>(
+		(menuDemoId) => setSelectedMenuItemIds((prevState) => {
 			const newState = new Set<MenuDemoId>(prevState);
-			if (isSelected) return newState.add(menuDemoId);
+			if (!selectedMenuItemIds.has(MenuDemoId.Standard1)) return newState.add(menuDemoId);
 			newState.delete(menuDemoId);
 			return newState;
 		}),
-		[]
+		[selectedMenuItemIds]
 	);
 
 	const resolveMenuGroups = useCallback<Callback<MenuPropsItemContentContainer>>(
@@ -49,15 +49,13 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 								{
 									content: MenuItemContent.Standard,
 									id: MenuDemoId.Standard1,
-									isSelected: selectedMenuItemIds.has(MenuDemoId.Standard1),
-									onSelect: (value) => handleSetSelectedMenuItemId(value.isSelected, MenuDemoId.Standard1),
+									onSelect: () => handleSetSelectedMenuItemId(MenuDemoId.Standard1),
 									text: MenuDemoId.Standard1
 								},
 								{
 									content: MenuItemContent.Standard,
 									id: MenuDemoId.Standard2,
-									isSelected: selectedMenuItemIds.has(MenuDemoId.Standard2),
-									onSelect: (value) => handleSetSelectedMenuItemId(value.isSelected, MenuDemoId.Standard2),
+									onSelect: () => handleSetSelectedMenuItemId( MenuDemoId.Standard2),
 									text: MenuDemoId.Standard2
 								}
 							]
@@ -73,16 +71,14 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 								{
 									content: MenuItemContent.Standard,
 									id: MenuDemoId.Standard3,
-									isSelected: selectedMenuItemIds.has(MenuDemoId.Standard3),
-									onSelect: (value) => handleSetSelectedMenuItemId(value.isSelected, MenuDemoId.Standard3),
+									onSelect: () => handleSetSelectedMenuItemId( MenuDemoId.Standard3),
 									text: MenuDemoId.Standard3
 								},
 								{
 									content: MenuItemContent.Standard,
 									id: MenuDemoId.Standard4,
 									isDisabled: true,
-									isSelected: selectedMenuItemIds.has(MenuDemoId.Standard4),
-									onSelect: (value) => handleSetSelectedMenuItemId(value.isSelected, MenuDemoId.Standard4),
+									onSelect: () => handleSetSelectedMenuItemId( MenuDemoId.Standard4),
 									text: MenuDemoId.Standard4
 								},
 								{
@@ -103,22 +99,19 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 														{
 															content: MenuItemContent.Standard,
 															id: MenuDemoId.Standard7,
-															isSelected: selectedMenuItemIds.has(MenuDemoId.Standard7),
-															onSelect: (value) => handleSetSelectedMenuItemId(value.isSelected, MenuDemoId.Standard7),
+															onSelect: () => handleSetSelectedMenuItemId( MenuDemoId.Standard7),
 															text: MenuDemoId.Standard7
 														},
 														{
 															content: MenuItemContent.Standard,
 															id: MenuDemoId.Standard8,
-															isSelected: selectedMenuItemIds.has(MenuDemoId.Standard8),
-															onSelect: (value) => handleSetSelectedMenuItemId(value.isSelected, MenuDemoId.Standard8),
+															onSelect: () => handleSetSelectedMenuItemId( MenuDemoId.Standard8),
 															text: MenuDemoId.Standard8
 														},
 														{
 															content: MenuItemContent.Standard,
 															id: MenuDemoId.Standard9,
-															isSelected: selectedMenuItemIds.has(MenuDemoId.Standard9),
-															onSelect: (value) => handleSetSelectedMenuItemId(value.isSelected, MenuDemoId.Standard9),
+															onSelect: () => handleSetSelectedMenuItemId( MenuDemoId.Standard9),
 															text: MenuDemoId.Standard9
 														},
 														{
@@ -140,22 +133,19 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 																				{
 																					content: MenuItemContent.Standard,
 																					id: MenuDemoId.Standard10,
-																					isSelected: selectedMenuItemIds.has(MenuDemoId.Standard10),
-																					onSelect: (value) => handleSetSelectedMenuItemId(value.isSelected, MenuDemoId.Standard10),
+																					onSelect: () => handleSetSelectedMenuItemId( MenuDemoId.Standard10),
 																					text: MenuDemoId.Standard10
 																				},
 																				{
 																					content: MenuItemContent.Standard,
 																					id: MenuDemoId.Standard11,
-																					isSelected: selectedMenuItemIds.has(MenuDemoId.Standard11),
-																					onSelect: (value) => handleSetSelectedMenuItemId(value.isSelected, MenuDemoId.Standard11),
+																					onSelect: () => handleSetSelectedMenuItemId( MenuDemoId.Standard11),
 																					text: MenuDemoId.Standard11
 																				},
 																				{
 																					content: MenuItemContent.Standard,
 																					id: MenuDemoId.Standard12,
-																					isSelected: selectedMenuItemIds.has(MenuDemoId.Standard12),
-																					onSelect: (value) => handleSetSelectedMenuItemId(value.isSelected, MenuDemoId.Standard12),
+																					onSelect: () => handleSetSelectedMenuItemId( MenuDemoId.Standard12),
 																					text: MenuDemoId.Standard12
 																				}
 																			]
@@ -192,17 +182,15 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 								{
 									content: MenuItemContent.Standard,
 									id: MenuDemoId.Standard5,
-									isSelected: selectedMenuItemIds.has(MenuDemoId.Standard5),
 									leadingIconName: MaterialIconName.Favorite,
-									onSelect: (value) => handleSetSelectedMenuItemId(value.isSelected, MenuDemoId.Standard5),
+									onSelect: () => handleSetSelectedMenuItemId( MenuDemoId.Standard5),
 									text: MenuDemoId.Standard5,
 									trailingIconName: MaterialIconName.Error
 								},
 								{
 									content: MenuItemContent.Standard,
 									id: MenuDemoId.Standard6,
-									isSelected: selectedMenuItemIds.has(MenuDemoId.Standard6),
-									onSelect: (value) => handleSetSelectedMenuItemId(value.isSelected, MenuDemoId.Standard6),
+									onSelect: () => handleSetSelectedMenuItemId( MenuDemoId.Standard6),
 									text: MenuDemoId.Standard6
 								}
 							]
@@ -211,7 +199,7 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 				}
 			]
 		}),
-		[selectedMenuItemIds, handleSetSelectedMenuItemId]
+		[handleSetSelectedMenuItemId]
 	);
 
 	const menuGoups = useResolveState(resolveMenuGroups);
@@ -224,8 +212,8 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 						label={menuStyle}
 					>
 						<Menu
-							groups={menuGoups.groups}
 							containerWidth={300}
+							groups={menuGoups.groups}
 							style={menuStyle}
 						/>
 					</DemoItem>

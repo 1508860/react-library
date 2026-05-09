@@ -1,13 +1,15 @@
-import { Fragment, useCallback, useState } from "react";
+import { Fragment, useCallback, useRef, useState } from "react";
 
 import {
 	useResolveState,
 	type Callback,
-	type CallbackWith2Parameters
+	type CallbackWithParameter,
+	type IOnSelect
 } from "@react-library/common";
 import {
 	MenuItemContent,
 	MenuSelect,
+	MenuSelectedItemsProvider,
 	MenuStyle,
 	type MenuPropsItemContentStandard,
 	type MenuPropsSelectItems
@@ -16,38 +18,47 @@ import {
 import { DemoItem, DemoSection } from "@react-library-demo/shared";
 import { MaterialIconName } from "@react-library/material-icons";
 
-export function ReactLibraryThemedComponentsMenuSelectdDemo() {
+export function ReactLibraryThemedComponentsMenuSelectDemo() {
+
+	const [selectedMenuItemIds, setSelectedMenuItemIds] = useState<Set<number>>(() => new Set<number>());
+	const selectedMenuItemIdsRef = useRef<Set<number>>(selectedMenuItemIds);
+	const handleSetSelectedMenuItemId = useCallback<CallbackWithParameter<number, void>>(
+		(id) => {
+			const newState = new Set<number>(selectedMenuItemIdsRef.current);
+			if (!selectedMenuItemIdsRef.current.has(id)) newState.add(id);
+			else newState.delete(id);
+			selectedMenuItemIdsRef.current = newState;
+			setSelectedMenuItemIds(newState);
+		},
+		[]
+	);
+
+	return (
+		<MenuSelectedItemsProvider selectedIds={selectedMenuItemIds}>
+			<ReactLibraryThemedComponentsMenuSelectChildDemo onSelect={handleSetSelectedMenuItemId} />
+		</MenuSelectedItemsProvider>
+	);
+}
+
+export function ReactLibraryThemedComponentsMenuSelectChildDemo(props: (IOnSelect<CallbackWithParameter<number, void>>)) {
 
 	const [menuStyles] = useState<Array<MenuStyle>>(() => Object.values(MenuStyle));
 
-	const [menuIds] = useState<Array<number>>(() => Array.from({ length: 100 }, (_, i) => i + 1));
-
-	const [selectedMenuItemIds, setSelectedMenuItemIds] = useState<Set<number>>(() => new Set<number>());
-	const handleSetSelectedMenuItemId = useCallback<CallbackWith2Parameters<boolean, number, void>>(
-		(isSelected, id) => setSelectedMenuItemIds((prevState) => {
-			const newState = new Set<number>(prevState);
-			if (isSelected) return newState.add(id);
-			newState.delete(id);
-			return newState;
-		}),
-		[]
-	);
+	const [menuIds] = useState<Array<number>>(() => Array.from({ length: 1000 }, (_, i) => i + 1));
 
 	const resolveMenuItems = useCallback<Callback<MenuPropsSelectItems>>(
 		() => ({
 			items: menuIds.map<MenuPropsItemContentStandard>(id => ({
 				content: MenuItemContent.Standard,
 				id: id,
-				isSelected: selectedMenuItemIds.has(id),
-				onSelect: (value) => handleSetSelectedMenuItemId(value.isSelected, id),
+				onSelect: () => props.onSelect(id),
 				text: `Item - ${id}`,
 				isDisabled: (id % 10 === 3),
-				leadingIconName: selectedMenuItemIds.has(id) ? MaterialIconName.CheckSmall : undefined,
 				supportingText: (id % 10 === 5) ? "Supporting text" : undefined,
 				trailingIconName: (id % 10 === 7) ? MaterialIconName.Error : undefined
 			}))
 		}),
-		[menuIds, selectedMenuItemIds, handleSetSelectedMenuItemId]
+		[props, menuIds]
 	);
 
 	const menuItems = useResolveState(resolveMenuItems);

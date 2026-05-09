@@ -1,7 +1,9 @@
 import { Fragment, useCallback } from "react";
 
 import type { Callback } from "@react-library/common";
+import { MaterialIconName } from "@react-library/material-icons";
 
+import { useMenuItemIsSelectedState } from "../../hooks/menu-item-is-selected-state.hook";
 import type { MenuPropsItemContentStandard } from "../../types/menu-props-item-content.type";
 
 import { MenuIcon } from "../menu-icon";
@@ -18,15 +20,26 @@ import { MenuTextContainer } from "../menu-text-container";
 export function MenuItemStandard(props: MenuPropsItemContentStandard) {
 
 	const handleOnClick = useCallback<Callback<void>>(
-		() => props.onSelect({ isSelected: !props.isSelected }),
+		() => props.onSelect(),
 		[props]
 	);
+
+	const isSelected = useMenuItemIsSelectedState(props.id);
 
 	return (
 		<MenuItem
 			{...props}
+			isSelected={isSelected}
 			onClick={handleOnClick}
 		>
+			{
+				isSelected ?
+					<MenuIcon
+						iconName={MaterialIconName.CheckSmall}
+						key="is-selected"
+					/> :
+					<Fragment key="no-is-selected" />
+			}
 			{
 				props.leadingIconName ?
 					<MenuIcon
