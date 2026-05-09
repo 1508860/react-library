@@ -20,7 +20,7 @@ export function useVirtualScrollItemRegisterState(
 	id: VirtualScrollItemId,
 	size: VirtualScrollItemSize | undefined,
 	index: VirtualScrollItemIndex
-): [VirtualScrollItemRegisterState] {
+): VirtualScrollItemRegisterState {
 
 	const virtualScrollItemSizeDefault = useVirtualScrollItemSizeDefaultContext();
 	const virtualScrollItemRegister = useVirtualScrollItemRegisterContext();
@@ -57,5 +57,5 @@ export function useVirtualScrollItemRegisterState(
 		[id, size, index, virtualScrollItemSizeDefault, virtualScrollItemRegister, virtualScrollItemUnregister]
 	);
 
-	return [state];
+	return state;
 };

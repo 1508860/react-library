@@ -1,6 +1,9 @@
-import type { IChild, IId, IIndex, ISize } from "@react-library/common";
+import type { IChild, IChildProps, IId, IIndex, ISize } from "@react-library/common";
 
-import type { VirtualScrollItemChild } from "../../../types/virtual-scroll-item-child.type";
+import type {
+	VirtualScrollItemChild,
+	VirtualScrollItemChildProps
+} from "../../../types/virtual-scroll-item-child.type";
 import type { VirtualScrollItemId } from "../../../types/virtual-scroll-item-id.type";
 import type { VirtualScrollItemIndex } from "../../../types/virtual-scroll-item-index.type";
 import type { VirtualScrollItemSize } from "../../../types/virtual-scroll-item-size.type";
@@ -8,9 +11,10 @@ import type { VirtualScrollItemSize } from "../../../types/virtual-scroll-item-s
 /**
  * Props for virtual scroll item component
  */
-export type VirtualScrollItemProps = (
+export type VirtualScrollItemProps<TChildProps extends VirtualScrollItemChildProps> = (
 	IId<VirtualScrollItemId> &
-	IChild<VirtualScrollItemChild> &
+	IChild<VirtualScrollItemChild<TChildProps>> &
+	IChildProps<TChildProps> &
 	IIndex<VirtualScrollItemIndex> &
 	Partial<ISize<VirtualScrollItemSize>>
 );

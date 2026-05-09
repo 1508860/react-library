@@ -7,6 +7,7 @@ import {
 	VirtualScrollContent,
 	VirtualScrollItem,
 	type VirtualScrollContainer,
+	type VirtualScrollItemChildProps,
 	type VirtualScrollItemId
 } from "@react-library/components";
 
@@ -45,10 +46,11 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 			<ReactLibraryComponentsVirtualScrollDemoScrollbar>
 				<VirtualScrollContent>
 					{items.map((item, itemIndex) => ([
-						<VirtualScrollItem
+						<VirtualScrollItem<VirtualScrollItemChildProps>
+							childProps={{}}
 							id={item.id}
-							key={item.id}
 							index={[itemIndex]}
+							key={item.id}
 							size={item.virtualScrollRowSize}
 						>
 							{() => <DemoContent
@@ -68,10 +70,11 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 						...(
 							showItemChildren === item.id ?
 								item.children.map((itemChild, itemChildIndex) => (
-									<VirtualScrollItem
+									<VirtualScrollItem<VirtualScrollItemChildProps>
+										childProps={{}}
 										id={`${item.id}-${itemChild.id}`}
-										key={`${item.id}-${itemChild.id}`}
 										index={[itemIndex, itemChildIndex]}
+										key={`${item.id}-${itemChild.id}`}
 										size={itemChild.virtualScrollRowSize}
 									>
 										{() => <DemoContent

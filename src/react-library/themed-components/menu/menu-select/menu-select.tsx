@@ -9,6 +9,7 @@ import { MenuItemStandard } from "../shared/components/menu-item-standard";
 import { MENU_PROPERTY_MAP } from "../shared/constants/menu-property-map.const";
 import { MENU_VIRTUAL_SCROLL_ITEM_BUFFER_COUNT } from "../shared/constants/menu-virtual-scroll.const";
 import { useMenuVirtualScrollColourState } from "../shared/hooks/use-menu-virtual-scroll-colour-state.hook";
+import type { MenuPropsItemContentStandard } from "../shared/types/menu-props-item-content.type";
 
 import type { MenuSelectProps } from "./types/menu-select-props.type";
 
@@ -31,16 +32,13 @@ export function MenuSelect(props: MenuSelectProps) {
 						<VirtualScrollContent>
 							{
 								props.items.map((item, itemIndex) => (
-									<VirtualScrollItem
+									<VirtualScrollItem<MenuPropsItemContentStandard>
+										childProps={item}
 										id={item.id}
-										key={`${item.id}-${item.isSelected}`}
 										index={[itemIndex]}
+										key={item.id}
 									>
-										{() => (
-											<MenuItemStandard
-												{...item}
-											/>
-										)}
+										{MenuItemStandard}
 									</VirtualScrollItem>
 								))
 							}
