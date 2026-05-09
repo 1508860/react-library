@@ -8,6 +8,13 @@ import type { ScrollColour } from "../../shared/types/scroll-colour.type";
  * Props for the scroll virtual component
  */
 export type ScrollVirtualProps = (
-	IColour<ScrollColour> &
-	PropsWithChildren
+	PropsWithChildren &
+	ScrollVirtualPropsColour
+);
+
+/**
+ * Props for the scroll virtual component colour
+ */
+export type ScrollVirtualPropsColour = (
+	IColour<ScrollColour>
 );

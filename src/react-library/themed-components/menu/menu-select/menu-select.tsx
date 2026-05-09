@@ -1,7 +1,7 @@
 import { Orientation } from "@react-library/common";
-import { VirtualScroll, VirtualScrollContent, VirtualScrollItem } from "@react-library/components";
+import { VirtualScrollItem } from "@react-library/components";
 
-import { ScrollVirtual } from "../../shared";
+import { ThemedVirtualScroll } from "../../shared";
 
 import { MenuContainer } from "../shared/components/menu-container";
 import { MenuGroup } from "../shared/components/menu-group";
@@ -23,35 +23,26 @@ export function MenuSelect(props: MenuSelectProps) {
 	return (
 		<MenuContainer {...props}>
 			<MenuGroup groupIndex={0}>
-				<VirtualScroll
+				<ThemedVirtualScroll
+					colour={virtualScrollColourState}
 					itemBufferCount={MENU_VIRTUAL_SCROLL_ITEM_BUFFER_COUNT}
 					itemSize={MENU_PROPERTY_MAP.item.height}
 					orientation={Orientation.Vertical}
 				>
-					<ScrollVirtual colour={virtualScrollColourState}>
-						<VirtualScrollContent>
-							{
-								props.items.map((item, itemIndex) => (
-									<VirtualScrollItem<MenuPropsItemContentStandard>
-										childProps={item}
-										id={item.id}
-										index={[itemIndex]}
-										key={item.id}
-									>
-										{MenuItemStandard}
-									</VirtualScrollItem>
-								))
-							}
-						</VirtualScrollContent>
-					</ScrollVirtual>
-				</VirtualScroll>
+					{
+						props.items.map((item, itemIndex) => (
+							<VirtualScrollItem<MenuPropsItemContentStandard>
+								childProps={item}
+								id={item.id}
+								index={[itemIndex]}
+								key={item.id}
+							>
+								{MenuItemStandard}
+							</VirtualScrollItem>
+						))
+					}
+				</ThemedVirtualScroll>
 			</MenuGroup>
 		</MenuContainer>
 	);
 }
-
-/**
- * TODO
- * - Resolve virtual scroll hover / clicked inset issue
- * - How to resolve key updates for virtual scroll items
- */
