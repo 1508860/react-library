@@ -8,7 +8,7 @@ import type { MenuSelectedItemsProviderProps } from "./types/menu-selected-items
 export function MenuSelectedItemsProvider(props: MenuSelectedItemsProviderProps) {
 	return (
 		<MENU_SELECTED_IDS_CONTEXT value={props.selectedIds}>
-						{props.children}
+			{props.children}
 		</MENU_SELECTED_IDS_CONTEXT>
 	);
 }

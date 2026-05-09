@@ -1,7 +1,7 @@
 /**
- * Menu styles
+ * Menu standard demo id
  */
-export const MenuDemoId = {
+export const MenuStandardDemoId = {
 	Group1: "group-1",
 	Group2: "group-2",
 	Group3: "group-3",
@@ -33,6 +33,6 @@ export const MenuDemoId = {
 } as const satisfies Record<string, (number | string)>;
 
 /**
- * Type for {@link MenuDemoId}
+ * Type for {@link MenuStandardDemoId}
  */
-export type MenuDemoId = (typeof MenuDemoId)[keyof typeof MenuDemoId];
+export type MenuStandardDemoId = (typeof MenuStandardDemoId)[keyof typeof MenuStandardDemoId];

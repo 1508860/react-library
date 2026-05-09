@@ -1,11 +1,17 @@
-import { Fragment, useCallback, useRef, useState } from "react";
+import {
+	Fragment,
+	useCallback,
+	useRef,
+	useState,
+	type PropsWithChildren
+} from "react";
 
 import {
 	useResolveState,
 	type Callback,
-	type CallbackWithParameter,
-	type IOnSelect
+	type Size
 } from "@react-library/common";
+import { MaterialIconName } from "@react-library/material-icons";
 import {
 	MenuItemContent,
 	MenuSelect,
@@ -16,13 +22,24 @@ import {
 } from "@react-library/themed-components";
 
 import { DemoItem, DemoSection } from "@react-library-demo/shared";
-import { MaterialIconName } from "@react-library/material-icons";
+
+import { MENU_SELECT_DEMO_ON_SELECT_CONTEXT } from "./constants/menu-select-demo-on-select-context.const";
+import { useMenuSelectDemoOnSelectContext } from "./hooks/menu-select-demo-on-select-context.hook";
+import type { MenuSelectDemoOnSelect } from "./types/menu-select-demo-on-select.type";
 
 export function ReactLibraryThemedComponentsMenuSelectDemo() {
+	return (
+		<ReactLibraryThemedComponentsMenuSelectProviderDemo>
+			<ReactLibraryThemedComponentsMenuSelectChildDemo />
+		</ReactLibraryThemedComponentsMenuSelectProviderDemo>
+	);
+}
+
+export function ReactLibraryThemedComponentsMenuSelectProviderDemo(props: PropsWithChildren) {
 
 	const [selectedMenuItemIds, setSelectedMenuItemIds] = useState<Set<number>>(() => new Set<number>());
 	const selectedMenuItemIdsRef = useRef<Set<number>>(selectedMenuItemIds);
-	const handleSetSelectedMenuItemId = useCallback<CallbackWithParameter<number, void>>(
+	const handleSetSelectedMenuItemId = useCallback<MenuSelectDemoOnSelect>(
 		(id) => {
 			const newState = new Set<number>(selectedMenuItemIdsRef.current);
 			if (!selectedMenuItemIdsRef.current.has(id)) newState.add(id);
@@ -34,15 +51,21 @@ export function ReactLibraryThemedComponentsMenuSelectDemo() {
 	);
 
 	return (
-		<MenuSelectedItemsProvider selectedIds={selectedMenuItemIds}>
-			<ReactLibraryThemedComponentsMenuSelectChildDemo onSelect={handleSetSelectedMenuItemId} />
-		</MenuSelectedItemsProvider>
+		<MENU_SELECT_DEMO_ON_SELECT_CONTEXT value={handleSetSelectedMenuItemId}>
+			<MenuSelectedItemsProvider selectedIds={selectedMenuItemIds}>
+				{props.children}
+			</MenuSelectedItemsProvider>
+		</MENU_SELECT_DEMO_ON_SELECT_CONTEXT>
 	);
 }
 
-export function ReactLibraryThemedComponentsMenuSelectChildDemo(props: (IOnSelect<CallbackWithParameter<number, void>>)) {
+export function ReactLibraryThemedComponentsMenuSelectChildDemo() {
+
+	const menuSelectDemoOnSelect = useMenuSelectDemoOnSelectContext();
 
 	const [menuStyles] = useState<Array<MenuStyle>>(() => Object.values(MenuStyle));
+	const [containerHeight] = useState<Size>(() => 500);
+	const [containerWidth] = useState<Size>(() => 300);
 
 	const [menuIds] = useState<Array<number>>(() => Array.from({ length: 1000 }, (_, i) => i + 1));
 
@@ -51,14 +74,14 @@ export function ReactLibraryThemedComponentsMenuSelectChildDemo(props: (IOnSelec
 			items: menuIds.map<MenuPropsItemContentStandard>(id => ({
 				content: MenuItemContent.Standard,
 				id: id,
-				onSelect: () => props.onSelect(id),
+				onSelect: () => menuSelectDemoOnSelect(id),
 				text: `Item - ${id}`,
 				isDisabled: (id % 10 === 3),
 				supportingText: (id % 10 === 5) ? "Supporting text" : undefined,
 				trailingIconName: (id % 10 === 7) ? MaterialIconName.Error : undefined
 			}))
 		}),
-		[props, menuIds]
+		[menuSelectDemoOnSelect, menuIds]
 	);
 
 	const menuItems = useResolveState(resolveMenuItems);
@@ -71,8 +94,8 @@ export function ReactLibraryThemedComponentsMenuSelectChildDemo(props: (IOnSelec
 						label={menuStyle}
 					>
 						<MenuSelect
-							containerHeight={500}
-							containerWidth={300}
+							containerHeight={containerHeight}
+							containerWidth={containerWidth}
 							items={menuItems.items}
 							style={menuStyle}
 						/>
