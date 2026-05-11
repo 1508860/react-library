@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import type { Callback } from "../../types";
-
-import type { UseResolveStateEqualityCallback } from "./types/use-resolve-state-equality-callback.type";
+import type { Callback, EqualityCallback } from "../../types";
 
 /**
  * Custom hook to handle resolving some state based on a resolve state callback changing
@@ -13,11 +11,11 @@ import type { UseResolveStateEqualityCallback } from "./types/use-resolve-state-
  */
 export function useResolveState<TResult>(
 	resolveStateCallback: Callback<TResult>,
-	equalityCallback?: UseResolveStateEqualityCallback<TResult>
+	equalityCallback?: EqualityCallback<TResult>
 ): TResult {
 
 	const resolveStateCallbackRef = useRef<Callback<TResult>>(resolveStateCallback);
-	const equalityCallbackRef = useRef<UseResolveStateEqualityCallback<TResult>>(equalityCallback);
+	const equalityCallbackRef = useRef<EqualityCallback<TResult>>(equalityCallback);
 
 	const [state, setState] = useState<TResult>(() => resolveStateCallback());
 	const stateRef = useRef<TResult>(state);

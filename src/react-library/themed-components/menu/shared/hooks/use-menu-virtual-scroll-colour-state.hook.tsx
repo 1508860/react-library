@@ -4,7 +4,7 @@ import {
 	useColourSchemeContext,
 	useResolveState,
 	type Callback,
-	type UseResolveStateEqualityCallback
+	type EqualityCallback
 } from "@react-library/common";
 
 import { isScrollColourEqual, type ScrollColour } from "../../../shared";
@@ -31,7 +31,7 @@ export function useMenuVirtualScrollColourState(style: MenuStyle): ScrollColour 
 		[style, colourScheme]
 	);
 
-	const isStateEqual = useCallback<UseResolveStateEqualityCallback<ScrollColour>>(
+	const isStateEqual = useCallback<EqualityCallback<ScrollColour>>(
 		isScrollColourEqual,
 		[]
 	);

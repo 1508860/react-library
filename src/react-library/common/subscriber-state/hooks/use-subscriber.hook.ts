@@ -2,11 +2,10 @@ import { useCallback, useEffect, useState } from "react";
 
 import { generateGuid, type Guid } from "../../guid";
 import { useResolveState } from "../../hooks";
-import type { Callback } from "../../types";
+import type { Callback, EqualityCallback } from "../../types";
 
 import type { SubscriberState } from "../classes/subscriber-state.class";
 import type { Subscriber } from "../types/subscriber.type";
-import type { UseSubscriberEqualityCallback } from "../types/use-subscriber-equality-callback.type";
 
 /**
  * Custom hook for creating a subscriber to be used by a subscribing component and consumed by a subscriber state
@@ -17,7 +16,7 @@ import type { UseSubscriberEqualityCallback } from "../types/use-subscriber-equa
 export function useSubscriber<TState>(
 	subscriberState: SubscriberState<TState> | null,
 	state: TState,
-	equalityCallback?: UseSubscriberEqualityCallback<TState>
+	equalityCallback?: EqualityCallback<TState>
 ): void {
 
 	const [id] = useState<Guid>(() => generateGuid());

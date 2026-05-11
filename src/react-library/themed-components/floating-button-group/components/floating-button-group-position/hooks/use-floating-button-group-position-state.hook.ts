@@ -5,8 +5,8 @@ import {
 	PositionStrategyInternal,
 	useResolveState,
 	type Callback,
-	type SizePx,
-	type UseResolveStateEqualityCallback
+	type EqualityCallback,
+	type SizePx
 } from "@react-library/common";
 
 import type { FloatingButtonGroupOrientation } from "../../../types/floating-button-group-orientation.type";
@@ -107,7 +107,7 @@ export function useFloatingButtonGroupPositionState(
 		[positionStrategy, orientation]
 	);
 
-	const stateEqualityCallback = useCallback<UseResolveStateEqualityCallback<FloatingButtonGroupPosition>>(isFloatingButtonGroupPositionEqual, []);
+	const stateEqualityCallback = useCallback<EqualityCallback<FloatingButtonGroupPosition>>(isFloatingButtonGroupPositionEqual, []);
 	const state = useResolveState<FloatingButtonGroupPosition>(resolvePosition, stateEqualityCallback);
 
 	return [state];
