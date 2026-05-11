@@ -1,7 +1,6 @@
 import {
 	Fragment,
 	useCallback,
-	useRef,
 	useState,
 	type PropsWithChildren
 } from "react";
@@ -37,15 +36,15 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 
 export function ReactLibraryThemedComponentsMenuStandardProviderDemo(props: PropsWithChildren) {
 
-	const [selectedMenuItemIds, setSelectedMenuItemIds] = useState<Set<MenuStandardDemoId>>(() => new Set<MenuStandardDemoId>());
-	const selectedMenuItemIdsRef = useRef<Set<MenuStandardDemoId>>(selectedMenuItemIds);
+	const [selectedMenuItemIds, setSelectedMenuItemIds] = useState<Array<MenuStandardDemoId>>(() => []);
 	const handleSetSelectedMenuItemId = useCallback<MenuStandardDemoOnSelect>(
 		(id) => {
-			const newState = new Set<MenuStandardDemoId>(selectedMenuItemIdsRef.current);
-			if (!selectedMenuItemIdsRef.current.has(id)) newState.add(id);
-			else newState.delete(id);
-			selectedMenuItemIdsRef.current = newState;
-			setSelectedMenuItemIds(newState);
+			setSelectedMenuItemIds((prev) => {
+				const newState = [...prev];
+				if (newState.includes(id)) return newState.filter(x => x !== id);
+				newState.push(id);
+				return newState;
+			});
 		},
 		[]
 	);

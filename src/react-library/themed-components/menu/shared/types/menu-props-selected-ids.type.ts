@@ -12,4 +12,4 @@ export type MenuPropsSelectedIds = (
 /**
  * Describes type for a menu selected ids state
  */
-export type MenuSelectedIds = Set<MenuId> | undefined;
+export type MenuSelectedIds = Array<MenuId> | undefined;

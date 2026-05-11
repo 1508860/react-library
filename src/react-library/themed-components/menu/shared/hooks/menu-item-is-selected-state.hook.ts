@@ -15,7 +15,7 @@ export function useMenuItemIsSelectedState(id: MenuId): boolean {
 	const menuSelectedIds = useMenuSelectedIdsContextOptional();
 
 	const resolveState = useCallback<Callback<boolean>>(
-		() => menuSelectedIds ? menuSelectedIds.has(id) : false,
+		() => menuSelectedIds ? menuSelectedIds.includes(id) : false,
 		[id, menuSelectedIds]
 	);
 
