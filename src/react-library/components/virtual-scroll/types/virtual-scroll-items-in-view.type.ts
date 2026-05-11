@@ -1,6 +1,6 @@
 import type { VirtualScrollItemId } from "./virtual-scroll-item-id.type";
 
 /**
- * Virtual scroll items in view set
+ * Virtual scroll items in view collection
  */
-export type VirtualScrollItemsInView = Set<VirtualScrollItemId>;
+export type VirtualScrollItemsInView = Array<VirtualScrollItemId>;

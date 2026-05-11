@@ -1,4 +1,4 @@
-import type { VirtualScrollItemId } from "../../../types/virtual-scroll-item-id.type";
+import type { VirtualScrollItemId } from "../types/virtual-scroll-item-id.type";
 import type { VirtualScrollItemMap } from "../types/virtual-scroll-item-map.type";
 
 /**

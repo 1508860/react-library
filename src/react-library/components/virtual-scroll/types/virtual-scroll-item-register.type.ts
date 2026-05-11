@@ -1,4 +1,11 @@
-import type { CallbackWithParameter, IId, IIndex, ISize } from "@react-library/common";
+import type {
+	CallbackWithParameter,
+	IId,
+	IIndex,
+	IItemRegister,
+	IItemUnregister,
+	ISize
+} from "@react-library/common";
 
 import type { VirtualScrollItemId } from "./virtual-scroll-item-id.type";
 import type { VirtualScrollItemIndex } from "./virtual-scroll-item-index.type";
@@ -16,4 +23,24 @@ export type VirtualScrollItemRegisterParam = (
 	IId<VirtualScrollItemId> &
 	IIndex<VirtualScrollItemIndex> &
 	ISize<VirtualScrollItemSize>
+);
+
+/**
+ * Virtual scroll item unregister callback
+ */
+export type VirtualScrollItemUnregister = CallbackWithParameter<VirtualScrollItemUnregisterParam, void>;
+
+/**
+ * Virtual scroll item unregister callback parameter
+ */
+export type VirtualScrollItemUnregisterParam = (
+	IId<VirtualScrollItemId>
+);
+
+/**
+ * Virtual scroll item register callback props
+ */
+export type VirtualScrollItemRegisterCallbacks = (
+	IItemRegister<VirtualScrollItemRegister> &
+	IItemUnregister<VirtualScrollItemUnregister>
 );

@@ -10,3 +10,4 @@ export * from "./types/virtual-scroll-item-id.type";
 export * from "./types/virtual-scroll-item-index.type";
 export * from "./types/virtual-scroll-item-size.type";
 export * from "./types/virtual-scroll-orientation.type";
+export * from "./types/virtual-scroll-props-config.type";

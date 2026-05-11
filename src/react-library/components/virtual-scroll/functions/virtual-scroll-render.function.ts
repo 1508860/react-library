@@ -6,13 +6,12 @@ import {
 	type SizePx
 } from "@react-library/common";
 
-import type { VirtualScrollContentSize } from "../../../types/virtual-scroll-content-size.type";
-import type { VirtualScrollItemId } from "../../../types/virtual-scroll-item-id.type";
-import type { VirtualScrollItemsInView } from "../../../types/virtual-scroll-items-in-view.type";
-import type { VirtualScrollOrientation } from "../../../types/virtual-scroll-orientation.type";
-
+import type { VirtualScrollContentSize } from "../types/virtual-scroll-content-size.type";
+import type { VirtualScrollItemId } from "../types/virtual-scroll-item-id.type";
 import type { VirtualScrollItemMap, VirtualScrollItemMapValue } from "../types/virtual-scroll-item-map.type";
+import type { VirtualScrollOrientation } from "../types/virtual-scroll-orientation.type";
 import type { VirtualScrollRenderState } from "../types/virtual-scroll-render-state.type";
+
 import { virtualScrollSort } from "./virtual-scroll-sort.function";
 
 /**
@@ -46,7 +45,7 @@ export function virtualScrollRender(
 
 	// Result
 	let paddingStart: SizePx = 0;
-	const itemsInView: VirtualScrollItemsInView = new Set<VirtualScrollItemId>();
+	const itemsInViewSet: Set<VirtualScrollItemId> = new Set<VirtualScrollItemId>();
 	let childrenSize: SizePx = 0;
 	let paddingEnd: SizePx = 0;
 
@@ -57,9 +56,9 @@ export function virtualScrollRender(
 	let currentEndBufferItemCount: number = 0;
 
 	let itemInViewportCount: number = 0;
-	const addToItemsInViewport = (id: VirtualScrollItemId) => {
+	const addToItemsInView = (id: VirtualScrollItemId) => {
 		itemInViewportCount++;
-		itemsInView.add(id);
+		itemsInViewSet.add(id);
 	};
 
 	for (let currentItemIndex = 0; currentItemIndex < orderedItems.length; currentItemIndex++) {
@@ -71,13 +70,13 @@ export function virtualScrollRender(
 		if (itemtSizeSoFar >= scrollToEndOfViewport) {
 			// Handle end buffer items & padding end
 			if (currentEndBufferItemCount < validItemBufferCount) {
-				addToItemsInViewport(currentItemId);
+				addToItemsInView(currentItemId);
 				childrenSize += currentItemSize;
 				currentEndBufferItemCount += 1;
 			} else paddingEnd += currentItemSize;
 		}
 		else if (itemtSizeSoFar >= scrollStart) {
-			addToItemsInViewport(currentItemId);
+			addToItemsInView(currentItemId);
 			childrenSize += currentItemSize;
 			if (!isFirstItemInViewportSet) {
 				firstItemInViewportIndex = currentItemIndex;
@@ -97,19 +96,21 @@ export function virtualScrollRender(
 		// Add item to start buffer array and remove start padding
 		const currentItemId: VirtualScrollItemId = orderedItems[currentItemInStartBufferIndex];
 		const currentItemSize: SizePx = getValidatedItem(currentItemId).size;
-		addToItemsInViewport(currentItemId);
+		addToItemsInView(currentItemId);
 		paddingStart -= currentItemSize;
 		childrenSize += currentItemSize;
 	}
 
 	// Validate that items in view match the count (i.e. no duplicate ids)
-	if (itemsInView.size !== itemInViewportCount) throw new VirtualScrollError();
+	if (itemsInViewSet.size !== itemInViewportCount) throw new VirtualScrollError();
 
 	const size: VirtualScrollContentSize = {
 		childrenSize: childrenSize,
-		paddingStart: paddingStart,
-		paddingEnd: paddingEnd
+		paddingEnd: paddingEnd,
+		paddingStart: paddingStart
 	};
+
+	const itemsInView = orderedItems.filter(x => itemsInViewSet.has(x));
 
 	return {
 		itemsInView: itemsInView,
