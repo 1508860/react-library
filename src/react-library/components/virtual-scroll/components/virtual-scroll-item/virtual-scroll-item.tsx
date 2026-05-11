@@ -23,7 +23,10 @@ export function VirtualScrollItem<TChildProps extends VirtualScrollItemChildProp
 			key={`child-container-${props.id}`}
 			style={virtualScrollItemStyle(virtualScrollOrientation, virtualScrollItemRegister.size)}
 		>
-			<props.children {...props.childProps} />
+			<props.children
+				{...props.childProps}
+				key={props.id}
+			/>
 		</div>
 	);
 }

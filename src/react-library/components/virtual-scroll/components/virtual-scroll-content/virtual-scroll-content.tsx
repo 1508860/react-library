@@ -1,6 +1,7 @@
 import { useVirtualScrollContentSizeContext } from "../../hooks/virtual-scroll-content-size-context.hook";
 import { useVirtualScrollOrientationContext } from "../../hooks/virtual-scroll-orientation-context.hook";
 
+import { virtualScrollContentChildStyle } from "./styles/virtual-scroll-content-child-style.function";
 import { virtualScrollContentStyle } from "./styles/virtual-scroll-content-style.function";
 import type { VirtualScrollContentProps } from "./types/virtual-scroll-content-props.type";
 
@@ -16,7 +17,9 @@ export function VirtualScrollContent(props: VirtualScrollContentProps) {
 
 	return (
 		<div style={virtualScrollContentStyle(orientation, size)}>
-			{props.children}
+			<div style={virtualScrollContentChildStyle(orientation, size)}>
+				{props.children}
+			</div>
 		</div>
 	);
 }
