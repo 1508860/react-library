@@ -1,6 +1,16 @@
-import { VirtualScroll, VirtualScrollContent } from "@react-library/components";
+import { useState } from "react";
 
-import { ScrollVirtual } from "../../shared";
+import {
+	useVirtualScrollContainerPropsContext,
+	VirtualScroll,
+	VirtualScrollContent
+} from "@react-library/components";
+
+import {
+	ScrollBasic,
+	ScrollBasicDirection,
+	type ScrollBasicSizeAll
+} from "../../shared";
 
 import type { ThemedVirtualScrollProps } from "./types/virtual-scroll-props.type";
 
@@ -15,11 +25,35 @@ export function ThemedVirtualScroll(props: ThemedVirtualScrollProps) {
 			itemSize={props.itemSize}
 			orientation={props.orientation}
 		>
-			<ScrollVirtual colour={props.colour}>
-				<VirtualScrollContent>
-					{props.children}
-				</VirtualScrollContent>
-			</ScrollVirtual>
+			<ThemedVirtualScrollContent {...props}>
+				{props.children}
+			</ThemedVirtualScrollContent>
 		</VirtualScroll>
+	);
+}
+
+function ThemedVirtualScrollContent(props: ThemedVirtualScrollProps) {
+
+	// Virtual scroll contexts
+	const containerProps = useVirtualScrollContainerPropsContext();
+
+	const [size] = useState<ScrollBasicSizeAll>(() => ({
+		height: "100%",
+		width: "100%"
+	}));
+
+	return (
+		<ScrollBasic
+			colour={props.colour}
+			direction={ScrollBasicDirection.Single}
+			onScroll={containerProps.onScroll}
+			orientation={props.orientation}
+			ref={containerProps.ref}
+			size={size}
+		>
+			<VirtualScrollContent>
+				{props.children}
+			</VirtualScrollContent>
+		</ScrollBasic>
 	);
 }

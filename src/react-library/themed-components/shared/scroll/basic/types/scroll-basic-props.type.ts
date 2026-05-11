@@ -3,7 +3,9 @@ import type { PropsWithChildren } from "react";
 import type {
 	IColour,
 	IDirection,
+	IOnScroll,
 	IOrientation,
+	IRefCallback,
 	ISize,
 	Orientation
 } from "@react-library/common";
@@ -17,7 +19,9 @@ import type { ScrollBasicSizeAll } from "./scroll-basic-size.type";
 type ScrollBasicPropsBase<TScrollBasicDirection extends ScrollBasicDirection> = (
 	IColour<ScrollColour> &
 	IDirection<TScrollBasicDirection> &
+	Partial<IOnScroll<Element>> &
 	PropsWithChildren &
+	Partial<IRefCallback<Element>> &
 	ISize<ScrollBasicSizeAll>
 );
 

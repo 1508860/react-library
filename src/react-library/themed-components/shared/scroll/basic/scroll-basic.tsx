@@ -40,11 +40,12 @@ export function ScrollBasic(props: ScrollBasicProps) {
 	const cssVariables = useResolveState<StyleCssVariableLoaderVariables>(resolveCssVariables);
 
 	// Ref to load CSS variables
-	const refCallback = useStyleCssVariableLoaderRefCallback<HTMLDivElement>(cssVariables);
+	const refCallback = useStyleCssVariableLoaderRefCallback<HTMLDivElement>(cssVariables, props.ref);
 
 	return (
 		<div
 			className={SCROLL_SHARED_CLASS_NAME}
+			onScroll={props.onScroll}
 			ref={refCallback}
 		>
 			{props.children}
