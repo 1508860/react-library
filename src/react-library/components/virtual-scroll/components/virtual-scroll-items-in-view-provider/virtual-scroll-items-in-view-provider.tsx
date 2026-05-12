@@ -20,14 +20,14 @@ import { useVirtualScrollItemsInViewState } from "../../hooks/virtual-scroll-ite
 import type { VirtualScrollContainerElement } from "../../types/virtual-scroll-container-element.type";
 import type { VirtualScrollContainerProps } from "../../types/virtual-scroll-container-props.type";
 
-import type { VirtualScrollProviderProps } from "./types/virtual-scroll-provider-props.type";
+import type { VirtualScrollItemsInViewProviderProps } from "./types/virtual-scroll-items-in-view-provider-props.type";
 
 /**
- * Virtual scroll provider component
- * Used to provide contexts available across all children of the virtual scroll
+ * Virtual scroll items in view provider component
+ * Used to provide calculated contexts for content to be rendered
  * @param props
  */
-export function VirtualScrollProvider(props: VirtualScrollProviderProps) {
+export function VirtualScrollItemsInViewProvider(props: VirtualScrollItemsInViewProviderProps) {
 
 	// Local contexts
 	const config = useVirtualScrollConfigContext();
