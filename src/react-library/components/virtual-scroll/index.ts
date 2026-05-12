@@ -1,7 +1,7 @@
 export * from "./components/virtual-scroll";
-export * from "./components/virtual-scroll-content";
 export * from "./components/virtual-scroll-item";
 export * from "./hooks/virtual-scroll-container-props-context.hook";
+export * from "./hooks/virtual-scroll-orientation-context.hook";
 export * from "./types/virtual-scroll-container-element.type";
 export * from "./types/virtual-scroll-container-props.type";
 export * from "./types/virtual-scroll-container.type";
@@ -11,3 +11,4 @@ export * from "./types/virtual-scroll-item-index.type";
 export * from "./types/virtual-scroll-item-size.type";
 export * from "./types/virtual-scroll-orientation.type";
 export * from "./types/virtual-scroll-props-config.type";
+export * from "./types/virtual-scroll-scrollbar.type";

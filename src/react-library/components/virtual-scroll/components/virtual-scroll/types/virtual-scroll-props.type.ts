@@ -1,12 +1,14 @@
-import type { IChild } from "@react-library/common";
+import type { PropsWithChildren } from "react";
 
-import type { VirtualScrollContainer } from "../../../types/virtual-scroll-container.type";
+import type { IScrollElement } from "@react-library/common";
+
 import type { VirtualScrollPropsConfig } from "../../../types/virtual-scroll-props-config.type";
-
+import type { VirtualScrollScrollbar } from "../../../types/virtual-scroll-scrollbar.type";
 /**
  * Props for virtual scroll component
  */
 export type VirtualScrollProps = (
-	IChild<VirtualScrollContainer> &
+	PropsWithChildren &
+	IScrollElement<VirtualScrollScrollbar> &
 	VirtualScrollPropsConfig
 );
