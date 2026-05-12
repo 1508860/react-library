@@ -4,7 +4,6 @@ export * from "./hooks/virtual-scroll-config-context.hook";
 export * from "./hooks/virtual-scroll-container-props-context.hook";
 export * from "./types/virtual-scroll-container-element.type";
 export * from "./types/virtual-scroll-container-props.type";
-export * from "./types/virtual-scroll-container.type";
 export * from "./types/virtual-scroll-item-child.type";
 export * from "./types/virtual-scroll-item-id.type";
 export * from "./types/virtual-scroll-item-index.type";
