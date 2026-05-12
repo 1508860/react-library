@@ -2,8 +2,8 @@ import { Fragment, useCallback } from "react";
 
 import { useResolveState, type Callback } from "@react-library/common";
 
+import { useVirtualScrollConfigContext } from "../../hooks/virtual-scroll-config-context.hook";
 import { useVirtualScrollElementsInViewContext } from "../../hooks/virtual-scroll-elements-in-view-context.hook";
-import { useVirtualScrollOrientationContext } from "../../hooks/virtual-scroll-orientation-context.hook";
 import { useVirtualScrollItemsContext } from "../../hooks/virtual-scroll-items-context.hook";
 import type { VirtualScrollItemChildResult } from "../../types/virtual-scroll-item-child.type";
 import type { VirtualScrollItemSize } from "../../types/virtual-scroll-item-size.type";
@@ -17,7 +17,7 @@ import type { VirtualScrollItemRenderProps } from "./types/virtual-scroll-item-r
  */
 export function VirtualScrollItemRender(props: VirtualScrollItemRenderProps) {
 
-	const orientation = useVirtualScrollOrientationContext();
+	const config = useVirtualScrollConfigContext();
 	const items = useVirtualScrollItemsContext();
 	const elementsInView = useVirtualScrollElementsInViewContext();
 
@@ -42,7 +42,7 @@ export function VirtualScrollItemRender(props: VirtualScrollItemRenderProps) {
 	return (
 		<div
 			key={`item-${props.id}`}
-			style={virtualScrollItemRenderStyle(orientation, size)}
+			style={virtualScrollItemRenderStyle(config.orientation, size)}
 		>
 			{element}
 		</div>

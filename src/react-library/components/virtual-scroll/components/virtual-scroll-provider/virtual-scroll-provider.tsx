@@ -2,6 +2,7 @@ import { useCallback, useState, type RefCallback } from "react";
 
 import {
 	type Callback,
+	type EqualityCallback,
 	type ScrollObserverState,
 	ResizeObserverDebounce,
 	resolveScrollObserverState,
@@ -13,16 +14,13 @@ import {
 
 import { VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT } from "../../constants/virtual-scroll-content-size-context.const";
 import { VIRTUAL_SCROLL_CONTAINER_PROPS_CONTEXT } from "../../constants/virtual-scroll-container-props-context.const";
-import { VIRTUAL_SCROLL_ITEM_REGISTER_CALLBACKS_CONTEXT } from "../../constants/virtual-scroll-item-register-callbacks-context.const";
-import { VIRTUAL_SCROLL_ITEM_SIZE_DEFAULT_CONTEXT } from "../../constants/virtual-scroll-item-size-default-context.const";
 import { VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT } from "../../constants/virtual-scroll-items-in-view-context.const";
-import { VIRTUAL_SCROLL_ORIENTATION_CONTEXT } from "../../constants/virtual-scroll-orientation-context.const";
-import { useVirtualScrollContentState } from "../../hooks/virtual-scroll-content-state.hook";
+import { useVirtualScrollConfigContext } from "../../hooks/virtual-scroll-config-context.hook";
+import { useVirtualScrollItemsInViewState } from "../../hooks/virtual-scroll-items-in-view-state.hook";
 import type { VirtualScrollContainerElement } from "../../types/virtual-scroll-container-element.type";
 import type { VirtualScrollContainerProps } from "../../types/virtual-scroll-container-props.type";
 
 import type { VirtualScrollProviderProps } from "./types/virtual-scroll-provider-props.type";
-import { VIRTUAL_SCROLL_ITEMS_CONTEXT } from "../../constants/virtual-scroll-items-context.const";
 
 /**
  * Virtual scroll provider component
@@ -30,6 +28,9 @@ import { VIRTUAL_SCROLL_ITEMS_CONTEXT } from "../../constants/virtual-scroll-ite
  * @param props
  */
 export function VirtualScrollProvider(props: VirtualScrollProviderProps) {
+
+	// Local contexts
+	const config = useVirtualScrollConfigContext();
 
 	// Container element
 	const [containerElement, setContainerElement] = useState<VirtualScrollContainerElement | null>(() => null);
@@ -49,36 +50,31 @@ export function VirtualScrollProvider(props: VirtualScrollProviderProps) {
 	const resolveContainerProps = useCallback<Callback<VirtualScrollContainerProps>>(
 		() => ({
 			onScroll: handleSetContainerScrollState,
-			orientation: props.orientation,
+			orientation: config.orientation,
 			ref: setContainerElementCallback
 		}),
-		[props.orientation, handleSetContainerScrollState, setContainerElementCallback]
+		[config.orientation, handleSetContainerScrollState, setContainerElementCallback]
 	);
-	const containerProps = useResolveState<VirtualScrollContainerProps>(resolveContainerProps);
+	const isContainerPropsEqual = useCallback<EqualityCallback<VirtualScrollContainerProps>>(
+		(value1, value2) => (
+			value1.onScroll === value2.onScroll &&
+			value1.orientation === value2.orientation &&
+			value1.ref === value2.ref
+		),
+		[]
+	);
+	const containerProps = useResolveState<VirtualScrollContainerProps>(resolveContainerProps, isContainerPropsEqual);
 
 	// Virtual scroll render state
-	const { itemRegister, items, itemsInView, size } = useVirtualScrollContentState(
-		props.itemBufferCount,
-		props.orientation,
-		containerSize,
-		containerScrollState
-	);
+	const { itemsInView, size } = useVirtualScrollItemsInViewState(containerSize, containerScrollState);
 
 	return (
-		<VIRTUAL_SCROLL_ITEM_SIZE_DEFAULT_CONTEXT value={props.itemSize}>
-			<VIRTUAL_SCROLL_ORIENTATION_CONTEXT value={props.orientation}>
-				<VIRTUAL_SCROLL_CONTAINER_PROPS_CONTEXT value={containerProps}>
-					<VIRTUAL_SCROLL_ITEM_REGISTER_CALLBACKS_CONTEXT value={itemRegister}>
-						<VIRTUAL_SCROLL_ITEMS_CONTEXT value={items}>
-							<VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT value={itemsInView}>
-								<VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT value={size}>
-									{props.children}
-								</VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT>
-							</VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT>
-						</VIRTUAL_SCROLL_ITEMS_CONTEXT>
-					</VIRTUAL_SCROLL_ITEM_REGISTER_CALLBACKS_CONTEXT>
-				</VIRTUAL_SCROLL_CONTAINER_PROPS_CONTEXT>
-			</VIRTUAL_SCROLL_ORIENTATION_CONTEXT>
-		</VIRTUAL_SCROLL_ITEM_SIZE_DEFAULT_CONTEXT>
+		<VIRTUAL_SCROLL_CONTAINER_PROPS_CONTEXT value={containerProps}>
+			<VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT value={itemsInView}>
+				<VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT value={size}>
+					{props.children}
+				</VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT>
+			</VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT>
+		</VIRTUAL_SCROLL_CONTAINER_PROPS_CONTEXT>
 	);
 }

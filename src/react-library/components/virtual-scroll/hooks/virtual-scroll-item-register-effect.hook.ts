@@ -9,7 +9,7 @@ import type { VirtualScrollItemRegisterParam } from "../types/virtual-scroll-ite
 import type { VirtualScrollItemSize } from "../types/virtual-scroll-item-size.type";
 
 import { useVirtualScrollItemRegisterCallbacksContext } from "./virtual-scroll-item-register-callbacks-context.hook";
-import { useVirtualScrollItemSizeDefaultContext } from "./virtual-scroll-item-size-default-context.hook";
+import { useVirtualScrollConfigContext } from "./virtual-scroll-config-context.hook";
 
 /**
  * Uses {@link useVirtualScrollItemRegisterContext} to register this item with the virtual scroll
@@ -23,29 +23,29 @@ export function useVirtualScrollItemRegisterEffect(
 	index: VirtualScrollItemIndex
 ): void {
 
-	const virtualScrollItemSizeDefault = useVirtualScrollItemSizeDefaultContext();
-	const virtualScrollItemRegisterCallbacks = useVirtualScrollItemRegisterCallbacksContext();
+	const config = useVirtualScrollConfigContext();
+	const itemRegisterCallbacks = useVirtualScrollItemRegisterCallbacksContext();
 
 	// Item regoster parameter
 	const resolveItemRegisterParam = useCallback<Callback<VirtualScrollItemRegisterParam>>(
 		() => ({
 			id: id,
-			size: (size ?? virtualScrollItemSizeDefault),
+			size: (size ?? config.itemSize),
 			index: index
 		}),
-		[id, size, index, virtualScrollItemSizeDefault]
+		[id, size, index, config.itemSize]
 	);
 	const itemRegisterParam = useResolveState(resolveItemRegisterParam, isVirtualScrollItemRegisterParamEqual)
 
 	// Register item
 	useEffect(
 		() => {
-			virtualScrollItemRegisterCallbacks.itemRegister(itemRegisterParam);
+			itemRegisterCallbacks.itemRegister(itemRegisterParam);
 
 			return () => {
-				virtualScrollItemRegisterCallbacks.itemUnregister(itemRegisterParam);
+				itemRegisterCallbacks.itemUnregister(itemRegisterParam);
 			}
 		},
-		[virtualScrollItemRegisterCallbacks, itemRegisterParam]
+		[itemRegisterCallbacks, itemRegisterParam]
 	);
 };
