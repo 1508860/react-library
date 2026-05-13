@@ -1,8 +1,9 @@
 import { useCallback } from "react";
 
-import { useResolveState, type Callback, type EqualityCallback } from "@react-library/common";
+import { useResolveState, type Callback } from "@react-library/common";
 
 import { VIRTUAL_SCROLL_CONFIG_CONTEXT } from "../../constants/virtual-scroll-config-context.const";
+import { isVirtualScrollPropsConfigEqual } from "../../functions/is-virtual-scroll-props-config-equal.function";
 import type { VirtualScrollPropsConfig } from "../../types/virtual-scroll-props-config.type";
 
 import type { VirtualScrollConfigProviderProps } from "./types/virtual-scroll-config-provider-props.type";
@@ -22,15 +23,7 @@ export function VirtualScrollConfigProvider(props: VirtualScrollConfigProviderPr
 		}),
 		[props.itemBufferCount, props.itemSize, props.orientation]
 	);
-	const isConfigEqual = useCallback<EqualityCallback<VirtualScrollPropsConfig>>(
-		(value1, value2) => (
-			value1.itemBufferCount === value2.itemBufferCount &&
-			value1.itemSize === value2.itemSize &&
-			value1.orientation === value2.orientation
-		),
-		[]
-	);
-	const config = useResolveState(resolveConfig, isConfigEqual);
+	const config = useResolveState(resolveConfig, isVirtualScrollPropsConfigEqual);
 
 	return (
 		<VIRTUAL_SCROLL_CONFIG_CONTEXT value={config}>

@@ -8,6 +8,7 @@ export * from "./types/virtual-scroll-item-child.type";
 export * from "./types/virtual-scroll-item-id.type";
 export * from "./types/virtual-scroll-item-index.type";
 export * from "./types/virtual-scroll-item-size.type";
+export * from "./types/virtual-scroll-items.type";
 export * from "./types/virtual-scroll-orientation.type";
 export * from "./types/virtual-scroll-props-config.type";
 export * from "./types/virtual-scroll-scrollbar.type";

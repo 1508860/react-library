@@ -1,5 +1,6 @@
 import { VirtualScrollContent } from "../virtual-scroll-content";
 import { VirtualScrollElementsProvider } from "../virtual-scroll-elements-provider";
+import { VirtualScrollItemCountProvider } from "../virtual-scroll-item-count-provider";
 import { VirtualScrollItemResolver } from "../virtual-scroll-item-resolver";
 import { VirtualScrollConfigProvider } from "../virtual-scroll-items-config-provider";
 import { VirtualScrollItemsInViewProvider } from "../virtual-scroll-items-in-view-provider";
@@ -14,19 +15,21 @@ import type { VirtualScrollProps } from "./types/virtual-scroll-props.type";
  */
 export function VirtualScroll(props: VirtualScrollProps) {
 	return (
-		<VirtualScrollConfigProvider {...props}>
-			<VirtualScrollItemsProvider>
-				<VirtualScrollItemsInViewProvider>
-					<VirtualScrollElementsProvider>
-						<props.scrollElement key="scroll">
-							<VirtualScrollContent>
-								<VirtualScrollItemResolver />
-								{props.children}
-							</VirtualScrollContent>
-						</props.scrollElement>
-					</VirtualScrollElementsProvider>
-				</VirtualScrollItemsInViewProvider>
-			</VirtualScrollItemsProvider>
-		</VirtualScrollConfigProvider>
+		<VirtualScrollItemCountProvider items={props.children}>
+			<VirtualScrollConfigProvider {...props}>
+				<VirtualScrollItemsProvider>
+					<VirtualScrollItemsInViewProvider>
+						<VirtualScrollElementsProvider>
+							<props.scrollElement key="scroll">
+								<VirtualScrollContent>
+									<VirtualScrollItemResolver />
+									{props.children}
+								</VirtualScrollContent>
+							</props.scrollElement>
+						</VirtualScrollElementsProvider>
+					</VirtualScrollItemsInViewProvider>
+				</VirtualScrollItemsProvider>
+			</VirtualScrollConfigProvider>
+		</VirtualScrollItemCountProvider>
 	);
 }
