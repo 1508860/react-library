@@ -3,5 +3,6 @@ export * from "./text-field-number-demo";
 export * from "./text-field-password-demo";
 export * from "./text-field-readonly-demo";
 export * from "./text-field-readonly-textarea-demo";
+export * from "./text-field-select-demo";
 export * from "./text-field-text-demo";
 export * from "./text-field-textarea-demo";
