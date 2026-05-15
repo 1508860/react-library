@@ -10,6 +10,7 @@ import type { Size } from "@react-library/common";
 export function iconContainerStyle(size: Size): CSSProperties {
 	return {
 		display: "block",
+		flexShrink: 0,
 		height: size,
 		position: "relative",
 		width: size
