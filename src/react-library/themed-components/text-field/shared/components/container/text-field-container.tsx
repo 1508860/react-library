@@ -1,4 +1,4 @@
-import { TEXT_FIELD_CONTAINER_STYLE } from "./styles/text-field-container-style.function";
+import { TEXT_FIELD_CONTAINER_STYLE } from "./styles/text-field-container-style.const";
 import type { TextFieldContainerProps } from "./types/text-field-container-props.type";
 
 /**
