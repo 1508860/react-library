@@ -29,7 +29,7 @@ export function TextFieldSelectTooltipMenu<TId extends TextFieldSelectItemId>(pr
 	);
 
 	// Resolve tooltip content
-	useTextFieldSelectMenuEffect(props.items, props.menuHeight, props.menuWidth, props.isDisabled);
+	useTextFieldSelectMenuEffect(props.interaction, props.items, props.menuHeight, props.menuWidth, props.isDisabled);
 
 	return (
 		<TEXT_FIELD_SELECT_ON_CLICK_CONTEXT value={handleTooltipShow}>

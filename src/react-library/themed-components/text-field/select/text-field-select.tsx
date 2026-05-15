@@ -28,8 +28,8 @@ export function TextFieldSelect<TId extends TextFieldSelectItemId>(props: TextFi
 			style={props.style}
 			useIsPopulatedState={useTextFieldSelectIsPopulatedState}
 		>
-			<TextFieldSelectTooltip>
-				<TextFieldSelectValueProvider {...props}>
+			<TextFieldSelectValueProvider {...props}>
+				<TextFieldSelectTooltip {...props}>
 					<TextFieldSelectTooltipMenu {...props}>
 						<TextFieldSelectContainer>
 							<TextFieldInnerContainer
@@ -77,8 +77,8 @@ export function TextFieldSelect<TId extends TextFieldSelectItemId>(props: TextFi
 							/>
 						</TextFieldSelectContainer>
 					</TextFieldSelectTooltipMenu>
-				</TextFieldSelectValueProvider>
-			</TextFieldSelectTooltip>
+				</TextFieldSelectTooltip>
+			</TextFieldSelectValueProvider>
 		</TextFieldProvider>
 	);
 }

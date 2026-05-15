@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { useTooltipShowCallbackContext } from "@react-library/components";
-
 import { MenuSelectedItemsProvider } from "../../../../menu";
 
 import { TEXT_FIELD_SELECT_MENU_ON_CHANGE_CONTEXT } from "../../constants/text-field-select-menu-on-change.const";
@@ -17,9 +15,6 @@ import type { TextFieldSelectValueProviderProps } from "./types/text-field-selec
  * Text field select value provider component
  */
 export function TextFieldSelectValueProvider<TId extends TextFieldSelectItemId>(props: TextFieldSelectValueProviderProps<TId>) {
-
-	// Tooltip contexts
-	const tooltipShowCallback = useTooltipShowCallbackContext();
 
 	// Selected ids to provide
 	const [selectedItemIds, setSelectedItemIds] = useState<Array<TId>>(() => []);
@@ -38,9 +33,8 @@ export function TextFieldSelectValueProvider<TId extends TextFieldSelectItemId>(
 			}
 			const newState = selectedItemIdsRef.current.length > 0 && selectedItemIdsRef.current[0] === id ? undefined : validId;
 			props.onValueChange(newState);
-			tooltipShowCallback(false);
 		},
-		[props, tooltipShowCallback]
+		[props]
 	);
 
 	// Clear selected ids
@@ -59,8 +53,9 @@ export function TextFieldSelectValueProvider<TId extends TextFieldSelectItemId>(
 	useEffect(
 		() => {
 			if (props.interaction === TextFieldSelectInteraction.Multi) {
-				selectedItemIdsRef.current = props.value;
-				setSelectedItemIds(props.value);
+				const newSelectedItemIds: Array<TId> = [...props.value];
+				selectedItemIdsRef.current = newSelectedItemIds;
+				setSelectedItemIds(newSelectedItemIds);
 				return;
 			}
 			const newSelectedItemIds: Array<TId> = props.value !== undefined ? [props.value] : [];

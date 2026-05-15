@@ -10,7 +10,10 @@ import type { TextFieldSelectInteraction } from "../enums/text-field-select-inte
 
 import type { TextFieldSelectItemId } from "./text-field-select-item-id.type";
 
-type TextFieldSelectPropsInteractionBase<TInteraction extends TextFieldSelectInteraction> = (
+/**
+ * Describes props relating to a text field select component interaction type
+ */
+export type TextFieldSelectPropsInteraction<TInteraction extends TextFieldSelectInteraction> = (
 	IInteraction<TInteraction>
 );
 
@@ -20,7 +23,7 @@ type TextFieldSelectPropsInteractionBase<TInteraction extends TextFieldSelectInt
 export type TextFieldSelectPropsInteractionMulti<TId extends TextFieldSelectItemId> = (
 	Partial<IDefaultValue<Array<TId>>> &
 	IOnValueChange<CallbackWithParameter<Array<TId>, void>> &
-	TextFieldSelectPropsInteractionBase<typeof TextFieldSelectInteraction.Multi> &
+	TextFieldSelectPropsInteraction<typeof TextFieldSelectInteraction.Multi> &
 	IValue<Array<TId>>
 );
 
@@ -30,7 +33,7 @@ export type TextFieldSelectPropsInteractionMulti<TId extends TextFieldSelectItem
 export type TextFieldSelectPropsInteractionSingle<TId extends TextFieldSelectItemId> = (
 	Partial<IDefaultValue<TId>> &
 	IOnValueChange<CallbackWithParameter<TId | undefined, void>> &
-	TextFieldSelectPropsInteractionBase<typeof TextFieldSelectInteraction.Single> &
+	TextFieldSelectPropsInteraction<typeof TextFieldSelectInteraction.Single> &
 	IValue<TId | undefined>
 );
 
