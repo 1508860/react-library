@@ -6,6 +6,7 @@ import { TextFieldSupportingTextLeftId } from "../../../../shared/enums/text-fie
 import { isTextFieldSupportingTextConfigsEqual } from "../../../../shared/functions/is-text-field-supporting-text-config-equal.function";
 import type { TextFieldSupportingTextConfigsLeft } from "../../../../shared/types/text-field-props-supporting-text-config.type";
 
+import { TextFieldSelectInteraction } from "../../../enums/text-field-select-interaction.type";
 import type { TextFieldSelectItemId } from "../../../types/text-field-select-item-id.type";
 import type { TextFieldSelectProps } from "../../../types/text-field-select-props.type";
 
@@ -25,12 +26,15 @@ export function useTextFieldSelectSupportingTextLeftState<TId extends TextFieldS
 
 			if (props.supportingText !== undefined)
 				result.push({ id: TextFieldSupportingTextLeftId.SupportingText, isErrored: false, text: props.supportingText });
-			if (props.isRequired && props.value === undefined)
+			if (
+				props.isRequired &&
+				(props.interaction === TextFieldSelectInteraction.Multi ? props.value.length === 0 : props.value === undefined)
+			)
 				result.push({ id: TextFieldSupportingTextLeftId.IsRequired, isErrored: true, text: "Is Required" });
 
 			return result;
 		},
-		[props.isDisabled, props.isRequired, props.supportingText, props.value]
+		[props.interaction, props.isDisabled, props.isRequired, props.supportingText, props.value]
 	);
 
 	const isStateEqual = useCallback(isTextFieldSupportingTextConfigsEqual, []);
