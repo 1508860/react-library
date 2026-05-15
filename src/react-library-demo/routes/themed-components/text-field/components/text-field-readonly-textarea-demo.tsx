@@ -21,12 +21,12 @@ export function ReactLibraryThemedComponentsTextFieldReadonlyTextareaDemo() {
 					label={textFieldStyle}
 				>
 					<TextFieldReadonlyTextarea
-						id={`textarea-${textFieldStyle}`}
+						id={`readonly-textarea-${textFieldStyle}`}
 						inputheight={inputHeight}
 						inputMaxheight={inputMaxHeight}
 						inputMinheight={inputMinHeight}
 						label="Label"
-						name={`textarea-${textFieldStyle}`}
+						name={`readonly-textarea-${textFieldStyle}`}
 						style={textFieldStyle}
 						value={value}
 						width={500}
