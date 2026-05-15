@@ -4,6 +4,7 @@ import { useResolveState, type Callback } from "@react-library/common";
 
 import { TEXT_FIELD_COLOUR_STATE_CONTEXT } from "../../constants/text-field-colour-state-context.const";
 import { TEXT_FIELD_EVENTS_CONTEXT } from "../../constants/text-field-events-context.const";
+import { TEXT_FIELD_IS_HOVERED_STATE_CONTEXT } from "../../constants/text-field-is-hovered-state-context.const";
 import { TEXT_FIELD_IS_POPULATED_STATE_CONTEXT } from "../../constants/text-field-is-populated-state-context.const";
 import { TEXT_FIELD_SHOW_CONTENT_CONTEXT } from "../../constants/text-field-show-content-context.const";
 import { TEXT_FIELD_STYLE_STATE_CONTEXT } from "../../constants/text-field-style-state-context.const";
@@ -59,15 +60,17 @@ export function TextFieldProvider<TProps>(props: TextFieldProviderProps<TProps>)
 
 	return (
 		<TEXT_FIELD_EVENTS_CONTEXT value={textFieldEvents}>
-			<TEXT_FIELD_IS_POPULATED_STATE_CONTEXT value={isPopulated}>
-				<TEXT_FIELD_SHOW_CONTENT_CONTEXT value={showContent}>
-					<TEXT_FIELD_STYLE_STATE_CONTEXT value={styleState}>
-						<TEXT_FIELD_COLOUR_STATE_CONTEXT value={colourState}>
-							{props.children}
-						</TEXT_FIELD_COLOUR_STATE_CONTEXT>
-					</TEXT_FIELD_STYLE_STATE_CONTEXT>
-				</TEXT_FIELD_SHOW_CONTENT_CONTEXT>
-			</TEXT_FIELD_IS_POPULATED_STATE_CONTEXT>
+			<TEXT_FIELD_IS_HOVERED_STATE_CONTEXT value={isHovered}>
+				<TEXT_FIELD_IS_POPULATED_STATE_CONTEXT value={isPopulated}>
+					<TEXT_FIELD_SHOW_CONTENT_CONTEXT value={showContent}>
+						<TEXT_FIELD_STYLE_STATE_CONTEXT value={styleState}>
+							<TEXT_FIELD_COLOUR_STATE_CONTEXT value={colourState}>
+								{props.children}
+							</TEXT_FIELD_COLOUR_STATE_CONTEXT>
+						</TEXT_FIELD_STYLE_STATE_CONTEXT>
+					</TEXT_FIELD_SHOW_CONTENT_CONTEXT>
+				</TEXT_FIELD_IS_POPULATED_STATE_CONTEXT>
+			</TEXT_FIELD_IS_HOVERED_STATE_CONTEXT>
 		</TEXT_FIELD_EVENTS_CONTEXT>
 	);
 }
