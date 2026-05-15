@@ -24,7 +24,7 @@ export function useTextFieldNumberSupportingTextLeftState(props: TextFieldNumber
 			if (props.isRequired && props.value === undefined)
 				result.push({ id: TextFieldSupportingTextLeftId.IsRequired, isErrored: true, text: "Is Required" });
 			
-			return [];
+			return result;
 		},
 		[props.isDisabled, props.isRequired, props.supportingText, props.value]
 	);

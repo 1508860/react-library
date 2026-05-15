@@ -20,8 +20,8 @@ export function TextFieldSupportingText(props: TextFieldSupportingTextProps) {
 	// Handle error state
 	useEffect(
 		() => {
-			const hasLeftError: boolean = props.left.some(x => x.isErrored === true);
-			const hasRightError: boolean = props.right.some(x => x.isErrored === true);
+			const hasLeftError: boolean = props.left.some(x => x.isErrored);
+			const hasRightError: boolean = props.right.some(x => x.isErrored);
 			textFieldEvents.onIsErrored(hasLeftError || hasRightError);
 		},
 		[props.left, props.right, textFieldEvents]
