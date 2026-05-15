@@ -5,6 +5,6 @@ import type { MenuId } from "./menu-id.type";
 /**
  * Describes props for a menu id
  */
-export type MenuPropsId = (
-	IId<MenuId>
+export type MenuPropsId<TId extends MenuId> = (
+	IId<TId>
 );

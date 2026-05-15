@@ -13,6 +13,9 @@ export type MenuPropsSelectItems = (
 /**
  * Describes menu select items collection
  */
-export type MenuSelectItems = (
-	Array<MenuPropsItemContentStandard>
-);
+export type MenuSelectItems = Array<MenuSelectItem>;
+
+/**
+ * Describes menu select item
+ */
+export type MenuSelectItem = MenuPropsItemContentStandard;

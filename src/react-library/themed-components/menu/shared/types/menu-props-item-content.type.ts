@@ -2,6 +2,7 @@ import type { ArrayMinLength1, IGroups, IItems, ISections } from "@react-library
 
 import type { MenuItemContent } from "../enums/menu-item-content.type";
 
+import type { MenuId } from "./menu-id.type";
 import type { MenuPropsContainerWidth } from "./menu-props-container-width.type";
 import type { MenuPropsContent } from "./menu-props-content.type";
 import type { MenuPropsId } from "./menu-props-id.type";
@@ -14,7 +15,7 @@ import type { MenuPropsTitle } from "./menu-props-title.type";
 import type { MenuPropsTrailingIconName } from "./menu-props-trailing-icon-name.type";
 
 type MenuPropsItemContentBase = (
-	MenuPropsId
+	MenuPropsId<MenuId>
 );
 
 /**
@@ -83,7 +84,7 @@ export type MenuPropsItemContentSection = (
 		] |
 		ArrayMinLength1<MenuPropsItemContentAllAction>
 	)> &
-	MenuPropsId
+	MenuPropsId<MenuId>
 );
 
 /**
@@ -91,7 +92,7 @@ export type MenuPropsItemContentSection = (
  * - Each section is separated by a divider
  */
 export type MenuPropsItemContentGroup = (
-	MenuPropsId &
+	MenuPropsId<MenuId> &
 	ISections<ArrayMinLength1<MenuPropsItemContentSection>>
 );
 
