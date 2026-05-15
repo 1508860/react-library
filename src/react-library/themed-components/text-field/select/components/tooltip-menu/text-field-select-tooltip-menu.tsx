@@ -1,0 +1,41 @@
+import { useCallback } from "react";
+
+import { useTooltipChildPropsContext, useTooltipShowCallbackContext } from "@react-library/components";
+
+import { TEXT_FIELD_SELECT_ON_CLICK_CONTEXT } from "../../constants/text-field-select-on-click-context.const";
+import { TEXT_FIELD_SELECT_REF_CONTEXT } from "../../constants/text-field-select-ref-context.const";
+import { useTextFieldSelectMenuEffect } from "../../hooks/text-field-select-menu-effect.hook";
+import type { TextFieldSelectItemId } from "../../types/text-field-select-item-id.type";
+import type { TextFieldSelectOnClick } from "../../types/text-field-select-on-click.type";
+
+import type { TextFieldSelectTooltipMenuProps } from "./types/text-field-select-tooltip-menu-props.type";
+
+/**
+ * Text field select tooltip menu component
+ */
+export function TextFieldSelectTooltipMenu<TId extends TextFieldSelectItemId>(props: TextFieldSelectTooltipMenuProps<TId>) {
+
+	// Tooltip contexts
+	const tooltipChildProps = useTooltipChildPropsContext();
+	const tooltipShowCallback = useTooltipShowCallbackContext();
+
+	// Handle tooltp show
+	const handleTooltipShow = useCallback<TextFieldSelectOnClick>(
+		() => {
+			if (props.isDisabled) return;
+			tooltipShowCallback(true);
+		},
+		[props.isDisabled, tooltipShowCallback]
+	);
+
+	// Resolve tooltip content
+	useTextFieldSelectMenuEffect(props.items, props.menuHeight, props.menuWidth, props.isDisabled);
+
+	return (
+		<TEXT_FIELD_SELECT_ON_CLICK_CONTEXT value={handleTooltipShow}>
+			<TEXT_FIELD_SELECT_REF_CONTEXT value={tooltipChildProps.ref}>
+				{props.children}
+			</TEXT_FIELD_SELECT_REF_CONTEXT>
+		</TEXT_FIELD_SELECT_ON_CLICK_CONTEXT>
+	);
+}

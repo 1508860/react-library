@@ -34,7 +34,7 @@ export function ReactLibraryDemo() {
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaultSubItemId={ReactLibraryThemedComponentsDemo.Menu}
+										defaultSubItemId={ReactLibraryThemedComponentsDemo.TextField}
 									>
 										{{
 											id: 1,

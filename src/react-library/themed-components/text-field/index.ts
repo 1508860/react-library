@@ -3,6 +3,7 @@ export * from "./number";
 export * from "./password";
 export * from "./readonly";
 export * from "./readonly-textarea";
+export * from "./select";
 export * from "./shared/enums/text-field-extra-text-position.type";
 export * from "./shared/enums/text-field-style.type";
 export * from "./shared/types/text-field-leading-icon.type";

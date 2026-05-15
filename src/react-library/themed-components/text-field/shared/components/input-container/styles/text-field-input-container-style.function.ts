@@ -15,9 +15,9 @@ export function textFieldInputContainerStyle(style: TextFieldStyle): CSSProperti
 		alignItems: "start",
 		backgroundColor: styleMap.text.backgroundColour,
 		display: "flex",
-		flexDirection: "column",
+		flexDirection: "row",
 		flexGrow: 1,
-		flexShrink: 0,
-		justifyContent: "start"
+		justifyContent: "start",
+		minWidth: 0
 	};
 }
