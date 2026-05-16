@@ -2,7 +2,6 @@ import { useCallback, useState, type RefCallback } from "react";
 
 import {
 	type Callback,
-	type EqualityCallback,
 	type ScrollObserverState,
 	ResizeObserverDebounce,
 	resolveScrollObserverState,
@@ -15,19 +14,21 @@ import {
 import { VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT } from "../../constants/virtual-scroll-content-size-context.const";
 import { VIRTUAL_SCROLL_CONTAINER_PROPS_CONTEXT } from "../../constants/virtual-scroll-container-props-context.const";
 import { VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT } from "../../constants/virtual-scroll-items-in-view-context.const";
+import { isVirtualScrollContainerPropsEqual } from "../../functions/is-virtual-scroll-container-props-equal.function";
 import { useVirtualScrollConfigContext } from "../../hooks/virtual-scroll-config-context.hook";
-import { useVirtualScrollItemsInViewState } from "../../hooks/virtual-scroll-items-in-view-state.hook";
+import { useVirtualScrollRenderState } from "../../hooks/virtual-scroll-render-state.hook";
 import type { VirtualScrollContainerElement } from "../../types/virtual-scroll-container-element.type";
 import type { VirtualScrollContainerProps } from "../../types/virtual-scroll-container-props.type";
 
 import type { VirtualScrollItemsInViewProviderProps } from "./types/virtual-scroll-items-in-view-provider-props.type";
+import type { VirtualScrollItems } from "../../types/virtual-scroll-item.type";
 
 /**
  * Virtual scroll items in view provider component
  * Used to provide calculated contexts for content to be rendered
  * @param props
  */
-export function VirtualScrollItemsInViewProvider(props: VirtualScrollItemsInViewProviderProps) {
+export function VirtualScrollItemsInViewProvider<TChildProps>(props: VirtualScrollItemsInViewProviderProps<TChildProps>) {
 
 	// Local contexts
 	const config = useVirtualScrollConfigContext();
@@ -55,22 +56,15 @@ export function VirtualScrollItemsInViewProvider(props: VirtualScrollItemsInView
 		}),
 		[config.orientation, handleSetContainerScrollState, setContainerElementCallback]
 	);
-	const isContainerPropsEqual = useCallback<EqualityCallback<VirtualScrollContainerProps>>(
-		(value1, value2) => (
-			value1.onScroll === value2.onScroll &&
-			value1.orientation === value2.orientation &&
-			value1.ref === value2.ref
-		),
-		[]
-	);
-	const containerProps = useResolveState<VirtualScrollContainerProps>(resolveContainerProps, isContainerPropsEqual);
+	const containerProps = useResolveState<VirtualScrollContainerProps>(resolveContainerProps, isVirtualScrollContainerPropsEqual);
 
 	// Virtual scroll render state
-	const { itemsInView, size } = useVirtualScrollItemsInViewState(containerSize, containerScrollState);
+	const { itemsInView, size } = useVirtualScrollRenderState<TChildProps>(props.items, containerSize, containerScrollState);
 
 	return (
 		<VIRTUAL_SCROLL_CONTAINER_PROPS_CONTEXT value={containerProps}>
-			<VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT value={itemsInView}>
+			{/* // TODO sort out casting */}
+			<VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT value={itemsInView as VirtualScrollItems<unknown>}>
 				<VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT value={size}>
 					{props.children}
 				</VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT>

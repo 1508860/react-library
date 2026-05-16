@@ -8,18 +8,17 @@ import type { ThemedVirtualScrollProps } from "./types/virtual-scroll-props.type
 /**
  * Themed virtual scroll component
  */
-export function ThemedVirtualScroll(props: ThemedVirtualScrollProps) {
+export function ThemedVirtualScroll<TChildProps>(props: ThemedVirtualScrollProps<TChildProps>) {
 
 	return (
 		<THEMED_VIRTUAL_SCROLL_COLOUR_CONTEXT value={props.colour}>
 			<VirtualScroll
 				itemBufferCount={props.itemBufferCount}
+				items={props.items}
 				itemSize={props.itemSize}
 				orientation={props.orientation}
 				scrollElement={ThemedVirtualScrollScrollbar}
-			>
-				{props.children}
-			</VirtualScroll>
+			/>
 		</THEMED_VIRTUAL_SCROLL_COLOUR_CONTEXT>
 	);
 }

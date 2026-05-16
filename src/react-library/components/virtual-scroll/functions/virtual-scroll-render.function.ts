@@ -8,40 +8,34 @@ import {
 
 import type { VirtualScrollContentSize } from "../types/virtual-scroll-content-size.type";
 import type { VirtualScrollItemId } from "../types/virtual-scroll-item-id.type";
-import type { VirtualScrollItemMap, VirtualScrollItemMapValue } from "../types/virtual-scroll-item-map.type";
+import type { VirtualScrollItemSize } from "../types/virtual-scroll-item-size.type";
+import type { VirtualScrollItem } from "../types/virtual-scroll-item.type";
 import type { VirtualScrollOrientation } from "../types/virtual-scroll-orientation.type";
 import type { VirtualScrollRenderState } from "../types/virtual-scroll-render-state.type";
-
-import { virtualScrollSort } from "./virtual-scroll-sort.function";
 
 /**
  * Function for resolving items to render in a visible viewport as well as the size of the content to render
  * This is to improve app performance, especially in the case of a large number of items
  * @param itemBufferCount
+ * @param items
+ * @param itemSize
  * @param orientation
  * @param containerSize
  * @param containerScrollState
- * @param itemMap
  */
-export function virtualScrollRender(
+export function virtualScrollRender<TChildProps>(
 	itemBufferCount: number,
+	items: Array<VirtualScrollItem<TChildProps>>,
+	itemSize: VirtualScrollItemSize,
 	orientation: VirtualScrollOrientation,
 	containerSize: DimensionsPx,
-	containerScrollState: ScrollObserverState,
-	itemMap: VirtualScrollItemMap
-): VirtualScrollRenderState {
+	containerScrollState: ScrollObserverState
+): VirtualScrollRenderState<TChildProps> {
 
 	// Validate parameters
 	const validItemBufferCount: number = (itemBufferCount < 0 ? 0 : itemBufferCount);
 	const scrollStart: SizePx = (orientation === Orientation.Horizontal ? containerScrollState.scrollStartHorizontal : containerScrollState.scrollStartVertical);
 	const scrollToEndOfViewport: SizePx = (scrollStart + (orientation === Orientation.Horizontal ? containerSize.width : containerSize.height));
-	const orderedItems: Array<VirtualScrollItemId> = virtualScrollSort(itemMap);
-
-	const getValidatedItem = (id: VirtualScrollItemId): VirtualScrollItemMapValue => {
-		const item: VirtualScrollItemMapValue | undefined = itemMap.get(id);
-		if (!item) throw new VirtualScrollError();
-		return item;
-	};
 
 	// Result
 	let paddingStart: SizePx = 0;
@@ -61,10 +55,11 @@ export function virtualScrollRender(
 		itemsInViewSet.add(id);
 	};
 
-	for (let currentItemIndex = 0; currentItemIndex < orderedItems.length; currentItemIndex++) {
+	for (let currentItemIndex = 0; currentItemIndex < items.length; currentItemIndex++) {
 
-		const currentItemId: VirtualScrollItemId = orderedItems[currentItemIndex];
-		const currentItemSize: SizePx = getValidatedItem(currentItemId).size;
+		const currentItem = items[currentItemIndex];
+		const currentItemId: VirtualScrollItemId = currentItem.id;
+		const currentItemSize: SizePx = currentItem.size ?? itemSize;
 
 		// We're either adding to padding start, start buffer items, items in view port, end buffer items, padding end
 		if (itemtSizeSoFar >= scrollToEndOfViewport) {
@@ -94,8 +89,9 @@ export function virtualScrollRender(
 
 	for (; currentItemInStartBufferIndex < firstItemInViewportIndex; currentItemInStartBufferIndex++) {
 		// Add item to start buffer array and remove start padding
-		const currentItemId: VirtualScrollItemId = orderedItems[currentItemInStartBufferIndex];
-		const currentItemSize: SizePx = getValidatedItem(currentItemId).size;
+		const currentItem = items[currentItemInStartBufferIndex];
+		const currentItemId: VirtualScrollItemId = currentItem.id;
+		const currentItemSize: SizePx = currentItem.size ?? itemSize;
 		addToItemsInView(currentItemId);
 		paddingStart -= currentItemSize;
 		childrenSize += currentItemSize;
@@ -110,7 +106,7 @@ export function virtualScrollRender(
 		paddingStart: paddingStart
 	};
 
-	const itemsInView = orderedItems.filter(x => itemsInViewSet.has(x));
+	const itemsInView = items.filter(x => itemsInViewSet.has(x.id));
 
 	return {
 		itemsInView: itemsInView,

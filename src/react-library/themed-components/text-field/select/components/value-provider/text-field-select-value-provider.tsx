@@ -24,7 +24,7 @@ export function TextFieldSelectValueProvider<TId extends TextFieldSelectItemId>(
 	const handleSetSelectedItemId = useCallback<TextFieldSelectMenuOnChange<TextFieldSelectItemId>>(
 		(id: TextFieldSelectItemId) => {
 
-			const validId: TId = id as TId;
+			const validId: TId = id as TId; // TODO sort out casting
 
 			if (props.interaction === TextFieldSelectInteraction.Multi) {
 				if (selectedItemIdsRef.current.includes(validId)) props.onValueChange(selectedItemIdsRef.current.filter(x => x !== id));

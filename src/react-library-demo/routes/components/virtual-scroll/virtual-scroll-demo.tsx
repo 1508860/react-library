@@ -1,12 +1,17 @@
 import { useCallback, useState } from "react";
 
-import { HexRgb, Orientation, type Colour } from "@react-library/common";
+import {
+	HexRgb,
+	Orientation,
+	useResolveState,
+	type Callback,
+	type Colour
+} from "@react-library/common";
 import {
 	useVirtualScrollContainerPropsContext,
 	VirtualScroll,
-	VirtualScrollItem,
-	type VirtualScrollItemChildProps,
 	type VirtualScrollItemId,
+	type VirtualScrollItems,
 	type VirtualScrollScrollbarProps,
 	type VirtualScrollScrollbarResult
 } from "@react-library/components";
@@ -37,22 +42,15 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 		[]
 	);
 
-	return (
-		<VirtualScroll
-			itemBufferCount={itemBufferCount}
-			itemSize={defaultItemSize}
-			orientation={Orientation.Vertical}
-			scrollElement={ReactLibraryComponentsVirtualScrollDemoScrollbar}
-		>
-			{items.map((item, itemIndex) => ([
-				<VirtualScrollItem<VirtualScrollItemChildProps>
-					childProps={{}}
-					id={item.id}
-					index={[itemIndex]}
-					key={item.id}
-					size={item.virtualScrollRowSize}
-				>
-					{() => <DemoContent
+	// Resolve items
+	const resolveVirtualScrollItems = useCallback<Callback<VirtualScrollItems<{hello: string}>>>(
+		() => {
+			const result: VirtualScrollItems<{hello: string}> = [];
+
+			items.forEach(item => {
+				result.push({
+					childProps: {hello: ""},
+					children: () => <DemoContent
 						align={DemoContentAlign.Center}
 						childrenType={DemoContentChildren.Text}
 						colourScheme={item.virtualScrollRowSize === undefined ? DemoContentColourScheme.Primary : DemoContentColourScheme.Secondary}
@@ -64,37 +62,50 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 						overflow={DemoContentOverflow.Auto}
 						text={item.text}
 						width="100%"
-					/>}
-				</VirtualScrollItem>,
-				...(
-					showItemChildren === item.id ?
-						item.children.map((itemChild, itemChildIndex) => (
-							<VirtualScrollItem<VirtualScrollItemChildProps>
-								childProps={{}}
-								id={`${item.id}-${itemChild.id}`}
-								index={[itemIndex, itemChildIndex]}
-								key={`${item.id}-${itemChild.id}`}
-								size={itemChild.virtualScrollRowSize}
-							>
-								{() => <DemoContent
-									align={DemoContentAlign.Center}
-									childrenType={DemoContentChildren.Text}
-									colourScheme={DemoContentColourScheme.Tertiary}
-									height="100%"
-									includeRenderCounter={true}
-									indentIndex={2}
-									justify={DemoContentJustify.Start}
-									orientation={Orientation.Horizontal}
-									overflow={DemoContentOverflow.Auto}
-									text={itemChild.text}
-									width="100%"
-								/>}
-							</VirtualScrollItem>
-						)) :
-						[]
-				)
-			])).flat()}
-		</VirtualScroll>
+					/>,
+					id: item.id,
+					size: item.virtualScrollRowSize
+				});
+
+				if (showItemChildren !== undefined && item.id === showItemChildren) {
+					item.children.forEach(itemChild => {
+						result.push({
+							childProps: { hello: ""},
+							children: () => <DemoContent
+								align={DemoContentAlign.Center}
+								childrenType={DemoContentChildren.Text}
+								colourScheme={DemoContentColourScheme.Tertiary}
+								height="100%"
+								includeRenderCounter={true}
+								indentIndex={2}
+								justify={DemoContentJustify.Start}
+								orientation={Orientation.Horizontal}
+								overflow={DemoContentOverflow.Auto}
+								text={itemChild.text}
+								width="100%"
+							/>,
+							id: `${item.id}-${itemChild.id}`,
+							size: itemChild.virtualScrollRowSize
+						})
+					});
+				}
+
+			});
+
+			return result;
+		},
+		[items, showItemChildren, handleSetShowItemChildren]
+	);
+	const virtualScrollItems = useResolveState(resolveVirtualScrollItems);
+
+	return (
+		<VirtualScroll
+			itemBufferCount={itemBufferCount}
+			items={virtualScrollItems}
+			itemSize={defaultItemSize}
+			orientation={Orientation.Vertical}
+			scrollElement={ReactLibraryComponentsVirtualScrollDemoScrollbar}
+		/>
 	);
 }
 

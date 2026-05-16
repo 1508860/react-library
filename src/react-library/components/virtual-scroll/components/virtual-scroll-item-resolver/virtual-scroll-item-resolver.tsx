@@ -1,3 +1,4 @@
+import { useVirtualScrollConfigContext } from "../../hooks/virtual-scroll-config-context.hook";
 import { useVirtualScrollItemsInViewContext } from "../../hooks/virtual-scroll-items-in-view-context.hook";
 
 import { VirtualScrollItemRender } from "../virtual-scroll-item-render";
@@ -7,15 +8,17 @@ import { VirtualScrollItemRender } from "../virtual-scroll-item-render";
  * Handles rendering each registered item for the virtual scroll
  * @param props
  */
-export function VirtualScrollItemResolver() {
+export function VirtualScrollItemResolver<TChildProps>() {
 
-	const itemsInView = useVirtualScrollItemsInViewContext();
+	const config = useVirtualScrollConfigContext();
+	const itemsInView = useVirtualScrollItemsInViewContext<TChildProps>();
 
 	return (
 		itemsInView.map(item => (
-			<VirtualScrollItemRender
-				id={item}
-				key={item}
+			<VirtualScrollItemRender<TChildProps>
+				item={item}
+				itemSize={config.itemSize}
+				key={item.id}
 			/>
 		))
 	);

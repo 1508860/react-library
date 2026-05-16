@@ -1,11 +1,8 @@
-import { Fragment, useCallback } from "react";
+import { useCallback } from "react";
 
 import { useResolveState, type Callback } from "@react-library/common";
 
 import { useVirtualScrollConfigContext } from "../../hooks/virtual-scroll-config-context.hook";
-import { useVirtualScrollElementsInViewContext } from "../../hooks/virtual-scroll-elements-in-view-context.hook";
-import { useVirtualScrollItemsContext } from "../../hooks/virtual-scroll-items-context.hook";
-import type { VirtualScrollItemChildResult } from "../../types/virtual-scroll-item-child.type";
 import type { VirtualScrollItemSize } from "../../types/virtual-scroll-item-size.type";
 
 import { virtualScrollItemRenderStyle } from "./styles/virtual-scroll-item-render-style.function";
@@ -15,36 +12,26 @@ import type { VirtualScrollItemRenderProps } from "./types/virtual-scroll-item-r
  * Virtual scroll item render component
  * @param props
  */
-export function VirtualScrollItemRender(props: VirtualScrollItemRenderProps) {
+export function VirtualScrollItemRender<TChildProps>(props: VirtualScrollItemRenderProps<TChildProps>) {
 
 	const config = useVirtualScrollConfigContext();
-	const items = useVirtualScrollItemsContext();
-	const elementsInView = useVirtualScrollElementsInViewContext();
 
 	// Resolve size
-	const resolveSize = useCallback<Callback<VirtualScrollItemSize | undefined>>(
-		() => items.get(props.id)?.size,
-		[props.id, items]
+	const resolveSize = useCallback<Callback<VirtualScrollItemSize>>(
+		() => props.item.size ?? props.itemSize,
+		[props.item.size, props.itemSize]
 	);
 	const size = useResolveState(resolveSize);
 
-	// Resolve element
-	const resolveElement = useCallback<Callback<VirtualScrollItemChildResult | undefined>>(
-		() => elementsInView.get(props.id),
-		[props.id, elementsInView]
-	);
-	const element = useResolveState(resolveElement);
-
-	if (!size) return (
-		<Fragment key="no-item" />
-	);
-
 	return (
 		<div
-			key={`item-${props.id}`}
+			key={props.item.id}
 			style={virtualScrollItemRenderStyle(config.orientation, size)}
 		>
-			{element}
+			{<props.item.children
+				{...props.item.childProps}
+				key={props.item.id}
+			/>}
 		</div>
 	);
 }
