@@ -9,17 +9,20 @@ import type { DateTimeDisplayLength } from "../enums/date-time-display-length.ty
 import type { TimeDisplayStyle } from "../enums/time-display-style.type";
 import { resolveDateTimeDisplayFormatterDateOptions } from "../functions/resolve-date-time-display-formatter-date-options.function";
 import { resolveDateTimeDisplayFormatterTimeOptions } from "../functions/resolve-date-time-display-formatter-time-options.function";
+import { resolveDateTimeDisplayFormatterWeekdayOptions } from "../functions/resolve-date-time-display-formatter-weekday-options.function";
 import type { DateTimeDisplayFormatterOptions } from "../types/date-time-display-formatter-options.type";
 
 /**
  * Custom hook for resolving a date time formatter
  * @param dateStyle
  * @param timeStyle
+ * @param weekday
  * @param length
  */
 export function useDateTimeDisplayFormatterState(
 	dateStyle: DateDisplayStyle | undefined,
 	timeStyle: TimeDisplayStyle | undefined,
+	weekday: boolean,
 	length: DateTimeDisplayLength
 ): [Intl.DateTimeFormat] {
 
@@ -31,10 +34,11 @@ export function useDateTimeDisplayFormatterState(
 
 			if (dateStyle !== undefined) resolveDateTimeDisplayFormatterDateOptions(options, dateStyle, length);
 			if (timeStyle !== undefined) resolveDateTimeDisplayFormatterTimeOptions(options, timeStyle, length);
+			if (weekday) resolveDateTimeDisplayFormatterWeekdayOptions(options, length);
 
 			return new Intl.DateTimeFormat(languageCode, options);
 		},
-		[dateStyle, timeStyle, length, languageCode]
+		[dateStyle, timeStyle, weekday, length, languageCode]
 	);
 
 	const state = useResolveState<Intl.DateTimeFormat>(resolveState);

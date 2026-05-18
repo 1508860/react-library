@@ -18,7 +18,7 @@ export function useDateTimeDisplayState(value: DateTimeValue, timeStyle: TimeDis
 
 	const [state, setState] = useState<DateTimeDisplayState>(() => "");
 
-	const [dateTimeDisplayFormatter] = useDateTimeDisplayFormatterState(DateDisplayStyle.Day, timeStyle, length);
+	const [dateTimeDisplayFormatter] = useDateTimeDisplayFormatterState(DateDisplayStyle.Day, timeStyle, false, length);
 
 	useEffect(
 		() => setState(value ? dateTimeDisplayFormatter.format(value) : ""),

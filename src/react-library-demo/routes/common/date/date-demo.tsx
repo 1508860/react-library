@@ -9,6 +9,7 @@ import {
 	useDateDisplayState,
 	useDateTimeDisplayState,
 	useTimeDisplayState,
+	useWeekdayDisplayState,
 	type IDate,
 	type IDateStyle,
 	type IId,
@@ -89,6 +90,20 @@ export function ReactLibraryCommonDateDemo() {
 					)
 				}
 			</DemoSection>
+			<DemoSection
+				key="weekday"
+				title="Weekday"
+			>
+				{
+					dateTimeLengths.map((dateTimeLength, i) =>
+						<DemoWeekdayFormat
+							date={dateState.date}
+							key={`${dateState.id}-${i}`}
+							length={dateTimeLength}
+						/>
+					)
+				}
+			</DemoSection>
 		</>
 	);
 }
@@ -155,6 +170,33 @@ function DemoDateTimeFormat(props: (IDate<Date> & ITimeStyle<TimeDisplayStyle> &
 		<DemoItem
 			config={[
 				{ key: "Time", value: props.timeStyle },
+				{ key: "Length", value: props.length }
+			]}
+		>
+			<DemoContent
+				align={DemoContentAlign.Center}
+				childrenType={DemoContentChildren.Text}
+				colourScheme={DemoContentColourScheme.Secondary}
+				height="auto"
+				justify={DemoContentJustify.Start}
+				orientation={Orientation.Horizontal}
+				overflow={DemoContentOverflow.Auto}
+				paddingBottom={10}
+				paddingLeft={10}
+				paddingRight={10}
+				paddingTop={10}
+				text={dateTimeDisplay}
+				width="100%"
+			/>
+		</DemoItem>
+	);
+}
+
+function DemoWeekdayFormat(props: (IDate<Date> & ILength<DateTimeDisplayLength>)): ReactElement {
+	const [dateTimeDisplay] = useWeekdayDisplayState(props.date, props.length);
+	return (
+		<DemoItem
+			config={[
 				{ key: "Length", value: props.length }
 			]}
 		>
