@@ -20,7 +20,7 @@ import type { CheckboxProps } from "./types/checkbox-props.type";
 export function Checkbox(props: CheckboxProps) {
 	return (
 		<CheckboxProvider {...props}>
-			<CheckboxContainer {...props}>
+			<CheckboxContainer>
 				<CheckboxTargetContainer
 					{...props}
 					key="target-container"

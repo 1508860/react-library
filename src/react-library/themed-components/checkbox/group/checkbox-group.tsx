@@ -18,7 +18,7 @@ import type { CheckboxGroupProps } from "./types/checkbox-group-props.type";
 export function CheckboxGroup(props: CheckboxGroupProps) {
 	return (
 		<CheckboxGroupProvider {...props}>
-			<CheckboxContainer {...props}>
+			<CheckboxContainer>
 				<CheckboxTargetContainer
 					{...props}
 					key="target-container"

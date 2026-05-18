@@ -16,10 +16,7 @@ export function RadioButton(props: RadioButtonProps) {
 
 	return (
 		<RadioButtonContainer {...props}>
-			<RadioButtonTargetContainer
-				{...props}
-				key="target-container"
-			>
+			<RadioButtonTargetContainer key="target-container">
 				<RadioButtonIcon {...props} key="icon" />
 				<TransitionPulse
 					durationMs={RADIO_BUTTON_TRANSITION_PULSE_LAYER_MS}
