@@ -8,10 +8,10 @@ import {
 } from "@react-library/common";
 import {
 	resolveTransitionPulseInsetFromSize,
+	TransitionPulseInsetDataProvider,
 	type TransitionPulseInsetData
 } from "@react-library/components";
 
-import { CHECKBOX_CLICKED_INSET_CONTEXT } from "../../constants/checkbox-clicked-inset-context.const";
 import { CHECKBOX_EVENTS_CONTEXT } from "../../constants/checkbox-events-context.const";
 import { CHECKBOX_GROUP_SELECTED_COUNTS_DEFAULT } from "../../constants/checkbox-group-counts.const";
 import { CHECKBOX_IS_HOVERED_CONTEXT } from "../../constants/checkbox-is-hovered-context.const";
@@ -37,8 +37,8 @@ export function CheckboxGroupContainerProvider(props: CheckboxGroupContainerProv
 	// Input event states
 	const [isHovered, setIsHovered] = useState<boolean>(() => false);
 
-	// Clicked inset
-	const [clickedInset, setClickedInset] = useState<TransitionPulseInsetData | null>(() => null);
+	// Transition pulse inset data
+	const [transitionPulseInsetData, setTransitionPulseInsetData] = useState<TransitionPulseInsetData | undefined>(() => undefined);
 
 	// Checkbox subject
 	const [checkboxSubject] = useState<CheckboxSubject>(() => new Subject<CheckboxSelectedState>());
@@ -79,7 +79,7 @@ export function CheckboxGroupContainerProvider(props: CheckboxGroupContainerProv
 	const handleOnToggle = useCallback<Callback<void>>(
 		// Set to selected if partially selected
 		() => {
-			setClickedInset(resolveTransitionPulseInsetFromSize(CHECKBOX_SIZE_TARGET_CONTAINER));
+			setTransitionPulseInsetData(resolveTransitionPulseInsetFromSize(CHECKBOX_SIZE_TARGET_CONTAINER));
 			const newState = (selectedStateRef.current === CheckboxSelectedState.Selected) ? CheckboxSelectedState.Unselected : CheckboxSelectedState.Selected;
 			handleSetSelectedState(newState);
 			checkboxSubject.notify(newState);
@@ -107,18 +107,18 @@ export function CheckboxGroupContainerProvider(props: CheckboxGroupContainerProv
 	useCheckboxObserver(handleObserverUpdate);
 
 	return (
-		<CHECKBOX_SUBSCRIBER_STATE_CONTEXT value={checkboxSubscriberState}>
-			<CHECKBOX_SUBJECT_CONTEXT value={checkboxSubject}>
-				<CHECKBOX_IS_HOVERED_CONTEXT value={isHovered}>
-					<CHECKBOX_CLICKED_INSET_CONTEXT value={clickedInset}>
+		<TransitionPulseInsetDataProvider insetData={transitionPulseInsetData}>
+			<CHECKBOX_SUBSCRIBER_STATE_CONTEXT value={checkboxSubscriberState}>
+				<CHECKBOX_SUBJECT_CONTEXT value={checkboxSubject}>
+					<CHECKBOX_IS_HOVERED_CONTEXT value={isHovered}>
 						<CHECKBOX_EVENTS_CONTEXT value={checkboxEvents}>
 							<CHECKBOX_SELECTED_STATE_CONTEXT value={selectedState}>
 								{props.children}
 							</CHECKBOX_SELECTED_STATE_CONTEXT>
 						</CHECKBOX_EVENTS_CONTEXT>
-					</CHECKBOX_CLICKED_INSET_CONTEXT>
-				</CHECKBOX_IS_HOVERED_CONTEXT>
-			</CHECKBOX_SUBJECT_CONTEXT>
-		</CHECKBOX_SUBSCRIBER_STATE_CONTEXT>
+					</CHECKBOX_IS_HOVERED_CONTEXT>
+				</CHECKBOX_SUBJECT_CONTEXT>
+			</CHECKBOX_SUBSCRIBER_STATE_CONTEXT>
+		</TransitionPulseInsetDataProvider>
 	);
 }

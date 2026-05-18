@@ -7,10 +7,11 @@ import {
 } from "@react-library/common";
 import {
 	resolveTransitionPulseInsetFromSize,
+	TransitionPulseColourProvider,
+	TransitionPulseInsetDataProvider,
 	type TransitionPulseInsetData
 } from "@react-library/components";
 
-import { CHECKBOX_CLICKED_INSET_CONTEXT } from "../../constants/checkbox-clicked-inset-context.const";
 import { CHECKBOX_COLOUR_STATE_CONTEXT } from "../../constants/checkbox-colour-state-context.const";
 import { CHECKBOX_EVENTS_CONTEXT } from "../../constants/checkbox-events-context.const";
 import { CHECKBOX_IS_HOVERED_CONTEXT } from "../../constants/checkbox-is-hovered-context.const";
@@ -32,13 +33,13 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 	// Input event states
 	const [isHovered, setIsHovered] = useState<boolean>(() => false);
 
-	// Clicked inset
-	const [clickedInset, setClickedInset] = useState<TransitionPulseInsetData | null>(() => null);
+	// Transition pulse inset data
+	const [transitionPulseInsetData, setTransitionPulseInsetData] = useState<TransitionPulseInsetData | undefined>(() => undefined);
 
 	// Handle toggling current value
 	const handleOnToggle = useCallback<Callback<void>>(
 		() => {
-			setClickedInset(resolveTransitionPulseInsetFromSize(CHECKBOX_SIZE_TARGET_CONTAINER));
+			setTransitionPulseInsetData(resolveTransitionPulseInsetFromSize(CHECKBOX_SIZE_TARGET_CONTAINER));
 			props.onValueChange(!props.value);
 		},
 		[props]
@@ -73,16 +74,18 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 	const colourState = useCheckboxColourState(!!props.isDisabled, (!!props.isRequired && !props.value), selectedState);
 
 	return (
-		<CHECKBOX_IS_HOVERED_CONTEXT value={isHovered}>
-			<CHECKBOX_CLICKED_INSET_CONTEXT value={clickedInset}>
-				<CHECKBOX_EVENTS_CONTEXT value={checkboxEvents}>
-					<CHECKBOX_SELECTED_STATE_CONTEXT value={selectedState}>
-						<CHECKBOX_COLOUR_STATE_CONTEXT value={colourState}>
-							{props.children}
-						</CHECKBOX_COLOUR_STATE_CONTEXT>
-					</CHECKBOX_SELECTED_STATE_CONTEXT>
-				</CHECKBOX_EVENTS_CONTEXT>
-			</CHECKBOX_CLICKED_INSET_CONTEXT>
-		</CHECKBOX_IS_HOVERED_CONTEXT>
+		<TransitionPulseColourProvider colour={colourState.pulseColour}>
+			<TransitionPulseInsetDataProvider insetData={transitionPulseInsetData}>
+				<CHECKBOX_IS_HOVERED_CONTEXT value={isHovered}>
+					<CHECKBOX_EVENTS_CONTEXT value={checkboxEvents}>
+						<CHECKBOX_SELECTED_STATE_CONTEXT value={selectedState}>
+							<CHECKBOX_COLOUR_STATE_CONTEXT value={colourState}>
+								{props.children}
+							</CHECKBOX_COLOUR_STATE_CONTEXT>
+						</CHECKBOX_SELECTED_STATE_CONTEXT>
+					</CHECKBOX_EVENTS_CONTEXT>
+				</CHECKBOX_IS_HOVERED_CONTEXT>
+			</TransitionPulseInsetDataProvider>
+		</TransitionPulseColourProvider>
 	);
 }

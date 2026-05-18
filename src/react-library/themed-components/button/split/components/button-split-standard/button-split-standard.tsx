@@ -1,9 +1,11 @@
+import { TransitionPulse, TransitionTiming } from "@react-library/components";
+
 import { ButtonContainer } from "../../../shared/components/button-container";
 import { ButtonContentContainer } from "../../../shared/components/button-content-container";
 import { ButtonContentResolver } from "../../../shared/components/button-content-resolver";
 import { ButtonDisabledLayer } from "../../../shared/components/button-disabled-layer";
 import { ButtonHoveredLayer } from "../../../shared/components/button-hovered-layer";
-import { ButtonPulseLayer } from "../../../shared/components/button-pulse-layer";
+import { BUTTON_TRANSITION_PULSE_LAYER__MS } from "../../../shared/constants/button-transition.const";
 
 import { BUTTON_SPLIT_PROPERTY_MAP } from "../../constants/button-split-property-map.const";
 import { useButtonSplitColourState } from "../../hooks/use-button-split-colour-state.hook";
@@ -42,7 +44,11 @@ export function ButtonSplitStandard(props: ButtonSplitProps) {
 					isDisabled={!!props.isDisabled}
 					key="button-disabled-layer"
 				/>
-				<ButtonPulseLayer key="button-pulse-layer" />
+				<TransitionPulse
+					durationMs={BUTTON_TRANSITION_PULSE_LAYER__MS}
+					key="button-pulse-layer"
+					timing={TransitionTiming.EaseInOut}
+				/>
 				<ButtonHoveredLayer
 					isDisabled={!!props.isDisabled}
 					key="button-hovered-layer"

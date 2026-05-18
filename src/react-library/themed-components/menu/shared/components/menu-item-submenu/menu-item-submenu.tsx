@@ -3,6 +3,8 @@ import { Fragment, useCallback, useEffect, useRef, type ReactElement } from "rea
 import type { Callback, CallbackWithParameter } from "@react-library/common";
 import {
 	Tooltip,
+	TransitionPulse,
+	TransitionTiming,
 	useTooltipBackdropConfigCallbackContext,
 	useTooltipChildPropsContext,
 	useTooltipContentCallbackContext,
@@ -13,6 +15,7 @@ import { MaterialIconName } from "@react-library/material-icons";
 
 import { MENU_OVERLAY_PORTAL_MARGIN } from "../../constants/menu-position-margin.const";
 import { MENU_POSITION_STRATEGIES } from "../../constants/menu-position-strategies.const";
+import { MENU_TRANSITION_PULSE_LAYER_MS } from "../../constants/menu-transition.const";
 import { useMenuStyleContext } from "../../hooks/menu-style-context.hook";
 import type { MenuPropsItemContentSubmenu } from "../../types/menu-props-item-content.type";
 import type { MenuPropsOnPointerEnter } from "../../types/menu-props-on-pointer-enter.type";
@@ -21,7 +24,6 @@ import type { MenuPropsOnPointerLeave } from "../../types/menu-props-on-pointer-
 import { MenuIcon } from "../menu-icon";
 import { MenuItem } from "../menu-item";
 import { MenuItemHoveredLayer } from "../menu-item-hovered-layer";
-import { MenuItemPulseLayer } from "../menu-item-pulse-layer";
 import { MenuSupportingText } from "../menu-supporting-text";
 import { MenuText } from "../menu-text";
 import { MenuTextContainer } from "../menu-text-container";
@@ -150,8 +152,10 @@ export function MenuItemSubmenuChild(props: MenuPropsItemContentSubmenu) {
 				{...props}
 				key="hovered-layer"
 			/>
-			<MenuItemPulseLayer
+			<TransitionPulse
+				durationMs={MENU_TRANSITION_PULSE_LAYER_MS}
 				key="pulse-layer"
+				timing={TransitionTiming.EaseInOut}
 			/>
 		</MenuItem>
 	);

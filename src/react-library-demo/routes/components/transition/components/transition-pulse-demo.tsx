@@ -1,15 +1,20 @@
 import { useCallback, useState, type ReactElement } from "react";
 
 import {
-	generateGuid,
 	HexRgba,
 	Orientation,
 	StyleOpacityToHexColourMap,
 	type Colour,
-	type Guid,
 	type ITiming
 } from "@react-library/common";
-import { TransitionPulse, TransitionTiming } from "@react-library/components";
+import {
+	resolveTransitionPulseInsetFromSize,
+	TransitionPulse,
+	TransitionPulseColourProvider,
+	TransitionPulseInsetDataProvider,
+	TransitionTiming,
+	type TransitionPulseInsetData
+} from "@react-library/components";
 
 import {
 	DemoContent,
@@ -48,8 +53,8 @@ function ReactLibraryComponentsTransitionPulseDemoItem(props: ITiming<Transition
 
 	const [colour] = useState<Colour>(() => new HexRgba("00", "00", "00", StyleOpacityToHexColourMap[0.5]));
 
-	const [transitionPulseKey, setTransitionPulseKey] = useState<Guid>(() => generateGuid());
-	const handleSetTransitionPulseKey = useCallback(() => setTransitionPulseKey(generateGuid()), []);
+	const [insetData, setInsetData] = useState<TransitionPulseInsetData>(() => resolveTransitionPulseInsetFromSize(TRANSITION_DEMO_SIZE_PX));
+	const handleSetTransitionPulseKey = useCallback(() => setInsetData(resolveTransitionPulseInsetFromSize(TRANSITION_DEMO_SIZE_PX)), []);
 
 	return (
 		<DemoContent
@@ -63,19 +68,15 @@ function ReactLibraryComponentsTransitionPulseDemoItem(props: ITiming<Transition
 			overflow={DemoContentOverflow.Hidden}
 			width={TRANSITION_DEMO_SIZE_PX}
 		>
-			<TransitionPulse
-				colour={colour}
-				durationMs={TRANSITION_DEMO_TRANSITION_DURATION_MS}
-				inset={{
-					bottom: TRANSITION_DEMO_SIZE_PX / 2,
-					left: TRANSITION_DEMO_SIZE_PX / 2,
-					right: TRANSITION_DEMO_SIZE_PX / 2,
-					top: TRANSITION_DEMO_SIZE_PX / 2
-				}}
-				key={transitionPulseKey}
-				onComplete={handleSetTransitionPulseKey}
-				timing={props.timing}
-			/>
+			<TransitionPulseColourProvider colour={colour}>
+				<TransitionPulseInsetDataProvider insetData={insetData}>
+					<TransitionPulse
+						durationMs={TRANSITION_DEMO_TRANSITION_DURATION_MS}
+						onComplete={handleSetTransitionPulseKey}
+						timing={props.timing}
+					/>
+				</TransitionPulseInsetDataProvider>
+			</TransitionPulseColourProvider>
 		</DemoContent>
 	);
 }

@@ -6,9 +6,9 @@ import type {
 } from "@react-library/common";
 
 /**
- * Props for transition pulse component
+ * Transition pulse inset data
  */
 export type TransitionPulseInsetData = (
 	IInset<IInsetAll<SizePx>> &
-	Partial<IKey<number | string>>
+	IKey<number | string>
 );

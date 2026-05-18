@@ -3,10 +3,11 @@ import { useCallback, useState } from "react";
 import { useResolveState, type Callback } from "@react-library/common";
 import {
 	resolveTransitionPulseInsetFromEvent,
+	TransitionPulseColourProvider,
+	TransitionPulseInsetDataProvider,
 	type TransitionPulseInsetData
 } from "@react-library/components";
 
-import { BUTTON_CLICKED_INSET_CONTEXT } from "../../constants/button-clicked-inset-context.const";
 import { BUTTON_COLOUR_STATE_CONTEXT } from "../../constants/button-colour-state-context.const";
 import { BUTTON_IS_HOVERED_CONTEXT } from "../../constants/button-is-hovered-context.const";
 import type { ButtonClickTarget } from "../../types/button-click-target.type";
@@ -23,7 +24,7 @@ export function ButtonContainer<TUseColourStateConfig>(props: ButtonContainerPro
 
 	const [isHovered, setIsHovered] = useState<boolean>(() => false);
 	const [isPressed, setIsPressed] = useState<boolean>(() => false);
-	const [clickedInset, setClickedInset] = useState<TransitionPulseInsetData | null>(() => null);
+	const [transitionPulseInsetData, setTransitionPulseInsetData] = useState<TransitionPulseInsetData | undefined>(() => undefined);
 
 	const resolveButtonColourStateParam = useCallback<Callback<ButtonContainerUseColourStateParam<TUseColourStateConfig>>>(
 		() => ({
@@ -48,7 +49,7 @@ export function ButtonContainer<TUseColourStateConfig>(props: ButtonContainerPro
 	const handleOnClick = useCallback(
 		(event: React.MouseEvent<ButtonClickTarget>) => {
 			if (props.isDisabled) return;
-			setClickedInset(resolveTransitionPulseInsetFromEvent(event));
+			setTransitionPulseInsetData(resolveTransitionPulseInsetFromEvent(event));
 			props.onClick(event);
 		},
 		[props]
@@ -61,23 +62,25 @@ export function ButtonContainer<TUseColourStateConfig>(props: ButtonContainerPro
 	const handlePointerUp = useCallback(() => setIsPressed(false), []);
 
 	return (
-		<BUTTON_COLOUR_STATE_CONTEXT value={buttonColourState}>
-			<BUTTON_CLICKED_INSET_CONTEXT value={clickedInset}>
-				<BUTTON_IS_HOVERED_CONTEXT value={isHovered}>
-					<div
-						onClick={handleOnClick}
-						onPointerCancel={handlePointerLeave}
-						onPointerDown={handlePointerDown}
-						onPointerEnter={handlePointerEnter}
-						onPointerLeave={handlePointerLeave}
-						onPointerUp={handlePointerUp}
-						ref={handleButtonContainerElementRef}
-						style={BUTTON_CONTAINER_STYLE}
-					>
-						{props.children}
-					</div>
-				</BUTTON_IS_HOVERED_CONTEXT>
-			</BUTTON_CLICKED_INSET_CONTEXT>
-		</BUTTON_COLOUR_STATE_CONTEXT>
+		<TransitionPulseColourProvider colour={buttonColourState.pulseColour}>
+			<TransitionPulseInsetDataProvider insetData={transitionPulseInsetData}>
+				<BUTTON_COLOUR_STATE_CONTEXT value={buttonColourState}>
+					<BUTTON_IS_HOVERED_CONTEXT value={isHovered}>
+						<div
+							onClick={handleOnClick}
+							onPointerCancel={handlePointerLeave}
+							onPointerDown={handlePointerDown}
+							onPointerEnter={handlePointerEnter}
+							onPointerLeave={handlePointerLeave}
+							onPointerUp={handlePointerUp}
+							ref={handleButtonContainerElementRef}
+							style={BUTTON_CONTAINER_STYLE}
+						>
+							{props.children}
+						</div>
+					</BUTTON_IS_HOVERED_CONTEXT>
+				</BUTTON_COLOUR_STATE_CONTEXT>
+			</TransitionPulseInsetDataProvider>
+		</TransitionPulseColourProvider>
 	);
 }

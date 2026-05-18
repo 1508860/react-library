@@ -1,15 +1,16 @@
 import { Fragment, useCallback } from "react";
 
 import type { Callback } from "@react-library/common";
+import { TransitionPulse, TransitionTiming } from "@react-library/components";
 import { MaterialIconName } from "@react-library/material-icons";
 
+import { MENU_TRANSITION_PULSE_LAYER_MS } from "../../constants/menu-transition.const";
 import { useMenuItemIsSelectedState } from "../../hooks/menu-item-is-selected-state.hook";
 import type { MenuPropsItemContentStandard } from "../../types/menu-props-item-content.type";
 
 import { MenuIcon } from "../menu-icon";
 import { MenuItem } from "../menu-item";
 import { MenuItemHoveredLayer } from "../menu-item-hovered-layer";
-import { MenuItemPulseLayer } from "../menu-item-pulse-layer";
 import { MenuSupportingText } from "../menu-supporting-text";
 import { MenuText } from "../menu-text";
 import { MenuTextContainer } from "../menu-text-container";
@@ -64,8 +65,10 @@ export function MenuItemStandard(props: MenuPropsItemContentStandard) {
 				{...props}
 				key="hovered-layer"
 			/>
-			<MenuItemPulseLayer
+			<TransitionPulse
+				durationMs={MENU_TRANSITION_PULSE_LAYER_MS}
 				key="pulse-layer"
+				timing={TransitionTiming.EaseInOut}
 			/>
 		</MenuItem>
 	);

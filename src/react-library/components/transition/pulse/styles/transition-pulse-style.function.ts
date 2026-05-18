@@ -1,37 +1,46 @@
 import type { CSSProperties } from "react";
 
-import type { SizePx } from "@react-library/common";
+import type { Colour, SizePx } from "@react-library/common";
 
 import { TransitionTimingMap } from "../../shared/enums/transition-timing-map.type";
-import type { TransitionPulseProps } from "../types/transition-pulse-props.type";
+import type { TransitionTiming } from "../../shared/enums/transition-timing.type";
+import type { TransitionPulseInsetDataContext } from "../types/transition-pulse-inset-data-context.type";
 
 /**
  * Resolve transition pulse style based on parameters
- * @param props
+ * @param durationMs
+ * @param timing
+ * @param colour
+ * @param insetData
  */
-export function transitionPulseStyle(props: TransitionPulseProps): CSSProperties {
+export function transitionPulseStyle(
+	durationMs: number,
+	timing: TransitionTiming,
+	colour: Colour,
+	insetData: TransitionPulseInsetDataContext
+): CSSProperties {
 
-	const insetHorizontal: SizePx = (props.inset.left + props.inset.right);
-	const insetVertical: SizePx = (props.inset.bottom + props.inset.top);
+	const insetHorizontal: SizePx = ((insetData?.inset.left ?? 0) + (insetData?.inset.right ?? 0));
+	const insetVertical: SizePx = ((insetData?.inset.bottom ?? 0) + (insetData?.inset.top ?? 0));
 
 	const animationNameSuffix = (insetVertical > insetHorizontal) ? "height" : "width";
 
 	const animationName = `react-library-components-transition-pulse-${animationNameSuffix}`;
 
 	return {
-		animationDuration: `${props.durationMs}ms`,
+		animationDuration: `${durationMs}ms`,
 		animationFillMode: "forwards",
 		animationIterationCount: 1,
 		animationName: animationName,
-		animationTimingFunction: TransitionTimingMap[props.timing],
+		animationTimingFunction: TransitionTimingMap[timing],
 		aspectRatio: 1,
-		backgroundColor: props.colour.toColourString(),
+		backgroundColor: colour.toColourString(),
 		borderRadius: "50%",
-		bottom: props.inset.bottom,
-		left: props.inset.left,
+		bottom: insetData?.inset.bottom,
+		left: insetData?.inset.left,
 		position: "absolute",
-		right: props.inset.right,
-		top: props.inset.top,
+		right: insetData?.inset.right,
+		top: insetData?.inset.top,
 		transformOrigin: "center",
 		translate: "-50% -50%"
 	};

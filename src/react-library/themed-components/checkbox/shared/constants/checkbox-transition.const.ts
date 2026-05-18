@@ -1,4 +1,4 @@
 /**
  * Describes transition time for the checkbox pulse layer in ms
  */
-export const CHECKBOX_PULSE_LAYER_TRANSITION_MS: number = 500;
+export const CHECKBOX_TRANSITION_PULSE_LAYER_MS: number = 500;
