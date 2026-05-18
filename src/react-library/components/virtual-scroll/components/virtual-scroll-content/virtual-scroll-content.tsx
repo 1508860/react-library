@@ -1,8 +1,6 @@
 import { useVirtualScrollConfigContext } from "../../hooks/virtual-scroll-config-context.hook";
 import { useVirtualScrollContentSizeContext } from "../../hooks/virtual-scroll-content-size-context.hook";
 
-import { VirtualScrollItemResolver } from "../virtual-scroll-item-resolver";
-
 import { virtualScrollContentChildStyle } from "./styles/virtual-scroll-content-child-style.function";
 import { virtualScrollContentStyle } from "./styles/virtual-scroll-content-style.function";
 import type { VirtualScrollContentProps } from "./types/virtual-scroll-content-props.type";
@@ -20,7 +18,6 @@ export function VirtualScrollContent(props: VirtualScrollContentProps) {
 	return (
 		<div style={virtualScrollContentStyle(config.orientation, size)}>
 			<div style={virtualScrollContentChildStyle(config.orientation, size)}>
-				<VirtualScrollItemResolver />
 				{props.children}
 			</div>
 		</div>
