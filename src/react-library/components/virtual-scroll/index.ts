@@ -9,5 +9,6 @@ export * from "./types/virtual-scroll-item-size.type";
 export * from "./types/virtual-scroll-item.type";
 export * from "./types/virtual-scroll-orientation.type";
 export * from "./types/virtual-scroll-props-config.type";
+export * from "./types/virtual-scroll-props-item-is-equal.type";
 export * from "./types/virtual-scroll-props-items.type";
 export * from "./types/virtual-scroll-scrollbar.type";

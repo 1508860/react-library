@@ -13,6 +13,7 @@ export function ThemedVirtualScroll<TChildProps>(props: ThemedVirtualScrollProps
 	return (
 		<THEMED_VIRTUAL_SCROLL_COLOUR_CONTEXT value={props.colour}>
 			<VirtualScroll
+				isEqual={props.isEqual}
 				itemBufferCount={props.itemBufferCount}
 				items={props.items}
 				itemSize={props.itemSize}

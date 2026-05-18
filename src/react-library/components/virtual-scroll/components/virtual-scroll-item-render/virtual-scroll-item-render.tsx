@@ -1,9 +1,10 @@
-import { useCallback } from "react";
+import { useCallback, useRef, type ReactElement } from "react";
 
 import { useResolveState, type Callback } from "@react-library/common";
 
 import { useVirtualScrollConfigContext } from "../../hooks/virtual-scroll-config-context.hook";
 import type { VirtualScrollItemSize } from "../../types/virtual-scroll-item-size.type";
+import type { VirtualScrollItem } from "../../types/virtual-scroll-item.type";
 
 import { virtualScrollItemRenderStyle } from "./styles/virtual-scroll-item-render-style.function";
 import type { VirtualScrollItemRenderProps } from "./types/virtual-scroll-item-render-props.type";
@@ -23,15 +24,36 @@ export function VirtualScrollItemRender<TChildProps>(props: VirtualScrollItemRen
 	);
 	const size = useResolveState(resolveSize);
 
+	// Resolve child element
+	const childRef = useRef<ReactElement | undefined>(undefined);
+	const item = useRef<VirtualScrollItem<TChildProps>>(props.item);
+	const resolveChild = useCallback<Callback<ReactElement | undefined>>(
+		() => {
+			if (
+				childRef.current !== undefined &&
+				props.item.children === item.current.children &&
+				props.isEqual(props.item.childProps, item.current.childProps)
+			) return childRef.current;
+			const element: ReactElement = (
+				<props.item.children
+					{...props.item.childProps}
+					key={props.item.id}
+				/>
+			);
+			childRef.current = element;
+			item.current = props.item;
+			return element;
+		},
+		[props]
+	);
+	const child = useResolveState(resolveChild);
+
 	return (
 		<div
 			key={props.item.id}
 			style={virtualScrollItemRenderStyle(config.orientation, size)}
 		>
-			{<props.item.children
-				{...props.item.childProps}
-				key={props.item.id}
-			/>}
+			{child}
 		</div>
 	);
 }

@@ -5,7 +5,8 @@ import {
 	Orientation,
 	useResolveState,
 	type Callback,
-	type Colour
+	type Colour,
+	type EqualityCallback
 } from "@react-library/common";
 import {
 	useVirtualScrollContainerPropsContext,
@@ -43,13 +44,13 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 	);
 
 	// Resolve items
-	const resolveVirtualScrollItems = useCallback<Callback<VirtualScrollItems<{hello: string}>>>(
+	const resolveVirtualScrollItems = useCallback<Callback<VirtualScrollItems<undefined>>>(
 		() => {
-			const result: VirtualScrollItems<{hello: string}> = [];
+			const result: VirtualScrollItems<undefined> = [];
 
 			items.forEach(item => {
 				result.push({
-					childProps: {hello: ""},
+					childProps: undefined,
 					children: () => <DemoContent
 						align={DemoContentAlign.Center}
 						childrenType={DemoContentChildren.Text}
@@ -70,7 +71,7 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 				if (showItemChildren !== undefined && item.id === showItemChildren) {
 					item.children.forEach(itemChild => {
 						result.push({
-							childProps: { hello: ""},
+							childProps: undefined,
 							children: () => <DemoContent
 								align={DemoContentAlign.Center}
 								childrenType={DemoContentChildren.Text}
@@ -98,8 +99,15 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 	);
 	const virtualScrollItems = useResolveState(resolveVirtualScrollItems);
 
+	// Is item equal
+	const isItemEqual = useCallback<EqualityCallback<undefined>>(
+		(a, b) => a === b,
+		[]
+	);
+
 	return (
 		<VirtualScroll
+			isEqual={isItemEqual}
 			itemBufferCount={itemBufferCount}
 			items={virtualScrollItems}
 			itemSize={defaultItemSize}

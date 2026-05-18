@@ -1,5 +1,9 @@
 import type { IColour } from "@react-library/common";
-import type { VirtualScrollPropsConfig, VirtualScrollPropsItems } from "@react-library/components";
+import type {
+	VirtualScrollPropsConfig,
+	VirtualScrollPropsItemIsEqual,
+	VirtualScrollPropsItems
+} from "@react-library/components";
 
 import type { ScrollColour } from "../../scroll";
 
@@ -9,5 +13,6 @@ import type { ScrollColour } from "../../scroll";
 export type ThemedVirtualScrollProps<TChildProps> = (
 	IColour<ScrollColour> &
 	VirtualScrollPropsConfig &
+	VirtualScrollPropsItemIsEqual<TChildProps> &
 	VirtualScrollPropsItems<TChildProps>
 );
