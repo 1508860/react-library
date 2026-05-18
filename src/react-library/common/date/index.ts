@@ -1,5 +1,6 @@
 export * from "./enums/date-display-style.type";
 export * from "./enums/date-time-display-length.type";
+export * from "./enums/date-weekday.type";
 export * from "./enums/time-display-style.type";
 export * from "./hooks/use-date-display-state.hook";
 export * from "./hooks/use-date-time-display-state.hook";
