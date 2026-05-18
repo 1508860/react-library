@@ -14,17 +14,15 @@ import type { CheckboxColourState } from "../../../types/checkbox-colour-state.t
  * @param isDisabled
  * @param font
  * @param checkboxColourState
- * @param isHovered
  */
 export function checkboxLabelStyle(
 	isDisabled: boolean | undefined,
 	font: Font,
-	checkboxColourState: CheckboxColourState,
-	isHovered: boolean
+	checkboxColourState: CheckboxColourState
 ): CSSProperties {
 	return {
 		color: checkboxColourState.labelColour.toColourString(),
-		cursor: (!isDisabled && isHovered) ? "pointer" : undefined,
+		cursor: !isDisabled ? "pointer" : undefined,
 		flexShrink: 0,
 		fontFamily: font.fontFamily,
 		fontSize: CHECKBOX_SIZE_LABEL_FONT,

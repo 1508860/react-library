@@ -1,7 +1,7 @@
 import { Fragment, useCallback } from "react";
 
 import type { Callback } from "@react-library/common";
-import { TransitionPulse, TransitionTiming } from "@react-library/components";
+import { HoverLayer, TransitionPulse, TransitionTiming } from "@react-library/components";
 import { MaterialIconName } from "@react-library/material-icons";
 
 import { MENU_TRANSITION_PULSE_LAYER_MS } from "../../constants/menu-transition.const";
@@ -10,7 +10,6 @@ import type { MenuPropsItemContentStandard } from "../../types/menu-props-item-c
 
 import { MenuIcon } from "../menu-icon";
 import { MenuItem } from "../menu-item";
-import { MenuItemHoveredLayer } from "../menu-item-hovered-layer";
 import { MenuSupportingText } from "../menu-supporting-text";
 import { MenuText } from "../menu-text";
 import { MenuTextContainer } from "../menu-text-container";
@@ -61,15 +60,12 @@ export function MenuItemStandard(props: MenuPropsItemContentStandard) {
 					/> :
 					<Fragment key="no-trailing-icon" />
 			}
-			<MenuItemHoveredLayer
-				{...props}
-				key="hovered-layer"
-			/>
 			<TransitionPulse
 				durationMs={MENU_TRANSITION_PULSE_LAYER_MS}
 				key="pulse-layer"
 				timing={TransitionTiming.EaseInOut}
 			/>
+			<HoverLayer key="hover-layer" />
 		</MenuItem>
 	);
 }

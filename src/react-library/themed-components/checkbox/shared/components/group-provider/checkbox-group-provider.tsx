@@ -1,6 +1,8 @@
+import {
+	HoverLayerColourProvider,
+	TransitionPulseColourProvider
+} from "@react-library/components";
 
-
-import { TransitionPulseColourProvider } from "@react-library/components";
 import { CHECKBOX_COLOUR_STATE_CONTEXT } from "../../constants/checkbox-colour-state-context.const";
 import { useCheckboxSelectedStateContext } from "../../hooks/checkbox-selected-state-context.hook";
 import { useCheckboxColourState } from "../../hooks/use-checkbox-colour-state.hook";
@@ -18,10 +20,12 @@ export function CheckboxGroupProvider(props: CheckboxGroupProviderProps) {
 	const colourState = useCheckboxColourState(props.isDisabled, false, selectedState);
 
 	return (
-		<TransitionPulseColourProvider colour={colourState.pulseColour}>
-			<CHECKBOX_COLOUR_STATE_CONTEXT value={colourState}>
-				{props.children}
-			</CHECKBOX_COLOUR_STATE_CONTEXT>
-		</TransitionPulseColourProvider>
+		<HoverLayerColourProvider colour={colourState.hoverColour}>
+			<TransitionPulseColourProvider colour={colourState.pulseColour}>
+				<CHECKBOX_COLOUR_STATE_CONTEXT value={colourState}>
+					{props.children}
+				</CHECKBOX_COLOUR_STATE_CONTEXT>
+			</TransitionPulseColourProvider>
+		</HoverLayerColourProvider>
 	);
 }

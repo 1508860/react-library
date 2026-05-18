@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from "react";
 
 import {
+	HoverLayer,
 	TransitionPulse,
 	TransitionTiming,
 	useTooltipBackdropConfigCallbackContext,
@@ -15,7 +16,6 @@ import { ButtonContainer } from "../../../shared/components/button-container";
 import { ButtonContentContainer } from "../../../shared/components/button-content-container";
 import { ButtonContentResolver } from "../../../shared/components/button-content-resolver";
 import { ButtonDisabledLayer } from "../../../shared/components/button-disabled-layer";
-import { ButtonHoveredLayer } from "../../../shared/components/button-hovered-layer";
 import { ButtonContent } from "../../../shared/enums/button-content.type";
 
 import { BUTTON_SPLIT_PROPERTY_MAP } from "../../constants/button-split-property-map.const";
@@ -99,10 +99,7 @@ export function ButtonSplitMenuChild(props: ButtonSplitProps) {
 					key="button-pulse-layer"
 					timing={TransitionTiming.EaseInOut}
 				/>
-				<ButtonHoveredLayer
-					isDisabled={!!props.isDisabled}
-					key="button-hovered-layer"
-				/>
+				<HoverLayer key="button-hover-layer" />
 			</ButtonContentContainer>
 		</ButtonContainer>
 	);

@@ -1,9 +1,8 @@
-import { TransitionPulse, TransitionTiming } from "@react-library/components";
+import { HoverLayer, TransitionPulse, TransitionTiming } from "@react-library/components";
 
 import { MaterialIconName } from "@react-library/material-icons";
 
 import { CheckboxContainer } from "../shared/components/container";
-import { CheckboxHoveredLayer } from "../shared/components/hovered-layer";
 import { CheckboxIcon } from "../shared/components/icon";
 import { CheckboxInput } from "../shared/components/input";
 import { CheckboxLabel } from "../shared/components/label";
@@ -35,15 +34,12 @@ export function Checkbox(props: CheckboxProps) {
 							selectedState={CheckboxSelectedState.Selected}
 						/>
 					</CheckboxTarget>
-					<CheckboxHoveredLayer
-						{...props}
-						key="hovered-layer"
-					/>
 					<TransitionPulse
 						durationMs={CHECKBOX_TRANSITION_PULSE_LAYER_MS}
 						key="pulse-layer"
 						timing={TransitionTiming.EaseInOut}
 					/>
+					<HoverLayer key="hover-layer" />
 				</CheckboxTargetContainer>
 				<CheckboxLabel
 					{...props}

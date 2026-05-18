@@ -1,7 +1,7 @@
+import { HoverLayer } from "@react-library/components";
 import { MaterialIconName } from "@react-library/material-icons";
 
 import { SwitchContainer } from "./components/container";
-import { SwitchHoveredLayer } from "./components/hovered-layer";
 import { SwitchIcon } from "./components/icon";
 import { SwitchInput } from "./components/input";
 import { SwitchLabel } from "./components/label";
@@ -31,10 +31,7 @@ export function Switch(props: SwitchProps) {
 						showIcon={!props.value && !props.isDisabled}
 					/>
 				</SwitchThumb>
-				<SwitchHoveredLayer
-					{...props}
-					key="hovered-layer"
-				/>
+				<HoverLayer key="hovered-layer" />
 			</SwitchTrack>
 			<SwitchInput {...props} key="input" />
 		</SwitchContainer>

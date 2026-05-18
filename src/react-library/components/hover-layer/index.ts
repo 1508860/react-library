@@ -1,3 +1,3 @@
 export * from "./providers/colour";
-export * from "./providers/is-disabled";
+export * from "./providers/show";
 export * from "./hover-layer";

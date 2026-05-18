@@ -2,6 +2,7 @@ import { Fragment, useCallback, useEffect, useRef, type ReactElement } from "rea
 
 import type { Callback, CallbackWithParameter } from "@react-library/common";
 import {
+	HoverLayer,
 	Tooltip,
 	TransitionPulse,
 	TransitionTiming,
@@ -23,11 +24,10 @@ import type { MenuPropsOnPointerLeave } from "../../types/menu-props-on-pointer-
 
 import { MenuIcon } from "../menu-icon";
 import { MenuItem } from "../menu-item";
-import { MenuItemHoveredLayer } from "../menu-item-hovered-layer";
+import { MenuResolver } from "../menu-resolver";
 import { MenuSupportingText } from "../menu-supporting-text";
 import { MenuText } from "../menu-text";
 import { MenuTextContainer } from "../menu-text-container";
-import { MenuResolver } from "../menu-resolver";
 
 /**
  * Menu item submenu component
@@ -148,15 +148,12 @@ export function MenuItemSubmenuChild(props: MenuPropsItemContentSubmenu) {
 				iconName={MaterialIconName.ChevronRight}
 				key="trailing-icon"
 			/>
-			<MenuItemHoveredLayer
-				{...props}
-				key="hovered-layer"
-			/>
 			<TransitionPulse
 				durationMs={MENU_TRANSITION_PULSE_LAYER_MS}
 				key="pulse-layer"
 				timing={TransitionTiming.EaseInOut}
 			/>
+			<HoverLayer key="hover-layer" />
 		</MenuItem>
 	);
 }

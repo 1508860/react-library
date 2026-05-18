@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 
 import { useHoverLayerColourContext } from "./hooks/hover-layer-colour-context.hook";
-import { useHoverLayerIsDisabledContext } from "./hooks/hover-layer-is-disabled-context.hook";
+import { useHoverLayerShowContext } from "./hooks/hover-layer-show-context.hook";
 import { hoverLayerStyle } from "./styles/hover-layer-style.function";
 
 /**
@@ -11,9 +11,9 @@ import { hoverLayerStyle } from "./styles/hover-layer-style.function";
 export function HoverLayer() {
 
 	const colour = useHoverLayerColourContext();
-	const isDisabled = useHoverLayerIsDisabledContext();
+	const show = useHoverLayerShowContext();
 
-	if (isDisabled) return (
+	if (!show) return (
 		<Fragment key="no-hover-layer" />
 	);
 

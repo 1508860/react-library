@@ -10,13 +10,12 @@ import type { SwitchColourState } from "../../../types/switch-colour-state.type"
  * @param isDisabled
  * @param font
  * @param colourState
- * @param isHovered
  */
-export function switchLabelStyle(isDisabled: boolean | undefined, font: Font, colourState: SwitchColourState, isHovered: boolean): CSSProperties {
+export function switchLabelStyle(isDisabled: boolean | undefined, font: Font, colourState: SwitchColourState): CSSProperties {
 	return {
 		boxSizing: "border-box",
 		color: colourState.labelColour.toColourString(),
-		cursor: (!isDisabled && isHovered) ? "pointer" : undefined,
+		cursor: !isDisabled ? "pointer" : undefined,
 		flexGrow: 1,
 		flexShrink: 0,
 		fontFamily: font.fontFamily,

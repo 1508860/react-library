@@ -2,6 +2,8 @@ import { useCallback, useState } from "react";
 
 import type { Callback } from "@react-library/common";
 import {
+	HoverLayerColourProvider,
+	HoverLayerShowProvider,
 	resolveTransitionPulseInsetFromSize,
 	TransitionPulseColourProvider,
 	TransitionPulseInsetDataProvider,
@@ -10,7 +12,6 @@ import {
 
 import { RADIO_BUTTON_COLOUR_STATE_CONTEXT } from "../../constants/radio-button-colour-state-context.const";
 import { RADIO_BUTTON_EVENTS_CONTEXT } from "../../constants/radio-button-events-context.const";
-import { RADIO_BUTTON_IS_HOVERED_CONTEXT } from "../../constants/radio-button-is-hovered-context.const";
 import { RADIO_BUTTON_SIZE_TARGET_CONTAINER } from "../../constants/radio-button-size.const";
 import { useRadioButtonColourState } from "../../hooks/use-radio-button-colour-state.hook";
 import { useRadioButtonIsErroredContext } from "../../hooks/radio-button-is-errored-context.hook";
@@ -31,7 +32,13 @@ export function RadioButtonContainer(props: RadioButtonContainerProps) {
 
 	// Handle hovered state
 	const [isHovered, setIsHovered] = useState<boolean>(() => false);
-	const handleOnPointerEnter = useCallback<Callback<void>>(() => setIsHovered(true), []);
+	const handleOnPointerEnter = useCallback<Callback<void>>(
+		() => {
+			if (props.isDisabled) return;
+			setIsHovered(true);
+		},
+		[props.isDisabled]
+	);
 	const handleOnPointerLeave = useCallback<Callback<void>>(() => setIsHovered(false), []);
 
 	// Transition pulse inset data
@@ -54,23 +61,25 @@ export function RadioButtonContainer(props: RadioButtonContainerProps) {
 	const colourState = useRadioButtonColourState(props.isDisabled, props.value, radioButtonIsErrored);
 
 	return (
-		<TransitionPulseColourProvider colour={colourState.pulseColour}>
-			<TransitionPulseInsetDataProvider insetData={transitionPulseInsetData}>
-				<RADIO_BUTTON_IS_HOVERED_CONTEXT value={isHovered}>
-					<RADIO_BUTTON_EVENTS_CONTEXT value={radioButtonEvents}>
-						<RADIO_BUTTON_COLOUR_STATE_CONTEXT value={colourState}>
-							<div
-								onPointerCancel={handleOnPointerLeave}
-								onPointerEnter={handleOnPointerEnter}
-								onPointerLeave={handleOnPointerLeave}
-								style={RADIO_BUTTON_CONTAINER_STYLE}
-							>
-								{props.children}
-							</div>
-						</RADIO_BUTTON_COLOUR_STATE_CONTEXT>
-					</RADIO_BUTTON_EVENTS_CONTEXT>
-				</RADIO_BUTTON_IS_HOVERED_CONTEXT>
-			</TransitionPulseInsetDataProvider>
-		</TransitionPulseColourProvider>
+		<HoverLayerColourProvider colour={colourState.hoverColour}>
+			<HoverLayerShowProvider show={isHovered}>
+				<TransitionPulseColourProvider colour={colourState.pulseColour}>
+					<TransitionPulseInsetDataProvider insetData={transitionPulseInsetData}>
+						<RADIO_BUTTON_EVENTS_CONTEXT value={radioButtonEvents}>
+							<RADIO_BUTTON_COLOUR_STATE_CONTEXT value={colourState}>
+								<div
+									onPointerCancel={handleOnPointerLeave}
+									onPointerEnter={handleOnPointerEnter}
+									onPointerLeave={handleOnPointerLeave}
+									style={RADIO_BUTTON_CONTAINER_STYLE}
+								>
+									{props.children}
+								</div>
+							</RADIO_BUTTON_COLOUR_STATE_CONTEXT>
+						</RADIO_BUTTON_EVENTS_CONTEXT>
+					</TransitionPulseInsetDataProvider>
+				</TransitionPulseColourProvider>
+			</HoverLayerShowProvider>
+		</HoverLayerColourProvider>
 	);
 }

@@ -6,6 +6,8 @@ import {
 	type CallbackWithParameter
 } from "@react-library/common";
 import {
+	HoverLayerColourProvider,
+	HoverLayerShowProvider,
 	resolveTransitionPulseInsetFromSize,
 	TransitionPulseColourProvider,
 	TransitionPulseInsetDataProvider,
@@ -14,7 +16,6 @@ import {
 
 import { CHECKBOX_COLOUR_STATE_CONTEXT } from "../../constants/checkbox-colour-state-context.const";
 import { CHECKBOX_EVENTS_CONTEXT } from "../../constants/checkbox-events-context.const";
-import { CHECKBOX_IS_HOVERED_CONTEXT } from "../../constants/checkbox-is-hovered-context.const";
 import { CHECKBOX_SELECTED_STATE_CONTEXT } from "../../constants/checkbox-selected-state-context.const";
 import { CHECKBOX_SIZE_TARGET_CONTAINER } from "../../constants/checkbox-size.const";
 import { CheckboxSelectedState } from "../../enums/checkbox-selected-state.type";
@@ -74,18 +75,20 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 	const colourState = useCheckboxColourState(!!props.isDisabled, (!!props.isRequired && !props.value), selectedState);
 
 	return (
-		<TransitionPulseColourProvider colour={colourState.pulseColour}>
-			<TransitionPulseInsetDataProvider insetData={transitionPulseInsetData}>
-				<CHECKBOX_IS_HOVERED_CONTEXT value={isHovered}>
-					<CHECKBOX_EVENTS_CONTEXT value={checkboxEvents}>
-						<CHECKBOX_SELECTED_STATE_CONTEXT value={selectedState}>
-							<CHECKBOX_COLOUR_STATE_CONTEXT value={colourState}>
-								{props.children}
-							</CHECKBOX_COLOUR_STATE_CONTEXT>
-						</CHECKBOX_SELECTED_STATE_CONTEXT>
-					</CHECKBOX_EVENTS_CONTEXT>
-				</CHECKBOX_IS_HOVERED_CONTEXT>
-			</TransitionPulseInsetDataProvider>
-		</TransitionPulseColourProvider>
+		<HoverLayerColourProvider colour={colourState.hoverColour}>
+			<HoverLayerShowProvider show={isHovered}>
+				<TransitionPulseColourProvider colour={colourState.pulseColour}>
+					<TransitionPulseInsetDataProvider insetData={transitionPulseInsetData}>
+						<CHECKBOX_EVENTS_CONTEXT value={checkboxEvents}>
+							<CHECKBOX_SELECTED_STATE_CONTEXT value={selectedState}>
+								<CHECKBOX_COLOUR_STATE_CONTEXT value={colourState}>
+									{props.children}
+								</CHECKBOX_COLOUR_STATE_CONTEXT>
+							</CHECKBOX_SELECTED_STATE_CONTEXT>
+						</CHECKBOX_EVENTS_CONTEXT>
+					</TransitionPulseInsetDataProvider>
+				</TransitionPulseColourProvider>
+			</HoverLayerShowProvider>
+		</HoverLayerColourProvider>
 	);
 }

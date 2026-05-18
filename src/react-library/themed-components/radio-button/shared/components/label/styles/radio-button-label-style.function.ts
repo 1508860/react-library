@@ -14,17 +14,15 @@ import type { RadioButtonColourState } from "../../../types/radio-button-colour-
  * @param isDisabled
  * @param font
  * @param radioButtonColourState
- * @param isHovered
  */
 export function radioButtonLabelStyle(
 	isDisabled: boolean | undefined,
 	font: Font,
-	radioButtonColourState: RadioButtonColourState,
-	isHovered: boolean
+	radioButtonColourState: RadioButtonColourState
 ): CSSProperties {
 	return {
 		color: radioButtonColourState.labelColour.toColourString(),
-		cursor: (!isDisabled && isHovered) ? "pointer" : undefined,
+		cursor: !isDisabled ? "pointer" : undefined,
 		flexShrink: 0,
 		fontFamily: font.fontFamily,
 		fontSize: RADIO_BUTTON_SIZE_LABEL_FONT,

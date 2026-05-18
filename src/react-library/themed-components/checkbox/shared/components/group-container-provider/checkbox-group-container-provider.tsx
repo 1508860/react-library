@@ -7,6 +7,7 @@ import {
 	type CallbackWithParameter,
 } from "@react-library/common";
 import {
+	HoverLayerShowProvider,
 	resolveTransitionPulseInsetFromSize,
 	TransitionPulseInsetDataProvider,
 	type TransitionPulseInsetData
@@ -14,7 +15,6 @@ import {
 
 import { CHECKBOX_EVENTS_CONTEXT } from "../../constants/checkbox-events-context.const";
 import { CHECKBOX_GROUP_SELECTED_COUNTS_DEFAULT } from "../../constants/checkbox-group-counts.const";
-import { CHECKBOX_IS_HOVERED_CONTEXT } from "../../constants/checkbox-is-hovered-context.const";
 import { CHECKBOX_SELECTED_STATE_CONTEXT } from "../../constants/checkbox-selected-state-context.const";
 import { CheckboxSelectedState } from "../../enums/checkbox-selected-state.type";
 import { CHECKBOX_SIZE_TARGET_CONTAINER } from "../../constants/checkbox-size.const";
@@ -107,18 +107,18 @@ export function CheckboxGroupContainerProvider(props: CheckboxGroupContainerProv
 	useCheckboxObserver(handleObserverUpdate);
 
 	return (
-		<TransitionPulseInsetDataProvider insetData={transitionPulseInsetData}>
-			<CHECKBOX_SUBSCRIBER_STATE_CONTEXT value={checkboxSubscriberState}>
-				<CHECKBOX_SUBJECT_CONTEXT value={checkboxSubject}>
-					<CHECKBOX_IS_HOVERED_CONTEXT value={isHovered}>
+		<HoverLayerShowProvider show={isHovered}>
+			<TransitionPulseInsetDataProvider insetData={transitionPulseInsetData}>
+				<CHECKBOX_SUBSCRIBER_STATE_CONTEXT value={checkboxSubscriberState}>
+					<CHECKBOX_SUBJECT_CONTEXT value={checkboxSubject}>
 						<CHECKBOX_EVENTS_CONTEXT value={checkboxEvents}>
 							<CHECKBOX_SELECTED_STATE_CONTEXT value={selectedState}>
 								{props.children}
 							</CHECKBOX_SELECTED_STATE_CONTEXT>
 						</CHECKBOX_EVENTS_CONTEXT>
-					</CHECKBOX_IS_HOVERED_CONTEXT>
-				</CHECKBOX_SUBJECT_CONTEXT>
-			</CHECKBOX_SUBSCRIBER_STATE_CONTEXT>
-		</TransitionPulseInsetDataProvider>
+					</CHECKBOX_SUBJECT_CONTEXT>
+				</CHECKBOX_SUBSCRIBER_STATE_CONTEXT>
+			</TransitionPulseInsetDataProvider>
+		</HoverLayerShowProvider>
 	);
 }
