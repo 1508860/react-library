@@ -1,6 +1,11 @@
 import { useCallback, useEffect, type ReactElement } from "react";
 
-import { useResolveState, type Callback, type CallbackWithParameter, type Size } from "@react-library/common";
+import {
+	useResolveState,
+	type Callback,
+	type CallbackWithParameter,
+	type Size
+} from "@react-library/common";
 import {
 	useTooltipBackdropConfigCallbackContext,
 	useTooltipContentCallbackContext,
@@ -8,7 +13,13 @@ import {
 	useTooltipShowContext
 } from "@react-library/components";
 
-import { type MenuSelectItems, type MenuSelectItem, MenuItemContent, MenuSelect, MenuStyle } from "../../../menu";
+import {
+	type MenuSelectItems,
+	type MenuSelectItem,
+	MenuItemContent,
+	MenuSelect,
+	MenuStyle
+} from "../../../menu";
 
 import { useTextFieldEventsContext } from "../../shared/hooks/text-field-events-context.hook";
 
@@ -21,17 +32,19 @@ import { useTextFieldSelectMenuOnChangeContext } from "./text-field-select-menu-
 /**
  * Custom hook to resolve the menu content
  * @param interaction
+ * @param isDisabled
  * @param items
  * @param height
  * @param width
- * @param isDisabled
+ * @param style
  */
 export function useTextFieldSelectMenuEffect<TId extends TextFieldSelectItemId>(
 	interaction: TextFieldSelectInteraction,
+	isDisabled: boolean | undefined,
 	items: Array<TextFieldSelectItem<TId>>,
 	height: Size,
 	width: Size,
-	isDisabled: boolean | undefined
+	style: MenuStyle
 ): void {
 	// Tooltip contexts
 	const tooltipBackdropConfigCallback = useTooltipBackdropConfigCallbackContext();
@@ -91,10 +104,10 @@ export function useTextFieldSelectMenuEffect<TId extends TextFieldSelectItemId>(
 				containerWidth={width}
 				items={menuItems}
 				key="menu-select"
-				style={MenuStyle.Standard}
+				style={style}
 			/>
 		),
-		[height, width, menuItems]
+		[height, style, width, menuItems]
 	);
 
 	// Handle tooltip backdrop

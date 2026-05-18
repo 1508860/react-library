@@ -2,6 +2,7 @@ import { Fragment, useCallback, useState } from "react";
 
 import { useResolveState, type Callback, type IStyle } from "@react-library/common";
 import {
+	MenuStyle,
 	TextFieldExtraTextPosition,
 	TextFieldSelect,
 	TextFieldSelectInteraction,
@@ -71,6 +72,7 @@ function ReactLibraryThemedComponentsTextFieldSelectDemoSingle(props: IStyle<Tex
 				leadingIconName={MaterialIconName.Search}
 				maxWidth={500}
 				menuHeight={300}
+				menuStyle={MenuStyle.Standard}
 				menuWidth={300}
 				minWidth={300}
 				name={`select-${TextFieldSelectInteraction.Single}-${props.style}-1`}
@@ -116,6 +118,7 @@ function ReactLibraryThemedComponentsTextFieldSelectDemoMulti(props: IStyle<Text
 				label="Label"
 				leadingIconName={MaterialIconName.Search}
 				menuHeight={300}
+				menuStyle={MenuStyle.Vibrant}
 				menuWidth={300}
 				width={300}
 				name={`select-${TextFieldSelectInteraction.Multi}-${props.style}-1`}

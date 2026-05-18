@@ -13,6 +13,7 @@ import type { TextFieldSelectItemId } from "./text-field-select-item-id.type";
 import type { TextFieldSelectPropsInteractionAll } from "./text-field-select-props-interaction.type";
 import type { TextFieldSelectPropsItems } from "./text-field-select-props-items.type";
 import type { TextFieldSelectPropsMenuSize } from "./text-field-select-props-menu-size.type";
+import type { TextFieldSelectPropsMenuStyle } from "./text-field-select-props-menu-style.type";
 
 /**
  * Props for text field select component
@@ -30,5 +31,6 @@ export type TextFieldSelectProps<TId extends TextFieldSelectItemId> = (
 	TextFieldPropsSupportingText &
 	TextFieldSelectPropsInteractionAll<TId> &
 	TextFieldSelectPropsItems<TId> &
-	TextFieldSelectPropsMenuSize
+	TextFieldSelectPropsMenuSize &
+	TextFieldSelectPropsMenuStyle
 );

@@ -1,7 +1,7 @@
 import type { IMenuHeight, IMenuWidth, Size } from "@react-library/common";
 
 /**
- * Text field select item id
+ * Text field select menu size
  */
 export type TextFieldSelectPropsMenuSize = (
 	IMenuHeight<Size> &
