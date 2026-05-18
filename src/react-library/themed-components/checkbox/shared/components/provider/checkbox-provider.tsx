@@ -47,7 +47,7 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 	);
 
 	// Checkbox events
-	const checkboxEvents = useCheckboxEventsState(handleOnToggle, setIsHovered);
+	const checkboxEvents = useCheckboxEventsState(props.isDisabled, handleOnToggle, setIsHovered);
 
 	// Selected state
 	const resolveSelectedState = useCallback<Callback<CheckboxSelectedState>>(

@@ -98,7 +98,7 @@ export function CheckboxGroupContainerProvider(props: CheckboxGroupContainerProv
 	);
 
 	// Checkbox events
-	const checkboxEvents = useCheckboxEventsState(handleOnToggle, setIsHovered);
+	const checkboxEvents = useCheckboxEventsState(false, handleOnToggle, setIsHovered);
 
 	// Checkbox subscriber - for checkbox group to maintain child states
 	useCheckboxSubscriber(selectedState);
