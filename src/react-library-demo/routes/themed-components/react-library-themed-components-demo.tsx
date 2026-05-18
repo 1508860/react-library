@@ -5,6 +5,7 @@ import { ReactLibraryThemedComponentsBadgeDemo } from "./badge";
 import { ReactLibraryThemedComponentsButtonDemo } from "./button";
 import { ReactLibraryThemedComponentsButtonGroupDemo } from "./button-group";
 import { ReactLibraryThemedComponentsCheckboxDemo } from "./checkbox";
+import { ReactLibraryThemedComponentsDatePickerDemo } from "./date-picker";
 import { ReactLibraryFloatingButtonGroupDemo } from "./floating-button-group";
 import { ReactLibraryThemedComponentsLoadingIndicatorDemo } from "./loading-indicator";
 import { ReactLibraryThemedComponentsMenuDemo } from "./menu";
@@ -39,6 +40,11 @@ export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<Rea
 			element: () => <ReactLibraryThemedComponentsCheckboxDemo />,
 			id: ReactLibraryThemedComponentsDemo.Checkbox,
 			title: "Checkbox"
+		},
+		{
+			element: () => <ReactLibraryThemedComponentsDatePickerDemo />,
+			id: ReactLibraryThemedComponentsDemo.DatePicker,
+			title: "DatePicker"
 		},
 		{
 			element: () => <ReactLibraryFloatingButtonGroupDemo />,
