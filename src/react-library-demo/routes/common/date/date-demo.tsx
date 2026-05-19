@@ -2,19 +2,24 @@ import { useState, type ReactElement } from "react";
 
 import {
 	DateDisplayStyle,
+	DateMonth,
 	DateTimeDisplayLength,
+	DateWeekday,
 	generateGuid,
 	Orientation,
 	TimeDisplayStyle,
 	useDateDisplayState,
 	useDateTimeDisplayState,
+	useMonthMapDisplayState,
 	useTimeDisplayState,
 	useWeekdayDisplayState,
+	useWeekdayMapDisplayState,
 	type IDate,
 	type IDateStyle,
 	type IId,
 	type ILength,
-	type ITimeStyle,
+	type IText,
+	type ITimeDisplayStyle,
 } from "@react-library/common";
 
 import {
@@ -33,7 +38,7 @@ export function ReactLibraryCommonDateDemo() {
 	const [dateState] = useState<(IDate<Date> & IId<string>)>(() => ({ date: new Date(), id: generateGuid() }));
 
 	const [dateStyles] = useState<Array<DateDisplayStyle>>(() => Object.values(DateDisplayStyle));
-	const [timeStyles] = useState<Array<TimeDisplayStyle>>(() => Object.values(TimeDisplayStyle));
+	const [timeDisplayStyles] = useState<Array<TimeDisplayStyle>>(() => Object.values(TimeDisplayStyle));
 	const [dateTimeLengths] = useState<Array<DateTimeDisplayLength>>(() => Object.values(DateTimeDisplayLength));
 
 	return (
@@ -61,13 +66,13 @@ export function ReactLibraryCommonDateDemo() {
 			>
 
 				{
-					timeStyles.map((timeStyle, i) =>
+					timeDisplayStyles.map((timeDisplayStyle, i) =>
 						dateTimeLengths.map((dateTimeLength, i2) =>
 							<DemoTimeFormat
 								date={dateState.date}
 								key={`${dateState.id}-${(i + 1) * (i2 + 1)}`}
 								length={dateTimeLength}
-								timeStyle={timeStyle}
+								timeDisplayStyle={timeDisplayStyle}
 							/>
 						)
 					)
@@ -78,13 +83,13 @@ export function ReactLibraryCommonDateDemo() {
 				title="Date & Time"
 			>
 				{
-					timeStyles.map((timeStyle, i) =>
+					timeDisplayStyles.map((timeDisplayStyle, i) =>
 						dateTimeLengths.map((dateTimeLength, i2) =>
 							<DemoDateTimeFormat
 								date={dateState.date}
 								key={`${dateState.id}-${(i + 1) * (i2 + 1)}`}
 								length={dateTimeLength}
-								timeStyle={timeStyle}
+								timeDisplayStyle={timeDisplayStyle}
 							/>
 						)
 					)
@@ -104,12 +109,38 @@ export function ReactLibraryCommonDateDemo() {
 					)
 				}
 			</DemoSection>
+			<DemoSection
+				key="month-map"
+				title="Month Map"
+			>
+				{
+					dateTimeLengths.map((dateTimeLength, i) =>
+						<DemoMonthMapFormat
+							key={`${dateState.id}-${i}`}
+							length={dateTimeLength}
+						/>
+					)
+				}
+			</DemoSection>
+			<DemoSection
+				key="weekday-map"
+				title="Weekday Map"
+			>
+				{
+					dateTimeLengths.map((dateTimeLength, i) =>
+						<DemoWeekdayMapFormat
+							key={`${dateState.id}-${i}`}
+							length={dateTimeLength}
+						/>
+					)
+				}
+			</DemoSection>
 		</>
 	);
 }
 
 function DemoDateFormat(props: (IDate<Date> & IDateStyle<DateDisplayStyle> & ILength<DateTimeDisplayLength>)): ReactElement {
-	const [dateDisplay] = useDateDisplayState(props.date, props.dateStyle, props.length);
+	const [value] = useDateDisplayState(props.date, props.dateStyle, props.length);
 	return (
 		<DemoItem
 			config={[
@@ -117,104 +148,94 @@ function DemoDateFormat(props: (IDate<Date> & IDateStyle<DateDisplayStyle> & ILe
 				{ key: "Length", value: props.length }
 			]}
 		>
-			<DemoContent
-				align={DemoContentAlign.Center}
-				childrenType={DemoContentChildren.Text}
-				colourScheme={DemoContentColourScheme.Secondary}
-				height="auto"
-				justify={DemoContentJustify.Start}
-				orientation={Orientation.Horizontal}
-				overflow={DemoContentOverflow.Auto}
-				paddingBottom={10}
-				paddingLeft={10}
-				paddingRight={10}
-				paddingTop={10}
-				text={dateDisplay}
-				width="100%"
-			/>
+			<DemoDisplayText text={value} />
 		</DemoItem>
 	);
 }
 
-function DemoTimeFormat(props: (IDate<Date> & ITimeStyle<TimeDisplayStyle> & ILength<DateTimeDisplayLength>)): ReactElement {
-	const [timeDisplay] = useTimeDisplayState(props.date, props.timeStyle, props.length);
+function DemoTimeFormat(props: (IDate<Date> & ITimeDisplayStyle<TimeDisplayStyle> & ILength<DateTimeDisplayLength>)): ReactElement {
+	const [value] = useTimeDisplayState(props.date, props.timeDisplayStyle, props.length);
 	return (
 		<DemoItem
 			config={[
-				{ key: "Time", value: props.timeStyle },
+				{ key: "Time", value: props.timeDisplayStyle },
 				{ key: "Length", value: props.length }
 			]}
 		>
-			<DemoContent
-				align={DemoContentAlign.Center}
-				childrenType={DemoContentChildren.Text}
-				colourScheme={DemoContentColourScheme.Secondary}
-				height="auto"
-				justify={DemoContentJustify.Start}
-				orientation={Orientation.Horizontal}
-				overflow={DemoContentOverflow.Auto}
-				paddingBottom={10}
-				paddingLeft={10}
-				paddingRight={10}
-				paddingTop={10}
-				text={timeDisplay}
-				width="100%"
-			/>
+			<DemoDisplayText text={value} />
 		</DemoItem>
 	);
 }
 
-function DemoDateTimeFormat(props: (IDate<Date> & ITimeStyle<TimeDisplayStyle> & ILength<DateTimeDisplayLength>)): ReactElement {
-	const [dateTimeDisplay] = useDateTimeDisplayState(props.date, props.timeStyle, props.length);
+function DemoDateTimeFormat(props: (IDate<Date> & ITimeDisplayStyle<TimeDisplayStyle> & ILength<DateTimeDisplayLength>)): ReactElement {
+	const [value] = useDateTimeDisplayState(props.date, props.timeDisplayStyle, props.length);
 	return (
 		<DemoItem
 			config={[
-				{ key: "Time", value: props.timeStyle },
+				{ key: "Time", value: props.timeDisplayStyle },
 				{ key: "Length", value: props.length }
 			]}
 		>
-			<DemoContent
-				align={DemoContentAlign.Center}
-				childrenType={DemoContentChildren.Text}
-				colourScheme={DemoContentColourScheme.Secondary}
-				height="auto"
-				justify={DemoContentJustify.Start}
-				orientation={Orientation.Horizontal}
-				overflow={DemoContentOverflow.Auto}
-				paddingBottom={10}
-				paddingLeft={10}
-				paddingRight={10}
-				paddingTop={10}
-				text={dateTimeDisplay}
-				width="100%"
-			/>
+			<DemoDisplayText text={value} />
 		</DemoItem>
 	);
 }
 
 function DemoWeekdayFormat(props: (IDate<Date> & ILength<DateTimeDisplayLength>)): ReactElement {
-	const [dateTimeDisplay] = useWeekdayDisplayState(props.date, props.length);
+	const [value] = useWeekdayDisplayState(props.date, props.length);
 	return (
 		<DemoItem
 			config={[
 				{ key: "Length", value: props.length }
 			]}
 		>
-			<DemoContent
-				align={DemoContentAlign.Center}
-				childrenType={DemoContentChildren.Text}
-				colourScheme={DemoContentColourScheme.Secondary}
-				height="auto"
-				justify={DemoContentJustify.Start}
-				orientation={Orientation.Horizontal}
-				overflow={DemoContentOverflow.Auto}
-				paddingBottom={10}
-				paddingLeft={10}
-				paddingRight={10}
-				paddingTop={10}
-				text={dateTimeDisplay}
-				width="100%"
-			/>
+			<DemoDisplayText text={value} />
 		</DemoItem>
+	);
+}
+
+function DemoMonthMapFormat(props: (ILength<DateTimeDisplayLength>)): ReactElement {
+	const [value] = useMonthMapDisplayState(DateMonth.January, props.length);
+	return (
+		<DemoItem
+			config={[
+				{ key: "Length", value: props.length }
+			]}
+		>
+			<DemoDisplayText text={value} />
+		</DemoItem>
+	);
+}
+
+function DemoWeekdayMapFormat(props: (ILength<DateTimeDisplayLength>)): ReactElement {
+	const [value] = useWeekdayMapDisplayState(DateWeekday.Friday, props.length);
+	return (
+		<DemoItem
+			config={[
+				{ key: "Length", value: props.length }
+			]}
+		>
+			<DemoDisplayText text={value} />
+		</DemoItem>
+	);
+}
+
+function DemoDisplayText(props: IText<string>): ReactElement {
+	return (
+		<DemoContent
+			align={DemoContentAlign.Center}
+			childrenType={DemoContentChildren.Text}
+			colourScheme={DemoContentColourScheme.Secondary}
+			height="auto"
+			justify={DemoContentJustify.Start}
+			orientation={Orientation.Horizontal}
+			overflow={DemoContentOverflow.Auto}
+			paddingBottom={10}
+			paddingLeft={10}
+			paddingRight={10}
+			paddingTop={10}
+			text={props.text}
+			width="100%"
+		/>
 	);
 }

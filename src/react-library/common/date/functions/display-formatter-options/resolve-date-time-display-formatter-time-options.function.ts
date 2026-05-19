@@ -1,6 +1,6 @@
-import { DateTimeDisplayLength } from "../enums/date-time-display-length.type";
-import { TimeDisplayStyle } from "../enums/time-display-style.type";
-import type { DateTimeDisplayFormatterOptions } from "../types/date-time-display-formatter-options.type";
+import { DateTimeDisplayLength } from "../../enums/date-time-display-length.type";
+import { TimeDisplayStyle } from "../../enums/time-display-style.type";
+import type { DateTimeDisplayFormatterOptions } from "../../types/date-time-display-formatter-options.type";
 
 /**
  * Resolve the time options for the date display formatter.
