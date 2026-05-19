@@ -1,3 +1,5 @@
+export * from "./constants/date-month-all.const";
+export * from "./constants/date-weekday-all.const";
 export * from "./enums/date-display-style.type";
 export * from "./enums/date-month.type";
 export * from "./enums/date-time-display-length.type";
@@ -7,6 +9,7 @@ export * from "./functions/helpers/date-add-days.function";
 export * from "./functions/helpers/resolve-sunday-current-week.function";
 export * from "./functions/is-equal/is-date-equal.function";
 export * from "./functions/is-equal/is-dates-equal.function";
+export * from "./functions/is-equal/is-year-equal.function";
 export * from "./hooks/display/use-date-display-state.hook";
 export * from "./hooks/display/use-date-time-display-state.hook";
 export * from "./hooks/display/use-month-map-display-state.hook";
