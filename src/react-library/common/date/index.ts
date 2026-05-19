@@ -2,6 +2,8 @@ export * from "./enums/date-display-style.type";
 export * from "./enums/date-time-display-length.type";
 export * from "./enums/date-weekday.type";
 export * from "./enums/time-display-style.type";
+export * from "./functions/is-date-equal.function";
+export * from "./functions/is-dates-equal.function";
 export * from "./hooks/use-date-display-state.hook";
 export * from "./hooks/use-date-time-display-state.hook";
 export * from "./hooks/use-time-display-state.hook";
