@@ -6,6 +6,7 @@
  * @param months
  */
 export function dateAddMonths(date: Date, months: number): Date {
-	date.setUTCMonth(date.getUTCMonth() + months);
+	const currentMonth = date.getUTCMonth();
+	date.setUTCMonth(currentMonth + months);
 	return date;
 }

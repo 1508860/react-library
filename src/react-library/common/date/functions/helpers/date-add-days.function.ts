@@ -6,6 +6,7 @@
  * @param days
  */
 export function dateAddDays(date: Date, days: number): Date {
-	date.setUTCDate(date.getUTCDate() + days);
+	const dateDay = date.getUTCDate();
+	date.setUTCDate(dateDay + days);
 	return date;
 }
