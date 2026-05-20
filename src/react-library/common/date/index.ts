@@ -6,6 +6,7 @@ export * from "./enums/date-time-display-length.type";
 export * from "./enums/date-weekday.type";
 export * from "./enums/time-display-style.type";
 export * from "./functions/helpers/date-add-days.function";
+export * from "./functions/helpers/date-add-months.function";
 export * from "./functions/helpers/resolve-sunday-current-week.function";
 export * from "./functions/is-equal/is-date-equal.function";
 export * from "./functions/is-equal/is-dates-equal.function";
