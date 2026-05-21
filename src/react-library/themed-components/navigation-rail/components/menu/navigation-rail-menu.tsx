@@ -6,7 +6,6 @@ import {
 } from "@react-library/components";
 
 import { NAVIGATION_RAIL_PROPERTY_MAP } from "../../constants/navigation-rail-property-map.const";
-import type { NavigationRailItemId } from "../../types/navigation-rail-item-id.type";
 import { NavigationRailHeaderContainer } from "../header-container";
 import { NavigationRailItemCollection } from "../item-collection";
 import { NavigationRailMenuIcon } from "../menu-icon";
@@ -18,7 +17,7 @@ import type { NavigationRailMenuProps } from "./types/navigation-rail-menu-props
  * Component to handle a navigation rail menu
  * @param props
  */
-export function NavigationRailMenu<TItemId extends NavigationRailItemId>(props: NavigationRailMenuProps<TItemId>) {
+export function NavigationRailMenu(props: NavigationRailMenuProps) {
 
 	const colourScheme = useColourSchemeContext();
 
@@ -47,11 +46,11 @@ export function NavigationRailMenu<TItemId extends NavigationRailItemId>(props: 
 						activeItemId={props.activeItemId}
 						centerItems={props.centerItems}
 						isExpanded={props.isExpanded}
+						items={props.items}
 						key="item-collection"
 						menuStyle={props.menuStyle}
 						onItemChange={props.onItemChange}
 					>
-						{props.children}
 					</NavigationRailItemCollection>
 				</div>
 			</TransitionSize>

@@ -2,24 +2,24 @@ import type {
 	CallbackWithParameter,
 	IActiveItemId,
 	ICenterItems,
-	IChild,
 	IIsExpanded,
+	IItems,
 	IMenuStyle,
 	IOnItemChange
 } from "@react-library/common";
 
+import type { NavigationRailItemId } from "../../../enums/navigation-rail-item-id-style.type";
 import type { NavigationRailMenuStyle } from "../../../enums/navigation-rail-menu-style.type";
-import type { NavigationRailChildren } from "../../../types/navigation-rail-children.type";
-import type { NavigationRailItemId } from "../../../types/navigation-rail-item-id.type";
+import type { NavigationRailItems } from "../../../types/navigation-rail-item.type";
 
 /**
  * Props for a navigation rail item collection
  */
-export type NavigationRailItemCollectionProps<TItemId extends NavigationRailItemId> = (
-	IActiveItemId<TItemId> &
+export type NavigationRailItemCollectionProps = (
+	IActiveItemId<NavigationRailItemId> &
 	ICenterItems<boolean> &
-	IChild<NavigationRailChildren<TItemId>> &
 	IIsExpanded &
+	IItems<NavigationRailItems> &
 	IMenuStyle<NavigationRailMenuStyle> &
-	IOnItemChange<CallbackWithParameter<TItemId, void>>
+	IOnItemChange<CallbackWithParameter<NavigationRailItemId, void>>
 );

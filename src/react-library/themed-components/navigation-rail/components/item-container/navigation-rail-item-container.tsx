@@ -6,7 +6,6 @@ import { MaterialIconStyle, MaterialIconSvg } from "@react-library/material-icon
 import { Badge } from "../../../badge";
 
 import { NAVIGATION_RAIL_PROPERTY_MAP } from "../../constants/navigation-rail-property-map.const";
-import type { NavigationRailItemId } from "../../types/navigation-rail-item-id.type";
 import { navigationRailItemContainerStyle } from "./styles/navigation-rail-item-container-style.function";
 import { navigationRailItemLayerStyle } from "./styles/navigation-rail-item-layer-style.function";
 import { navigationRailItemStyle } from "./styles/navigation-rail-item-style.function";
@@ -16,7 +15,7 @@ import type { NavigationRailItemContainerProps } from "./types/navigation-rail-i
  * Component to handle a navigation rail item container
  * @param props
  */
-export function NavigationRailItemContainer<TItemId extends NavigationRailItemId>(props: NavigationRailItemContainerProps<TItemId>) {
+export function NavigationRailItemContainer(props: NavigationRailItemContainerProps) {
 
 	const colourScheme = useColourSchemeContext();
 

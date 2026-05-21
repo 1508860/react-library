@@ -1,8 +1,7 @@
-import type { ReactElement } from "react";
-
 import type {
+	ArrayMaxLength7,
+	ArrayMinLength2,
 	IBadgeLabel,
-	IElement,
 	IIconName,
 	IItemId,
 	ILabel,
@@ -12,16 +11,23 @@ import type { MaterialIconName } from "@react-library/material-icons";
 
 import type { BadgeLabel } from "../../badge";
 
-import type { NavigationRailItemId } from "./navigation-rail-item-id.type";
+import type { NavigationRailItemId } from "../enums/navigation-rail-item-id-style.type";
 
 /**
  * Type for a navigation rail item
  */
-export type NavigationRailItem<TItemId extends NavigationRailItemId> = (
+export type NavigationRailItem = (
 	Partial<IBadgeLabel<BadgeLabel>> &
-	IElement<() => ReactElement> &
 	IIconName<MaterialIconName> &
-	IItemId<TItemId> &
+	IItemId<NavigationRailItemId> &
 	ILabel<string> &
 	IShowBadge
+);
+
+/**
+ * Defines collection of {@link NavigationRailItem}
+ */
+export type NavigationRailItems = (
+	ArrayMinLength2<NavigationRailItem> &
+	ArrayMaxLength7<NavigationRailItem>
 );

@@ -1,23 +1,26 @@
+import type { PropsWithChildren } from "react";
+
 import type {
 	CallbackWithParameter,
 	IActiveItemId,
-	IChild,
 	IIsExpanded,
+	IItems,
 	IMenuStyle,
 	IOnExpandedChange
 } from "@react-library/common";
 
+import type { NavigationRailItemId } from "../../../enums/navigation-rail-item-id-style.type";
 import type { NavigationRailMenuStyle } from "../../../enums/navigation-rail-menu-style.type";
-import type { NavigationRailChildren } from "../../../types/navigation-rail-children.type";
-import type { NavigationRailItemId } from "../../../types/navigation-rail-item-id.type";
+import type { NavigationRailItems } from "../../../types/navigation-rail-item.type";
 
 /**
  * Props for a navigation rail content
  */
-export type NavigationRailContentProps<TItemId extends NavigationRailItemId> = (
-	IActiveItemId<TItemId> &
-	IChild<NavigationRailChildren<TItemId>> &
+export type NavigationRailContentProps = (
+	IActiveItemId<NavigationRailItemId> &
 	IIsExpanded &
+	IItems<NavigationRailItems> &
 	IMenuStyle<NavigationRailMenuStyle> &
-	IOnExpandedChange<CallbackWithParameter<boolean, void>>
+	IOnExpandedChange<CallbackWithParameter<boolean, void>> &
+	PropsWithChildren
 );

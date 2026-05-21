@@ -2,14 +2,13 @@ import { NavigationRailContent } from "./components/content";
 import { NavigationRailImmersiveMenu } from "./components/immersive-menu";
 import { NavigationRailMenu } from "./components/menu";
 import { NAVIGATION_RAIL_CONTAINER_STYLE } from "./styles/navigation-rail-container-style.const";
-import type { NavigationRailItemId } from "./types/navigation-rail-item-id.type";
 import type { NavigationRailProps } from "./types/navigation-rail-props.type";
 
 /**
  * Component to handle a navigation rail
  * @param props
  */
-export function NavigationRail<TItemId extends NavigationRailItemId>(props: NavigationRailProps<TItemId>) {
+export function NavigationRail(props: NavigationRailProps) {
 	return (
 		<div style={NAVIGATION_RAIL_CONTAINER_STYLE}>
 			<NavigationRailImmersiveMenu
@@ -24,17 +23,18 @@ export function NavigationRail<TItemId extends NavigationRailItemId>(props: Navi
 				centerItems={props.centerItems}
 				expandedMenuWidth={props.expandedMenuWidth}
 				isExpanded={props.isExpanded}
+				items={props.items}
 				onExpandedChange={props.onExpandedChange}
 				onItemChange={props.onItemChange}
 				key="menu"
 				menuStyle={props.menuStyle}
 				navigationHeaderChildren={props.navigationHeaderChildren}
 			>
-				{props.children}
 			</ NavigationRailMenu>
 			<NavigationRailContent
 				activeItemId={props.activeItemId}
 				isExpanded={props.isExpanded}
+				items={props.items}
 				key="content"
 				menuStyle={props.menuStyle}
 				onExpandedChange={props.onExpandedChange}
