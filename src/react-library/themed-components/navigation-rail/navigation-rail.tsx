@@ -32,9 +32,7 @@ export function NavigationRail(props: NavigationRailProps) {
 			>
 			</ NavigationRailMenu>
 			<NavigationRailContent
-				activeItemId={props.activeItemId}
 				isExpanded={props.isExpanded}
-				items={props.items}
 				key="content"
 				menuStyle={props.menuStyle}
 				onExpandedChange={props.onExpandedChange}

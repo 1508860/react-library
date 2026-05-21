@@ -11,7 +11,7 @@ import type {
 	IOnItemChange
 } from "@react-library/common";
 
-import type { NavigationRailItemId } from "../../../enums/navigation-rail-item-id-style.type";
+import type { NavigationRailItemId } from "../../../enums/navigation-rail-item-id.type";
 import type { NavigationRailMenuStyle } from "../../../enums/navigation-rail-menu-style.type";
 import type { NavigationRailHeaderContainerChildren } from "../../../types/navigation-rail-header-container-children.type";
 import type { NavigationRailItems } from "../../../types/navigation-rail-item.type";

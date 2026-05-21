@@ -26,17 +26,17 @@ export function NavigationRailItemCollection(props: NavigationRailItemCollection
 	return (
 		<div style={NAVIGATION_RAIL_ITEM_COLLECTION_CONTAINER_STYLE}>
 			<div style={navigationRailItemCollectionStyle(props.centerItems, font)}>
-				{props.items.map(child =>
+				{props.items.map(item =>
 					<NavigationRailItemContainer
 						activeItemId={props.activeItemId}
-						badgeLabel={child.badgeLabel}
-						iconName={child.iconName}
-						itemId={child.itemId}
-						key={child.itemId}
-						label={child.label}
+						badgeLabel={item.badgeLabel}
+						iconName={item.iconName}
+						itemId={item.itemId}
+						key={item.itemId}
+						label={item.label}
 						onChange={props.onItemChange}
 						orientation={itemOrientation}
-						showBadge={child.showBadge}
+						showBadge={item.showBadge}
 					/>
 				)}
 			</div>
