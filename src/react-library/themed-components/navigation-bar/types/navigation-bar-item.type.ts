@@ -16,7 +16,7 @@ import type { NavigationBarItemId } from "../enums/navigation-bar-item-id.type";
 /**
  * Type for a navigation bar item
  */
-export type NavigationBarItem<> = (
+export type NavigationBarItem = (
 	Partial<IBadgeLabel<BadgeLabel>> &
 	IIconName<MaterialIconName> &
 	IItemId<NavigationBarItemId> &

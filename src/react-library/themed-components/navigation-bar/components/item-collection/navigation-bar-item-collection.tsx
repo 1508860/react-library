@@ -24,8 +24,8 @@ export function NavigationBarItemCollection(props: NavigationBarItemCollectionPr
 					key={item.itemId}
 					label={item.label}
 					onChange={props.onItemChange}
-					showBadge={item.showBadge}
 					orientation={props.itemOrientation}
+					showBadge={item.showBadge}
 				/>
 			)}
 		</div>

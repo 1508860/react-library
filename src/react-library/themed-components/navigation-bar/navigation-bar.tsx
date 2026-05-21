@@ -17,10 +17,10 @@ export function NavigationBar(props: NavigationBarProps) {
 			</NavigationBarContent>
 			<NavigationBarItemCollection
 				activeItemId={props.itemId}
-				onItemChange={props.onItemChange}
 				itemOrientation={props.itemOrientation}
 				items={props.items}
 				key="item-collection"
+				onItemChange={props.onItemChange}
 			/>
 		</div>
 	);

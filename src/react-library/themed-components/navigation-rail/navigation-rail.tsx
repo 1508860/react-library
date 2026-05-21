@@ -24,11 +24,11 @@ export function NavigationRail(props: NavigationRailProps) {
 				expandedMenuWidth={props.expandedMenuWidth}
 				isExpanded={props.isExpanded}
 				items={props.items}
-				onExpandedChange={props.onExpandedChange}
-				onItemChange={props.onItemChange}
 				key="menu"
 				menuStyle={props.menuStyle}
 				navigationHeaderChildren={props.navigationHeaderChildren}
+				onExpandedChange={props.onExpandedChange}
+				onItemChange={props.onItemChange}
 			>
 			</ NavigationRailMenu>
 			<NavigationRailContent
