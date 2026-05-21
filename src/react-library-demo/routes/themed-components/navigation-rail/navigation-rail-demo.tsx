@@ -28,13 +28,13 @@ export function ReactLibraryThemedComponentsNavigationRailDemo() {
 	const [headerChildren] = useState<ReactElement>(() => <HeaderChildren />)
 
 	const [navigationRaildemoItems] = useState<NavigationRailItems>([
-		resolveNavigationRailDemoItem(1, MaterialIconName.Add, true, 123),
-		resolveNavigationRailDemoItem(2, MaterialIconName.Favorite, true),
-		resolveNavigationRailDemoItem(3, MaterialIconName.Home, false),
-		resolveNavigationRailDemoItem(4, MaterialIconName.Settings, true, 1234),
-		resolveNavigationRailDemoItem(5, MaterialIconName.Star, true, 5),
-		resolveNavigationRailDemoItem(6, MaterialIconName.Search, false),
-		resolveNavigationRailDemoItem(7, MaterialIconName.Delete, true, 321)
+		resolveNavigationRailDemoItem(NavigationRailItemId.Item1, MaterialIconName.Add, true, 123),
+		resolveNavigationRailDemoItem(NavigationRailItemId.Item2, MaterialIconName.Favorite, true),
+		resolveNavigationRailDemoItem(NavigationRailItemId.Item3, MaterialIconName.Home, false),
+		resolveNavigationRailDemoItem(NavigationRailItemId.Item4, MaterialIconName.Settings, true, 1234),
+		resolveNavigationRailDemoItem(NavigationRailItemId.Item5, MaterialIconName.Star, true, 5),
+		resolveNavigationRailDemoItem(NavigationRailItemId.Item6, MaterialIconName.Search, false),
+		resolveNavigationRailDemoItem(NavigationRailItemId.Item7, MaterialIconName.Delete, true, 321)
 	]);
 
 	const resolveElement = useCallback<Callback<ReactElement>>(
