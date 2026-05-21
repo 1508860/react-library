@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useCallback, useState, type ReactElement } from "react";
 
-import { Orientation } from "@react-library/common";
+import { Orientation, useResolveState, type Callback } from "@react-library/common";
 import { MaterialIconName } from "@react-library/material-icons";
 import {
 	NavigationBar,
-	type NavigationBarChildren,
-	type NavigationBarItem
+	NavigationBarItemId,
+	type NavigationBarItem,
+	type NavigationBarItems
 } from "@react-library/themed-components";
 
 import {
@@ -20,57 +21,18 @@ import {
 
 export function ReactLibraryThemedComponentsNavigationBarDemo() {
 
-	const [itemId, setItemId] = useState<NavigationBarDemoItemId>(() => 1);
+	const [itemId, setItemId] = useState<NavigationBarItemId>(() => NavigationBarItemId.Item1);
 
-	const [navigationBardemoItems] = useState<NavigationBarChildren<NavigationBarDemoItemId>>(() => [
-		resolveNavigationBarDemoItem(1, MaterialIconName.Add, true, 123),
-		resolveNavigationBarDemoItem(2, MaterialIconName.Favorite, true),
-		resolveNavigationBarDemoItem(3, MaterialIconName.Home, false),
-		resolveNavigationBarDemoItem(4, MaterialIconName.Settings, true, 1234),
-		resolveNavigationBarDemoItem(5, MaterialIconName.Star, true, 5)
+	const [navigationBardemoItems] = useState<NavigationBarItems>(() => [
+		resolveNavigationBarDemoItem(NavigationBarItemId.Item1, MaterialIconName.Add, true, 123),
+		resolveNavigationBarDemoItem(NavigationBarItemId.Item2, MaterialIconName.Favorite, true),
+		resolveNavigationBarDemoItem(NavigationBarItemId.Item3, MaterialIconName.Home, false),
+		resolveNavigationBarDemoItem(NavigationBarItemId.Item4, MaterialIconName.Settings, true, 1234),
+		resolveNavigationBarDemoItem(NavigationBarItemId.Item5, MaterialIconName.Star, true, 5)
 	]);
 
-	return (
-		<>
-			<DemoSection
-				key="navigation-bar-horizontal"
-				title="Navigation Bar - Horizontal"
-			>
-				<NavigationBar<NavigationBarDemoItemId>
-					itemId={itemId}
-					itemOrientation={Orientation.Horizontal}
-					onItemChange={setItemId}
-				>
-					{navigationBardemoItems}
-				</NavigationBar>
-			</DemoSection>
-			<DemoSection
-				key="navigation-bar-vertical"
-				title="Navigation Bar - Vertical"
-			>
-				<NavigationBar<NavigationBarDemoItemId>
-					itemId={itemId}
-					itemOrientation={Orientation.Vertical}
-					onItemChange={setItemId}
-				>
-					{navigationBardemoItems}
-				</NavigationBar>
-			</DemoSection>
-		</>
-	);
-}
-
-type NavigationBarDemoItemId = (1 | 2 | 3 | 4 | 5);
-
-function resolveNavigationBarDemoItem(
-	itemId: NavigationBarDemoItemId,
-	iconName: MaterialIconName,
-	showBadge: boolean,
-	badgeLabel?: number
-): NavigationBarItem<NavigationBarDemoItemId> {
-	return {
-		badgeLabel: badgeLabel,
-		element: () => (
+	const resolveElement = useCallback<Callback<ReactElement>>(
+		() => (
 			<DemoContent
 				align={DemoContentAlign.Center}
 				childrenType={DemoContentChildren.Text}
@@ -84,6 +46,50 @@ function resolveNavigationBarDemoItem(
 				width="100%"
 			/>
 		),
+		[itemId]
+	);
+	const element = useResolveState(resolveElement);
+
+	return (
+		<>
+			<DemoSection
+				key="navigation-bar-horizontal"
+				title="Navigation Bar - Horizontal"
+			>
+				<NavigationBar
+					itemId={itemId}
+					itemOrientation={Orientation.Horizontal}
+					items={navigationBardemoItems}
+					onItemChange={setItemId}
+				>
+					{element}
+				</NavigationBar>
+			</DemoSection>
+			<DemoSection
+				key="navigation-bar-vertical"
+				title="Navigation Bar - Vertical"
+			>
+				<NavigationBar
+					itemId={itemId}
+					itemOrientation={Orientation.Vertical}
+					items={navigationBardemoItems}
+					onItemChange={setItemId}
+				>
+					{element}
+				</NavigationBar>
+			</DemoSection>
+		</>
+	);
+}
+
+function resolveNavigationBarDemoItem(
+	itemId: NavigationBarItemId,
+	iconName: MaterialIconName,
+	showBadge: boolean,
+	badgeLabel?: number
+): NavigationBarItem {
+	return {
+		badgeLabel: badgeLabel,
 		iconName: iconName,
 		itemId: itemId,
 		label: `Item ${itemId}`,

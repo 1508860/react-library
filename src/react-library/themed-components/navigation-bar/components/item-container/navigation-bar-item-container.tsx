@@ -6,7 +6,6 @@ import { MaterialIconStyle, MaterialIconSvg } from "@react-library/material-icon
 import { Badge } from "../../../badge";
 
 import { NAVIGATION_BAR_PROPERTY_MAP } from "../../constants/navigation-bar-property-map.const";
-import type { NavigationBarItemId } from "../../types/navigation-bar-item-id.type";
 import { navigationBarItemContainerStyle } from "./styles/navigation-bar-item-container-style.function";
 import { navigationBarItemLayerStyle } from "./styles/navigation-bar-item-layer-style.function";
 import { navigationBarItemStyle } from "./styles/navigation-bar-item-style.function";
@@ -16,7 +15,7 @@ import type { NavigationBarItemProps } from "./types/navigation-bar-item-contain
  * Component to handle a navigation bar item container
  * @param props
  */
-export function NavigationBarItemContainer<TItemId extends NavigationBarItemId>(props: NavigationBarItemProps<TItemId>) {
+export function NavigationBarItemContainer(props: NavigationBarItemProps) {
 
 	const colourScheme = useColourSchemeContext();
 

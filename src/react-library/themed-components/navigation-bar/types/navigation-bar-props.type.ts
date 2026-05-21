@@ -1,21 +1,25 @@
+import type { PropsWithChildren } from "react";
+
 import type {
 	CallbackWithParameter,
-	IChild,
 	IItemId,
 	IItemOrientation,
+	IItems,
 	IOnItemChange,
 	Orientation
 } from "@react-library/common";
 
-import type { NavigationBarChildren } from "./navigation-bar-children.type";
-import type { NavigationBarItemId } from "./navigation-bar-item-id.type";
+import type { NavigationBarItemId } from "../enums/navigation-bar-item-id.type";
+
+import type { NavigationBarItems } from "./navigation-bar-item.type";
 
 /**
  * Props for a navigation bar
  */
-export type NavigationBarProps<TItemId extends NavigationBarItemId> = (
-	IChild<NavigationBarChildren<TItemId>> &
-	IItemId<TItemId> &
+export type NavigationBarProps = (
+	IItemId<NavigationBarItemId> &
 	IItemOrientation<Orientation> &
-	IOnItemChange<CallbackWithParameter<TItemId, void>>
+	IItems<NavigationBarItems> &
+	IOnItemChange<CallbackWithParameter<NavigationBarItemId, void>> &
+	PropsWithChildren
 );
