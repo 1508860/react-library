@@ -34,7 +34,7 @@ export function ReactLibraryDemo() {
 										ReactLibraryRouterDemo |
 										ReactLibraryThemedComponentsDemo
 									>
-										defaultSubItemId={ReactLibraryThemedComponentsDemo.DatePicker}
+										defaultSubItemId={ReactLibraryThemedComponentsDemo.Tabs}
 									>
 										{{
 											id: 1,

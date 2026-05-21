@@ -17,6 +17,7 @@ export const ReactLibraryThemedComponentsDemo = {
 	"RadioButton": "ReactLibraryThemedComponentsDemo-RadioButton",
 	"SideSheet": "ReactLibraryThemedComponentsDemo-SideSheet",
 	"Switch": "ReactLibraryThemedComponentsDemo-Switch",
+	"Tabs": "ReactLibraryThemedComponentsDemo-Tabs",
 	"TextField": "ReactLibraryThemedComponentsDemo-TextField",
 	"Tooltips": "ReactLibraryThemedComponentsDemo-Tooltips"
 } as const satisfies Record<string, string>;

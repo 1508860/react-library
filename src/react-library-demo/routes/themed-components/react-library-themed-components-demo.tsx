@@ -16,6 +16,7 @@ import { ReactLibraryThemedComponentsProgressIndicatorDemo } from "./progress-in
 import { ReactLibraryThemedComponentsRadioButtonDemo } from "./radio-button";
 import { ReactLibraryThemedComponentsSideSheetDemo } from "./side-sheet";
 import { ReactLibraryThemedComponentsSwitchDemo } from "./switch";
+import { ReactLibraryThemedComponentsTabsDemo } from "./tabs";
 import { ReactLibraryThemedComponentsTextFieldDemo } from "./text-field";
 import { ReactLibraryThemedComponentsTooltipsDemo } from "./tooltips";
 
@@ -95,6 +96,11 @@ export function ReactLibraryThemedComponentsDemoList(): DemoSelectorSubItems<Rea
 			element: () => <ReactLibraryThemedComponentsSwitchDemo />,
 			id: ReactLibraryThemedComponentsDemo.Switch,
 			title: "Switch"
+		},
+		{
+			element: () => <ReactLibraryThemedComponentsTabsDemo />,
+			id: ReactLibraryThemedComponentsDemo.Tabs,
+			title: "Tabs"
 		},
 		{
 			element: () => <ReactLibraryThemedComponentsTextFieldDemo />,
