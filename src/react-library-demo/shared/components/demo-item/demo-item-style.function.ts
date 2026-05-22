@@ -4,27 +4,29 @@ import type { Font } from "@react-library/common";
 
 import type { DemoItemProps } from "./demo-item-props.type";
 
-export function demoItemStyle(font: Font): CSSProperties {
+export function demoItemStyle(props: DemoItemProps, font: Font): CSSProperties {
 	return {
 		alignItems: "center",
 		backgroundColor: "inherit",
 		display: "flex",
 		flexDirection: "column",
 		fontFamily: font.fontFamily,
+		height: props.height,
 		justifyContent: "start",
-		userSelect: "none"
+		userSelect: "none",
+		width: props.width
 	};
 }
 
-export function demoItemContent(props: DemoItemProps): CSSProperties {
+export function demoItemContent(): CSSProperties {
 	return {
 		alignItems: "center",
 		backgroundColor: "inherit",
 		display: "flex",
 		flexDirection: "column",
+		flexGrow: 1,
 		justifyContent: "center",
-		height: props.height,
-		width: props.width
+		width: "100%"
 	};
 }
 

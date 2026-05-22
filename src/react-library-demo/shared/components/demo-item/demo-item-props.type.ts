@@ -5,15 +5,15 @@ import type {
 	IHeight,
 	ILabel,
 	IWidth,
-	SizePx
+	Size
 } from "@react-library/common";
 
 import type { DemoItemConfigCollection } from "./demo-item-config.type";
 
 export type DemoItemProps = (
 	Partial<IConfig<DemoItemConfigCollection>> &
-	Partial<IHeight<SizePx>> &
+	Partial<IHeight<Size>> &
 	Partial<ILabel<string>> &
 	PropsWithChildren &
-	Partial<IWidth<SizePx>>
+	Partial<IWidth<Size>>
 );
