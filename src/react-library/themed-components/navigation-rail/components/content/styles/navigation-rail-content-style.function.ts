@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { ColourSchemeContainerLevel, type ColourScheme } from "@react-library/common";
 
 /**
- * Resolve navigation rail contetnt style based on parameters
+ * Resolve navigation rail content style based on parameters
  */
 export function navigationRailContentStyle(colourScheme: ColourScheme): CSSProperties {
 	return {

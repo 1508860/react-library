@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 
 /**
- * Navigation bar contetnt style
+ * Navigation bar content style
  */
 export const NAVIGATION_BAR_CONTENT_STYLE: CSSProperties = {
 	display: "block",
