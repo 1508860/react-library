@@ -23,17 +23,16 @@ export const TABS_PROPERTY_MAP: TabsPropertyMap = {
 					orientation: {
 						[Orientation.Horizontal]: {
 							gap: 4,
-							height: 48
+							height: 44
 						},
 						[Orientation.Vertical]: {
 							gap: undefined,
-							height: 64
+							height: 60
 						}
 					},
-					paddingHorizontal: 16,
+					paddingHorizontal: undefined,
 				},
-				gap: 4,
-				paddingHorizontal: undefined
+				paddingHorizontal: 24
 			}
 		},
 		[TabsStyle.Secondary]: {
@@ -51,17 +50,16 @@ export const TABS_PROPERTY_MAP: TabsPropertyMap = {
 					orientation: {
 						[Orientation.Horizontal]: {
 							gap: 4,
-							height: 48
+							height: 44
 						},
 						[Orientation.Vertical]: {
 							gap: undefined,
-							height: 64
+							height: 60
 						}
 					},
-					paddingHorizontal: undefined
+					paddingHorizontal: 16
 				},
-				gap: 4,
-				paddingHorizontal: 16
+				paddingHorizontal: undefined
 			}
 		}
 	}

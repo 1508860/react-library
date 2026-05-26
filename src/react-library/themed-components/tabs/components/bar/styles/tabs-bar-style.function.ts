@@ -9,8 +9,6 @@ import type { TabsColourState } from "../../../types/tabs-colour-state.type";
 export function tabsBarStyle(colourState: TabsColourState): CSSProperties {
 	return {
 		backgroundColor: colourState.background.toColourString(),
-		overflowX: "auto",
-		scrollbarWidth: "none",
 		width: "100%"
 	}
 };

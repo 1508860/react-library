@@ -36,7 +36,6 @@ type TabsPropertyStyleMap = (
 type TabsPropertyStyleItemMap = (
 	IActiveIndicator<TabsPropertyStyleItemActiveIndicatorMap> &
 	IContent<TabsPropertyStyleItemContentMap> &
-	IGap<Size> &
 	IPaddingHorizontal<Size | undefined>
 );
 

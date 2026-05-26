@@ -1,24 +1,14 @@
-import type {
-	Callback,
-	IBadgeLabel,
-	IIconName,
-	IId,
-	ILabel,
-	IOnValueChange,
-	IShowBadge
-} from "@react-library/common";
+import type { TabsPropsItemBadge } from "./tabs-props-item-badge.type";
+import type { TabsPropsItemIcon } from "./tabs-props-item-icon.type";
+import type { TabsPropsItemId } from "./tabs-props-item-id.type";
+import type { TabsPropsItemLabel } from "./tabs-props-item-label.type";
+import type { TabsPropsItemOnValueChange } from "./tabs-props-item-on-value-change.type";
 
-import type { BadgeLabel } from "../../badge";
-
-import type { TabsItemId } from "./tabs-item-id.type";
-import type { MaterialIconName } from "@react-library/material-icons";
-
-export type TabsItemBase = (
-	Partial<IBadgeLabel<BadgeLabel>> &
-	IId<TabsItemId> &
-	ILabel<string> &
-	IOnValueChange<Callback<void>> &
-	IShowBadge
+type TabsItemBase = (
+	TabsPropsItemBadge &
+	TabsPropsItemId &
+	TabsPropsItemLabel &
+	TabsPropsItemOnValueChange
 );
 
 /**
@@ -37,8 +27,8 @@ export type TabsItemsDefault = Array<TabsItemDefault>;
  * Describes the tabs component's item props for content with an icon
  */
 export type TabsItemWithIcon = (
-	IIconName<MaterialIconName> &
-	TabsItemBase
+	TabsItemBase &
+	TabsPropsItemIcon
 );
 
 /**

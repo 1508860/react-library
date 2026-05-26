@@ -10,7 +10,7 @@ import type { TabsProps } from "./types/tabs-props.type";
  */
 export function Tabs(props: TabsProps) {
 	return (
-		<TabsProvider>
+		<TabsProvider value={props.value}>
 			<TabsContainer style={props.style}>
 				<TabsChildren key="children">
 					{props.children}

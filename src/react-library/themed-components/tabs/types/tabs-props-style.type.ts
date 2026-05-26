@@ -1,7 +1,9 @@
-import type { IStyle } from "@react-library/common";
+import type { IContent, IItems, IStyle } from "@react-library/common";
 
+import type { TabsContent } from "../enums/tabs-content.type";
 import type { TabsStyle } from "../enums/tabs-style.type";
 
+import type { TabsItemsDefault, TabsItemsWithIcon } from "./tabs-item.type";
 import type { TabsPropsItemOrientation } from "./tabs-props-item-orientation.type";
 
 /**
@@ -12,17 +14,46 @@ export type TabsPropsStyle<TStyle extends TabsStyle> = (
 );
 
 /**
- * Describes props for a primary style tabs component
+ * Describes the tabs component's content props
  */
-export type TabsPropsStylePrimary = (
+export type TabsPropsContent<TContent extends TabsContent> = (
+	IContent<TContent>
+);
+
+/**
+ * Describes props for a primary style tabs component with default content
+ */
+export type TabsPropsStylePrimaryDefault = (
+	IItems<TabsItemsDefault> &
+	TabsPropsContent<typeof TabsContent.Default> &
+	TabsPropsStyle<typeof TabsStyle.Primary>
+);
+
+/**
+ * Describes props for a primary style tabs component with icon content
+ */
+export type TabsPropsStylePrimaryWithIcon = (
+	IItems<TabsItemsWithIcon> &
+	TabsPropsContent<typeof TabsContent.WithIcon> &
 	TabsPropsItemOrientation &
 	TabsPropsStyle<typeof TabsStyle.Primary>
 );
 
 /**
- * Describes props for a secondary style tabs component
+ * Describes props for a secondary style tabs component with default content
  */
-export type TabsPropsStyleSecondary = (
+export type TabsPropsStyleSecondaryDefault = (
+	IItems<TabsItemsDefault> &
+	TabsPropsContent<typeof TabsContent.Default> &
+	TabsPropsStyle<typeof TabsStyle.Secondary>
+);
+
+/**
+ * Describes props for a secondary style tabs component with icon content
+ */
+export type TabsPropsStyleSecondaryWithIcon = (
+	IItems<TabsItemsWithIcon> &
+	TabsPropsContent<typeof TabsContent.WithIcon> &
 	TabsPropsStyle<typeof TabsStyle.Secondary>
 );
 
@@ -30,6 +61,8 @@ export type TabsPropsStyleSecondary = (
  * Describes props for all actionable menu items
  */
 export type TabsPropsStyleAll = (
-	TabsPropsStylePrimary |
-	TabsPropsStyleSecondary
+	TabsPropsStylePrimaryDefault |
+	TabsPropsStylePrimaryWithIcon |
+	TabsPropsStyleSecondaryDefault |
+	TabsPropsStyleSecondaryWithIcon
 );

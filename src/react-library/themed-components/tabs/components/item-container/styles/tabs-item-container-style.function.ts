@@ -15,7 +15,6 @@ export function tabsItemContainerStyle(style: TabsStyle): CSSProperties {
 		flexDirection: "column",
 		flexGrow: 1,
 		flexShrink: 0,
-		gap: TABS_PROPERTY_MAP.style[style].item.gap,
 		overflow: "hidden",
 		paddingLeft: TABS_PROPERTY_MAP.style[style].item.paddingHorizontal,
 		paddingRight: TABS_PROPERTY_MAP.style[style].item.paddingHorizontal,

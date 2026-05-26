@@ -14,5 +14,6 @@ export * from "./radio-button";
 export * from "./shared";
 export * from "./side-sheet";
 export * from "./switch";
+export * from "./tabs";
 export * from "./text-field";
 export * from "./tooltips";
