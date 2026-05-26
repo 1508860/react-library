@@ -12,6 +12,7 @@ export function badgeSmallStyle(colourScheme: ColourScheme): CSSProperties {
 	return {
 		backgroundColor: colourScheme.error.default.colour.toColourString(),
 		borderRadius: size / 2,
+		flexShrink: 0,
 		height: size,
 		width: size
 	}
