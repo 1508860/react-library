@@ -13,9 +13,6 @@ export function badgeSmallStyle(colourScheme: ColourScheme): CSSProperties {
 		backgroundColor: colourScheme.error.default.colour.toColourString(),
 		borderRadius: size / 2,
 		height: size,
-		position: "absolute",
-		right: 0,
-		top: 0,
 		width: size
 	}
 };

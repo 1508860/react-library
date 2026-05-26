@@ -3,7 +3,7 @@ import { Fragment, useCallback, useEffect, useState } from "react";
 import { Orientation, useColourSchemeContext } from "@react-library/common";
 import { MaterialIconStyle, MaterialIconSvg } from "@react-library/material-icons";
 
-import { Badge } from "../../../badge";
+import { BadgeAnchored } from "../../../badge";
 
 import { NAVIGATION_RAIL_PROPERTY_MAP } from "../../constants/navigation-rail-property-map.const";
 import { navigationRailItemContainerStyle } from "./styles/navigation-rail-item-container-style.function";
@@ -57,7 +57,7 @@ export function NavigationRailItemContainer(props: NavigationRailItemContainerPr
 			<div
 				style={navigationRailItemStyle(props.orientation, colourScheme, isActive)}
 			>
-				<Badge
+				<BadgeAnchored
 					key="badge"
 					label={props.badgeLabel}
 					show={props.showBadge}
@@ -68,7 +68,7 @@ export function NavigationRailItemContainer(props: NavigationRailItemContainerPr
 						size={NAVIGATION_RAIL_PROPERTY_MAP.itemIconSize}
 						style={isActive ? MaterialIconStyle.DefaultFilled : MaterialIconStyle.Default}
 					/>
-				</Badge>
+				</BadgeAnchored>
 				{props.orientation === Orientation.Horizontal ? <span key="label">{props.label}</span> : <Fragment key="no-label" />}
 				{
 					(!isActive && (isPressed || isHovered)) ?

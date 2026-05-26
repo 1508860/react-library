@@ -3,11 +3,11 @@ import type { CSSProperties } from "react";
 import type { ColourScheme, Font, SizePx } from "@react-library/common";
 
 /**
- * Resolve badge label style based on parameters
+ * Resolve badge large style based on parameters
  * @param colourScheme
  * @param font
  */
-export function badgeLabelStyle(colourScheme: ColourScheme, font: Font): CSSProperties {
+export function badgeLargeStyle(colourScheme: ColourScheme, font: Font): CSSProperties {
 
 	const height: SizePx = 16;
 	const paddingSide: SizePx = 4;
@@ -19,13 +19,13 @@ export function badgeLabelStyle(colourScheme: ColourScheme, font: Font): CSSProp
 		boxSizing: "border-box",
 		color: colourScheme.error.default.onColour.toColourString(),
 		display: "inline-flex",
+		flexShrink: 0,
 		fontFamily: font.fontFamily,
 		fontSize: 11,
 		height: height,
 		justifyContent: "center",
 		minWidth: height,
 		paddingLeft: paddingSide,
-		paddingRight: paddingSide,
-		position: "absolute"
+		paddingRight: paddingSide
 	}
 };

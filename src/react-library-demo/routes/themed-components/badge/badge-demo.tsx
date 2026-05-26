@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { HexRgb } from "@react-library/common";
 import { MaterialIconName, MaterialIconStyle, MaterialIconSvg } from "@react-library/material-icons";
-import { Badge } from "@react-library/themed-components";
+import { Badge, BadgeAnchored } from "@react-library/themed-components";
 
 import { DemoItem, DemoSection } from "@react-library-demo/shared";
 
@@ -12,57 +12,79 @@ export function ReactLibraryThemedComponentsBadgeDemo() {
 	const [badgeLargeMax] = useState<number>(1234);
 
 	return (
-		<DemoSection title="Badge">
-			<DemoItem
-				key="small"
-				label="Small"
-			>
-				<Badge
-					show={true}
+		<>
+			<DemoSection title="Badge">
+				<DemoItem
+					key="small"
+					label="Small"
 				>
-					<MaterialIconSvg
-						colour={new HexRgb("00", "00", "00")}
-						key="icon"
-						name={MaterialIconName.Star}
-						size={24}
-						style={MaterialIconStyle.Default}
-					/>
-				</Badge>
-			</DemoItem>
-			<DemoItem
-				key="large"
-				label="Large"
-			>
-				<Badge
-					label={badgeLarge}
-					show={true}
+					<Badge />
+				</DemoItem>
+				<DemoItem
+					key="large"
+					label="Large"
 				>
-					<MaterialIconSvg
-						colour={new HexRgb("00", "00", "00")}
-						key="icon"
-						name={MaterialIconName.Star}
-						size={24}
-						style={MaterialIconStyle.Default}
-					/>
-				</Badge>
-			</DemoItem>
-			<DemoItem
-				key="large-max"
-				label="Large - max"
-			>
-				<Badge
-					label={badgeLargeMax}
-					show={true}
+					<Badge label={badgeLarge} />
+				</DemoItem>
+				<DemoItem
+					key="large-max"
+					label="Large - max"
 				>
-					<MaterialIconSvg
-						colour={new HexRgb("00", "00", "00")}
-						key="icon"
-						name={MaterialIconName.Star}
-						size={24}
-						style={MaterialIconStyle.Default}
-					/>
-				</Badge>
-			</DemoItem>
-		</DemoSection>
+					<Badge label={badgeLargeMax} />
+				</DemoItem>
+			</DemoSection>
+			<DemoSection title="Badge - anchored">
+				<DemoItem
+					key="small"
+					label="Small"
+				>
+					<BadgeAnchored
+						show={true}
+					>
+						<MaterialIconSvg
+							colour={new HexRgb("00", "00", "00")}
+							key="icon"
+							name={MaterialIconName.Star}
+							size={24}
+							style={MaterialIconStyle.Default}
+						/>
+					</BadgeAnchored>
+				</DemoItem>
+				<DemoItem
+					key="large"
+					label="Large"
+				>
+					<BadgeAnchored
+						label={badgeLarge}
+						show={true}
+					>
+						<MaterialIconSvg
+							colour={new HexRgb("00", "00", "00")}
+							key="icon"
+							name={MaterialIconName.Star}
+							size={24}
+							style={MaterialIconStyle.Default}
+						/>
+					</BadgeAnchored>
+				</DemoItem>
+				<DemoItem
+					key="large-max"
+					label="Large - max"
+				>
+					<BadgeAnchored
+						label={badgeLargeMax}
+						show={true}
+					>
+						<MaterialIconSvg
+							colour={new HexRgb("00", "00", "00")}
+							key="icon"
+							name={MaterialIconName.Star}
+							size={24}
+							style={MaterialIconStyle.Default}
+						/>
+					</BadgeAnchored>
+				</DemoItem>
+			</DemoSection>
+		</>
 	);
 }
