@@ -70,7 +70,7 @@ export function virtualScrollRender<TChildProps>(
 				currentEndBufferItemCount += 1;
 			} else paddingEnd += currentItemSize;
 		}
-		else if (itemtSizeSoFar >= scrollStart) {
+		else if (isFirstItemInViewportSet || (itemtSizeSoFar >= (scrollStart - currentItemSize))) {
 			addToItemsInView(currentItemId);
 			childrenSize += currentItemSize;
 			if (!isFirstItemInViewportSet) {
