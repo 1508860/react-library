@@ -19,9 +19,10 @@ export function VirtualScrollConfigProvider(props: VirtualScrollConfigProviderPr
 		() => ({
 			itemBufferCount: props.itemBufferCount,
 			itemSize: props.itemSize,
-			orientation: props.orientation
+			orientation: props.orientation,
+			contentWidth: props.contentWidth
 		}),
-		[props.itemBufferCount, props.itemSize, props.orientation]
+		[props.contentWidth, props.itemBufferCount, props.itemSize, props.orientation]
 	);
 	const config = useResolveState(resolveConfig, isVirtualScrollPropsConfigEqual);
 

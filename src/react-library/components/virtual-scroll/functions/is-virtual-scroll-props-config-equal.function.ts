@@ -9,6 +9,7 @@ export function isVirtualScrollPropsConfigEqual(value1: VirtualScrollPropsConfig
 	return (
 		value1.itemBufferCount === value2.itemBufferCount &&
 		value1.itemSize === value2.itemSize &&
-		value1.orientation === value2.orientation
+		value1.orientation === value2.orientation &&
+		value1.contentWidth === value2.contentWidth
 	);
 }

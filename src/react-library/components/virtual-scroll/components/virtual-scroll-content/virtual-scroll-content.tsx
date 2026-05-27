@@ -16,7 +16,7 @@ export function VirtualScrollContent(props: VirtualScrollContentProps) {
 	const config = useVirtualScrollConfigContext();
 
 	return (
-		<div style={virtualScrollContentStyle(config.orientation, size)}>
+		<div style={virtualScrollContentStyle(config.orientation, config.contentWidth, size)}>
 			<div style={virtualScrollContentChildStyle(config.orientation, size)}>
 				{props.children}
 			</div>
