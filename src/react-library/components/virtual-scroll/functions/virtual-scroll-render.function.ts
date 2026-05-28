@@ -1,15 +1,16 @@
 import {
 	Orientation,
-	VirtualScrollError,
+	ratioToScalePercent,
+	ScalePercent,
 	type DimensionsPx,
 	type ScrollObserverState,
 	type SizePx
 } from "@react-library/common";
 
 import type { VirtualScrollContentSize } from "../types/virtual-scroll-content-size.type";
-import type { VirtualScrollItemId } from "../types/virtual-scroll-item-id.type";
+import type { VirtualScrollIndexesInView } from "../types/virtual-scroll-index-in-view.type";
 import type { VirtualScrollItemSize } from "../types/virtual-scroll-item-size.type";
-import type { VirtualScrollItem } from "../types/virtual-scroll-item.type";
+import type { VirtualScrollItem, VirtualScrollItems } from "../types/virtual-scroll-item.type";
 import type { VirtualScrollOrientation } from "../types/virtual-scroll-orientation.type";
 import type { VirtualScrollRenderState } from "../types/virtual-scroll-render-state.type";
 
@@ -39,49 +40,67 @@ export function virtualScrollRender<TChildProps>(
 
 	// Result
 	let paddingStart: SizePx = 0;
-	const itemsInViewSet: Set<VirtualScrollItemId> = new Set<VirtualScrollItemId>();
+	const indexesInStartBuffer: VirtualScrollIndexesInView = [];
+	const indexesInView: VirtualScrollIndexesInView = [];
+	const itemsInStartBuffer: VirtualScrollItems<TChildProps> = [];
+	const itemsInView: VirtualScrollItems<TChildProps> = [];
 	let childrenSize: SizePx = 0;
 	let paddingEnd: SizePx = 0;
 
 	// State of loop through items
 	let isFirstItemInViewportSet: boolean = false;
 	let firstItemInViewportIndex: number = 0;
-	let itemtSizeSoFar: SizePx = 0;
+	let itemSizeSoFar: SizePx = 0;
 	let currentEndBufferItemCount: number = 0;
 
-	let itemInViewportCount: number = 0;
-	const addToItemsInView = (id: VirtualScrollItemId) => {
-		itemInViewportCount++;
-		itemsInViewSet.add(id);
+	const addToItemsInView = (item: VirtualScrollItem<TChildProps>, index: number, percentVisible: ScalePercent) => {
+		indexesInView.push({ index: index, percentVisible: percentVisible });
+		itemsInView.push(item);
+	};
+
+	const addToItemsInStartBuffer = (item: VirtualScrollItem<TChildProps>, index: number, percentVisible: ScalePercent) => {
+		indexesInStartBuffer.push({ index: index, percentVisible: percentVisible });
+		itemsInStartBuffer.push(item);
 	};
 
 	for (let currentItemIndex = 0; currentItemIndex < items.length; currentItemIndex++) {
 
 		const currentItem = items[currentItemIndex];
-		const currentItemId: VirtualScrollItemId = currentItem.id;
 		const currentItemSize: SizePx = currentItem.size ?? itemSize;
+		const newItemSizeSoFar: SizePx = itemSizeSoFar + currentItemSize;
 
 		// We're either adding to padding start, start buffer items, items in view port, end buffer items, padding end
-		if (itemtSizeSoFar >= scrollToEndOfViewport) {
+		if (itemSizeSoFar >= scrollToEndOfViewport) {
 			// Handle end buffer items & padding end
 			if (currentEndBufferItemCount < validItemBufferCount) {
-				addToItemsInView(currentItemId);
+				addToItemsInView(currentItem, currentItemIndex, ScalePercent[0]);
 				childrenSize += currentItemSize;
 				currentEndBufferItemCount += 1;
 			} else paddingEnd += currentItemSize;
 		}
-		else if (isFirstItemInViewportSet || (itemtSizeSoFar >= (scrollStart - currentItemSize))) {
-			addToItemsInView(currentItemId);
-			childrenSize += currentItemSize;
+		else if (isFirstItemInViewportSet || (newItemSizeSoFar >= scrollStart)) {
 			if (!isFirstItemInViewportSet) {
+				const percentVisible: ScalePercent = ratioToScalePercent({
+					denominator: currentItemSize,
+					numerator: newItemSizeSoFar - scrollStart
+				});
+				addToItemsInView(currentItem, currentItemIndex, percentVisible);
 				firstItemInViewportIndex = currentItemIndex;
 				isFirstItemInViewportSet = true;
+			} else if (newItemSizeSoFar >= scrollToEndOfViewport) {
+				const percentVisible: ScalePercent = ratioToScalePercent({
+					denominator: currentItemSize,
+					numerator: scrollToEndOfViewport - itemSizeSoFar
+				});
+				addToItemsInView(currentItem, currentItemIndex, percentVisible);
+			} else {
+				addToItemsInView(currentItem, currentItemIndex, ScalePercent[100]);
 			}
+			childrenSize += currentItemSize;
 		}
 		else paddingStart += currentItemSize;
 
-		// Note: we're adding padding of the current item after our checks for what to do next
-		itemtSizeSoFar += currentItemSize;
+		itemSizeSoFar = newItemSizeSoFar;
 	}
 
 	// Resolve start buffer items (now that we have resolved start index of view port items
@@ -90,15 +109,11 @@ export function virtualScrollRender<TChildProps>(
 	for (; currentItemInStartBufferIndex < firstItemInViewportIndex; currentItemInStartBufferIndex++) {
 		// Add item to start buffer array and remove start padding
 		const currentItem = items[currentItemInStartBufferIndex];
-		const currentItemId: VirtualScrollItemId = currentItem.id;
 		const currentItemSize: SizePx = currentItem.size ?? itemSize;
-		addToItemsInView(currentItemId);
+		addToItemsInStartBuffer(currentItem, currentItemInStartBufferIndex, ScalePercent[0]);
 		paddingStart -= currentItemSize;
 		childrenSize += currentItemSize;
 	}
-
-	// Validate that items in view match the count (i.e. no duplicate ids)
-	if (itemsInViewSet.size !== itemInViewportCount) throw new VirtualScrollError();
 
 	const size: VirtualScrollContentSize = {
 		childrenSize: childrenSize,
@@ -106,10 +121,14 @@ export function virtualScrollRender<TChildProps>(
 		paddingStart: paddingStart
 	};
 
-	const itemsInView = items.filter(x => itemsInViewSet.has(x.id));
+	const indexesInViewResult: VirtualScrollIndexesInView = [...indexesInStartBuffer, ...indexesInView];
+	const itemsInViewResult: VirtualScrollItems<TChildProps> = [...itemsInStartBuffer, ...itemsInView];
+
+	console.log(indexesInView);
 
 	return {
-		itemsInView: itemsInView,
+		indexesInView: indexesInViewResult,
+		itemsInView: itemsInViewResult,
 		size: size
 	};
 }

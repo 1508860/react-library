@@ -13,6 +13,7 @@ import {
 
 import { VIRTUAL_SCROLL_CONTAINER_PROPS_CONTEXT } from "../../constants/virtual-scroll-container-props-context.const";
 import { VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT } from "../../constants/virtual-scroll-content-size-context.const";
+import { VIRTUAL_SCROLL_INDEXES_IN_VIEW_CONTEXT } from "../../constants/virtual-scroll-indexes-in-view-context.const";
 import { VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT } from "../../constants/virtual-scroll-items-in-view-context.const";
 import { VIRTUAL_SCROLL_TO_INDEX_CALLBACK_CONTEXT } from "../../constants/virtual-scroll-to-index-callback-context.const";
 import { isVirtualScrollContainerPropsEqual } from "../../functions/is-virtual-scroll-container-props-equal.function";
@@ -64,17 +65,19 @@ export function VirtualScrollItemsInViewProvider<TChildProps>(props: VirtualScro
 	const containerProps = useResolveState<VirtualScrollContainerProps>(resolveContainerProps, isVirtualScrollContainerPropsEqual);
 
 	// Virtual scroll render state
-	const { itemsInView, size } = useVirtualScrollRenderState<TChildProps>(props.items, containerSize, containerScrollState);
+	const { indexesInView, itemsInView, size } = useVirtualScrollRenderState<TChildProps>(props.items, containerSize, containerScrollState);
 
 	return (
 		<VIRTUAL_SCROLL_TO_INDEX_CALLBACK_CONTEXT value={toIndexCallback}>
 			<VIRTUAL_SCROLL_CONTAINER_PROPS_CONTEXT value={containerProps}>
-				{/* // TODO sort out casting */}
-				<VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT value={itemsInView as VirtualScrollItems<unknown>}>
-					<VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT value={size}>
-						{props.children}
-					</VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT>
-				</VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT>
+				<VIRTUAL_SCROLL_INDEXES_IN_VIEW_CONTEXT value={indexesInView}>
+					{/* // TODO sort out casting */}
+					<VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT value={itemsInView as VirtualScrollItems<unknown>}>
+						<VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT value={size}>
+							{props.children}
+						</VIRTUAL_SCROLL_CONTENT_SIZE_CONTEXT>
+					</VIRTUAL_SCROLL_ITEMS_IN_VIEW_CONTEXT>
+				</VIRTUAL_SCROLL_INDEXES_IN_VIEW_CONTEXT>
 			</VIRTUAL_SCROLL_CONTAINER_PROPS_CONTEXT>
 		</VIRTUAL_SCROLL_TO_INDEX_CALLBACK_CONTEXT>
 	);

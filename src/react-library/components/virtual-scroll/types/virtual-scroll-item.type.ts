@@ -6,7 +6,7 @@ import type { VirtualScrollItemSize } from "./virtual-scroll-item-size.type";
 
 /**
  * Virtual scroll item
-*/
+ */
 export type VirtualScrollItem<TChildProps> = (
 	IId<VirtualScrollItemId> &
 	Partial<ISize<VirtualScrollItemSize>> &
