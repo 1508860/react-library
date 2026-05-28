@@ -20,7 +20,9 @@ export function ThemedVirtualScroll<TChildProps>(props: ThemedVirtualScrollProps
 				itemSize={props.itemSize}
 				orientation={props.orientation}
 				scrollElement={ThemedVirtualScrollScrollbar}
-			/>
+			>
+				{props.children}
+			</VirtualScroll>
 		</THEMED_VIRTUAL_SCROLL_COLOUR_CONTEXT>
 	);
 }

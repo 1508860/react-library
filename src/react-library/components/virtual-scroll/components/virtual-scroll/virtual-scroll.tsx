@@ -19,6 +19,7 @@ export function VirtualScroll<TChildProps>(props: VirtualScrollProps<TChildProps
 						<VirtualScrollItemResolver<TChildProps> {...props} />
 					</VirtualScrollContent>
 				</props.scrollElement>
+				{props.children}
 			</VirtualScrollItemsInViewProvider>
 		</VirtualScrollConfigProvider>
 	);

@@ -10,7 +10,9 @@ import {
 } from "@react-library/common";
 import {
 	useVirtualScrollContainerPropsContext,
+	useVirtualScrollToIndexCallbackContext,
 	VirtualScroll,
+	VirtualScrollToIndexBehaviour,
 	type VirtualScrollItemId,
 	type VirtualScrollItems,
 	type VirtualScrollScrollbarProps,
@@ -26,8 +28,12 @@ import {
 	DemoContentOverflow
 } from "@react-library-demo/shared";
 
+import { VirtualScrollDemoItemStyle } from "./enums";
 import { resolveVirtualScrollDemoItems } from "./functions";
-import type { VirtualScrollDemoItemData } from "./types";
+import type {
+	VirtualScrollDemoItemChildPropsAll,
+	VirtualScrollDemoItemData
+} from "./types";
 
 export function ReactLibraryComponentsVirtualScrollDemo() {
 
@@ -44,26 +50,19 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 	);
 
 	// Resolve items
-	const resolveVirtualScrollItems = useCallback<Callback<VirtualScrollItems<undefined>>>(
+	const resolveVirtualScrollItems = useCallback<Callback<VirtualScrollItems<VirtualScrollDemoItemChildPropsAll>>>(
 		() => {
-			const result: VirtualScrollItems<undefined> = [];
+			const result: VirtualScrollItems<VirtualScrollDemoItemChildPropsAll> = [];
 
 			items.forEach(item => {
 				result.push({
-					childProps: undefined,
-					children: () => <DemoContent
-						align={DemoContentAlign.Center}
-						childrenType={DemoContentChildren.Text}
-						colourScheme={item.virtualScrollRowSize === undefined ? DemoContentColourScheme.Primary : DemoContentColourScheme.Secondary}
-						height="100%"
-						includeRenderCounter={true}
-						justify={DemoContentJustify.Start}
-						onClick={() => handleSetShowItemChildren(item.id)}
-						orientation={Orientation.Horizontal}
-						overflow={DemoContentOverflow.Auto}
-						text={item.text}
-						width="100%"
-					/>,
+					childProps: {
+						colourScheme: item.virtualScrollRowSize === undefined ? DemoContentColourScheme.Primary : DemoContentColourScheme.Secondary,
+						onClick: () => handleSetShowItemChildren(item.id),
+						style: VirtualScrollDemoItemStyle.Item,
+						text: item.text
+					},
+					children: VirtualScrollDemoItem,
 					id: item.id,
 					size: item.virtualScrollRowSize
 				});
@@ -71,20 +70,12 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 				if (showItemChildren !== undefined && item.id === showItemChildren) {
 					item.children.forEach(itemChild => {
 						result.push({
-							childProps: undefined,
-							children: () => <DemoContent
-								align={DemoContentAlign.Center}
-								childrenType={DemoContentChildren.Text}
-								colourScheme={DemoContentColourScheme.Tertiary}
-								height="100%"
-								includeRenderCounter={true}
-								indentIndex={2}
-								justify={DemoContentJustify.Start}
-								orientation={Orientation.Horizontal}
-								overflow={DemoContentOverflow.Auto}
-								text={itemChild.text}
-								width="100%"
-							/>,
+							childProps: {
+								indentIndex: 2,
+								style: VirtualScrollDemoItemStyle.ItemChild,
+								text: itemChild.text
+							},
+							children: VirtualScrollDemoItem,
 							id: `${item.id}-${itemChild.id}`,
 							size: itemChild.virtualScrollRowSize
 						})
@@ -100,7 +91,7 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 	const virtualScrollItems = useResolveState(resolveVirtualScrollItems);
 
 	// Is item equal
-	const isItemEqual = useCallback<EqualityCallback<undefined>>(
+	const isItemEqual = useCallback<EqualityCallback<VirtualScrollDemoItemChildPropsAll>>(
 		(a, b) => a === b,
 		[]
 	);
@@ -112,12 +103,12 @@ export function ReactLibraryComponentsVirtualScrollDemo() {
 			items={virtualScrollItems}
 			itemSize={defaultItemSize}
 			orientation={Orientation.Vertical}
-			scrollElement={ReactLibraryComponentsVirtualScrollDemoScrollbar}
+			scrollElement={VirtualScrollDemoScrollbar}
 		/>
 	);
 }
 
-function ReactLibraryComponentsVirtualScrollDemoScrollbar(props: VirtualScrollScrollbarProps): VirtualScrollScrollbarResult {
+function VirtualScrollDemoScrollbar(props: VirtualScrollScrollbarProps): VirtualScrollScrollbarResult {
 
 	const containerProps = useVirtualScrollContainerPropsContext();
 
@@ -139,4 +130,49 @@ function ReactLibraryComponentsVirtualScrollDemoScrollbar(props: VirtualScrollSc
 			{props.children}
 		</div>
 	)
+}
+
+function VirtualScrollDemoItem(props: VirtualScrollDemoItemChildPropsAll) {
+
+	const scrollToIndex = useVirtualScrollToIndexCallbackContext();
+	const handleScrollToTop = useCallback<Callback<void>>(
+		() => scrollToIndex(0, VirtualScrollToIndexBehaviour.Smooth),
+		[scrollToIndex]
+	);
+
+	if (props.style === VirtualScrollDemoItemStyle.ItemChild) return (
+		<DemoContent
+			align={DemoContentAlign.Center}
+			childrenType={DemoContentChildren.Text}
+			colourScheme={DemoContentColourScheme.Tertiary}
+			height="100%"
+			includeRenderCounter={true}
+			indentIndex={props.indentIndex}
+			justify={DemoContentJustify.Start}
+			orientation={Orientation.Horizontal}
+			overflow={DemoContentOverflow.Auto}
+			text={props.text}
+			width="100%"
+		/>
+	);
+
+	return (
+		<DemoContent
+			align={DemoContentAlign.Center}
+			childrenType={DemoContentChildren.Any}
+			colourScheme={props.colourScheme}
+			height="100%"
+			includeRenderCounter={true}
+			justify={DemoContentJustify.Start}
+			onClick={props.onClick}
+			orientation={Orientation.Horizontal}
+			overflow={DemoContentOverflow.Auto}
+			width="100%"
+		>
+			<span>{props.text}</span>
+			<button onClick={handleScrollToTop}>
+				Scroll To Top
+			</button>
+		</DemoContent>
+	);
 }
