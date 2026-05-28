@@ -20,6 +20,7 @@ export * from "./hooks/display/use-month-map-display-state.hook";
 export * from "./hooks/display/use-time-display-state.hook";
 export * from "./hooks/display/use-weekday-display-state.hook";
 export * from "./hooks/display/use-weekday-map-display-state.hook";
+export * from "./types/date-months.type";
 export * from "./types/date-time-display-state.type";
 export * from "./types/date-time-value.type";
 export * from "./types/date-weekdays.type";
