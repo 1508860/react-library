@@ -1,4 +1,7 @@
 # Generic
+- Sort out generics for contexts. Create wrapper for converting to correct type?
+	- Virtual scroll items in view
+	- Text field select menu on change
 - "Run npm run knip"
 - Context undefined instead of null? In case of optional contexts?
 - Remove primitives from common interfaces? (number | string | RefCallback, | EventHandler) Look at react imports
@@ -56,9 +59,13 @@
 	- Make use of CSS shape for tooltip arrow instead of providing a react element
 - Transition
 	- Look at https://easingwizard.com/ and make a map of all permutations of this?
+	- Create contexts for all properties so that they can be shared across app? Can provide defaults across app then - TODO
+		- Colour - TODO
+		- Timing function - TODO
+		- Duration - TODO
 - Virtual scroll
-	- Optimise and improve performance for larger sets of data
-	- Scrolling can sometimes be flickery. Investigate
+	- Add scroll to index callback context - TODO
+	- Add ability to snap to item after scroll? - TODO
 
 ## Material Icons
 
@@ -85,10 +92,10 @@
 			- Use transition / animation component
 	- Navigation
 		- Navigation bar
-			- Add way to memo elements to maintain state when navigating back?
+			- Fix hover state - TODO
 			- Add fallback horizontal scroll?
 		- Navigation rail
-			- Add way to memo elements to maintain state when navigating back?
+			- Fix hover state - TODO
 			- Option to add FAB after menu icon. FAB has label when expanded, icon only if not
 			- Option to add secondary items underneath primary items if expanded. Has heading
 			- Optional divider
@@ -104,6 +111,7 @@
 			- Implement
 		- Checkbox
 			- Integrate with form - TODO
+			- What to do about disabled checkboxes in a group when handling parent checkbox?
 		- Chips
 			- Implement
 		- Dialogs
@@ -116,9 +124,6 @@
 			- Implement
 		- Menus
 			- Add custom variant
-			- Add select variant. Single depth list with virtual scroll - TODO
-				- Fix issue with clicked inset etc not working
-				- Explore memo for virtual scroll
 		- Radio button
 			- Integrate with form - TODO
 		- Search
@@ -132,12 +137,13 @@
 			- Implement
 		- Switch
 			- Integrate with form - TODO
-		- Tabs
-			- Implement
 		- Text fields
 			- Add copy text trailing click icon
 			- Select - TODO
-			- Date / time picker
+				- clear select - TODO
+				- Sort out caret position when typing - TODO
+			- Date - TODO
+			- Time picker? - TODO
 			- Icons & Images -  https://m3.material.io/components/text-fields/guidelines#5c8a5f07-b1a5-455f-bf76-7ff0d724f6b0
 			- Integrate with form - TODO
 			- Form
