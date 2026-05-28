@@ -2,6 +2,7 @@ export * from "./badge";
 export * from "./button";
 export * from "./button-group";
 export * from "./checkbox";
+export * from "./date-picker";
 export * from "./divider";
 export * from "./floating-button-group";
 export * from "./loading-indicator";
