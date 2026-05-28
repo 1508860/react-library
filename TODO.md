@@ -63,9 +63,6 @@
 		- Colour - TODO
 		- Timing function - TODO
 		- Duration - TODO
-- Virtual scroll
-	- Add scroll to index callback context - TODO
-	- Add ability to snap to item after scroll? - TODO
 
 ## Material Icons
 
