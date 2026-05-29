@@ -8,6 +8,7 @@ export const MaterialIconName = {
 	CheckCircle: "CheckCircle",
 	CheckIndeterminateSmall: "CheckIndeterminateSmall",
 	CheckSmall: "CheckSmall",
+	ChevronLeft: "ChevronLeft",
 	ChevronRight: "ChevronRight",
 	Close: "Close",
 	Delete: "Delete",
