@@ -124,8 +124,6 @@ export function virtualScrollRender<TChildProps>(
 	const indexesInViewResult: VirtualScrollIndexesInView = [...indexesInStartBuffer, ...indexesInView];
 	const itemsInViewResult: VirtualScrollItems<TChildProps> = [...itemsInStartBuffer, ...itemsInView];
 
-	console.log(indexesInView);
-
 	return {
 		indexesInView: indexesInViewResult,
 		itemsInView: itemsInViewResult,

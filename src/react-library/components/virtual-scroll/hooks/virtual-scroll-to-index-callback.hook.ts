@@ -29,13 +29,13 @@ export function useVirtualScrollToIndexCallback<TChildProps>(
 
 			const validScrollToIndex: number = Math.max(Math.min(scrollToIndex, (items.length - 1)), 0);
 
-			for (let i = 0; i <= validScrollToIndex; i++) currentSize += (items[i].size ?? config.itemSize);
+			for (let i = 0; i < validScrollToIndex; i++) currentSize += (items[i].size ?? config.itemSize);
 
 			containerElement.scrollTo({
 				behavior: behavior,
 				left: config.orientation === Orientation.Horizontal ? currentSize : undefined,
 				top: config.orientation === Orientation.Vertical ? currentSize : undefined
-			})
+			});
 		},
 		[items, containerElement, config.itemSize, config.orientation]
 	);

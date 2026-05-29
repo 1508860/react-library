@@ -8,7 +8,7 @@ import type { VirtualScrollIndexesInView } from "../types/virtual-scroll-index-i
 /**
  * Returns context for {@link VIRTUAL_SCROLL_INDEXES_IN_VIEW_CONTEXT} and ensures a non-null value
  */
-export function useVirtualScrollIndexesInViewInViewContext(): VirtualScrollIndexesInView {
+export function useVirtualScrollIndexesInViewContext(): VirtualScrollIndexesInView {
 	const result = useContext(VIRTUAL_SCROLL_INDEXES_IN_VIEW_CONTEXT);
 	if (!result) throw new NullContextError();
 	return result;

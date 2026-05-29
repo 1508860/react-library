@@ -1,4 +1,4 @@
-import { useCallback, useState, type RefCallback } from "react";
+import { useCallback, useState, type RefCallback, type UIEventHandler } from "react";
 
 import {
 	type Callback,
@@ -45,8 +45,8 @@ export function VirtualScrollItemsInViewProvider<TChildProps>(props: VirtualScro
 
 	// Container scroll state
 	const [containerScrollState, setContainerScrollState] = useState<ScrollObserverState>(SCROLL_OBSERVER_STATE_DEFAULT);
-	const handleSetContainerScrollState = useCallback(
-		(event: React.UIEvent) => targetEvent(event, (callbackEvent) => setContainerScrollState(resolveScrollObserverState(callbackEvent.currentTarget))),
+	const handleSetContainerScrollState = useCallback<UIEventHandler<VirtualScrollContainerElement>>(
+		(event) => targetEvent(event, (callbackEvent) => setContainerScrollState(resolveScrollObserverState(callbackEvent.currentTarget))),
 		[]
 	);
 
