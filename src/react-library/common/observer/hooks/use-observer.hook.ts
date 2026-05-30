@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { type Guid, generateGuid } from "../../guid";
+import type { CallbackWithParameter } from "../../types";
 
 import type { Subject } from "../classes/subject.class";
 import type { Observer } from "../types/observer.type";
@@ -10,7 +11,7 @@ import type { Observer } from "../types/observer.type";
  * @param subject
  * @param update
  */
-export function useObserver<TState>(subject: Subject<TState> | null, update: (state: TState) => void): void {
+export function useObserver<TState>(subject: Subject<TState> | null, update: CallbackWithParameter<TState, void>): void {
 
 	const [id] = useState<Guid>(() => generateGuid());
 
