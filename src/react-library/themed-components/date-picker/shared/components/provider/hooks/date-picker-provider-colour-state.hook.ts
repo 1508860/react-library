@@ -39,10 +39,10 @@ export function useDatePickerProviderColourState(): DatePickerColourState {
 			selection: {
 				disabled: {
 					false: {
-						font: colourScheme.surface.variant.onColour
+						colour: colourScheme.surface.variant.onColour
 					},
 					true: {
-						font: colourScheme.surface.default.onColour.toColourWithStyleOpacity(0.38)
+						colour: colourScheme.surface.default.onColour.toColourWithStyleOpacity(0.38)
 					}
 				},
 				icon: colourScheme.surface.variant.onColour

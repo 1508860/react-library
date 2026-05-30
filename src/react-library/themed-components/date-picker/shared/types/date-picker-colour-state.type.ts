@@ -1,6 +1,7 @@
 import type {
 	Colour,
 	IBackground,
+	IColour,
 	IDisabled,
 	IFont,
 	IHover,
@@ -50,12 +51,11 @@ type DatePickerMonthColourState = (
 // Selection
 
 type DatePickerSelectionColourState = (
-	IDisabled<Record<`${boolean}`, DatePickerSelectionDisabledColourState>> &
-	IIcon<Colour>
+	IDisabled<Record<`${boolean}`, DatePickerSelectionDisabledColourState>>
 );
 
 type DatePickerSelectionDisabledColourState = (
-	IFont<Colour>
+	IColour<Colour>
 );
 
 // Title

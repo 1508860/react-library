@@ -11,6 +11,7 @@ import type { VirtualScrollItems } from "@react-library/components";
 
 import { ThemedVirtualScroll } from "../../../../shared";
 
+import { DATE_PICKER_PROPERTY_MAP } from "../../constants/date-picker-property-map.const";
 import { DATE_PICKER_VIRTUAL_SCROLL_ITEM_BUFFER_COUNT } from "../../constants/date-picker-virtual-scroll.const";
 import {
 	resolveDatePickerMonthItemHeight,
@@ -24,12 +25,13 @@ import {
 	isDatePickerMonthItemPropsEqual,
 	type DatePickerMonthItemProps
 } from "../month-item";
-import { DATE_PICKER_PROPERTY_MAP } from "../../constants/date-picker-property-map.const";
+
+import type { DatePickerMonthItemsResolverProps } from "./types/date-picker-month-items-resolver-props.type";
 
 /**
  * Date picker month items resolver
  */
-export function DatePickerMonthItemsResolver() {
+export function DatePickerMonthItemsResolver(props: DatePickerMonthItemsResolverProps) {
 
 	// Local contexts
 	const years = useDatePickerYearsContext();
@@ -75,6 +77,8 @@ export function DatePickerMonthItemsResolver() {
 			items={items}
 			itemSize={0}
 			orientation={Orientation.Vertical}
-		/>
+		>
+			{props.children}
+		</ThemedVirtualScroll>
 	);
 }

@@ -66,7 +66,6 @@ type DatePickerPropertyMonthItemWeekdayMap = (
 	IFontSize<SizePx> &
 	IFontWeight<Property.FontWeight> &
 	IHeight<SizePx> &
-	IMarginBottom<SizePx> &
 	IWidth<SizePx>
 );
 

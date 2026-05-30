@@ -24,8 +24,7 @@ export function resolveDatePickerMonthItemHeight(weekCount: number): SizePx {
 			DATE_PICKER_PROPERTY_MAP.monthItem.title.height
 		) +
 		(
-			DATE_PICKER_PROPERTY_MAP.monthItem.weekday.height +
-			DATE_PICKER_PROPERTY_MAP.monthItem.weekday.marginBottom
+			DATE_PICKER_PROPERTY_MAP.monthItem.weekday.height
 		)
-	)
+	);
 }

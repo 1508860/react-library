@@ -5,6 +5,7 @@ import type { DatePickerColourState } from "../../../types/date-picker-colour-st
 
 /**
  * Date picker container style
+ * @param colourState
  */
 export function datePickerContainerStyle(colourState: DatePickerColourState): CSSProperties {
 	return {

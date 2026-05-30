@@ -25,7 +25,6 @@ export const DATE_PICKER_PROPERTY_MAP: DatePickerPropertyMap = {
 			fontSize: 16,
 			fontWeight: 400,
 			height: 24,
-			marginBottom: 16,
 			width: 40
 		},
 		width: 280 // 7 weekdays wide
@@ -37,6 +36,6 @@ export const DATE_PICKER_PROPERTY_MAP: DatePickerPropertyMap = {
 			arrow: 24,
 			chevron: 24
 		},
-		marginBottom: 30
+		marginBottom: 12
 	}
 };
