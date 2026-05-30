@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import type { IChild } from "@react-library/common";
 
 /**
@@ -11,4 +13,4 @@ export type VirtualScrollPropsChildren = (
  * Describes virtual scroll children result
  * - The child result is not intended to render anything on sceen, only allow access to hooks within the virtual scroll
  */
-export type VirtualScrollChildren = undefined;
+export type VirtualScrollChildren = ReactNode;
