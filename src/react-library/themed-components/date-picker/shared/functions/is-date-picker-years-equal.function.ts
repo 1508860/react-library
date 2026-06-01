@@ -1,7 +1,7 @@
 import type { DatePickerYears } from "../types/date-picker-years.type";
 
 /**
- * Compare two {@link DatePickerYears} collections and check if the date (not including time) is equal and exists in both collections
+ * Compare two objects of type {@link DatePickerYears} and check if all values are equal
  * @param value1
  * @param value2
  */

@@ -2,7 +2,7 @@ import type { DatePickerDisabledRanges } from "../types/date-picker-props-disabl
 import { isDatePickerValueEqual } from "./is-date-picker-value-equal.function";
 
 /**
- * Compare two {@link DatePickerDisabledRanges} collections and check if the date (not including time) is equal and exists in both collections
+ * Compare two objects of type {@link DatePickerDisabledRanges} and check if all values are equal
  * @param value1
  * @param value2
  */

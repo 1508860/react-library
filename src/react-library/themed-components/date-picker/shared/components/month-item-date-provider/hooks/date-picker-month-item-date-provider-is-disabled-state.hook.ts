@@ -50,7 +50,7 @@ export function useDatePickerMonthItemDateProviderIsDisabledState(monthItemDateV
 
 			return false;
 		},
-		[monthItemDateValue, weekday, scope.dateFrom, scope.dateTo, scope.disabledDates, scope.disabledRanges, scope.disabledWeekdays]
+		[monthItemDateValue, weekday, scope.dateFrom, scope.dateTo, scope.disabledDates, scope.disabledMonths, scope.disabledRanges, scope.disabledWeekdays]
 	);
 	const state = useResolveState(resolveState);
 

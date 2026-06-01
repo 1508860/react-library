@@ -15,6 +15,6 @@ export function datePickerSelectionLabelStyle(font: Font, colour: Colour): CSSPr
 		flexShrink: 0,
 		fontFamily: font.fontFamily,
 		fontSize: DATE_PICKER_PROPERTY_MAP.selection.fontSize,
-		fontWeight: DATE_PICKER_PROPERTY_MAP.selection.fontWeight,
+		fontWeight: DATE_PICKER_PROPERTY_MAP.selection.fontWeight
 	};
 };

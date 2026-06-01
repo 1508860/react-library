@@ -3,7 +3,7 @@ import { isDateEqual } from "@react-library/common";
 import type { DatePickerMonthItemProps } from "../types/date-picker-month-item-props.type";
 
 /**
- * Compare two {@link DatePickerMonthItemProps} collections and check if the date (not including time) is equal and exists in both collections
+ * Compare two objects of type {@link DatePickerMonthItemProps} and check if all values are equal
  * @param value1
  * @param value2
  */
