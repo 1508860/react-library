@@ -34,7 +34,7 @@ export function DatePickerMonthItemWeekdays() {
 	);
 }
 
-export function DatePickerMonthItemWeekdaysDay(props: IWeekday<DateWeekday>) {
+function DatePickerMonthItemWeekdaysDay(props: IWeekday<DateWeekday>) {
 
 	// Contexts
 	const font = useFontContext();

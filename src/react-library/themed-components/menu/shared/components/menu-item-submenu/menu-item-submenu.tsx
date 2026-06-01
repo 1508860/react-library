@@ -44,7 +44,7 @@ export function MenuItemSubmenu(props: MenuPropsItemContentSubmenu) {
 	);
 }
 
-export function MenuItemSubmenuChild(props: MenuPropsItemContentSubmenu) {
+function MenuItemSubmenuChild(props: MenuPropsItemContentSubmenu) {
 
 	// Menu contexts
 	const menuStyle = useMenuStyleContext();
