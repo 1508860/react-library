@@ -1,7 +1,7 @@
 import type { DateTimeDisplayFormatterConfig } from "../../types/date-time-display-formatter-config.type";
 
 /**
- * Compare two {@link DateTimeDisplayFormatterConfig} and check if the date (not including time) is equal
+ * Compare two objects of type {@link DateTimeDisplayFormatterConfig} and check if all values are equal
  * @param value1
  * @param value2
  */
