@@ -8,7 +8,7 @@ import type {
  * @param value1
  * @param value2
  */
-export function isTextFieldSupportingTextConfigEqual(
+function isTextFieldSupportingTextConfigEqual(
 	value1: TextFieldSupportingTextConfig,
 	value2: TextFieldSupportingTextConfig
 ): boolean {
@@ -36,11 +36,12 @@ export function isTextFieldSupportingTextConfigsEqual(
 	value1: TextFieldSupportingTextConfigs,
 	value2: TextFieldSupportingTextConfigs
 ): boolean {
-	if (!value1 && !value2) return true
-	if (!!value1 && !!value2 && value1.length === value2.length) {
-		for (let value1Index = 0; value1Index < value1.length; value1Index++) {
-			if (!value2.find(y => y.id === value1[value1Index].id)) return false;
-		}
+
+	if (value1.length !== value2.length) return false;
+
+	for (let i = 0; i < value1.length; i++) {
+		if (isTextFieldSupportingTextConfigEqual(value1[i], value2[i])) return false;
 	}
-	return false;
+
+	return true;
 }
