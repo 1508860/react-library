@@ -3,11 +3,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { MenuSelectedItemsProvider } from "../../../../menu";
 
 import { TEXT_FIELD_SELECT_MENU_ON_CHANGE_CONTEXT } from "../../constants/text-field-select-menu-on-change.const";
-import { TEXT_FIELD_SELECT_MENU_ON_CLEAR_CONTEXT } from "../../constants/text-field-select-menu-on-clear.const";
 import { TextFieldSelectInteraction } from "../../enums/text-field-select-interaction.type";
 import type { TextFieldSelectItemId } from "../../types/text-field-select-item-id.type";
 import type { TextFieldSelectMenuOnChange } from "../../types/text-field-select-menu-on-change.type";
-import type { TextFieldSelectMenuOnClear } from "../../types/text-field-select-menu-on-clear.type";
 
 import type { TextFieldSelectValueProviderProps } from "./types/text-field-select-value-provider-props.type";
 
@@ -37,18 +35,6 @@ export function TextFieldSelectValueProvider<TId extends TextFieldSelectItemId>(
 		[props]
 	);
 
-	// Clear selected ids
-	const handleClearSelectedItemIds = useCallback<TextFieldSelectMenuOnClear>(
-		() => {
-			if (props.interaction === TextFieldSelectInteraction.Multi) {
-				props.onValueChange(props.defaultValue ?? []);
-				return;
-			}
-			props.onValueChange(props.defaultValue);
-		},
-		[props]
-	);
-
 	// Handle update selected ids based on value
 	useEffect(
 		() => {
@@ -67,11 +53,9 @@ export function TextFieldSelectValueProvider<TId extends TextFieldSelectItemId>(
 
 	return (
 		<TEXT_FIELD_SELECT_MENU_ON_CHANGE_CONTEXT value={handleSetSelectedItemId}>
-			<TEXT_FIELD_SELECT_MENU_ON_CLEAR_CONTEXT value={handleClearSelectedItemIds}>
-				<MenuSelectedItemsProvider selectedIds={selectedItemIds}>
-					{props.children}
-				</MenuSelectedItemsProvider>
-			</TEXT_FIELD_SELECT_MENU_ON_CLEAR_CONTEXT>
+			<MenuSelectedItemsProvider selectedIds={selectedItemIds}>
+				{props.children}
+			</MenuSelectedItemsProvider>
 		</TEXT_FIELD_SELECT_MENU_ON_CHANGE_CONTEXT>
 	);
 }
