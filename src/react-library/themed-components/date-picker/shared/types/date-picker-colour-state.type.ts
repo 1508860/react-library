@@ -6,11 +6,9 @@ import type {
 	IFont,
 	IHover,
 	IIcon,
-	IMenu,
 	IMonth,
-	IPulse,
-	ISelected,
 	ISelection,
+	ISelectionMenu,
 	ITitle,
 	IWeekday
 } from "@react-library/common";
@@ -20,26 +18,11 @@ import type {
  */
 export type DatePickerColourState = (
 	IBackground<Colour> &
-	IMenu<DatePickerMenuColourState> &
 	IMonth<DatePickerMonthColourState> &
 	ISelection<DatePickerSelectionColourState> &
+	ISelectionMenu<DatePickerSelectionMenuColourState> &
 	ITitle<DatePickerTitleColourState> &
 	IWeekday<DatePickerWeekdayColourState>
-);
-
-// Menu
-
-type DatePickerMenuColourState = (
-	IBackground<Colour> &
-	IFont<Colour> &
-	IHover<Colour> &
-	IIcon<Colour> &
-	IPulse<Colour> &
-	ISelected<Record<`${boolean}`, DatePickerMenuSelectedColourState>>
-);
-
-type DatePickerMenuSelectedColourState = (
-	IBackground<Colour | undefined>
 );
 
 // Month
@@ -56,6 +39,15 @@ type DatePickerSelectionColourState = (
 
 type DatePickerSelectionDisabledColourState = (
 	IColour<Colour>
+);
+
+// Selection menu
+
+type DatePickerSelectionMenuColourState = (
+	IBackground<Colour> &
+	IFont<Colour> &
+	IHover<Colour> &
+	IIcon<Colour>
 );
 
 // Title

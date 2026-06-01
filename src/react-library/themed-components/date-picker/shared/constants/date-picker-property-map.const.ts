@@ -37,5 +37,12 @@ export const DATE_PICKER_PROPERTY_MAP: DatePickerPropertyMap = {
 			chevron: 24
 		},
 		marginBottom: 12
+	},
+	selectionMenu: {
+		fontSize: 16,
+		fontWeight: 400,
+		gap: 16,
+		iconSize: 24,
+		itemHeight: 48
 	}
 };

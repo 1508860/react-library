@@ -9,12 +9,15 @@ import type {
 	IDate,
 	IFontSize,
 	IFontWeight,
+	IGap,
 	IHeight,
 	IIconSize,
+	IItemHeight,
 	IMarginBottom,
 	IMonthItem,
 	IPadding,
 	ISelection,
+	ISelectionMenu,
 	ISize,
 	ITitle,
 	IWeekday,
@@ -29,7 +32,8 @@ import type {
 export type DatePickerPropertyMap = (
 	IContainer<DatePickerPropertyContainerMap> &
 	IMonthItem<DatePickerPropertyMonthItemMap> &
-	ISelection<DatePickerPropertySelectionMap>
+	ISelection<DatePickerPropertySelectionMap> &
+	ISelectionMenu<DatePickerPropertySelectionMenuMap>
 );
 
 // Container
@@ -81,4 +85,14 @@ type DatePickerPropertySelectionMap = (
 type DatePickerPropertySelectionIconSizeMap = (
 	IArrow<Size> &
 	IChevron<Size>
+);
+
+// Selection menu
+
+type DatePickerPropertySelectionMenuMap = (
+	IFontSize<Size> &
+	IFontWeight<Property.FontWeight> &
+	IGap<Size> &
+	IIconSize<Size> &
+	IItemHeight<SizePx>
 );

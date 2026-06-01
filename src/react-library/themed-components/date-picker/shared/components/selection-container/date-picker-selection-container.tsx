@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { Fragment, useCallback, useState } from "react";
 
 import {
 	DATE_MONTH_ALL,
@@ -18,6 +18,8 @@ import type { DatePickerSelectionChangeSubject } from "../../types/date-picker-s
 import type { DatePickerSelectionState } from "../../types/date-picker-selection-state.type";
 
 import { DatePickerSelection } from "../selection";
+import { DatePickerSelectionMenuMonthsResolver } from "../selection-menu-months-resolver";
+import { DatePickerSelectionMenuYearsResolver } from "../selection-menu-years-resolver";
 
 import { DATE_PICKER_SELECTION_CONTAINER_STYLE } from "./styles/date-picker-selection-container-style.const";
 import { DATE_PICKER_SELECTION_CONTENT_STYLE } from "./styles/date-picker-selection-content-style.const";
@@ -53,8 +55,10 @@ export function DatePickerSelectionContainer(props: DatePickerSelectionContainer
 	// Is open
 	const [isMonthOpen, setIsMonthOpen] = useState<boolean>(() => false);
 	const toggleIsMonthOpen = useCallback(() => setIsMonthOpen((prev) => !prev), []);
+	const setMonthClosed = useCallback<Callback<void>>(() => setIsMonthOpen(false), []);
 	const [isYearOpen, setIsYearOpen] = useState<boolean>(() => false);
 	const toggleIsYearOpen = useCallback(() => setIsYearOpen((prev) => !prev), []);
+	const setYearClosed = useCallback<Callback<void>>(() => setIsYearOpen(false), []);
 
 	// Display month
 	const [displayMonth] = useMonthMapDisplayState(selectionState.month, DateTimeDisplayLength.Medium);
@@ -103,6 +107,24 @@ export function DatePickerSelectionContainer(props: DatePickerSelectionContainer
 				<DATE_PICKER_SELECTION_CHANGE_SUBJECT_CONTEXT value={selectionChangeSubject}>
 					<DATE_PICKER_SET_SELECTION_STATE_CALLBACK_CONTEXT value={setSelectionState}>
 						{props.children}
+						{
+							isMonthOpen ?
+								<DatePickerSelectionMenuMonthsResolver
+									key="selection-menu-months"
+									onClick={setMonthClosed}
+									selectionState={selectionState}
+								/> :
+								<Fragment key="selection-menu-months" />
+						}
+						{
+							isYearOpen ?
+								<DatePickerSelectionMenuYearsResolver
+									key="selection-menu-years"
+									onClick={setYearClosed}
+									selectionState={selectionState}
+								/> :
+								<Fragment key="selection-menu-years" />
+						}
 					</DATE_PICKER_SET_SELECTION_STATE_CALLBACK_CONTEXT>
 				</DATE_PICKER_SELECTION_CHANGE_SUBJECT_CONTEXT>
 			</div>
