@@ -32,7 +32,8 @@ export function useDatePickerMonthItemDateProviderColourState(monthItemDateValue
 			// Is disabled
 			if (isDisabled) return {
 				background: undefined,
-				borderColour: undefined,
+				// Show today's date even if disabled
+				borderColour: isDatePickerValueEqual(monthItemDateValue, valueToday) ? colourScheme.primary.default.colour: undefined,
 				font: colourScheme.surface.default.onColour.toColourWithStyleOpacity(0.38),
 				hover: colourScheme.surface.default.onColour,
 				pulse: colourScheme.surface.default.onColour
