@@ -22,7 +22,7 @@ export function useObserver<TState>(subject: Subject<TState> | null, update: Cal
 				id: id,
 				update: update
 			};
-			subject?.subscribe(currentObserver);
+			subject.subscribe(currentObserver);
 			return () => subject?.unsubscribe(currentObserver);
 		},
 		[subject, update, id]
