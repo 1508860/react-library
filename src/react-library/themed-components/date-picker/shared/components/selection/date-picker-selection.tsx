@@ -26,13 +26,13 @@ export function DatePickerSelection(props: DatePickerSelectionProps) {
 
 	// Disabled states
 	const resolveIsPreviousDisabled = useCallback<Callback<boolean>>(
-		() => (props.index - Math.abs(props.incrementBy)) <= 0,
+		() => (props.index - Math.abs(props.incrementBy)) < 0,
 		[props.incrementBy, props.index]
 	);
 	const isPreviousDisabled = useResolveState(resolveIsPreviousDisabled);
 
 	const resolveIsNextDisabled = useCallback<Callback<boolean>>(
-		() => (props.index + Math.abs(props.incrementBy)) >= props.lastIndex,
+		() => (props.index + Math.abs(props.incrementBy)) > props.lastIndex,
 		[props.incrementBy, props.index, props.lastIndex]
 	);
 	const isNextDisabled = useResolveState(resolveIsNextDisabled);
