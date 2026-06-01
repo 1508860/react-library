@@ -12,7 +12,7 @@ import {
 	type TransitionPulseInsetData
 } from "@react-library/components";
 
-import { useTabsColourState } from "../../hooks/tabs-colour-state.hook";
+import { useTabsColourStateContext } from "../../hooks/tabs-colour-state-context.hook";
 import { useTabsItemIsActiveContext } from "../../hooks/tabs-item-is-active-context.hook";
 
 import { tabsItemContainerStyle } from "./styles/tabs-item-container-style.function";
@@ -25,7 +25,7 @@ import type { TabsItemContainerProps } from "./types/tabs-item-container-props.t
 export function TabsItemContainer(props: TabsItemContainerProps) {
 
 	// Local contexts
-	const colourState = useTabsColourState();
+	const colourState = useTabsColourStateContext();
 	const isActive = useTabsItemIsActiveContext();
 
 	// Hover state

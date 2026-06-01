@@ -1,7 +1,7 @@
 import { Orientation } from "@react-library/common";
 import { Divider } from "@react-library/themed-components";
 
-import { useTabsColourState } from "../../hooks/tabs-colour-state.hook";
+import { useTabsColourStateContext } from "../../hooks/tabs-colour-state-context.hook";
 
 import { TABS_BAR_CONTENT_SCROLL_STYLE } from "./styles/tabs-bar-content-scroll-style.const";
 import { TABS_BAR_CONTENT_STYLE } from "./styles/tabs-bar-content-style.const";
@@ -14,7 +14,7 @@ import type { TabsBarProps } from "./types/tabs-bar-props.type";
  */
 export function TabsBar(props: TabsBarProps) {
 
-	const colourState = useTabsColourState();
+	const colourState = useTabsColourStateContext();
 
 	return (
 		<div style={tabsBarStyle(colourState)}>

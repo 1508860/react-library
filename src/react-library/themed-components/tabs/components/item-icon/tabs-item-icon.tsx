@@ -4,7 +4,7 @@ import { useResolveState, type Callback } from "@react-library/common";
 import { MaterialIconStyle, MaterialIconSvg } from "@react-library/material-icons";
 
 import { TABS_PROPERTY_MAP } from "../../constants/tabs-property-map.const";
-import { useTabsColourState } from "../../hooks/tabs-colour-state.hook";
+import { useTabsColourStateContext } from "../../hooks/tabs-colour-state-context.hook";
 import { useTabsItemIsActiveContext } from "../../hooks/tabs-item-is-active-context.hook";
 
 import type { TabsItemIconProps } from "./types/tabs-item-icon-props.type";
@@ -16,7 +16,7 @@ import type { TabsItemIconProps } from "./types/tabs-item-icon-props.type";
 export function TabsItemIcon(props: TabsItemIconProps) {
 
 	// Local contexts
-	const colourState = useTabsColourState();
+	const colourState = useTabsColourStateContext();
 	const isActive = useTabsItemIsActiveContext();
 
 	// Resolve icon style

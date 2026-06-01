@@ -13,7 +13,7 @@ import {
 
 
 import { TABS_TRANSITION_MS } from "../../constants/tabs-transition.const";
-import { useTabsColourState } from "../../hooks/tabs-colour-state.hook";
+import { useTabsColourStateContext } from "../../hooks/tabs-colour-state-context.hook";
 import { useTabsItemIsActiveContext } from "../../hooks/tabs-item-is-active-context.hook";
 
 import { tabsItemActiveIndicatorStyle } from "./styles/tabs-item-active-indicator-style.function";
@@ -26,7 +26,7 @@ import type { TabsItemActiveIndicatorProps } from "./types/tabs-item-active-indi
 export function TabsItemActiveIndicator(props: TabsItemActiveIndicatorProps) {
 
 	// Local contexts
-	const colourState = useTabsColourState();
+	const colourState = useTabsColourStateContext();
 	const isActive = useTabsItemIsActiveContext();
 
 	// Active indicator

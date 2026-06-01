@@ -1,5 +1,6 @@
 import { useFontContext } from "@react-library/common";
-import { useTabsColourState } from "../../hooks/tabs-colour-state.hook";
+
+import { useTabsColourStateContext } from "../../hooks/tabs-colour-state-context.hook";
 import { useTabsItemIsActiveContext } from "../../hooks/tabs-item-is-active-context.hook";
 
 import { tabsItemLabelStyle } from "./styles/tabs-item-label-style.function";
@@ -15,7 +16,7 @@ export function TabsItemLabel(props: TabsItemLabelProps) {
 	const font = useFontContext();
 
 	// Local contexts
-	const colourState = useTabsColourState();
+	const colourState = useTabsColourStateContext();
 	const isActive = useTabsItemIsActiveContext();
 
 	return (
