@@ -49,7 +49,7 @@ export function ReactLibraryComponentsTransitionRotateDemo() {
 	);
 }
 
-export function ReactLibraryComponentsTransitionRotateDemoItem(props: ITiming<TransitionTiming>) {
+function ReactLibraryComponentsTransitionRotateDemoItem(props: ITiming<TransitionTiming>) {
 
 	const { state: rotate } = useArrayIncrementState<ScaleDegreesState, ArrayMinLength2<ScaleDegreesState>>(
 		[

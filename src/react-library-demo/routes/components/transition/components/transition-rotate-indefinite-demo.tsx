@@ -47,7 +47,7 @@ export function ReactLibraryComponentsTransitionRotateIndefiniteDemo() {
 	);
 }
 
-export function ReactLibraryComponentsTransitionRotateIndefiniteDemoItem(props: (
+function ReactLibraryComponentsTransitionRotateIndefiniteDemoItem(props: (
 	IDirection<TransitionRotateIndefiniteDirection> &
 	ITiming<TransitionTiming>
 )) {

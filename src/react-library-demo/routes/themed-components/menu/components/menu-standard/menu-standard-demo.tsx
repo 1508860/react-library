@@ -34,7 +34,7 @@ export function ReactLibraryThemedComponentsMenuStandardDemo() {
 	);
 }
 
-export function ReactLibraryThemedComponentsMenuStandardProviderDemo(props: PropsWithChildren) {
+function ReactLibraryThemedComponentsMenuStandardProviderDemo(props: PropsWithChildren) {
 
 	const [selectedMenuItemIds, setSelectedMenuItemIds] = useState<Array<MenuStandardDemoId>>(() => []);
 	const handleSetSelectedMenuItemId = useCallback<MenuStandardDemoOnSelect>(
@@ -58,7 +58,7 @@ export function ReactLibraryThemedComponentsMenuStandardProviderDemo(props: Prop
 	);
 }
 
-export function ReactLibraryThemedComponentsMenuStandardChildDemo() {
+function ReactLibraryThemedComponentsMenuStandardChildDemo() {
 
 	const menuStandardDemoOnSelect = useMenuStandardDemoOnSelectContext();
 
