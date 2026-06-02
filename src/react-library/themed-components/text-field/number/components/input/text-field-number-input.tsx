@@ -53,8 +53,9 @@ export function TextFieldNumberInput(props: TextFieldNumberProps) {
 			onBlur={textFieldEvents.onBlur}
 			onChange={handleOnValueChange}
 			onFocus={textFieldEvents.onFocus}
-			onMouseEnter={textFieldEvents.onMouseEnter}
-			onMouseLeave={textFieldEvents.onMouseLeave}
+			onPointerCancel={textFieldEvents.onPointerLeave}
+			onPointerEnter={textFieldEvents.onPointerEnter}
+			onPointerLeave={textFieldEvents.onPointerLeave}
 			placeholder={props.label}
 			step={props.valueStep}
 			style={textFieldNumberInputStyle(props.extraTextPosition, props.style, colourState)}

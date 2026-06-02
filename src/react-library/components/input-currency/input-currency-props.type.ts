@@ -1,3 +1,5 @@
+import type { CSSProperties, PointerEventHandler } from "react";
+
 import type {
 	CallbackWithParameter,
 	Currency,
@@ -9,15 +11,14 @@ import type {
 	IName,
 	IOnBlur,
 	IOnFocus,
-	IOnMouseEnter,
-	IOnMouseLeave,
+	IOnPointerEnter,
+	IOnPointerLeave,
 	IOnValueChange,
 	IPlaceholder,
 	IStyle,
 	IValue,
 	IValueStep
 } from "@react-library/common";
-import type { CSSProperties } from "react";
 
 /**
  * Props for input currency
@@ -31,8 +32,8 @@ export type InputCurrencyProps = (
 	Partial<IName<string>> &
 	Partial<IOnBlur<CallbackWithParameter<(Currency | undefined), void>>> &
 	Partial<IOnFocus<CallbackWithParameter<(Currency | undefined), void>>> &
-	Partial<IOnMouseEnter<Element>> &
-	Partial<IOnMouseLeave<Element>> &
+	Partial<IOnPointerEnter<PointerEventHandler<Element>>> &
+	Partial<IOnPointerLeave<PointerEventHandler<Element>>> &
 	IOnValueChange<CallbackWithParameter<(Currency | undefined), void>> &
 	Partial<IPlaceholder<string>> &
 	Partial<IValueStep<number>> &

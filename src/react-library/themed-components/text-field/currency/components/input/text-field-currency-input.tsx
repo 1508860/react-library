@@ -28,8 +28,8 @@ export function TextFieldCurrencyInput(props: TextFieldCurrencyProps) {
 			onBlur={textFieldEvents.onBlur}
 			onValueChange={props.onValueChange}
 			onFocus={textFieldEvents.onFocus}
-			onMouseEnter={textFieldEvents.onMouseEnter}
-			onMouseLeave={textFieldEvents.onMouseLeave}
+			onPointerEnter={textFieldEvents.onPointerEnter}
+			onPointerLeave={textFieldEvents.onPointerLeave}
 			placeholder={props.label}
 			valueStep={props.valueStep}
 			style={textFieldCurrencyInputStyle(props.extraTextPosition, props.style, colourState)}

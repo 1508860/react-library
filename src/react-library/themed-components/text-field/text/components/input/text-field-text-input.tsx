@@ -47,8 +47,9 @@ export function TextFieldTextInput(props: TextFieldTextProps) {
 			onBlur={textFieldEvents.onBlur}
 			onChange={handleOnValueChange}
 			onFocus={textFieldEvents.onFocus}
-			onMouseEnter={textFieldEvents.onMouseEnter}
-			onMouseLeave={textFieldEvents.onMouseLeave}
+			onPointerCancel={textFieldEvents.onPointerLeave}
+			onPointerEnter={textFieldEvents.onPointerEnter}
+			onPointerLeave={textFieldEvents.onPointerLeave}
 			placeholder={props.label}
 			style={textFieldTextInputStyle(props.extraTextPosition, props.style, colourState)}
 			type="text"

@@ -72,8 +72,9 @@ export function InputCurrency(props: InputCurrencyProps) {
 			onBlur={handleBlur}
 			onChange={handleOnValueChange}
 			onFocus={handleFocus}
-			onMouseEnter={props.onMouseEnter}
-			onMouseLeave={props.onMouseLeave}
+			onPointerCancel={props.onPointerLeave}
+			onPointerEnter={props.onPointerEnter}
+			onPointerLeave={props.onPointerLeave}
 			placeholder={props.placeholder}
 			step={isFocused ? props.valueStep : undefined}
 			style={props.style}

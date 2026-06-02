@@ -29,8 +29,8 @@ export function TextFieldProvider<TProps>(props: TextFieldProviderProps<TProps>)
 		onBlur: () => setIsFocused(false),
 		onFocus: () => setIsFocused(true),
 		onIsErrored: setIsErrored,
-		onMouseEnter: () => setIsHovered(true),
-		onMouseLeave: () => setIsHovered(false),
+		onPointerEnter: () => setIsHovered(true),
+		onPointerLeave: () => setIsHovered(false),
 		onHideContent: () => setShowContent(false),
 		onShowContent: () => setShowContent(true)
 	}));

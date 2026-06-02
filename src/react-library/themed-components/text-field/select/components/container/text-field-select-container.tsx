@@ -20,8 +20,9 @@ export function TextFieldSelectContainer(props: TextFieldSelectContainerProps) {
 	return (
 		<div
 			onClick={onClick}
-			onMouseEnter={textFieldEvents.onMouseEnter}
-			onMouseLeave={textFieldEvents.onMouseLeave}
+			onPointerCancel={textFieldEvents.onPointerLeave}
+			onPointerEnter={textFieldEvents.onPointerEnter}
+			onPointerLeave={textFieldEvents.onPointerLeave}
 			ref={ref}
 			style={textFieldSelectContainerStyle(isHovered)}
 		>

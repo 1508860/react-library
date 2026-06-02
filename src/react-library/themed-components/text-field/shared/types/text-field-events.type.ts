@@ -1,3 +1,5 @@
+import type { PointerEventHandler } from "react";
+
 import type {
 	Callback,
 	CallbackWithParameter,
@@ -5,8 +7,8 @@ import type {
 	IOnFocus,
 	IOnHideContent,
 	IOnIsErrored,
-	IOnMouseEnter,
-	IOnMouseLeave,
+	IOnPointerEnter,
+	IOnPointerLeave,
 	IOnShowContent,
 } from "@react-library/common";
 
@@ -18,7 +20,7 @@ export type TextFieldEvents = (
 	IOnFocus<Callback<void>> &
 	IOnHideContent<Callback<void>> &
 	IOnIsErrored<CallbackWithParameter<boolean, void>> &
-	IOnMouseEnter<Element> &
-	IOnMouseLeave<Element> &
+	IOnPointerEnter<PointerEventHandler<Element>> &
+	IOnPointerLeave<PointerEventHandler<Element>> &
 	IOnShowContent<Callback<void>>
 );
