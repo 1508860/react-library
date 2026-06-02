@@ -1,4 +1,5 @@
 export * from "./currency"
+export * from "./date";
 export * from "./number";
 export * from "./password";
 export * from "./readonly";
