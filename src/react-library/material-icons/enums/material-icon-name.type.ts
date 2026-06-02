@@ -4,6 +4,7 @@
 export const MaterialIconName = {
 	Add: "Add",
 	ArrowBack: "ArrowBack",
+	CalendarToday: "CalendarToday",
 	Cancel: "Cancel",
 	CheckCircle: "CheckCircle",
 	CheckIndeterminateSmall: "CheckIndeterminateSmall",

@@ -16,6 +16,7 @@ export type MaterialIconSvgPathDefaultFilled = (typeof MaterialIconSvgPathDefaul
 export const MaterialIconSvgPathDefaultFilled = {
 	[MaterialIconName.Add]: MaterialIconSvgPathThick[MaterialIconName.Add],
 	[MaterialIconName.ArrowBack]: MaterialIconSvgPathThick[MaterialIconName.ArrowBack],
+	[MaterialIconName.CalendarToday]: ["M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Z"],
 	[MaterialIconName.Cancel]: ["m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"],
 	[MaterialIconName.CheckCircle]: ["m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"],
 	[MaterialIconName.CheckIndeterminateSmall]: ["M206-417v-126h548v126H206Z"],
