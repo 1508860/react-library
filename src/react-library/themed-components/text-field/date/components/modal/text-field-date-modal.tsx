@@ -1,14 +1,18 @@
-import { Fragment, useCallback, useEffect, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 
 import {
-	isDateEqual,
 	toDateMonth,
 	useResolveState,
 	type Callback
 } from "@react-library/common";
 import { MaterialIconName } from "@react-library/material-icons";
 
-import { DatePicker, type DatePickerValue } from "../../../../date-picker";
+import {
+	DatePicker,
+	isDatePickerValueEqual,
+	type DatePickerOnValueChange,
+	type DatePickerValue
+} from "../../../../date-picker";
 import {
 	ModalBasic,
 	ModalBasicActionDismissText,
@@ -21,7 +25,6 @@ import { useTextFieldOnClickContext } from "../../../shared/hooks/text-field-on-
 
 import { useTextFieldDateModalIsOpenContext } from "../../hooks/text-field-date-modal-is-open-context.hook";
 import type { TextFieldDateProps } from "../../types/text-field-date-props.type";
-import type { TextFieldDateValue } from "../../types/text-field-date-value.type";
 
 /**
  * Text field date modal component
@@ -53,24 +56,19 @@ function TextFieldDateModalChild(props: TextFieldDateProps) {
 	const [modalChildrenSize] = useState<ScrollBasicSizeVertical>(() => ({}));
 
 	// Value
-	const valueRef = useRef<TextFieldDateValue>(props.value);
 	const [datePickerValue, setDatePickerValue] = useState<DatePickerValue | undefined>(() => undefined);
+	const onDatePickerValueChange = useCallback<DatePickerOnValueChange>(
+		(newValue) => setDatePickerValue((prev) => isDatePickerValueEqual(prev, newValue) ? undefined : newValue),
+		[]
+	);
 
-	// Update date picker if value has been updated
+	// Update date picker if value prop has been updated
 	useEffect(
 		() => {
-			if (
-				(valueRef.current === undefined && props.value === undefined) ||
-				(valueRef.current !== undefined && props.value !== undefined && isDateEqual(props.value, valueRef.current))
-			) return;
-
-			valueRef.current = props.value;
-
 			if (props.value === undefined) {
 				setDatePickerValue(undefined);
 				return;
 			}
-
 			setDatePickerValue({
 				day: props.value.getUTCDate(),
 				month: toDateMonth(props.value.getUTCMonth()),
@@ -125,7 +123,7 @@ function TextFieldDateModalChild(props: TextFieldDateProps) {
 				disabledMonths={props.disabledMonths}
 				disabledRanges={props.disabledRanges}
 				disabledWeekdays={props.disabledWeekdays}
-				onValueChange={setDatePickerValue}
+				onValueChange={onDatePickerValueChange}
 				value={datePickerValue}
 			/>
 		</ModalBasic>
