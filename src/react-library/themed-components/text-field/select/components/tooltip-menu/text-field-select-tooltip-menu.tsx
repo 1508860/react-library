@@ -2,11 +2,12 @@ import { useCallback } from "react";
 
 import { useTooltipChildPropsContext, useTooltipShowCallbackContext } from "@react-library/components";
 
-import { TEXT_FIELD_SELECT_ON_CLICK_CONTEXT } from "../../constants/text-field-select-on-click-context.const";
+import { TEXT_FIELD_ON_CLICK_CONTEXT } from "../../../shared/constants/text-field-on-click-context.const";
+import type { TextFieldOnClick } from "../../../shared/types/text-field-on-click.type";
+
 import { TEXT_FIELD_SELECT_REF_CONTEXT } from "../../constants/text-field-select-ref-context.const";
 import { useTextFieldSelectMenuEffect } from "../../hooks/text-field-select-menu-effect.hook";
 import type { TextFieldSelectItemId } from "../../types/text-field-select-item-id.type";
-import type { TextFieldSelectOnClick } from "../../types/text-field-select-on-click.type";
 
 import type { TextFieldSelectTooltipMenuProps } from "./types/text-field-select-tooltip-menu-props.type";
 
@@ -20,7 +21,7 @@ export function TextFieldSelectTooltipMenu<TId extends TextFieldSelectItemId>(pr
 	const tooltipShowCallback = useTooltipShowCallbackContext();
 
 	// Handle tooltp show
-	const handleTooltipShow = useCallback<TextFieldSelectOnClick>(
+	const handleTooltipShow = useCallback<TextFieldOnClick>(
 		() => {
 			if (props.isDisabled) return;
 			tooltipShowCallback(true);
@@ -32,10 +33,10 @@ export function TextFieldSelectTooltipMenu<TId extends TextFieldSelectItemId>(pr
 	useTextFieldSelectMenuEffect(props.interaction, props.isDisabled, props.items, props.menuHeight, props.menuWidth, props.menuStyle);
 
 	return (
-		<TEXT_FIELD_SELECT_ON_CLICK_CONTEXT value={handleTooltipShow}>
+		<TEXT_FIELD_ON_CLICK_CONTEXT value={handleTooltipShow}>
 			<TEXT_FIELD_SELECT_REF_CONTEXT value={tooltipChildProps.ref}>
 				{props.children}
 			</TEXT_FIELD_SELECT_REF_CONTEXT>
-		</TEXT_FIELD_SELECT_ON_CLICK_CONTEXT>
+		</TEXT_FIELD_ON_CLICK_CONTEXT>
 	);
 }
