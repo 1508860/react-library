@@ -11,6 +11,7 @@ export * from "./functions/helpers/date-weekday-add-days.function";
 export * from "./functions/helpers/date-weeks-in-month.function";
 export * from "./functions/helpers/to-date-month.function";
 export * from "./functions/helpers/to-date-weekday.function";
+export * from "./functions/helpers/to-input-date.function";
 export * from "./functions/is-equal/is-date-equal.function";
 export * from "./functions/is-equal/is-dates-equal.function";
 export * from "./functions/is-equal/is-year-equal.function";

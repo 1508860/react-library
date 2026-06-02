@@ -3,7 +3,7 @@ import { WeekdayInvalidError } from "../../../errors";
 import { DateWeekday } from "../../enums/date-weekday.type";
 
 /**
- * Function to map a UTC day from a day from a {@link Date} to a {@link DateWeekday}
+ * Function to map a date weekday number to a {@link DateWeekday}
  * @param day
  */
 export function toDateWeekday(day: number): DateWeekday {
