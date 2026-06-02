@@ -1,13 +1,16 @@
 import type { CSSProperties } from "react";
 
+import type { Font } from "@react-library/common";
+
 import { TEXT_FIELD_PROPERTY_MAP } from "../../../constants/text-field-property-map.const";
 import type { TextFieldStyle } from "../../../enums/text-field-style.type";
 
 /**
  * Resolve text field supporting text container style based on parameters
  * @param style
+ * @param font
  */
-export function textFieldSupportingTextContainerStyle(style: TextFieldStyle): CSSProperties {
+export function textFieldSupportingTextContainerStyle(style: TextFieldStyle, font: Font): CSSProperties {
 
 	const styleMap = TEXT_FIELD_PROPERTY_MAP.style[style];
 
@@ -16,6 +19,7 @@ export function textFieldSupportingTextContainerStyle(style: TextFieldStyle): CS
 		boxSizing: "border-box",
 		display: "flex",
 		flexDirection: "row",
+		fontFamily: font.fontFamily,
 		gap: styleMap.supportingText.gap,
 		justifyContent: "end",
 		paddingBottom: styleMap.supportingText.paddingBottom,

@@ -1,5 +1,7 @@
 import { Fragment, useEffect } from "react";
 
+import { useFontContext } from "@react-library/common";
+
 import { useTextFieldColourStateContext } from "../../hooks/text-field-colour-state-context.hook";
 import { useTextFieldEventsContext } from "../../hooks/text-field-events-context.hook";
 
@@ -14,6 +16,9 @@ import { textFieldSupportingTextSideStyle } from "./styles/text-field-supporting
 export function TextFieldSupportingText(props: TextFieldSupportingTextProps) {
 
 	// Contexts
+	const font = useFontContext();
+
+	// Local contexts
 	const colourState = useTextFieldColourStateContext();
 	const textFieldEvents = useTextFieldEventsContext();
 
@@ -34,7 +39,7 @@ export function TextFieldSupportingText(props: TextFieldSupportingTextProps) {
 	return (
 		<div
 			key="container"
-			style={textFieldSupportingTextContainerStyle(props.style)}
+			style={textFieldSupportingTextContainerStyle(props.style, font)}
 		>
 			<div
 				key="left"
