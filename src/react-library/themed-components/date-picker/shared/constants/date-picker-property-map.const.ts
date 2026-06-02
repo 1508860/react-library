@@ -1,12 +1,14 @@
 import type { DatePickerPropertyMap } from "../types/date-picker-property-map.type";
 
+import { DATE_PICKER_SIZE_HEIGHT } from "./date-picker-size.const";
+
 /**
  * Defines values for date picker style sizes
  */
 export const DATE_PICKER_PROPERTY_MAP: DatePickerPropertyMap = {
 	container: {
 		borderRadius: 16,
-		height: 460,
+		height: DATE_PICKER_SIZE_HEIGHT,
 		padding: 12
 	},
 	monthItem: {
