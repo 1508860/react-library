@@ -21,6 +21,7 @@ export function SwitchInput(props: SwitchInputProps) {
 
 	return (
 		<input
+			checked={props.value}
 			disabled={props.isDisabled}
 			id={props.id}
 			key="input"
@@ -29,7 +30,7 @@ export function SwitchInput(props: SwitchInputProps) {
 			placeholder={props.label}
 			style={SWITCH_INPUT_STYLE}
 			type="checkbox"
-			value={props.value ? `${props.value}` : undefined}
+			value={`${props.value}`}
 		/>
 	);
 }

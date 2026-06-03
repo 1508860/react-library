@@ -12,6 +12,7 @@ export function CheckboxInput(props: CheckboxInputProps) {
 
 	return (
 		<input
+			checked={props.value}
 			disabled={props.isDisabled}
 			id={props.id}
 			name={props.name}
@@ -19,7 +20,7 @@ export function CheckboxInput(props: CheckboxInputProps) {
 			placeholder={props.label}
 			style={CHECKBOX_INPUT_STYLE}
 			type="checkbox"
-			value={props.value ? `${props.value}` : undefined}
+			value={`${props.value}`}
 		/>
 	);
 }

@@ -130,10 +130,11 @@ function FormDemoItem(props: (IId<number> & IIsRequired<boolean>)) {
 				{`Is Item Valid - ${isValid}`}
 			</span>
 			<input
+				checked={value}
 				name={`name_${props.id}`}
+				onChange={toggleValue}
 				type="checkbox"
 				value={`${value}`}
-				onChange={toggleValue}
 			/>
 		</DemoContent>
 	);
