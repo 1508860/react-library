@@ -11,6 +11,7 @@ import {
 	resolveTransitionPulseInsetFromSize,
 	TransitionPulseColourProvider,
 	TransitionPulseInsetDataProvider,
+	useFormValidationSubscriberOptional,
 	type TransitionPulseInsetData
 } from "@react-library/components";
 
@@ -30,6 +31,13 @@ import type { CheckboxProviderProps } from "./types/checkbox-provider-props.type
  * Checkbox provider
  */
 export function CheckboxProvider(props: CheckboxProviderProps) {
+
+	// Is errored
+	const resolveIsErrored = useCallback<Callback<boolean>>(
+		() => (!!props.isRequired && !props.value),
+		[props.isRequired, props.value]
+	);
+	const isErrored = useResolveState(resolveIsErrored);
 
 	// Input event states
 	const [isHovered, setIsHovered] = useState<boolean>(() => false);
@@ -72,7 +80,10 @@ export function CheckboxProvider(props: CheckboxProviderProps) {
 	useCheckboxObserver(handleObserverUpdate);
 
 	// Colour state
-	const colourState = useCheckboxColourState(!!props.isDisabled, (!!props.isRequired && !props.value), selectedState);
+	const colourState = useCheckboxColourState(!!props.isDisabled, isErrored, selectedState);
+
+	// Handle optional form validation
+	useFormValidationSubscriberOptional(!isErrored);
 
 	return (
 		<HoverLayerColourProvider colour={colourState.hoverColour}>

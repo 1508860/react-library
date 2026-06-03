@@ -1,7 +1,11 @@
 import { useCallback, useState } from "react";
 
-import type { Callback } from "@react-library/common";
-import { HoverLayerColourProvider, HoverLayerShowProvider } from "@react-library/components";
+import { useResolveState, type Callback } from "@react-library/common";
+import {
+	HoverLayerColourProvider,
+	HoverLayerShowProvider,
+	useFormValidationSubscriberOptional
+} from "@react-library/components";
 
 import { SWITCH_COLOUR_STATE_CONTEXT } from "../../constants/switch-colour-state-context.const";
 import { useSwitchColourState } from "../../hooks/use-switch-colour-state.hook";
@@ -25,8 +29,18 @@ export function SwitchContainer(props: SwitchContainerProps) {
 	);
 	const handleOnPointerLeave = useCallback<Callback<void>>(() => setIsHovered(false), []);
 
+	// Is errored
+	const resolveIsErrored = useCallback<Callback<boolean>>(
+		() => (!!props.isRequired && !props.value),
+		[props.isRequired, props.value]
+	);
+	const isErrored = useResolveState(resolveIsErrored);
+
 	// Colour state
-	const colourState = useSwitchColourState(props.isDisabled, props.isRequired, props.value);
+	const colourState = useSwitchColourState(props.isDisabled, isErrored, props.value);
+
+	// Handle optional form validation
+	useFormValidationSubscriberOptional(!isErrored);
 
 	return (
 		<HoverLayerColourProvider colour={colourState.hoverColour}>

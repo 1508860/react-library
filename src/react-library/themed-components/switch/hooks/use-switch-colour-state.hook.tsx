@@ -9,12 +9,12 @@ import type { SwitchColourState } from "../types/switch-colour-state.type";
 /**
  * Derive the switch colour state based on parameters
  * @param isDisabled
- * @param isRequired
+ * @param isErrored
  * @param value
  */
 export function useSwitchColourState(
 	isDisabled: boolean | undefined,
-	isRequired: boolean | undefined,
+	isErrored: boolean,
 	value: boolean
 ): SwitchColourState {
 
@@ -22,8 +22,8 @@ export function useSwitchColourState(
 	const colourScheme = useColourSchemeContext();
 
 	const resolveState = useCallback(
-		() => resolveSwitchColourState(!!isDisabled, value, colourScheme, (!!isRequired && !value)),
-		[isDisabled, value, isRequired, colourScheme]
+		() => resolveSwitchColourState(!!isDisabled, value, colourScheme, isErrored),
+		[isDisabled, isErrored, value, colourScheme]
 	);
 
 	const isStateEqual = useCallback(isSwitchColourStateEqual, []);

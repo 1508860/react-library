@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 
 import { useResolveState, type Callback } from "@react-library/common";
+import { useFormValidationSubscriberOptional } from "@react-library/components";
 
 import { TEXT_FIELD_COLOUR_STATE_CONTEXT } from "../../constants/text-field-colour-state-context.const";
 import { TEXT_FIELD_EVENTS_CONTEXT } from "../../constants/text-field-events-context.const";
@@ -34,6 +35,9 @@ export function TextFieldProvider<TProps>(props: TextFieldProviderProps<TProps>)
 		onHideContent: () => setShowContent(false),
 		onShowContent: () => setShowContent(true)
 	}));
+
+	// Handle optional form validation
+	useFormValidationSubscriberOptional(!isErrored);
 
 	// Is populated
 	const isPopulated = props.useIsPopulatedState(props.props);

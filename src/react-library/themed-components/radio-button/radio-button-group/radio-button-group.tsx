@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 
 import { useResolveState, type Callback } from "@react-library/common";
+import { useFormValidationSubscriberOptional } from "@react-library/components";
 
 import { RADIO_BUTTON_IS_ERRORED_CONTEXT } from "../shared/constants/radio-button-is-errored-context.const";
 import { RADIO_BUTTON_NAME_CONTEXT } from "../shared/constants/radio-button-name-context.const";
@@ -20,6 +21,9 @@ export function RadioButtonGroup(props: RadioButtonGroupProps) {
 		[props.isRequired, props.value]
 	);
 	const isErrored = useResolveState(resolveIsErrored);
+
+	// Handle optional form validation
+	useFormValidationSubscriberOptional(!isErrored);
 
 	return (
 		<RADIO_BUTTON_IS_ERRORED_CONTEXT value={isErrored}>
