@@ -22,12 +22,12 @@ export function useTextFieldDateSupportingTextLeftState(props: TextFieldDateProp
 
 			if (props.supportingText !== undefined)
 				result.push({ id: TextFieldSupportingTextLeftId.SupportingText, isErrored: false, text: props.supportingText });
-			if (props.isRequired)
+			if (props.isRequired && props.value === undefined)
 				result.push({ id: TextFieldSupportingTextLeftId.IsRequired, isErrored: true, text: "Is Required" });
 
 			return result;
 		},
-		[props.isDisabled, props.isRequired, props.supportingText]
+		[props.isDisabled, props.isRequired, props.supportingText, props.value]
 	);
 
 	const isStateEqual = useCallback(isTextFieldSupportingTextConfigsEqual, []);
