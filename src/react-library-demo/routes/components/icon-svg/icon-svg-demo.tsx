@@ -26,7 +26,7 @@ export function ReactLibraryComponentsIconSvgDemo() {
 	const [size] = useState<Size>(() => 50);
 
 	return (
-		<DemoSection title="Icon  SVG">
+		<DemoSection title="Icon SVG">
 			<DemoItem config={[
 				{ key: "Colour", value: colour.toColourString() },
 				{ key: "Namespace", value: namespace },
