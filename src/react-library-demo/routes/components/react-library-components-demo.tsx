@@ -1,6 +1,7 @@
 import type { DemoSelectorSubItems } from "@react-library-demo/shared";
 
 import { ReactLibraryComponentsDemo } from "./react-library-components-demo.type";
+import { ReactLibraryComponentsHoverLayerDemo } from "./hover-layer";
 import { ReactLibraryComponentsIconSvgDemo } from "./icon-svg";
 import { ReactLibraryComponentsInputCurrencyDemo } from "./input-currency";
 import { ReactLibraryComponentsModalDemo } from "./modal";
@@ -14,6 +15,11 @@ import { ReactLibraryComponentsVirtualScrollDemo } from "./virtual-scroll";
 
 export function ReactLibraryComponentsDemoList(): DemoSelectorSubItems<ReactLibraryComponentsDemo> {
 	return [
+		{
+			element: () => <ReactLibraryComponentsHoverLayerDemo />,
+			id: ReactLibraryComponentsDemo.HoverLayer,
+			title: "Hover Layer"
+		},
 		{
 			element: () => <ReactLibraryComponentsIconSvgDemo />,
 			id: ReactLibraryComponentsDemo.IconSvg,
@@ -29,7 +35,7 @@ export function ReactLibraryComponentsDemoList(): DemoSelectorSubItems<ReactLibr
 			id: ReactLibraryComponentsDemo.Modal,
 			title: "Modal"
 		},
-				{
+		{
 			element: () => <ReactLibraryComponentsOverlayPortalDemo />,
 			id: ReactLibraryComponentsDemo.OverlayPortal,
 			title: "Overlay Portal"
