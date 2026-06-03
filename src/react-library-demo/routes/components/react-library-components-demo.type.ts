@@ -2,6 +2,7 @@
  * React library component demo types
  */
 export const ReactLibraryComponentsDemo = {
+	"Form": "ReactLibraryComponentsDemo-Form",
 	"HoverLayer": "ReactLibraryComponentsDemo-HoverLayer",
 	"IconSvg": "ReactLibraryComponentsDemo-IconSvg",
 	"InputCurrency": "ReactLibraryComponentsDemo-InputCurrency",

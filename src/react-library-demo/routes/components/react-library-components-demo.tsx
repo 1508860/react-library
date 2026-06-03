@@ -1,6 +1,7 @@
 import type { DemoSelectorSubItems } from "@react-library-demo/shared";
 
 import { ReactLibraryComponentsDemo } from "./react-library-components-demo.type";
+import { ReactLibraryComponentsFormDemo } from "./form";
 import { ReactLibraryComponentsHoverLayerDemo } from "./hover-layer";
 import { ReactLibraryComponentsIconSvgDemo } from "./icon-svg";
 import { ReactLibraryComponentsInputCurrencyDemo } from "./input-currency";
@@ -15,6 +16,11 @@ import { ReactLibraryComponentsVirtualScrollDemo } from "./virtual-scroll";
 
 export function ReactLibraryComponentsDemoList(): DemoSelectorSubItems<ReactLibraryComponentsDemo> {
 	return [
+		{
+			element: () => <ReactLibraryComponentsFormDemo />,
+			id: ReactLibraryComponentsDemo.Form,
+			title: "Form"
+		},
 		{
 			element: () => <ReactLibraryComponentsHoverLayerDemo />,
 			id: ReactLibraryComponentsDemo.HoverLayer,
