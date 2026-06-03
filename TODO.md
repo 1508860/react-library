@@ -1,4 +1,5 @@
 # Generic
+- Remove "use" at the start of hook file names
 - Sort out generics for contexts. Create wrapper for converting to correct type?
 	- Virtual scroll items in view
 	- Text field select menu on change
@@ -45,8 +46,12 @@
 - CSS variable loader and convert all components to CSS / SASS files
 
 ## Components
+- Form
+	- Add form provider with callback to clear all form data / set to default
+	- Fieldset & legend elements?
 - Modal
 	- Make draggable?
+	- Improve composition of children and elements added to portal. If a modal is created on app load, the modal can be underneath the page content - TODO
 - Tooltip
 	- Tooltip jumps from top left to final position. Sort it
 		- Come up with better solution for that
@@ -63,6 +68,8 @@
 		- Colour - TODO
 		- Timing function - TODO
 		- Duration - TODO
+- Virtual scroll
+	- children props using a ReactNode when we want to restrict to something that doesn't render
 
 ## Material Icons
 
@@ -80,8 +87,6 @@
 - Look at focused state for components
 - Components
 	- Date & time picker
-		- Date picker
-			- Implement
 		- Time picker
 			- Implement
 	- Loading & Progress
@@ -107,7 +112,6 @@
 		- Carousel
 			- Implement
 		- Checkbox
-			- Integrate with form - TODO
 			- What to do about disabled checkboxes in a group when handling parent checkbox?
 		- Chips
 			- Implement
@@ -121,8 +125,6 @@
 			- Implement
 		- Menus
 			- Add custom variant
-		- Radio button
-			- Integrate with form - TODO
 		- Search
 			- Modes
 				- Docked (tooltip)
@@ -132,23 +134,14 @@
 			- Implement
 		- Snackbar
 			- Implement
-		- Switch
-			- Integrate with form - TODO
 		- Text fields
 			- Add copy text trailing click icon
-			- Select - TODO
-				- clear select - TODO
-				- Sort out caret position when typing - TODO
-			- Date - TODO
+			- clear for select variant - TODO
+			- Sort out caret position when typing - TODO
+			- Date
+				- Why does the date picker rerender for first time on close. Is it a create portal issue? - TODO
 			- Time picker? - TODO
 			- Icons & Images -  https://m3.material.io/components/text-fields/guidelines#5c8a5f07-b1a5-455f-bf76-7ff0d724f6b0
-			- Integrate with form - TODO
-			- Form
-				- GUID id attribute to include label in form
-				- Add form provider with callback to clear all form data / set to default
-				- Add collective error state in form and provide hook so we can determine of state of form is valid
-				- Add validity for all fields in form to prevent submision? Or add callback for is valid to each input and let consumer decide?
-				- Fieldset & legend elements?
 		- Toolbars
 			- Implement
 
