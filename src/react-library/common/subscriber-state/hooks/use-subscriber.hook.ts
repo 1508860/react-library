@@ -32,8 +32,8 @@ export function useSubscriber<TState>(
 				id: id,
 				state: resolvedState
 			};
-			subscriberState?.subscribe(subscriber);
-			return () => subscriberState?.unsubscribe(subscriber);
+			subscriberState.subscribe(subscriber);
+			return () => subscriberState.unsubscribe(subscriber);
 		},
 		[subscriberState, id, resolvedState]
 	);
