@@ -15,6 +15,7 @@ export function formColumnStyle(
 ): CSSProperties {
 	return {
 		alignItems: "start",
+		backgroundColor: "inherit",
 		display: "flex",
 		flexBasis: props.flexBasis,
 		flexDirection: "column",

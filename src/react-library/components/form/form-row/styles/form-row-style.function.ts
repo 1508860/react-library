@@ -15,6 +15,7 @@ export function formRowStyle(
 ): CSSProperties {
 	return {
 		alignItems: "start",
+		backgroundColor: "inherit",
 		display: "flex",
 		flexDirection: "row",
 		flexShrink: 0,

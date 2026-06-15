@@ -8,6 +8,7 @@ import type { CSSProperties } from "react";
 export function formStyle(gap: Size): CSSProperties {
 	return {
 		alignItems: "stretch",
+		backgroundColor: "inherit",
 		display: "flex",
 		flexDirection: "column",
 		gap: gap,
