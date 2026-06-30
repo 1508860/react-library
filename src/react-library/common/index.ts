@@ -10,6 +10,7 @@ export * from "./fonts";
 export * from "./functions";
 export * from "./guid";
 export * from "./hooks";
+export * from "./http";
 export * from "./interfaces";
 export * from "./iso";
 export * from "./key-remapping";
